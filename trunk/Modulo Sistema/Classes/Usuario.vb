@@ -1,6 +1,6 @@
 Public Class Usuario
-    'Private strUsuario As String
-    'Private strContraseña As String Gabi
+    Private strUsuario As String
+    Private strContraseña As String
     Private dateCreacion As Date
     Public idLegajo As Integer
     Public varCancelar As Integer
