@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="DSFresa" targetNamespace="http://www.tempuri.org/DSFresa.xsd" xmlns:mstns="http://www.tempuri.org/DSFresa.xsd" xmlns="http://www.tempuri.org/DSFresa.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="DSFresa" msdata:IsDataSet="true" msdata:Locale="es-AR">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="detallepresupuesto">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="Expr1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="iddetpre" type="xs:int" />
+              <xs:element name="idpresupuesto" type="xs:int" />
+              <xs:element name="idmodelo" type="xs:int" minOccurs="0" />
+              <xs:element name="idproducto" type="xs:int" minOccurs="0" />
+              <xs:element name="tipo" type="xs:int" minOccurs="0" />
+              <xs:element name="cantidad" type="xs:int" minOccurs="0" />
+              <xs:element name="precio" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
