@@ -1,4 +1,7 @@
+Imports System.Configuration.ConfigurationSettings
+
 Public Class BaseDatos
+
 
     Private WithEvents oBackup As New SQLDMO.Backup
     Private WithEvents oRestore As New SQLDMO.Restore
@@ -9,18 +12,15 @@ Public Class BaseDatos
     Private strUsuario As String
     Private strPassword As String
 
+
     Public Sub New()
-        Dim oDom As New Xml.XmlDocument
 
-        oDom.Load(System.AppDomain.CurrentDomain.BaseDirectory() & "BDConfig.xml")
+        strInstancia = AppSettings.Get("DataBaseServer")
+        strNombreBD = AppSettings.Get("DataBaseName")
+        strLoginSecure = AppSettings.Get("DataBaseLoginSecure")
+        strUsuario = AppSettings.Get("DataBaseUser")
+        strPassword = AppSettings.Get("DataBasePwd")
 
-        strInstancia = oDom.SelectSingleNode("//Instancia").InnerText.Trim()
-        strNombreBD = oDom.SelectSingleNode("//NombreBD").InnerText.Trim()
-        strLoginSecure = oDom.SelectSingleNode("//LoginSecure").InnerText.Trim()
-        strUsuario = oDom.SelectSingleNode("//Usuario").InnerText.Trim()
-        strPassword = oDom.SelectSingleNode("//Password").InnerText.Trim()
-
-        oDom = Nothing
     End Sub
 
     Public ReadOnly Property Instancia() As String

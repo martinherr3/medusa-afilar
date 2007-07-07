@@ -1,6 +1,5 @@
-Imports System.Diagnostics
-Imports Infragistics.Win
-Imports Infragistics.Win.UltraWinExplorerBar
+Imports System.Configuration.ConfigurationSettings
+
 Public Class principal
     Inherits System.Windows.Forms.Form
     Friend barra As BarraDeEstado
@@ -148,7 +147,7 @@ Public Class principal
         Me.UltraExplorerBar1.Location = New System.Drawing.Point(0, 110)
         Me.UltraExplorerBar1.Name = "UltraExplorerBar1"
         Me.UltraExplorerBar1.ShowDefaultContextMenu = False
-        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 586)
+        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 605)
         Me.UltraExplorerBar1.StateButtonCheckStyle = Infragistics.Win.UltraWinExplorerBar.StateButtonCheckStyle.ExclusiveWithinGroup
         Me.UltraExplorerBar1.Style = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.Listbar
         Me.UltraExplorerBar1.TabIndex = 2
@@ -509,13 +508,15 @@ Public Class principal
     End Sub
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles botonPinche.Click
+        Dim projectPath As String
+        projectPath = AppSettings.Get("appPath")
 
         If band = True Then
-            botonPinche.ShapeImage = Image.FromFile("D:\TESIS\Medusa\pinche4.ico")
+            botonPinche.ShapeImage = Image.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\pinche4.ico")
             Me.UltraExplorerBar1.Width = 40
             band = False
         Else
-            botonPinche.ShapeImage = Image.FromFile("D:\TESIS\Medusa\pinche3.ico")
+            botonPinche.ShapeImage = Image.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\pinche3.ico")
             Me.UltraExplorerBar1.Width = 200
             band = True
         End If
@@ -533,8 +534,6 @@ Public Class principal
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         Label1.Text = Now '.Hour & ":" & Now.Minute & ":" & Now.Second
-
-
     End Sub
 
     Private Sub MenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
