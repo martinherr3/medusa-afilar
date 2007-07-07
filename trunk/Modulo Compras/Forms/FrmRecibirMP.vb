@@ -327,7 +327,7 @@ Public Class FrmRecibirMP
             sqlcommandMPR.CommandType = CommandType.Text
             sqlcommandMPR.Connection = SQLconn
             SQLconn.Open()
-            ''' para sacar el nro max de mprecibida
+            'para sacar el nro max de mprecibida
             Dim sqlcommandMPR2 As New SqlCommand
             sqlcommandMPR2.CommandType = CommandType.Text
             sqlcommandMPR2.Connection = SQLconn
