@@ -1,0 +1,804 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{262E52A9-51BE-4D33-99D1-7A71A7B86928}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Afilar</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>Afilar</RootNamespace>
+    <StartupObject>Sub Main</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Afilar.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032</NoWarn>
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Afilar.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>1</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42032</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics.Shared.v5.1">
+      <Name>Infragistics.Shared.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Shared.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.UltraChart.Resources.v5.1">
+      <Name>Infragistics.UltraChart.Resources.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.UltraChart.Resources.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.Misc.v5.1">
+      <Name>Infragistics.Win.Misc.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.Misc.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinChart.v5.1">
+      <Name>Infragistics.Win.UltraWinChart.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinChart.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinDataSource.v5.1">
+      <Name>infragistics.win.ultrawindatasource.v5.1</Name>
+      <HintPath>c:\windows\assembly\gac\infragistics.win.ultrawindatasource.v5.1\5.1.20051.37__7dd5c3163f2cd0cb\infragistics.win.ultrawindatasource.v5.1.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinEditors.v5.1">
+      <Name>Infragistics.Win.UltraWinEditors.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinEditors.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinExplorerBar.v5.1">
+      <Name>Infragistics.Win.UltraWinExplorerBar.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinExplorerBar.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinGrid.v5.1">
+      <Name>Infragistics.Win.UltraWinGrid.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinGrid.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinListBar.v5.1">
+      <Name>Infragistics.Win.UltraWinListBar.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinListBar.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinSchedule.v5.1">
+      <Name>Infragistics.Win.UltraWinSchedule.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinSchedule.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinStatusBar.v5.1">
+      <Name>Infragistics.Win.UltraWinStatusBar.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinStatusBar.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinTabbedMdi.v5.1">
+      <Name>Infragistics.Win.UltraWinTabbedMdi.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinTabbedMdi.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinTabControl.v5.1">
+      <Name>Infragistics.Win.UltraWinTabControl.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinTabControl.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinToolbars.v5.1">
+      <Name>Infragistics.Win.UltraWinToolbars.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinToolbars.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.UltraWinTree.v5.1">
+      <Name>Infragistics.Win.UltraWinTree.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.UltraWinTree.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Infragistics.Win.v5.1">
+      <Name>Infragistics.Win.v5.1</Name>
+      <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.v5.1.dll</HintPath>
+      <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Name>Microsoft.VisualBasic</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap">
+      <Name>System.Runtime.Serialization.Formatters.Soap</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Afilar" />
+    <Import Include="Afilar.grdstyle" />
+    <Import Include="Afilar.My" />
+    <Import Include="Afilar.My.Resources" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modulo_Compras\Reports\CrystalReport1.vb">
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Modulo_Compras\DSCompras.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSCompras.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Compras\dsComprasDos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsComprasDos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Compras\DSOC.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSOC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\abmMaquinaFresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\abmMateriaPrima.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\abmMatTrab.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\abmModoAvance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\abmOperacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\abmProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\abmTipoAcabado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\abmTipoParte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Classes\BaseDatos.vb" />
+    <Compile Include="Modulo_Produccion\Classes\Cargo.vb" />
+    <Compile Include="Modulo_Ventas\Classes\Cliente.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Classes\ClsSeg.vb" />
+    <Compile Include="Modulo_Produccion\Classes\codigoBarra.vb" />
+    <Compile Include="Modulo_Compras\Forms\consultarOC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Classes\Criptologia.vb" />
+    <Compile Include="Modulo_Ventas\Classes\detalleordenservicio.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Classes\detallePresupuesto.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\Diagrama_ABC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\DSAdicional.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSAdicional.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\DSFresa.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSFresa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\emitirPresupuesto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Classes\Empleado.vb" />
+    <Compile Include="Modulo_Produccion\Classes\etapaFabricacion.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Classes\Formulario.vb" />
+    <Compile Include="Modulo_Produccion\Classes\fresa.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmAsignar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\frmBaseDatos.Designer.vb">
+      <DependentUpon>frmBaseDatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\frmBaseDatos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmCargo.Designer.vb">
+      <DependentUpon>frmCargo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmCargo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmControlCalidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmEmpleado.Designer.vb">
+      <DependentUpon>frmEmpleado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmEmpleado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmEmpresaTransp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmEntrega.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\frmFormulario.Designer.vb">
+      <DependentUpon>frmFormulario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\frmFormulario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmFormaEntrega.Designer.vb">
+      <DependentUpon>frmFormaEntrega.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmFormaEntrega.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\FrmGenerarOC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmIngresos.Designer.vb">
+      <DependentUpon>frmIngresos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmIngresos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmLocalidad.Designer.vb">
+      <DependentUpon>frmLocalidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmLocalidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\FrmPagoProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmpedidocliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\Frmpedidofresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmProvincia.Designer.vb">
+      <DependentUpon>frmProvincia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\frmProvincia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\FrmRecibirMP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\frmRecibirMPII.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\frmUsuarios.Designer.vb">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\frmUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmUnidadDeMedida.Designer.vb">
+      <DependentUpon>frmUnidadDeMedida.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmUnidadDeMedida.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Classes\GestorFrm.vb" />
+    <Compile Include="Modulo_Produccion\Classes\gradoDificultad.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Classes\grdstyle.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\informeCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\informeCompras2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Classes\Localidad.vb" />
+    <Compile Include="Modulo_Sistema\Forms\LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Classes\modeloFresa.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ModuloPrincipal.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Classes\objdelservicio.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Reports\ocrpt.vb">
+      <DependentUpon>ocrpt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Classes\operacion.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Forms\paramCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Classes\parte.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Classes\parteAdicional.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Classes\partepedida.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Classes\pedido.vb" />
+    <Compile Include="Modulo_Ventas\Classes\pedidocliente.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Classes\Permiso.vb" />
+    <Compile Include="Modulo_Ventas\Classes\presupuesto.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="principal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Classes\programacionProduccion.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Classes\proveedor.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Classes\Provincia.vb" />
+    <Compile Include="Modulo_Produccion\Forms\registrarModeloFresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Compras\Reports\repCompras.vb">
+      <DependentUpon>repCompras.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Modulo_Compras\Reports\repCompras2.vb">
+      <DependentUpon>repCompras2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Reports\repPres.vb">
+      <DependentUpon>repPres.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Modulo_Compras\Classes\RptOrdenCompraII.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Classes\servicio.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Classes\TipoEntrega.vb" />
+    <Compile Include="Modulo_Produccion\Classes\tipoFresa.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Classes\Tornero.vb" />
+    <Compile Include="Modulo_Sistema\Forms\treeview.designer.vb">
+      <DependentUpon>treeview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\treeview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Classes\Usuario.vb" />
+    <Compile Include="Modulo_Produccion\Classes\UnidadDeMedida.vb" />
+    <EmbeddedResource Include="Modulo_Compras\Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\abmMaquinaFresa.resx">
+      <DependentUpon>abmMaquinaFresa.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\abmMateriaPrima.resx">
+      <DependentUpon>abmMateriaPrima.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\abmMatTrab.resx">
+      <DependentUpon>abmMatTrab.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\abmModoAvance.resx">
+      <DependentUpon>abmModoAvance.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\abmOperacion.resx">
+      <DependentUpon>abmOperacion.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\abmProveedores.resx">
+      <DependentUpon>abmProveedores.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\abmTipoAcabado.resx">
+      <DependentUpon>abmTipoAcabado.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\abmTipoParte.resx">
+      <DependentUpon>abmTipoParte.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\consultarOC.resx">
+      <DependentUpon>consultarOC.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\Diagrama_ABC.resx">
+      <DependentUpon>Diagrama_ABC.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\emitirPresupuesto.resx">
+      <DependentUpon>emitirPresupuesto.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\frmAsignar.resx">
+      <DependentUpon>frmAsignar.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Sistema\Forms\frmBaseDatos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBaseDatos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmCargo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCargo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\frmCliente.resx">
+      <DependentUpon>frmCliente.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmControlCalidad.resx">
+      <DependentUpon>frmControlCalidad.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmEmpleado.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEmpleado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\frmEmpresaTransp.resx">
+      <DependentUpon>frmEmpresaTransp.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\frmEntrega.resx">
+      <DependentUpon>frmEntrega.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Sistema\Forms\frmFormulario.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFormulario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\frmFormaEntrega.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmFormaEntrega.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\FrmGenerarOC.resx">
+      <DependentUpon>FrmGenerarOC.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\frmIngresos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmIngresos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\frmLocalidad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmLocalidad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\FrmPagoProveedor.resx">
+      <DependentUpon>FrmPagoProveedor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\frmpedidocliente.resx">
+      <DependentUpon>frmpedidocliente.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\Frmpedidofresa.resx">
+      <DependentUpon>Frmpedidofresa.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\frmProvincia.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmProvincia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\FrmRecibirMP.resx">
+      <DependentUpon>FrmRecibirMP.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\frmRecibirMPII.resx">
+      <DependentUpon>frmRecibirMPII.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Sistema\Forms\frmUsuarios.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmUnidadDeMedida.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmUnidadDeMedida.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Sistema\Classes\grdstyle.resx">
+      <DependentUpon>grdstyle.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\informeCompras.resx">
+      <DependentUpon>informeCompras.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\informeCompras2.resx">
+      <DependentUpon>informeCompras2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="licenses.licx" />
+    <EmbeddedResource Include="Modulo_Sistema\Forms\LoginForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <SubType>Designer</SubType>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Reports\ocrpt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ocrpt.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Forms\paramCompra.resx">
+      <DependentUpon>paramCompra.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="principal.resx">
+      <DependentUpon>principal.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\registrarModeloFresa.resx">
+      <DependentUpon>registrarModeloFresa.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Reports\repCompras.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>repCompras.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Compras\Reports\repCompras2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>repCompras2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Reports\repPres.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>repPres.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Sistema\Forms\treeview.resx">
+      <DependentUpon>treeview.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="DataBase\BDConfig.xml" />
+    <Content Include="DataBase\databaseSchema.sql" />
+    <Content Include="Imagenes\Apagado.gif" />
+    <Content Include="Imagenes\Buscar.gif" />
+    <Content Include="Imagenes\Cancelar.gif" />
+    <Content Include="Imagenes\DotNet.gif" />
+    <Content Include="Imagenes\Eliminar.gif" />
+    <Content Include="Imagenes\Error.gif" />
+    <Content Include="Imagenes\Explorer.gif" />
+    <Content Include="Imagenes\Fresa.gif" />
+    <Content Include="Imagenes\Guardar.gif" />
+    <Content Include="Imagenes\Imprimir.gif" />
+    <Content Include="Imagenes\Key.gif" />
+    <Content Include="Imagenes\Left.gif" />
+    <Content Include="Imagenes\Multiusuario.gif" />
+    <Content Include="Imagenes\MultiusuarioMSN.gif" />
+    <Content Include="Imagenes\Nuevo.gif" />
+    <Content Include="Imagenes\Red.gif" />
+    <Content Include="Imagenes\Reiniciar.gif" />
+    <Content Include="Imagenes\Right.gif" />
+    <Content Include="Imagenes\Sesion.gif" />
+    <Content Include="Imagenes\Tilde.gif" />
+    <Content Include="Imagenes\UsuarioMSN.gif" />
+    <Content Include="Modulo_Produccion\DSAdicional.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSAdicional.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Modulo_Compras\DSCompras.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSCompras.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Modulo_Compras\dsComprasDos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsComprasDos.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Modulo_Produccion\DSFresa.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSFresa.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Modulo_Compras\DSOC.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSOC.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+    <Service Include="{CF845C55-C321-4742-B673-E6212D061ED9}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SQLDMO">
+      <Guid>{10010001-E260-11CF-AE68-00AA004A34D5}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Modulo_Compras\DSOC.xsc">
+      <DependentUpon>DSOC.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Compras\DSOC.xss">
+      <DependentUpon>DSOC.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Produccion\DSAdicional.xsc">
+      <DependentUpon>DSAdicional.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Produccion\DSFresa.xsc">
+      <DependentUpon>DSFresa.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Produccion\DSFresa.xss">
+      <DependentUpon>DSFresa.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modulo_Produccion\Reports\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

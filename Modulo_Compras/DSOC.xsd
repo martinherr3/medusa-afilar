@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="dsoc" targetNamespace="http://www.tempuri.org/dsoc.xsd" xmlns:mstns="http://www.tempuri.org/dsoc.xsd" xmlns="http://www.tempuri.org/dsoc.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="dsoc" msdata:IsDataSet="true" msdata:Locale="es-AR">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ordencompramp">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Expr1" type="xs:int" />
+              <xs:element name="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="Expr2" type="xs:int" />
+              <xs:element name="Expr3" type="xs:string" minOccurs="0" />
+              <xs:element name="fecharealizacion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="plazodeentrega" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="idordencompra" type="xs:int" />
+              <xs:element name="nroorden" type="xs:int" minOccurs="0" />
+              <xs:element name="condicionesdepago" type="xs:string" minOccurs="0" />
+              <xs:element name="causa" type="xs:string" minOccurs="0" />
+              <xs:element name="idestado" type="xs:int" minOccurs="0" />
+              <xs:element name="idproveedor" type="xs:int" minOccurs="0" />
+              <xs:element name="Expr4" type="xs:int" />
+              <xs:element name="idtipomateriaprima" type="xs:int" />
+              <xs:element name="cantidad" type="xs:int" minOccurs="0" />
+              <xs:element name="precio" type="xs:double" minOccurs="0" />
+              <xs:element name="Expr5" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ordencompramp" />
+      <xs:field xpath="mstns:Expr1" />
+      <xs:field xpath="mstns:Expr2" />
+      <xs:field xpath="mstns:idordencompra" />
+      <xs:field xpath="mstns:Expr4" />
+      <xs:field xpath="mstns:idtipomateriaprima" />
+      <xs:field xpath="mstns:Expr5" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
