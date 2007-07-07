@@ -59,19 +59,5 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
-        
-        Friend ReadOnly Property hellfish() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("hellfish", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        Friend ReadOnly Property Medusa() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("Medusa", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
     End Module
 End Namespace
