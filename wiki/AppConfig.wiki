@@ -1,0 +1,36 @@
+#summary Agregar y acceder a propiedades de configuracion en app.config
+
+= Introduction =
+En app.config tenemos:
+
+       <appSettings>
+	        <!--DataBase Configuration-->
+		<add key="DataBaseServer" value="Gabi"/>
+		<add key="DataBaseName" value="Afilar"/>
+		<add key="DataBaseLoginSecure" value="TRUE"/>
+		<add key="DataBaseUser" value=""/>
+		<add key="DataBasePwd" value=""/>
+		
+		<!-- Application Paths -->
+		<add key="appPath" value="E:\Afilar-Tesis-BackUp\001"/>
+		<add key="ImagesPath" value="\Imagenes"/>
+
+                <!-- Others Paths -->
+
+	</appSettings>
+
+Podemos agregar todo tipo de propiedades e incluso configurar grupos de propiedades, pero o los fines de ordenar un poco ya estaria bien asi... mejor que nada :)
+
+Una de las formas de accederlo es la siguiente:
+
+    Debemos importar: Imports System.Configuration.ConfigurationSettings
+    
+    strInstancia = AppSettings.Get("DataBaseServer")
+
+
+Usenlo!!!
+
+Saludos
+
+
+
