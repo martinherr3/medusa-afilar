@@ -65,8 +65,6 @@ Public Class abmMateriaPrima
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -74,9 +72,13 @@ Public Class abmMateriaPrima
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
-        Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.UltraComboEditor1 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
+        Me.UltraTextEditor2 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.UltraTextEditor1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
         Me.UltraButton7 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
@@ -102,13 +104,12 @@ Public Class abmMateriaPrima
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
-        Me.UltraTextEditor1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.UltraTextEditor2 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.UltraComboEditor1 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.Label9 = New System.Windows.Forms.Label
-        CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraTabControl1.SuspendLayout()
+        Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
+        Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabPageControl1.SuspendLayout()
+        CType(Me.UltraComboEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UltraTextEditor2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
         CType(Me.text4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,43 +119,9 @@ Public Class abmMateriaPrima
         CType(Me.text5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraTextEditor2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraComboEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraTabControl1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'UltraTabControl1
-        '
-        Appearance1.BackColor = System.Drawing.Color.Silver
-        Appearance1.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Me.UltraTabControl1.ActiveTabAppearance = Appearance1
-        Appearance2.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance2.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance2
-        Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance3.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance3
-        Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
-        Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
-        Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
-        Me.UltraTabControl1.Location = New System.Drawing.Point(-8, 8)
-        Me.UltraTabControl1.Name = "UltraTabControl1"
-        Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
-        Me.UltraTabControl1.Size = New System.Drawing.Size(648, 280)
-        Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
-        Me.UltraTabControl1.TabIndex = 2
-        UltraTab1.TabPage = Me.UltraTabPageControl1
-        UltraTab1.Text = "Gestión"
-        UltraTab2.TabPage = Me.UltraTabPageControl2
-        UltraTab2.Text = "Consultar"
-        Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
-        Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
-        '
-        'UltraTabSharedControlsPage1
-        '
-        Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
-        Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
-        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(644, 257)
         '
         'UltraTabPageControl1
         '
@@ -183,8 +150,49 @@ Public Class abmMateriaPrima
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(644, 257)
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Location = New System.Drawing.Point(200, 128)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(93, 13)
+        Me.Label9.TabIndex = 53
+        Me.Label9.Text = "Unidad de medida"
+        '
+        'UltraComboEditor1
+        '
+        Me.UltraComboEditor1.AutoSize = True
+        Me.UltraComboEditor1.Location = New System.Drawing.Point(200, 144)
+        Me.UltraComboEditor1.Name = "UltraComboEditor1"
+        Me.UltraComboEditor1.Size = New System.Drawing.Size(96, 21)
+        Me.UltraComboEditor1.TabIndex = 52
+        '
+        'UltraTextEditor2
+        '
+        Appearance1.BackColor = System.Drawing.Color.White
+        Me.UltraTextEditor2.Appearance = Appearance1
+        Me.UltraTextEditor2.AutoSize = True
+        Me.UltraTextEditor2.Location = New System.Drawing.Point(96, 120)
+        Me.UltraTextEditor2.Name = "UltraTextEditor2"
+        Me.UltraTextEditor2.ReadOnly = True
+        Me.UltraTextEditor2.Size = New System.Drawing.Size(88, 21)
+        Me.UltraTextEditor2.TabIndex = 51
+        '
+        'UltraTextEditor1
+        '
+        Appearance2.BackColor = System.Drawing.Color.White
+        Me.UltraTextEditor1.Appearance = Appearance2
+        Me.UltraTextEditor1.AutoSize = True
+        Me.UltraTextEditor1.Location = New System.Drawing.Point(96, 72)
+        Me.UltraTextEditor1.Name = "UltraTextEditor1"
+        Me.UltraTextEditor1.ReadOnly = True
+        Me.UltraTextEditor1.Size = New System.Drawing.Size(88, 21)
+        Me.UltraTextEditor1.TabIndex = 50
+        '
         'UltraGroupBox1
         '
+        Me.UltraGroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton7)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton6)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
@@ -232,7 +240,8 @@ Public Class abmMateriaPrima
         '
         'Label8
         '
-        Me.Label8.Location = New System.Drawing.Point(95, 25)
+        Me.Label8.ForeColor = System.Drawing.Color.Black
+        Me.Label8.Location = New System.Drawing.Point(91, 24)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(39, 24)
         Me.Label8.TabIndex = 2
@@ -240,15 +249,16 @@ Public Class abmMateriaPrima
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Location = New System.Drawing.Point(40, 147)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(54, 16)
+        Me.Label7.Size = New System.Drawing.Size(56, 13)
         Me.Label7.TabIndex = 45
         Me.Label7.Text = "Stock act."
         '
         'UltraButton4
         '
-        Me.UltraButton4.Location = New System.Drawing.Point(344, 224)
+        Me.UltraButton4.Location = New System.Drawing.Point(404, 224)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton4.TabIndex = 40
@@ -256,7 +266,7 @@ Public Class abmMateriaPrima
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(416, 224)
+        Me.UltraButton3.Location = New System.Drawing.Point(326, 224)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton3.TabIndex = 39
@@ -264,7 +274,7 @@ Public Class abmMateriaPrima
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(488, 224)
+        Me.UltraButton2.Location = New System.Drawing.Point(482, 224)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton2.TabIndex = 38
@@ -280,8 +290,9 @@ Public Class abmMateriaPrima
         '
         'text4
         '
-        Appearance4.BackColor = System.Drawing.Color.White
-        Me.text4.Appearance = Appearance4
+        Appearance3.BackColor = System.Drawing.Color.White
+        Me.text4.Appearance = Appearance3
+        Me.text4.AutoSize = True
         Me.text4.Location = New System.Drawing.Point(96, 96)
         Me.text4.Name = "text4"
         Me.text4.ReadOnly = True
@@ -290,8 +301,9 @@ Public Class abmMateriaPrima
         '
         'text3
         '
-        Appearance5.BackColor = System.Drawing.Color.White
-        Me.text3.Appearance = Appearance5
+        Appearance4.BackColor = System.Drawing.Color.White
+        Me.text3.Appearance = Appearance4
+        Me.text3.AutoSize = True
         Me.text3.Location = New System.Drawing.Point(96, 144)
         Me.text3.Name = "text3"
         Me.text3.ReadOnly = True
@@ -300,8 +312,9 @@ Public Class abmMateriaPrima
         '
         'text2
         '
-        Appearance6.BackColor = System.Drawing.Color.White
-        Me.text2.Appearance = Appearance6
+        Appearance5.BackColor = System.Drawing.Color.White
+        Me.text2.Appearance = Appearance5
+        Me.text2.AutoSize = True
         Me.text2.Location = New System.Drawing.Point(96, 48)
         Me.text2.Name = "text2"
         Me.text2.ReadOnly = True
@@ -310,8 +323,9 @@ Public Class abmMateriaPrima
         '
         'text1
         '
-        Appearance7.BackColor = System.Drawing.Color.White
-        Me.text1.Appearance = Appearance7
+        Appearance6.BackColor = System.Drawing.Color.White
+        Me.text1.Appearance = Appearance6
+        Me.text1.AutoSize = True
         Me.text1.Location = New System.Drawing.Point(96, 24)
         Me.text1.Name = "text1"
         Me.text1.ReadOnly = True
@@ -321,65 +335,72 @@ Public Class abmMateriaPrima
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Location = New System.Drawing.Point(40, 124)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(57, 16)
+        Me.Label6.Size = New System.Drawing.Size(58, 13)
         Me.Label6.TabIndex = 31
         Me.Label6.Text = "Lote econ."
         '
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Location = New System.Drawing.Point(40, 98)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(57, 16)
+        Me.Label5.Size = New System.Drawing.Size(58, 13)
         Me.Label5.TabIndex = 30
         Me.Label5.Text = "Stock seg."
         '
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Location = New System.Drawing.Point(40, 74)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(57, 16)
+        Me.Label4.Size = New System.Drawing.Size(59, 13)
         Me.Label4.TabIndex = 29
         Me.Label4.Text = "Stock mín."
         '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Location = New System.Drawing.Point(79, 26)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(15, 16)
+        Me.Label3.Size = New System.Drawing.Size(18, 13)
         Me.Label3.TabIndex = 28
         Me.Label3.Text = "ID"
         '
         'text5
         '
-        Appearance8.BackColor = System.Drawing.Color.White
-        Me.text5.Appearance = Appearance8
-        Me.text5.Location = New System.Drawing.Point(312, 48)
+        Appearance7.BackColor = System.Drawing.Color.White
+        Me.text5.Appearance = Appearance7
+        Me.text5.AutoSize = True
+        Me.text5.Location = New System.Drawing.Point(326, 53)
         Me.text5.Multiline = True
         Me.text5.Name = "text5"
         Me.text5.ReadOnly = True
-        Me.text5.Size = New System.Drawing.Size(296, 112)
+        Me.text5.Size = New System.Drawing.Size(306, 112)
         Me.text5.TabIndex = 25
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(312, 34)
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Location = New System.Drawing.Point(323, 37)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 16)
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 27
         Me.Label2.Text = "Descripción"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Location = New System.Drawing.Point(52, 51)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 16)
+        Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 26
         Me.Label1.Text = "Nombre"
         '
@@ -428,41 +449,38 @@ Public Class abmMateriaPrima
         Me.DataGrid1.Size = New System.Drawing.Size(600, 200)
         Me.DataGrid1.TabIndex = 0
         '
-        'UltraTextEditor1
+        'UltraTabControl1
         '
-        Appearance9.BackColor = System.Drawing.Color.White
-        Me.UltraTextEditor1.Appearance = Appearance9
-        Me.UltraTextEditor1.Location = New System.Drawing.Point(96, 72)
-        Me.UltraTextEditor1.Name = "UltraTextEditor1"
-        Me.UltraTextEditor1.ReadOnly = True
-        Me.UltraTextEditor1.Size = New System.Drawing.Size(88, 21)
-        Me.UltraTextEditor1.TabIndex = 50
+        Appearance8.BackColor = System.Drawing.Color.Silver
+        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ActiveTabAppearance = Appearance8
+        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance9.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance9
+        Appearance10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance10
+        Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
+        Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
+        Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
+        Me.UltraTabControl1.Location = New System.Drawing.Point(-8, 8)
+        Me.UltraTabControl1.Name = "UltraTabControl1"
+        Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
+        Me.UltraTabControl1.Size = New System.Drawing.Size(648, 280)
+        Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
+        Me.UltraTabControl1.TabIndex = 2
+        UltraTab1.TabPage = Me.UltraTabPageControl1
+        UltraTab1.Text = "Gestión"
+        UltraTab2.TabPage = Me.UltraTabPageControl2
+        UltraTab2.Text = "Consultar"
+        Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
+        Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
         '
-        'UltraTextEditor2
+        'UltraTabSharedControlsPage1
         '
-        Appearance10.BackColor = System.Drawing.Color.White
-        Me.UltraTextEditor2.Appearance = Appearance10
-        Me.UltraTextEditor2.Location = New System.Drawing.Point(96, 120)
-        Me.UltraTextEditor2.Name = "UltraTextEditor2"
-        Me.UltraTextEditor2.ReadOnly = True
-        Me.UltraTextEditor2.Size = New System.Drawing.Size(88, 21)
-        Me.UltraTextEditor2.TabIndex = 51
-        '
-        'UltraComboEditor1
-        '
-        Me.UltraComboEditor1.Location = New System.Drawing.Point(200, 144)
-        Me.UltraComboEditor1.Name = "UltraComboEditor1"
-        Me.UltraComboEditor1.Size = New System.Drawing.Size(96, 21)
-        Me.UltraComboEditor1.TabIndex = 52
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(200, 128)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(96, 16)
-        Me.Label9.TabIndex = 53
-        Me.Label9.Text = "Unidad de medida"
+        Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
+        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(644, 257)
         '
         'abmMateriaPrima
         '
@@ -474,9 +492,11 @@ Public Class abmMateriaPrima
         Me.Name = "abmMateriaPrima"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Gestión Materia prima"
-        CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraTabControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.ResumeLayout(False)
+        Me.UltraTabPageControl1.PerformLayout()
+        CType(Me.UltraComboEditor1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraTextEditor2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
         CType(Me.text4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -486,9 +506,8 @@ Public Class abmMateriaPrima
         CType(Me.text5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabPageControl2.ResumeLayout(False)
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraTextEditor2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraComboEditor1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraTabControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

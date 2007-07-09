@@ -34,7 +34,6 @@ Public Class Diagrama_ABC
     Friend WithEvents UltraChart1 As Infragistics.Win.UltraWinChart.UltraChart
     Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim ChartTextAppearance1 As Infragistics.UltraChart.Resources.Appearance.ChartTextAppearance = New Infragistics.UltraChart.Resources.Appearance.ChartTextAppearance(Me.UltraChart1, 0, 0, False, New System.Drawing.Font("Arial", 7.0!), System.Drawing.Color.Black, "<DATA_VALUE:00.00>", System.Drawing.StringAlignment.Center, System.Drawing.StringAlignment.Center, 50)
         Dim ShadowEffect1 As Infragistics.UltraChart.Resources.Appearance.ShadowEffect = New Infragistics.UltraChart.Resources.Appearance.ShadowEffect
         Me.UltraChart1 = New Infragistics.Win.UltraWinChart.UltraChart
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
@@ -59,6 +58,7 @@ Public Class Diagrama_ABC
         Me.UltraChart1.Axis.X2.Labels.ItemFormatString = "<ITEM_LABEL>"
         Me.UltraChart1.Axis.X2.Labels.OrientationAngle = 0
         Me.UltraChart1.Axis.X2.Labels.SeriesLabels.Flip = False
+        Me.UltraChart1.Axis.X2.Labels.SeriesLabels.HorizontalAlign = System.Drawing.StringAlignment.Near
         Me.UltraChart1.Axis.X2.Labels.SeriesLabels.OrientationAngle = 0
         Me.UltraChart1.Axis.X2.Labels.SeriesLabels.VerticalAlign = System.Drawing.StringAlignment.Center
         Me.UltraChart1.Axis.X2.Labels.VerticalAlign = System.Drawing.StringAlignment.Center
@@ -76,7 +76,7 @@ Public Class Diagrama_ABC
         Me.UltraChart1.Axis.Y.Labels.SeriesLabels.VerticalAlign = System.Drawing.StringAlignment.Center
         Me.UltraChart1.Axis.Y.Labels.VerticalAlign = System.Drawing.StringAlignment.Center
         Me.UltraChart1.Axis.Y.RangeMax = 100
-        Me.UltraChart1.Axis.Y.RangeType = Infragistics.UltraChart.Shared.Styles.AxisRangeType.Custom
+        Me.UltraChart1.Axis.Y.RangeType = Infragistics.UltraChart.[Shared].Styles.AxisRangeType.Custom
         Me.UltraChart1.Axis.Y.ScrollScale.Height = 10
         Me.UltraChart1.Axis.Y.ScrollScale.Visible = False
         Me.UltraChart1.Axis.Y.ScrollScale.Width = 15
@@ -101,7 +101,7 @@ Public Class Diagrama_ABC
         Me.UltraChart1.Axis.Z.Labels.OrientationAngle = 0
         Me.UltraChart1.Axis.Z.Labels.SeriesLabels.Flip = False
         Me.UltraChart1.Axis.Z.Labels.SeriesLabels.HorizontalAlign = System.Drawing.StringAlignment.Near
-        Me.UltraChart1.Axis.Z.Labels.SeriesLabels.Orientation = Infragistics.UltraChart.Shared.Styles.TextOrientation.Horizontal
+        Me.UltraChart1.Axis.Z.Labels.SeriesLabels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
         Me.UltraChart1.Axis.Z.Labels.SeriesLabels.OrientationAngle = 0
         Me.UltraChart1.Axis.Z.Labels.SeriesLabels.VerticalAlign = System.Drawing.StringAlignment.Center
         Me.UltraChart1.Axis.Z.Labels.VerticalAlign = System.Drawing.StringAlignment.Center
@@ -111,7 +111,7 @@ Public Class Diagrama_ABC
         Me.UltraChart1.Axis.Z.TickmarkInterval = 0
         Me.UltraChart1.Axis.Z2.Labels.Flip = False
         Me.UltraChart1.Axis.Z2.Labels.HorizontalAlign = System.Drawing.StringAlignment.Near
-        Me.UltraChart1.Axis.Z2.Labels.Orientation = Infragistics.UltraChart.Shared.Styles.TextOrientation.Horizontal
+        Me.UltraChart1.Axis.Z2.Labels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
         Me.UltraChart1.Axis.Z2.Labels.OrientationAngle = 0
         Me.UltraChart1.Axis.Z2.Labels.SeriesLabels.Flip = False
         Me.UltraChart1.Axis.Z2.Labels.SeriesLabels.HorizontalAlign = System.Drawing.StringAlignment.Near
@@ -126,11 +126,7 @@ Public Class Diagrama_ABC
         Me.UltraChart1.ColorModel.AlphaLevel = CType(131, Byte)
         Me.UltraChart1.ColorModel.ColorBegin = System.Drawing.Color.LimeGreen
         Me.UltraChart1.ColorModel.ColorEnd = System.Drawing.Color.LightSkyBlue
-        Me.UltraChart1.ColorModel.ModelStyle = Infragistics.UltraChart.Shared.Styles.ColorModels.LinearRange
-        ChartTextAppearance1.ChartTextFont = New System.Drawing.Font("Arial", 7.0!)
-        ChartTextAppearance1.Column = 0
-        ChartTextAppearance1.Row = 0
-        Me.UltraChart1.ColumnChart.ChartText.Add(ChartTextAppearance1)
+        Me.UltraChart1.ColorModel.ModelStyle = Infragistics.UltraChart.[Shared].Styles.ColorModels.LinearRange
         Me.UltraChart1.Data.MaxValue = 0
         Me.UltraChart1.Data.MinValue = 100
         ShadowEffect1.Angle = 45
@@ -151,7 +147,7 @@ Public Class Diagrama_ABC
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(616, 416)
+        Me.UltraButton1.Location = New System.Drawing.Point(632, 414)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(112, 24)
         Me.UltraButton1.TabIndex = 1

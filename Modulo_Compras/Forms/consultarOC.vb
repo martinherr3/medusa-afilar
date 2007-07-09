@@ -96,7 +96,7 @@ Public Class consultarOC
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(16, 19)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 16)
+        Me.Label1.Size = New System.Drawing.Size(50, 13)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Filtrar por"
         '
@@ -125,6 +125,7 @@ Public Class consultarOC
         '
         'ComboBox1
         '
+        Me.ComboBox1.AutoSize = True
         Me.ComboBox1.Location = New System.Drawing.Point(64, 16)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(152, 21)
@@ -132,7 +133,8 @@ Public Class consultarOC
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(256, 16)
+        Me.TextBox1.AutoSize = True
+        Me.TextBox1.Location = New System.Drawing.Point(255, 16)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(168, 21)
         Me.TextBox1.TabIndex = 8
@@ -157,6 +159,7 @@ Public Class consultarOC
         CType(Me.ComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
