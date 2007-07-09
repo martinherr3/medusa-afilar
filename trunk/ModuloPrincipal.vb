@@ -1,4 +1,7 @@
 Imports System.Data.SqlClient
+Imports System.Configuration.ConfigurationSettings
+
+
 
 Module ModuloPrincipal
 
@@ -58,7 +61,9 @@ Module ModuloPrincipal
         combo.DataSource = dsCombo.Tables.Item(0)
         combo.DisplayMember = nombreColumna
         combo.ValueMember = idcolumna
-        combo.SelectedIndex = 0
+        If combo.Items.Count Then
+            combo.SelectedIndex = 0
+        End If
     End Sub
 
 
@@ -327,5 +332,11 @@ Module ModuloPrincipal
         cnn.Close()
 
     End Sub
+
+    Public Function getAppPath() As String
+        Dim projectPath As String
+        projectPath = AppSettings.Get("appPath")
+        Return projectPath
+    End Function
 
 End Module
