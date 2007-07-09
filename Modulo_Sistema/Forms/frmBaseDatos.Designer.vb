@@ -40,16 +40,16 @@ Partial Class frmBaseDatos
         '
         'btnBackup
         '
-        Me.btnBackup.Location = New System.Drawing.Point(379, 24)
+        Me.btnBackup.Location = New System.Drawing.Point(383, 24)
         Me.btnBackup.Name = "btnBackup"
-        Me.btnBackup.Size = New System.Drawing.Size(171, 47)
+        Me.btnBackup.Size = New System.Drawing.Size(171, 41)
         Me.btnBackup.TabIndex = 0
         Me.btnBackup.Text = "BackUp"
         Me.btnBackup.UseVisualStyleBackColor = True
         '
         'btnRestore
         '
-        Me.btnRestore.Location = New System.Drawing.Point(379, 131)
+        Me.btnRestore.Location = New System.Drawing.Point(383, 120)
         Me.btnRestore.Name = "btnRestore"
         Me.btnRestore.Size = New System.Drawing.Size(171, 41)
         Me.btnRestore.TabIndex = 1
@@ -143,14 +143,14 @@ Partial Class frmBaseDatos
         '
         'txtBackup
         '
-        Me.txtBackup.Location = New System.Drawing.Point(379, 77)
+        Me.txtBackup.Location = New System.Drawing.Point(383, 71)
         Me.txtBackup.Name = "txtBackup"
         Me.txtBackup.Size = New System.Drawing.Size(171, 20)
         Me.txtBackup.TabIndex = 12
         '
         'txtRestore
         '
-        Me.txtRestore.Location = New System.Drawing.Point(379, 178)
+        Me.txtRestore.Location = New System.Drawing.Point(383, 166)
         Me.txtRestore.Name = "txtRestore"
         Me.txtRestore.Size = New System.Drawing.Size(171, 20)
         Me.txtRestore.TabIndex = 13
@@ -159,7 +159,7 @@ Partial Class frmBaseDatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(566, 220)
+        Me.ClientSize = New System.Drawing.Size(566, 209)
         Me.Controls.Add(Me.txtRestore)
         Me.Controls.Add(Me.txtBackup)
         Me.Controls.Add(Me.Label5)
@@ -174,6 +174,7 @@ Partial Class frmBaseDatos
         Me.Controls.Add(Me.txtInstancia)
         Me.Controls.Add(Me.btnRestore)
         Me.Controls.Add(Me.btnBackup)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmBaseDatos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

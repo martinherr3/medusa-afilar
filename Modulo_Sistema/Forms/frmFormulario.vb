@@ -79,9 +79,12 @@ Public Class frmFormulario
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.UltraCheckEditor1 = New Infragistics.Win.UltraWinEditors.UltraCheckEditor
         Me.txtID = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.TxtDescripcion = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.TxtNombre = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -108,7 +111,6 @@ Public Class frmFormulario
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.UltraCheckEditor1 = New Infragistics.Win.UltraWinEditors.UltraCheckEditor
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.txtID, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtDescripcion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -146,6 +148,15 @@ Public Class frmFormulario
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(740, 233)
         '
+        'UltraCheckEditor1
+        '
+        Me.UltraCheckEditor1.BackColor = System.Drawing.Color.Transparent
+        Me.UltraCheckEditor1.Location = New System.Drawing.Point(102, 125)
+        Me.UltraCheckEditor1.Name = "UltraCheckEditor1"
+        Me.UltraCheckEditor1.Size = New System.Drawing.Size(120, 20)
+        Me.UltraCheckEditor1.TabIndex = 37
+        Me.UltraCheckEditor1.Text = "Activo"
+        '
         'txtID
         '
         Appearance1.BackColorDisabled = System.Drawing.Color.White
@@ -153,9 +164,9 @@ Public Class frmFormulario
         Me.txtID.Appearance = Appearance1
         Me.txtID.AutoSize = True
         Me.txtID.Enabled = False
-        Me.txtID.Location = New System.Drawing.Point(440, 16)
+        Me.txtID.Location = New System.Drawing.Point(440, 28)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(128, 21)
+        Me.txtID.Size = New System.Drawing.Size(108, 21)
         Me.txtID.TabIndex = 1
         '
         'TxtDescripcion
@@ -165,9 +176,9 @@ Public Class frmFormulario
         Me.TxtDescripcion.Appearance = Appearance2
         Me.TxtDescripcion.AutoSize = True
         Me.TxtDescripcion.Enabled = False
-        Me.TxtDescripcion.Location = New System.Drawing.Point(74, 64)
+        Me.TxtDescripcion.Location = New System.Drawing.Point(102, 89)
         Me.TxtDescripcion.Name = "TxtDescripcion"
-        Me.TxtDescripcion.Size = New System.Drawing.Size(128, 21)
+        Me.TxtDescripcion.Size = New System.Drawing.Size(240, 21)
         Me.TxtDescripcion.TabIndex = 4
         '
         'TxtNombre
@@ -177,9 +188,9 @@ Public Class frmFormulario
         Me.TxtNombre.Appearance = Appearance3
         Me.TxtNombre.AutoSize = True
         Me.TxtNombre.Enabled = False
-        Me.TxtNombre.Location = New System.Drawing.Point(74, 40)
+        Me.TxtNombre.Location = New System.Drawing.Point(102, 57)
         Me.TxtNombre.Name = "TxtNombre"
-        Me.TxtNombre.Size = New System.Drawing.Size(190, 21)
+        Me.TxtNombre.Size = New System.Drawing.Size(240, 21)
         Me.TxtNombre.TabIndex = 2
         '
         'UltraGroupBox1
@@ -190,7 +201,7 @@ Public Class frmFormulario
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton9)
         Me.UltraGroupBox1.Controls.Add(Me.Label9)
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(72, 160)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(102, 173)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(240, 56)
         Me.UltraGroupBox1.SupportThemes = False
@@ -241,16 +252,16 @@ Public Class frmFormulario
         '
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox2.Enabled = False
-        Me.ComboBox2.Location = New System.Drawing.Point(432, 88)
+        Me.ComboBox2.Location = New System.Drawing.Point(440, 57)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(128, 21)
+        Me.ComboBox2.Size = New System.Drawing.Size(194, 21)
         Me.ComboBox2.TabIndex = 7
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(380, 92)
+        Me.Label6.Location = New System.Drawing.Point(392, 65)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(42, 13)
         Me.Label6.TabIndex = 31
@@ -260,7 +271,7 @@ Public Class frmFormulario
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(5, 72)
+        Me.Label5.Location = New System.Drawing.Point(33, 97)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(63, 13)
         Me.Label5.TabIndex = 30
@@ -270,7 +281,7 @@ Public Class frmFormulario
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(390, 19)
+        Me.Label2.Location = New System.Drawing.Point(390, 36)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 13)
         Me.Label2.TabIndex = 23
@@ -280,7 +291,7 @@ Public Class frmFormulario
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(16, 16)
+        Me.Label1.Location = New System.Drawing.Point(16, 36)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(80, 13)
         Me.Label1.TabIndex = 21
@@ -290,16 +301,16 @@ Public Class frmFormulario
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Enabled = False
-        Me.ComboBox1.Location = New System.Drawing.Point(102, 13)
+        Me.ComboBox1.Location = New System.Drawing.Point(102, 28)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(72, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(240, 21)
         Me.ComboBox1.TabIndex = 0
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(24, 48)
+        Me.Label3.Location = New System.Drawing.Point(52, 65)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 13)
         Me.Label3.TabIndex = 28
@@ -307,7 +318,9 @@ Public Class frmFormulario
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(552, 152)
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance4
+        Me.UltraButton2.Location = New System.Drawing.Point(554, 160)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(80, 32)
         Me.UltraButton2.TabIndex = 12
@@ -315,7 +328,9 @@ Public Class frmFormulario
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(464, 152)
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance5
+        Me.UltraButton1.Location = New System.Drawing.Point(468, 160)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(80, 32)
         Me.UltraButton1.TabIndex = 11
@@ -323,7 +338,7 @@ Public Class frmFormulario
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(552, 192)
+        Me.UltraButton5.Location = New System.Drawing.Point(554, 198)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(80, 31)
         Me.UltraButton5.TabIndex = 10
@@ -331,11 +346,11 @@ Public Class frmFormulario
         '
         'UltraButton4
         '
-        Appearance4.BackColor = System.Drawing.Color.White
-        Appearance4.ForeColor = System.Drawing.Color.Black
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.UltraButton4.Appearance = Appearance4
-        Me.UltraButton4.Location = New System.Drawing.Point(464, 192)
+        Appearance6.BackColor = System.Drawing.Color.White
+        Appearance6.ForeColor = System.Drawing.Color.Black
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance6
+        Me.UltraButton4.Location = New System.Drawing.Point(468, 198)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(80, 31)
         Me.UltraButton4.TabIndex = 9
@@ -343,9 +358,9 @@ Public Class frmFormulario
         '
         'UltraButton3
         '
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance5
-        Me.UltraButton3.Location = New System.Drawing.Point(638, 152)
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance7
+        Me.UltraButton3.Location = New System.Drawing.Point(638, 160)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(82, 32)
         Me.UltraButton3.TabIndex = 13
@@ -353,7 +368,7 @@ Public Class frmFormulario
         '
         'UltraButton10
         '
-        Me.UltraButton10.Location = New System.Drawing.Point(640, 192)
+        Me.UltraButton10.Location = New System.Drawing.Point(640, 198)
         Me.UltraButton10.Name = "UltraButton10"
         Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
         Me.UltraButton10.TabIndex = 14
@@ -398,20 +413,20 @@ Public Class frmFormulario
         '
         'UltraTabControl1
         '
-        Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance6.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance6
-        Appearance7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance7.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance7
+        Appearance8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance8.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance8
+        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance9
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 8)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance8.BackColor = System.Drawing.Color.Silver
-        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance8
+        Appearance10.BackColor = System.Drawing.Color.Silver
+        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance10
         Me.UltraTabControl1.SharedControls.AddRange(New System.Windows.Forms.Control() {Me.UltraButton10})
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(744, 256)
@@ -430,14 +445,6 @@ Public Class frmFormulario
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(740, 233)
-        '
-        'UltraCheckEditor1
-        '
-        Me.UltraCheckEditor1.Location = New System.Drawing.Point(72, 108)
-        Me.UltraCheckEditor1.Name = "UltraCheckEditor1"
-        Me.UltraCheckEditor1.Size = New System.Drawing.Size(120, 20)
-        Me.UltraCheckEditor1.TabIndex = 37
-        Me.UltraCheckEditor1.Text = "Activo"
         '
         'frmFormulario
         '

@@ -6,6 +6,7 @@ Imports System.Data.SqlClient
 ' ya es tarde como para agragar este esquema de seguridad a nivel de funcionalidad
 ' de formulario asi que lo hago directamente a nivel de forms 
 #End Region
+
 Public Class ClsSeg
     Private idusuario As Integer
     'Private pass As String

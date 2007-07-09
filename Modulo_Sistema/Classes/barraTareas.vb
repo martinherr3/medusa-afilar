@@ -52,10 +52,12 @@ Public Class BarraDeEstado
 
     Sub eliminarBoton() 'elimina el boton que corresponde al form activo (eso espero!!!)
         Dim lst As New lista
-        x.Panels.Remove(panel(frmActivo))       ' elimina el boton del form activo
-        lst.eliminarItem(formulario, frmActivo) ' elimina la ref al form en el vector
-        lst.eliminarItem(panel, frmActivo)      ' elimina la ref al panel en el vector
-        frmActivo = x.Panels.Count() - 1        ' el form activo ahora es el ultimo
+        If frmActivo <> -1 Then
+            x.Panels.Remove(panel(frmActivo))       ' elimina el boton del form activo
+            lst.eliminarItem(formulario, frmActivo) ' elimina la ref al form en el vector
+            lst.eliminarItem(panel, frmActivo)      ' elimina la ref al panel en el vector
+            frmActivo = x.Panels.Count() - 1        ' el form activo ahora es el ultimo
+        End If
 
         If x.Panels.Count() > 0 Then
             x.Panels(frmActivo).Checked = True
