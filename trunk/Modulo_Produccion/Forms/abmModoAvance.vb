@@ -72,7 +72,7 @@ Public Class abmModoAvance
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(abmModoAvance))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmModoAvance))
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton9 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTextEditor1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -96,7 +96,7 @@ Public Class abmModoAvance
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(60, 224)
+        Me.UltraButton2.Location = New System.Drawing.Point(12, 218)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton2.TabIndex = 11
@@ -104,7 +104,7 @@ Public Class abmModoAvance
         '
         'UltraButton9
         '
-        Me.UltraButton9.Location = New System.Drawing.Point(132, 224)
+        Me.UltraButton9.Location = New System.Drawing.Point(84, 218)
         Me.UltraButton9.Name = "UltraButton9"
         Me.UltraButton9.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton9.TabIndex = 12
@@ -114,6 +114,7 @@ Public Class abmModoAvance
         '
         Appearance1.BackColor = System.Drawing.Color.White
         Me.UltraTextEditor1.Appearance = Appearance1
+        Me.UltraTextEditor1.AutoSize = True
         Me.UltraTextEditor1.Location = New System.Drawing.Point(76, 16)
         Me.UltraTextEditor1.Name = "UltraTextEditor1"
         Me.UltraTextEditor1.ReadOnly = True
@@ -122,7 +123,7 @@ Public Class abmModoAvance
         '
         'UltraButton8
         '
-        Me.UltraButton8.Location = New System.Drawing.Point(204, 224)
+        Me.UltraButton8.Location = New System.Drawing.Point(156, 218)
         Me.UltraButton8.Name = "UltraButton8"
         Me.UltraButton8.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton8.TabIndex = 14
@@ -135,7 +136,7 @@ Public Class abmModoAvance
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton4)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton5)
         Me.UltraGroupBox1.Controls.Add(Me.Label3)
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(112, 144)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(76, 142)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(224, 56)
         Me.UltraGroupBox1.SupportThemes = False
@@ -186,6 +187,7 @@ Public Class abmModoAvance
         '
         Appearance2.BackColor = System.Drawing.Color.White
         Me.UltraTextEditor2.Appearance = Appearance2
+        Me.UltraTextEditor2.AutoSize = True
         Me.UltraTextEditor2.Location = New System.Drawing.Point(76, 48)
         Me.UltraTextEditor2.Multiline = True
         Me.UltraTextEditor2.Name = "UltraTextEditor2"
@@ -198,7 +200,7 @@ Public Class abmModoAvance
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(12, 48)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 16)
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Descripción"
         '
@@ -207,13 +209,13 @@ Public Class abmModoAvance
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(29, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 16)
+        Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 13
         Me.Label1.Text = "Nombre"
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(276, 224)
+        Me.UltraButton3.Location = New System.Drawing.Point(228, 218)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton3.TabIndex = 15
@@ -221,7 +223,7 @@ Public Class abmModoAvance
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(348, 224)
+        Me.UltraButton1.Location = New System.Drawing.Point(300, 218)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton1.TabIndex = 17
@@ -230,7 +232,7 @@ Public Class abmModoAvance
         'abmModoAvance
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(424, 254)
+        Me.ClientSize = New System.Drawing.Size(387, 254)
         Me.Controls.Add(Me.UltraButton2)
         Me.Controls.Add(Me.UltraButton9)
         Me.Controls.Add(Me.UltraTextEditor1)
@@ -253,6 +255,7 @@ Public Class abmModoAvance
         Me.UltraGroupBox1.ResumeLayout(False)
         CType(Me.UltraTextEditor2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

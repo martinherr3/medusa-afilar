@@ -1,4 +1,4 @@
-Public Class etapaFabricacion
+Public Class EtapaFabricacion
     Dim madaptadorEtapa As New SqlClient.SqlDataAdapter
     Dim selectEtapa As New SqlClient.SqlCommand
     Dim insertEtapa As New SqlClient.SqlCommand

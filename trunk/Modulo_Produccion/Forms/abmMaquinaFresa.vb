@@ -137,6 +137,7 @@ Public Class abmMaquinaFresa
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.Label8)
         Me.UltraTabPageControl1.Controls.Add(Me.combo2)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton5)
@@ -156,7 +157,7 @@ Public Class abmMaquinaFresa
         Me.UltraTabPageControl1.Controls.Add(Me.text5)
         Me.UltraTabPageControl1.Controls.Add(Me.Label2)
         Me.UltraTabPageControl1.Controls.Add(Me.Label1)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(644, 257)
         '
@@ -165,7 +166,7 @@ Public Class abmMaquinaFresa
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(448, 148)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 16)
+        Me.Label8.Size = New System.Drawing.Size(40, 13)
         Me.Label8.TabIndex = 43
         Me.Label8.Text = "Estado"
         '
@@ -173,6 +174,7 @@ Public Class abmMaquinaFresa
         '
         Appearance1.BackColor = System.Drawing.Color.White
         Me.combo2.Appearance = Appearance1
+        Me.combo2.AutoSize = True
         ValueListItem1.DataValue = "Alta"
         ValueListItem2.DataValue = "Baja"
         Me.combo2.Items.Add(ValueListItem1)
@@ -185,15 +187,15 @@ Public Class abmMaquinaFresa
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(264, 224)
+        Me.UltraButton5.Location = New System.Drawing.Point(330, 197)
         Me.UltraButton5.Name = "UltraButton5"
-        Me.UltraButton5.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton5.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton5.TabIndex = 41
-        Me.UltraButton5.Text = "Dar de baja"
+        Me.UltraButton5.Text = "Baja"
         '
         'UltraButton4
         '
-        Me.UltraButton4.Location = New System.Drawing.Point(344, 224)
+        Me.UltraButton4.Location = New System.Drawing.Point(330, 227)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton4.TabIndex = 40
@@ -201,7 +203,7 @@ Public Class abmMaquinaFresa
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(416, 224)
+        Me.UltraButton3.Location = New System.Drawing.Point(408, 227)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton3.TabIndex = 39
@@ -209,7 +211,7 @@ Public Class abmMaquinaFresa
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(488, 224)
+        Me.UltraButton2.Location = New System.Drawing.Point(408, 197)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton2.TabIndex = 38
@@ -217,7 +219,7 @@ Public Class abmMaquinaFresa
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(560, 224)
+        Me.UltraButton1.Location = New System.Drawing.Point(536, 227)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton1.TabIndex = 37
@@ -227,6 +229,7 @@ Public Class abmMaquinaFresa
         '
         Appearance2.BackColor = System.Drawing.Color.White
         Me.combo1.Appearance = Appearance2
+        Me.combo1.AutoSize = True
         ValueListItem3.DataValue = "Horario"
         ValueListItem4.DataValue = "Antihorario"
         Me.combo1.Items.Add(ValueListItem3)
@@ -241,6 +244,7 @@ Public Class abmMaquinaFresa
         '
         Appearance3.BackColor = System.Drawing.Color.White
         Me.text4.Appearance = Appearance3
+        Me.text4.AutoSize = True
         Me.text4.Location = New System.Drawing.Point(96, 96)
         Me.text4.Name = "text4"
         Me.text4.ReadOnly = True
@@ -251,6 +255,7 @@ Public Class abmMaquinaFresa
         '
         Appearance4.BackColor = System.Drawing.Color.White
         Me.text3.Appearance = Appearance4
+        Me.text3.AutoSize = True
         Me.text3.Location = New System.Drawing.Point(96, 72)
         Me.text3.Name = "text3"
         Me.text3.ReadOnly = True
@@ -261,6 +266,7 @@ Public Class abmMaquinaFresa
         '
         Appearance5.BackColor = System.Drawing.Color.White
         Me.text2.Appearance = Appearance5
+        Me.text2.AutoSize = True
         Me.text2.Location = New System.Drawing.Point(96, 48)
         Me.text2.Name = "text2"
         Me.text2.ReadOnly = True
@@ -271,6 +277,7 @@ Public Class abmMaquinaFresa
         '
         Appearance6.BackColor = System.Drawing.Color.White
         Me.text1.Appearance = Appearance6
+        Me.text1.AutoSize = True
         Me.text1.Location = New System.Drawing.Point(96, 24)
         Me.text1.Name = "text1"
         Me.text1.ReadOnly = True
@@ -280,36 +287,40 @@ Public Class abmMaquinaFresa
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Location = New System.Drawing.Point(18, 123)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(80, 16)
+        Me.Label6.Size = New System.Drawing.Size(78, 13)
         Me.Label6.TabIndex = 31
         Me.Label6.Text = "Sentido de giro"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Location = New System.Drawing.Point(32, 98)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(63, 16)
+        Me.Label5.Size = New System.Drawing.Size(63, 13)
         Me.Label5.TabIndex = 30
         Me.Label5.Text = "RPM de eje"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Location = New System.Drawing.Point(45, 74)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(48, 16)
+        Me.Label4.Size = New System.Drawing.Size(49, 13)
         Me.Label4.TabIndex = 29
         Me.Label4.Text = "Potencia"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Location = New System.Drawing.Point(79, 26)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(15, 16)
+        Me.Label3.Size = New System.Drawing.Size(18, 13)
         Me.Label3.TabIndex = 28
         Me.Label3.Text = "ID"
         '
@@ -317,6 +328,7 @@ Public Class abmMaquinaFresa
         '
         Appearance7.BackColor = System.Drawing.Color.White
         Me.text5.Appearance = Appearance7
+        Me.text5.AutoSize = True
         Me.text5.Location = New System.Drawing.Point(312, 32)
         Me.text5.Multiline = True
         Me.text5.Name = "text5"
@@ -327,18 +339,20 @@ Public Class abmMaquinaFresa
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Location = New System.Drawing.Point(312, 16)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(79, 16)
+        Me.Label2.Size = New System.Drawing.Size(78, 13)
         Me.Label2.TabIndex = 27
         Me.Label2.Text = "Características"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Location = New System.Drawing.Point(51, 50)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 16)
+        Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 26
         Me.Label1.Text = "Nombre"
         '
@@ -346,7 +360,7 @@ Public Class abmMaquinaFresa
         '
         Me.UltraTabPageControl2.Controls.Add(Me.UltraButton10)
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(644, 257)
         '
@@ -390,13 +404,13 @@ Public Class abmMaquinaFresa
         'UltraTabControl1
         '
         Appearance8.BackColor = System.Drawing.Color.Silver
-        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ActiveTabAppearance = Appearance8
-        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance9.BackColor2 = System.Drawing.Color.Silver
         Me.UltraTabControl1.Appearance = Appearance9
-        Appearance10.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ClientAreaAppearance = Appearance10
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
@@ -422,12 +436,13 @@ Public Class abmMaquinaFresa
         '
         'UltraGroupBox1
         '
+        Me.UltraGroupBox1.BackColor = System.Drawing.SystemColors.Control
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton7)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton6)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton9)
         Me.UltraGroupBox1.Controls.Add(Me.Label7)
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(16, 224)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(48, 195)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(224, 56)
         Me.UltraGroupBox1.SupportThemes = False
@@ -477,8 +492,7 @@ Public Class abmMaquinaFresa
         'abmMaquinaFresa
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(650, 288)
-        Me.Controls.Add(Me.UltraGroupBox1)
+        Me.ClientSize = New System.Drawing.Size(646, 288)
         Me.Controls.Add(Me.UltraTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(200, 106)
@@ -486,6 +500,7 @@ Public Class abmMaquinaFresa
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Gestión Máquina para fresa"
         Me.UltraTabPageControl1.ResumeLayout(False)
+        Me.UltraTabPageControl1.PerformLayout()
         CType(Me.combo2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.combo1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.text4, System.ComponentModel.ISupportInitialize).EndInit()

@@ -148,12 +148,13 @@ Public Class frmControlCalidad
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Location = New System.Drawing.Point(56, 128)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 16)
+        Me.Label1.Size = New System.Drawing.Size(81, 13)
         Me.Label1.TabIndex = 27
         Me.Label1.Text = "Observaciones:"
         '
         'UltraTextEditor1
         '
+        Me.UltraTextEditor1.AutoSize = True
         Me.UltraTextEditor1.Location = New System.Drawing.Point(64, 144)
         Me.UltraTextEditor1.MaxLength = 240
         Me.UltraTextEditor1.Multiline = True
@@ -167,12 +168,13 @@ Public Class frmControlCalidad
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Location = New System.Drawing.Point(56, 104)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(56, 16)
+        Me.Label9.Size = New System.Drawing.Size(56, 13)
         Me.Label9.TabIndex = 25
         Me.Label9.Text = "Torneado:"
         '
         'ComboTorneado
         '
+        Me.ComboTorneado.AutoSize = True
         ValueListItem1.DataValue = "Aprobado"
         ValueListItem2.DataValue = "Reprobado"
         Me.ComboTorneado.Items.Add(ValueListItem1)
@@ -188,7 +190,7 @@ Public Class frmControlCalidad
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Location = New System.Drawing.Point(56, 80)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(59, 16)
+        Me.Label8.Size = New System.Drawing.Size(58, 13)
         Me.Label8.TabIndex = 23
         Me.Label8.Text = "Soldadura:"
         '
@@ -198,7 +200,7 @@ Public Class frmControlCalidad
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Location = New System.Drawing.Point(72, 56)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(43, 16)
+        Me.Label7.Size = New System.Drawing.Size(43, 13)
         Me.Label7.TabIndex = 22
         Me.Label7.Text = "Pintura:"
         '
@@ -208,12 +210,13 @@ Public Class frmControlCalidad
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Location = New System.Drawing.Point(64, 36)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(50, 16)
+        Me.Label6.Size = New System.Drawing.Size(50, 13)
         Me.Label6.TabIndex = 21
         Me.Label6.Text = "Medidas:"
         '
         'comboSoldadura
         '
+        Me.comboSoldadura.AutoSize = True
         Me.comboSoldadura.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         ValueListItem3.DataValue = "Aprobado"
         ValueListItem4.DataValue = "Reprobado"
@@ -226,6 +229,7 @@ Public Class frmControlCalidad
         '
         'comboPintura
         '
+        Me.comboPintura.AutoSize = True
         Me.comboPintura.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         ValueListItem5.DataValue = "Aprobado"
         ValueListItem6.DataValue = "Reprobado"
@@ -238,6 +242,7 @@ Public Class frmControlCalidad
         '
         'comboMedidas
         '
+        Me.comboMedidas.AutoSize = True
         Me.comboMedidas.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         ValueListItem7.DataValue = "Aprobado"
         ValueListItem8.DataValue = "Reprobado"
@@ -276,19 +281,19 @@ Public Class frmControlCalidad
         Me.DataGrid2.Name = "DataGrid2"
         Me.DataGrid2.PreferredColumnWidth = 100
         Me.DataGrid2.ReadOnly = True
-        Me.DataGrid2.Size = New System.Drawing.Size(672, 240)
+        Me.DataGrid2.Size = New System.Drawing.Size(668, 240)
         Me.DataGrid2.TabIndex = 22
         '
         'UltraTabControl1
         '
         Appearance2.BackColor = System.Drawing.Color.Silver
-        Appearance2.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance2.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ActiveTabAppearance = Appearance2
-        Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance3.BackColor2 = System.Drawing.Color.Silver
         Me.UltraTabControl1.Appearance = Appearance3
-        Appearance4.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance4.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance4.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ClientAreaAppearance = Appearance4
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
@@ -325,6 +330,7 @@ Public Class frmControlCalidad
         Me.UltraTabPageControl1.ResumeLayout(False)
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
+        Me.UltraGroupBox2.PerformLayout()
         CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComboTorneado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboSoldadura, System.ComponentModel.ISupportInitialize).EndInit()

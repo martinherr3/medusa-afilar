@@ -2,7 +2,7 @@ Imports System
 Imports System.Text
 
 
-Public Class codigoBarra
+Public Class CodigoBarra
     Private _sName As String = "EAN13"
     Private _fMinimumAllowableScale As Single = 0.8F
     Private _fMaximumAllowableScale As Single = 2.0F

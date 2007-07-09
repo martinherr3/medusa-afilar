@@ -1,4 +1,4 @@
-Public Class fresa
+Public Class Fresa
     Private ts As DataGridTableStyle
     Private mdafresa As SqlClient.SqlDataAdapter
     Private cmdbuilder As SqlClient.SqlCommandBuilder

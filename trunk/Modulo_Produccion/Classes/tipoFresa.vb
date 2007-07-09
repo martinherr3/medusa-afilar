@@ -1,4 +1,4 @@
-Public Class tipoFresa
+Public Class TipoFresa
 
     Private madaptadorTipoFresa As New SqlClient.SqlDataAdapter
     Private selectTipoFresa As New SqlClient.SqlCommand

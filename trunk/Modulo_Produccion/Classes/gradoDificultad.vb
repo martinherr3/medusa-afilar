@@ -1,4 +1,4 @@
-Public Class gradoDificultad
+Public Class GradoDificultad
     Private selectGradoDificultad As New SqlClient.SqlCommand
     Private insertGradoDificultad As New SqlClient.SqlCommand
     Private updateGradoDificultad As New SqlClient.SqlCommand

@@ -22,11 +22,11 @@ Partial Class frmUnidadDeMedida
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
@@ -105,9 +105,9 @@ Partial Class frmUnidadDeMedida
         '
         'UltraButton4
         '
-        Appearance1.BackColor = System.Drawing.Color.White
-        Appearance1.ForeColor = System.Drawing.Color.Black
-        Me.UltraButton4.Appearance = Appearance1
+        Appearance6.BackColor = System.Drawing.Color.White
+        Appearance6.ForeColor = System.Drawing.Color.Black
+        Me.UltraButton4.Appearance = Appearance6
         Me.UltraButton4.Location = New System.Drawing.Point(22, 170)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(121, 25)
@@ -132,9 +132,9 @@ Partial Class frmUnidadDeMedida
         '
         'txtDescripcion
         '
-        Appearance2.BackColorDisabled = System.Drawing.Color.White
-        Appearance2.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtDescripcion.Appearance = Appearance2
+        Appearance7.BackColorDisabled = System.Drawing.Color.White
+        Appearance7.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtDescripcion.Appearance = Appearance7
         Me.txtDescripcion.AutoSize = True
         Me.txtDescripcion.Enabled = False
         Me.txtDescripcion.Location = New System.Drawing.Point(69, 39)
@@ -144,9 +144,9 @@ Partial Class frmUnidadDeMedida
         '
         'txtNombre
         '
-        Appearance3.BackColorDisabled = System.Drawing.Color.White
-        Appearance3.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtNombre.Appearance = Appearance3
+        Appearance8.BackColorDisabled = System.Drawing.Color.White
+        Appearance8.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtNombre.Appearance = Appearance8
         Me.txtNombre.AutoSize = True
         Me.txtNombre.Enabled = False
         Me.txtNombre.Location = New System.Drawing.Point(69, 15)
@@ -157,7 +157,7 @@ Partial Class frmUnidadDeMedida
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Location = New System.Drawing.Point(6, 47)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(63, 13)
@@ -167,7 +167,7 @@ Partial Class frmUnidadDeMedida
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Location = New System.Drawing.Point(25, 23)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(44, 13)
@@ -176,9 +176,9 @@ Partial Class frmUnidadDeMedida
         '
         'txtEscala
         '
-        Appearance4.BackColorDisabled = System.Drawing.Color.White
-        Appearance4.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtEscala.Appearance = Appearance4
+        Appearance9.BackColorDisabled = System.Drawing.Color.White
+        Appearance9.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtEscala.Appearance = Appearance9
         Me.txtEscala.AutoSize = True
         Me.txtEscala.Enabled = False
         Me.txtEscala.Location = New System.Drawing.Point(69, 87)
@@ -188,9 +188,9 @@ Partial Class frmUnidadDeMedida
         '
         'txtAbreviacion
         '
-        Appearance5.BackColorDisabled = System.Drawing.Color.White
-        Appearance5.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtAbreviacion.Appearance = Appearance5
+        Appearance10.BackColorDisabled = System.Drawing.Color.White
+        Appearance10.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtAbreviacion.Appearance = Appearance10
         Me.txtAbreviacion.AutoSize = True
         Me.txtAbreviacion.Enabled = False
         Me.txtAbreviacion.Location = New System.Drawing.Point(69, 63)
@@ -201,7 +201,7 @@ Partial Class frmUnidadDeMedida
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Location = New System.Drawing.Point(27, 93)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 13)
@@ -211,7 +211,7 @@ Partial Class frmUnidadDeMedida
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Location = New System.Drawing.Point(6, 71)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(63, 13)
@@ -238,6 +238,7 @@ Partial Class frmUnidadDeMedida
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label13)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmUnidadDeMedida"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

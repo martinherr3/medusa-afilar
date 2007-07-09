@@ -22,9 +22,9 @@ Partial Class frmCargo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
@@ -60,7 +60,7 @@ Partial Class frmCargo
         Me.DataGrid1.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGrid1.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGrid1.LinkColor = System.Drawing.Color.Teal
-        Me.DataGrid1.Location = New System.Drawing.Point(46, 184)
+        Me.DataGrid1.Location = New System.Drawing.Point(46, 79)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGrid1.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
@@ -68,20 +68,20 @@ Partial Class frmCargo
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(257, 128)
+        Me.DataGrid1.Size = New System.Drawing.Size(257, 182)
         Me.DataGrid1.TabIndex = 52
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(130, 107)
+        Me.UltraButton2.Location = New System.Drawing.Point(50, 287)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(86, 25)
+        Me.UltraButton2.Size = New System.Drawing.Size(79, 25)
         Me.UltraButton2.TabIndex = 49
         Me.UltraButton2.Text = "&Modificar"
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(46, 107)
+        Me.UltraButton1.Location = New System.Drawing.Point(50, 318)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(78, 25)
         Me.UltraButton1.TabIndex = 48
@@ -89,26 +89,26 @@ Partial Class frmCargo
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(186, 139)
+        Me.UltraButton5.Location = New System.Drawing.Point(222, 287)
         Me.UltraButton5.Name = "UltraButton5"
-        Me.UltraButton5.Size = New System.Drawing.Size(117, 25)
+        Me.UltraButton5.Size = New System.Drawing.Size(81, 25)
         Me.UltraButton5.TabIndex = 47
         Me.UltraButton5.Text = "&Cancelar"
         '
         'UltraButton4
         '
-        Appearance4.BackColor = System.Drawing.Color.White
-        Appearance4.ForeColor = System.Drawing.Color.Black
-        Me.UltraButton4.Appearance = Appearance4
-        Me.UltraButton4.Location = New System.Drawing.Point(46, 139)
+        Appearance1.BackColor = System.Drawing.Color.White
+        Appearance1.ForeColor = System.Drawing.Color.Black
+        Me.UltraButton4.Appearance = Appearance1
+        Me.UltraButton4.Location = New System.Drawing.Point(134, 318)
         Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(121, 25)
+        Me.UltraButton4.Size = New System.Drawing.Size(82, 25)
         Me.UltraButton4.TabIndex = 46
         Me.UltraButton4.Text = "&Grabar"
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(222, 107)
+        Me.UltraButton3.Location = New System.Drawing.Point(135, 287)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(81, 25)
         Me.UltraButton3.TabIndex = 50
@@ -124,9 +124,9 @@ Partial Class frmCargo
         '
         'txtDescripcion
         '
-        Appearance5.BackColorDisabled = System.Drawing.Color.White
-        Appearance5.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtDescripcion.Appearance = Appearance5
+        Appearance2.BackColorDisabled = System.Drawing.Color.White
+        Appearance2.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtDescripcion.Appearance = Appearance2
         Me.txtDescripcion.AutoSize = True
         Me.txtDescripcion.Enabled = False
         Me.txtDescripcion.Location = New System.Drawing.Point(91, 42)
@@ -136,9 +136,9 @@ Partial Class frmCargo
         '
         'txtNombre
         '
-        Appearance6.BackColorDisabled = System.Drawing.Color.White
-        Appearance6.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtNombre.Appearance = Appearance6
+        Appearance3.BackColorDisabled = System.Drawing.Color.White
+        Appearance3.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtNombre.Appearance = Appearance3
         Me.txtNombre.AutoSize = True
         Me.txtNombre.Enabled = False
         Me.txtNombre.Location = New System.Drawing.Point(91, 18)
@@ -149,7 +149,7 @@ Partial Class frmCargo
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label12.BackColor = System.Drawing.SystemColors.Control
         Me.Label12.Location = New System.Drawing.Point(28, 50)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(63, 13)
@@ -159,7 +159,7 @@ Partial Class frmCargo
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label13.BackColor = System.Drawing.SystemColors.Control
         Me.Label13.Location = New System.Drawing.Point(47, 26)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(44, 13)
@@ -182,6 +182,7 @@ Partial Class frmCargo
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label13)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmCargo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
