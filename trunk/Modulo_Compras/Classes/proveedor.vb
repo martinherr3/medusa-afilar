@@ -1,4 +1,4 @@
-Public Class proveedor
+Public Class Proveedor
     Private insertProveedor As New SqlClient.SqlCommand
     Private deleteProveedor As New SqlClient.SqlCommand
     Private updateProveedor As New SqlClient.SqlCommand

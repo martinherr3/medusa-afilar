@@ -1,4 +1,4 @@
-Public Class programacionProduccion
+Public Class ProgramacionProduccion
     Private coleccion As New TareasCollection
     Private colMarcados As New TareasCollection
     Private maqColeccion As New maquinasColeccion
