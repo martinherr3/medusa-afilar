@@ -67,7 +67,7 @@ Partial Class frmUsuarios
         Me.DataGrid1.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGrid1.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGrid1.LinkColor = System.Drawing.Color.Teal
-        Me.DataGrid1.Location = New System.Drawing.Point(43, 245)
+        Me.DataGrid1.Location = New System.Drawing.Point(9, 245)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGrid1.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
@@ -75,12 +75,12 @@ Partial Class frmUsuarios
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(257, 128)
+        Me.DataGrid1.Size = New System.Drawing.Size(312, 128)
         Me.DataGrid1.TabIndex = 63
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(127, 170)
+        Me.UltraButton2.Location = New System.Drawing.Point(142, 170)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(86, 25)
         Me.UltraButton2.TabIndex = 60
@@ -88,7 +88,7 @@ Partial Class frmUsuarios
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(43, 170)
+        Me.UltraButton1.Location = New System.Drawing.Point(58, 170)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(78, 25)
         Me.UltraButton1.TabIndex = 59
@@ -96,7 +96,7 @@ Partial Class frmUsuarios
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(183, 202)
+        Me.UltraButton5.Location = New System.Drawing.Point(198, 202)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(117, 25)
         Me.UltraButton5.TabIndex = 58
@@ -107,15 +107,15 @@ Partial Class frmUsuarios
         Appearance1.BackColor = System.Drawing.Color.White
         Appearance1.ForeColor = System.Drawing.Color.Black
         Me.UltraButton4.Appearance = Appearance1
-        Me.UltraButton4.Location = New System.Drawing.Point(43, 202)
+        Me.UltraButton4.Location = New System.Drawing.Point(58, 202)
         Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(121, 25)
+        Me.UltraButton4.Size = New System.Drawing.Size(116, 25)
         Me.UltraButton4.TabIndex = 57
         Me.UltraButton4.Text = "&Grabar"
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(219, 170)
+        Me.UltraButton3.Location = New System.Drawing.Point(234, 170)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(81, 25)
         Me.UltraButton3.TabIndex = 61
@@ -123,7 +123,7 @@ Partial Class frmUsuarios
         '
         'UltraButton10
         '
-        Me.UltraButton10.Location = New System.Drawing.Point(219, 379)
+        Me.UltraButton10.Location = New System.Drawing.Point(240, 379)
         Me.UltraButton10.Name = "UltraButton10"
         Me.UltraButton10.Size = New System.Drawing.Size(81, 25)
         Me.UltraButton10.TabIndex = 62
@@ -144,7 +144,7 @@ Partial Class frmUsuarios
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Location = New System.Drawing.Point(43, 88)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(64, 13)
@@ -154,7 +154,7 @@ Partial Class frmUsuarios
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Location = New System.Drawing.Point(61, 36)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(46, 13)
@@ -218,7 +218,7 @@ Partial Class frmUsuarios
         'Lblvalidacion
         '
         Me.Lblvalidacion.AutoSize = True
-        Me.Lblvalidacion.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Lblvalidacion.BackColor = System.Drawing.Color.Transparent
         Me.Lblvalidacion.Location = New System.Drawing.Point(6, 61)
         Me.Lblvalidacion.Name = "Lblvalidacion"
         Me.Lblvalidacion.Size = New System.Drawing.Size(101, 13)
@@ -228,7 +228,7 @@ Partial Class frmUsuarios
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Location = New System.Drawing.Point(10, 115)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 13)
@@ -239,7 +239,7 @@ Partial Class frmUsuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(327, 447)
+        Me.ClientSize = New System.Drawing.Size(327, 409)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Lblvalidacion)
         Me.Controls.Add(Me.txtContraseña3)
@@ -257,8 +257,9 @@ Partial Class frmUsuarios
         Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label13)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmUsuarios"
-        Me.Text = "frmUsuarios"
+        Me.Text = "Usuarios"
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtContraseña, System.ComponentModel.ISupportInitialize).EndInit()

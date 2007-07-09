@@ -19,7 +19,7 @@ Partial Class treeview
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Override4 As Infragistics.Win.UltraWinTree.Override = New Infragistics.Win.UltraWinTree.Override
+        Dim Override2 As Infragistics.Win.UltraWinTree.Override = New Infragistics.Win.UltraWinTree.Override
         Me.UltraTree1 = New Infragistics.Win.UltraWinTree.UltraTree
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.UltraComboEditor1 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -44,14 +44,14 @@ Partial Class treeview
         Me.UltraTree1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.UltraTree1.Location = New System.Drawing.Point(297, 12)
         Me.UltraTree1.Name = "UltraTree1"
-        Override4.SelectionType = Infragistics.Win.UltraWinTree.SelectType.[Single]
-        Me.UltraTree1.Override = Override4
+        Override2.SelectionType = Infragistics.Win.UltraWinTree.SelectType.[Single]
+        Me.UltraTree1.Override = Override2
         Me.UltraTree1.Size = New System.Drawing.Size(193, 217)
         Me.UltraTree1.TabIndex = 0
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(264, 254)
+        Me.UltraButton1.Location = New System.Drawing.Point(280, 257)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(102, 21)
         Me.UltraButton1.TabIndex = 1
@@ -60,9 +60,9 @@ Partial Class treeview
         'UltraComboEditor1
         '
         Me.UltraComboEditor1.AutoSize = True
-        Me.UltraComboEditor1.Location = New System.Drawing.Point(75, 32)
+        Me.UltraComboEditor1.Location = New System.Drawing.Point(54, 32)
         Me.UltraComboEditor1.Name = "UltraComboEditor1"
-        Me.UltraComboEditor1.Size = New System.Drawing.Size(144, 21)
+        Me.UltraComboEditor1.Size = New System.Drawing.Size(195, 21)
         Me.UltraComboEditor1.TabIndex = 3
         Me.UltraComboEditor1.Text = "UltraComboEditor1"
         '
@@ -140,7 +140,7 @@ Partial Class treeview
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(5, 40)
+        Me.Label1.Location = New System.Drawing.Point(6, 40)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 4
@@ -148,7 +148,7 @@ Partial Class treeview
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(385, 254)
+        Me.UltraButton2.Location = New System.Drawing.Point(388, 257)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(102, 21)
         Me.UltraButton2.TabIndex = 5
@@ -163,6 +163,7 @@ Partial Class treeview
         Me.Controls.Add(Me.UltraGroupBox1)
         Me.Controls.Add(Me.UltraButton1)
         Me.Controls.Add(Me.UltraTree1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "treeview"
         Me.Text = "treeview"
         CType(Me.UltraTree1, System.ComponentModel.ISupportInitialize).EndInit()
