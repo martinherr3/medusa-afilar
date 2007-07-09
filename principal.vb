@@ -107,7 +107,6 @@ Public Class principal
         Me.UltraExplorerBar1.BorderStyle = Infragistics.Win.UIElementBorderStyle.InsetSoft
         UltraExplorerBarGroup1.Expanded = False
         UltraExplorerBarItem1.Text = "Generar orden de compra"
-        UltraExplorerBarItem2.Key = "gabi"
         UltraExplorerBarItem2.Text = "Registrar recepción de pedido"
         UltraExplorerBarItem3.Text = "Registrar pago a proveedores"
         UltraExplorerBarItem4.Text = "Generar diagrama ABC"
@@ -147,7 +146,7 @@ Public Class principal
         Me.UltraExplorerBar1.Location = New System.Drawing.Point(0, 110)
         Me.UltraExplorerBar1.Name = "UltraExplorerBar1"
         Me.UltraExplorerBar1.ShowDefaultContextMenu = False
-        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 605)
+        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 585)
         Me.UltraExplorerBar1.StateButtonCheckStyle = Infragistics.Win.UltraWinExplorerBar.StateButtonCheckStyle.ExclusiveWithinGroup
         Me.UltraExplorerBar1.Style = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.Listbar
         Me.UltraExplorerBar1.TabIndex = 2
@@ -271,17 +270,15 @@ Public Class principal
 #End Region
 
     Private Sub principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'bloquearPantalla(True)
-        'logeo.ShowDialog()
-        'bloquearPantalla(False)
-        'Dim form As New frmEmpleado
-        'form.MdiParent = Me
-        'form.Show()
+        bloquearPantalla(True)
+        logeo.ShowDialog()
+        bloquearPantalla(False)
+        Dim form As New frmEmpleado
+        form.MdiParent = Me
+        form.Show()
         barra = New BarraDeEstado(UltraStatusBar1)
         GestorFrm.InitMenu(Me.UltraExplorerBar1, mMenu, Me)
         Me.Menu = mMenu
-
-
 
     End Sub
     Public Sub mnu_Click(ByVal sender As Object, ByVal e As System.EventArgs)
@@ -304,14 +301,14 @@ Public Class principal
         GestorFrm.OpenForm(Me.UltraExplorerBar1.ActiveItem.Key, Me)
 
         'If Me.UltraExplorerBar1.Groups(0).Items(0).Active Then
-        '    Dim form1 As New registrarModeloFresa
-        '    form1.MdiParent = Me
-        '    form1.Show()
+        '    Dim programarProduccion As New registrarModeloFresa
+        '    programarProduccion.MdiParent = Me
+        '    programarProduccion.Show()
         '    'etiPrin.Text = "Registrar modelo de fresa"
         'End If
 
         'If Me.UltraExplorerBar1.Groups(0).Items(1).Active Then
-        '    Dim form8 As New Form1
+        '    Dim form8 As New programarProduccion
         '    form8.MdiParent = Me
         '    form8.Show()
 
@@ -509,7 +506,7 @@ Public Class principal
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles botonPinche.Click
         Dim projectPath As String
-        projectPath = AppSettings.Get("appPath")
+        projectPath = getAppPath()
 
         If band = True Then
             botonPinche.ShapeImage = Image.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\pinche4.ico")
@@ -537,7 +534,7 @@ Public Class principal
     End Sub
 
     Private Sub MenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim f As New Form1
+        Dim f As New programarProduccion
         f.MdiParent = Me
         f.Show()
 
