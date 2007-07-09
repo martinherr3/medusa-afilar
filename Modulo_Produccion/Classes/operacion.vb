@@ -1,4 +1,4 @@
-Public Class operacion
+Public Class Operacion
     Private insertOperacion As New SqlClient.SqlCommand
     Private deleteOperacion As New SqlClient.SqlCommand
     Private selectOperacion As New SqlClient.SqlCommand

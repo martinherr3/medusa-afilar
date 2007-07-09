@@ -1,4 +1,4 @@
-Public Class parteAdicional
+Public Class ParteAdicional
     Private selectParteAdicional As New SqlClient.SqlCommand
     Private insertParteAdicional As New SqlClient.SqlCommand
     Private updateParteAdicional As New SqlClient.SqlCommand

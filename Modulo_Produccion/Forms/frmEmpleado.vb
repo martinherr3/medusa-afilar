@@ -260,4 +260,5 @@ Public Class frmEmpleado
         form.Tag = objEmpleado.id
         form.Show()
     End Sub
+
 End Class

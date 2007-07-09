@@ -1,4 +1,4 @@
-Public Class modeloFresa
+Public Class ModeloFresa
 
     Private insertModeloFresa As New SqlClient.SqlCommand
     Private deleteModeloFresa As New SqlClient.SqlCommand

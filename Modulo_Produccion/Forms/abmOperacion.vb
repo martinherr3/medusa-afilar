@@ -173,7 +173,7 @@ Public Class abmOperacion
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton9)
         Me.UltraGroupBox1.Controls.Add(Me.Label8)
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(96, 192)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(96, 191)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(224, 56)
         Me.UltraGroupBox1.SupportThemes = False
@@ -223,14 +223,16 @@ Public Class abmOperacion
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Location = New System.Drawing.Point(39, 147)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 16)
+        Me.Label7.Size = New System.Drawing.Size(57, 13)
         Me.Label7.TabIndex = 45
         Me.Label7.Text = "Tolerancia"
         '
         'comboDif
         '
+        Me.comboDif.AutoSize = True
         Me.comboDif.Location = New System.Drawing.Point(96, 120)
         Me.comboDif.Name = "comboDif"
         Me.comboDif.Size = New System.Drawing.Size(176, 21)
@@ -238,7 +240,7 @@ Public Class abmOperacion
         '
         'UltraButton4
         '
-        Me.UltraButton4.Location = New System.Drawing.Point(344, 224)
+        Me.UltraButton4.Location = New System.Drawing.Point(340, 223)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton4.TabIndex = 40
@@ -246,7 +248,7 @@ Public Class abmOperacion
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(416, 224)
+        Me.UltraButton3.Location = New System.Drawing.Point(412, 223)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton3.TabIndex = 39
@@ -254,7 +256,7 @@ Public Class abmOperacion
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(488, 224)
+        Me.UltraButton2.Location = New System.Drawing.Point(484, 223)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton2.TabIndex = 38
@@ -262,7 +264,7 @@ Public Class abmOperacion
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(560, 224)
+        Me.UltraButton1.Location = New System.Drawing.Point(556, 223)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton1.TabIndex = 37
@@ -272,6 +274,7 @@ Public Class abmOperacion
         '
         Appearance1.BackColor = System.Drawing.Color.White
         Me.combo1.Appearance = Appearance1
+        Me.combo1.AutoSize = True
         Me.combo1.Location = New System.Drawing.Point(96, 72)
         Me.combo1.Name = "combo1"
         Me.combo1.ReadOnly = True
@@ -282,6 +285,7 @@ Public Class abmOperacion
         '
         Appearance2.BackColor = System.Drawing.Color.White
         Me.text4.Appearance = Appearance2
+        Me.text4.AutoSize = True
         Me.text4.Location = New System.Drawing.Point(96, 96)
         Me.text4.Name = "text4"
         Me.text4.ReadOnly = True
@@ -292,6 +296,7 @@ Public Class abmOperacion
         '
         Appearance3.BackColor = System.Drawing.Color.White
         Me.text3.Appearance = Appearance3
+        Me.text3.AutoSize = True
         Me.text3.Location = New System.Drawing.Point(96, 144)
         Me.text3.Name = "text3"
         Me.text3.ReadOnly = True
@@ -302,6 +307,7 @@ Public Class abmOperacion
         '
         Appearance4.BackColor = System.Drawing.Color.White
         Me.text2.Appearance = Appearance4
+        Me.text2.AutoSize = True
         Me.text2.Location = New System.Drawing.Point(96, 48)
         Me.text2.Name = "text2"
         Me.text2.ReadOnly = True
@@ -312,6 +318,7 @@ Public Class abmOperacion
         '
         Appearance5.BackColor = System.Drawing.Color.White
         Me.text1.Appearance = Appearance5
+        Me.text1.AutoSize = True
         Me.text1.Location = New System.Drawing.Point(96, 24)
         Me.text1.Name = "text1"
         Me.text1.ReadOnly = True
@@ -321,35 +328,40 @@ Public Class abmOperacion
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Location = New System.Drawing.Point(45, 124)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(51, 16)
+        Me.Label6.Size = New System.Drawing.Size(51, 13)
         Me.Label6.TabIndex = 31
         Me.Label6.Text = "Dificultad"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Location = New System.Drawing.Point(1, 98)
         Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(96, 13)
         Me.Label5.TabIndex = 30
         Me.Label5.Text = "Duración promedio"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Location = New System.Drawing.Point(26, 74)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(73, 16)
+        Me.Label4.Size = New System.Drawing.Size(71, 13)
         Me.Label4.TabIndex = 29
         Me.Label4.Text = "Tipo máquina"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Location = New System.Drawing.Point(79, 26)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(15, 16)
+        Me.Label3.Size = New System.Drawing.Size(18, 13)
         Me.Label3.TabIndex = 28
         Me.Label3.Text = "ID"
         '
@@ -357,28 +369,31 @@ Public Class abmOperacion
         '
         Appearance6.BackColor = System.Drawing.Color.White
         Me.text5.Appearance = Appearance6
+        Me.text5.AutoSize = True
         Me.text5.Location = New System.Drawing.Point(312, 48)
         Me.text5.Multiline = True
         Me.text5.Name = "text5"
         Me.text5.ReadOnly = True
-        Me.text5.Size = New System.Drawing.Size(296, 112)
+        Me.text5.Size = New System.Drawing.Size(316, 112)
         Me.text5.TabIndex = 25
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Location = New System.Drawing.Point(312, 34)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 16)
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 27
         Me.Label2.Text = "Descripción"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Location = New System.Drawing.Point(52, 51)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 16)
+        Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 26
         Me.Label1.Text = "Nombre"
         '
@@ -417,26 +432,26 @@ Public Class abmOperacion
         Me.DataGrid1.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGrid1.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGrid1.LinkColor = System.Drawing.Color.Teal
-        Me.DataGrid1.Location = New System.Drawing.Point(24, 8)
+        Me.DataGrid1.Location = New System.Drawing.Point(10, 18)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGrid1.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(600, 200)
+        Me.DataGrid1.Size = New System.Drawing.Size(614, 200)
         Me.DataGrid1.TabIndex = 0
         '
         'UltraTabControl1
         '
         Appearance7.BackColor = System.Drawing.Color.Silver
-        Appearance7.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance7.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ActiveTabAppearance = Appearance7
-        Appearance8.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance8.BackColor2 = System.Drawing.Color.Silver
         Me.UltraTabControl1.Appearance = Appearance8
-        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ClientAreaAppearance = Appearance9
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
@@ -471,6 +486,7 @@ Public Class abmOperacion
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Gestión operación"
         Me.UltraTabPageControl1.ResumeLayout(False)
+        Me.UltraTabPageControl1.PerformLayout()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
         CType(Me.comboDif, System.ComponentModel.ISupportInitialize).EndInit()
