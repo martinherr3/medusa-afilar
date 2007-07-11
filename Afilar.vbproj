@@ -168,6 +168,7 @@
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
@@ -296,7 +297,7 @@
     <Compile Include="Modulo_Produccion\Classes\etapaFabricacion.vb">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Modulo_Produccion\Forms\Form1.vb">
+    <Compile Include="Modulo_Produccion\Forms\programarProduccion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\Formulario.vb" />
@@ -562,8 +563,8 @@
       <DependentUpon>emitirPresupuesto.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Produccion\Forms\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\programarProduccion.resx">
+      <DependentUpon>programarProduccion.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\frmAsignar.resx">
@@ -705,7 +706,6 @@
       <DependentUpon>treeview.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Content Include="DataBase\BDConfig.xml" />
     <Content Include="DataBase\databaseSchema.sql" />
     <Content Include="Imagenes\Apagado.gif" />
     <Content Include="Imagenes\Buscar.gif" />
@@ -770,6 +770,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Modulo_Compras\DSOC.xsc">
       <DependentUpon>DSOC.xsd</DependentUpon>
     </None>
