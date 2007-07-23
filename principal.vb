@@ -50,29 +50,6 @@ Public Class principal
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraExplorerBarGroup1 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup
-        Dim UltraExplorerBarItem1 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem2 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem3 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem4 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem5 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem6 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem7 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem8 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarGroup2 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup
-        Dim UltraExplorerBarItem9 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem10 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem11 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem12 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem13 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem14 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarGroup3 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup
-        Dim UltraExplorerBarItem15 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem16 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem17 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem18 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem19 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem20 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -105,35 +82,6 @@ Public Class principal
         Appearance1.ForeColor = System.Drawing.Color.White
         Me.UltraExplorerBar1.Appearance = Appearance1
         Me.UltraExplorerBar1.BorderStyle = Infragistics.Win.UIElementBorderStyle.InsetSoft
-        UltraExplorerBarGroup1.Expanded = False
-        UltraExplorerBarItem1.Text = "Generar orden de compra"
-        UltraExplorerBarItem2.Text = "Registrar recepción de pedido"
-        UltraExplorerBarItem3.Text = "Registrar pago a proveedores"
-        UltraExplorerBarItem4.Text = "Generar diagrama ABC"
-        UltraExplorerBarItem5.Text = "Calcular parámetros de compra"
-        UltraExplorerBarItem6.Text = "Consultar pedidos de MP"
-        UltraExplorerBarItem7.Text = "Gestionar proveedor"
-        UltraExplorerBarItem8.Text = "Gestionar materia prima"
-        UltraExplorerBarGroup1.Items.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem() {UltraExplorerBarItem1, UltraExplorerBarItem2, UltraExplorerBarItem3, UltraExplorerBarItem4, UltraExplorerBarItem5, UltraExplorerBarItem6, UltraExplorerBarItem7, UltraExplorerBarItem8})
-        UltraExplorerBarGroup1.Text = "COMPRAS"
-        UltraExplorerBarGroup2.Expanded = False
-        UltraExplorerBarItem9.Text = "Gestionar cliente"
-        UltraExplorerBarItem10.Text = "Registrar ingresos"
-        UltraExplorerBarItem11.Text = "Consultar ingresos"
-        UltraExplorerBarItem12.Text = "Gestionar localidad"
-        UltraExplorerBarItem13.Text = "Gestionar empresa transporte"
-        UltraExplorerBarItem14.Text = "Gestionar vendedores"
-        UltraExplorerBarGroup2.Items.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem() {UltraExplorerBarItem9, UltraExplorerBarItem10, UltraExplorerBarItem11, UltraExplorerBarItem12, UltraExplorerBarItem13, UltraExplorerBarItem14})
-        UltraExplorerBarGroup2.Text = "COMERCIALIZACIÓN"
-        UltraExplorerBarItem15.Text = "Registrar pedido"
-        UltraExplorerBarItem16.Text = "Emitir presupuesto de fresa"
-        UltraExplorerBarItem17.Text = "Cancelar pedido"
-        UltraExplorerBarItem18.Text = "Gestionar entrega"
-        UltraExplorerBarItem19.Text = "Consultar pedidos"
-        UltraExplorerBarItem20.Text = "Finalizar pedido"
-        UltraExplorerBarGroup3.Items.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem() {UltraExplorerBarItem15, UltraExplorerBarItem16, UltraExplorerBarItem17, UltraExplorerBarItem18, UltraExplorerBarItem19, UltraExplorerBarItem20})
-        UltraExplorerBarGroup3.Text = "PEDIDOS"
-        Me.UltraExplorerBar1.Groups.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup() {UltraExplorerBarGroup1, UltraExplorerBarGroup2, UltraExplorerBarGroup3})
         Me.UltraExplorerBar1.GroupSettings.Style = Infragistics.Win.UltraWinExplorerBar.GroupStyle.SmallImagesWithText
         Appearance2.FontData.Name = "Arial"
         Appearance2.FontData.SizeInPoints = 7.8!
