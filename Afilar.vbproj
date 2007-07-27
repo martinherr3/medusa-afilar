@@ -770,7 +770,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Modulo_Compras\DSOC.xsc">
       <DependentUpon>DSOC.xsd</DependentUpon>
     </None>
