@@ -239,7 +239,7 @@ Public Class Tornero
     End Sub
 
     Public Sub mostrarDatos(ByRef txtnombre As String, ByRef txtapellido As String, ByRef txtdomicilio As String, ByRef txttelefono As String, ByRef txtcelular As String, _
-    ByRef txtcantidad As Integer, ByRef txtefectividad As Double, ByRef txtobservaciones As String)
+    ByRef txtcantidad As String, ByRef txtefectividad As String, ByRef txtobservaciones As String)
         txtnombre = nombreTornero
         txtapellido = apellidoTornero
         txtdomicilio = direccionTornero
@@ -248,7 +248,7 @@ Public Class Tornero
         txtcantidad = cantidadTorneado
         txtefectividad = efectividadTorneado
         txtobservaciones = observacionesTorneado
-        
+
     End Sub
 
     Public Function validarTornero(ByVal dscl As DataSet) As Boolean
