@@ -178,4 +178,26 @@ Public Class UnidadDeMedida
         txtAbreviacion = Abreviacion
         txtEscala = Escala
     End Sub
+
+    Public Function obtenerUnidadDeMedidaPorId(ByRef id As Integer) As UnidadDeMedida
+
+        Dim consulta As String
+        consulta = "select um.idunidadmedida, um.nombre, um.descripcion, um.abreviacion, um.escala " & _
+        "from unidaddemedida um, tipomateriaprima tmp " & _
+        "where(um.idunidadmedida = tmp.idunidadmedida)" & _
+        "and tmp.idtipomateriaprima = " + id.ToString
+        Dim dsUnidadDeMedida As New DataSet
+        dsUnidadDeMedida = cargarDSUnidadDeMedida(consulta, cnn)
+        Dim unidadDeMedida As New UnidadDeMedida
+        unidadDeMedida.Id = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("idunidadmedida")
+        unidadDeMedida.Nombre = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("nombre")
+        ' Descomentar y controlar valores nulos si se utiliza
+        'unidadDeMedida.Descripcion = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("descripcion")
+        'unidadDeMedida.Abreviacion = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("abreviacion")
+        'unidadDeMedida.Escala = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("escala")
+
+        Return unidadDeMedida
+
+    End Function
+
 End Class
