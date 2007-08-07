@@ -189,12 +189,15 @@ Public Class UnidadDeMedida
         Dim dsUnidadDeMedida As New DataSet
         dsUnidadDeMedida = cargarDSUnidadDeMedida(consulta, cnn)
         Dim unidadDeMedida As New UnidadDeMedida
-        unidadDeMedida.Id = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("idunidadmedida")
-        unidadDeMedida.Nombre = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("nombre")
-        ' Descomentar y controlar valores nulos si se utiliza
-        'unidadDeMedida.Descripcion = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("descripcion")
-        'unidadDeMedida.Abreviacion = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("abreviacion")
-        'unidadDeMedida.Escala = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("escala")
+        If dsUnidadDeMedida.Tables("unidaddemedida").Rows.Count <> 0 Then
+            unidadDeMedida.Id = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("idunidadmedida")
+            unidadDeMedida.Nombre = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("nombre")
+            ' Descomentar y controlar valores nulos si se utiliza
+            'unidadDeMedida.Descripcion = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("descripcion")
+            'unidadDeMedida.Abreviacion = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("abreviacion")
+            'unidadDeMedida.Escala = dsUnidadDeMedida.Tables("unidaddemedida").Rows(0).Item("escala")
+        End If
+
 
         Return unidadDeMedida
 
