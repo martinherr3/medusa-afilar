@@ -89,6 +89,12 @@ Public Class abmMaquinaFresa
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.UltraButton7 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraButton8 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraButton9 = New Infragistics.Win.Misc.UltraButton
+        Me.Label7 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
         Me.combo2 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
@@ -113,13 +119,9 @@ Public Class abmMaquinaFresa
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
-        Me.UltraButton7 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton8 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton9 = New Infragistics.Win.Misc.UltraButton
-        Me.Label7 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
+        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox1.SuspendLayout()
         CType(Me.combo2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.combo1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.text4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,8 +133,6 @@ Public Class abmMaquinaFresa
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
-        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -157,9 +157,64 @@ Public Class abmMaquinaFresa
         Me.UltraTabPageControl1.Controls.Add(Me.text5)
         Me.UltraTabPageControl1.Controls.Add(Me.Label2)
         Me.UltraTabPageControl1.Controls.Add(Me.Label1)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(644, 257)
+        '
+        'UltraGroupBox1
+        '
+        Me.UltraGroupBox1.BackColor = System.Drawing.SystemColors.Control
+        Me.UltraGroupBox1.Controls.Add(Me.UltraButton7)
+        Me.UltraGroupBox1.Controls.Add(Me.UltraButton6)
+        Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
+        Me.UltraGroupBox1.Controls.Add(Me.UltraButton9)
+        Me.UltraGroupBox1.Controls.Add(Me.Label7)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(48, 195)
+        Me.UltraGroupBox1.Name = "UltraGroupBox1"
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(224, 56)
+        Me.UltraGroupBox1.SupportThemes = False
+        Me.UltraGroupBox1.TabIndex = 3
+        Me.UltraGroupBox1.Text = "Navegabilidad"
+        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        '
+        'UltraButton7
+        '
+        Me.UltraButton7.Location = New System.Drawing.Point(176, 24)
+        Me.UltraButton7.Name = "UltraButton7"
+        Me.UltraButton7.Size = New System.Drawing.Size(40, 24)
+        Me.UltraButton7.TabIndex = 3
+        Me.UltraButton7.Text = ">"
+        '
+        'UltraButton6
+        '
+        Me.UltraButton6.Location = New System.Drawing.Point(136, 24)
+        Me.UltraButton6.Name = "UltraButton6"
+        Me.UltraButton6.Size = New System.Drawing.Size(40, 24)
+        Me.UltraButton6.TabIndex = 2
+        Me.UltraButton6.Text = ">>"
+        '
+        'UltraButton8
+        '
+        Me.UltraButton8.Location = New System.Drawing.Point(48, 24)
+        Me.UltraButton8.Name = "UltraButton8"
+        Me.UltraButton8.Size = New System.Drawing.Size(40, 24)
+        Me.UltraButton8.TabIndex = 1
+        Me.UltraButton8.Text = "<<"
+        '
+        'UltraButton9
+        '
+        Me.UltraButton9.Location = New System.Drawing.Point(8, 24)
+        Me.UltraButton9.Name = "UltraButton9"
+        Me.UltraButton9.Size = New System.Drawing.Size(40, 24)
+        Me.UltraButton9.TabIndex = 0
+        Me.UltraButton9.Text = "<"
+        '
+        'Label7
+        '
+        Me.Label7.Location = New System.Drawing.Point(95, 25)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(39, 24)
+        Me.Label7.TabIndex = 2
         '
         'Label8
         '
@@ -360,7 +415,7 @@ Public Class abmMaquinaFresa
         '
         Me.UltraTabPageControl2.Controls.Add(Me.UltraButton10)
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(644, 257)
         '
@@ -434,61 +489,6 @@ Public Class abmMaquinaFresa
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(644, 257)
         '
-        'UltraGroupBox1
-        '
-        Me.UltraGroupBox1.BackColor = System.Drawing.SystemColors.Control
-        Me.UltraGroupBox1.Controls.Add(Me.UltraButton7)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraButton6)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraButton9)
-        Me.UltraGroupBox1.Controls.Add(Me.Label7)
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(48, 195)
-        Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(224, 56)
-        Me.UltraGroupBox1.SupportThemes = False
-        Me.UltraGroupBox1.TabIndex = 3
-        Me.UltraGroupBox1.Text = "Navegabilidad"
-        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
-        '
-        'UltraButton7
-        '
-        Me.UltraButton7.Location = New System.Drawing.Point(176, 24)
-        Me.UltraButton7.Name = "UltraButton7"
-        Me.UltraButton7.Size = New System.Drawing.Size(40, 24)
-        Me.UltraButton7.TabIndex = 3
-        Me.UltraButton7.Text = ">"
-        '
-        'UltraButton6
-        '
-        Me.UltraButton6.Location = New System.Drawing.Point(136, 24)
-        Me.UltraButton6.Name = "UltraButton6"
-        Me.UltraButton6.Size = New System.Drawing.Size(40, 24)
-        Me.UltraButton6.TabIndex = 2
-        Me.UltraButton6.Text = ">>"
-        '
-        'UltraButton8
-        '
-        Me.UltraButton8.Location = New System.Drawing.Point(48, 24)
-        Me.UltraButton8.Name = "UltraButton8"
-        Me.UltraButton8.Size = New System.Drawing.Size(40, 24)
-        Me.UltraButton8.TabIndex = 1
-        Me.UltraButton8.Text = "<<"
-        '
-        'UltraButton9
-        '
-        Me.UltraButton9.Location = New System.Drawing.Point(8, 24)
-        Me.UltraButton9.Name = "UltraButton9"
-        Me.UltraButton9.Size = New System.Drawing.Size(40, 24)
-        Me.UltraButton9.TabIndex = 0
-        Me.UltraButton9.Text = "<"
-        '
-        'Label7
-        '
-        Me.Label7.Location = New System.Drawing.Point(95, 25)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(39, 24)
-        Me.Label7.TabIndex = 2
-        '
         'abmMaquinaFresa
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -501,6 +501,8 @@ Public Class abmMaquinaFresa
         Me.Text = "Gestión Máquina para fresa"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()
+        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox1.ResumeLayout(False)
         CType(Me.combo2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.combo1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.text4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -512,8 +514,6 @@ Public Class abmMaquinaFresa
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
-        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -666,23 +666,23 @@ Public Class abmMaquinaFresa
     End Sub
 
     Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton2.Click
-        text1.ReadOnly = False
-        text2.ReadOnly = False
-        text3.ReadOnly = False
-        text4.ReadOnly = False
-        text5.ReadOnly = False
-        combo1.ReadOnly = False
-        combo2.ReadOnly = False
+        text1.Enabled = False
+        text2.Enabled = False
+        text3.Enabled = False
+        text4.Enabled = False
+        text5.Enabled = False
+        combo1.Enabled = False
+        combo2.Enabled = False
 
-        text1.Focus()
+        'text1.Focus()
 
-        text1.BackColor() = System.Drawing.Color.LightCyan
-        text2.BackColor() = System.Drawing.Color.LightCyan
-        text3.BackColor() = System.Drawing.Color.LightCyan
-        text4.BackColor() = System.Drawing.Color.LightCyan
-        text5.BackColor() = System.Drawing.Color.LightCyan
-        combo1.BackColor() = System.Drawing.Color.LightCyan
-        combo2.BackColor() = System.Drawing.Color.LightCyan
+        'text1.BackColor() = System.Drawing.Color.LightCyan
+        'text2.BackColor() = System.Drawing.Color.LightCyan
+        'text3.BackColor() = System.Drawing.Color.LightCyan
+        'text4.BackColor() = System.Drawing.Color.LightCyan
+        'text5.BackColor() = System.Drawing.Color.LightCyan
+        'combo1.BackColor() = System.Drawing.Color.LightCyan
+        'combo2.BackColor() = System.Drawing.Color.LightCyan
 
     End Sub
 
@@ -729,22 +729,22 @@ Public Class abmMaquinaFresa
 
 
         'text1.ReadOnly = False          'seteo la propiedad de los text para que se pueda escribir
-        text2.ReadOnly = False
-        text3.ReadOnly = False
-        text4.ReadOnly = False
-        text5.ReadOnly = False
-        combo1.ReadOnly = False
-        combo2.ReadOnly = False
+        text2.Enabled = False
+        text3.Enabled = False
+        text4.Enabled = False
+        text5.Enabled = False
+        combo1.Enabled = False
+        combo2.Enabled = False
 
-        text2.Focus()
+        'text2.Focus()
 
-        'text1.BackColor() = System.Drawing.Color.LightCyan      'cambio color de los text
-        text2.BackColor() = System.Drawing.Color.LightCyan
-        text3.BackColor() = System.Drawing.Color.LightCyan
-        text4.BackColor() = System.Drawing.Color.LightCyan
-        text5.BackColor() = System.Drawing.Color.LightCyan
-        combo1.BackColor() = System.Drawing.Color.LightCyan
-        combo2.BackColor() = System.Drawing.Color.LightCyan
+        ''text1.BackColor() = System.Drawing.Color.LightCyan      'cambio color de los text
+        'text2.BackColor() = System.Drawing.Color.LightCyan
+        'text3.BackColor() = System.Drawing.Color.LightCyan
+        'text4.BackColor() = System.Drawing.Color.LightCyan
+        'text5.BackColor() = System.Drawing.Color.LightCyan
+        'combo1.BackColor() = System.Drawing.Color.LightCyan
+        'combo2.BackColor() = System.Drawing.Color.LightCyan
     End Sub
 
     Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
@@ -754,20 +754,20 @@ Public Class abmMaquinaFresa
         adaptador.Update(ds)
 
         'text1.ReadOnly = True
-        text2.ReadOnly = True
-        text3.ReadOnly = True
-        text4.ReadOnly = True
-        text5.ReadOnly = True
-        combo1.ReadOnly = True
-        combo2.ReadOnly = True
+        text2.Enabled = True
+        text3.Enabled = True
+        text4.Enabled = True
+        text5.Enabled = True
+        combo1.Enabled = True
+        combo2.Enabled = True
 
-        'text1.BackColor() = System.Drawing.Color.White      'cambio color de los text
-        text2.BackColor() = System.Drawing.Color.White
-        text3.BackColor() = System.Drawing.Color.White
-        text4.BackColor() = System.Drawing.Color.White
-        text5.BackColor() = System.Drawing.Color.White
-        combo1.BackColor() = System.Drawing.Color.White
-        combo2.BackColor() = System.Drawing.Color.White
+        ''text1.BackColor() = System.Drawing.Color.White      'cambio color de los text
+        'text2.BackColor() = System.Drawing.Color.White
+        'text3.BackColor() = System.Drawing.Color.White
+        'text4.BackColor() = System.Drawing.Color.White
+        'text5.BackColor() = System.Drawing.Color.White
+        'combo1.BackColor() = System.Drawing.Color.White
+        'combo2.BackColor() = System.Drawing.Color.White
     End Sub
 
     
@@ -784,5 +784,9 @@ Public Class abmMaquinaFresa
 
     Private Sub abmMaquinaFresa_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
         princ.barra.eliminarBoton()
+    End Sub
+
+    Private Sub UltraTabPageControl1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl1.Paint
+
     End Sub
 End Class

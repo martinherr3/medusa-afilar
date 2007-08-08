@@ -322,4 +322,6 @@ Public Class frmDesperfecto
     Private Sub UltraTextEditor1_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraTextEditor1.ValueChanged
         DataGrid1.DataSource = buscarDesperfecto(dsDesperfecto)
     End Sub
+
+   
 End Class
