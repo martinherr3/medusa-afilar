@@ -61,12 +61,12 @@ Partial Class frmDesperfecto
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.UltraTextEditor1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage2 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.UltraTextEditor1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.Label4 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.CalendarReparacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CalendarRotura, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,11 +76,11 @@ Partial Class frmDesperfecto
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
         Me.UltraTabPageControl2.SuspendLayout()
+        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
         Me.UltraTabSharedControlsPage1.SuspendLayout()
-        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -356,6 +356,23 @@ Partial Class frmDesperfecto
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(740, 258)
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(214, 23)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(40, 13)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "Causa:"
+        '
+        'UltraTextEditor1
+        '
+        Me.UltraTextEditor1.AutoSize = True
+        Me.UltraTextEditor1.Location = New System.Drawing.Point(260, 15)
+        Me.UltraTextEditor1.Name = "UltraTextEditor1"
+        Me.UltraTextEditor1.Size = New System.Drawing.Size(182, 21)
+        Me.UltraTextEditor1.TabIndex = 2
+        '
         'DataGrid1
         '
         Me.DataGrid1.AlternatingBackColor = System.Drawing.Color.Lavender
@@ -428,23 +445,6 @@ Partial Class frmDesperfecto
         Me.UltraTabSharedControlsPage2.Name = "UltraTabSharedControlsPage2"
         Me.UltraTabSharedControlsPage2.Size = New System.Drawing.Size(740, 233)
         '
-        'UltraTextEditor1
-        '
-        Me.UltraTextEditor1.AutoSize = True
-        Me.UltraTextEditor1.Location = New System.Drawing.Point(260, 15)
-        Me.UltraTextEditor1.Name = "UltraTextEditor1"
-        Me.UltraTextEditor1.Size = New System.Drawing.Size(182, 21)
-        Me.UltraTextEditor1.TabIndex = 2
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(214, 23)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(40, 13)
-        Me.Label4.TabIndex = 21
-        Me.Label4.Text = "Causa:"
-        '
         'frmDesperfecto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -464,11 +464,11 @@ Partial Class frmDesperfecto
         Me.UltraGroupBox1.ResumeLayout(False)
         Me.UltraTabPageControl2.ResumeLayout(False)
         Me.UltraTabPageControl2.PerformLayout()
+        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
         Me.UltraTabSharedControlsPage1.ResumeLayout(False)
-        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
