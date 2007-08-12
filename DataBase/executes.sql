@@ -1,3 +1,5 @@
+
+-- Select para generar los EXEC para cada tabla 
 SELECT 'EXEC sp_generate_inserts ' + 
 '[' + name + ']' + 
 ',@owner = ' + 
@@ -7,6 +9,8 @@ FROM sysobjects
 WHERE type = 'U' AND 
 OBJECTPROPERTY(id,'ismsshipped') = 0
 
+
+-- EXEC generados por la consulta de arriba
 EXEC sp_generate_inserts [estado],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [provincia],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [tornero],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
@@ -28,7 +32,6 @@ EXEC sp_generate_inserts [tipodesperfecto],@owner = [dbo],@ommit_images = 1, @di
 EXEC sp_generate_inserts [Pedido],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [fresaxmaquina],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [detalleordenservicio],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
-EXEC sp_generate_inserts [detalleordencompra],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [fresa],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [detallemprecibida],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [localidad],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
@@ -37,9 +40,11 @@ EXEC sp_generate_inserts [cliente],@owner = [dbo],@ommit_images = 1, @disable_co
 EXEC sp_generate_inserts [empleado],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [modelofresa],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [empresaxlocalidad],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
+EXEC sp_generate_inserts [detalleordencompra],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [operacion],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [MPxTP],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [parte],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
+EXEC sp_generate_inserts [app_param],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [maquina],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [formulario],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
 EXEC sp_generate_inserts [tipomateriaprima],@owner = [dbo],@ommit_images = 1, @disable_constraints = 1
