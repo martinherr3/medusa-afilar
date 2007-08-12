@@ -1,5 +1,7 @@
 
 Public Class registrarModeloFresa
+
+#Region "Declaraciones"
     Inherits System.Windows.Forms.Form
     Dim consulta As String
     Dim indice As Integer
@@ -7,11 +9,13 @@ Public Class registrarModeloFresa
     Dim item As New ListViewItem
     Dim ds As New DataSet
     Dim parte As New parte
-    Dim etapa As New etapaFabricacion
-    Dim fresa As New tipoFresa
-    Dim modelo As New modeloFresa
-    Dim adicional As New parteAdicional
+    Dim etapa As New EtapaFabricacion
+    Dim fresa As New TipoFresa
+    Dim modelo As New ModeloFresa
+    Dim adicional As New ParteAdicional
+    Dim operacion As New Operacion
     Dim ofd As New OpenFileDialog
+    Dim um As New UnidadDeMedida
     Dim i As Integer = 0
     Dim j As Integer = 1
     Dim bandera As Boolean = False
@@ -19,8 +23,7 @@ Public Class registrarModeloFresa
     Dim banderaAd2 As Boolean = False
     Dim banderaParte As Boolean = False
     Dim banderaFresa As Boolean = False
-
-
+#End Region
 
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -98,7 +101,7 @@ Public Class registrarModeloFresa
     Friend WithEvents Label41 As System.Windows.Forms.Label
     Friend WithEvents Label42 As System.Windows.Forms.Label
     Friend WithEvents Label43 As System.Windows.Forms.Label
-    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents lblUnidadDeMedida As System.Windows.Forms.Label
     Friend WithEvents UltraGroupBox11 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents UltraButton15 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents ColumnHeader21 As System.Windows.Forms.ColumnHeader
@@ -123,7 +126,7 @@ Public Class registrarModeloFresa
     Friend WithEvents ColumnHeader30 As System.Windows.Forms.ColumnHeader
     Friend WithEvents UltraGroupBox14 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents Label51 As System.Windows.Forms.Label
-    Friend WithEvents UltraButton18 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnCalcularCosto As Infragistics.Win.Misc.UltraButton
     Friend WithEvents Label52 As System.Windows.Forms.Label
     Friend WithEvents Label53 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -184,7 +187,7 @@ Public Class registrarModeloFresa
     Friend WithEvents textImagenTF As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents cantidad As System.Windows.Forms.NumericUpDown
     Friend WithEvents UltraGroupBox4 As Infragistics.Win.Misc.UltraGroupBox
-    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents lblUmParteAdicional As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
@@ -251,7 +254,7 @@ Public Class registrarModeloFresa
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab3 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(registrarModeloFresa))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(registrarModeloFresa))
         Me.tab1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.BotonParte = New Infragistics.Win.Misc.UltraButton
@@ -349,7 +352,7 @@ Public Class registrarModeloFresa
         Me.comboMatPrim = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.Label42 = New System.Windows.Forms.Label
         Me.Label43 = New System.Windows.Forms.Label
-        Me.Label44 = New System.Windows.Forms.Label
+        Me.lblUnidadDeMedida = New System.Windows.Forms.Label
         Me.TabPage3 = New System.Windows.Forms.TabPage
         Me.UltraButton11 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton21 = New Infragistics.Win.Misc.UltraButton
@@ -357,7 +360,7 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox14 = New Infragistics.Win.Misc.UltraGroupBox
         Me.textPrecioTF = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label51 = New System.Windows.Forms.Label
-        Me.UltraButton18 = New Infragistics.Win.Misc.UltraButton
+        Me.btnCalcularCosto = New Infragistics.Win.Misc.UltraButton
         Me.Label52 = New System.Windows.Forms.Label
         Me.textCostoTF = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label53 = New System.Windows.Forms.Label
@@ -397,7 +400,7 @@ Public Class registrarModeloFresa
         Me.Label17 = New System.Windows.Forms.Label
         Me.UltraGroupBox4 = New Infragistics.Win.Misc.UltraGroupBox
         Me.comboMPAdicional = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.Label15 = New System.Windows.Forms.Label
+        Me.lblUmParteAdicional = New System.Windows.Forms.Label
         Me.textCantMPAdicional = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label18 = New System.Windows.Forms.Label
         Me.Label19 = New System.Windows.Forms.Label
@@ -433,6 +436,7 @@ Public Class registrarModeloFresa
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         CType(Me.textPlanoTF, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imagen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textImagenTF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox9.SuspendLayout()
@@ -469,6 +473,7 @@ Public Class registrarModeloFresa
         CType(Me.textIDEtapa, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboOperacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
+        CType(Me.imagen2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox5.SuspendLayout()
         CType(Me.textImagenA, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -567,6 +572,7 @@ Public Class registrarModeloFresa
         Me.lista2.Name = "lista2"
         Me.lista2.Size = New System.Drawing.Size(320, 120)
         Me.lista2.TabIndex = 3
+        Me.lista2.UseCompatibleStateImageBehavior = False
         Me.lista2.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader10
@@ -604,6 +610,7 @@ Public Class registrarModeloFresa
         Me.lista1.Name = "lista1"
         Me.lista1.Size = New System.Drawing.Size(344, 120)
         Me.lista1.TabIndex = 0
+        Me.lista1.UseCompatibleStateImageBehavior = False
         Me.lista1.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader1
@@ -670,7 +677,7 @@ Public Class registrarModeloFresa
         Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Location = New System.Drawing.Point(571, 135)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(98, 16)
+        Me.Label11.Size = New System.Drawing.Size(93, 13)
         Me.Label11.TabIndex = 44
         Me.Label11.Text = "(modelo completo)"
         '
@@ -681,7 +688,7 @@ Public Class registrarModeloFresa
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(520, 136)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(49, 16)
+        Me.Label10.Size = New System.Drawing.Size(53, 13)
         Me.Label10.TabIndex = 43
         Me.Label10.Text = "PRECIO"
         '
@@ -689,6 +696,7 @@ Public Class registrarModeloFresa
         '
         Appearance3.ForeColor = System.Drawing.Color.Red
         Me.textPrecioModelo.Appearance = Appearance3
+        Me.textPrecioModelo.AutoSize = True
         Me.textPrecioModelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.textPrecioModelo.Location = New System.Drawing.Point(520, 152)
         Me.textPrecioModelo.Name = "textPrecioModelo"
@@ -701,12 +709,13 @@ Public Class registrarModeloFresa
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Location = New System.Drawing.Point(50, 128)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(63, 16)
+        Me.Label8.Size = New System.Drawing.Size(63, 13)
         Me.Label8.TabIndex = 41
         Me.Label8.Text = "Descripción"
         '
         'textDescripcion
         '
+        Me.textDescripcion.AutoSize = True
         Me.textDescripcion.Location = New System.Drawing.Point(112, 128)
         Me.textDescripcion.Multiline = True
         Me.textDescripcion.Name = "textDescripcion"
@@ -715,6 +724,7 @@ Public Class registrarModeloFresa
         '
         'comboGrupoModelo
         '
+        Me.comboGrupoModelo.AutoSize = True
         ValueListItem1.DataValue = "Fresas rectas"
         ValueListItem2.DataValue = "Fresas con radios"
         ValueListItem3.DataValue = "Fresas para ensambles"
@@ -738,6 +748,7 @@ Public Class registrarModeloFresa
         '
         'comboTipoModelo
         '
+        Me.comboTipoModelo.AutoSize = True
         ValueListItem9.DataValue = "Juego de fresas"
         ValueListItem10.DataValue = "Fresa individual"
         Me.comboTipoModelo.Items.Add(ValueListItem9)
@@ -749,6 +760,7 @@ Public Class registrarModeloFresa
         '
         'textVA
         '
+        Me.textVA.AutoSize = True
         Me.textVA.Location = New System.Drawing.Point(520, 104)
         Me.textVA.Name = "textVA"
         Me.textVA.Size = New System.Drawing.Size(104, 21)
@@ -756,6 +768,7 @@ Public Class registrarModeloFresa
         '
         'comboTA
         '
+        Me.comboTA.AutoSize = True
         Me.comboTA.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         Me.comboTA.Location = New System.Drawing.Point(520, 80)
         Me.comboTA.Name = "comboTA"
@@ -764,6 +777,7 @@ Public Class registrarModeloFresa
         '
         'comboMA
         '
+        Me.comboMA.AutoSize = True
         Me.comboMA.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         Me.comboMA.Location = New System.Drawing.Point(520, 56)
         Me.comboMA.Name = "comboMA"
@@ -772,6 +786,7 @@ Public Class registrarModeloFresa
         '
         'comboMT
         '
+        Me.comboMT.AutoSize = True
         Me.comboMT.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         Me.comboMT.Location = New System.Drawing.Point(520, 32)
         Me.comboMT.Name = "comboMT"
@@ -780,6 +795,7 @@ Public Class registrarModeloFresa
         '
         'textID
         '
+        Me.textID.AutoSize = True
         Me.textID.Location = New System.Drawing.Point(112, 32)
         Me.textID.Name = "textID"
         Me.textID.ReadOnly = True
@@ -788,6 +804,7 @@ Public Class registrarModeloFresa
         '
         'textNom
         '
+        Me.textNom.AutoSize = True
         Me.textNom.Location = New System.Drawing.Point(112, 56)
         Me.textNom.Name = "textNom"
         Me.textNom.Size = New System.Drawing.Size(224, 21)
@@ -799,7 +816,7 @@ Public Class registrarModeloFresa
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Location = New System.Drawing.Point(68, 60)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 16)
+        Me.Label2.Size = New System.Drawing.Size(44, 13)
         Me.Label2.TabIndex = 20
         Me.Label2.Text = "Nombre"
         '
@@ -809,7 +826,7 @@ Public Class registrarModeloFresa
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Location = New System.Drawing.Point(94, 36)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(15, 16)
+        Me.Label1.Size = New System.Drawing.Size(18, 13)
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "ID"
         '
@@ -819,7 +836,7 @@ Public Class registrarModeloFresa
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Location = New System.Drawing.Point(48, 83)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(67, 16)
+        Me.Label6.Size = New System.Drawing.Size(65, 13)
         Me.Label6.TabIndex = 37
         Me.Label6.Text = "Tipo modelo"
         '
@@ -829,7 +846,7 @@ Public Class registrarModeloFresa
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Location = New System.Drawing.Point(40, 106)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(76, 16)
+        Me.Label7.Size = New System.Drawing.Size(73, 13)
         Me.Label7.TabIndex = 39
         Me.Label7.Text = "Grupo modelo"
         '
@@ -839,7 +856,7 @@ Public Class registrarModeloFresa
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Location = New System.Drawing.Point(413, 107)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(109, 16)
+        Me.Label3.Size = New System.Drawing.Size(108, 13)
         Me.Label3.TabIndex = 35
         Me.Label3.Text = "Velocidad de avance"
         '
@@ -849,7 +866,7 @@ Public Class registrarModeloFresa
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Location = New System.Drawing.Point(431, 36)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(95, 16)
+        Me.Label9.Size = New System.Drawing.Size(91, 13)
         Me.Label9.TabIndex = 32
         Me.Label9.Text = "Material a trabajar"
         '
@@ -859,7 +876,7 @@ Public Class registrarModeloFresa
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Location = New System.Drawing.Point(433, 61)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(88, 16)
+        Me.Label5.Size = New System.Drawing.Size(88, 13)
         Me.Label5.TabIndex = 33
         Me.Label5.Text = "Modo de avance"
         '
@@ -869,7 +886,7 @@ Public Class registrarModeloFresa
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Location = New System.Drawing.Point(433, 84)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(88, 16)
+        Me.Label4.Size = New System.Drawing.Size(88, 13)
         Me.Label4.TabIndex = 34
         Me.Label4.Text = "Tipo de acabado"
         '
@@ -885,7 +902,7 @@ Public Class registrarModeloFresa
         '
         Me.UltraTabPageControl1.Controls.Add(Me.TabControl1)
         Me.UltraTabPageControl1.Enabled = False
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 425)
         '
@@ -904,7 +921,7 @@ Public Class registrarModeloFresa
         '
         'TabPage2
         '
-        Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.TabPage2.Controls.Add(Me.UltraButton6)
         Me.TabPage2.Controls.Add(Me.textPlanoTF)
         Me.TabPage2.Controls.Add(Me.UltraButton5)
@@ -931,6 +948,7 @@ Public Class registrarModeloFresa
         '
         'textPlanoTF
         '
+        Me.textPlanoTF.AutoSize = True
         Me.textPlanoTF.Location = New System.Drawing.Point(75, 263)
         Me.textPlanoTF.Name = "textPlanoTF"
         Me.textPlanoTF.Size = New System.Drawing.Size(228, 21)
@@ -971,6 +989,7 @@ Public Class registrarModeloFresa
         '
         'textImagenTF
         '
+        Me.textImagenTF.AutoSize = True
         Me.textImagenTF.Location = New System.Drawing.Point(75, 235)
         Me.textImagenTF.Name = "textImagenTF"
         Me.textImagenTF.Size = New System.Drawing.Size(228, 21)
@@ -1017,6 +1036,7 @@ Public Class registrarModeloFresa
         '
         'comboPT
         '
+        Me.comboPT.AutoSize = True
         ValueListItem11.DataValue = "De arriba"
         ValueListItem12.DataValue = "De abajo"
         ValueListItem13.DataValue = "Mitad"
@@ -1032,6 +1052,7 @@ Public Class registrarModeloFresa
         '
         'textCarFresa
         '
+        Me.textCarFresa.AutoSize = True
         Me.textCarFresa.Location = New System.Drawing.Point(416, 78)
         Me.textCarFresa.Multiline = True
         Me.textCarFresa.Name = "textCarFresa"
@@ -1044,7 +1065,7 @@ Public Class registrarModeloFresa
         Me.Label29.BackColor = System.Drawing.Color.Transparent
         Me.Label29.Location = New System.Drawing.Point(232, 131)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(50, 16)
+        Me.Label29.Size = New System.Drawing.Size(50, 13)
         Me.Label29.TabIndex = 26
         Me.Label29.Text = "unidades"
         '
@@ -1054,7 +1075,7 @@ Public Class registrarModeloFresa
         Me.Label30.BackColor = System.Drawing.Color.Transparent
         Me.Label30.Location = New System.Drawing.Point(232, 106)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(26, 16)
+        Me.Label30.Size = New System.Drawing.Size(26, 13)
         Me.Label30.TabIndex = 25
         Me.Label30.Text = "mm."
         '
@@ -1064,12 +1085,13 @@ Public Class registrarModeloFresa
         Me.Label31.BackColor = System.Drawing.Color.Transparent
         Me.Label31.Location = New System.Drawing.Point(232, 83)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(26, 16)
+        Me.Label31.Size = New System.Drawing.Size(26, 13)
         Me.Label31.TabIndex = 24
         Me.Label31.Text = "mm."
         '
         'textIDFresa
         '
+        Me.textIDFresa.AutoSize = True
         Me.textIDFresa.Location = New System.Drawing.Point(128, 32)
         Me.textIDFresa.Name = "textIDFresa"
         Me.textIDFresa.Size = New System.Drawing.Size(104, 21)
@@ -1077,6 +1099,7 @@ Public Class registrarModeloFresa
         '
         'textCantDien
         '
+        Me.textCantDien.AutoSize = True
         Me.textCantDien.Location = New System.Drawing.Point(128, 128)
         Me.textCantDien.Name = "textCantDien"
         Me.textCantDien.Size = New System.Drawing.Size(104, 21)
@@ -1084,6 +1107,7 @@ Public Class registrarModeloFresa
         '
         'textDiamAgu
         '
+        Me.textDiamAgu.AutoSize = True
         Me.textDiamAgu.Location = New System.Drawing.Point(128, 104)
         Me.textDiamAgu.Name = "textDiamAgu"
         Me.textDiamAgu.Size = New System.Drawing.Size(104, 21)
@@ -1091,6 +1115,7 @@ Public Class registrarModeloFresa
         '
         'textDiamExt
         '
+        Me.textDiamExt.AutoSize = True
         Me.textDiamExt.Location = New System.Drawing.Point(128, 80)
         Me.textDiamExt.Name = "textDiamExt"
         Me.textDiamExt.Size = New System.Drawing.Size(104, 21)
@@ -1098,6 +1123,7 @@ Public Class registrarModeloFresa
         '
         'textNombreFresa
         '
+        Me.textNombreFresa.AutoSize = True
         Me.textNombreFresa.Location = New System.Drawing.Point(128, 56)
         Me.textNombreFresa.Name = "textNombreFresa"
         Me.textNombreFresa.Size = New System.Drawing.Size(224, 21)
@@ -1109,7 +1135,7 @@ Public Class registrarModeloFresa
         Me.Label32.BackColor = System.Drawing.Color.Transparent
         Me.Label32.Location = New System.Drawing.Point(43, 108)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(91, 16)
+        Me.Label32.Size = New System.Drawing.Size(87, 13)
         Me.Label32.TabIndex = 22
         Me.Label32.Text = "Diametro agujero"
         '
@@ -1119,7 +1145,7 @@ Public Class registrarModeloFresa
         Me.Label33.BackColor = System.Drawing.Color.Transparent
         Me.Label33.Location = New System.Drawing.Point(44, 84)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(91, 16)
+        Me.Label33.Size = New System.Drawing.Size(86, 13)
         Me.Label33.TabIndex = 21
         Me.Label33.Text = "Diametro exterior"
         '
@@ -1129,7 +1155,7 @@ Public Class registrarModeloFresa
         Me.Label34.BackColor = System.Drawing.Color.Transparent
         Me.Label34.Location = New System.Drawing.Point(86, 60)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(44, 16)
+        Me.Label34.Size = New System.Drawing.Size(44, 13)
         Me.Label34.TabIndex = 20
         Me.Label34.Text = "Nombre"
         '
@@ -1139,7 +1165,7 @@ Public Class registrarModeloFresa
         Me.Label35.BackColor = System.Drawing.Color.Transparent
         Me.Label35.Location = New System.Drawing.Point(29, 132)
         Me.Label35.Name = "Label35"
-        Me.Label35.Size = New System.Drawing.Size(105, 16)
+        Me.Label35.Size = New System.Drawing.Size(101, 13)
         Me.Label35.TabIndex = 23
         Me.Label35.Text = "Cantidad de dientes"
         '
@@ -1149,7 +1175,7 @@ Public Class registrarModeloFresa
         Me.Label36.BackColor = System.Drawing.Color.Transparent
         Me.Label36.Location = New System.Drawing.Point(112, 37)
         Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(15, 16)
+        Me.Label36.Size = New System.Drawing.Size(18, 13)
         Me.Label36.TabIndex = 19
         Me.Label36.Text = "ID"
         '
@@ -1159,6 +1185,7 @@ Public Class registrarModeloFresa
         Me.Label37.BackColor = System.Drawing.Color.Transparent
         Me.Label37.Location = New System.Drawing.Point(416, 35)
         Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(97, 13)
         Me.Label37.TabIndex = 29
         Me.Label37.Text = "Posición de trabajo"
         '
@@ -1168,7 +1195,7 @@ Public Class registrarModeloFresa
         Me.Label38.BackColor = System.Drawing.Color.Transparent
         Me.Label38.Location = New System.Drawing.Point(415, 62)
         Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(139, 16)
+        Me.Label38.Size = New System.Drawing.Size(132, 13)
         Me.Label38.TabIndex = 30
         Me.Label38.Text = "Caracteristicas adicionales"
         '
@@ -1178,7 +1205,7 @@ Public Class registrarModeloFresa
         Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Location = New System.Drawing.Point(17, 156)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(117, 16)
+        Me.Label12.Size = New System.Drawing.Size(112, 13)
         Me.Label12.TabIndex = 21
         Me.Label12.Text = "Cantidad en el modelo"
         '
@@ -1188,7 +1215,7 @@ Public Class registrarModeloFresa
         Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Location = New System.Drawing.Point(34, 238)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(42, 16)
+        Me.Label13.Size = New System.Drawing.Size(42, 13)
         Me.Label13.TabIndex = 22
         Me.Label13.Text = "Imagen"
         '
@@ -1198,13 +1225,13 @@ Public Class registrarModeloFresa
         Me.Label14.BackColor = System.Drawing.Color.Transparent
         Me.Label14.Location = New System.Drawing.Point(41, 266)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(33, 16)
+        Me.Label14.Size = New System.Drawing.Size(34, 13)
         Me.Label14.TabIndex = 28
         Me.Label14.Text = "Plano"
         '
         'TabPage1
         '
-        Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.TabPage1.Controls.Add(Me.UltraButton19)
         Me.TabPage1.Controls.Add(Me.UltraButton20)
         Me.TabPage1.Controls.Add(Me.UltraGroupBox11)
@@ -1263,6 +1290,7 @@ Public Class registrarModeloFresa
         Me.lista3.Name = "lista3"
         Me.lista3.Size = New System.Drawing.Size(488, 104)
         Me.lista3.TabIndex = 0
+        Me.lista3.UseCompatibleStateImageBehavior = False
         Me.lista3.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader21
@@ -1304,7 +1332,7 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox10.Controls.Add(Me.comboMatPrim)
         Me.UltraGroupBox10.Controls.Add(Me.Label42)
         Me.UltraGroupBox10.Controls.Add(Me.Label43)
-        Me.UltraGroupBox10.Controls.Add(Me.Label44)
+        Me.UltraGroupBox10.Controls.Add(Me.lblUnidadDeMedida)
         Me.UltraGroupBox10.Location = New System.Drawing.Point(52, 8)
         Me.UltraGroupBox10.Name = "UltraGroupBox10"
         Me.UltraGroupBox10.Size = New System.Drawing.Size(704, 192)
@@ -1323,6 +1351,7 @@ Public Class registrarModeloFresa
         '
         'textCantidad
         '
+        Me.textCantidad.AutoSize = True
         Me.textCantidad.Location = New System.Drawing.Point(392, 56)
         Me.textCantidad.Name = "textCantidad"
         Me.textCantidad.Size = New System.Drawing.Size(112, 21)
@@ -1330,6 +1359,7 @@ Public Class registrarModeloFresa
         '
         'textIDParte
         '
+        Me.textIDParte.AutoSize = True
         Me.textIDParte.Location = New System.Drawing.Point(72, 32)
         Me.textIDParte.Name = "textIDParte"
         Me.textIDParte.Size = New System.Drawing.Size(104, 21)
@@ -1341,12 +1371,13 @@ Public Class registrarModeloFresa
         Me.Label39.BackColor = System.Drawing.Color.Transparent
         Me.Label39.Location = New System.Drawing.Point(29, 60)
         Me.Label39.Name = "Label39"
-        Me.Label39.Size = New System.Drawing.Size(44, 16)
+        Me.Label39.Size = New System.Drawing.Size(44, 13)
         Me.Label39.TabIndex = 19
         Me.Label39.Text = "Nombre"
         '
         'comboNParte
         '
+        Me.comboNParte.AutoSize = True
         Me.comboNParte.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         Me.comboNParte.Location = New System.Drawing.Point(72, 56)
         Me.comboNParte.Name = "comboNParte"
@@ -1359,12 +1390,13 @@ Public Class registrarModeloFresa
         Me.Label40.BackColor = System.Drawing.Color.Transparent
         Me.Label40.Location = New System.Drawing.Point(29, 36)
         Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(44, 16)
+        Me.Label40.Size = New System.Drawing.Size(45, 13)
         Me.Label40.TabIndex = 17
         Me.Label40.Text = "ID parte"
         '
         'textDescParte
         '
+        Me.textDescParte.AutoSize = True
         Me.textDescParte.Location = New System.Drawing.Point(72, 104)
         Me.textDescParte.Multiline = True
         Me.textDescParte.Name = "textDescParte"
@@ -1377,12 +1409,13 @@ Public Class registrarModeloFresa
         Me.Label41.BackColor = System.Drawing.Color.Transparent
         Me.Label41.Location = New System.Drawing.Point(72, 88)
         Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(63, 16)
+        Me.Label41.Size = New System.Drawing.Size(63, 13)
         Me.Label41.TabIndex = 24
         Me.Label41.Text = "Descripción"
         '
         'comboMatPrim
         '
+        Me.comboMatPrim.AutoSize = True
         Me.comboMatPrim.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         Me.comboMatPrim.Location = New System.Drawing.Point(392, 32)
         Me.comboMatPrim.Name = "comboMatPrim"
@@ -1395,7 +1428,7 @@ Public Class registrarModeloFresa
         Me.Label42.BackColor = System.Drawing.Color.Transparent
         Me.Label42.Location = New System.Drawing.Point(344, 61)
         Me.Label42.Name = "Label42"
-        Me.Label42.Size = New System.Drawing.Size(50, 16)
+        Me.Label42.Size = New System.Drawing.Size(49, 13)
         Me.Label42.TabIndex = 21
         Me.Label42.Text = "Cantidad"
         '
@@ -1405,23 +1438,23 @@ Public Class registrarModeloFresa
         Me.Label43.BackColor = System.Drawing.Color.Transparent
         Me.Label43.Location = New System.Drawing.Point(323, 37)
         Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(73, 16)
+        Me.Label43.Size = New System.Drawing.Size(70, 13)
         Me.Label43.TabIndex = 20
         Me.Label43.Text = "Materia prima"
         '
-        'Label44
+        'lblUnidadDeMedida
         '
-        Me.Label44.AutoSize = True
-        Me.Label44.BackColor = System.Drawing.Color.Transparent
-        Me.Label44.Location = New System.Drawing.Point(508, 59)
-        Me.Label44.Name = "Label44"
-        Me.Label44.Size = New System.Drawing.Size(42, 16)
-        Me.Label44.TabIndex = 23
-        Me.Label44.Text = "gramos"
+        Me.lblUnidadDeMedida.AutoSize = True
+        Me.lblUnidadDeMedida.BackColor = System.Drawing.Color.Transparent
+        Me.lblUnidadDeMedida.Location = New System.Drawing.Point(506, 60)
+        Me.lblUnidadDeMedida.Name = "lblUnidadDeMedida"
+        Me.lblUnidadDeMedida.Size = New System.Drawing.Size(41, 13)
+        Me.lblUnidadDeMedida.TabIndex = 23
+        Me.lblUnidadDeMedida.Text = "gramos"
         '
         'TabPage3
         '
-        Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.TabPage3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.TabPage3.Controls.Add(Me.UltraButton11)
         Me.TabPage3.Controls.Add(Me.UltraButton21)
         Me.TabPage3.Controls.Add(Me.UltraButton22)
@@ -1464,7 +1497,7 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox14.ContentAreaAppearance = Appearance7
         Me.UltraGroupBox14.Controls.Add(Me.textPrecioTF)
         Me.UltraGroupBox14.Controls.Add(Me.Label51)
-        Me.UltraGroupBox14.Controls.Add(Me.UltraButton18)
+        Me.UltraGroupBox14.Controls.Add(Me.btnCalcularCosto)
         Me.UltraGroupBox14.Controls.Add(Me.Label52)
         Me.UltraGroupBox14.Controls.Add(Me.textCostoTF)
         Me.UltraGroupBox14.Controls.Add(Me.Label53)
@@ -1478,8 +1511,9 @@ Public Class registrarModeloFresa
         '
         'textPrecioTF
         '
-        Appearance8.ForeColor = System.Drawing.Color.FromArgb(CType(192, Byte), CType(0, Byte), CType(0, Byte))
+        Appearance8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.textPrecioTF.Appearance = Appearance8
+        Me.textPrecioTF.AutoSize = True
         Me.textPrecioTF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.textPrecioTF.Location = New System.Drawing.Point(40, 136)
         Me.textPrecioTF.Name = "textPrecioTF"
@@ -1490,19 +1524,19 @@ Public Class registrarModeloFresa
         '
         Me.Label51.AutoSize = True
         Me.Label51.BackColor = System.Drawing.Color.Transparent
-        Me.Label51.Location = New System.Drawing.Point(7, 87)
+        Me.Label51.Location = New System.Drawing.Point(2, 87)
         Me.Label51.Name = "Label51"
-        Me.Label51.Size = New System.Drawing.Size(34, 16)
+        Me.Label51.Size = New System.Drawing.Size(49, 13)
         Me.Label51.TabIndex = 6
-        Me.Label51.Text = "Costo"
+        Me.Label51.Text = "Costo ($)"
         '
-        'UltraButton18
+        'btnCalcularCosto
         '
-        Me.UltraButton18.Location = New System.Drawing.Point(136, 82)
-        Me.UltraButton18.Name = "UltraButton18"
-        Me.UltraButton18.Size = New System.Drawing.Size(64, 24)
-        Me.UltraButton18.TabIndex = 5
-        Me.UltraButton18.Text = "Calcular"
+        Me.btnCalcularCosto.Location = New System.Drawing.Point(143, 82)
+        Me.btnCalcularCosto.Name = "btnCalcularCosto"
+        Me.btnCalcularCosto.Size = New System.Drawing.Size(64, 24)
+        Me.btnCalcularCosto.TabIndex = 5
+        Me.btnCalcularCosto.Text = "Calcular"
         '
         'Label52
         '
@@ -1511,15 +1545,16 @@ Public Class registrarModeloFresa
         Me.Label52.Name = "Label52"
         Me.Label52.Size = New System.Drawing.Size(152, 56)
         Me.Label52.TabIndex = 4
-        Me.Label52.Text = "El costo incluye: costos de materia prima para cada parte y costos de fabricación" & _
-        " para cada etapa."
+        Me.Label52.Text = "El costo estimado incluye: costos de materia prima para cada parte y costos de fa" & _
+            "bricación para cada etapa."
         '
         'textCostoTF
         '
-        Appearance9.ForeColor = System.Drawing.Color.FromArgb(CType(192, Byte), CType(0, Byte), CType(0, Byte))
+        Appearance9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.textCostoTF.Appearance = Appearance9
+        Me.textCostoTF.AutoSize = True
         Me.textCostoTF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.textCostoTF.Location = New System.Drawing.Point(40, 83)
+        Me.textCostoTF.Location = New System.Drawing.Point(52, 83)
         Me.textCostoTF.Name = "textCostoTF"
         Me.textCostoTF.Size = New System.Drawing.Size(88, 23)
         Me.textCostoTF.TabIndex = 3
@@ -1531,7 +1566,7 @@ Public Class registrarModeloFresa
         Me.Label53.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label53.Location = New System.Drawing.Point(37, 118)
         Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(93, 22)
+        Me.Label53.Size = New System.Drawing.Size(105, 20)
         Me.Label53.TabIndex = 8
         Me.Label53.Text = "Precio final"
         '
@@ -1565,6 +1600,7 @@ Public Class registrarModeloFresa
         Me.lista4.Name = "lista4"
         Me.lista4.Size = New System.Drawing.Size(400, 120)
         Me.lista4.TabIndex = 0
+        Me.lista4.UseCompatibleStateImageBehavior = False
         Me.lista4.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader26
@@ -1575,17 +1611,17 @@ Public Class registrarModeloFresa
         'ColumnHeader27
         '
         Me.ColumnHeader27.Text = "ID operación"
-        Me.ColumnHeader27.Width = 77
+        Me.ColumnHeader27.Width = 76
         '
         'ColumnHeader28
         '
         Me.ColumnHeader28.Text = "Operación"
-        Me.ColumnHeader28.Width = 128
+        Me.ColumnHeader28.Width = 124
         '
         'ColumnHeader29
         '
         Me.ColumnHeader29.Text = "Órden"
-        Me.ColumnHeader29.Width = 41
+        Me.ColumnHeader29.Width = 45
         '
         'ColumnHeader30
         '
@@ -1622,7 +1658,7 @@ Public Class registrarModeloFresa
         Me.Label45.BackColor = System.Drawing.Color.Transparent
         Me.Label45.Location = New System.Drawing.Point(544, 60)
         Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(44, 16)
+        Me.Label45.Size = New System.Drawing.Size(43, 13)
         Me.Label45.TabIndex = 10
         Me.Label45.Text = "minutos"
         '
@@ -1644,6 +1680,7 @@ Public Class registrarModeloFresa
         '
         'textTiempo
         '
+        Me.textTiempo.AutoSize = True
         Me.textTiempo.Location = New System.Drawing.Point(440, 56)
         Me.textTiempo.Name = "textTiempo"
         Me.textTiempo.Size = New System.Drawing.Size(104, 21)
@@ -1655,12 +1692,13 @@ Public Class registrarModeloFresa
         Me.Label46.BackColor = System.Drawing.Color.Transparent
         Me.Label46.Location = New System.Drawing.Point(80, 88)
         Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(45, 16)
+        Me.Label46.Size = New System.Drawing.Size(45, 13)
         Me.Label46.TabIndex = 8
         Me.Label46.Text = "Detalles"
         '
         'textDetalles
         '
+        Me.textDetalles.AutoSize = True
         Me.textDetalles.Location = New System.Drawing.Point(80, 104)
         Me.textDetalles.Multiline = True
         Me.textDetalles.Name = "textDetalles"
@@ -1673,7 +1711,7 @@ Public Class registrarModeloFresa
         Me.Label47.BackColor = System.Drawing.Color.Transparent
         Me.Label47.Location = New System.Drawing.Point(354, 60)
         Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(90, 16)
+        Me.Label47.Size = New System.Drawing.Size(87, 13)
         Me.Label47.TabIndex = 6
         Me.Label47.Text = "Tiempo adicional"
         '
@@ -1683,7 +1721,7 @@ Public Class registrarModeloFresa
         Me.Label48.BackColor = System.Drawing.Color.Transparent
         Me.Label48.Location = New System.Drawing.Point(404, 35)
         Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(36, 16)
+        Me.Label48.Size = New System.Drawing.Size(36, 13)
         Me.Label48.TabIndex = 4
         Me.Label48.Text = "Orden"
         '
@@ -1693,12 +1731,13 @@ Public Class registrarModeloFresa
         Me.Label49.BackColor = System.Drawing.Color.Transparent
         Me.Label49.Location = New System.Drawing.Point(33, 32)
         Me.Label49.Name = "Label49"
-        Me.Label49.Size = New System.Drawing.Size(47, 16)
+        Me.Label49.Size = New System.Drawing.Size(48, 13)
         Me.Label49.TabIndex = 3
         Me.Label49.Text = "ID etapa"
         '
         'textIDEtapa
         '
+        Me.textIDEtapa.AutoSize = True
         Me.textIDEtapa.Location = New System.Drawing.Point(80, 29)
         Me.textIDEtapa.Name = "textIDEtapa"
         Me.textIDEtapa.Size = New System.Drawing.Size(104, 21)
@@ -1706,6 +1745,7 @@ Public Class registrarModeloFresa
         '
         'comboOperacion
         '
+        Me.comboOperacion.AutoSize = True
         Me.comboOperacion.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         Me.comboOperacion.Location = New System.Drawing.Point(80, 56)
         Me.comboOperacion.Name = "comboOperacion"
@@ -1718,7 +1758,7 @@ Public Class registrarModeloFresa
         Me.Label50.BackColor = System.Drawing.Color.Transparent
         Me.Label50.Location = New System.Drawing.Point(25, 58)
         Me.Label50.Name = "Label50"
-        Me.Label50.Size = New System.Drawing.Size(57, 16)
+        Me.Label50.Size = New System.Drawing.Size(56, 13)
         Me.Label50.TabIndex = 1
         Me.Label50.Text = "Operación"
         '
@@ -1731,7 +1771,7 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl2.Enabled = False
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 425)
         '
@@ -1753,7 +1793,7 @@ Public Class registrarModeloFresa
         '
         'imagen2
         '
-        Me.imagen2.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.imagen2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.imagen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.imagen2.Location = New System.Drawing.Point(464, 176)
         Me.imagen2.Name = "imagen2"
@@ -1799,6 +1839,7 @@ Public Class registrarModeloFresa
         '
         'textImagenA
         '
+        Me.textImagenA.AutoSize = True
         Me.textImagenA.Location = New System.Drawing.Point(56, 80)
         Me.textImagenA.Name = "textImagenA"
         Me.textImagenA.Size = New System.Drawing.Size(264, 21)
@@ -1806,6 +1847,7 @@ Public Class registrarModeloFresa
         '
         'textPlanoA
         '
+        Me.textPlanoA.AutoSize = True
         Me.textPlanoA.Location = New System.Drawing.Point(56, 56)
         Me.textPlanoA.Name = "textPlanoA"
         Me.textPlanoA.Size = New System.Drawing.Size(264, 21)
@@ -1813,7 +1855,8 @@ Public Class registrarModeloFresa
         '
         'textTiempoAdicional
         '
-        Me.textTiempoAdicional.Location = New System.Drawing.Point(112, 31)
+        Me.textTiempoAdicional.AutoSize = True
+        Me.textTiempoAdicional.Location = New System.Drawing.Point(149, 31)
         Me.textTiempoAdicional.Name = "textTiempoAdicional"
         Me.textTiempoAdicional.Size = New System.Drawing.Size(104, 21)
         Me.textTiempoAdicional.TabIndex = 1
@@ -1824,7 +1867,7 @@ Public Class registrarModeloFresa
         Me.Label23.BackColor = System.Drawing.Color.Transparent
         Me.Label23.Location = New System.Drawing.Point(23, 59)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(33, 16)
+        Me.Label23.Size = New System.Drawing.Size(34, 13)
         Me.Label23.TabIndex = 36
         Me.Label23.Text = "Plano"
         '
@@ -1834,8 +1877,9 @@ Public Class registrarModeloFresa
         Me.Label25.BackColor = System.Drawing.Color.Transparent
         Me.Label25.Location = New System.Drawing.Point(16, 34)
         Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(132, 13)
         Me.Label25.TabIndex = 35
-        Me.Label25.Text = "Tiempo fabricación"
+        Me.Label25.Text = "Tiempo fabricación (horas)"
         '
         'Label17
         '
@@ -1843,7 +1887,7 @@ Public Class registrarModeloFresa
         Me.Label17.BackColor = System.Drawing.Color.Transparent
         Me.Label17.Location = New System.Drawing.Point(15, 83)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(42, 16)
+        Me.Label17.Size = New System.Drawing.Size(42, 13)
         Me.Label17.TabIndex = 39
         Me.Label17.Text = "Imagen"
         '
@@ -1852,7 +1896,7 @@ Public Class registrarModeloFresa
         Appearance13.BackColor = System.Drawing.Color.LightSteelBlue
         Me.UltraGroupBox4.ContentAreaAppearance = Appearance13
         Me.UltraGroupBox4.Controls.Add(Me.comboMPAdicional)
-        Me.UltraGroupBox4.Controls.Add(Me.Label15)
+        Me.UltraGroupBox4.Controls.Add(Me.lblUmParteAdicional)
         Me.UltraGroupBox4.Controls.Add(Me.textCantMPAdicional)
         Me.UltraGroupBox4.Controls.Add(Me.Label18)
         Me.UltraGroupBox4.Controls.Add(Me.Label19)
@@ -1866,23 +1910,25 @@ Public Class registrarModeloFresa
         '
         'comboMPAdicional
         '
+        Me.comboMPAdicional.AutoSize = True
         Me.comboMPAdicional.Location = New System.Drawing.Point(88, 32)
         Me.comboMPAdicional.Name = "comboMPAdicional"
         Me.comboMPAdicional.Size = New System.Drawing.Size(216, 21)
         Me.comboMPAdicional.TabIndex = 0
         '
-        'Label15
+        'lblUmParteAdicional
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(192, 59)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(42, 16)
-        Me.Label15.TabIndex = 37
-        Me.Label15.Text = "gramos"
+        Me.lblUmParteAdicional.AutoSize = True
+        Me.lblUmParteAdicional.BackColor = System.Drawing.Color.Transparent
+        Me.lblUmParteAdicional.Location = New System.Drawing.Point(192, 59)
+        Me.lblUmParteAdicional.Name = "lblUmParteAdicional"
+        Me.lblUmParteAdicional.Size = New System.Drawing.Size(41, 13)
+        Me.lblUmParteAdicional.TabIndex = 37
+        Me.lblUmParteAdicional.Text = "gramos"
         '
         'textCantMPAdicional
         '
+        Me.textCantMPAdicional.AutoSize = True
         Me.textCantMPAdicional.Location = New System.Drawing.Point(88, 56)
         Me.textCantMPAdicional.Name = "textCantMPAdicional"
         Me.textCantMPAdicional.Size = New System.Drawing.Size(104, 21)
@@ -1894,7 +1940,7 @@ Public Class registrarModeloFresa
         Me.Label18.BackColor = System.Drawing.Color.Transparent
         Me.Label18.Location = New System.Drawing.Point(41, 59)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(50, 16)
+        Me.Label18.Size = New System.Drawing.Size(49, 13)
         Me.Label18.TabIndex = 36
         Me.Label18.Text = "Cantidad"
         '
@@ -1904,7 +1950,7 @@ Public Class registrarModeloFresa
         Me.Label19.BackColor = System.Drawing.Color.Transparent
         Me.Label19.Location = New System.Drawing.Point(19, 34)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(73, 16)
+        Me.Label19.Size = New System.Drawing.Size(70, 13)
         Me.Label19.TabIndex = 35
         Me.Label19.Text = "Materia prima"
         '
@@ -1932,6 +1978,7 @@ Public Class registrarModeloFresa
         '
         'textPrecioAdicional
         '
+        Me.textPrecioAdicional.AutoSize = True
         Me.textPrecioAdicional.Location = New System.Drawing.Point(128, 104)
         Me.textPrecioAdicional.Name = "textPrecioAdicional"
         Me.textPrecioAdicional.Size = New System.Drawing.Size(104, 21)
@@ -1939,6 +1986,7 @@ Public Class registrarModeloFresa
         '
         'comboNombre
         '
+        Me.comboNombre.AutoSize = True
         ValueListItem15.DataValue = "Buje"
         ValueListItem16.DataValue = "Separador"
         ValueListItem17.DataValue = "Tope"
@@ -1952,6 +2000,7 @@ Public Class registrarModeloFresa
         '
         'textDescAdicional
         '
+        Me.textDescAdicional.AutoSize = True
         Me.textDescAdicional.Location = New System.Drawing.Point(416, 46)
         Me.textDescAdicional.Multiline = True
         Me.textDescAdicional.Name = "textDescAdicional"
@@ -1960,6 +2009,7 @@ Public Class registrarModeloFresa
         '
         'textIDAdicional
         '
+        Me.textIDAdicional.AutoSize = True
         Me.textIDAdicional.Location = New System.Drawing.Point(128, 32)
         Me.textIDAdicional.Name = "textIDAdicional"
         Me.textIDAdicional.ReadOnly = True
@@ -1968,6 +2018,7 @@ Public Class registrarModeloFresa
         '
         'textCostoAdicional
         '
+        Me.textCostoAdicional.AutoSize = True
         Me.textCostoAdicional.Location = New System.Drawing.Point(128, 80)
         Me.textCostoAdicional.Name = "textCostoAdicional"
         Me.textCostoAdicional.Size = New System.Drawing.Size(104, 21)
@@ -1979,7 +2030,7 @@ Public Class registrarModeloFresa
         Me.Label20.BackColor = System.Drawing.Color.Transparent
         Me.Label20.Location = New System.Drawing.Point(86, 60)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(44, 16)
+        Me.Label20.Size = New System.Drawing.Size(44, 13)
         Me.Label20.TabIndex = 20
         Me.Label20.Text = "Nombre"
         '
@@ -1987,11 +2038,11 @@ Public Class registrarModeloFresa
         '
         Me.Label21.AutoSize = True
         Me.Label21.BackColor = System.Drawing.Color.Transparent
-        Me.Label21.Location = New System.Drawing.Point(95, 84)
+        Me.Label21.Location = New System.Drawing.Point(81, 84)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(34, 16)
+        Me.Label21.Size = New System.Drawing.Size(49, 13)
         Me.Label21.TabIndex = 23
-        Me.Label21.Text = "Costo"
+        Me.Label21.Text = "Costo ($)"
         '
         'Label22
         '
@@ -1999,7 +2050,7 @@ Public Class registrarModeloFresa
         Me.Label22.BackColor = System.Drawing.Color.Transparent
         Me.Label22.Location = New System.Drawing.Point(112, 37)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(15, 16)
+        Me.Label22.Size = New System.Drawing.Size(18, 13)
         Me.Label22.TabIndex = 19
         Me.Label22.Text = "ID"
         '
@@ -2009,7 +2060,7 @@ Public Class registrarModeloFresa
         Me.Label24.BackColor = System.Drawing.Color.Transparent
         Me.Label24.Location = New System.Drawing.Point(415, 32)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(63, 16)
+        Me.Label24.Size = New System.Drawing.Size(63, 13)
         Me.Label24.TabIndex = 30
         Me.Label24.Text = "Descripción"
         '
@@ -2017,19 +2068,19 @@ Public Class registrarModeloFresa
         '
         Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.Color.Transparent
-        Me.Label16.Location = New System.Drawing.Point(92, 108)
+        Me.Label16.Location = New System.Drawing.Point(78, 108)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(36, 16)
+        Me.Label16.Size = New System.Drawing.Size(52, 13)
         Me.Label16.TabIndex = 34
-        Me.Label16.Text = "Precio"
+        Me.Label16.Text = "Precio ($)"
         '
         'tab
         '
-        Appearance15.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance15.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance15.BackColor2 = System.Drawing.Color.Silver
         Me.tab.Appearance = Appearance15
-        Appearance16.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance16.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance16.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance16.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance16.BackHatchStyle = Infragistics.Win.BackHatchStyle.None
         Me.tab.ClientAreaAppearance = Appearance16
         Me.tab.Controls.Add(Me.UltraTabSharedControlsPage1)
@@ -2039,7 +2090,7 @@ Public Class registrarModeloFresa
         Me.tab.Location = New System.Drawing.Point(0, 8)
         Me.tab.Name = "tab"
         Appearance17.BackColor = System.Drawing.Color.Silver
-        Appearance17.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance17.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.tab.SelectedTabAppearance = Appearance17
         Me.tab.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.tab.Size = New System.Drawing.Size(816, 448)
@@ -2076,6 +2127,7 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox3.ResumeLayout(False)
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
+        Me.UltraGroupBox1.PerformLayout()
         CType(Me.textPrecioModelo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textDescripcion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboGrupoModelo, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2089,10 +2141,13 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         CType(Me.textPlanoTF, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imagen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textImagenTF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox9.ResumeLayout(False)
+        Me.UltraGroupBox9.PerformLayout()
         CType(Me.cantidad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboPT, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textCarFresa, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2106,6 +2161,7 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox11.ResumeLayout(False)
         CType(Me.UltraGroupBox10, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox10.ResumeLayout(False)
+        Me.UltraGroupBox10.PerformLayout()
         CType(Me.textCantidad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textIDParte, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboNParte, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2114,29 +2170,35 @@ Public Class registrarModeloFresa
         Me.TabPage3.ResumeLayout(False)
         CType(Me.UltraGroupBox14, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox14.ResumeLayout(False)
+        Me.UltraGroupBox14.PerformLayout()
         CType(Me.textPrecioTF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textCostoTF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox13, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox13.ResumeLayout(False)
         CType(Me.UltraGroupBox12, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox12.ResumeLayout(False)
+        Me.UltraGroupBox12.PerformLayout()
         CType(Me.orden, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textTiempo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textDetalles, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textIDEtapa, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboOperacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabPageControl2.ResumeLayout(False)
+        CType(Me.imagen2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox5.ResumeLayout(False)
+        Me.UltraGroupBox5.PerformLayout()
         CType(Me.textImagenA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textPlanoA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textTiempoAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox4.ResumeLayout(False)
+        Me.UltraGroupBox4.PerformLayout()
         CType(Me.comboMPAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textCantMPAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
+        Me.UltraGroupBox2.PerformLayout()
         CType(Me.textPrecioAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboNombre, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textDescAdicional, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2151,8 +2213,64 @@ Public Class registrarModeloFresa
 #End Region
 
 
+#Region "Evento Load"
+    Private Sub registrarModeloFresa_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        textPrecioModelo.Text = 0
+
+        Dim con As String
+
+        'cargo todos los combos del formulario
+        con = "select * from materialatrabajar"
+        cargarCombo(con, comboMT)
+
+        con = "select * from mododeavance"
+        cargarCombo(con, comboMA)
+
+        con = "select * from tipoacabado"
+        cargarCombo(con, comboTA)
+
+        con = "select * from tipoparte"
+        cargarCombo(con, comboNParte)
+
+        con = "select idtipomateriaprima, nombre from tipomateriaprima"
+        cargarComboTag(con, comboMatPrim, 0, 2)
+        comboMatPrim.SortStyle = Infragistics.Win.ValueListSortStyle.Ascending
+
+        con = "select idoperacion, nombre, duracionpromedio from operacion"
+        cargarComboOp(con, comboOperacion, 0)
+
+        cargarComboTag("select idtipomateriaprima, nombre from tipomateriaprima", comboMPAdicional, 0, 2)
+        comboMPAdicional.SortStyle = Infragistics.Win.ValueListSortStyle.Ascending
+
+        'cargo lista de maquinas
+        consulta = "select * from maquinafresa"
+        indice = 0
+        cargarLista(lista1, consulta, indice, columnas)
 
 
+        'instancio los objetos, cargo los adaptadores y lleno el conjunto de datos(dataset) con las tres tablas
+        'parte.cargarAdaptador()
+        'parte.cargarDatos(ds, "parte")
+
+        'fresa.cargarAdaptador()
+        'fresa.cargarDatos(ds, "tipofresa")
+
+        'etapa.cargarAdaptador()
+        'etapa.cargarDatos(ds, "etapadefabricacion")
+
+        modelo.cargarAdaptador()
+        modelo.cargarDatos(ds, "modelofresa")
+
+        textID.Text = ds.Tables("modelofresa").Rows.Count + 1
+
+        princ.barra.agregarBoton(Me)
+
+    End Sub
+#End Region
+
+
+#Region "Resto de eventos"
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles botonFresa.Click
 
         Dim band As Boolean
@@ -2263,66 +2381,7 @@ Public Class registrarModeloFresa
         End If
 
 
-
-
     End Sub
-
-
-
-
-
-    Private Sub registrarModeloFresa_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-        textPrecioModelo.Text = 0
-
-        Dim con As String
-
-        con = "select * from materialatrabajar"  'cargo todos los combos del formulario
-        cargarCombo(con, comboMT)
-
-        con = "select * from mododeavance"
-        cargarCombo(con, comboMA)
-
-        con = "select * from tipoacabado"
-        cargarCombo(con, comboTA)
-
-        con = "select * from tipoparte"
-        cargarCombo(con, comboNParte)
-
-        con = "select idtipomateriaprima, nombre from tipomateriaprima"
-        cargarComboTag(con, comboMatPrim, 0, 2)
-        comboMatPrim.SortStyle = Infragistics.Win.ValueListSortStyle.Ascending
-
-        con = "select idoperacion, nombre, duracionpromedio from operacion"
-        cargarComboOp(con, comboOperacion, 0)
-
-        cargarComboTag("select idtipomateriaprima, nombre from tipomateriaprima", comboMPAdicional, 0, 2)
-        comboMPAdicional.SortStyle = Infragistics.Win.ValueListSortStyle.Ascending
-
-        consulta = "select * from maquinafresa"         'cargo lista de maquinas
-        indice = 0
-        cargarLista(lista1, consulta, indice, columnas)
-
-
-        'instancio los objetos, cargo los adaptadores y lleno el conjunto de datos(dataset) con las tres tablas
-        'parte.cargarAdaptador()
-        'parte.cargarDatos(ds, "parte")
-
-        'fresa.cargarAdaptador()
-        'fresa.cargarDatos(ds, "tipofresa")
-
-        'etapa.cargarAdaptador()
-        'etapa.cargarDatos(ds, "etapadefabricacion")
-
-        modelo.cargarAdaptador()
-        modelo.cargarDatos(ds, "modelofresa")
-
-        textID.Text = ds.Tables("modelofresa").Rows.Count + 1
-
-        princ.barra.agregarBoton(Me)
-
-    End Sub
-
 
 
     Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton2.Click
@@ -2350,24 +2409,23 @@ Public Class registrarModeloFresa
     End Sub
 
 
-
     Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
         If lista2.SelectedIndices.Count <> 0 Then
             lista2.SelectedItems.Item(0).Remove()
         End If
-
     End Sub
+
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
         Me.Close()
     End Sub
 
 
-
     Private Sub UltraButton7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         tab.Tabs(2).Enabled = True
         tab.SelectedTab = tab.Tabs(2)
     End Sub
+
 
     Private Sub UltraButton10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim nuevaFresa As DataRow
@@ -2474,6 +2532,7 @@ Public Class registrarModeloFresa
 
 
     End Sub
+
 
     Private Sub UltraButton8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim band As Boolean = True
@@ -2677,7 +2736,6 @@ Public Class registrarModeloFresa
             nuevaParte("descripcion") = textDescParte.Text
             nuevaParte("idtipomateriaprima") = comboMatPrim.SelectedItem.Tag
 
-
             ds.Tables("parte").Rows.Add(nuevaParte)
 
             item = lista3.Items.Add(textIDParte.Text)
@@ -2687,10 +2745,9 @@ Public Class registrarModeloFresa
             item.SubItems.Add(comboMatPrim.SelectedItem.ToString)
             item.SubItems.Add(textCantidad.Text)
 
-
+            'Los cambios son confirmados cuando finalizo la carga completa del modelo de fresa
             'da = parte.adaptadorParte
             'da.Update(ds, "parte")
-
 
             textIDParte.Text = lista3.Items.Count + 1
             comboNParte.SelectedItem = Nothing
@@ -2709,7 +2766,6 @@ Public Class registrarModeloFresa
             MsgBox("Debe seleccionar operación", MsgBoxStyle.Information)
             band = False
         End If
-
 
 
         If band = True Then
@@ -2918,12 +2974,12 @@ Public Class registrarModeloFresa
 
         If ofd.ShowDialog() = DialogResult.OK Then
             'Dim s As System.IO.Stream
-            Dim i As System.Drawing.Image
+            'Dim i As System.Drawing.Image
             Image.FromFile(ofd.FileName.ToString)
             's = ofd.OpenFile
             textImagenTF.Text = ofd.FileName.ToString
             'imagen.Image = i.FromStream(s)
-            imagen.Image = i.FromFile(ofd.FileName)
+            imagen.Image = Image.FromFile(ofd.FileName)
             imagen.Refresh()
         End If
 
@@ -3309,4 +3365,59 @@ Public Class registrarModeloFresa
     Private Sub textCantidad_KeyPress1(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles textCantidad.KeyPress
         soloNumeros(e)
     End Sub
+
+    Private Sub comboMatPrim_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboMatPrim.ValueChanged
+
+
+        Dim um2 As UnidadDeMedida
+        If comboMatPrim.SelectedIndex <> -1 Then
+            um2 = um.obtenerUnidadDeMedidaPorId(comboMatPrim.SelectedItem.Tag)
+            lblUnidadDeMedida.Text = um2.Nombre
+        End If
+
+    End Sub
+
+
+    Private Sub btnCalcularCosto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCalcularCosto.Click
+        Dim materiaPrima As New MateriaPrima
+        Dim costo_mp As New Double
+        Dim costo_partes As New Double
+        Dim costo_etapas As New Double
+        Dim tiempo_operacion As New Double
+
+        Dim fila As DataRow
+        'Costo Partes
+        For Each fila In ds.Tables("parte").Rows
+            costo_mp = materiaPrima.obtenerPrecioMateriaPrima(fila("idtipomateriaprima"))
+            costo_partes = costo_partes + (fila("cantidad") * costo_mp)
+        Next
+
+        'Costo Hora/Hombre utilizado en el calculo de Costo de operaciones
+        Dim parametro As New Parametro
+        Dim hora_hombre As Double = parametro.obtenerParametro(Constantes.HORA_HOMBRE_OPERARIO)
+
+        'Costo Etapas de fabricacion / operaciones
+        For Each fila In ds.Tables("etapadefabricacion").Rows
+            tiempo_operacion = operacion.obtenerTiempoOperacion(fila("idoperacion"))
+            costo_etapas = costo_etapas + ((hora_hombre / 60) * (tiempo_operacion + fila("tiempoadicional")))
+        Next
+
+
+        textCostoTF.Text = costo_etapas + costo_partes
+
+
+    End Sub
+
+
+    Private Sub comboMPAdicional_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboMPAdicional.ValueChanged
+        Dim unidadDeMedida As UnidadDeMedida
+        If comboMPAdicional.SelectedIndex <> -1 Then
+            unidadDeMedida = um.obtenerUnidadDeMedidaPorId(comboMPAdicional.SelectedItem.Tag)
+            lblUmParteAdicional.Text = unidadDeMedida.Nombre
+        End If
+    End Sub
+
+#End Region
+
+
 End Class

@@ -4,13 +4,14 @@ Public Class Operacion
     Private selectOperacion As New SqlClient.SqlCommand
     Private updateOperacion As New SqlClient.SqlCommand
     Private madaptadorOperacion As New SqlClient.SqlDataAdapter
+    Private resultado As SqlClient.SqlDataReader
 
-    Property adaptadorOperacion()
+    Property adaptadorOperacion() As SqlClient.SqlDataAdapter
         Get
             Return madaptadorOperacion
         End Get
-        Set(ByVal Value)
-
+        Set
+            madaptadorOperacion = value
         End Set
     End Property
 
@@ -100,7 +101,6 @@ Public Class Operacion
     End Sub
 
 
-
     Public Sub actualizarDatos(ByVal ds As DataSet, ByVal tabla As String)
         madaptadorOperacion.Update(ds, tabla)
     End Sub
@@ -109,4 +109,25 @@ Public Class Operacion
     Public Sub cargarDatos(ByVal ds As DataSet, ByVal tabla As String)
         madaptadorOperacion.Fill(ds, tabla)
     End Sub
+
+    Public Function obtenerTiempoOperacion(ByVal idOperacion As Integer) As Double
+
+        selectOperacion.Connection = cnn
+        selectOperacion.Connection.Open()
+        selectOperacion.CommandText = "SELECT op.idoperacion, op.duracionpromedio " & _
+                                      "FROM operacion op " & _
+                                      "WHERE op.idoperacion = " + idOperacion.ToString
+
+        selectOperacion.CommandType = CommandType.Text
+        resultado = selectOperacion.ExecuteReader
+        Dim tiempo As Double
+        While resultado.Read
+            tiempo = resultado.Item(1)
+        End While
+
+        selectOperacion.Connection.Close()
+
+        Return tiempo
+
+    End Function
 End Class
