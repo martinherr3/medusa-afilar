@@ -24,6 +24,8 @@ Public Class MateriaPrima
             precio = resultado.Item(2)
         End While
 
+        selectMateriaPrima.Connection.Close()
+
         Return precio
 
     End Function
