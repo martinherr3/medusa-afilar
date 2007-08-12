@@ -163,7 +163,7 @@ Public Class abmMaquinaFresa
         '
         'UltraGroupBox1
         '
-        Me.UltraGroupBox1.BackColor = System.Drawing.SystemColors.Control
+        Me.UltraGroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton7)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton6)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
@@ -211,7 +211,8 @@ Public Class abmMaquinaFresa
         '
         'Label7
         '
-        Me.Label7.Location = New System.Drawing.Point(95, 25)
+        Me.Label7.BackColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(92, 24)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(39, 24)
         Me.Label7.TabIndex = 2
@@ -219,6 +220,7 @@ Public Class abmMaquinaFresa
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Location = New System.Drawing.Point(448, 148)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(40, 13)
