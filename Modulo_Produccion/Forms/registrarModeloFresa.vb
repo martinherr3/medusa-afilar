@@ -902,7 +902,7 @@ Public Class registrarModeloFresa
         '
         Me.UltraTabPageControl1.Controls.Add(Me.TabControl1)
         Me.UltraTabPageControl1.Enabled = False
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 425)
         '
@@ -1094,6 +1094,7 @@ Public Class registrarModeloFresa
         Me.textIDFresa.AutoSize = True
         Me.textIDFresa.Location = New System.Drawing.Point(128, 32)
         Me.textIDFresa.Name = "textIDFresa"
+        Me.textIDFresa.ReadOnly = True
         Me.textIDFresa.Size = New System.Drawing.Size(104, 21)
         Me.textIDFresa.TabIndex = 0
         '
@@ -1362,6 +1363,7 @@ Public Class registrarModeloFresa
         Me.textIDParte.AutoSize = True
         Me.textIDParte.Location = New System.Drawing.Point(72, 32)
         Me.textIDParte.Name = "textIDParte"
+        Me.textIDParte.ReadOnly = True
         Me.textIDParte.Size = New System.Drawing.Size(104, 21)
         Me.textIDParte.TabIndex = 0
         '
@@ -1738,8 +1740,10 @@ Public Class registrarModeloFresa
         'textIDEtapa
         '
         Me.textIDEtapa.AutoSize = True
+        Me.textIDEtapa.BorderStyle = Infragistics.Win.UIElementBorderStyle.Raised
         Me.textIDEtapa.Location = New System.Drawing.Point(80, 29)
         Me.textIDEtapa.Name = "textIDEtapa"
+        Me.textIDEtapa.ReadOnly = True
         Me.textIDEtapa.Size = New System.Drawing.Size(104, 21)
         Me.textIDEtapa.TabIndex = 2
         '
@@ -1771,7 +1775,7 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl2.Enabled = False
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 425)
         '
