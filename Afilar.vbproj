@@ -209,6 +209,12 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBase.Designer.vb">
+      <DependentUpon>frmBase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBase.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulo_Compras\Classes\MateriaPrima.vb" />
     <Compile Include="Modulo_Compras\Reports\CrystalReport1.vb">
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
@@ -524,6 +530,10 @@
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\Usuario.vb" />
     <Compile Include="Modulo_Produccion\Classes\UnidadDeMedida.vb" />
+    <EmbeddedResource Include="frmBase.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBase.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Compras\Reports\CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.vb</LastGenOutput>

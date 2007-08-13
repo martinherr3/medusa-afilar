@@ -3,6 +3,7 @@ Imports System.Data
 Imports System.Data.SqlClient
 
 Public Class frmCliente
+    'Inherits frmBase
     Inherits System.Windows.Forms.Form
     Dim objcliente As New Cliente
     Dim consultacliente As String = "select idcliente, nombre, apellido, Localidad, Direccion, Telefono, Mail, Celular, documento, idtipodocumento from cliente order by idcliente"
@@ -605,7 +606,7 @@ Public Class frmCliente
 
     Private Sub frmCliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
         DataGrid1.DataSource = dscliente
         DataGrid1.DataMember = "cliente"
 
