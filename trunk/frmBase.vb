@@ -9,6 +9,12 @@ Public Class frmBase
     Private Sub frmBase_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         If Not Me.DesignMode Then
             princ.barra.agregarBoton(Me)
+            Dim Coordenadas As New Constantes
+
+            Me.Left = Coordenadas.InicioX
+            Me.Top = Coordenadas.InicioY
+
+            Coordenadas = Nothing
         End If
     End Sub
 End Class

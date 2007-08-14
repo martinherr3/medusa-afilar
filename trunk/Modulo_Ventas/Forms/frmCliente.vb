@@ -172,7 +172,8 @@ Public Class frmCliente
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton5)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton4)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton10)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(740, 233)
         '
@@ -358,7 +359,7 @@ Public Class frmCliente
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(380, 92)
+        Me.Label6.Location = New System.Drawing.Point(379, 92)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(53, 13)
         Me.Label6.TabIndex = 31
@@ -484,8 +485,7 @@ Public Class frmCliente
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
-        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton10)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(740, 233)
         '
@@ -556,11 +556,11 @@ Public Class frmCliente
         '
         'frmCliente
         '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.ClientSize = New System.Drawing.Size(738, 264)
         Me.Controls.Add(Me.UltraTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Location = New System.Drawing.Point(200, 105)
+        Me.Location = New System.Drawing.Point(50, 50)
         Me.Name = "frmCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Gestionar Clientes"
