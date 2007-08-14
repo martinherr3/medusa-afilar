@@ -100,8 +100,10 @@ Public Class frmpedidocliente
     Friend WithEvents fechaentrega As Infragistics.Win.UltraWinSchedule.UltraCalendarCombo
     Friend WithEvents combocliente As Infragistics.Win.UltraWinEditors.UltraComboEditor
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmpedidocliente))
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -205,6 +207,7 @@ Public Class frmpedidocliente
         '
         'txtimportetotal
         '
+        Me.txtimportetotal.AutoSize = True
         Me.txtimportetotal.Location = New System.Drawing.Point(672, 484)
         Me.txtimportetotal.Name = "txtimportetotal"
         Me.txtimportetotal.ReadOnly = True
@@ -217,7 +220,7 @@ Public Class frmpedidocliente
         Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Location = New System.Drawing.Point(594, 489)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(80, 16)
+        Me.Label11.Size = New System.Drawing.Size(77, 13)
         Me.Label11.TabIndex = 6
         Me.Label11.Text = "Importe total: $"
         '
@@ -273,6 +276,7 @@ Public Class frmpedidocliente
         '
         'combocliente
         '
+        Me.combocliente.AutoSize = True
         Me.combocliente.Location = New System.Drawing.Point(48, 64)
         Me.combocliente.Name = "combocliente"
         Me.combocliente.Size = New System.Drawing.Size(176, 21)
@@ -288,10 +292,11 @@ Public Class frmpedidocliente
         Me.fechaentrega.NonAutoSizeHeight = 16
         Me.fechaentrega.Size = New System.Drawing.Size(176, 21)
         Me.fechaentrega.TabIndex = 17
-        Me.fechaentrega.Value = New Date(2005, 11, 22, 0, 0, 0, 0)
+        Me.fechaentrega.Value = CType(resources.GetObject("fechaentrega.Value"), Object)
         '
         'comboformaentrega
         '
+        Me.comboformaentrega.AutoSize = True
         Me.comboformaentrega.Location = New System.Drawing.Point(464, 45)
         Me.comboformaentrega.Name = "comboformaentrega"
         Me.comboformaentrega.Size = New System.Drawing.Size(176, 21)
@@ -299,6 +304,7 @@ Public Class frmpedidocliente
         '
         'comboestado
         '
+        Me.comboestado.AutoSize = True
         Me.comboestado.Location = New System.Drawing.Point(464, 69)
         Me.comboestado.Name = "comboestado"
         Me.comboestado.Size = New System.Drawing.Size(176, 21)
@@ -325,7 +331,7 @@ Public Class frmpedidocliente
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Location = New System.Drawing.Point(10, 67)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(40, 16)
+        Me.Label6.Size = New System.Drawing.Size(39, 13)
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "Cliente"
         '
@@ -387,7 +393,7 @@ Public Class frmpedidocliente
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Location = New System.Drawing.Point(8, 21)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 16)
+        Me.Label1.Size = New System.Drawing.Size(55, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nº Pedido"
         '
@@ -414,6 +420,7 @@ Public Class frmpedidocliente
         '
         'txtsubtotal
         '
+        Me.txtsubtotal.AutoSize = True
         Me.txtsubtotal.Location = New System.Drawing.Point(656, 335)
         Me.txtsubtotal.Name = "txtsubtotal"
         Me.txtsubtotal.ReadOnly = True
@@ -426,7 +433,7 @@ Public Class frmpedidocliente
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Location = New System.Drawing.Point(593, 339)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(63, 17)
+        Me.Label7.Size = New System.Drawing.Size(63, 13)
         Me.Label7.TabIndex = 5
         Me.Label7.Text = "Subtotal:  $"
         '
@@ -577,6 +584,7 @@ Public Class frmpedidocliente
         '
         'txtcantidad
         '
+        Me.txtcantidad.AutoSize = True
         Me.txtcantidad.Location = New System.Drawing.Point(72, 46)
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(56, 21)
@@ -593,6 +601,7 @@ Public Class frmpedidocliente
         '
         'txtitem
         '
+        Me.txtitem.AutoSize = True
         Me.txtitem.Location = New System.Drawing.Point(72, 14)
         Me.txtitem.Name = "txtitem"
         Me.txtitem.Size = New System.Drawing.Size(144, 21)
@@ -604,12 +613,13 @@ Public Class frmpedidocliente
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Location = New System.Drawing.Point(40, 16)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(26, 16)
+        Me.Label8.Size = New System.Drawing.Size(27, 13)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Item"
         '
         'txtsubtot
         '
+        Me.txtsubtot.AutoSize = True
         Me.txtsubtot.Location = New System.Drawing.Point(655, 328)
         Me.txtsubtot.Name = "txtsubtot"
         Me.txtsubtot.ReadOnly = True
@@ -622,7 +632,7 @@ Public Class frmpedidocliente
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Location = New System.Drawing.Point(596, 333)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(58, 16)
+        Me.Label10.Size = New System.Drawing.Size(58, 13)
         Me.Label10.TabIndex = 8
         Me.Label10.Text = "Subtotal: $"
         '
@@ -757,11 +767,11 @@ Public Class frmpedidocliente
         '
         'UltraTabControl1
         '
-        Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance6.BackColor2 = System.Drawing.Color.Silver
         Me.UltraTabControl1.Appearance = Appearance6
-        Appearance7.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance7.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance7.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ClientAreaAppearance = Appearance7
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
@@ -769,7 +779,7 @@ Public Class frmpedidocliente
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.UltraTabControl1.Name = "UltraTabControl1"
         Appearance8.BackColor = System.Drawing.Color.Silver
-        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.SelectedTabAppearance = Appearance8
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(872, 560)
@@ -799,9 +809,11 @@ Public Class frmpedidocliente
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Registrar pedido"
         Me.UltraTabPageControl1.ResumeLayout(False)
+        Me.UltraTabPageControl1.PerformLayout()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
+        Me.UltraGroupBox2.PerformLayout()
         CType(Me.combocliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fechaentrega, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboformaentrega, System.ComponentModel.ISupportInitialize).EndInit()
@@ -809,14 +821,17 @@ Public Class frmpedidocliente
         CType(Me.UltraOptionSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
+        Me.UltraGroupBox1.PerformLayout()
         CType(Me.txtsubtotal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridpp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridMf, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox3.ResumeLayout(False)
+        Me.UltraGroupBox3.PerformLayout()
         CType(Me.UltraGroupBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox4.ResumeLayout(False)
+        Me.UltraGroupBox4.PerformLayout()
         CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtitem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtsubtot, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1379,7 +1394,7 @@ Public Class frmpedidocliente
                 'Next
                 'dr("idmodelo") = ds.Tables("modelofresa").Rows(DataGridMf.CurrentCell.RowNumber).Item("idmodelo")
                 dr("nropedido") = CLng(lblnropedido.Text)
-                dr("estado") = 8
+                dr("estado") = comboestado.SelectedItem.Tag()
                 dr("nombre") = ds.Tables("tipofresa").Rows(i).Item("nombre")
                 ds.Tables("fresa").Rows.Add(dr)
                 'If ds.Tables("tipofresa").Rows(i).Item("precioventa") = 0 Then
@@ -2364,6 +2379,10 @@ Public Class frmpedidocliente
     End Sub
 
     Private Sub UltraTabPageControl2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl2.Paint
+
+    End Sub
+
+    Private Sub DataGridMf_Navigate_1(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles DataGridMf.Navigate
 
     End Sub
 End Class
