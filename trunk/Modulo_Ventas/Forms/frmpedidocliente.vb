@@ -305,6 +305,7 @@ Public Class frmpedidocliente
         'comboestado
         '
         Me.comboestado.AutoSize = True
+        Me.comboestado.HideSelection = False
         Me.comboestado.Location = New System.Drawing.Point(464, 69)
         Me.comboestado.Name = "comboestado"
         Me.comboestado.Size = New System.Drawing.Size(176, 21)
