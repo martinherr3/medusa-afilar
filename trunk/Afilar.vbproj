@@ -216,6 +216,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Compras\Classes\MateriaPrima.vb" />
+    <Compile Include="Modulo_Compras\Classes\ParametrosCompras.vb" />
     <Compile Include="Modulo_Compras\Reports\CrystalReport1.vb">
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
