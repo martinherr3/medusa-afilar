@@ -271,6 +271,12 @@
     <Compile Include="Modulo_Produccion\Forms\consultarModeloFresa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo_Produccion\Forms\modificarModeloFresa.Designer.vb">
+      <DependentUpon>modificarModeloFresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\modificarModeloFresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -582,6 +588,10 @@
     <EmbeddedResource Include="Modulo_Produccion\Forms\consultarModeloFresa.resx">
       <SubType>Designer</SubType>
       <DependentUpon>consultarModeloFresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\modificarModeloFresa.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>modificarModeloFresa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\emitirPresupuesto.resx">
       <DependentUpon>emitirPresupuesto.vb</DependentUpon>
