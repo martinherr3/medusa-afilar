@@ -1,8 +1,9 @@
+Imports System.Windows.Forms.Form
 
 Public Class registrarModeloFresa
+    Inherits System.Windows.Forms.Form
 
 #Region "Declaraciones"
-    Inherits System.Windows.Forms.Form
     Dim consulta As String
     Dim indice As Integer
     Dim columnas() As Integer = {0, 1, 2, 3, 4}
@@ -2268,7 +2269,7 @@ Public Class registrarModeloFresa
 
         textID.Text = ds.Tables("modelofresa").Rows.Count + 1
 
-        princ.barra.agregarBoton(Me)
+        'princ.barra.agregarBoton(Me)
 
     End Sub
 #End Region

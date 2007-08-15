@@ -3,11 +3,10 @@ Public Class ModeloFresa
     Private insertModeloFresa As New SqlClient.SqlCommand
     Private deleteModeloFresa As New SqlClient.SqlCommand
     Private updateModeloFresa As New SqlClient.SqlCommand
+    Private updateEstado As New SqlClient.SqlCommand
     Private selectModeloFresa As New SqlClient.SqlCommand
     Private adaptadorModeloFresa As New SqlClient.SqlDataAdapter
     Private ts As DataGridTableStyle
-
-
 
 
 
@@ -178,4 +177,20 @@ Public Class ModeloFresa
     Public Sub agregarCheck(ByVal ds As DataSet)
         ds.Tables("modelofresa").Columns.Add("seleccionarMF", Type.GetType("System.Boolean"))
     End Sub
+
+    Public Sub cambiarEstado(ByVal id As Integer, ByVal nuevoEstado As String)
+        updateEstado.Connection = cnn
+        updateEstado.Connection.Open()
+        updateEstado.CommandText = "UPDATE modelofresa " & _
+                                   "SET estado = '" + nuevoEstado + "' " & _
+                                   "WHERE idmodelo = " + id.ToString
+
+        updateEstado.CommandType = CommandType.Text
+        Dim numFilasAfectadas As Integer
+        numFilasAfectadas = updateEstado.ExecuteNonQuery
+
+        updateEstado.Connection.Close()
+
+    End Sub
+
 End Class
