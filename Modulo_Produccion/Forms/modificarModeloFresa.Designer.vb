@@ -27,7 +27,7 @@ Partial Class modificarModeloFresa
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(292, 270)
         Me.Name = "modificarModeloFresa"
-        Me.Text = "modificarModeloFresa"
+        Me.Text = "Modificar Modelo Fresa"
         Me.ResumeLayout(False)
 
     End Sub
