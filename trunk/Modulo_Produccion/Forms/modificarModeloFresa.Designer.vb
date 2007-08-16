@@ -1,6 +1,6 @@
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class modificarModeloFresa
-    Inherits System.Windows.Forms.Form
+    Inherits frmBase
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -19,8 +19,16 @@ Partial Class modificarModeloFresa
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.SuspendLayout()
+        '
+        'modificarModeloFresa
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(292, 270)
+        Me.Name = "modificarModeloFresa"
         Me.Text = "modificarModeloFresa"
+        Me.ResumeLayout(False)
+
     End Sub
 End Class
