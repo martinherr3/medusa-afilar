@@ -12,7 +12,7 @@ Public Class ClsSeg
     'Private pass As String
     'Private WS As Int32
 #Region "Propertys"
-    Private Property id() As Integer
+    Public Property id() As Integer
         Get
             Return idusuario
         End Get

@@ -6,7 +6,6 @@ Public Class Desperfecto
     Private dateFechaReparacion As Date
     Private strCausa As String
     Private doubCosto As Double
-    Private boolreparado As Boolean
     Public varCancelar As Integer
     Private adaptadorDesperfecto As SqlClient.SqlDataAdapter
 
@@ -80,15 +79,6 @@ Public Class Desperfecto
             doubCosto = Value
         End Set
     End Property
-
-    Public Property Reparado() As Boolean
-        Get
-            Return boolreparado
-        End Get
-        Set(ByVal Value As Boolean)
-            doubCosto = Value
-        End Set
-    End Property
     Public Function cargarDSDesperfecto(ByVal consulta As String, ByVal conexion As SqlClient.SqlConnection) As DataSet
 
         adaptadorDesperfecto = New SqlClient.SqlDataAdapter(consulta, conexion)
@@ -144,7 +134,7 @@ Public Class Desperfecto
             nuevafila(4) = dateFechaReparacion
             nuevafila(5) = doubCosto
             nuevafila(6) = intIdMaquina
-            nuevafila(7) = False
+            
 
 
             tbDesperfecto.Rows.Add(nuevafila)
@@ -229,7 +219,7 @@ Public Class Desperfecto
     End Sub
 
     Public Sub mostrarDatos(ByRef cmbtipodesperfecto As Integer, ByRef txtfecharotura As Date, ByRef txtcausa As String, ByRef txtfechareparacion As Date, _
-    ByRef txtcosto As String, ByRef cmbidmaquina As Integer, ByRef txtnumerodesperfectop As String)
+    ByRef txtcosto As Double, ByRef cmbidmaquina As Integer, ByRef txtnumerodesperfectop As Integer)
         cmbtipodesperfecto = intIdTipoDesperfecto
         txtfecharotura = dateFechaRotura
         txtcausa = strCausa
@@ -283,25 +273,4 @@ Public Class Desperfecto
         nuevafila = tbDesperfecto.NewRow()
         Return CType(idmaximo(0).Item(0), Integer) + 1
     End Function
-    Public Sub registrarReparacion(ByVal dscl As DataSet)
-
-        Dim tbDesperfecto As DataTable = dscl.Tables.Item(0)
-        For Each updatefila As DataRow In tbDesperfecto.Rows
-            If updatefila(0) = intIdDesperfecto Then
-                updatefila(1) = intIdTipoDesperfecto
-                updatefila(2) = dateFechaRotura
-                updatefila(3) = strCausa
-                updatefila(4) = dateFechaReparacion
-                updatefila(5) = doubCosto
-                updatefila(6) = intIdMaquina
-                updatefila(7) = True
-
-            End If
-        Next
-        Dim oCommandBuilder_OC As New SqlClient.SqlCommandBuilder(adaptadorDesperfecto)
-        adaptadorDesperfecto.UpdateCommand = oCommandBuilder_OC.GetUpdateCommand
-        adaptadorDesperfecto.Update(dscl, "Desperfecto")
-        
-    End Sub
-
 End Class

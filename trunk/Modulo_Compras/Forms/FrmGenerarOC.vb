@@ -525,7 +525,7 @@ Public Class FrmGenerarOC
 #End Region
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        princ.barra.agregarBoton(Me)
+        'princ.barra.agregarBoton(Me)
         cnn.Open()
         SQLdataadapter1.Fill(DS, "tipomateriaprima")
         Sqldataadapter2.Fill(DS, "ordencompramp")
@@ -659,7 +659,7 @@ Public Class FrmGenerarOC
 
     End Sub
     Sub CargarGrdMP()
-
+        
         Me.GrdMP.CaptionText = "Materia prima"
         Me.GrdMP.DataSource = dvMP
 
@@ -672,28 +672,35 @@ Public Class FrmGenerarOC
         'DS.Tables("tipomateriaprima").TableName
 
 
-        Dim grdColStyle1 As New DataGridTextBoxColumn
+        'Dim grdColStyle1 As New DataGridTextBoxColumn
+        Dim grdColStyle1 As New CustomDataGridTextBoxColumn
         With grdColStyle1
             .MappingName = "nombre"
             .HeaderText = "nombre"
             .Width = 150
         End With
 
-        Dim grdColStyle2 As New DataGridTextBoxColumn
+        'Dim grdColStyle2 As New DataGridTextBoxColumn
+        Dim grdColStyle2 As New CustomDataGridTextBoxColumn
         With grdColStyle2
             .MappingName = "stockactual"
             .HeaderText = "Stock actual"
             .Width = 80
         End With
 
-        Dim grdColStyle3 As New DataGridTextBoxColumn
+        'Dim grdColStyle3 As New DataGridTextBoxColumn
+        Dim grdColStyle3 As New CustomDataGridTextBoxColumn
         With grdColStyle3
             .MappingName = "stockminimo"
             .HeaderText = "Stock minimo"
             .Width = 80
         End With
+        '
+        AddHandler grdColStyle1.PaintRow, AddressOf EstablecerColores
+        AddHandler grdColStyle2.PaintRow, AddressOf EstablecerColores
+        AddHandler grdColStyle3.PaintRow, AddressOf EstablecerColores
 
-
+        '
         grdTableStyle1.GridColumnStyles.AddRange(New DataGridColumnStyle() {grdColStyle1, grdColStyle2, grdColStyle3})
         GrdMP.TableStyles.Add(grdTableStyle1)
         '*********************************************************
@@ -701,8 +708,23 @@ Public Class FrmGenerarOC
         'Marcar_MP_Critica()
 
     End Sub
+    Private Sub EstablecerColores(ByVal args As PaintRowEventArgs)
+        If Me.GrdMP.Item(args.RowNumber, 1) < Me.GrdMP.Item(args.RowNumber, 2) Then
+            args.ForeColor = Brushes.Red
+            args.BackColor = Brushes.Yellow
+        End If
+        
 
+    End Sub
 
+    Private Sub MarcarMPCritica()
+        Dim fila As DataRow
+        For Each fila In dvMP.Table.Rows
+            If fila.Item("stockactual") < fila.Item("stockminimo") Then
+
+            End If
+        Next
+    End Sub
 
 
 

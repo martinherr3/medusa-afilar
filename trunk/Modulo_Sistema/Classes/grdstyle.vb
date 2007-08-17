@@ -1,5 +1,6 @@
 Option Strict On
 Imports System.Reflection
+Imports System.Drawing
 
 Namespace grdstyle
 
@@ -1231,5 +1232,32 @@ Namespace grdstyle
 
 #End Region
 
+    Public Class CustomDataGridTextBoxColumn
+        Inherits System.Windows.Forms.DataGridTextBoxColumn
 
+        Public Event PaintRow(ByVal args As PaintRowEventArgs)
+
+        Protected Overloads Overrides Sub Paint(ByVal g As Graphics, ByVal bounds As Rectangle, ByVal [source] As CurrencyManager, ByVal rowNum As Integer, ByVal backBrush As Brush, ByVal foreBrush As Brush, ByVal alignToRight As Boolean)
+
+            Dim oArgs As New PaintRowEventArgs
+
+            oArgs.RowNumber = rowNum
+
+            RaiseEvent PaintRow(oArgs)
+
+            If Not oArgs.BackColor Is Nothing Then
+                backBrush = oArgs.BackColor
+            End If
+
+            If Not oArgs.ForeColor Is Nothing Then
+                foreBrush = oArgs.ForeColor
+            End If
+
+            oArgs = Nothing
+
+            MyBase.Paint(g, bounds, [source], rowNum, backBrush, foreBrush, alignToRight)
+
+        End Sub
+
+    End Class
 End Namespace
