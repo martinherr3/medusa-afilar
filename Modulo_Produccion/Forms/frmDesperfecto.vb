@@ -1,3 +1,4 @@
+'TENGO QUE SACAR LA NABEGABILIDAD Y PONER EL PANE DE BUSQUEDA PRIMERO CUANDO HABRIS EL FORMULARIO 
 Imports System
 Imports System.Data
 Imports System.Data.SqlClient
@@ -45,6 +46,7 @@ Public Class frmDesperfecto
         nombrescol(4) = "Fecha Reparacion"
         nombrescol(5) = "Costo"
         nombrescol(6) = "Nro Maquina"
+        nombrescol(7) = "Reparado"
 
         Dim anchosgrid(9) As Integer
         anchosgrid(0) = 75
@@ -54,12 +56,15 @@ Public Class frmDesperfecto
         anchosgrid(4) = 75
         anchosgrid(5) = 75
         anchosgrid(6) = 75
+        anchosgrid(7) = 0
         txtNumDesperfecto.Text = 0
         ' esta funcion da solo formato a la grilla no la carga, de eso se encarga el datasource
         cargarGrilla(DataGrid1, dsDesperfecto.Tables.Item(0), nombrescol, anchosgrid)
 
         cargarCombo("select idtipodesperfecto, nombre from tipodesperfecto", cmbTipoDesperfecto, "nombre", "idtipodesperfecto")
         cargarCombo("select idmaquina, nombre from maquina", cmbMaquina, "nombre", "idmaquina")
+        cargarCombo("select idmaquina, nombre from maquina", cmbMaquinaSearch, "nombre", "idmaquina")
+
 
         CalendarRotura.Value = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2)
         txtCausa.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3)
@@ -103,7 +108,7 @@ Public Class frmDesperfecto
         txtCausa.Enabled = True
         txtCosto.Enabled = True
         txtNumDesperfecto.Enabled = False
-        CalendarReparacion.Enabled = True
+        CalendarReparacion.Visible = False
         CalendarRotura.Enabled = True
         
         
@@ -135,12 +140,14 @@ Public Class frmDesperfecto
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
 
-        objDesperfecto.tomarDatos(txtNumDesperfecto.Text, cmbTipoDesperfecto.SelectedValue, CalendarRotura.Value, txtCausa.Text, CalendarReparacion.Value, Double.Parse(txtCosto.Text), cmbMaquina.SelectedValue)
+        objDesperfecto.tomarDatos(txtNumDesperfecto.Text, cmbTipoDesperfecto.SelectedValue, CalendarRotura.Value, txtCausa.Text, CalendarReparacion.Text, txtCosto.Text, cmbMaquina.SelectedValue)
 
         If bandGrabar = 1 Then
             objDesperfecto.registrarDesperfecto(dsDesperfecto)
-        Else
+        ElseIf bandGrabar = 2 Then
             objDesperfecto.modificarDesperfecto(dsDesperfecto)
+        ElseIf bandGrabar = 3 Then
+            objDesperfecto.registrarReparacion(dsDesperfecto)
         End If
         If objDesperfecto.varCancelar = 0 Then
             UltraButton1.Enabled = True
@@ -176,12 +183,14 @@ Public Class frmDesperfecto
         UltraButton7.Enabled = True
         UltraButton8.Enabled = True
         UltraButton9.Enabled = True
+        CalendarReparacion.Visible = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
+        BtnReparacion.Enabled = Not (DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7))
         cmbMaquina.Enabled = False
         cmbTipoDesperfecto.Enabled = False
         txtCausa.Enabled = False
         txtCosto.Enabled = False
         txtNumDesperfecto.Enabled = False
-        CalendarReparacion.Enabled = False
+        'CalendarReparacion.Enabled = False
         CalendarRotura.Enabled = False
     End Sub
 
@@ -255,8 +264,9 @@ Public Class frmDesperfecto
                         DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6))
 
         objDesperfecto.mostrarDatos(cmbTipoDesperfecto.SelectedValue, CalendarRotura.Value, txtCausa.Text, CalendarReparacion.Value, txtCosto.Text, cmbMaquina.SelectedValue, txtNumDesperfecto.Text)
-
-
+        CalendarReparacion.Visible = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
+        BtnReparacion.Enabled = Not (DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7))
+        Me.Refresh()
         'TextBox2.Text = dscliente.Tables.Item(0).Rows(DataGrid1.CurrentCell.RowNumber()).Item(1)
         'TextBox3.Text = dscliente.Tables.Item(0).Rows(DataGrid1.CurrentCell.RowNumber()).Item(3)
         'TextBox4.Text = dscliente.Tables.Item(0).Rows(DataGrid1.CurrentCell.RowNumber()).Item(4)
@@ -283,9 +293,7 @@ Public Class frmDesperfecto
         Me.Close()
     End Sub
 
-    Private Sub UltraTabControl1_SelectedTabChanged(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinTabControl.SelectedTabChangedEventArgs) Handles UltraTabControl1.SelectedTabChanged
-
-    End Sub
+    
 
     'Private Sub TextBox1_LostFocus1(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.LostFocus
     '    'If Len(TextBox1.Text) > 0 Then
@@ -314,14 +322,81 @@ Public Class frmDesperfecto
         Dim tbDesperfecto As DataTable = DataSetDesperfecto.Tables.Item(0)
 
         Dim dv As DataView = tbDesperfecto.DefaultView
-
-        dv.RowFilter = "causa like '" & UltraTextEditor1.Text & "%'"
+        Dim query As String
+        query = ""
+        If opcNoReparado.Checked Then
+            query = "causa like '" & UltraTextEditor1.Text & "%' and reparado = " & False
+        ElseIf OpcReparado.Checked Then
+            query = "causa like '" & UltraTextEditor1.Text & "%' and reparado = " & True
+        ElseIf OpcTodo.Checked Then
+            query = "causa like '" & UltraTextEditor1.Text & "%'"
+        End If
+        If checkMaqina.Checked Then
+            query = query & " and idmaquina = " & cmbMaquinaSearch.SelectedValue
+        End If
+        dv.RowFilter = query
         Return dv
     End Function
 
+    Private Sub UltraTabControl1_SelectedTabChanged(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinTabControl.SelectedTabChangedEventArgs) Handles UltraTabControl1.SelectedTabChanged
+        'DataGrid1.DataSource = dsDesperfecto
+        'DataGrid1.DataMember = "Desperfecto"
+
+    End Sub
     Private Sub UltraTextEditor1_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraTextEditor1.ValueChanged
         DataGrid1.DataSource = buscarDesperfecto(dsDesperfecto)
     End Sub
 
    
+    
+    
+    Private Sub OpcReparado_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpcReparado.CheckedChanged
+        DataGrid1.DataSource = buscarDesperfecto(dsDesperfecto)
+    End Sub
+
+    Private Sub opcNoReparado_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles opcNoReparado.CheckedChanged
+        DataGrid1.DataSource = buscarDesperfecto(dsDesperfecto)
+    End Sub
+
+    Private Sub OpcTodo_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpcTodo.CheckedChanged
+        DataGrid1.DataSource = buscarDesperfecto(dsDesperfecto)
+    End Sub
+
+    Private Sub BtnReparacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReparacion.Click
+        If MsgBox("Seguro que desea registrar la reparacoin de esta maquina", MsgBoxStyle.OkCancel, "Confirmacion") = MsgBoxResult.Ok Then
+            CalendarReparacion.Visible = True
+            CalendarReparacion.Enabled = True
+
+            UltraButton1.Enabled = False
+            UltraButton2.Enabled = False
+            UltraButton3.Enabled = False
+            UltraButton4.Enabled = True
+            UltraButton5.Enabled = True
+            BtnReparacion.Enabled = True
+            bandGrabar = 3
+
+
+        End If
+
+
+    End Sub
+
+    
+    Private Sub cmbMaquinaSearch_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbMaquinaSearch.SelectedIndexChanged
+        DataGrid1.DataSource = buscarDesperfecto(dsDesperfecto)
+    End Sub
+
+    Private Sub UltraTabPageControl1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl2.Paint
+        'DataGrid1.DataSource = dsDesperfecto.Tables.Item(0).DefaultView
+    End Sub
+
+    Private Sub checkMaqina_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles checkMaqina.CheckedChanged
+
+        cmbMaquinaSearch.Enabled = checkMaqina.Checked
+        DataGrid1.DataSource = buscarDesperfecto(dsDesperfecto)
+    End Sub
+
+    Private Sub UltraTabPageControl1_Paint_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl1.Paint
+
+    End Sub
 End Class

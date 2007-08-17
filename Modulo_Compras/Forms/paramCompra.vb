@@ -279,7 +279,7 @@ Public Class paramCompra
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Dim connect As New coneccion
 
-        princ.barra.agregarBoton(Me)
+        'princ.barra.agregarBoton(Me)
 
         Dim conn As SqlConnection
         conn = cnn
@@ -389,7 +389,7 @@ Public Class paramCompra
 
         ' conn.Close()
 
-        Dim q As Decimal  'tamaño del lote
+        Dim q As Decimal  'tamaño lote
         Dim cp As Decimal 'costo por pedido
         Dim cs As Decimal 'costo de stock
         Dim t As Decimal  'periodo de analisis

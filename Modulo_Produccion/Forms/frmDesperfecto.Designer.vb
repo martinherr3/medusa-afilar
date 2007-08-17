@@ -36,6 +36,7 @@ Partial Class frmDesperfecto
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.BtnReparacion = New Infragistics.Win.Misc.UltraButton
         Me.CalendarReparacion = New Infragistics.Win.UltraWinSchedule.UltraCalendarCombo
         Me.CalendarRotura = New Infragistics.Win.UltraWinSchedule.UltraCalendarCombo
         Me.txtNumDesperfecto = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -59,11 +60,16 @@ Partial Class frmDesperfecto
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.checkMaqina = New System.Windows.Forms.CheckBox
+        Me.cmbMaquinaSearch = New System.Windows.Forms.ComboBox
+        Me.OpcTodo = New System.Windows.Forms.RadioButton
+        Me.opcNoReparado = New System.Windows.Forms.RadioButton
+        Me.OpcReparado = New System.Windows.Forms.RadioButton
         Me.Label4 = New System.Windows.Forms.Label
         Me.UltraTextEditor1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
+        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage2 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
@@ -85,6 +91,7 @@ Partial Class frmDesperfecto
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.BtnReparacion)
         Me.UltraTabPageControl1.Controls.Add(Me.CalendarReparacion)
         Me.UltraTabPageControl1.Controls.Add(Me.CalendarRotura)
         Me.UltraTabPageControl1.Controls.Add(Me.txtNumDesperfecto)
@@ -108,15 +115,25 @@ Partial Class frmDesperfecto
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(740, 258)
         '
+        'BtnReparacion
+        '
+        Me.BtnReparacion.Enabled = False
+        Me.BtnReparacion.Location = New System.Drawing.Point(638, 104)
+        Me.BtnReparacion.Name = "BtnReparacion"
+        Me.BtnReparacion.Size = New System.Drawing.Size(80, 42)
+        Me.BtnReparacion.TabIndex = 41
+        Me.BtnReparacion.Text = "&Registrar Reparacion"
+        '
         'CalendarReparacion
         '
         Me.CalendarReparacion.BackColor = System.Drawing.SystemColors.Window
         DateButton1.Caption = "Today"
         Me.CalendarReparacion.DateButtons.Add(DateButton1)
+        Me.CalendarReparacion.Enabled = False
         Me.CalendarReparacion.Location = New System.Drawing.Point(280, 69)
         Me.CalendarReparacion.Name = "CalendarReparacion"
         Me.CalendarReparacion.NonAutoSizeHeight = 21
-        Me.CalendarReparacion.Size = New System.Drawing.Size(75, 21)
+        Me.CalendarReparacion.Size = New System.Drawing.Size(112, 21)
         Me.CalendarReparacion.TabIndex = 40
         '
         'CalendarRotura
@@ -124,10 +141,11 @@ Partial Class frmDesperfecto
         Me.CalendarRotura.BackColor = System.Drawing.SystemColors.Window
         DateButton2.Caption = "Today"
         Me.CalendarRotura.DateButtons.Add(DateButton2)
+        Me.CalendarRotura.Enabled = False
         Me.CalendarRotura.Location = New System.Drawing.Point(280, 40)
         Me.CalendarRotura.Name = "CalendarRotura"
         Me.CalendarRotura.NonAutoSizeHeight = 21
-        Me.CalendarRotura.Size = New System.Drawing.Size(75, 21)
+        Me.CalendarRotura.Size = New System.Drawing.Size(112, 21)
         Me.CalendarRotura.TabIndex = 39
         '
         'txtNumDesperfecto
@@ -339,22 +357,69 @@ Partial Class frmDesperfecto
         Me.UltraButton3.TabIndex = 13
         Me.UltraButton3.Text = "&Eliminar"
         '
-        'UltraButton10
-        '
-        Me.UltraButton10.Location = New System.Drawing.Point(640, 224)
-        Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
-        Me.UltraButton10.TabIndex = 14
-        Me.UltraButton10.Text = "Salir"
-        '
         'UltraTabPageControl2
         '
+        Me.UltraTabPageControl2.Controls.Add(Me.checkMaqina)
+        Me.UltraTabPageControl2.Controls.Add(Me.cmbMaquinaSearch)
+        Me.UltraTabPageControl2.Controls.Add(Me.OpcTodo)
+        Me.UltraTabPageControl2.Controls.Add(Me.opcNoReparado)
+        Me.UltraTabPageControl2.Controls.Add(Me.OpcReparado)
         Me.UltraTabPageControl2.Controls.Add(Me.Label4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraTextEditor1)
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
         Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(740, 258)
+        '
+        'checkMaqina
+        '
+        Me.checkMaqina.AutoSize = True
+        Me.checkMaqina.Location = New System.Drawing.Point(16, 40)
+        Me.checkMaqina.Name = "checkMaqina"
+        Me.checkMaqina.Size = New System.Drawing.Size(112, 17)
+        Me.checkMaqina.TabIndex = 26
+        Me.checkMaqina.Text = "Filtrar por maquina"
+        Me.checkMaqina.UseVisualStyleBackColor = True
+        '
+        'cmbMaquinaSearch
+        '
+        Me.cmbMaquinaSearch.Enabled = False
+        Me.cmbMaquinaSearch.Location = New System.Drawing.Point(43, 15)
+        Me.cmbMaquinaSearch.Name = "cmbMaquinaSearch"
+        Me.cmbMaquinaSearch.Size = New System.Drawing.Size(128, 21)
+        Me.cmbMaquinaSearch.TabIndex = 25
+        '
+        'OpcTodo
+        '
+        Me.OpcTodo.AutoSize = True
+        Me.OpcTodo.Checked = True
+        Me.OpcTodo.Location = New System.Drawing.Point(473, 40)
+        Me.OpcTodo.Name = "OpcTodo"
+        Me.OpcTodo.Size = New System.Drawing.Size(55, 17)
+        Me.OpcTodo.TabIndex = 24
+        Me.OpcTodo.TabStop = True
+        Me.OpcTodo.Text = "Todos"
+        Me.OpcTodo.UseVisualStyleBackColor = True
+        '
+        'opcNoReparado
+        '
+        Me.opcNoReparado.AutoSize = True
+        Me.opcNoReparado.Location = New System.Drawing.Point(473, 23)
+        Me.opcNoReparado.Name = "opcNoReparado"
+        Me.opcNoReparado.Size = New System.Drawing.Size(94, 17)
+        Me.opcNoReparado.TabIndex = 23
+        Me.opcNoReparado.Text = "No Reparados"
+        Me.opcNoReparado.UseVisualStyleBackColor = True
+        '
+        'OpcReparado
+        '
+        Me.OpcReparado.AutoSize = True
+        Me.OpcReparado.Location = New System.Drawing.Point(473, 7)
+        Me.OpcReparado.Name = "OpcReparado"
+        Me.OpcReparado.Size = New System.Drawing.Size(77, 17)
+        Me.OpcReparado.TabIndex = 22
+        Me.OpcReparado.Text = "Reparados"
+        Me.OpcReparado.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -392,7 +457,7 @@ Partial Class frmDesperfecto
         Me.DataGrid1.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGrid1.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGrid1.LinkColor = System.Drawing.Color.Teal
-        Me.DataGrid1.Location = New System.Drawing.Point(16, 42)
+        Me.DataGrid1.Location = New System.Drawing.Point(16, 63)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGrid1.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
@@ -400,8 +465,16 @@ Partial Class frmDesperfecto
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(704, 176)
+        Me.DataGrid1.Size = New System.Drawing.Size(704, 155)
         Me.DataGrid1.TabIndex = 20
+        '
+        'UltraButton10
+        '
+        Me.UltraButton10.Location = New System.Drawing.Point(640, 224)
+        Me.UltraButton10.Name = "UltraButton10"
+        Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
+        Me.UltraButton10.TabIndex = 14
+        Me.UltraButton10.Text = "Salir"
         '
         'UltraTabControl1
         '
@@ -504,4 +577,10 @@ Partial Class frmDesperfecto
     Friend WithEvents CalendarReparacion As Infragistics.Win.UltraWinSchedule.UltraCalendarCombo
     Friend WithEvents UltraTextEditor1 As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents OpcTodo As System.Windows.Forms.RadioButton
+    Friend WithEvents opcNoReparado As System.Windows.Forms.RadioButton
+    Friend WithEvents OpcReparado As System.Windows.Forms.RadioButton
+    Friend WithEvents BtnReparacion As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents cmbMaquinaSearch As System.Windows.Forms.ComboBox
+    Friend WithEvents checkMaqina As System.Windows.Forms.CheckBox
 End Class
