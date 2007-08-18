@@ -238,10 +238,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSOC.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Modulo_Produccion\Classes\Desperfecto.vb" />
     <Compile Include="Modulo_Produccion\Classes\Maquina.vb" />
-    <Compile Include="Modulo_Produccion\Classes\TipoAcabado.vb" />
-    <Compile Include="Modulo_Produccion\Classes\tipoMaquina.vb" />
     <Compile Include="Modulo_Produccion\Forms\abmMaquinaFresa.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -269,29 +266,10 @@
     <Compile Include="AssemblyInfo.vb">
       <SubType>Code</SubType>
     </Compile>
-<<<<<<< .mine
-    <Compile Include="Modulo_Produccion\Forms\frmDesperfecto.designer.vb">
-      <DependentUpon>frmDesperfecto.vb</DependentUpon>
+    <Compile Include="Modulo_Produccion\Forms\consultarModeloFresa.Designer.vb">
+      <DependentUpon>consultarModeloFresa.vb</DependentUpon>
     </Compile>
-    <Compile Include="Modulo_Produccion\Forms\frmDesperfecto.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\frmTipoAcabado.designer.vb">
-      <DependentUpon>frmTipoAcabado.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\frmTipoAcabado.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\frmTipoMaquina.designer.vb">
-      <DependentUpon>frmTipoMaquina.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\frmTipoMaquina.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\frmTornero.designer.vb">
-      <DependentUpon>frmTornero.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\frmTornero.vb">
+    <Compile Include="Modulo_Produccion\Forms\consultarModeloFresa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Produccion\Forms\frmMaquina.Designer.vb">
@@ -300,38 +278,21 @@
     <Compile Include="Modulo_Produccion\Forms\frmMaquina.vb">
       <SubType>Form</SubType>
     </Compile>
-=======
-    <Compile Include="Modulo_Produccion\Forms\consultarModeloFresa.Designer.vb">
-      <DependentUpon>consultarModeloFresa.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\consultarModeloFresa.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\modificarModeloFresa.Designer.vb">
-      <DependentUpon>modificarModeloFresa.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\modificarModeloFresa.vb">
-      <SubType>Form</SubType>
-    </Compile>
->>>>>>> .r87
     <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\BaseDatos.vb" />
     <Compile Include="Modulo_Produccion\Classes\Cargo.vb" />
-<<<<<<< .mine
+    <Compile Include="Modulo_Sistema\Classes\Constantes.vb" />
     <Compile Include="Modulo_Sistema\Classes\Mensajeria.vb" />
     <Compile Include="Modulo_Sistema\Classes\PaintRowEventArgs.vb" />
-    <Compile Include="Modulo_Sistema\Forms\frmMensajes.Designer.vb">
+    <Compile Include="Modulo_Sistema\Classes\Parametro.vb" />
+    <Compile Include="Modulo_Sistema\Forms\frmMensajes.designer.vb">
       <DependentUpon>frmMensajes.vb</DependentUpon>
     </Compile>
     <Compile Include="Modulo_Sistema\Forms\frmMensajes.vb">
       <SubType>Form</SubType>
     </Compile>
-=======
-    <Compile Include="Modulo_Sistema\Classes\Constantes.vb" />
-    <Compile Include="Modulo_Sistema\Classes\Parametro.vb" />
->>>>>>> .r87
     <Compile Include="Modulo_Ventas\Classes\Cliente.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -633,41 +594,18 @@
       <DependentUpon>Diagrama_ABC.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-<<<<<<< .mine
-    <EmbeddedResource Include="Modulo_Produccion\Forms\frmDesperfecto.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmDesperfecto.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Produccion\Forms\frmTipoAcabado.resx">
-      <DependentUpon>frmTipoAcabado.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Produccion\Forms\frmTipoMaquina.resx">
-      <DependentUpon>frmTipoMaquina.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Produccion\Forms\frmTornero.resx">
-      <DependentUpon>frmTornero.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Produccion\Forms\frmMaquina.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmMaquina.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Sistema\Forms\frmMensajes.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmMensajes.vb</DependentUpon>
-    </EmbeddedResource>
-=======
     <EmbeddedResource Include="Modulo_Produccion\Forms\consultarModeloFresa.resx">
       <SubType>Designer</SubType>
       <DependentUpon>consultarModeloFresa.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Produccion\Forms\modificarModeloFresa.resx">
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmMaquina.resx">
+      <DependentUpon>frmMaquina.vb</DependentUpon>
       <SubType>Designer</SubType>
-      <DependentUpon>modificarModeloFresa.vb</DependentUpon>
     </EmbeddedResource>
->>>>>>> .r87
+    <EmbeddedResource Include="Modulo_Sistema\Forms\frmMensajes.resx">
+      <DependentUpon>frmMensajes.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\emitirPresupuesto.resx">
       <DependentUpon>emitirPresupuesto.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -879,12 +817,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Modulo_Compras\DSCompras.xsc">
-      <DependentUpon>DSCompras.xsd</DependentUpon>
-    </None>
-    <None Include="Modulo_Compras\dsComprasDos.xsc">
-      <DependentUpon>dsComprasDos.xsd</DependentUpon>
-    </None>
     <None Include="Modulo_Compras\DSOC.xsc">
       <DependentUpon>DSOC.xsd</DependentUpon>
     </None>
