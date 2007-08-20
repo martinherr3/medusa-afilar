@@ -757,7 +757,7 @@ Public Class frmpedidocliente
         Me.dgpedidos.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.dgpedidos.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.dgpedidos.LinkColor = System.Drawing.Color.Teal
-        Me.dgpedidos.Location = New System.Drawing.Point(88, 32)
+        Me.dgpedidos.Location = New System.Drawing.Point(85, 31)
         Me.dgpedidos.Name = "dgpedidos"
         Me.dgpedidos.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.dgpedidos.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
@@ -917,20 +917,8 @@ Public Class frmpedidocliente
         cargarComboTag("select nombre,idestado from estado", comboestado, 1, 1)
         cargarComboTag("select nombre,idformadeentrega from formadeentrega", comboformaentrega, 1, 1)
         cargarComboTag("select * from cliente", combocliente, 0, 23)
-        comboestado.Text = comboestado.Items(7).DisplayText
+        'comboestado.Text = comboestado.Items(7).DisplayText
         comboformaentrega.Text = comboformaentrega.Items(0).DisplayText
-        'Dim da As New SqlClient.SqlDataAdapter("select idestado,nombre from estado", cnn)
-        'Dim dt As New DataTable
-        'da.Fill(dt)
-        'cmbestado.DataSource = dt
-        'cmbestado.DisplayMember = "nombre"
-        'cmbestado.ValueMember = "idestado"
-        'da = New SqlClient.SqlDataAdapter("select nombre,idformadeentrega from formadeentrega", cnn)
-        'dt = New DataTable
-        'da.Fill(dt)
-        'cmbformaentrega.DataSource = dt
-        'cmbformaentrega.DisplayMember = "nombre"
-        'cmbformaentrega.ValueMember = "idformadeentrega"
 
         princ.barra.agregarBoton(Me)
 
@@ -947,7 +935,6 @@ Public Class frmpedidocliente
         Me.DataGridMf.ReadOnly = True
         Me.DataGridfresasfab.ReadOnly = True
         Me.DataGridF.ReadOnly = True
-        'Me.DataGridpp.ReadOnly = True
         Me.txtcantidad.ReadOnly = True
         Me.txtimportetotal.ReadOnly = True
         Me.txtsubtot.ReadOnly = True
@@ -978,270 +965,9 @@ Public Class frmpedidocliente
         setearfresas(DataGridfresasfab)
         DataGridfresasfab.SetDataBinding(ds, "FF")
 
-
-        '------------------------------------------------------------------------------------------------------
-        'PARTE NUEVA
-        '------------------------------------------------------------------------------------------------------
-
-
-
-
-
-        nroserie = calcularnroserie()
+        'nroserie = calcularnroserie()
         idpartepedida = 0
         idobj = 0
-        'damodelofresa = New SqlDataAdapter("select * from modelofresa", cnn)
-        'damodelofresa.Fill(ds, "modelofresa")
-        'Dim modelofresadc0 As New DataColumn("select")
-        'modelofresadc0.DefaultValue = "N"
-        'ds.Tables("modelofresa").Columns.Add(modelofresadc0)
-
-        'daDOS = New SqlDataAdapter("select * from detalleordenservicio", cnn)
-        'daDOS.FillSchema(ds, SchemaType.Source, "DOS")
-        'dtDOS = ds.Tables("DOS")
-        'Dim DOSdc0 As New DataColumn("Item")
-        'DOSdc0.DefaultValue = String.Empty
-        'dtDOS.Columns.Add(DOSdc0)
-        'Dim DOSdc1 As New DataColumn("operacion")
-        'dtDOS.Columns.Add(DOSdc1)
-        'Dim DOSdc2 As New DataColumn("cantidad")
-        'dtDOS.Columns.Add(DOSdc2)
-        'Dim DOSdc3 As New DataColumn("nroserie")
-        'dtDOS.Columns.Add(DOSdc3)
-
-        'daOBJ = New SqlDataAdapter("select * from objetodelservicio", cnn)
-        'daOBJ.FillSchema(ds, SchemaType.Source, "OBJ")
-
-        'daparteadicional = New SqlDataAdapter("Select * from parteadicional", cnn)
-        'daparteadicional.Fill(ds, "parteadicional")
-        'Dim parteadicionaldc0 As New DataColumn("select")
-        'parteadicionaldc0.DefaultValue = "N"
-        'ds.Tables("parteadicional").Columns.Add(parteadicionaldc0)
-        'Dim parteadicionaldc1 As New DataColumn("CantSolicitada")
-        ''parteadicionaldc1.DefaultValue = String.Empty
-        'parteadicionaldc1.DefaultValue = 0
-        'ds.Tables("parteadicional").Columns.Add(parteadicionaldc1)
-        'Dim parteadicionaldc2 As New DataColumn("precioventa")
-        'parteadicionaldc2.DefaultValue = 0
-        'ds.Tables("parteadicional").Columns.Add(parteadicionaldc2)
-
-        'RadioButton1.Checked = True
-        'datipofresa = New SqlDataAdapter("select * from tipofresa", cnn)
-        'datipofresa.Fill(ds, "tipofresa")
-        'Dim tipofresadc0 As New DataColumn("select")
-        'tipofresadc0.DefaultValue = "N"
-        'ds.Tables("tipofresa").Columns.Add(tipofresadc0)
-        'Dim tipofresadc1 As New DataColumn("Cantsolicitada")
-        'tipofresadc1.DefaultValue = 0
-        'ds.Tables("tipofresa").Columns.Add(tipofresadc1)
-        'Dim tipofresadc2 As New DataColumn("precioventa")
-        'tipofresadc2.DefaultValue = 0
-        'ds.Tables("tipofresa").Columns.Add(tipofresadc2)
-
-        ''dvtipofresa = ds.Tables("tipofresa").DefaultView
-        ''dvparteadicional = ds.Tables("parteadicional").DefaultView
-
-        'dafresa = New SqlDataAdapter("select * from fresa", cnn)
-        'dafresa.FillSchema(ds, SchemaType.Source, "fresa")
-        'dtfresa = ds.Tables("fresa")
-        'Dim fresadc0 As New DataColumn("nombre")
-        'dtfresa.Columns.Add(fresadc0)
-        'Dim fresadc1 As New DataColumn("Select")
-        'fresadc1.DefaultValue = "N"
-        'dtfresa.Columns.Add(fresadc1)
-
-        'dapartepedida = New SqlDataAdapter("select * from partepedido", cnn)
-        'dapartepedida.FillSchema(ds, SchemaType.Source, "partepedida")
-        'dtpartepedida = ds.Tables("partepedida")
-        'Dim partepedidadc0 As New DataColumn("nombre")
-        'dtpartepedida.Columns.Add(partepedidadc0)
-        'Dim partepedidadc1 As New DataColumn("select")
-        'partepedidadc1.DefaultValue = "N"
-        'dtpartepedida.Columns.Add(partepedidadc1)
-        ''Dim partepedidadc1 As New DataColumn("precioventa")
-        ''dtpartepedida.Columns.Add(partepedidadc1)
-        'dapedido = New SqlDataAdapter("select * from pedido", cnn)
-        'dapedido.FillSchema(ds, SchemaType.Source, "pedido")
-        'dtpedido = ds.Tables("pedido")
-
-        'ds.Relations.Add("modelofresa_tipofresa", ds.Tables("modelofresa").Columns("idmodelo"), ds.Tables("tipofresa").Columns("idmodelo"))
-        'ds.Relations.Add("modelofresa_parteadicional", ds.Tables("modelofresa").Columns("idmodelo"), ds.Tables("parteadicional").Columns("idmodelo"))
-
-        'daestado = New SqlDataAdapter("select idestado,nombre from estado", cnn)
-        'daestado.Fill(ds, "estado")
-        'cmbestado.DataSource = ds.Tables("estado")
-        'cmbestado.DisplayMember = "nombre"
-        'cmbestado.ValueMember = "idestado"
-        'cmbestado.Enabled = False
-
-        'daformadeentrega = New SqlDataAdapter("select idformadeentrega,nombre from formadeentrega", cnn)
-        'daformadeentrega.Fill(ds, "FDE")
-        'cmbformadeentrega.DataSource = ds.Tables("FDE")
-        'cmbformadeentrega.DisplayMember = "nombre"
-        'cmbformadeentrega.ValueMember = "idformadeentrega"
-        'cmbformadeentrega.Enabled = False
-        'dtpfechaentrega.Enabled = False
-
-        'daoperacion = New SqlDataAdapter("select * from operacion", cnn)
-        'daoperacion.Fill(ds, "operacion")
-        'Dim operaciondc0 As New DataColumn("select")
-        'operaciondc0.DefaultValue = "N"
-        'ds.Tables("operacion").Columns.Add(operaciondc0)
-        'Dim operaciondc1 As New DataColumn("precio")
-        'operaciondc1.DefaultValue = String.Empty
-        'ds.Tables("operacion").Columns.Add(operaciondc1)
-        'dtoperacion = ds.Tables("operacion")
-        ''dgservicio.DataSource = ds
-        ''dgservicio.DataMember = "operacion"
-
-
-        'UltraGroupBox4.Visible = False
-        'UltraGroupBox5.Visible = False
-
-        'Dim DOSts As DataGridTableStyle = CGrid.GetTableStyle(dtDOS)
-        ''Dim DOScs0 As New CGridCheckBoxStyle("select", 30, _
-        ''                                 HorizontalAlignment.Center, False, _
-        ''                                  "", "", "N", "Y", False, "")
-        ''CGrid.AddColumn(modelofresats, modelofresacs0)
-        'Dim DOScs1 As New CGridTextBoxStyle("item", 120, HorizontalAlignment.Left, True, _
-        '"ITEM", String.Empty, "")
-        'CGrid.AddColumn(DOSts, DOScs1)
-        'Dim DOScs2 As New CGridTextBoxStyle("operacion", 120, HorizontalAlignment.Left, True, "Servicio", String.Empty, "")
-        'CGrid.AddColumn(DOSts, DOScs2)
-        'Dim DOScs3 As New CGridTextBoxStyle("precio", 50, HorizontalAlignment.Center, True, _
-        '"Precio", String.Empty, "")
-        'CGrid.AddColumn(DOSts, DOScs3)
-        'Dim DOScs4 As New CGridTextBoxStyle("cantidad", 55, HorizontalAlignment.Center, True, _
-        '"Cantidad", String.Empty, "")
-        'CGrid.AddColumn(DOSts, DOScs4)
-        'Dim DOScs5 As New CGridTextBoxStyle("nroserie", 55, HorizontalAlignment.Center, True, _
-        '"NroSerie", String.Empty, "")
-        'CGrid.AddColumn(DOSts, DOScs5)
-        'CGrid.SetGridStyle(Me.dgDETOS, dtDOS, DOSts)
-        ''dgmodelofresa.DataSource = ds
-        ''dgmodelofresa.DataMember = "modelofresa"
-
-        ''establecer la grilla asociada a operaciones
-        'Dim operacionts As DataGridTableStyle = CGrid.GetTableStyle(dtoperacion)
-        'Dim operacioncs0 As New CGridCheckBoxStyle("select", 30, _
-        '                                 HorizontalAlignment.Center, False, _
-        '                                  "", "", "N", "Y", False, "")
-        'CGrid.AddColumn(operacionts, operacioncs0)
-        'Dim operacioncs1 As New CGridTextBoxStyle("nombre", 133, HorizontalAlignment.Left, True, _
-        '"Servcios", String.Empty, "")
-        'CGrid.AddColumn(operacionts, operacioncs1)
-        'Dim operacioncs2 As New CGridTextBoxStyle("precio", 50, HorizontalAlignment.Left, False, _
-        '"Precio", String.Empty, "")
-        'CGrid.AddColumn(operacionts, operacioncs2)
-        'CGrid.SetGridStyle(Me.dgservicio, dtoperacion, operacionts)
-
-
-        ''Establecer los datos asociados a la grilla "MODELO FRESA"
-        'Dim modelofresats As DataGridTableStyle = CGrid.GetTableStyle(ds.Tables("modelofresa"))
-        'Dim modelofresacs0 As New CGridCheckBoxStyle("select", 30, _
-        '                                 HorizontalAlignment.Center, False, _
-        '                                  "", "", "N", "Y", False, "")
-        'CGrid.AddColumn(modelofresats, modelofresacs0)
-        'Dim modelofresacs1 As New CGridTextBoxStyle("nombre", 100, HorizontalAlignment.Left, True, _
-        '"Modelo", String.Empty, "")
-        'CGrid.AddColumn(modelofresats, modelofresacs1)
-        'Dim modelofresacs2 As New CGridTextBoxStyle("grupomodelo", 90, HorizontalAlignment.Center, True, "Grupo Modelo", String.Empty, "")
-        'CGrid.AddColumn(modelofresats, modelofresacs2)
-        'Dim modelofresacs3 As New CGridTextBoxStyle("materialatrabajar", 90, HorizontalAlignment.Center, True, "Grupo Modelo", String.Empty, "")
-        'CGrid.AddColumn(modelofresats, modelofresacs3)
-        'Dim modelofresacs4 As New CGridTextBoxStyle("mododeavance", 85, HorizontalAlignment.Center, True, "Modo Avanvce", String.Empty, "")
-        'CGrid.AddColumn(modelofresats, modelofresacs4)
-        'Dim modelofresacs5 As New CGridTextBoxStyle("tipoacabado", 90, HorizontalAlignment.Center, True, "Tipoacabado", String.Empty, "")
-        'CGrid.AddColumn(modelofresats, modelofresacs5)
-        'Dim modelofresacs6 As New CGridTextBoxStyle("velocidaddeavance", 70, HorizontalAlignment.Center, True, "Vel. Avance", String.Empty, "")
-        'CGrid.AddColumn(modelofresats, modelofresacs6)
-        'Dim modelofresacs10 As New CGridTextBoxStyle("precio", 60, HorizontalAlignment.Center, True, "Precio", String.Empty, "")
-        'CGrid.AddColumn(modelofresats, modelofresacs10)
-        'CGrid.SetGridStyle(Me.dgmodelofresa, ds.Tables("modelofresa"), modelofresats)
-        'dgmodelofresa.DataSource = ds
-        'dgmodelofresa.DataMember = "modelofresa"
-
-        ''Establecer los datos asociados a la grilla "PARTE ADICIONAL"
-        ''Dim parteadicionalts As DataGridTableStyle = CGrid.GetTableStyle(dvparteadicional)
-        'Dim parteadicionalts As DataGridTableStyle = CGrid.GetTableStyle(ds.Tables("parteadicional"))
-        'Dim parteadicionalcs0 As New CGridCheckBoxStyle("select", 30, _
-        '                                  HorizontalAlignment.Center, False, _
-        '                                  "", "", "N", "Y", False, "")
-        'CGrid.AddColumn(parteadicionalts, parteadicionalcs0)
-        'Dim parteadicionalcs1 As New CGridTextBoxStyle("nombre", 100, HorizontalAlignment.Left, True, _
-        '"Modelo", String.Empty, "")
-        'CGrid.AddColumn(parteadicionalts, parteadicionalcs1)
-        'Dim parteadicionalcs4 As New CGridTextBoxStyle("cantidad Real", 40, HorizontalAlignment.Center, False, "Cant.", String.Empty, "")
-        'CGrid.AddColumn(parteadicionalts, parteadicionalcs4)
-        'Dim parteadicionalcs5 As New CGridNumericUpDownStyle("cantsolicitada", 50, "Cantidad", 0, 1000, 0, 1, LeftRightAlignment.Left, 0, "0")
-        'CGrid.AddColumn(parteadicionalts, parteadicionalcs5)
-        'Dim parteadicionalcs6 As New CGridNumericUpDownStyle("precioventa", 67, "Descuento", 0, 1000, 3, 1, LeftRightAlignment.Left, 0, "0")
-        'CGrid.AddColumn(parteadicionalts, parteadicionalcs6)
-        ''Dim parteadicionalcs6 As New CGridTextBoxStyle("precioventa", 60, HorizontalAlignment.Center, False, "Descuento (%)", String.Empty, "")
-        ''CGrid.AddColumn(parteadicionalts, parteadicionalcs6)
-        'Dim parteadicionalcs2 As New CGridTextBoxStyle("precio", 60, HorizontalAlignment.Center, True, "Precio", String.Empty, "")
-        'CGrid.AddColumn(parteadicionalts, parteadicionalcs2)
-        ''Dim parteadicionalcs5 As New CGridTextBoxStyle("cantidad", 60, HorizontalAlignment.Center, True, "Cant.Real", String.Empty, "")
-        ''CGrid.AddColumn(parteadicionalts, parteadicionalcs5)
-        ''Dim parteadicionalcs3 As New CGridTextBoxStyle("descripcion", 60, HorizontalAlignment.Center, True, "Descripción", String.Empty, "")
-        ''CGrid.AddColumn(parteadicionalts, parteadicionalcs3)
-        'CGrid.SetGridStyle(Me.dgparteadicional, ds.Tables("parteadicional"), parteadicionalts)
-        'dgparteadicional.DataSource = ds
-        'dgparteadicional.DataMember = "modelofresa.modelofresa_parteadicional"
-
-
-        ''Establecer los datos asociados a la grilla "Tipo FRESA"
-        ''Dim tipofresats As DataGridTableStyle = CGrid.GetTableStyle(dvtipofresa)
-        'Dim tipofresats As DataGridTableStyle = CGrid.GetTableStyle(ds.Tables("tipofresa"))
-        'Dim tipofresacs0 As New CGridCheckBoxStyle("select", 30, _
-        '                                  HorizontalAlignment.Center, False, _
-        '                                  "", "", "N", "Y", False, "")
-        'CGrid.AddColumn(tipofresats, tipofresacs0)
-        'Dim tipofresacs1 As New CGridTextBoxStyle("nombre", 80, HorizontalAlignment.Left, True, _
-        '"Modelo", String.Empty, "")
-        'CGrid.AddColumn(tipofresats, tipofresacs1)
-        'Dim tipofresacs5 As New CGridNumericUpDownStyle("cantsolicitada", 50, "Cantidad", 0, 1000, 0, 1, LeftRightAlignment.Left, 0, "0")
-        'CGrid.AddColumn(tipofresats, tipofresacs5)
-        'Dim tipofresacs4 As New CGridNumericUpDownStyle("precioventa", 50, "Descuento", 0, 1000, 3, 1, LeftRightAlignment.Left, 0, "0")
-        'CGrid.AddColumn(tipofresats, tipofresacs4)
-        'Dim tipofresacs2 As New CGridTextBoxStyle("precio", 60, HorizontalAlignment.Center, True, "Precio", String.Empty, "")
-        'CGrid.AddColumn(tipofresats, tipofresacs2)
-        'CGrid.SetGridStyle(Me.dgtipofresa, ds.Tables("tipofresa"), tipofresats)
-        'dgtipofresa.DataSource = ds
-        'dgtipofresa.DataMember = "modelofresa.modelofresa_tipofresa"
-
-        ''Establecer los datos asociados a la grilla "FRESA"
-        'Dim fresats As DataGridTableStyle = CGrid.GetTableStyle(dtfresa)
-        'Dim fresacs3 As New CGridCheckBoxStyle("select", 30, _
-        '                                          HorizontalAlignment.Center, False, _
-        '                                          "", "", "N", "Y", False, "")
-        'CGrid.AddColumn(fresats, fresacs3)
-        'Dim fresacs0 As New CGridTextBoxStyle("nroserie", 60, HorizontalAlignment.Center, False, "Nro.Serie", String.Empty, "")
-        'CGrid.AddColumn(fresats, fresacs0)
-        'Dim fresacs1 As New CGridTextBoxStyle("nombre", 110, HorizontalAlignment.Left, True, _
-        '"Tipo Fresa", String.Empty, "")
-        'CGrid.AddColumn(fresats, fresacs1)
-        'Dim fresacs2 As New CGridTextBoxStyle("precio", 47, HorizontalAlignment.Center, True, _
-        '        "Precio", String.Empty, "")
-        'CGrid.AddColumn(fresats, fresacs2)
-        'CGrid.SetGridStyle(Me.dgfresa, dtfresa, fresats)
-
-
-        'Dim partepedidats As DataGridTableStyle = CGrid.GetTableStyle(dtpartepedida)
-        'Dim partepedidacs3 As New CGridCheckBoxStyle("select", 30, _
-        '                                                  HorizontalAlignment.Center, False, _
-        '                                                  "", "", "N", "Y", False, "")
-        'CGrid.AddColumn(partepedidats, partepedidacs3)
-        'Dim partepedidacs0 As New CGridTextBoxStyle("nombre", 110, HorizontalAlignment.Left, False, "Parte", String.Empty, "")
-        'CGrid.AddColumn(partepedidats, partepedidacs0)
-        'Dim partepedidacs1 As New CGridTextBoxStyle("cantidad", 60, HorizontalAlignment.Center, True, _
-        '"Cantidad", String.Empty, "")
-        'CGrid.AddColumn(partepedidats, partepedidacs1)
-        'Dim partepedidacs2 As New CGridTextBoxStyle("precio", 47, HorizontalAlignment.Center, True, _
-        '"Precio", String.Empty, "")
-        'CGrid.AddColumn(partepedidats, partepedidacs2)
-        'CGrid.SetGridStyle(Me.dgpartepedida, dtpartepedida, partepedidats)
-        'princ.barra.agregarBoton(Me)
         nroserie = 0
     End Sub
     Function calcularnroserie() As Object
@@ -1375,39 +1101,19 @@ Public Class frmpedidocliente
     Private Sub btnagregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnagregar.Click
 
         Dim i As Integer
-        Dim j As Integer
+        '        Dim j As Integer
         For i = 0 To ds.Tables("tipofresa").Rows.Count - 1
             If ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = True Then
-
-                'If Not (ds.Tables("tipofresa").Rows(i).Item("cantsolicitada") = 0) Then
-
-                'For j = 1 To ds.Tables("tipofresa").Rows(i).Item("cantsolicitada")
                 nroserie += 1
                 Dim dr As DataRow = ds.Tables("fresa").NewRow
                 dr("nroserie") = CInt(nroserie)
                 dr("idtipo") = ds.Tables("tipofresa").Rows(i).Item("idtipo")
-                'For j = 0 To ds.Tables("modelofresa").Rows.Count - 1
-                'If ds.Tables("modelofresa").Rows(j)("seleccionarMF") = True Then
-                'dr("idmodelo") = ds.Tables("modelofresa").Rows(DataGridMf.CurrentCell.RowNumber).Item("idmodelo")
                 dr("idmodelo") = ds.Tables("tipofresa").Rows(i).Item("idmodelo")
-
-                'End If
-                'Next
-                'dr("idmodelo") = ds.Tables("modelofresa").Rows(DataGridMf.CurrentCell.RowNumber).Item("idmodelo")
                 dr("nropedido") = CLng(lblnropedido.Text)
                 dr("estado") = comboestado.SelectedItem.Tag()
                 dr("nombre") = ds.Tables("tipofresa").Rows(i).Item("nombre")
                 ds.Tables("fresa").Rows.Add(dr)
-                'If ds.Tables("tipofresa").Rows(i).Item("precioventa") = 0 Then
                 dr("precio") = CDec(ds.Tables("tipofresa").Rows(i).Item("precio"))
-                'Else
-                'modifique el precio
-                '    dr("precio") = CDec(CDec(ds.Tables("tipofresa").Rows(i).Item("precio")) * CDec(ds.Tables("tipofresa").Rows(i).Item("precioventa")) / 100)
-                'End If
-                'Next
-                'ds.Tables("tipofresa").Rows(i).Item("cantsolicitada") = 0
-                'ds.Tables("tipofresa").Rows(i).Item("precioventa") = 0
-                'End If
                 ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = False
             End If
         Next
@@ -1417,30 +1123,12 @@ Public Class frmpedidocliente
                 idpartepedida += 1
                 Dim dr As DataRow = ds.Tables("partepedida").NewRow
                 dr("idpartepedida") = CInt(idpartepedida)
-
-                'For j = 0 To ds.Tables("modelofresa").Rows.Count - 1
-                'If ds.Tables("modelofresa").Rows(j)("seleccionarMF") = True Then
-                'dr("idmodelo") = ds.Tables("modelofresa").Rows(DataGridMf.CurrentCell.RowNumber).Item("idmodelo")
                 dr("idmodelo") = ds.Tables("parteadicional").Rows(i).Item("idmodelo")
-                'End If
-            'Next
-            dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
+                dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
             dr("idpedido") = CLng(lblnropedido.Text)
             dr("nombre") = ds.Tables("parteadicional").Rows(i).Item("nombre")
-            'If ds.Tables("parteadicional").Rows(i).Item("cantsolicitada") = 0 Then
-                'dr("cantidad") = CInt(ds.Tables("parteadicional").Rows(i).Item("cantidad"))
-                'ds.Tables("parteadicional").Rows(i).Item("cantidad") = cantidades(i)
-                'Else
-            '            dr("cantidad") = CInt(ds.Tables("parteadicional").Rows(i).Item("cantsolicitada"))
-            '            ds.Tables("parteadicional").Rows(i).Item("cantsolicitada") = 0
-            '        End If
-            '        If ds.Tables("parteadicional").Rows(i).Item("precioventa") = 0 Then
-            dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
-            '        Else
-            '            dr("precio") = CDec(CDec(ds.Tables("parteadicional").Rows(i).Item("precioventa") * ds.Tables("parteadicional").Rows(i).Item("precio")) / 100)
-            '        End If
-            '        ds.Tables("parteadicional").Rows(i).Item("precioventa") = 0
-            ds.Tables("partepedida").Rows.Add(dr)
+                dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
+                ds.Tables("partepedida").Rows.Add(dr)
             ds.Tables("parteadicional").Rows(i).Item("seleccionarpa") = False
             End If
         Next
@@ -1452,21 +1140,7 @@ Public Class frmpedidocliente
             subtotal += CDec(ds.Tables("partepedida").Rows(i).Item("precio"))
         Next
         txtsubtotal.Text = CStr(subtotal)
-        'Dim total As Decimal = 0
-        'If Not (txtimportetotal.Text = String.Empty) Then
-        'total = CDec(txtimportetotal.Text)
-        'Else
-        '    total = 0
-        'End If
         txtimportetotal.Text = CStr(CDec(txtsubtotal.Text) + CDec(txtsubtot.Text))
-        'MsgBox(total)
-        'total += subtotal
-        'txtimportetotal.Text = total
-        For i = 0 To ds.Tables("modelofresa").Rows.Count - 1
-            If ds.Tables("modelofresa").Rows(i)("seleccionarMF") = True Then
-
-            End If
-        Next
     End Sub
 
     Private Sub UltraGroupBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraGroupBox2.Click
@@ -1497,7 +1171,7 @@ Public Class frmpedidocliente
         idpartepedida = 0
         Me.combocliente.ReadOnly = False
         Me.fechaentrega.ReadOnly = False
-        'Me.comboestado.ReadOnly = False
+        Me.comboestado.ReadOnly = False
         Me.comboformaentrega.ReadOnly = False
         'Me.DataGriddos.ReadOnly = False
         Me.DataGridMf.ReadOnly = False
@@ -1844,6 +1518,9 @@ Public Class frmpedidocliente
         End If
         total += subtotal
         txtimportetotal.Text = total
+        UltraTabControl1.SelectedTab = UltraTabControl1.Tabs(0)
+
+
     End Sub
 
     Private Sub dgclientes_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs)
@@ -2384,6 +2061,10 @@ Public Class frmpedidocliente
     End Sub
 
     Private Sub DataGridMf_Navigate_1(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles DataGridMf.Navigate
+
+    End Sub
+
+    Private Sub dgpedidos_PreviewKeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.PreviewKeyDownEventArgs) Handles dgpedidos.PreviewKeyDown
 
     End Sub
 End Class
