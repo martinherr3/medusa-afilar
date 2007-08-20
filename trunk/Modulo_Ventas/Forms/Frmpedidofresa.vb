@@ -2566,4 +2566,8 @@ Public Class Frmpedidofresa
     Private Sub dgclientes_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgclientes.DoubleClick
         TabControl1.SelectedIndex = 0
     End Sub
+
+    Private Sub btnnuevo_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnnuevo.Enter
+
+    End Sub
 End Class
