@@ -15,7 +15,7 @@ Public Class BaseDatos
 
     Public Sub New()
 
-        strInstancia = "notebook" 'AppSettings.Get("DataBaseServer")
+        strInstancia = AppSettings.Get("DataBaseServer")
         strNombreBD = AppSettings.Get("DataBaseName")
         strLoginSecure = AppSettings.Get("DataBaseLoginSecure")
         strUsuario = AppSettings.Get("DataBaseUser")
