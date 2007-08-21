@@ -162,15 +162,6 @@ Public Class frmMensajes
             ListView1.Items.Add(itm)
         Next
 
-        Dim str(5) As String
-
-        'str(0) = "0"
-        'str(1) = "pepe"
-        'str(2) = "Business Manager"
-        'str(3) = "12/10/1982"
-        'str(4) = "alta baja"
-        'str(5) = "true"
-
 
 
 
