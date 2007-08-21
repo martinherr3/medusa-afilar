@@ -124,9 +124,9 @@ Public Class frmCliente
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
+        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabPageControl1.SuspendLayout()
@@ -172,8 +172,7 @@ Public Class frmCliente
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton5)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton4)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton10)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(740, 233)
         '
@@ -474,18 +473,11 @@ Public Class frmCliente
         Me.UltraButton3.TabIndex = 13
         Me.UltraButton3.Text = "&Eliminar"
         '
-        'UltraButton10
-        '
-        Me.UltraButton10.Location = New System.Drawing.Point(640, 192)
-        Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
-        Me.UltraButton10.TabIndex = 14
-        Me.UltraButton10.Text = "Salir"
-        '
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton10)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(740, 233)
         '
@@ -516,8 +508,16 @@ Public Class frmCliente
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(704, 170)
+        Me.DataGrid1.Size = New System.Drawing.Size(704, 128)
         Me.DataGrid1.TabIndex = 20
+        '
+        'UltraButton10
+        '
+        Me.UltraButton10.Location = New System.Drawing.Point(640, 192)
+        Me.UltraButton10.Name = "UltraButton10"
+        Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
+        Me.UltraButton10.TabIndex = 14
+        Me.UltraButton10.Text = "Salir"
         '
         'UltraTabControl1
         '
