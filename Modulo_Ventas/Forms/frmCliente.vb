@@ -11,6 +11,7 @@ Public Class frmCliente
 
 
     Dim bandcombo As Integer
+    Friend WithEvents btnCodigoBarra As System.Windows.Forms.Button
     Dim bandGrabar As Integer
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -129,6 +130,7 @@ Public Class frmCliente
         Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.btnCodigoBarra = New System.Windows.Forms.Button
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.textBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,6 +150,7 @@ Public Class frmCliente
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.btnCodigoBarra)
         Me.UltraTabPageControl1.Controls.Add(Me.textBox6)
         Me.UltraTabPageControl1.Controls.Add(Me.TextBox3)
         Me.UltraTabPageControl1.Controls.Add(Me.TextBox7)
@@ -172,7 +175,8 @@ Public Class frmCliente
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton5)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton4)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton10)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(740, 233)
         '
@@ -476,8 +480,7 @@ Public Class frmCliente
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
-        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton10)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(740, 233)
         '
@@ -553,6 +556,15 @@ Public Class frmCliente
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(740, 233)
+        '
+        'btnCodigoBarra
+        '
+        Me.btnCodigoBarra.Location = New System.Drawing.Point(595, 108)
+        Me.btnCodigoBarra.Name = "btnCodigoBarra"
+        Me.btnCodigoBarra.Size = New System.Drawing.Size(125, 28)
+        Me.btnCodigoBarra.TabIndex = 39
+        Me.btnCodigoBarra.Text = "Ejemplo Codigo Barra"
+        Me.btnCodigoBarra.UseVisualStyleBackColor = True
         '
         'frmCliente
         '
@@ -898,5 +910,10 @@ Public Class frmCliente
         ' form.MdiParent = Me
         form.Tag = objcliente.id
         form.Show()
+    End Sub
+
+    Private Sub btnCodigoBarra_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCodigoBarra.Click
+        Dim frmCodigo As New frmCodigoBarra
+        frmCodigo.Show()
     End Sub
 End Class

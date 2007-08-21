@@ -22,6 +22,8 @@ Public Class CodigoBarra
     Private _sChecksumDigit As String
 
     Public Sub New()
+        Me.CountryCode = "779"
+        Me.ManufacturerCode = "1293"
     End Sub
 
     Public Sub New(ByVal mfgNumber As String, ByVal productId As String)
