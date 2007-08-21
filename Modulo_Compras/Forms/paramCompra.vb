@@ -315,99 +315,34 @@ Public Class paramCompra
     End Sub
 
     Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton2.Click
-        'Dim connect As New coneccion
 
-        Dim conn As SqlConnection
-        conn = cnn
+        Dim objParametro As New ParametrosCompras
+        Try
+            objParametro.ActualizarLote(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
 
-        'conn = connect.conneccion
-        conn.Open()
+            Dim sql2 As String = "SELECT idtipomateriaprima, nombre, stockactual, loteeconomico FROM tipomateriaprima"
+            Dim comm As New SqlCommand(sql2, cnn)
 
-        Dim sql As New SqlClient.SqlCommand
-        sql.CommandType = CommandType.Text
-        sql.CommandText = "UPDATE tipomateriaprima SET loteeconomico = " & Val(textbox1.Text) & _
-            "WHERE idtipomateriaprima = " & grd1.Item(grd1.CurrentRowIndex, 0)
+            Dim DA As New SqlDataAdapter(comm)
+            Dim DS As New DataSet
+            DA.Fill(DS)
 
-        sql.Connection = conn
-        sql.ExecuteNonQuery()
+            grd1.DataSource = DS.Tables.Item(0)
+        Catch ex As Exception
+            MessageBox.Show("Error al actualizar " & ex.Message)
+        End Try
 
-        Dim sql2 As String = "SELECT idtipomateriaprima, nombre, stockactual, loteeconomico FROM tipomateriaprima"
-        Dim comm As New SqlCommand(sql2, conn)
-
-        Dim DA As New SqlDataAdapter(comm)
-        Dim DS As New DataSet
-        DA.Fill(DS)
-
-        grd1.DataSource = DS.Tables.Item(0)
-        conn.Close()
     End Sub
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
 
+        Dim objParametro As New ParametrosCompras
+        Label7.Text = objParametro.RetornarConsumo(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer)) & " Unidades"
+        textbox1.Text = objParametro.CalcularLoteOptimo(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
+        textbox2.Text = objParametro.TiempoEntrePedidos(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
+        textbox3.Text = objParametro.ProximoPedido(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
+        Label8.Text = objParametro.RetornarDiasDemora(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer)) & " dias"
 
-        'Dim connect As New coneccion
-        Dim conn As SqlConnection
-        conn = cnn
-        Dim sql1 As String
-        Dim sql2 As String
-
-        sql1 = " select count(*) " & _
-            "from fresa F, tipoFresa T, tipoparte P, parte PxT, tipomateriaprima TMP, MPxTP MxT " & _
-            "where F.nroserie = T.idtipo and T.idtipo=PxT.idtipofresa and T.idmodelo = PxT.idmodelo and PxT.nombre =P.nombre and " & _
-            "MxT.idmp = TMP.idtipomateriaprima And MxT.nombre = P.nombre and F.fechafinfabricacion " & _
-            "between DateAdd(Year, -1, getdate()) And getdate() And TMP.idtipomateriaprima = " & grd1.Item(grd1.CurrentRowIndex, 0) & _
-            "group by TMP.idtipomateriaprima "
-
-        sql2 = "SELECT sum(datediff(day, OC.fecharealizacion, MPR.fecharecepcion))/ count(datediff(day, OC.fecharealizacion, MPR.fecharecepcion)) " & _
-            "FROM ordencompramp OC, mprecibida MPR " & _
-            "WHERE OC.idordencompra = MPR.idordencompramp"
-
-        'conn = connect.conneccion
-        conn.Open()
-
-        Dim Comm As New SqlCommand(sql1, conn)
-        Dim DReader As SqlDataReader = Comm.ExecuteReader()
-
-        While DReader.Read()
-            If DReader.Item(0) = 1 Then
-                Label7.Text = DReader.Item(0) & " unidad"
-            Else
-                Label7.Text = DReader.Item(0) & " unidades"
-            End If
-        End While
-        DReader.Close()
-
-        Comm = New SqlCommand(sql2, conn)
-        Dim DReader2 As SqlDataReader = Comm.ExecuteReader(CommandBehavior.CloseConnection)
-
-        While DReader2.Read()
-            Label8.Text = DReader2.Item(0) & " dias"
-        End While
-        DReader2.Close()
-
-        GroupBox1.Text = "Parametros de: " & grd1.Item(grd1.CurrentRowIndex, 1)
-
-        ' conn.Close()
-
-        Dim q As Decimal  'tamaño lote
-        Dim cp As Decimal 'costo por pedido
-        Dim cs As Decimal 'costo de stock
-        Dim t As Decimal  'periodo de analisis
-        Dim n As Decimal  'demanda en el periodo
-
-        cp = 10
-        cs = 3
-        t = 1
-        n = CInt(Val(Label7.Text))
-        q = Math.Round(Math.Sqrt((2 * cp * n) / (cs * t)), 2)
-        textbox1.Text = q
-        If Not n = 0 Then
-            textbox2.Text = (t * q) / n
-        End If
-
-        If Not Val(Label7.Text) = 0 Then
-            textbox3.Text = (grd1.Item(grd1.CurrentRowIndex, 2) / (Val(Label7.Text) / 360))
-        End If
     End Sub
 End Class
 
