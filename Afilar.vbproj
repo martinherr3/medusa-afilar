@@ -238,7 +238,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSOC.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modulo_Produccion\Classes\Desperfecto.vb" />
     <Compile Include="Modulo_Produccion\Classes\Maquina.vb" />
+    <Compile Include="Modulo_Produccion\Classes\TipoAcabado.vb" />
+    <Compile Include="Modulo_Produccion\Classes\tipoMaquina.vb" />
     <Compile Include="Modulo_Produccion\Forms\abmMaquinaFresa.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -278,10 +281,40 @@
     <Compile Include="Modulo_Produccion\Forms\frmCodigoBarra.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmDesperfecto.Designer.vb">
+      <DependentUpon>frmDesperfecto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmDesperfecto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulo_Produccion\Forms\frmMaquina.Designer.vb">
       <DependentUpon>frmMaquina.vb</DependentUpon>
     </Compile>
     <Compile Include="Modulo_Produccion\Forms\frmMaquina.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmTipoAcabado.Designer.vb">
+      <DependentUpon>frmTipoAcabado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmTipoAcabado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmTipoMaquina.Designer.vb">
+      <DependentUpon>frmTipoMaquina.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmTipoMaquina.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmTornero.Designer.vb">
+      <DependentUpon>frmTornero.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmTornero.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\modificarModeloFresa.Designer.vb">
+      <DependentUpon>modificarModeloFresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\modificarModeloFresa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
@@ -502,6 +535,36 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\Afilar.CrystalReport1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Afilar.CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="obj\Debug\Afilar.ocrpt.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Afilar.ocrpt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="obj\Debug\Afilar.repCompras.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Afilar.repCompras.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="obj\Debug\Afilar.repCompras2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Afilar.repCompras2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="obj\Debug\Afilar.repPres.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Afilar.repPres.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="principal.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -608,8 +671,28 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmCodigoBarra.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmDesperfecto.resx">
+      <DependentUpon>frmDesperfecto.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Produccion\Forms\frmMaquina.resx">
       <DependentUpon>frmMaquina.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmTipoAcabado.resx">
+      <DependentUpon>frmTipoAcabado.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmTipoMaquina.resx">
+      <DependentUpon>frmTipoMaquina.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmTornero.resx">
+      <DependentUpon>frmTornero.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\modificarModeloFresa.resx">
+      <DependentUpon>modificarModeloFresa.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Sistema\Forms\frmMensajes.resx">
@@ -739,6 +822,73 @@
       <DependentUpon>paramCompra.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\Afilar.abmMaquinaFresa.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.abmMateriaPrima.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.abmMatTrab.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.abmModoAvance.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.abmOperacion.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.abmProveedores.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.abmTipoAcabado.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.abmTipoParte.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.consultarModeloFresa.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.consultarOC.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Afilar.CrystalReport1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\Afilar.Diagrama_ABC.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.emitirPresupuesto.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmAsignar.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmBase.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmBaseDatos.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmCargo.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmCliente.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmCodigoBarra.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmControlCalidad.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmEmpleado.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmEmpresaTransp.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmEntrega.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmFormaEntrega.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmFormulario.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.FrmGenerarOC.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmIngresos.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmLocalidad.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmMaquina.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmMensajes.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.FrmPagoProveedor.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmpedidocliente.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.Frmpedidofresa.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmProvincia.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.FrmRecibirMP.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmRecibirMPII.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmUnidadDeMedida.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.frmUsuarios.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.grdstyle.CGridTextBoxStyle.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.informeCompras.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.informeCompras2.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.LoginForm.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.ocrpt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Afilar.ocrpt.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\Afilar.paramCompra.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.principal.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.programarProduccion.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.registrarModeloFresa.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.repCompras.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Afilar.repCompras.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\Afilar.repCompras2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Afilar.repCompras2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\Afilar.repPres.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Afilar.repPres.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\Afilar.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\Afilar.treeview.resources" />
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -810,6 +960,23 @@
       <LastGenOutput>DSOC.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="obj\Afilar.vbproj.FileList.txt" />
+    <Content Include="obj\Debug\Afilar.exe" />
+    <Content Include="obj\Debug\afilar.exe.licenses" />
+    <Content Include="obj\Debug\Afilar.pdb" />
+    <Content Include="obj\Debug\Afilar.xml" />
+    <Content Include="obj\Debug\Interop.SQLDMO.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Compras.DSCompras.Designer.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Compras.dsComprasDos.Designer.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Compras.DSOC.Designer.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Compras.Reports.CrystalReport1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Compras.Reports.ocrpt.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Compras.Reports.repCompras.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Compras.Reports.repCompras2.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Produccion.DSAdicional.Designer.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Produccion.DSFresa.Designer.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Modulo_Ventas.Reports.repPres.vb.dll" />
+    <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
@@ -847,9 +1014,13 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="obj\Debug\Afilar.vbproj.GenerateResource.Cache" />
+    <None Include="obj\Debug\Afilar.vbproj.ResolveComReference.cache" />
+    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modulo_Produccion\Reports\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
