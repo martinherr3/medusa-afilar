@@ -146,8 +146,8 @@ Public Class Mensajeria
             nuevafila(4) = ""
             nuevafila(5) = 1
             nuevafila(6) = False
-            nuevafila(7) = ""
-            nuevafila(8) = ""
+            nuevafila(7) = Now
+            nuevafila(8) = Now
 
             dscl.Tables(0).Rows.Add(nuevafila)
 
@@ -213,20 +213,60 @@ Public Class Mensajeria
             MsgBox("Datos incorrectos, verifiquelos", MsgBoxStyle.Critical, "Control de datos")
         End If
     End Sub
+    'sacar el ds y obtener el numero del max id aca adentro para poder usarlo desde otro lado 
+    Public Sub enviarMensaje(ByVal asuntop As String, ByVal idremitentep As Integer, ByVal idDestinatario As Integer, ByVal mensajep As String, _
+        ByVal prioridadp As Integer, ByVal leidop As Boolean, ByVal fechaReparacionp As Date, ByVal fechaRoturap As Date, ByVal dscl As DataSet)
 
-    Public Sub tomarDatos(ByVal idmensajep As Integer, ByVal asuntop As String, ByVal idremitentep As Integer, ByVal idDestinatario As Integer, ByVal mensajep As String, _
-        ByVal prioridadp As Integer, ByVal leidop As Boolean, ByVal fechaReparacionp As Date, ByVal fechaRoturap As Date)
-        varCancelar = 0
-        intIdMensaje = idmensajep
-        strAsunto = asuntop
-        intIdRemitente = idremitentep
-        intIdDestinatario = idDestinatario
-        strMensaje = mensajep
-        intPrioridad = prioridadp
-        boolLeido = leidop
-        dateFechaRecepion = fechaReparacionp
-        dateFechaLectura = fechaRoturap
+        Dim tbMensaje As DataTable = dscl.Tables.Item(0)
 
+        Dim idmaximo() As DataRow
+        idmaximo = tbMensaje.Select("idMensaje=max(idMensaje)")
+        Dim conn As SqlConnection
+
+        conn = cnn
+
+        conn.Open()
+
+        Dim sql As String = "select mensaje from mensaje where idmensaje =  "
+        Dim comm As New SqlCommand(sql, conn)
+
+        Dim DA As New SqlDataAdapter(comm)
+        Dim DS As New DataSet
+        DA.Fill(DS)
+        conn.Close()
+
+
+    End Sub
+    Public Function obtenerMensaje(ByVal idmensajep As String) As String
+        Dim conn As SqlConnection
+        conn = cnn
+
+        conn.Open()
+
+        Dim sql As String = "select mensaje from mensaje where idmensaje =  " & idmensajep
+        Dim comm As New SqlCommand(sql, conn)
+
+        Dim DA As New SqlDataAdapter(comm)
+        Dim DS As New DataSet
+        DA.Fill(DS)
+        conn.Close()
+        Return DS.Tables(0).Rows(0).Item(0)
+        
+
+
+    End Function
+    Public Sub marcarLeido(ByVal idmensajep As String)
+        Dim conn As SqlConnection
+        conn = cnn
+
+        conn.Open()
+
+        Dim sql As String = "update mensaje set leido = 'true' where idmensaje =  " & idmensajep
+        Dim comm As New SqlCommand(sql, conn)
+
+        comm.ExecuteReader()
+
+        conn.Close()
     End Sub
 
     'Public Sub mostrarDatos(ByRef txtAsunto As String, ByRef txtfecharotura As Date, ByRef txtcausa As String, ByRef txtfechareparacion As Date, _

@@ -1,6 +1,7 @@
 Imports System
 Imports System.Data
 Imports System.Data.SqlClient
+Imports System.Configuration.ConfigurationSettings
 Public Class frmMensajes
 
 
@@ -104,6 +105,13 @@ Public Class frmMensajes
 
     Private Sub frmDesperfecto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         cargarMails()
+        cargarCombo("select rtrim(apellido) + ', ' + rtrim(nombre) as nombre , idlegajo from empleado", cmbEmpleado, "nombre", "idlegajo")
+        cmbPrioridad.Items.Add("ALTA")
+        cmbPrioridad.Items.Add("MEDIA")
+        cmbPrioridad.Items.Add("BAJA")
+        
+
+
         'princ.barra.agregarBoton(Me)
         'GrdMensajes.DataSource = dsMensaje
         'GrdMensajes.DataMember = "Mensaje"
@@ -137,28 +145,47 @@ Public Class frmMensajes
     Private Sub cargarMails()
         'para las imagenes
         Dim ilImages As New ImageList
-        ilImages.Images.Add(Bitmap.FromFile("C:\Documents and Settings\Agu699\Mis documentos\Mis imágenes\untitled.bmp"))
+        Dim projectPath As String
+        projectPath = getAppPath()
+
+        ilImages.Images.Add(Bitmap.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\mail.GIF"))
+        ilImages.Images.Add(Bitmap.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\mailNew.GIF"))
         ListView1.SmallImageList = ilImages
         '
         ListView1.Columns.Add("", 20, HorizontalAlignment.Left)
         ListView1.Columns.Add("ID", 0, HorizontalAlignment.Left)
         ListView1.Columns.Add("De:", 100, HorizontalAlignment.Left)
         ListView1.Columns.Add("Asunto", 150, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Fecha", 50, HorizontalAlignment.Left)
-        ListView1.Columns.Add("Prioridad", 20, HorizontalAlignment.Left)
+        ListView1.Columns.Add("Fecha", 150, HorizontalAlignment.Left)
+        ListView1.Columns.Add("Prioridad", 70, HorizontalAlignment.Left)
         ListView1.Columns.Add("leido ", 0, HorizontalAlignment.Left)
         '
         Dim fila As DataRow
         Dim itm As ListViewItem
         For Each fila In dsMensaje.Tables(0).Rows
-            itm = New ListViewItem("", 0)
-            itm.SubItems.Add(fila.Item("asunto").ToString)
+            If fila.Item("leido").ToString Then
+                itm = New ListViewItem("", 0)
+            Else
+                itm = New ListViewItem("", 1)
+            End If
             itm.SubItems.Add(fila.Item("idmensaje").ToString)
             itm.SubItems.Add(fila.Item("remitente").ToString)
             itm.SubItems.Add(fila.Item("asunto").ToString)
             itm.SubItems.Add(fila.Item("fecharecepion").ToString)
-            itm.SubItems.Add(fila.Item("prioridad").ToString)
+            Dim Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+
+            Select Case fila.Item("prioridad").ToString
+                Case 1
+                    itm.SubItems.Add("ALTA", Color.Red, Color.DarkRed, Font)
+                Case 2
+                    itm.SubItems.Add("MEDIA", Color.Black, Color.YellowGreen, Font)
+                Case 3
+                    itm.SubItems.Add("BAJA", Color.Black, Color.LightSkyBlue, Font)
+            End Select
+
+
             itm.SubItems.Add(fila.Item("leido").ToString)
+
             ListView1.Items.Add(itm)
         Next
 
@@ -169,7 +196,71 @@ Public Class frmMensajes
 
     End Sub
 
-   
-
     
+    
+
+
+
+
+    Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+
+        For Each seleccionado As ListViewItem In CType(sender, ListView).SelectedItems
+
+            TextBox1.Text = objMensaje.obtenerMensaje(seleccionado.SubItems(1).Text)
+            objMensaje.marcarleido(seleccionado.SubItems(1).Text)
+        Next
+
+
+        
+    End Sub
+
+    Private Sub ListView1_ColumnClick(ByVal sender As System.Object, _
+ByVal e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView1.ColumnClick
+        If Me.ListView1.Sorting = SortOrder.Ascending Then
+            Me.ListView1.Sorting = SortOrder.Descending
+        Else
+            Me.ListView1.Sorting = SortOrder.Ascending
+        End If
+        Me.ListView1.ListViewItemSorter = New ListViewItemComparer(e.Column, Me.ListView1.Sorting)
+    End Sub
+
+    Private Sub btnEnviar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEnviar.Click
+
+        objMensaje.enviarMensaje(txtAsunto.Text, seguridad.id, cmbempleado.SelectedValue, TextBox1.Text, 1, False, Now, Now, dsMensaje)
+    End Sub
+
+    Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
+        objMensaje.nuevoMensaje(dsMensaje)
+    End Sub
+End Class
+
+Class ListViewItemComparer
+    Implements IComparer
+    Private col As Integer
+    Private sortOrder As SortOrder
+
+    Public Sub New()
+        col = 0
+        sortOrder = Windows.Forms.SortOrder.Ascending
+    End Sub
+
+    Public Sub New(ByVal column As Integer)
+        col = column
+        sortOrder = Windows.Forms.SortOrder.Ascending
+    End Sub
+
+    Public Sub New(ByVal column As Integer, ByVal s As SortOrder)
+        col = column
+        sortOrder = s
+    End Sub
+
+    Public Function Compare(ByVal x As Object, ByVal y As Object) As Integer Implements IComparer.Compare
+        If sortOrder = Windows.Forms.SortOrder.Ascending Then
+            Return String.Compare(CType(x, ListViewItem).SubItems(col).Text, CType(y, ListViewItem).SubItems(col).Text)
+        Else
+            Return String.Compare(CType(y, ListViewItem).SubItems(col).Text, CType(x, ListViewItem).SubItems(col).Text)
+        End If
+
+    End Function
+
 End Class
