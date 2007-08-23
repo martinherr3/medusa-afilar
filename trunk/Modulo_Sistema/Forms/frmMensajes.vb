@@ -109,7 +109,15 @@ Public Class frmMensajes
         cmbPrioridad.Items.Add("ALTA")
         cmbPrioridad.Items.Add("MEDIA")
         cmbPrioridad.Items.Add("BAJA")
-        
+        cmbPrioridad.SelectedIndex = 2
+        cmbempleado.Enabled = False
+        txtAsunto.Enabled = False
+        cmbPrioridad.Enabled = False
+        TextBox1.ReadOnly = True
+        btnEnviar.Enabled = False
+        btnCancelar.Enabled = False
+
+
 
 
         'princ.barra.agregarBoton(Me)
@@ -172,7 +180,7 @@ Public Class frmMensajes
             itm.SubItems.Add(fila.Item("remitente").ToString)
             itm.SubItems.Add(fila.Item("asunto").ToString)
             itm.SubItems.Add(fila.Item("fecharecepion").ToString)
-            Dim Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Dim Font As New System.Drawing.Font("Microsoft Sans Serif", 16.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 
             Select Case fila.Item("prioridad").ToString
                 Case 1
@@ -203,11 +211,15 @@ Public Class frmMensajes
 
 
     Private Sub ListView1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListView1.SelectedIndexChanged
+        
 
         For Each seleccionado As ListViewItem In CType(sender, ListView).SelectedItems
 
             TextBox1.Text = objMensaje.obtenerMensaje(seleccionado.SubItems(1).Text)
-            objMensaje.marcarleido(seleccionado.SubItems(1).Text)
+            objMensaje.marcarLeido(seleccionado.SubItems(1).Text)
+            seleccionado.ImageIndex = 0
+
+           
         Next
 
 
@@ -226,11 +238,50 @@ ByVal e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView1.ColumnCl
 
     Private Sub btnEnviar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEnviar.Click
 
-        objMensaje.enviarMensaje(txtAsunto.Text, seguridad.id, cmbempleado.SelectedValue, TextBox1.Text, 1, False, Now, Now, dsMensaje)
+        objMensaje.enviarMensaje(txtAsunto.Text, seguridad.id, cmbempleado.SelectedValue, TextBox1.Text, cmbPrioridad.SelectedIndex + 1, False, Now, Now)
+        cmbempleado.Enabled = False
+        txtAsunto.Enabled = False
+        cmbPrioridad.Enabled = False
+        TextBox1.ReadOnly = True
+        btnEnviar.Enabled = False
+        btnEliminar.Enabled = True
+        btnCancelar.Enabled = False
+        TextBox1.Text = ""
+        MsgBox("El mensaje se a enviado con exito", MsgBoxStyle.Information, "Envio de mensajes")
     End Sub
 
     Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
-        objMensaje.nuevoMensaje(dsMensaje)
+        'objMensaje.nuevoMensaje(dsMensaje)
+        cmbempleado.Enabled = True
+        txtAsunto.Enabled = True
+        cmbPrioridad.Enabled = True
+        TextBox1.ReadOnly = False
+        btnEnviar.Enabled = True
+        btnEliminar.Enabled = False
+        btnCancelar.Enabled = True
+        TextBox1.Text = ""
+    End Sub
+
+    Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
+        If MsgBox("Seguro desea eliminar este mensaje", MsgBoxStyle.OkCancel, "Eliminacion de mensaje") = MsgBoxResult.Ok Then
+            For Each seleccionado As ListViewItem In CType(ListView1, ListView).SelectedItems
+
+                TextBox1.Text = objMensaje.obtenerMensaje(seleccionado.SubItems(1).Text)
+                objMensaje.borarMensaje(seleccionado.SubItems(1).Text)
+                seleccionado.Remove()
+
+            Next
+        End If
+    End Sub
+
+    Private Sub btnCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelar.Click
+        cmbempleado.Enabled = False
+        txtAsunto.Enabled = False
+        cmbPrioridad.Enabled = False
+        TextBox1.ReadOnly = True
+        btnEnviar.Enabled = False
+        btnEliminar.Enabled = True
+        btnCancelar.Enabled = False
     End Sub
 End Class
 

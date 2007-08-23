@@ -30,6 +30,8 @@ Partial Class frmMensajes
         Me.btnEnviar = New Infragistics.Win.Misc.UltraButton
         Me.cmbempleado = New System.Windows.Forms.ComboBox
         Me.cmbPrioridad = New System.Windows.Forms.ComboBox
+        Me.btnEliminar = New Infragistics.Win.Misc.UltraButton
+        Me.btnCancelar = New Infragistics.Win.Misc.UltraButton
         Me.SuspendLayout()
         '
         'UltraExplorerBarContainerControl1
@@ -41,10 +43,12 @@ Partial Class frmMensajes
         '
         'ListView1
         '
+        Me.ListView1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.ListView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListView1.FullRowSelect = True
         Me.ListView1.Location = New System.Drawing.Point(12, 52)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(495, 123)
+        Me.ListView1.Size = New System.Drawing.Size(492, 123)
         Me.ListView1.TabIndex = 24
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
@@ -67,7 +71,7 @@ Partial Class frmMensajes
         '
         'txtAsunto
         '
-        Me.txtAsunto.Location = New System.Drawing.Point(257, 211)
+        Me.txtAsunto.Location = New System.Drawing.Point(270, 212)
         Me.txtAsunto.Name = "txtAsunto"
         Me.txtAsunto.Size = New System.Drawing.Size(140, 20)
         Me.txtAsunto.TabIndex = 29
@@ -77,14 +81,14 @@ Partial Class frmMensajes
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(12, 218)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(24, 13)
+        Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 31
-        Me.Label1.Text = "De:"
+        Me.Label1.Text = "Para:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(211, 218)
+        Me.Label2.Location = New System.Drawing.Point(224, 218)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 13)
         Me.Label2.TabIndex = 32
@@ -110,7 +114,7 @@ Partial Class frmMensajes
         'cmbempleado
         '
         Me.cmbempleado.FormattingEnabled = True
-        Me.cmbempleado.Location = New System.Drawing.Point(37, 211)
+        Me.cmbempleado.Location = New System.Drawing.Point(50, 211)
         Me.cmbempleado.Name = "cmbempleado"
         Me.cmbempleado.Size = New System.Drawing.Size(168, 21)
         Me.cmbempleado.TabIndex = 35
@@ -123,11 +127,29 @@ Partial Class frmMensajes
         Me.cmbPrioridad.Size = New System.Drawing.Size(168, 21)
         Me.cmbPrioridad.TabIndex = 36
         '
+        'btnEliminar
+        '
+        Me.btnEliminar.Location = New System.Drawing.Point(342, 420)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEliminar.TabIndex = 37
+        Me.btnEliminar.Text = "Eliminar"
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.Location = New System.Drawing.Point(93, 182)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancelar.TabIndex = 38
+        Me.btnCancelar.Text = "Cancelar"
+        '
         'frmMensajes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(915, 457)
+        Me.Controls.Add(Me.btnCancelar)
+        Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.cmbPrioridad)
         Me.Controls.Add(Me.cmbempleado)
         Me.Controls.Add(Me.btnEnviar)
@@ -155,4 +177,6 @@ Partial Class frmMensajes
     Friend WithEvents btnEnviar As Infragistics.Win.Misc.UltraButton
     Friend WithEvents cmbempleado As System.Windows.Forms.ComboBox
     Friend WithEvents cmbPrioridad As System.Windows.Forms.ComboBox
+    Friend WithEvents btnEliminar As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnCancelar As Infragistics.Win.Misc.UltraButton
 End Class

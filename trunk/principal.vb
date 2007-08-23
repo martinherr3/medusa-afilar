@@ -497,6 +497,7 @@ Public Class principal
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         Label1.Text = Now '.Hour & ":" & Now.Minute & ":" & Now.Second
+        Mensajeria.getMensajes(seguridad.id, LinkLabel1)
     End Sub
 
     Private Sub MenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
