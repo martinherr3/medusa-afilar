@@ -214,25 +214,30 @@ Public Class Mensajeria
         End If
     End Sub
     'sacar el ds y obtener el numero del max id aca adentro para poder usarlo desde otro lado 
-    Public Sub enviarMensaje(ByVal asuntop As String, ByVal idremitentep As Integer, ByVal idDestinatario As Integer, ByVal mensajep As String, _
-        ByVal prioridadp As Integer, ByVal leidop As Boolean, ByVal fechaReparacionp As Date, ByVal fechaRoturap As Date, ByVal dscl As DataSet)
+    Public Sub enviarMensaje(ByVal asuntop As String, ByVal idremitentep As Integer, ByVal idDestinatariop As Integer, ByVal mensajep As String, _
+        ByVal prioridadp As Integer, ByVal leidop As Boolean, ByVal fechaReparacionp As Date, ByVal fechaRoturap As Date)
 
-        Dim tbMensaje As DataTable = dscl.Tables.Item(0)
-
-        Dim idmaximo() As DataRow
-        idmaximo = tbMensaje.Select("idMensaje=max(idMensaje)")
         Dim conn As SqlConnection
-
         conn = cnn
-
         conn.Open()
 
-        Dim sql As String = "select mensaje from mensaje where idmensaje =  "
+        Dim sql As String = "select max(idmensaje) + 1 as id from mensaje "
         Dim comm As New SqlCommand(sql, conn)
-
-        Dim DA As New SqlDataAdapter(comm)
-        Dim DS As New DataSet
-        DA.Fill(DS)
+        Dim id As Integer
+        id = comm.ExecuteScalar()
+        sql = "INSERT INTO mensaje (idMensaje, asunto, idRemitente, idDestinatario, mensaje, prioridad, leido, fechaRecepion, fechaLectura) VALUES(" & _
+        id & ", '" & _
+        asuntop & "', " & _
+        idremitentep & ", " & _
+        idDestinatariop & ", '" & _
+        mensajep & "', " & _
+        prioridadp & ", '" & _
+        leidop & "', '" & _
+        fechaReparacionp & "', '" & _
+        fechaRoturap & "')"
+        comm = New SqlCommand(sql, conn)
+        comm.ExecuteReader()
+        
         conn.Close()
 
 
@@ -262,6 +267,20 @@ Public Class Mensajeria
         conn.Open()
 
         Dim sql As String = "update mensaje set leido = 'true' where idmensaje =  " & idmensajep
+        Dim comm As New SqlCommand(sql, conn)
+
+        comm.ExecuteReader()
+
+        conn.Close()
+    End Sub
+
+    Public Sub borarMensaje(ByVal idmensajep As String)
+        Dim conn As SqlConnection
+        conn = cnn
+
+        conn.Open()
+
+        Dim sql As String = "delete from mensaje where idmensaje =  " & idmensajep
         Dim comm As New SqlCommand(sql, conn)
 
         comm.ExecuteReader()
