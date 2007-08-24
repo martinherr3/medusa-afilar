@@ -50,12 +50,12 @@ Public Class principal
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim Appearance55 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance56 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance57 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance58 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance59 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance60 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(principal))
         Me.UltraExplorerBar1 = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBar
         Me.UltraStatusBar1 = New Infragistics.Win.UltraWinStatusBar.UltraStatusBar
@@ -75,24 +75,24 @@ Public Class principal
         '
         'UltraExplorerBar1
         '
-        Appearance55.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(197, Byte), Integer))
-        Appearance55.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(214, Byte), Integer))
-        Appearance55.FontData.BoldAsString = "True"
-        Appearance55.FontData.ItalicAsString = "False"
-        Appearance55.FontData.Name = "Arial"
-        Appearance55.FontData.UnderlineAsString = "False"
-        Appearance55.ForeColor = System.Drawing.Color.White
-        Me.UltraExplorerBar1.Appearance = Appearance55
+        Appearance1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(197, Byte), Integer))
+        Appearance1.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(214, Byte), Integer))
+        Appearance1.FontData.BoldAsString = "True"
+        Appearance1.FontData.ItalicAsString = "False"
+        Appearance1.FontData.Name = "Arial"
+        Appearance1.FontData.UnderlineAsString = "False"
+        Appearance1.ForeColor = System.Drawing.Color.White
+        Me.UltraExplorerBar1.Appearance = Appearance1
         Me.UltraExplorerBar1.BorderStyle = Infragistics.Win.UIElementBorderStyle.InsetSoft
         Me.UltraExplorerBar1.GroupSettings.Style = Infragistics.Win.UltraWinExplorerBar.GroupStyle.SmallImagesWithText
-        Appearance56.FontData.Name = "Arial"
-        Appearance56.FontData.SizeInPoints = 7.8!
-        Appearance56.ImageAlpha = Infragistics.Win.Alpha.Transparent
-        Me.UltraExplorerBar1.ItemSettings.AppearancesSmall.Appearance = Appearance56
-        Appearance57.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(214, Byte), Integer))
-        Appearance57.Cursor = System.Windows.Forms.Cursors.Hand
-        Appearance57.ForeColor = System.Drawing.Color.White
-        Me.UltraExplorerBar1.ItemSettings.AppearancesSmall.HotTrackAppearance = Appearance57
+        Appearance2.FontData.Name = "Arial"
+        Appearance2.FontData.SizeInPoints = 7.8!
+        Appearance2.ImageAlpha = Infragistics.Win.Alpha.Transparent
+        Me.UltraExplorerBar1.ItemSettings.AppearancesSmall.Appearance = Appearance2
+        Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(214, Byte), Integer))
+        Appearance3.Cursor = System.Windows.Forms.Cursors.Hand
+        Appearance3.ForeColor = System.Drawing.Color.White
+        Me.UltraExplorerBar1.ItemSettings.AppearancesSmall.HotTrackAppearance = Appearance3
         Me.UltraExplorerBar1.Location = New System.Drawing.Point(0, 110)
         Me.UltraExplorerBar1.Name = "UltraExplorerBar1"
         Me.UltraExplorerBar1.ShowDefaultContextMenu = False
@@ -105,21 +105,21 @@ Public Class principal
         '
         'UltraStatusBar1
         '
-        Appearance58.BackColor = System.Drawing.Color.SteelBlue
-        Appearance58.BackColor2 = System.Drawing.Color.SteelBlue
-        Appearance58.BackGradientStyle = Infragistics.Win.GradientStyle.ForwardDiagonal
-        Appearance58.BorderColor = System.Drawing.SystemColors.AppWorkspace
-        Appearance58.BorderColor3DBase = System.Drawing.Color.White
-        Appearance58.ForeColor = System.Drawing.Color.White
-        Me.UltraStatusBar1.Appearance = Appearance58
+        Appearance4.BackColor = System.Drawing.Color.SteelBlue
+        Appearance4.BackColor2 = System.Drawing.Color.SteelBlue
+        Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.ForwardDiagonal
+        Appearance4.BorderColor = System.Drawing.SystemColors.AppWorkspace
+        Appearance4.BorderColor3DBase = System.Drawing.Color.White
+        Appearance4.ForeColor = System.Drawing.Color.White
+        Me.UltraStatusBar1.Appearance = Appearance4
         Me.UltraStatusBar1.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Button3D
         Me.UltraStatusBar1.Location = New System.Drawing.Point(0, 699)
         Me.UltraStatusBar1.Name = "UltraStatusBar1"
-        Appearance59.FontData.BoldAsString = "False"
-        Appearance59.FontData.Name = "Microsoft Sans Serif"
-        Appearance59.FontData.SizeInPoints = 8.0!
-        Appearance59.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.UltraStatusBar1.PanelAppearance = Appearance59
+        Appearance5.FontData.BoldAsString = "False"
+        Appearance5.FontData.Name = "Microsoft Sans Serif"
+        Appearance5.FontData.SizeInPoints = 8.0!
+        Appearance5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.UltraStatusBar1.PanelAppearance = Appearance5
         Me.UltraStatusBar1.Size = New System.Drawing.Size(960, 26)
         Me.UltraStatusBar1.SupportThemes = False
         Me.UltraStatusBar1.TabIndex = 8
@@ -165,8 +165,8 @@ Public Class principal
         '
         'botonPinche
         '
-        Appearance60.BackColor = System.Drawing.Color.LightSlateGray
-        Me.botonPinche.Appearance = Appearance60
+        Appearance6.BackColor = System.Drawing.Color.LightSlateGray
+        Me.botonPinche.Appearance = Appearance6
         Me.botonPinche.Location = New System.Drawing.Point(110, 85)
         Me.botonPinche.Name = "botonPinche"
         Me.botonPinche.ShapeImage = CType(resources.GetObject("botonPinche.ShapeImage"), System.Drawing.Image)
@@ -238,7 +238,7 @@ Public Class principal
         bloquearPantalla(True)
         logeo.ShowDialog()
         bloquearPantalla(False)
-        'Dim form As New frmMensajes
+        'Dim form As New FrmGenerarOC
         'form.MdiParent = Me
         'form.Show()
         'form.Location = New Point(500, 200)
@@ -587,4 +587,10 @@ Public Class principal
 
     
     
+    Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Dim form As New frmMensajes
+        form.MdiParent = Me
+        form.Show()
+        form.Location = New Point(500, 200)
+    End Sub
 End Class
