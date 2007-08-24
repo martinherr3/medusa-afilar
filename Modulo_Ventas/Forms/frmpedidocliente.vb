@@ -103,7 +103,6 @@ Public Class frmpedidocliente
         Me.components = New System.ComponentModel.Container
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmpedidocliente))
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -290,9 +289,9 @@ Public Class frmpedidocliente
         Me.fechaentrega.Location = New System.Drawing.Point(464, 21)
         Me.fechaentrega.Name = "fechaentrega"
         Me.fechaentrega.NonAutoSizeHeight = 16
+        Me.fechaentrega.NullDateLabel = ""
         Me.fechaentrega.Size = New System.Drawing.Size(176, 21)
         Me.fechaentrega.TabIndex = 17
-        Me.fechaentrega.Value = CType(resources.GetObject("fechaentrega.Value"), Object)
         '
         'comboformaentrega
         '
@@ -1101,7 +1100,8 @@ Public Class frmpedidocliente
     Private Sub btnagregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnagregar.Click
 
         Dim i As Integer
-        '        Dim j As Integer
+        Dim j As Integer
+        'Cargo los tipos de fresas
         For i = 0 To ds.Tables("tipofresa").Rows.Count - 1
             If ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = True Then
                 nroserie += 1
@@ -1117,20 +1117,17 @@ Public Class frmpedidocliente
                 ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = False
             End If
         Next
-
         For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
-            If ds.Tables("parteadicional").Rows(i).Item("seleccionarpa") = True Then
-                idpartepedida += 1
-                Dim dr As DataRow = ds.Tables("partepedida").NewRow
-                dr("idpartepedida") = CInt(idpartepedida)
-                dr("idmodelo") = ds.Tables("parteadicional").Rows(i).Item("idmodelo")
-                dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
+            idpartepedida += 1
+            Dim dr As DataRow = ds.Tables("partepedida").NewRow
+            dr("idpartepedida") = CInt(idpartepedida)
+            dr("idmodelo") = ds.Tables("parteadicional").Rows(i).Item("idmodelo")
+            dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
             dr("idpedido") = CLng(lblnropedido.Text)
             dr("nombre") = ds.Tables("parteadicional").Rows(i).Item("nombre")
-                dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
-                ds.Tables("partepedida").Rows.Add(dr)
+            dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
+            ds.Tables("partepedida").Rows.Add(dr)
             ds.Tables("parteadicional").Rows(i).Item("seleccionarpa") = False
-            End If
         Next
         Dim subtotal As Decimal = 0
         For i = 0 To ds.Tables("fresa").Rows.Count - 1
@@ -1139,6 +1136,7 @@ Public Class frmpedidocliente
         For i = 0 To ds.Tables("partepedida").Rows.Count - 1
             subtotal += CDec(ds.Tables("partepedida").Rows(i).Item("precio"))
         Next
+
         txtsubtotal.Text = CStr(subtotal)
         txtimportetotal.Text = CStr(CDec(txtsubtotal.Text) + CDec(txtsubtot.Text))
     End Sub
