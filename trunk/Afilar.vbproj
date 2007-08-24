@@ -535,11 +535,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\Afilar.ocrpt.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Afilar.ocrpt.rpt</DependentUpon>
-    </Compile>
     <Compile Include="obj\Debug\Afilar.repCompras.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -951,7 +946,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="obj\Afilar.vbproj.FileList.txt" />
-    <Content Include="obj\Debug\Afilar.exe" />
     <Content Include="obj\Debug\afilar.exe.licenses" />
     <Content Include="obj\Debug\Afilar.pdb" />
     <Content Include="obj\Debug\Afilar.xml" />
