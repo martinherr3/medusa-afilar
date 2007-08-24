@@ -535,35 +535,25 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\Afilar.CrystalReport1.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Afilar.CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="obj\Debug\Afilar.ocrpt.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Afilar.ocrpt.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="obj\Debug\Afilar.repCompras.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Afilar.repCompras.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="obj\Debug\Afilar.repCompras2.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Afilar.repCompras2.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="obj\Debug\Afilar.repPres.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Afilar.repPres.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="principal.vb">
       <SubType>Form</SubType>
