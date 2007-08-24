@@ -46,7 +46,7 @@ Partial Class frmMensajes
         Me.ListView1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.ListView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListView1.FullRowSelect = True
-        Me.ListView1.Location = New System.Drawing.Point(12, 52)
+        Me.ListView1.Location = New System.Drawing.Point(12, 12)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(492, 123)
         Me.ListView1.TabIndex = 24
@@ -55,15 +55,15 @@ Partial Class frmMensajes
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 261)
+        Me.TextBox1.Location = New System.Drawing.Point(12, 238)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(495, 153)
+        Me.TextBox1.Size = New System.Drawing.Size(492, 133)
         Me.TextBox1.TabIndex = 25
         '
         'btnNuevo
         '
-        Me.btnNuevo.Location = New System.Drawing.Point(12, 181)
+        Me.btnNuevo.Location = New System.Drawing.Point(14, 140)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 23)
         Me.btnNuevo.TabIndex = 26
@@ -71,15 +71,15 @@ Partial Class frmMensajes
         '
         'txtAsunto
         '
-        Me.txtAsunto.Location = New System.Drawing.Point(270, 212)
+        Me.txtAsunto.Location = New System.Drawing.Point(57, 199)
         Me.txtAsunto.Name = "txtAsunto"
-        Me.txtAsunto.Size = New System.Drawing.Size(140, 20)
+        Me.txtAsunto.Size = New System.Drawing.Size(168, 20)
         Me.txtAsunto.TabIndex = 29
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 218)
+        Me.Label1.Location = New System.Drawing.Point(19, 177)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 31
@@ -88,7 +88,7 @@ Partial Class frmMensajes
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(224, 218)
+        Me.Label2.Location = New System.Drawing.Point(12, 205)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 13)
         Me.Label2.TabIndex = 32
@@ -97,7 +97,7 @@ Partial Class frmMensajes
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(417, 218)
+        Me.Label3.Location = New System.Drawing.Point(271, 205)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(48, 13)
         Me.Label3.TabIndex = 33
@@ -105,7 +105,7 @@ Partial Class frmMensajes
         '
         'btnEnviar
         '
-        Me.btnEnviar.Location = New System.Drawing.Point(432, 420)
+        Me.btnEnviar.Location = New System.Drawing.Point(413, 377)
         Me.btnEnviar.Name = "btnEnviar"
         Me.btnEnviar.Size = New System.Drawing.Size(75, 23)
         Me.btnEnviar.TabIndex = 34
@@ -114,7 +114,7 @@ Partial Class frmMensajes
         'cmbempleado
         '
         Me.cmbempleado.FormattingEnabled = True
-        Me.cmbempleado.Location = New System.Drawing.Point(50, 211)
+        Me.cmbempleado.Location = New System.Drawing.Point(57, 170)
         Me.cmbempleado.Name = "cmbempleado"
         Me.cmbempleado.Size = New System.Drawing.Size(168, 21)
         Me.cmbempleado.TabIndex = 35
@@ -122,14 +122,14 @@ Partial Class frmMensajes
         'cmbPrioridad
         '
         Me.cmbPrioridad.FormattingEnabled = True
-        Me.cmbPrioridad.Location = New System.Drawing.Point(471, 211)
+        Me.cmbPrioridad.Location = New System.Drawing.Point(325, 198)
         Me.cmbPrioridad.Name = "cmbPrioridad"
-        Me.cmbPrioridad.Size = New System.Drawing.Size(168, 21)
+        Me.cmbPrioridad.Size = New System.Drawing.Size(120, 21)
         Me.cmbPrioridad.TabIndex = 36
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(342, 420)
+        Me.btnEliminar.Location = New System.Drawing.Point(323, 377)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 37
@@ -137,7 +137,7 @@ Partial Class frmMensajes
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(93, 182)
+        Me.btnCancelar.Location = New System.Drawing.Point(95, 141)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
         Me.btnCancelar.TabIndex = 38
@@ -147,7 +147,7 @@ Partial Class frmMensajes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(915, 457)
+        Me.ClientSize = New System.Drawing.Size(520, 418)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.cmbPrioridad)
@@ -160,8 +160,9 @@ Partial Class frmMensajes
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.ListView1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmMensajes"
-        Me.Text = "frmMensajes"
+        Me.Text = "Correo"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
