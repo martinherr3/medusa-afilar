@@ -6,12 +6,12 @@ Public Class EtapaFabricacion
     Dim updateEtapa As New SqlClient.SqlCommand
 
 
-    Property adaptadorEtapa()
+    Property adaptadorEtapa() As SqlClient.SqlDataAdapter
         Get
             Return madaptadorEtapa
         End Get
 
-        Set(ByVal Value)
+        Set(ByVal Value As SqlClient.SqlDataAdapter)
             madaptadorEtapa = Value
         End Set
     End Property

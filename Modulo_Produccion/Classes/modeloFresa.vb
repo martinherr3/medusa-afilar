@@ -178,6 +178,7 @@ Public Class ModeloFresa
         ds.Tables("modelofresa").Columns.Add("seleccionarMF", Type.GetType("System.Boolean"))
     End Sub
 
+
     Public Sub cambiarEstado(ByVal id As Integer, ByVal nuevoEstado As String)
         updateEstado.Connection = cnn
         updateEstado.Connection.Open()
@@ -192,5 +193,6 @@ Public Class ModeloFresa
         updateEstado.Connection.Close()
 
     End Sub
+
 
 End Class
