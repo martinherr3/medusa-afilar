@@ -168,11 +168,15 @@ Public Class consultarModeloFresa
 
 
     Private Sub btnModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificar.Click
+        Dim formModificar As New registrarModeloFresa
+        With dataGridMF
+            formModificar.IdModeloFresa = .Item(.CurrentRowIndex, 1)
+        End With
 
+        formModificar.Show()
     End Sub
 
 #End Region
-
 
 
 End Class

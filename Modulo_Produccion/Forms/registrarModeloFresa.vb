@@ -1,29 +1,54 @@
 Imports System.Windows.Forms.Form
 
 Public Class registrarModeloFresa
-    Inherits System.Windows.Forms.Form
+    'Inherits System.Windows.Forms.Form
+    Inherits Form
 
 #Region "Declaraciones"
-    Dim consulta As String
-    Dim indice As Integer
-    Dim columnas() As Integer = {0, 1, 2, 3, 4}
-    Dim item As New ListViewItem
-    Dim ds As New DataSet
-    Dim parte As New parte
-    Dim etapa As New EtapaFabricacion
-    Dim fresa As New TipoFresa
-    Dim modelo As New ModeloFresa
-    Dim adicional As New ParteAdicional
-    Dim operacion As New Operacion
-    Dim ofd As New OpenFileDialog
-    Dim um As New UnidadDeMedida
-    Dim i As Integer = 0
-    Dim j As Integer = 1
-    Dim bandera As Boolean = False
-    Dim banderaAd As Boolean = False
-    Dim banderaAd2 As Boolean = False
-    Dim banderaParte As Boolean = False
-    Dim banderaFresa As Boolean = False
+    Private consulta As String
+    Private indice As Integer
+    Private columnas() As Integer = {0, 1, 2, 3, 4}
+    Private item As New ListViewItem
+    Private ds As New DataSet
+    Private parte As New parte
+    Private etapa As New EtapaFabricacion
+    Private fresa As New TipoFresa
+    Private modelo As New ModeloFresa
+    Private adicional As New ParteAdicional
+    Private operacion As New Operacion
+    Private materiaPrima As New MateriaPrima
+    Private ofd As New OpenFileDialog
+    Private um As New UnidadDeMedida
+    Private i As Integer = 0
+    Private j As Integer = 1
+    Private bandera As Boolean = False
+    Private banderaAd As Boolean = False
+    Private banderaAd2 As Boolean = False
+    Private banderaParte As Boolean = False
+    Private banderaFresa As Boolean = False
+    Friend WithEvents comboIDFresa As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents comboIDAdicional As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents btnNuevaFresa As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnNuevaParteAdicional As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnModificarFresa As Infragistics.Win.Misc.UltraButton
+    Dim _idModeloFresa As Integer = -1
+    Private ultimoIdFresa As Integer = 0
+    Friend WithEvents btnModParteAdicional As Infragistics.Win.Misc.UltraButton
+    Private modificar As Boolean = False
+    Private modificarTipoFresa As Boolean = False
+    Private modificarParteAdicional As Boolean = False
+#End Region
+
+
+#Region "Properties"
+    Public Property IdModeloFresa() As Integer
+        Get
+            Return _idModeloFresa
+        End Get
+        Set(ByVal value As Integer)
+            _idModeloFresa = value
+        End Set
+    End Property
 #End Region
 
 
@@ -301,6 +326,8 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage2 = New System.Windows.Forms.TabPage
+        Me.btnModificarFresa = New Infragistics.Win.Misc.UltraButton
+        Me.btnNuevaFresa = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
         Me.textPlanoTF = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
@@ -309,6 +336,7 @@ Public Class registrarModeloFresa
         Me.UltraButton23 = New Infragistics.Win.Misc.UltraButton
         Me.textImagenTF = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.UltraGroupBox9 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.comboIDFresa = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.cantidad = New System.Windows.Forms.NumericUpDown
         Me.comboPT = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.textCarFresa = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -387,6 +415,8 @@ Public Class registrarModeloFresa
         Me.comboOperacion = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.Label50 = New System.Windows.Forms.Label
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.btnModParteAdicional = New Infragistics.Win.Misc.UltraButton
+        Me.btnNuevaParteAdicional = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton12 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton9 = New Infragistics.Win.Misc.UltraButton
         Me.imagen2 = New System.Windows.Forms.PictureBox
@@ -406,6 +436,7 @@ Public Class registrarModeloFresa
         Me.Label18 = New System.Windows.Forms.Label
         Me.Label19 = New System.Windows.Forms.Label
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.comboIDAdicional = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.textPrecioAdicional = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.comboNombre = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.textDescAdicional = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -441,6 +472,7 @@ Public Class registrarModeloFresa
         CType(Me.textImagenTF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox9.SuspendLayout()
+        CType(Me.comboIDFresa, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cantidad, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboPT, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textCarFresa, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -486,6 +518,7 @@ Public Class registrarModeloFresa
         CType(Me.textCantMPAdicional, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
+        CType(Me.comboIDAdicional, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textPrecioAdicional, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboNombre, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textDescAdicional, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -509,15 +542,15 @@ Public Class registrarModeloFresa
         '
         'UltraButton10
         '
-        Me.UltraButton10.Location = New System.Drawing.Point(616, 384)
+        Me.UltraButton10.Location = New System.Drawing.Point(584, 384)
         Me.UltraButton10.Name = "UltraButton10"
         Me.UltraButton10.Size = New System.Drawing.Size(96, 24)
         Me.UltraButton10.TabIndex = 5
-        Me.UltraButton10.Text = "Finalizar"
+        Me.UltraButton10.Text = "Guardar Modelo"
         '
         'BotonParte
         '
-        Me.BotonParte.Location = New System.Drawing.Point(512, 384)
+        Me.BotonParte.Location = New System.Drawing.Point(482, 384)
         Me.BotonParte.Name = "BotonParte"
         Me.BotonParte.Size = New System.Drawing.Size(96, 24)
         Me.BotonParte.TabIndex = 2
@@ -579,7 +612,7 @@ Public Class registrarModeloFresa
         'ColumnHeader10
         '
         Me.ColumnHeader10.Text = "ID"
-        Me.ColumnHeader10.Width = 49
+        Me.ColumnHeader10.Width = 33
         '
         'ColumnHeader5
         '
@@ -617,7 +650,7 @@ Public Class registrarModeloFresa
         'ColumnHeader1
         '
         Me.ColumnHeader1.Text = "ID"
-        Me.ColumnHeader1.Width = 51
+        Me.ColumnHeader1.Width = 35
         '
         'ColumnHeader2
         '
@@ -893,7 +926,7 @@ Public Class registrarModeloFresa
         '
         'botonFresa
         '
-        Me.botonFresa.Location = New System.Drawing.Point(408, 384)
+        Me.botonFresa.Location = New System.Drawing.Point(380, 384)
         Me.botonFresa.Name = "botonFresa"
         Me.botonFresa.Size = New System.Drawing.Size(96, 24)
         Me.botonFresa.TabIndex = 3
@@ -903,7 +936,7 @@ Public Class registrarModeloFresa
         '
         Me.UltraTabPageControl1.Controls.Add(Me.TabControl1)
         Me.UltraTabPageControl1.Enabled = False
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 425)
         '
@@ -923,6 +956,8 @@ Public Class registrarModeloFresa
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.TabPage2.Controls.Add(Me.btnModificarFresa)
+        Me.TabPage2.Controls.Add(Me.btnNuevaFresa)
         Me.TabPage2.Controls.Add(Me.UltraButton6)
         Me.TabPage2.Controls.Add(Me.textPlanoTF)
         Me.TabPage2.Controls.Add(Me.UltraButton5)
@@ -938,6 +973,22 @@ Public Class registrarModeloFresa
         Me.TabPage2.Size = New System.Drawing.Size(808, 390)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Caracteristicas"
+        '
+        'btnModificarFresa
+        '
+        Me.btnModificarFresa.Location = New System.Drawing.Point(176, 360)
+        Me.btnModificarFresa.Name = "btnModificarFresa"
+        Me.btnModificarFresa.Size = New System.Drawing.Size(63, 22)
+        Me.btnModificarFresa.TabIndex = 30
+        Me.btnModificarFresa.Text = "Modificar"
+        '
+        'btnNuevaFresa
+        '
+        Me.btnNuevaFresa.Location = New System.Drawing.Point(240, 360)
+        Me.btnNuevaFresa.Name = "btnNuevaFresa"
+        Me.btnNuevaFresa.Size = New System.Drawing.Size(63, 22)
+        Me.btnNuevaFresa.TabIndex = 29
+        Me.btnNuevaFresa.Text = "Nuevo"
         '
         'UltraButton6
         '
@@ -1000,6 +1051,7 @@ Public Class registrarModeloFresa
         '
         Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
         Me.UltraGroupBox9.ContentAreaAppearance = Appearance4
+        Me.UltraGroupBox9.Controls.Add(Me.comboIDFresa)
         Me.UltraGroupBox9.Controls.Add(Me.cantidad)
         Me.UltraGroupBox9.Controls.Add(Me.comboPT)
         Me.UltraGroupBox9.Controls.Add(Me.textCarFresa)
@@ -1026,6 +1078,15 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox9.TabIndex = 0
         Me.UltraGroupBox9.Text = "Fresa individual"
         Me.UltraGroupBox9.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'comboIDFresa
+        '
+        Me.comboIDFresa.AutoSize = True
+        Me.comboIDFresa.Enabled = False
+        Me.comboIDFresa.Location = New System.Drawing.Point(235, 32)
+        Me.comboIDFresa.Name = "comboIDFresa"
+        Me.comboIDFresa.Size = New System.Drawing.Size(117, 21)
+        Me.comboIDFresa.TabIndex = 31
         '
         'cantidad
         '
@@ -1298,21 +1359,22 @@ Public Class registrarModeloFresa
         'ColumnHeader21
         '
         Me.ColumnHeader21.Text = "ID parte"
-        Me.ColumnHeader21.Width = 86
+        Me.ColumnHeader21.Width = 55
         '
         'ColumnHeader22
         '
         Me.ColumnHeader22.Text = "Nombre"
-        Me.ColumnHeader22.Width = 124
+        Me.ColumnHeader22.Width = 135
         '
         'ColumnHeader23
         '
         Me.ColumnHeader23.Text = "ID MP"
+        Me.ColumnHeader23.Width = 45
         '
         'ColumnHeader24
         '
         Me.ColumnHeader24.Text = "Materia prima"
-        Me.ColumnHeader24.Width = 146
+        Me.ColumnHeader24.Width = 158
         '
         'ColumnHeader25
         '
@@ -1609,7 +1671,7 @@ Public Class registrarModeloFresa
         'ColumnHeader26
         '
         Me.ColumnHeader26.Text = "ID etapa"
-        Me.ColumnHeader26.Width = 54
+        Me.ColumnHeader26.Width = 44
         '
         'ColumnHeader27
         '
@@ -1624,7 +1686,7 @@ Public Class registrarModeloFresa
         'ColumnHeader29
         '
         Me.ColumnHeader29.Text = "Órden"
-        Me.ColumnHeader29.Width = 45
+        Me.ColumnHeader29.Width = 52
         '
         'ColumnHeader30
         '
@@ -1769,6 +1831,8 @@ Public Class registrarModeloFresa
         '
         'UltraTabPageControl2
         '
+        Me.UltraTabPageControl2.Controls.Add(Me.btnModParteAdicional)
+        Me.UltraTabPageControl2.Controls.Add(Me.btnNuevaParteAdicional)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraButton12)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraButton9)
         Me.UltraTabPageControl2.Controls.Add(Me.imagen2)
@@ -1776,13 +1840,29 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl2.Enabled = False
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 425)
         '
+        'btnModParteAdicional
+        '
+        Me.btnModParteAdicional.Location = New System.Drawing.Point(298, 391)
+        Me.btnModParteAdicional.Name = "btnModParteAdicional"
+        Me.btnModParteAdicional.Size = New System.Drawing.Size(68, 24)
+        Me.btnModParteAdicional.TabIndex = 18
+        Me.btnModParteAdicional.Text = "Modificar"
+        '
+        'btnNuevaParteAdicional
+        '
+        Me.btnNuevaParteAdicional.Location = New System.Drawing.Point(224, 391)
+        Me.btnNuevaParteAdicional.Name = "btnNuevaParteAdicional"
+        Me.btnNuevaParteAdicional.Size = New System.Drawing.Size(68, 24)
+        Me.btnNuevaParteAdicional.TabIndex = 17
+        Me.btnNuevaParteAdicional.Text = "Nuevo"
+        '
         'UltraButton12
         '
-        Me.UltraButton12.Location = New System.Drawing.Point(589, 391)
+        Me.UltraButton12.Location = New System.Drawing.Point(690, 391)
         Me.UltraButton12.Name = "UltraButton12"
         Me.UltraButton12.Size = New System.Drawing.Size(88, 24)
         Me.UltraButton12.TabIndex = 16
@@ -1790,9 +1870,9 @@ Public Class registrarModeloFresa
         '
         'UltraButton9
         '
-        Me.UltraButton9.Location = New System.Drawing.Point(681, 390)
+        Me.UltraButton9.Location = New System.Drawing.Point(372, 391)
         Me.UltraButton9.Name = "UltraButton9"
-        Me.UltraButton9.Size = New System.Drawing.Size(96, 24)
+        Me.UltraButton9.Size = New System.Drawing.Size(68, 24)
         Me.UltraButton9.TabIndex = 3
         Me.UltraButton9.Text = "Guardar"
         '
@@ -1802,7 +1882,7 @@ Public Class registrarModeloFresa
         Me.imagen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.imagen2.Location = New System.Drawing.Point(464, 176)
         Me.imagen2.Name = "imagen2"
-        Me.imagen2.Size = New System.Drawing.Size(312, 208)
+        Me.imagen2.Size = New System.Drawing.Size(314, 208)
         Me.imagen2.TabIndex = 5
         Me.imagen2.TabStop = False
         '
@@ -1963,6 +2043,7 @@ Public Class registrarModeloFresa
         '
         Appearance14.BackColor = System.Drawing.Color.LightSteelBlue
         Me.UltraGroupBox2.ContentAreaAppearance = Appearance14
+        Me.UltraGroupBox2.Controls.Add(Me.comboIDAdicional)
         Me.UltraGroupBox2.Controls.Add(Me.textPrecioAdicional)
         Me.UltraGroupBox2.Controls.Add(Me.comboNombre)
         Me.UltraGroupBox2.Controls.Add(Me.textDescAdicional)
@@ -1980,6 +2061,15 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox2.TabIndex = 0
         Me.UltraGroupBox2.Text = "General"
         Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'comboIDAdicional
+        '
+        Me.comboIDAdicional.AutoSize = True
+        Me.comboIDAdicional.Enabled = False
+        Me.comboIDAdicional.Location = New System.Drawing.Point(238, 32)
+        Me.comboIDAdicional.Name = "comboIDAdicional"
+        Me.comboIDAdicional.Size = New System.Drawing.Size(75, 21)
+        Me.comboIDAdicional.TabIndex = 35
         '
         'textPrecioAdicional
         '
@@ -2118,7 +2208,6 @@ Public Class registrarModeloFresa
         '
         'registrarModeloFresa
         '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(818, 448)
         Me.Controls.Add(Me.tab)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -2153,6 +2242,7 @@ Public Class registrarModeloFresa
         CType(Me.UltraGroupBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox9.ResumeLayout(False)
         Me.UltraGroupBox9.PerformLayout()
+        CType(Me.comboIDFresa, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cantidad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboPT, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textCarFresa, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2204,6 +2294,7 @@ Public Class registrarModeloFresa
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
         Me.UltraGroupBox2.PerformLayout()
+        CType(Me.comboIDAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textPrecioAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboNombre, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textDescAdicional, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2255,21 +2346,27 @@ Public Class registrarModeloFresa
 
 
         'instancio los objetos, cargo los adaptadores y lleno el conjunto de datos(dataset) con las tres tablas
-        'parte.cargarAdaptador()
-        'parte.cargarDatos(ds, "parte")
-
-        'fresa.cargarAdaptador()
-        'fresa.cargarDatos(ds, "tipofresa")
-
-        'etapa.cargarAdaptador()
-        'etapa.cargarDatos(ds, "etapadefabricacion")
-
         modelo.cargarAdaptador()
         modelo.cargarDatos(ds, "modelofresa")
 
-        textID.Text = ds.Tables("modelofresa").Rows.Count + 1
+        parte.cargarAdaptador()
+        parte.cargarDatos(ds, "parte")
 
-        'princ.barra.agregarBoton(Me)
+        fresa.cargarAdaptador()
+        fresa.cargarDatos(ds, "tipofresa")
+
+        etapa.cargarAdaptador()
+        etapa.cargarDatos(ds, "etapadefabricacion")
+
+        adicional.cargarAdaptador()
+        adicional.cargarDatos(ds, "parteAdicional")
+
+        If IdModeloFresa <> -1 Then
+            cargar_datos(IdModeloFresa)
+        Else
+            textID.Text = ds.Tables("modelofresa").Rows.Count + 1
+        End If
+
 
     End Sub
 #End Region
@@ -2330,58 +2427,30 @@ Public Class registrarModeloFresa
 
         If band = False Then
 
+            textDiamAgu.Text = ""
+            textDiamExt.Text = ""
+            textCantDien.Text = ""
+            textIDFresa.Text = ""
+            textNombreFresa.Text = ""
+            btnModificarFresa.Enabled = True
+            btnNuevaFresa.Enabled = True
 
-            If textIDFresa.Text = "" Then
-                textIDFresa.Text = 1
-                textNombreFresa.Text = textNom.Text & " Fresa " & textIDFresa.Text.ToString
-
-                If banderaAd = False Then
-                    parte.cargarAdaptador()
-                    parte.cargarDatos(ds, "parte")
-
-                    fresa.cargarAdaptador()
-                    fresa.cargarDatos(ds, "tipofresa")
-
-                    etapa.cargarAdaptador()
-                    etapa.cargarDatos(ds, "etapadefabricacion")
-                End If
-
-            Else
-                i = i + 1
-                textIDFresa.Text = i
-
-
-                textNombreFresa.Text = ""
-                textDiamExt.Text = ""
-                textDiamAgu.Text = ""
-                textCantDien.Text = ""
-                textPlanoTF.Text = ""
-                comboPT.Text = ""
-                textCarFresa.Text = ""
-                textCostoTF.Text = ""
-                textPrecioTF.Text = ""
-
-                textNombreFresa.Text = textNom.Text & " Fresa " & textIDFresa.Text.ToString
-
-            End If
-
+            comboIDFresa.Enabled = False
             TabControl1.SelectedTab = TabControl1.TabPages(0)
-            'tab.Tabs.Item(1).Selected() = True
             tab.SelectedTab = tab.Tabs(1)
-            'tab.ActiveTab() = tab.Tabs(1)
             tab.Tabs(1).Enabled = True
+            tab.Tabs(0).Enabled = False
 
-            textIDParte.Text = 1
-            textIDEtapa.Text = 1
-            orden.Text = 1
-            textTiempo.Text = 0
+            Dim criterio As String
+            Dim filas() As DataRow
+            criterio = "idmodelo = " + IdModeloFresa.ToString
+            filas = ds.Tables("tipofresa").Select(criterio)
+            ultimoIdFresa = filas.Length
 
-
-            lista3.SelectedItems.Clear()
-            lista4.SelectedItems.Clear()
-
-            botonFresa.Enabled = False
-            BotonParte.Enabled = False
+            'lista3.SelectedItems.Clear()
+            'lista4.SelectedItems.Clear()
+            lista3.Items.Clear()
+            lista4.Items.Clear()
 
         End If
 
@@ -2701,11 +2770,7 @@ Public Class registrarModeloFresa
             'ds.Tables("parte").Rows.Remove(fila(0))
             textIDParte.Text = i
 
-            'da = parte.adaptadorParte
-            'da.Update(ds, "parte")
-
             lista3.SelectedItems.Item(0).Remove()
-
 
         End If
 
@@ -2794,7 +2859,8 @@ Public Class registrarModeloFresa
             item.SubItems.Add(orden.Text)
             item.SubItems.Add(textTiempo.Text)
 
-            textIDEtapa.Text = textIDEtapa.Text + 1
+            'textIDEtapa.Text = textIDEtapa.Text + 1
+            textIDEtapa.Text = lista4.Items.Count + 1
             comboOperacion.SelectedItem = Nothing
             textTiempo.Text = 0
             orden.UpButton()
@@ -2831,6 +2897,7 @@ Public Class registrarModeloFresa
 
     Private Sub UltraButton22_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton22.Click
         Dim nuevaFresa As DataRow
+        Dim modificadaFresa As DataRow
         Dim band As Boolean = True
 
 
@@ -2849,41 +2916,15 @@ Public Class registrarModeloFresa
 
 
         If band = True Then
+            If modificarTipoFresa = False Then
 
-
-            If cantidad.Text = 1 Then
-                nuevaFresa = ds.Tables("tipofresa").NewRow
-
-
-                nuevaFresa("idmodelo") = textID.Text
-                nuevaFresa("idtipo") = textIDFresa.Text
-                nuevaFresa("nombre") = textNombreFresa.Text
-                nuevaFresa("diametroexterior") = textDiamExt.Text
-                nuevaFresa("diametroagujero") = textDiamAgu.Text
-                nuevaFresa("cantidaddientes") = textCantDien.Text
-                nuevaFresa("plano") = textPlanoTF.Text
-                nuevaFresa("posiciondetrabajo") = comboPT.Text
-                nuevaFresa("caracteristicas") = textCarFresa.Text
-                nuevaFresa("costo") = textCostoTF.Text
-                nuevaFresa("precio") = textPrecioTF.Text
-                nuevaFresa("estado") = "Alta"
-
-
-                ds.Tables("tipofresa").Rows.Add(nuevaFresa)
-
-
-            Else
-                Dim i As Integer
-                Dim j As Integer
-                j = textIDFresa.Text
-
-                For i = 1 To cantidad.Text
+                If cantidad.Text = 1 Then
                     nuevaFresa = ds.Tables("tipofresa").NewRow
 
 
                     nuevaFresa("idmodelo") = textID.Text
-                    nuevaFresa("idtipo") = j
-                    nuevaFresa("nombre") = textNom.Text & " Fresa " & i
+                    nuevaFresa("idtipo") = textIDFresa.Text
+                    nuevaFresa("nombre") = textNombreFresa.Text
                     nuevaFresa("diametroexterior") = textDiamExt.Text
                     nuevaFresa("diametroagujero") = textDiamAgu.Text
                     nuevaFresa("cantidaddientes") = textCantDien.Text
@@ -2896,8 +2937,51 @@ Public Class registrarModeloFresa
 
 
                     ds.Tables("tipofresa").Rows.Add(nuevaFresa)
-                    j = j + 1
 
+
+                Else
+                    Dim i As Integer
+                    Dim j As Integer
+                    j = textIDFresa.Text
+
+                    For i = 1 To cantidad.Text
+                        nuevaFresa = ds.Tables("tipofresa").NewRow
+
+
+                        nuevaFresa("idmodelo") = textID.Text
+                        nuevaFresa("idtipo") = j
+                        nuevaFresa("nombre") = textNom.Text & " Fresa " & i
+                        nuevaFresa("diametroexterior") = textDiamExt.Text
+                        nuevaFresa("diametroagujero") = textDiamAgu.Text
+                        nuevaFresa("cantidaddientes") = textCantDien.Text
+                        nuevaFresa("plano") = textPlanoTF.Text
+                        nuevaFresa("posiciondetrabajo") = comboPT.Text
+                        nuevaFresa("caracteristicas") = textCarFresa.Text
+                        nuevaFresa("costo") = textCostoTF.Text
+                        nuevaFresa("precio") = textPrecioTF.Text
+                        nuevaFresa("estado") = "Alta"
+
+
+                        ds.Tables("tipofresa").Rows.Add(nuevaFresa)
+                        j = j + 1
+
+                    Next
+                End If
+
+            Else
+
+                For Each modificadaFresa In ds.Tables("tipofresa").Rows
+                    If modificadaFresa("idmodelo") = textID.Text And modificadaFresa("idtipo") = textIDFresa.Text Then
+                        modificadaFresa("nombre") = textNombreFresa.Text
+                        modificadaFresa("diametroexterior") = textDiamExt.Text
+                        modificadaFresa("diametroagujero") = textDiamAgu.Text
+                        modificadaFresa("cantidaddientes") = textCantDien.Text
+                        modificadaFresa("plano") = textPlanoTF.Text
+                        modificadaFresa("posiciondetrabajo") = comboPT.Text
+                        modificadaFresa("caracteristicas") = textCarFresa.Text
+                        modificadaFresa("costo") = textCostoTF.Text
+                        modificadaFresa("precio") = textPrecioTF.Text
+                    End If
                 Next
 
             End If
@@ -2905,6 +2989,7 @@ Public Class registrarModeloFresa
 
             tab.SelectedTab = tab.Tabs(0)
             tab.Tabs(1).Enabled = False
+            tab.Tabs(0).Enabled = True
 
             i = i + cantidad.Text
 
@@ -2914,10 +2999,28 @@ Public Class registrarModeloFresa
             botonFresa.Enabled = True
             BotonParte.Enabled = True
 
-            textPrecioModelo.Text = CDec(textPrecioModelo.Text) + CDec(textPrecioTF.Text)
+            Dim filas() As DataRow = ds.Tables("tipofresa").Select("idmodelo = " + textID.Text)
+            Dim fila As DataRow
+            Dim precio As New Double
 
+            'Precio de tipo de fresas
+            For Each fila In filas
+                precio += fila("precio")
+            Next
+
+            'Precio de partes adicionales
+            filas = ds.Tables("parteAdicional").Select("idmodelo = " + textID.Text)
+            For Each fila In filas
+                precio += fila("precio")
+            Next
+
+            textPrecioModelo.Text = precio.ToString
             TabControl1.SelectedTab = TabControl1.TabPages(0)
+            btnNuevaFresa.Enabled = True
+            modificarTipoFresa = False
+
         End If
+
     End Sub
 
 
@@ -3009,14 +3112,13 @@ Public Class registrarModeloFresa
         ofd.FilterIndex = 2
         ofd.RestoreDirectory = True
 
-        If ofd.ShowDialog() = DialogResult.OK Then
+        If ofd.ShowDialog() = Windows.Forms.DialogResult.OK Then
             'Dim s As System.IO.Stream
-            Dim i As System.Drawing.Image
             Image.FromFile(ofd.FileName.ToString)
             's = ofd.OpenFile
             textImagenA.Text = ofd.FileName.ToString
             'imagen.Image = i.FromStream(s)
-            imagen2.Image = i.FromFile(ofd.FileName)
+            imagen2.Image = Image.FromFile(ofd.FileName)
             imagen2.Refresh()
         End If
     End Sub
@@ -3027,7 +3129,7 @@ Public Class registrarModeloFresa
         ofd.FilterIndex = 2
         ofd.RestoreDirectory = True
 
-        If ofd.ShowDialog() = DialogResult.OK Then
+        If ofd.ShowDialog() = Windows.Forms.DialogResult.OK Then
 
             textPlanoA.Text = ofd.FileName.ToString
 
@@ -3089,38 +3191,27 @@ Public Class registrarModeloFresa
 
         If band = False Then
 
-
-            If textIDAdicional.Text = "" Then
-
-                textIDAdicional.Text = 1
-
-                If banderaAd2 = False Then
-                    adicional.cargarAdaptador()
-                    adicional.cargarDatos(ds, "parteAdicional")
-                End If
-
-            Else
-                j = j + 1
-                textIDAdicional.Text = j
-                comboNombre.Text = ""
-                textPlanoA.Text = ""
-                textImagenA.Text = ""
-
-                comboMPAdicional.Text = ""
-                textCantMPAdicional.Text = ""
-                textDescAdicional.Text = ""
-                textTiempoAdicional.Text = ""
-                textCostoAdicional.Text = ""
-                textPrecioAdicional.Text = ""
-            End If
-
-            'tab.Tabs.Item(1).Selected() = True
             tab.SelectedTab = tab.Tabs(2)
-            'tab.ActiveTab() = tab.Tabs(1)
             tab.Tabs(2).Enabled = True
+            tab.Tabs(0).Enabled = False
 
             botonFresa.Enabled = False
             BotonParte.Enabled = False
+            btnModParteAdicional.Enabled = True
+            btnNuevaParteAdicional.Enabled = True
+            comboIDAdicional.Enabled = False
+
+            textID.Text = ""
+            textIDAdicional.Text = ""
+            comboNombre.Text = ""
+            textPlanoA.Text = ""
+            'Image2Bytes(imagen2.Image)
+            comboMPAdicional.Text = ""
+            textCantMPAdicional.Text = ""
+            textDescAdicional.Text = ""
+            textTiempoAdicional.Text = ""
+            textCostoAdicional.Text = ""
+            textPrecioAdicional.Text = ""
 
         End If
     End Sub
@@ -3162,27 +3253,44 @@ Public Class registrarModeloFresa
 
 
         If band = True Then
-            fila = ds.Tables("parteAdicional").NewRow
+            If modificarParteAdicional = False Then
+                fila = ds.Tables("parteAdicional").NewRow
 
+                fila("idmodelo") = textID.Text
+                fila("idadicional") = textIDAdicional.Text
+                fila("nombre") = comboNombre.Text
+                fila("plano") = textPlanoA.Text
+                fila("imagen") = Image2Bytes(imagen2.Image)
+                fila("idmateriaprima") = comboMPAdicional.SelectedItem.Tag
+                fila("cantidad") = textCantMPAdicional.Text
+                fila("descripcion") = textDescAdicional.Text
+                fila("tiempo") = textTiempoAdicional.Text
+                fila("costo") = textCostoAdicional.Text
+                fila("precio") = textPrecioAdicional.Text
 
-            fila("idmodelo") = textID.Text
-            fila("idadicional") = textIDAdicional.Text
-            fila("nombre") = comboNombre.Text
-            fila("plano") = textPlanoA.Text
-            'fila("imagen") = ""
-            fila("idmateriaprima") = comboMPAdicional.SelectedItem.Tag
-            fila("cantidad") = textCantMPAdicional.Text
-            fila("descripcion") = textDescAdicional.Text
-            fila("tiempo") = textTiempoAdicional.Text
-            fila("costo") = textCostoAdicional.Text
-            fila("precio") = textPrecioAdicional.Text
+                ds.Tables("parteAdicional").Rows.Add(fila)
 
+            Else
+                For Each fila In ds.Tables("parteAdicional").Rows
+                    If fila("idmodelo") = textID.Text Then
+                        fila("nombre") = comboNombre.Text
+                        fila("plano") = textPlanoA.Text
+                        fila("imagen") = Image2Bytes(imagen2.Image)
+                        fila("idmateriaprima") = comboMPAdicional.SelectedItem.Tag
+                        fila("cantidad") = textCantMPAdicional.Text
+                        fila("descripcion") = textDescAdicional.Text
+                        fila("tiempo") = textTiempoAdicional.Text
+                        fila("costo") = textCostoAdicional.Text
+                        fila("precio") = textPrecioAdicional.Text
+                    End If
+                Next
 
+            End If
 
-            ds.Tables("parteAdicional").Rows.Add(fila)
 
             tab.SelectedTab = tab.Tabs(0)
             tab.Tabs(2).Enabled = False
+            tab.Tabs(0).Enabled = True
 
             bandera = True
             banderaParte = True
@@ -3191,7 +3299,7 @@ Public Class registrarModeloFresa
             BotonParte.Enabled = True
 
             textPrecioModelo.Text = CDec(textPrecioModelo.Text) + CDec(textPrecioAdicional.Text)
-
+            modificarParteAdicional = False
 
         End If
     End Sub
@@ -3208,9 +3316,11 @@ Public Class registrarModeloFresa
         TabControl1.SelectedTab = TabControl1.TabPages(0)
     End Sub
 
+
     Private Sub UltraButton10_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton10.Click
-        If bandera = True Then
+        If bandera = True Or modificar = True Then
             Dim nuevoModelo As DataRow
+            Dim modificadoModelo As DataRow
             Dim band As Boolean = False
 
             If textNom.Text = "" Then
@@ -3261,60 +3371,90 @@ Public Class registrarModeloFresa
 
 
             If band = False Then
-                nuevoModelo = ds.Tables("modelofresa").NewRow
+                If modificar = False Then
+                    'Nueva fresa
+                    nuevoModelo = ds.Tables("modelofresa").NewRow
 
+                    nuevoModelo("idmodelo") = textID.Text
+                    nuevoModelo("nombre") = textNom.Text
+                    nuevoModelo("grupomodelo") = comboGrupoModelo.Text
+                    nuevoModelo("descripcion") = textDescripcion.Text
+                    nuevoModelo("materialatrabajar") = comboMT.Text
+                    nuevoModelo("mododeavance") = comboMA.Text
+                    nuevoModelo("tipoacabado") = comboTA.Text
+                    nuevoModelo("velocidaddeavance") = textVA.Text
+                    nuevoModelo("tipomodelo") = comboTipoModelo.Text
+                    nuevoModelo("precio") = textPrecioModelo.Text
+                    nuevoModelo("estado") = "Alta"
 
-                nuevoModelo("idmodelo") = textID.Text
-                nuevoModelo("nombre") = textNom.Text
-                nuevoModelo("grupomodelo") = comboGrupoModelo.Text
-                nuevoModelo("descripcion") = textDescripcion.Text
-                nuevoModelo("materialatrabajar") = comboMT.Text
-                nuevoModelo("mododeavance") = comboMA.Text
-                nuevoModelo("tipoacabado") = comboTA.Text
-                nuevoModelo("velocidaddeavance") = textVA.Text
-                nuevoModelo("tipomodelo") = comboTipoModelo.Text
-                nuevoModelo("precio") = textPrecioModelo.Text
-                nuevoModelo("estado") = "Alta"
+                    ds.Tables("modelofresa").Rows.Add(nuevoModelo)
 
+                    modelo.actualizarDatos(ds, "modelofresa")
 
+                    If banderaFresa = True Then
+                        fresa.actualizarDatos(ds, "tipofresa")
 
-                ds.Tables("modelofresa").Rows.Add(nuevoModelo)
+                        parte.actualizarDatos(ds, "parte")
+                        etapa.actualizarDatos(ds, "etapadefabricacion")
+                    End If
 
-                modelo.actualizarDatos(ds, "modelofresa")
+                    If banderaParte = True Then
+                        adicional.actualizarDatos(ds, "parteAdicional")
+                    End If
 
-                If banderaFresa = True Then
+                    Me.Close()
+
+                Else
+                    'Fresa modificada
+                    For Each modificadoModelo In ds.Tables("modelofresa").Rows
+                        If modificadoModelo("idmodelo") = textID.Text Then
+                            modificadoModelo("nombre") = textNom.Text
+                            modificadoModelo("grupomodelo") = comboGrupoModelo.Text
+                            modificadoModelo("descripcion") = textDescripcion.Text
+                            modificadoModelo("materialatrabajar") = comboMT.Text
+                            modificadoModelo("mododeavance") = comboMA.Text
+                            modificadoModelo("tipoacabado") = comboTA.Text
+                            modificadoModelo("velocidaddeavance") = textVA.Text
+                            modificadoModelo("tipomodelo") = comboTipoModelo.Text
+                            modificadoModelo("precio") = textPrecioModelo.Text
+                        End If
+                    Next
+
+                    'Actualizo modelo fresa
+                    modelo.actualizarDatos(ds, "modelofresa")
+
+                    'Actualizo tipo fresa
                     fresa.actualizarDatos(ds, "tipofresa")
-
                     parte.actualizarDatos(ds, "parte")
                     etapa.actualizarDatos(ds, "etapadefabricacion")
-                End If
 
-                If banderaParte = True Then
+                    'Actualizo parte adicional
                     adicional.actualizarDatos(ds, "parteAdicional")
+
+                    Me.Close()
+
                 End If
-
-                Me.Close()
-
             End If
         Else
             MsgBox("Debe registrar al menos una fresa o parte adicional para el modelo", MsgBoxStyle.Information)
         End If
     End Sub
 
+
     Private Sub UltraButton11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton11.Click
-        If textIDFresa.Text = 1 Then
-            textIDFresa.Text = ""
-            banderaAd = True
 
-        Else
-            i = i - 1
-        End If
-
+        btnNuevaFresa.Enabled = True
+        banderaAd = True
+        ultimoIdFresa = ultimoIdFresa - 1
         tab.SelectedTab = tab.Tabs(0)
         tab.Tabs(1).Enabled = False
         botonFresa.Enabled = True
         BotonParte.Enabled = True
+        tab.Tabs(0).Enabled = True
+        modificarTipoFresa = False
+
     End Sub
+
 
     Private Sub UltraButton12_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton12.Click
         If textIDAdicional.Text = 1 Then
@@ -3325,10 +3465,12 @@ Public Class registrarModeloFresa
         End If
 
         tab.SelectedTab = tab.Tabs(0)
+        tab.Tabs(0).Enabled = True
         tab.Tabs(2).Enabled = False
         botonFresa.Enabled = True
         BotonParte.Enabled = True
         TabControl1.SelectedTab = TabControl1.TabPages(0)
+        modificarParteAdicional = False
 
     End Sub
 
@@ -3390,21 +3532,27 @@ Public Class registrarModeloFresa
         Dim costo_etapas As New Double
         Dim tiempo_operacion As New Double
 
+        Dim filas() As DataRow = ds.Tables("parte").Select("idtipofresa = " + textIDFresa.Text + " And idmodelo = " + textID.Text)
         Dim fila As DataRow
-        'Costo Partes
-        For Each fila In ds.Tables("parte").Rows
-            costo_mp = materiaPrima.obtenerPrecioMateriaPrima(fila("idtipomateriaprima"))
-            costo_partes = costo_partes + (fila("cantidad") * costo_mp)
+        'Costo Partes 
+        For Each fila In filas
+            If Not fila.RowState = DataRowState.Deleted Then
+                costo_mp = materiaPrima.obtenerPrecioMateriaPrima(fila("idtipomateriaprima"))
+                costo_partes = costo_partes + (fila("cantidad") * costo_mp)
+            End If
         Next
 
-        'Costo Hora/Hombre utilizado en el calculo de Costo de operaciones
+        'Costo Hora/Hombre utilizado en el calculo de Costo de operaciones /etapas de fabricacion
         Dim parametro As New Parametro
         Dim hora_hombre As Double = parametro.obtenerParametro(Constantes.HORA_HOMBRE_OPERARIO)
 
-        'Costo Etapas de fabricacion / operaciones
-        For Each fila In ds.Tables("etapadefabricacion").Rows
-            tiempo_operacion = operacion.obtenerTiempoOperacion(fila("idoperacion"))
-            costo_etapas = costo_etapas + ((hora_hombre / 60) * (tiempo_operacion + fila("tiempoadicional")))
+        'Costo Etapas de fabricacion 
+        filas = ds.Tables("etapadefabricacion").Select("idtipofresa = " + textIDFresa.Text + " And idmodelo = " + textID.Text)
+        For Each fila In filas
+            If Not fila.RowState = DataRowState.Deleted Then
+                tiempo_operacion = operacion.obtenerTiempoOperacion(fila("idoperacion"))
+                costo_etapas = costo_etapas + ((hora_hombre / 60) * (tiempo_operacion + fila("tiempoadicional")))
+            End If
         Next
 
 
@@ -3425,4 +3573,212 @@ Public Class registrarModeloFresa
 #End Region
 
 
+#Region "Modificar Modelo Fresa"
+
+    Sub cargar_datos(ByVal idModeloFresa As Integer)
+        Dim criterio As String
+        criterio = "idmodelo = " + idModeloFresa.ToString
+        Dim fila As DataRow
+        Dim filas() As DataRow
+        filas = ds.Tables("modelofresa").Select(criterio)
+
+        'Activo la modificacion
+        modificar = True
+
+        'Datos modelo fresa
+        fila = filas(0)
+        textID.Text = fila("idmodelo")
+        textNom.Text = fila("nombre")
+        textDescripcion.Text = fila("descripcion")
+        comboTipoModelo.Text = fila("tipomodelo")
+        comboGrupoModelo.Text = fila("grupomodelo")
+        comboMT.Text = fila("materialatrabajar")
+        comboMA.Text = fila("mododeavance")
+        comboTA.Text = fila("tipoacabado")
+        textVA.Text = fila("velocidaddeavance")
+        textPrecioModelo.Text = fila("precio")
+
+        'cargo lista de maquinas en las que trabaja el modelo
+        consulta = "SELECT mf.idmaquina, mf.nombre, mf.potencia, mf.rpmdeleje, mf.sentidodegiro " & _
+                   "FROM maquinafresa mf, modelofresa mof, fresaxmaquina fxm " & _
+                   "WHERE(mf.idmaquina = fxm.idmaquina) " & _
+                   "AND fxm.idmodelo = mof.idmodelo " & _
+                   "AND mof.idmodelo = " + idModeloFresa.ToString
+        indice = 0
+        cargarLista(lista2, consulta, indice, columnas)
+
+    End Sub
+
+#End Region
+
+
+    Private Sub btnNuevaFresa_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevaFresa.Click
+
+        ultimoIdFresa = ultimoIdFresa + 1
+        textIDFresa.Text = ultimoIdFresa
+        textNombreFresa.Text = textNom.Text.Trim & " Fresa " & textIDFresa.Text.ToString
+
+        textDiamExt.Text = ""
+        textDiamAgu.Text = ""
+        textCantDien.Text = ""
+        textPlanoTF.Text = ""
+        comboPT.Text = ""
+        textCarFresa.Text = ""
+        textCostoTF.Text = ""
+        textPrecioTF.Text = ""
+
+        btnNuevaFresa.Enabled = False
+        btnModificarFresa.Enabled = False
+
+        textIDParte.Text = 1
+        textIDEtapa.Text = 1
+        orden.Text = 1
+        textTiempo.Text = 0
+
+        lista3.Items.Clear()
+        lista4.Items.Clear()
+
+        botonFresa.Enabled = False
+        BotonParte.Enabled = False
+    End Sub
+
+
+    Private Sub btnModificarFresa_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModificarFresa.Click
+        Dim itemCombo As Infragistics.Win.ValueListItem
+        comboIDFresa.Items.Clear()
+        Dim filas() As DataRow = ds.Tables("tipofresa").Select("idmodelo = " + textID.Text)
+        Dim fila As DataRow
+
+        itemCombo = comboIDFresa.Items.Add("")
+        itemCombo.Tag = -1
+
+        For Each fila In filas
+            itemCombo = comboIDFresa.Items.Add(fila("nombre"))
+            itemCombo.Tag = fila("idtipo")
+        Next
+
+        comboIDFresa.Enabled = True
+        btnNuevaFresa.Enabled = False
+        modificarTipoFresa = True
+
+    End Sub
+
+
+    Private Sub comboIDFresa_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboIDFresa.ValueChanged
+
+        If comboIDFresa.SelectedItem.Tag = -1 Then
+            Exit Sub
+        End If
+
+        ' Datos de tipo de fresa
+        Dim filas() As DataRow = ds.Tables("tipofresa").Select("idtipo = " + comboIDFresa.SelectedItem.Tag.ToString + " And idmodelo = " + textID.Text)
+        Dim fila As DataRow = filas(0)
+        textDiamAgu.Text = fila("diametroagujero")
+        textDiamExt.Text = fila("diametroexterior")
+        textCantDien.Text = fila("cantidaddientes")
+        textIDFresa.Text = fila("idtipo")
+        textNombreFresa.Text = fila("nombre")
+        comboPT.Text = fila("posiciondetrabajo")
+        textPrecioTF.Text = fila("precio")
+
+        ' Datos de partes
+        filas = ds.Tables("parte").Select("idtipofresa = " + textIDFresa.Text + " And idmodelo = " + textID.Text)
+        For Each fila In filas
+            item = lista3.Items.Add(fila("idparte"))
+            item.SubItems.Add(fila("nombre"))
+            item.SubItems.Add(fila("idtipomateriaprima"))
+            item.SubItems.Add(materiaPrima.obtenerNombreMateriaPrima(fila("idtipomateriaprima")))
+            item.SubItems.Add(fila("cantidad"))
+        Next
+        textIDParte.Text = lista3.Items.Count + 1
+
+        ' Datos de Etapas de fabricacion
+        filas = ds.Tables("etapadefabricacion").Select("idtipofresa = " + textIDFresa.Text + " And idmodelo = " + textID.Text)
+        For Each fila In filas
+            item = lista4.Items.Add(fila("idetapafabricacion"))
+            item.SubItems.Add(fila("idoperacion"))
+            item.SubItems.Add(operacion.obtenerNombreOperacion(fila("idoperacion")))
+            item.SubItems.Add(fila("orden"))
+            item.SubItems.Add(fila("tiempoadicional"))
+        Next
+        textIDEtapa.Text = lista4.Items.Count + 1
+
+    End Sub
+
+    Private Sub btnNuevaParteAdicional_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevaParteAdicional.Click
+        Dim filas() As DataRow = ds.Tables("parteAdicional").Select("idmodelo = " + textID.Text)
+
+        textIDAdicional.Text = filas.Length + 1
+
+        comboNombre.Text = ""
+        textPlanoA.Text = ""
+        textImagenA.Text = ""
+
+        comboMPAdicional.Text = ""
+        textCantMPAdicional.Text = ""
+        textDescAdicional.Text = ""
+        textTiempoAdicional.Text = ""
+        textCostoAdicional.Text = ""
+        textPrecioAdicional.Text = ""
+
+        comboIDAdicional.Enabled = False
+
+    End Sub
+
+
+    Private Sub btnModParteAdicional_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModParteAdicional.Click
+        Dim filas() As DataRow = ds.Tables("parteAdicional").Select("idmodelo = " + textID.Text)
+        Dim fila As DataRow
+        Dim itemCombo As Infragistics.Win.ValueListItem
+        comboIDAdicional.Items.Clear()
+
+        itemCombo = comboIDAdicional.Items.Add("")
+        itemCombo.Tag = -1
+
+        For Each fila In filas
+            itemCombo = comboIDAdicional.Items.Add(fila("nombre"))
+            itemCombo.Tag = fila("idadicional")
+        Next
+
+        comboIDAdicional.Enabled = True
+        btnNuevaParteAdicional.Enabled = False
+        modificarParteAdicional = True
+
+    End Sub
+
+
+    Private Sub comboIDAdicional_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboIDAdicional.ValueChanged
+
+        If comboIDAdicional.SelectedItem.Tag = -1 Then
+            Exit Sub
+        End If
+
+        Dim itemCombo As Infragistics.Win.ValueListItem
+
+        ' Datos parte adicional
+        Dim filas() As DataRow = ds.Tables("parteAdicional").Select("idadicional = " + comboIDAdicional.SelectedItem.Tag.ToString + " And idmodelo = " + textID.Text)
+        Dim fila As DataRow = filas(0)
+        textIDAdicional.Text = fila("idadicional")
+        comboNombre.Text = fila("nombre")
+        textCostoAdicional.Text = fila("costo")
+        textPrecioAdicional.Text = fila("precio")
+        textDescAdicional.Text = fila("descripcion")
+        For Each itemCombo In comboMPAdicional.Items
+            If itemCombo.Tag = fila("idmateriaprima") Then
+                comboMPAdicional.SelectedItem = itemCombo
+            End If
+        Next
+        textCantMPAdicional.Text = fila("cantidad")
+        textTiempoAdicional.Text = fila("tiempo")
+        textPlanoA.Text = fila("plano")
+        'Imagen
+        If fila("imagen") IsNot DBNull.Value Then
+            Dim image As Image = Bytes2Image(CType(fila("imagen"), Byte()))
+            If image IsNot Nothing Then
+                imagen2.Image = image
+            End If
+            imagen2.Refresh()
+        End If
+
+    End Sub
 End Class
