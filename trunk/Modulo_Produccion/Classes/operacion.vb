@@ -130,4 +130,26 @@ Public Class Operacion
         Return tiempo
 
     End Function
+
+    Public Function obtenerNombreOperacion(ByVal idOperacion As Integer) As String
+
+        selectOperacion.Connection = cnn
+        selectOperacion.Connection.Open()
+        selectOperacion.CommandText = "SELECT op.idoperacion, op.nombre " & _
+                                      "FROM operacion op " & _
+                                      "WHERE op.idoperacion = " + idOperacion.ToString
+
+        selectOperacion.CommandType = CommandType.Text
+        resultado = selectOperacion.ExecuteReader
+        Dim nombre As String = ""
+        While resultado.Read
+            nombre = resultado.Item(1)
+        End While
+
+        selectOperacion.Connection.Close()
+
+        Return nombre.Trim
+
+    End Function
+
 End Class

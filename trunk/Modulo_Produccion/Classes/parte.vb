@@ -7,12 +7,12 @@ Public Class parte
     Private deleteParte As New SqlClient.SqlCommand
 
 
-    Property adaptadorParte()
+    Property adaptadorParte() As SqlClient.SqlDataAdapter
         Get
             Return madaptadorParte
         End Get
 
-        Set(ByVal Value)
+        Set(ByVal Value As SqlClient.SqlDataAdapter)
             madaptadorParte = Value
         End Set
     End Property
