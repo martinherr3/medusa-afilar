@@ -137,7 +137,7 @@ Public Class frmEmpleado
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
 
         objEmpleado.tomarDatos(txtNombre.Text, cboCargo.SelectedValue, txtDireccion.Text, cboLocalidad.SelectedValue, txtMail.Text, _
-       txtTelefono.Text, txtTitulo.Text, txtTurno.Text, txtApellido.Text, DataGrid1.Item(DataGrid1.CurrentRowIndex, 0))
+                               txtTelefono.Text, txtTitulo.Text, txtTurno.Text, txtApellido.Text, DataGrid1.Item(DataGrid1.CurrentRowIndex, 0))
 
         If bandGrabar = 1 Then
             objEmpleado.registrarEmpleado(dsEmpleado)
