@@ -224,7 +224,7 @@ Public Class Mensajeria
         Dim sql As String = "select max(idmensaje) + 1 as id from mensaje "
         Dim comm As New SqlCommand(sql, conn)
         Dim id As Integer
-        id = comm.ExecuteScalar()
+        comm.ExecuteScalar()
         sql = "INSERT INTO mensaje (idMensaje, asunto, idRemitente, idDestinatario, mensaje, prioridad, leido, fechaRecepion, fechaLectura) VALUES(" & _
         id & ", '" & _
         asuntop & "', " & _
