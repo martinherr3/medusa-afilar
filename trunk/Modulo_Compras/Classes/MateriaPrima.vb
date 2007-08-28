@@ -6,7 +6,7 @@ Public Class MateriaPrima
     Private adaptadorMateriaPrima As New SqlClient.SqlDataAdapter
     Private resultado As SqlClient.SqlDataReader
 
-    Public Function obtenerPrecioMateriaPrima(ByVal idMateriPrima As Integer) As Double
+    Public Function obtenerPrecioMateriaPrima(ByVal idMateriaPrima As Integer) As Double
         selectMateriaPrima.Connection = cnn
         selectMateriaPrima.Connection.Open()
         selectMateriaPrima.CommandText = "SELECT tmp.idtipomateriaprima, tmp.nombre, doc.precio, MAX(ocmp.fecharealizacion) " & _
@@ -14,7 +14,7 @@ Public Class MateriaPrima
                 "WHERE(tmp.idtipomateriaprima = doc.idtipomateriaprima) " & _
                 "AND doc.idordencompra = ocmp.idordencompra " & _
                 "AND doc.idestado IN (12, 13) " & _
-                "AND tmp.idtipomateriaprima = " + idMateriPrima.ToString & _
+                "AND tmp.idtipomateriaprima = " + idMateriaPrima.ToString & _
                 "GROUP BY tmp.idtipomateriaprima, tmp.nombre, doc.precio, ocmp.fecharealizacion"
 
         selectMateriaPrima.CommandType = CommandType.Text
@@ -30,4 +30,24 @@ Public Class MateriaPrima
 
     End Function
 
+
+    Public Function obtenerNombreMateriaPrima(ByVal idMateriaPrima As Integer) As String
+        selectMateriaPrima.Connection = cnn
+        selectMateriaPrima.Connection.Open()
+        selectMateriaPrima.CommandText = "SELECT tmp.nombre " & _
+                                         "FROM tipomateriaprima tmp " & _
+                                         "WHERE tmp.idtipomateriaprima = " + idMateriaPrima.ToString
+
+
+        selectMateriaPrima.CommandType = CommandType.Text
+        resultado = selectMateriaPrima.ExecuteReader
+        Dim nombre As String = ""
+        While resultado.Read
+            nombre = resultado.Item(0)
+        End While
+
+        selectMateriaPrima.Connection.Close()
+
+        Return nombre.Trim
+    End Function
 End Class
