@@ -15,7 +15,7 @@ Public Class frmEmpleado
     End Sub
 
     Private Sub frmEmpleado_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        '  princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
         DataGrid1.DataSource = dsEmpleado
         DataGrid1.DataMember = "empleado"
 
