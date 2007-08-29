@@ -1,0 +1,8 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <TargetDatabase>Afilar</TargetDatabase>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DesignDBName>AfilarDB_DB_3df46431-5bf2-4c06-a33b-2c99d1014469</DesignDBName>
+  </PropertyGroup>
+</Project>

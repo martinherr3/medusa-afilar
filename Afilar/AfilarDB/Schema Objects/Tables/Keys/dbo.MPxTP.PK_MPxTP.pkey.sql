@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[MPxTP] ADD CONSTRAINT [PK_MPxTP] PRIMARY KEY CLUSTERED  ([nombre], [idmp]) ON [PRIMARY]
+
+

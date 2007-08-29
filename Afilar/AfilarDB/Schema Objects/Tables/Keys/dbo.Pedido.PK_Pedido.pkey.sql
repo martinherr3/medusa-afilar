@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Pedido] ADD CONSTRAINT [PK_Pedido] PRIMARY KEY CLUSTERED  ([idpedido]) ON [PRIMARY]
+
+
