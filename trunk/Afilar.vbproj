@@ -311,6 +311,12 @@
     <Compile Include="Modulo_Produccion\Forms\frmTornero.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo_Reportes\Dashboard.Designer.vb">
+      <DependentUpon>Dashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Dashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
       <SubType>Code</SubType>
     </Compile>
