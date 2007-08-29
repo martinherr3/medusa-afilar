@@ -1,8 +1,7 @@
-Imports System.Windows.Forms.Form
 
 Public Class registrarModeloFresa
-    'Inherits System.Windows.Forms.Form
-    Inherits Form
+    Inherits System.Windows.Forms.Form
+
 
 #Region "Declaraciones"
     Private consulta As String
@@ -536,7 +535,7 @@ Public Class registrarModeloFresa
         Me.tab1.Controls.Add(Me.UltraGroupBox3)
         Me.tab1.Controls.Add(Me.UltraGroupBox1)
         Me.tab1.Controls.Add(Me.botonFresa)
-        Me.tab1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.tab1.Location = New System.Drawing.Point(2, 21)
         Me.tab1.Name = "tab1"
         Me.tab1.Size = New System.Drawing.Size(812, 425)
         '
@@ -1840,7 +1839,7 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl2.Enabled = False
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 425)
         '
@@ -1883,6 +1882,7 @@ Public Class registrarModeloFresa
         Me.imagen2.Location = New System.Drawing.Point(464, 176)
         Me.imagen2.Name = "imagen2"
         Me.imagen2.Size = New System.Drawing.Size(314, 208)
+        Me.imagen2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.imagen2.TabIndex = 5
         Me.imagen2.TabStop = False
         '
@@ -2310,7 +2310,15 @@ Public Class registrarModeloFresa
 
 
 #Region "Evento Load"
+
+    Private Sub registrarModeloFresa_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
+
     Private Sub registrarModeloFresa_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        princ.barra.agregarBoton(Me)
 
         textPrecioModelo.Text = 0
 
@@ -2928,6 +2936,7 @@ Public Class registrarModeloFresa
                     nuevaFresa("diametroexterior") = textDiamExt.Text
                     nuevaFresa("diametroagujero") = textDiamAgu.Text
                     nuevaFresa("cantidaddientes") = textCantDien.Text
+                    nuevaFresa("imagen") = Image2Bytes(imagen.Image)
                     nuevaFresa("plano") = textPlanoTF.Text
                     nuevaFresa("posiciondetrabajo") = comboPT.Text
                     nuevaFresa("caracteristicas") = textCarFresa.Text
@@ -2954,6 +2963,7 @@ Public Class registrarModeloFresa
                         nuevaFresa("diametroexterior") = textDiamExt.Text
                         nuevaFresa("diametroagujero") = textDiamAgu.Text
                         nuevaFresa("cantidaddientes") = textCantDien.Text
+                        nuevaFresa("imagen") = Image2Bytes(imagen.Image)
                         nuevaFresa("plano") = textPlanoTF.Text
                         nuevaFresa("posiciondetrabajo") = comboPT.Text
                         nuevaFresa("caracteristicas") = textCarFresa.Text
@@ -3201,11 +3211,9 @@ Public Class registrarModeloFresa
             btnNuevaParteAdicional.Enabled = True
             comboIDAdicional.Enabled = False
 
-            textID.Text = ""
             textIDAdicional.Text = ""
             comboNombre.Text = ""
             textPlanoA.Text = ""
-            'Image2Bytes(imagen2.Image)
             comboMPAdicional.Text = ""
             textCantMPAdicional.Text = ""
             textDescAdicional.Text = ""
@@ -3224,31 +3232,37 @@ Public Class registrarModeloFresa
         If textCostoAdicional.Text = "" Then
             MsgBox("Debe ingresar el costo de la parte adicional", MsgBoxStyle.Information)
             band = False
+            Exit Sub
         End If
 
         If textPrecioAdicional.Text = "" Then
             MsgBox("Debe ingresar el precio de la parte adicional", MsgBoxStyle.Information)
             band = False
+            Exit Sub
         End If
 
         If comboNombre.Text = "" Then
             MsgBox("Debe ingresar nombre de la parte adicional", MsgBoxStyle.Information)
             band = False
+            Exit Sub
         End If
 
         If comboMPAdicional.Text = "" Then
             MsgBox("Debe seleccionar materia prima", MsgBoxStyle.Information)
             band = False
+            Exit Sub
         End If
 
         If textCantMPAdicional.Text = "" Then
             MsgBox("Debe ingresar cantidad de MP", MsgBoxStyle.Information)
             band = False
+            Exit Sub
         End If
 
         If textTiempoAdicional.Text = "" Then
             MsgBox("Debe ingresar tiempo de fabricación", MsgBoxStyle.Information)
             band = False
+            Exit Sub
         End If
 
 
@@ -3680,6 +3694,14 @@ Public Class registrarModeloFresa
         textNombreFresa.Text = fila("nombre")
         comboPT.Text = fila("posiciondetrabajo")
         textPrecioTF.Text = fila("precio")
+        'Imagen
+        If fila("imagen") IsNot DBNull.Value Then
+            Dim image As Image = Bytes2Image(CType(fila("imagen"), Byte()))
+            If image IsNot Nothing Then
+                imagen.Image = image
+            End If
+            imagen.Refresh()
+        End If
 
         ' Datos de partes
         filas = ds.Tables("parte").Select("idtipofresa = " + textIDFresa.Text + " And idmodelo = " + textID.Text)
@@ -3721,6 +3743,7 @@ Public Class registrarModeloFresa
         textCostoAdicional.Text = ""
         textPrecioAdicional.Text = ""
 
+        btnModParteAdicional.Enabled = False
         comboIDAdicional.Enabled = False
 
     End Sub
@@ -3779,6 +3802,10 @@ Public Class registrarModeloFresa
             End If
             imagen2.Refresh()
         End If
+
+    End Sub
+
+    Private Sub tab_SelectedTabChanged(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinTabControl.SelectedTabChangedEventArgs) Handles tab.SelectedTabChanged
 
     End Sub
 End Class

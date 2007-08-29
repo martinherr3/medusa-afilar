@@ -11,7 +11,14 @@ Public Class consultarModeloFresa
 
 
 #Region "Evento load formulario"
+
+    Private Sub consultarModeloFresa_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        'princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub consultarModeloFresa_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        'princ.barra.agregarBoton(Me)
 
         ' seteo el estilo del datagrid 
         modelo.setearGrilla(dataGridMF)
@@ -28,8 +35,6 @@ Public Class consultarModeloFresa
 
         ' agrego la columna check los datatables de cada clase
         modelo.agregarCheck(ds)
-        'fresa.agregarCheck(ds)
-        'parteAdicional.agregarCheck(ds)
 
         ' pongo la columna check de todas las filas de la tabla en falso para que no me aparezcan seleccionadas 
         Dim i As Integer
@@ -53,6 +58,7 @@ Public Class consultarModeloFresa
 
 
 #Region "Demas eventos"
+
     Private Sub btnFiltrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltrar.Click
 
         Dim dataView As New DataView(ds.Tables("modelofresa"))
@@ -173,7 +179,8 @@ Public Class consultarModeloFresa
             formModificar.IdModeloFresa = .Item(.CurrentRowIndex, 1)
         End With
 
-        formModificar.Show()
+        formModificar.Location = New System.Drawing.Point(196, 150)
+        formModificar.Show(princ)
     End Sub
 
 #End Region
