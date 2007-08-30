@@ -352,13 +352,13 @@ Public Class frmRecibirMPII
     Dim DS As New DataSet
     Dim dtOC As New DataTable
     Dim dvDOC As New DataView
-    Dim Sqldataadapter1 As New SqlDataAdapter("select fecharealizacion, nroorden, ordencompramp.idproveedor, proveedor.nombre from ordencompramp inner join proveedor on ordencompramp.idproveedor = proveedor.idproveedor where ordencompramp.idestado=1", cnn)
+    Dim Sqldataadapter1 As New SqlDataAdapter("select fecharealizacion, nroorden,ordencompramp.idordencompra, ordencompramp.idproveedor, proveedor.nombre from ordencompramp inner join proveedor on ordencompramp.idproveedor = proveedor.idproveedor where ordencompramp.idestado=1", cnn)
     Dim Sqldataadapter2 As New SqlDataAdapter("select tipomateriaprima.nombre, cantidad, precio, idordencompra, detalleordencompra.idtipomateriaprima from detalleordencompra inner join tipomateriaprima on detalleordencompra.idtipomateriaprima = tipomateriaprima.idtipomateriaprima where idordencompra in (select idordencompra from ordencompramp where idestado =1) and idestado =1 ", cnn)
     ''IDESTADO =1 ES "PENDIENTE DE ENTREGA" tendriamos que agregar la tabra estado
 
 
     Private Sub frmRecibirMPII_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        princ.barra.agregarBoton(Me)
+        'princ.barra.agregarBoton(Me)
 
         cnn.Open()
         Sqldataadapter1.Fill(DS, "ordencompramp")
@@ -510,8 +510,8 @@ Public Class frmRecibirMPII
         If gpbox1.Visible Then
             Me.gpbox1.Visible = False
             Me.gpbox2.Visible = True
-            Me.Label1.Text = "Orden de compra Nº: " & DgOc.Item(DgOc.CurrentCell.RowNumber, 1) & "  Realizada el dia: " & DgOc.Item(DgOc.CurrentCell.RowNumber, 0) & " Proveedor: " & DgOc.Item(DgOc.CurrentCell.RowNumber, 3)
-            dvDOC.RowFilter = "idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 1)
+            Me.Label1.Text = "Orden de compra Nº: " & DgOc.Item(DgOc.CurrentCell.RowNumber, 1) & "  Realizada el dia: " & DgOc.Item(DgOc.CurrentCell.RowNumber, 0) & " Proveedor: " & DgOc.Item(DgOc.CurrentCell.RowNumber, 4)
+            dvDOC.RowFilter = "idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 2)
         Else
             If gpbox2.Visible Then
                 Me.gpbox2.Visible = False
@@ -527,7 +527,7 @@ Public Class frmRecibirMPII
                     End If
 
                 Next i
-                dvDOC.RowFilter = "(column1='N'or cantidad <> 0) and idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 1)
+                dvDOC.RowFilter = "(column1='N'or cantidad <> 0) and idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 2)
 
 
             Else
@@ -558,7 +558,7 @@ Public Class frmRecibirMPII
                 Me.gpbox2.Visible = True
                 Me.gpbox3.Visible = False
                 BtnSiguiente.Text = "&Siguiente"
-                dvDOC.RowFilter = "idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 1)
+                dvDOC.RowFilter = "idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 2)
                 Dim i As Integer
                 For i = 0 To dvDOC.Count - 1
                     If dvDOC.Item(i).Item("Column1") <> "N" Or dvDOC.Item(i).Item("cantidad") <> dvDOC.Item(i).Item("cantidadr") Then
@@ -596,12 +596,12 @@ Public Class frmRecibirMPII
     
     Private Sub dgOC_CurrentCellChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DgOc.CurrentCellChanged
         DgOc.Select(DgOc.CurrentCell.RowNumber)
-        dvDOC.RowFilter = "idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 1)
+        dvDOC.RowFilter = "idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 2)
     End Sub
 
     Private Sub carga()
         If MsgBox("Confirma recepcion", MsgBoxStyle.YesNo, "Confirmacion") Then
-            dvDOC.RowFilter = "idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 1)
+            dvDOC.RowFilter = "idordencompra =" & DgOc.Item(DgOc.CurrentCell.RowNumber, 2)
             Try
                 Dim mprec As Integer
                 Dim sqlcommandDMPR As New SqlCommand
@@ -648,14 +648,14 @@ Public Class frmRecibirMPII
                     If dvDOC.Item(i).Item("Column1") = "Y" Then
                         If dvDOC.Item(i).Item("cantidad") = 0 Then
                             sqlcommandDOC.CommandText = "update detalleordencompra set idestado = 3 where idordencompra=" _
-                                                & DgOc.Item(DgOc.CurrentCell.RowNumber, 1) & _
+                                                & DgOc.Item(DgOc.CurrentCell.RowNumber, 2) & _
                                                 "and idtipomateriaprima =" & dvDOC.Item(i).Item("idtipomateriaprima")
                         Else
                             banpedincompleto = True
 
                             sqlcommandDOC.CommandText = "update detalleordencompra set cantidad = " & CType(dvDOC.Item(i).Item("cantidad"), Integer) _
                                                                         & "  where idordencompra=" _
-                                                                        & DgOc.Item(DgOc.CurrentCell.RowNumber, 1) & _
+                                                                        & DgOc.Item(DgOc.CurrentCell.RowNumber, 2) & _
                                                                         "and idtipomateriaprima =" & dvDOC.Item(i).Item("idtipomateriaprima")
 
                         End If
@@ -665,7 +665,7 @@ Public Class frmRecibirMPII
 
                         If band = False Then 'cargo mprecibida 1 sola vez                  
                             sqlcommandMPR.CommandText = "insert into mprecibida values (" & mprec & ", '" & Today & "'," _
-                                    & CType(textRemito.Text, Integer) & ", " & DgOc.Item(DgOc.CurrentCell.RowNumber, 1) & ")"
+                                    & CType(textRemito.Text, Integer) & ", " & DgOc.Item(DgOc.CurrentCell.RowNumber, 2) & ")"
                             sqlcommandMPR.ExecuteNonQuery()
                             band = True
                         End If 'falta la causa
@@ -687,7 +687,7 @@ Public Class frmRecibirMPII
 
                             If band = False Then 'cargo mprecibida 1 sola vez                  
                                 sqlcommandMPR.CommandText = "insert into mprecibida values (" & mprec & ", '" & Today & "'," _
-                                        & CType(textRemito.Text, Integer) & ", " & DgOc.Item(DgOc.CurrentCell.RowNumber, 1) & ")"
+                                        & CType(textRemito.Text, Integer) & ", " & DgOc.Item(DgOc.CurrentCell.RowNumber, 2) & ")"
                                 sqlcommandMPR.ExecuteNonQuery()
                                 band = True
                             End If
