@@ -1,13 +1,14 @@
 Public Class emitirPresupuesto
     Inherits System.Windows.Forms.Form
 
+#Region "Declaraciones"
     Dim ds As New DataSet
-    Dim fresa As New tipoFresa
-    Dim parteAdicional As New parteAdicional
-    Dim modelo As New modeloFresa
+    Dim fresa As New TipoFresa
+    Dim parteAdicional As New ParteAdicional
+    Dim modelo As New ModeloFresa
     Dim pres As New presupuesto
     Dim dp As New detallePresupuesto
-
+#End Region
 
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -68,13 +69,13 @@ Public Class emitirPresupuesto
     Friend WithEvents DsAdicional1 As Afilar.DSAdicional
     Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(emitirPresupuesto))
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(emitirPresupuesto))
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.comboCliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -91,9 +92,9 @@ Public Class emitirPresupuesto
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
-        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
+        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.DataGridBoolColumn1 = New System.Windows.Forms.DataGridBoolColumn
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
@@ -135,7 +136,8 @@ Public Class emitirPresupuesto
         Me.UltraTabPageControl1.Controls.Add(Me.Label3)
         Me.UltraTabPageControl1.Controls.Add(Me.Label2)
         Me.UltraTabPageControl1.Controls.Add(Me.Label4)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 537)
         '
@@ -149,6 +151,7 @@ Public Class emitirPresupuesto
         '
         'comboCliente
         '
+        Me.comboCliente.AutoSize = True
         Me.comboCliente.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         Me.comboCliente.Location = New System.Drawing.Point(392, 445)
         Me.comboCliente.Name = "comboCliente"
@@ -157,6 +160,7 @@ Public Class emitirPresupuesto
         '
         'textPresupuesto
         '
+        Me.textPresupuesto.AutoSize = True
         Me.textPresupuesto.Location = New System.Drawing.Point(80, 32)
         Me.textPresupuesto.Name = "textPresupuesto"
         Me.textPresupuesto.ReadOnly = True
@@ -165,6 +169,7 @@ Public Class emitirPresupuesto
         '
         'comboEmpleado
         '
+        Me.comboEmpleado.AutoSize = True
         Me.comboEmpleado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
         Me.comboEmpleado.Location = New System.Drawing.Point(72, 445)
         Me.comboEmpleado.Name = "comboEmpleado"
@@ -173,7 +178,7 @@ Public Class emitirPresupuesto
         '
         'GroupBox1
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.radioCodigo)
         Me.GroupBox1.Location = New System.Drawing.Point(536, 38)
@@ -213,6 +218,7 @@ Public Class emitirPresupuesto
         '
         'text1
         '
+        Me.text1.AutoSize = True
         Me.text1.Location = New System.Drawing.Point(264, 56)
         Me.text1.Name = "text1"
         Me.text1.Size = New System.Drawing.Size(136, 21)
@@ -221,14 +227,16 @@ Public Class emitirPresupuesto
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Location = New System.Drawing.Point(43, 60)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(36, 16)
+        Me.Label1.Size = New System.Drawing.Size(37, 13)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Fecha"
         '
         'textFecha
         '
+        Me.textFecha.AutoSize = True
         Me.textFecha.Location = New System.Drawing.Point(80, 56)
         Me.textFecha.Name = "textFecha"
         Me.textFecha.Size = New System.Drawing.Size(120, 21)
@@ -265,29 +273,50 @@ Public Class emitirPresupuesto
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Location = New System.Drawing.Point(14, 36)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(68, 16)
+        Me.Label3.Size = New System.Drawing.Size(66, 13)
         Me.Label3.TabIndex = 17
         Me.Label3.Text = "Presupuesto"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Location = New System.Drawing.Point(19, 448)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(55, 16)
+        Me.Label2.Size = New System.Drawing.Size(54, 13)
         Me.Label2.TabIndex = 15
         Me.Label2.Text = "Empleado"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Location = New System.Drawing.Point(354, 449)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(40, 16)
+        Me.Label4.Size = New System.Drawing.Size(39, 13)
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Cliente"
+        '
+        'UltraTabPageControl2
+        '
+        Me.UltraTabPageControl2.Controls.Add(Me.crv)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
+        Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 537)
+        '
+        'crv
+        '
+        Me.crv.ActiveViewIndex = -1
+        Me.crv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.crv.Location = New System.Drawing.Point(16, 32)
+        Me.crv.Name = "crv"
+        Me.crv.SelectionFormula = ""
+        Me.crv.Size = New System.Drawing.Size(784, 448)
+        Me.crv.TabIndex = 5
+        Me.crv.ViewTimeSelectionFormula = ""
         '
         'UltraButton3
         '
@@ -297,38 +326,17 @@ Public Class emitirPresupuesto
         Me.UltraButton3.TabIndex = 12
         Me.UltraButton3.Text = "Salir"
         '
-        'UltraTabPageControl2
-        '
-        Me.UltraTabPageControl2.Controls.Add(Me.crv)
-        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
-        Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
-        Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 537)
-        '
-        'crv
-        '
-        Me.crv.ActiveViewIndex = -1
-        Me.crv.Location = New System.Drawing.Point(16, 32)
-        Me.crv.Name = "crv"
-        Me.crv.ReportSource = Nothing
-        Me.crv.Size = New System.Drawing.Size(784, 448)
-        Me.crv.TabIndex = 5
-        '
         'DataGridBoolColumn1
         '
-        Me.DataGridBoolColumn1.FalseValue = False
-        Me.DataGridBoolColumn1.MappingName = ""
-        Me.DataGridBoolColumn1.NullValue = CType(resources.GetObject("DataGridBoolColumn1.NullValue"), Object)
-        Me.DataGridBoolColumn1.TrueValue = True
         Me.DataGridBoolColumn1.Width = 75
         '
         'UltraTabControl1
         '
-        Appearance1.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance1.BackColor2 = System.Drawing.Color.Silver
         Me.UltraTabControl1.Appearance = Appearance1
-        Appearance2.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance2.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance2.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ClientAreaAppearance = Appearance2
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
@@ -336,7 +344,7 @@ Public Class emitirPresupuesto
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 8)
         Me.UltraTabControl1.Name = "UltraTabControl1"
         Appearance3.BackColor = System.Drawing.Color.Silver
-        Appearance3.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance3.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.SelectedTabAppearance = Appearance3
         Me.UltraTabControl1.SharedControls.AddRange(New System.Windows.Forms.Control() {Me.UltraButton3})
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
@@ -346,7 +354,7 @@ Public Class emitirPresupuesto
         UltraTab1.TabPage = Me.UltraTabPageControl1
         UltraTab1.Text = "Datos presupuesto"
         Appearance4.BackColor = System.Drawing.Color.Silver
-        Appearance4.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance4.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         UltraTab2.SelectedAppearance = Appearance4
         UltraTab2.TabPage = Me.UltraTabPageControl2
         UltraTab2.Text = "Generar presupuesto"
@@ -367,18 +375,14 @@ Public Class emitirPresupuesto
         '
         'SqlSelectCommand1
         '
-        Me.SqlSelectCommand1.CommandText = "SELECT tipofresa.nombre, tipofresa.precio AS Expr1, detallepresupuesto.iddetpre, " & _
-        "detallepresupuesto.idpresupuesto, detallepresupuesto.idmodelo, detallepresupuest" & _
-        "o.idproducto, detallepresupuesto.tipo, detallepresupuesto.cantidad, detallepresu" & _
-        "puesto.precio FROM detallepresupuesto INNER JOIN tipofresa ON detallepresupuesto" & _
-        ".idmodelo = tipofresa.idmodelo AND detallepresupuesto.idproducto = tipofresa.idt" & _
-        "ipo WHERE (detallepresupuesto.tipo = 1)"
+        Me.SqlSelectCommand1.CommandText = resources.GetString("SqlSelectCommand1.CommandText")
         Me.SqlSelectCommand1.Connection = Me.cnn
         '
         'cnn
         '
         Me.cnn.ConnectionString = "workstation id=OCTAVO;packet size=4096;integrated security=SSPI;initial catalog=A" & _
-        "filar;persist security info=False"
+            "filar;persist security info=False"
+        Me.cnn.FireInfoMessageEventOnUserErrors = False
         '
         'aAdicional
         '
@@ -387,23 +391,20 @@ Public Class emitirPresupuesto
         '
         'SqlSelectCommand2
         '
-        Me.SqlSelectCommand2.CommandText = "SELECT parteadicional.nombre, parteadicional.precio AS Expr1, detallepresupuesto." & _
-        "iddetpre, detallepresupuesto.idpresupuesto, detallepresupuesto.idmodelo, detalle" & _
-        "presupuesto.idproducto, detallepresupuesto.tipo, detallepresupuesto.cantidad, de" & _
-        "tallepresupuesto.precio FROM detallepresupuesto INNER JOIN parteadicional ON det" & _
-        "allepresupuesto.idmodelo = parteadicional.idmodelo AND detallepresupuesto.idprod" & _
-        "ucto = parteadicional.idadicional WHERE (detallepresupuesto.tipo = 2)"
+        Me.SqlSelectCommand2.CommandText = resources.GetString("SqlSelectCommand2.CommandText")
         Me.SqlSelectCommand2.Connection = Me.cnn
         '
         'DsFresa1
         '
         Me.DsFresa1.DataSetName = "DSFresa"
         Me.DsFresa1.Locale = New System.Globalization.CultureInfo("es-AR")
+        Me.DsFresa1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'DsAdicional1
         '
         Me.DsAdicional1.DataSetName = "DSAdicional"
         Me.DsAdicional1.Locale = New System.Globalization.CultureInfo("es-AR")
+        Me.DsAdicional1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'emitirPresupuesto
         '
@@ -416,6 +417,7 @@ Public Class emitirPresupuesto
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Emitir presupuesto"
         Me.UltraTabPageControl1.ResumeLayout(False)
+        Me.UltraTabPageControl1.PerformLayout()
         CType(Me.comboCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textPresupuesto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
@@ -435,6 +437,7 @@ Public Class emitirPresupuesto
 
 #End Region
 
+#Region "Evento load"
     Private Sub emitirPresupuesto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         ' seteo el estilo del datagrid 
@@ -443,8 +446,7 @@ Public Class emitirPresupuesto
         parteAdicional.setearGrilla(dataGridMF)
 
         ' cargo la fecha actual en el text
-        Dim f As Date
-        textFecha.Text = f.Today
+        textFecha.Text = Date.Today
 
 
         ' cargo los datos en el dataset (de las tablas modelofresa, tipofresa, parteadicional)
@@ -500,13 +502,11 @@ Public Class emitirPresupuesto
 
         princ.barra.agregarBoton(Me)
 
-
-
-
-
-
     End Sub
+#End Region
 
+
+#Region "Demas eventos"
 
     Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
@@ -754,7 +754,7 @@ Public Class emitirPresupuesto
 
 
 
-        
+
 
 
 
@@ -765,7 +765,7 @@ Public Class emitirPresupuesto
         Me.Close()
     End Sub
 
-    
+
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
         Dim band As Boolean = False
 
@@ -794,15 +794,12 @@ Public Class emitirPresupuesto
             Dim i As Integer = 1
             Dim fila As DataRow
             Dim nueva As DataRow
-            Dim f As Date
             band = False
-
-
 
             nueva = ds.Tables("presupuesto").NewRow
 
             nueva("idpresupuesto") = textPresupuesto.Text
-            nueva("fecha") = f.Today
+            nueva("fecha") = Date.Today
             nueva("idcliente") = comboCliente.SelectedItem.Tag
             nueva("idempleado") = comboEmpleado.SelectedItem.Tag
 
@@ -883,4 +880,6 @@ Public Class emitirPresupuesto
         End If
 
     End Sub
+#End Region
+
 End Class
