@@ -83,6 +83,11 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DundasWinChart, Version=5.5.1.1711, Culture=neutral, PublicKeyToken=a4c03dce5db22406, processorArchitecture=MSIL" />
+    <Reference Include="DundasWinGauge, Version=2.0.2.201, Culture=neutral, PublicKeyToken=ed845c6a255edda6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Dundas Software\Gauges\WinControlVS2005\Bin\DundasWinGauge.dll</HintPath>
+    </Reference>
     <Reference Include="Infragistics.Shared.v5.1">
       <Name>Infragistics.Shared.v5.1</Name>
       <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Shared.v5.1.dll</HintPath>
@@ -311,10 +316,11 @@
     <Compile Include="Modulo_Produccion\Forms\frmTornero.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modulo_Reportes\Dashboard.Designer.vb">
-      <DependentUpon>Dashboard.vb</DependentUpon>
+    <Compile Include="Modulo_Reportes\Classes\Dashboard.vb" />
+    <Compile Include="Modulo_Reportes\Forms\DashboardForm.Designer.vb">
+      <DependentUpon>DashboardForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Modulo_Reportes\Dashboard.vb">
+    <Compile Include="Modulo_Reportes\Forms\DashboardForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
@@ -660,6 +666,10 @@
     <EmbeddedResource Include="Modulo_Produccion\Forms\frmTornero.resx">
       <DependentUpon>frmTornero.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Forms\DashboardForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DashboardForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Sistema\Forms\frmMensajes.resx">
       <DependentUpon>frmMensajes.vb</DependentUpon>
