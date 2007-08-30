@@ -8,7 +8,7 @@
 [fechahorainicioplanificada] [datetime] NULL,
 [fechahorafinreal] [datetime] NULL,
 [fechahorafinplanificada] [datetime] NULL,
-[observaciones] [char] (30) NULL
+[observaciones] [char] (30) COLLATE Traditional_Spanish_CI_AS NULL
 ) ON [PRIMARY]
 
 

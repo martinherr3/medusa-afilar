@@ -3,7 +3,7 @@
 [idordencompra] [int] NOT NULL,
 [idtipomateriaprima] [int] NOT NULL,
 [cantidad] [int] NULL,
-[precio] [float] NULL,
+[precio] [money] NULL,
 [idestado] [int] NOT NULL
 ) ON [PRIMARY]
 

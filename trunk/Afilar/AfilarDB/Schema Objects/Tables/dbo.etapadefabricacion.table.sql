@@ -6,7 +6,7 @@
 [idoperacion] [int] NULL,
 [orden] [int] NULL,
 [tiempoadicional] [float] NULL,
-[detalle] [text] NULL
+[detalle] [text] COLLATE Traditional_Spanish_CI_AS NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 

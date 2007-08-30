@@ -156,6 +156,12 @@
     </NotInBuild>
   </ItemGroup>
   <ItemGroup>
+    <Build Include="Schema Objects\Stored Procedures\dbo.sp_generate_inserts.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\dbo.app_param.table.sql">
+      <SubType>Code</SubType>
+    </Build>
     <Build Include="Schema Objects\Tables\dbo.cargo.table.sql">
       <SubType>Code</SubType>
     </Build>
@@ -640,6 +646,9 @@
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\dbo.Pedido.PK_Pedido.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.perfil.FK_perfil_empleado.fkey.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\dbo.perfil.PK_perfil.pkey.sql">
