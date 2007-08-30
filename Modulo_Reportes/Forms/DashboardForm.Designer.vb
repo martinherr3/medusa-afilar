@@ -28,22 +28,22 @@ Partial Class DashboardForm
         Dim CircularRange1 As Dundas.Gauges.WinControl.CircularRange = New Dundas.Gauges.WinControl.CircularRange
         Dim CircularScale1 As Dundas.Gauges.WinControl.CircularScale = New Dundas.Gauges.WinControl.CircularScale
         Dim InputValue1 As Dundas.Gauges.WinControl.InputValue = New Dundas.Gauges.WinControl.InputValue
-        Me.Chart1 = New Dundas.Charting.WinControl.Chart
+        Me.gfxProdBarras = New Dundas.Charting.WinControl.Chart
         Me.GaugeContainer1 = New Dundas.Gauges.WinControl.GaugeContainer
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gfxProdBarras, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GaugeContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Chart1
+        'gfxProdBarras
         '
-        Me.Chart1.BackColor = System.Drawing.Color.Azure
-        Me.Chart1.BackGradientEndColor = System.Drawing.Color.SkyBlue
-        Me.Chart1.BackGradientType = Dundas.Charting.WinControl.GradientType.DiagonalLeft
-        Me.Chart1.BorderLineColor = System.Drawing.Color.LightGray
-        Me.Chart1.BorderSkin.FrameBackColor = System.Drawing.Color.LightSkyBlue
-        Me.Chart1.BorderSkin.FrameBackGradientEndColor = System.Drawing.Color.DodgerBlue
-        Me.Chart1.BorderSkin.PageColor = System.Drawing.SystemColors.Control
-        Me.Chart1.BorderSkin.SkinStyle = Dundas.Charting.WinControl.BorderSkinStyle.Emboss
+        Me.gfxProdBarras.BackColor = System.Drawing.Color.Azure
+        Me.gfxProdBarras.BackGradientEndColor = System.Drawing.Color.SkyBlue
+        Me.gfxProdBarras.BackGradientType = Dundas.Charting.WinControl.GradientType.DiagonalLeft
+        Me.gfxProdBarras.BorderLineColor = System.Drawing.Color.LightGray
+        Me.gfxProdBarras.BorderSkin.FrameBackColor = System.Drawing.Color.LightSkyBlue
+        Me.gfxProdBarras.BorderSkin.FrameBackGradientEndColor = System.Drawing.Color.DodgerBlue
+        Me.gfxProdBarras.BorderSkin.PageColor = System.Drawing.SystemColors.Control
+        Me.gfxProdBarras.BorderSkin.SkinStyle = Dundas.Charting.WinControl.BorderSkinStyle.Emboss
         ChartArea1.AxisX.LabelStyle.Format = "Y"
         ChartArea1.AxisX.LineColor = System.Drawing.Color.DimGray
         ChartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray
@@ -58,24 +58,24 @@ Partial Class DashboardForm
         ChartArea1.BackColor = System.Drawing.Color.Transparent
         ChartArea1.BorderColor = System.Drawing.Color.DimGray
         ChartArea1.Name = "Default"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Me.gfxProdBarras.ChartAreas.Add(ChartArea1)
         Legend1.BackColor = System.Drawing.Color.Transparent
         Legend1.BorderColor = System.Drawing.Color.Transparent
         Legend1.DockToChartArea = "Default"
         Legend1.Name = "Default"
-        Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(46, 146)
-        Me.Chart1.Name = "Chart1"
-        Me.Chart1.Palette = Dundas.Charting.WinControl.ChartColorPalette.SemiTransparent
+        Me.gfxProdBarras.Legends.Add(Legend1)
+        Me.gfxProdBarras.Location = New System.Drawing.Point(46, 146)
+        Me.gfxProdBarras.Name = "gfxProdBarras"
+        Me.gfxProdBarras.Palette = Dundas.Charting.WinControl.ChartColorPalette.SemiTransparent
         Series1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Series1.Name = "Default"
         Series1.XValueType = Dundas.Charting.WinControl.ChartValueTypes.DateTime
-        Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(717, 200)
-        Me.Chart1.TabIndex = 0
-        Me.Chart1.Text = "gfxProdBarras"
+        Me.gfxProdBarras.Series.Add(Series1)
+        Me.gfxProdBarras.Size = New System.Drawing.Size(717, 200)
+        Me.gfxProdBarras.TabIndex = 0
+        Me.gfxProdBarras.Text = "gfxProdBarras"
         Title1.Name = "Title1"
-        Me.Chart1.Titles.Add(Title1)
+        Me.gfxProdBarras.Titles.Add(Title1)
         '
         'GaugeContainer1
         '
@@ -98,7 +98,7 @@ Partial Class DashboardForm
         CircularGauge1.Size.Width = 100.0!
         Me.GaugeContainer1.CircularGauges.Add(CircularGauge1)
         Me.GaugeContainer1.InternalBackgroundPaint = False
-        Me.GaugeContainer1.Location = New System.Drawing.Point(595, 364)
+        Me.GaugeContainer1.Location = New System.Drawing.Point(595, 378)
         Me.GaugeContainer1.Name = "GaugeContainer1"
         Me.GaugeContainer1.Size = New System.Drawing.Size(168, 173)
         Me.GaugeContainer1.TabIndex = 1
@@ -111,15 +111,15 @@ Partial Class DashboardForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(825, 599)
         Me.Controls.Add(Me.GaugeContainer1)
-        Me.Controls.Add(Me.Chart1)
+        Me.Controls.Add(Me.gfxProdBarras)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "DashboardForm"
         Me.Text = "Tablero de Comando"
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gfxProdBarras, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GaugeContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Chart1 As Dundas.Charting.WinControl.Chart
+    Friend WithEvents gfxProdBarras As Dundas.Charting.WinControl.Chart
     Friend WithEvents GaugeContainer1 As Dundas.Gauges.WinControl.GaugeContainer
 End Class
