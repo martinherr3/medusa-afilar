@@ -886,6 +886,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Modulo_Compras\DSCompras.xsc">
+      <DependentUpon>DSCompras.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Compras\dsComprasDos.xsc">
+      <DependentUpon>dsComprasDos.xsd</DependentUpon>
+    </None>
     <None Include="Modulo_Compras\DSOC.xsc">
       <DependentUpon>DSOC.xsd</DependentUpon>
     </None>
