@@ -36,7 +36,7 @@
     <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
     <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
     <AnsiNullDefault>True</AnsiNullDefault>
-    <DefaultCollation>Modern_Spanish_CI_AI</DefaultCollation>
+    <DefaultCollation>Traditional_Spanish_CI_AS</DefaultCollation>
     <DefaultFileStructure>BySchemaType</DefaultFileStructure>
     <DatabaseChaining>False</DatabaseChaining>
     <EnableServiceBroker>False</EnableServiceBroker>

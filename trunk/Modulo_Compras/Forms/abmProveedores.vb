@@ -90,7 +90,6 @@ Public Class abmProveedores
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.ComboBox1 = New System.Windows.Forms.ComboBox
         Me.Label4 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.TextBox5 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.TextBox4 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -123,6 +122,7 @@ Public Class abmProveedores
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
         Me.Label3 = New System.Windows.Forms.Label
+        Me.Label2 = New System.Windows.Forms.Label
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.UltraButton12 = New Infragistics.Win.Misc.UltraButton
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
@@ -166,7 +166,7 @@ Public Class abmProveedores
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton5)
         Me.UltraTabPageControl1.Controls.Add(Me.Label3)
         Me.UltraTabPageControl1.Controls.Add(Me.Label2)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(644, 369)
         '
@@ -181,30 +181,20 @@ Public Class abmProveedores
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(356, 68)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(53, 16)
+        Me.Label4.Size = New System.Drawing.Size(53, 13)
         Me.Label4.TabIndex = 48
         Me.Label4.Text = "Localidad"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Me.Label2.Location = New System.Drawing.Point(25, 68)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(90, 16)
-        Me.Label2.TabIndex = 46
-        Me.Label2.Text = "Nombre contacto"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(383, 45)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(25, 16)
+        Me.Label1.Size = New System.Drawing.Size(26, 13)
         Me.Label1.TabIndex = 45
         Me.Label1.Text = "Mail"
         '
@@ -213,6 +203,7 @@ Public Class abmProveedores
         Appearance1.BackColorDisabled = System.Drawing.Color.White
         Appearance1.BackColorDisabled2 = System.Drawing.Color.White
         Me.TextBox5.Appearance = Appearance1
+        Me.TextBox5.AutoSize = True
         Me.TextBox5.Enabled = False
         Me.TextBox5.Location = New System.Drawing.Point(112, 64)
         Me.TextBox5.Name = "TextBox5"
@@ -224,6 +215,7 @@ Public Class abmProveedores
         Appearance2.BackColorDisabled = System.Drawing.Color.White
         Appearance2.BackColorDisabled2 = System.Drawing.Color.White
         Me.TextBox4.Appearance = Appearance2
+        Me.TextBox4.AutoSize = True
         Me.TextBox4.Enabled = False
         Me.TextBox4.Location = New System.Drawing.Point(408, 40)
         Me.TextBox4.Name = "TextBox4"
@@ -243,6 +235,7 @@ Public Class abmProveedores
         Appearance3.BackColorDisabled = System.Drawing.Color.White
         Appearance3.BackColorDisabled2 = System.Drawing.Color.White
         Me.TextBox3.Appearance = Appearance3
+        Me.TextBox3.AutoSize = True
         Me.TextBox3.Enabled = False
         Me.TextBox3.Location = New System.Drawing.Point(112, 40)
         Me.TextBox3.Name = "TextBox3"
@@ -254,6 +247,7 @@ Public Class abmProveedores
         Appearance4.BackColorDisabled = System.Drawing.Color.White
         Appearance4.BackColorDisabled2 = System.Drawing.Color.White
         Me.TextBox2.Appearance = Appearance4
+        Me.TextBox2.AutoSize = True
         Me.TextBox2.Enabled = False
         Me.TextBox2.Location = New System.Drawing.Point(408, 16)
         Me.TextBox2.Name = "TextBox2"
@@ -274,7 +268,7 @@ Public Class abmProveedores
         Me.UltraGroupBox3.SupportThemes = False
         Me.UltraGroupBox3.TabIndex = 39
         Me.UltraGroupBox3.Text = "Listado de Materias Primas                                                       " & _
-        "             Materias Primas que provee"
+            "             Materias Primas que provee"
         Me.UltraGroupBox3.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
         '
         'UltraButton10
@@ -305,6 +299,7 @@ Public Class abmProveedores
         Me.lista2.Name = "lista2"
         Me.lista2.Size = New System.Drawing.Size(264, 120)
         Me.lista2.TabIndex = 3
+        Me.lista2.UseCompatibleStateImageBehavior = False
         Me.lista2.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader10
@@ -331,6 +326,7 @@ Public Class abmProveedores
         Me.lista1.Name = "lista1"
         Me.lista1.Size = New System.Drawing.Size(256, 120)
         Me.lista1.TabIndex = 0
+        Me.lista1.UseCompatibleStateImageBehavior = False
         Me.lista1.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader1
@@ -350,16 +346,16 @@ Public Class abmProveedores
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label10.Location = New System.Drawing.Point(357, 21)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(52, 16)
+        Me.Label10.Size = New System.Drawing.Size(52, 13)
         Me.Label10.TabIndex = 38
         Me.Label10.Text = "Direccion"
         '
         'UltraGroupBox1
         '
-        Me.UltraGroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.UltraGroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton7)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton6)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
@@ -415,10 +411,10 @@ Public Class abmProveedores
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label5.Location = New System.Drawing.Point(65, 44)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(48, 16)
+        Me.Label5.Size = New System.Drawing.Size(49, 13)
         Me.Label5.TabIndex = 30
         Me.Label5.Text = "Telefono"
         '
@@ -427,6 +423,7 @@ Public Class abmProveedores
         Appearance6.BackColorDisabled = System.Drawing.Color.White
         Appearance6.BackColorDisabled2 = System.Drawing.Color.White
         Me.TextBox1.Appearance = Appearance6
+        Me.TextBox1.AutoSize = True
         Me.TextBox1.Enabled = False
         Me.TextBox1.Location = New System.Drawing.Point(112, 16)
         Me.TextBox1.Name = "TextBox1"
@@ -479,18 +476,28 @@ Public Class abmProveedores
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(69, 20)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(44, 16)
+        Me.Label3.Size = New System.Drawing.Size(44, 13)
         Me.Label3.TabIndex = 28
         Me.Label3.Text = "Nombre"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(25, 68)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(89, 13)
+        Me.Label2.TabIndex = 46
+        Me.Label2.Text = "Nombre contacto"
         '
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.UltraButton12)
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(644, 369)
         '
@@ -535,13 +542,13 @@ Public Class abmProveedores
         'UltraTabControl1
         '
         Appearance8.BackColor = System.Drawing.Color.Silver
-        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ActiveTabAppearance = Appearance8
-        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance9.BackColor2 = System.Drawing.Color.Silver
         Me.UltraTabControl1.Appearance = Appearance9
-        Appearance10.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance10.BackHatchStyle = Infragistics.Win.BackHatchStyle.None
         Me.UltraTabControl1.ClientAreaAppearance = Appearance10
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
@@ -577,6 +584,7 @@ Public Class abmProveedores
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Gestionar proveedores"
         Me.UltraTabPageControl1.ResumeLayout(False)
+        Me.UltraTabPageControl1.PerformLayout()
         CType(Me.TextBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextBox3, System.ComponentModel.ISupportInitialize).EndInit()

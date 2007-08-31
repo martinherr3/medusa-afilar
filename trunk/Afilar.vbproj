@@ -86,7 +86,7 @@
     <Reference Include="DundasWinChart, Version=5.5.1.1711, Culture=neutral, PublicKeyToken=a4c03dce5db22406, processorArchitecture=MSIL" />
     <Reference Include="DundasWinGauge, Version=2.0.2.201, Culture=neutral, PublicKeyToken=ed845c6a255edda6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Dundas Software\Gauges\WinControlVS2005\Bin\DundasWinGauge.dll</HintPath>
+      <HintPath>..\..\..\..\Archivos de programa\Dundas Software\Gauges\WinControlVS2005\Bin\DundasWinGauge.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics.Shared.v5.1">
       <Name>Infragistics.Shared.v5.1</Name>
