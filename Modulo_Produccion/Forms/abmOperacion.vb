@@ -622,7 +622,7 @@ Public Class abmOperacion
         combo1.BackColor() = System.Drawing.Color.White
         comboDif.BackColor() = System.Drawing.Color.White
 
-        
+
 
     End Sub
 

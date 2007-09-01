@@ -17,7 +17,7 @@
     <AnsiWarnings>True</AnsiWarnings>
     <QuotedIdentifier>True</QuotedIdentifier>
     <DefaultSchemaForUnqualifiedObjects>dbo</DefaultSchemaForUnqualifiedObjects>
-    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <EnableFullTextSearch>False</EnableFullTextSearch>
     <EnableCLRIntegration>False</EnableCLRIntegration>
     <AutoUpdateStatisticsAsynchronously>True</AutoUpdateStatisticsAsynchronously>
     <AutoUpdateStatistics>True</AutoUpdateStatistics>
