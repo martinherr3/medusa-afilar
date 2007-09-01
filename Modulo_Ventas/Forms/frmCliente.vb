@@ -78,24 +78,25 @@ Public Class frmCliente
     Friend WithEvents textBox6 As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents UltraButton10 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCliente))
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim Appearance23 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance24 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance26 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance27 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance28 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim UltraTab3 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim UltraTab4 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.btnCodigoBarra = New System.Windows.Forms.Button
         Me.textBox6 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.TextBox3 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.TextBox7 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -125,12 +126,11 @@ Public Class frmCliente
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
-        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.btnCodigoBarra = New System.Windows.Forms.Button
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.textBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -180,11 +180,20 @@ Public Class frmCliente
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(740, 233)
         '
+        'btnCodigoBarra
+        '
+        Me.btnCodigoBarra.Location = New System.Drawing.Point(595, 108)
+        Me.btnCodigoBarra.Name = "btnCodigoBarra"
+        Me.btnCodigoBarra.Size = New System.Drawing.Size(125, 28)
+        Me.btnCodigoBarra.TabIndex = 39
+        Me.btnCodigoBarra.Text = "Ejemplo Codigo Barra"
+        Me.btnCodigoBarra.UseVisualStyleBackColor = True
+        '
         'textBox6
         '
-        Appearance1.BackColorDisabled = System.Drawing.Color.White
-        Appearance1.BackColorDisabled2 = System.Drawing.Color.White
-        Me.textBox6.Appearance = Appearance1
+        Appearance15.BackColorDisabled = System.Drawing.Color.White
+        Appearance15.BackColorDisabled2 = System.Drawing.Color.White
+        Me.textBox6.Appearance = Appearance15
         Me.textBox6.AutoSize = True
         Me.textBox6.Enabled = False
         Me.textBox6.Location = New System.Drawing.Point(74, 112)
@@ -194,9 +203,9 @@ Public Class frmCliente
         '
         'TextBox3
         '
-        Appearance2.BackColorDisabled = System.Drawing.Color.White
-        Appearance2.BackColorDisabled2 = System.Drawing.Color.White
-        Me.TextBox3.Appearance = Appearance2
+        Appearance16.BackColorDisabled = System.Drawing.Color.White
+        Appearance16.BackColorDisabled2 = System.Drawing.Color.White
+        Me.TextBox3.Appearance = Appearance16
         Me.TextBox3.AutoSize = True
         Me.TextBox3.Enabled = False
         Me.TextBox3.Location = New System.Drawing.Point(432, 64)
@@ -206,9 +215,9 @@ Public Class frmCliente
         '
         'TextBox7
         '
-        Appearance3.BackColorDisabled = System.Drawing.Color.White
-        Appearance3.BackColorDisabled2 = System.Drawing.Color.White
-        Me.TextBox7.Appearance = Appearance3
+        Appearance17.BackColorDisabled = System.Drawing.Color.White
+        Appearance17.BackColorDisabled2 = System.Drawing.Color.White
+        Me.TextBox7.Appearance = Appearance17
         Me.TextBox7.AutoSize = True
         Me.TextBox7.Enabled = False
         Me.TextBox7.Location = New System.Drawing.Point(432, 40)
@@ -218,9 +227,9 @@ Public Class frmCliente
         '
         'TextBox1
         '
-        Appearance4.BackColorDisabled = System.Drawing.Color.White
-        Appearance4.BackColorDisabled2 = System.Drawing.Color.White
-        Me.TextBox1.Appearance = Appearance4
+        Appearance18.BackColorDisabled = System.Drawing.Color.White
+        Appearance18.BackColorDisabled2 = System.Drawing.Color.White
+        Me.TextBox1.Appearance = Appearance18
         Me.TextBox1.AutoSize = True
         Me.TextBox1.Enabled = False
         Me.TextBox1.Location = New System.Drawing.Point(432, 16)
@@ -230,9 +239,9 @@ Public Class frmCliente
         '
         'TextBox5
         '
-        Appearance5.BackColorDisabled = System.Drawing.Color.White
-        Appearance5.BackColorDisabled2 = System.Drawing.Color.White
-        Me.TextBox5.Appearance = Appearance5
+        Appearance19.BackColorDisabled = System.Drawing.Color.White
+        Appearance19.BackColorDisabled2 = System.Drawing.Color.White
+        Me.TextBox5.Appearance = Appearance19
         Me.TextBox5.AutoSize = True
         Me.TextBox5.Enabled = False
         Me.TextBox5.Location = New System.Drawing.Point(74, 88)
@@ -242,9 +251,9 @@ Public Class frmCliente
         '
         'TextBox4
         '
-        Appearance6.BackColorDisabled = System.Drawing.Color.White
-        Appearance6.BackColorDisabled2 = System.Drawing.Color.White
-        Me.TextBox4.Appearance = Appearance6
+        Appearance20.BackColorDisabled = System.Drawing.Color.White
+        Appearance20.BackColorDisabled2 = System.Drawing.Color.White
+        Me.TextBox4.Appearance = Appearance20
         Me.TextBox4.AutoSize = True
         Me.TextBox4.Enabled = False
         Me.TextBox4.Location = New System.Drawing.Point(74, 64)
@@ -254,9 +263,9 @@ Public Class frmCliente
         '
         'TextBox2
         '
-        Appearance7.BackColorDisabled = System.Drawing.Color.White
-        Appearance7.BackColorDisabled2 = System.Drawing.Color.White
-        Me.TextBox2.Appearance = Appearance7
+        Appearance21.BackColorDisabled = System.Drawing.Color.White
+        Appearance21.BackColorDisabled2 = System.Drawing.Color.White
+        Me.TextBox2.Appearance = Appearance21
         Me.TextBox2.AutoSize = True
         Me.TextBox2.Enabled = False
         Me.TextBox2.Location = New System.Drawing.Point(74, 40)
@@ -437,8 +446,8 @@ Public Class frmCliente
         '
         'UltraButton1
         '
-        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
-        Me.UltraButton1.Appearance = Appearance8
+        Appearance22.Image = CType(resources.GetObject("Appearance22.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance22
         Me.UltraButton1.Location = New System.Drawing.Point(464, 152)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(80, 32)
@@ -447,8 +456,8 @@ Public Class frmCliente
         '
         'UltraButton5
         '
-        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
-        Me.UltraButton5.Appearance = Appearance9
+        Appearance23.Image = CType(resources.GetObject("Appearance23.Image"), Object)
+        Me.UltraButton5.Appearance = Appearance23
         Me.UltraButton5.Location = New System.Drawing.Point(552, 192)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(80, 31)
@@ -457,10 +466,10 @@ Public Class frmCliente
         '
         'UltraButton4
         '
-        Appearance10.BackColor = System.Drawing.Color.White
-        Appearance10.ForeColor = System.Drawing.Color.Black
-        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
-        Me.UltraButton4.Appearance = Appearance10
+        Appearance24.BackColor = System.Drawing.Color.White
+        Appearance24.ForeColor = System.Drawing.Color.Black
+        Appearance24.Image = CType(resources.GetObject("Appearance24.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance24
         Me.UltraButton4.Location = New System.Drawing.Point(464, 192)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(80, 31)
@@ -469,13 +478,21 @@ Public Class frmCliente
         '
         'UltraButton3
         '
-        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance11
+        Appearance25.Image = CType(resources.GetObject("Appearance25.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance25
         Me.UltraButton3.Location = New System.Drawing.Point(638, 152)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(82, 32)
         Me.UltraButton3.TabIndex = 13
         Me.UltraButton3.Text = "&Eliminar"
+        '
+        'UltraButton10
+        '
+        Me.UltraButton10.Location = New System.Drawing.Point(640, 192)
+        Me.UltraButton10.Name = "UltraButton10"
+        Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
+        Me.UltraButton10.TabIndex = 14
+        Me.UltraButton10.Text = "Salir"
         '
         'UltraTabPageControl2
         '
@@ -514,40 +531,32 @@ Public Class frmCliente
         Me.DataGrid1.Size = New System.Drawing.Size(704, 128)
         Me.DataGrid1.TabIndex = 20
         '
-        'UltraButton10
-        '
-        Me.UltraButton10.Location = New System.Drawing.Point(640, 192)
-        Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
-        Me.UltraButton10.TabIndex = 14
-        Me.UltraButton10.Text = "Salir"
-        '
         'UltraTabControl1
         '
-        Appearance12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance12.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance12
-        Appearance13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance13.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance13
+        Appearance26.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance26.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance26
+        Appearance27.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance27.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance27
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 8)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance14.BackColor = System.Drawing.Color.Silver
-        Appearance14.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance14
+        Appearance28.BackColor = System.Drawing.Color.Silver
+        Appearance28.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance28
         Me.UltraTabControl1.SharedControls.AddRange(New System.Windows.Forms.Control() {Me.UltraButton10})
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(744, 256)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
         Me.UltraTabControl1.TabIndex = 0
-        UltraTab1.TabPage = Me.UltraTabPageControl1
-        UltraTab1.Text = "Gestionar"
-        UltraTab2.TabPage = Me.UltraTabPageControl2
-        UltraTab2.Text = "Consultar"
-        Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
+        UltraTab3.TabPage = Me.UltraTabPageControl1
+        UltraTab3.Text = "Gestionar"
+        UltraTab4.TabPage = Me.UltraTabPageControl2
+        UltraTab4.Text = "Consultar"
+        Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab3, UltraTab4})
         Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
         '
         'UltraTabSharedControlsPage1
@@ -557,22 +566,12 @@ Public Class frmCliente
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(740, 233)
         '
-        'btnCodigoBarra
-        '
-        Me.btnCodigoBarra.Location = New System.Drawing.Point(595, 108)
-        Me.btnCodigoBarra.Name = "btnCodigoBarra"
-        Me.btnCodigoBarra.Size = New System.Drawing.Size(125, 28)
-        Me.btnCodigoBarra.TabIndex = 39
-        Me.btnCodigoBarra.Text = "Ejemplo Codigo Barra"
-        Me.btnCodigoBarra.UseVisualStyleBackColor = True
-        '
         'frmCliente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.ClientSize = New System.Drawing.Size(738, 264)
         Me.Controls.Add(Me.UltraTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Location = New System.Drawing.Point(50, 50)
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmCliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Gestionar Clientes"
@@ -613,12 +612,12 @@ Public Class frmCliente
     End Sub
 
     Private Sub frmCliente_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        'princ.barra.eliminarBoton()
+        princ.barra.eliminarBoton()
     End Sub
 
     Private Sub frmCliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
         DataGrid1.DataSource = dscliente
         DataGrid1.DataMember = "cliente"
 
