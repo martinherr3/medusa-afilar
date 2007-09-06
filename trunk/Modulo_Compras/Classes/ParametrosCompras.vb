@@ -4,6 +4,9 @@ Public Class ParametrosCompras
     Private _StockMinimo As Integer
     Private _LoteEconomico As Decimal
     Private _Periodo As Integer
+    Private _CostoEnvio As Decimal
+    Private _CostoGestion As Decimal
+    Private _CostoAlmacenamiento As Decimal
 
     Public Property StockActual() As Integer
         Get
@@ -47,6 +50,33 @@ Public Class ParametrosCompras
         End Get
         Set(ByVal value As Integer)
             _Periodo = value
+        End Set
+    End Property
+
+    Public Property CostoEnvio() As Decimal
+        Get
+            Return _CostoEnvio
+        End Get
+        Set(ByVal value As Decimal)
+            _CostoEnvio = value
+        End Set
+    End Property
+
+    Public Property CostoGestion() As Decimal
+        Get
+            Return _CostoGestion
+        End Get
+        Set(ByVal value As Decimal)
+            _CostoGestion = value
+        End Set
+    End Property
+
+    Public Property CostoAlmacenamiento() As Decimal
+        Get
+            Return _CostoAlmacenamiento
+        End Get
+        Set(ByVal value As Decimal)
+            _CostoAlmacenamiento = value
         End Set
     End Property
 
@@ -211,4 +241,24 @@ Public Class ParametrosCompras
     Public Sub New()
         Periodo = 1
     End Sub
+
+    Public Sub BuscarParametros(ByVal IdTipo As Integer)
+        Try
+            Dim sql As String
+            sql = "select * from ParametrosCompra Where IdTipoMateria=" & IdTipo
+
+            Dim da As New SqlClient.SqlDataAdapter(sql, cnn)
+            Dim dt As New DataSet
+            da.Fill(dt)
+
+            If dt.Tables(0).Rows.Count > 0 Then
+                Me.CostoEnvio = dt.Tables(0).Rows(0).Item(1).ToString
+                Me.CostoGestion = dt.Tables(0).Rows(0).Item(2).ToString
+                Me.CostoAlmacenamiento = dt.Tables(0).Rows(0).Item(3).ToString
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
 End Class
