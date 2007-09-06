@@ -1,4 +1,6 @@
 Public Class ParametrosCompras
+
+#Region "--Atributos--"
     Private _StockActual As Integer
     Private _StockSeguridad As Integer
     Private _StockMinimo As Integer
@@ -8,6 +10,9 @@ Public Class ParametrosCompras
     Private _CostoGestion As Decimal
     Private _CostoAlmacenamiento As Decimal
 
+#End Region
+
+#Region "--Propiedades--"
     Public Property StockActual() As Integer
         Get
             Return _StockActual
@@ -80,6 +85,9 @@ Public Class ParametrosCompras
         End Set
     End Property
 
+#End Region
+
+#Region "--Metodos--"
     ''' <summary>
     ''' Retorna el lote optimo para el Tipo de Materia Prima Ingresado
     ''' </summary>
@@ -88,25 +96,35 @@ Public Class ParametrosCompras
     ''' <remarks></remarks>
 
     Public Function CalcularLoteOptimo(ByVal IdTipoMateria As Integer) As Decimal
-        Dim Consumo As Integer
+        Try
+            Dim Consumo As Integer
 
-        Consumo = RetornarConsumo(IdTipoMateria)
+            Consumo = RetornarConsumo(IdTipoMateria)
 
-        Dim q As Decimal  'tamaño del lote
-        Dim cp As Decimal 'costo por pedido
-        Dim cs As Decimal 'costo de stock
-        Dim t As Decimal  'periodo de analisis
-        Dim n As Decimal  'demanda en el periodo
+            Dim q As Decimal  'tamaño del lote
+            Dim cp As Decimal 'costo por pedido
+            Dim cs As Decimal 'costo de stock
+            Dim t As Decimal  'periodo de analisis
+            Dim n As Decimal  'demanda en el periodo
 
-        cp = 10
-        cs = 3
-        t = Periodo
-        n = Consumo
-        q = Math.Round(Math.Sqrt((2 * cp * n) / (cs * t)), 2)
+            'cp = 10
+            'cs = 3
+            If Me.CostoGestion = 0 Or Me.CostoEnvio = 0 Or Me.CostoAlmacenamiento = 0 Then
+                Dim exx As New Exception("Ningun costo puede ser nulo")
+                Throw exx
+            End If
+            cp = Me.CostoGestion + Me.CostoEnvio
+            cs = Me.CostoAlmacenamiento
+            t = Periodo
+            n = Consumo
+            q = Math.Round(Math.Sqrt((2 * cp * n) / (cs * t)), 2)
 
-        LoteEconomico = q
+            LoteEconomico = q
 
-        Return q
+            Return q
+        Catch ex As Exception
+            Throw ex
+        End Try
 
     End Function
 
@@ -191,6 +209,12 @@ Public Class ParametrosCompras
 
     End Function
 
+    ''' <summary>
+    ''' Actualiza el lote economico de la materia prima segun el calculo
+    ''' </summary>
+    ''' <param name="IdTipoMateria"></param>
+    ''' <remarks></remarks>
+
     Public Sub ActualizarLote(ByVal IdTipoMateria As Integer)
 
         Dim sql As New SqlClient.SqlCommand
@@ -207,8 +231,43 @@ Public Class ParametrosCompras
         Catch ex As Exception
             Throw ex
         End Try
-        
+
     End Sub
+
+    ''' <summary>
+    ''' Actualiza los Costos, de Envio, Gestion y Almacenamiento
+    ''' </summary>
+    ''' <param name="IdTipo"></param> 
+    ''' <remarks></remarks>
+    ''' 
+    Public Sub ActualizarCostos(ByVal IdTipo As Integer, ByVal CostoG As Decimal, ByVal CostoE As Decimal, ByVal CostoA As Decimal)
+        Dim sql As New SqlClient.SqlCommand
+        Dim conn As SqlClient.SqlConnection
+        conn = cnn
+        sql.CommandType = CommandType.Text
+        Try
+            If Me.BuscarParametros(IdTipo) Then
+                sql.CommandText = "UPDATE ParametrosCompra SET CostoGestion = " & CostoG & ", CostoEnvio=" & CostoE & ", CostoAlmacenamiento=" & CostoA & _
+                " WHERE IdTipoMateria = " & IdTipo
+            Else
+                sql.CommandText = "INSERT into ParametrosCompra values(" & IdTipo & ", " & CostoG & ", " & CostoE & ", " & CostoA & ")"
+            End If
+
+            conn.Open()
+            sql.Connection = conn
+            sql.ExecuteNonQuery()
+            conn.Close()
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Retorna los dias de demora posibles
+    ''' </summary>
+    ''' <param name="IdTipoMateria"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
 
     Public Function RetornarDiasDemora(ByVal IdTipoMateria As Integer) As Integer
 
@@ -238,11 +297,22 @@ Public Class ParametrosCompras
 
     End Function
 
+    ''' <summary>
+    ''' Constructor por defecto
+    ''' </summary>
+    ''' <remarks></remarks>
+
     Public Sub New()
         Periodo = 1
     End Sub
 
-    Public Sub BuscarParametros(ByVal IdTipo As Integer)
+    ''' <summary>
+    ''' Busca, si existe, los parametros de costo de pedido y de stock
+    ''' </summary>
+    ''' <param name="IdTipo"></param>
+    ''' <remarks></remarks>
+
+    Public Function BuscarParametros(ByVal IdTipo As Integer) As Boolean
         Try
             Dim sql As String
             sql = "select * from ParametrosCompra Where IdTipoMateria=" & IdTipo
@@ -252,13 +322,18 @@ Public Class ParametrosCompras
             da.Fill(dt)
 
             If dt.Tables(0).Rows.Count > 0 Then
-                Me.CostoEnvio = dt.Tables(0).Rows(0).Item(1).ToString
-                Me.CostoGestion = dt.Tables(0).Rows(0).Item(2).ToString
+                Me.CostoGestion = dt.Tables(0).Rows(0).Item(1).ToString
+                Me.CostoEnvio = dt.Tables(0).Rows(0).Item(2).ToString
                 Me.CostoAlmacenamiento = dt.Tables(0).Rows(0).Item(3).ToString
+                Return True
+            Else
+                Return False
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-    End Sub
+    End Function
 
+#End Region
+    
 End Class
