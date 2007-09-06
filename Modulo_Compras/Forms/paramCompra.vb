@@ -411,7 +411,11 @@ Public Class paramCompra
 
         Dim objParametro As New ParametrosCompras
         Try
+            objParametro.CostoGestion = txtCostoGestion.Text
+            objParametro.CostoEnvio = txtCostoEnvio.Text
+            objParametro.CostoAlmacenamiento = txtCostoAlmacenamiento.Text
             objParametro.ActualizarLote(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
+            objParametro.ActualizarCostos(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer), txtCostoGestion.Text, txtCostoEnvio.Text, txtCostoAlmacenamiento.Text)
 
             Dim sql2 As String = "SELECT idtipomateriaprima, nombre, stockactual, loteeconomico FROM tipomateriaprima"
             Dim comm As New SqlCommand(sql2, cnn)
@@ -428,14 +432,20 @@ Public Class paramCompra
     End Sub
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
-
-        Dim objParametro As New ParametrosCompras
-        Label7.Text = objParametro.RetornarConsumo(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer)) & " Unidades"
-        textbox1.Text = objParametro.CalcularLoteOptimo(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
-        textbox2.Text = objParametro.TiempoEntrePedidos(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
-        textbox3.Text = objParametro.ProximoPedido(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
-        Label8.Text = objParametro.RetornarDiasDemora(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer)) & " dias"
-
+        Try
+            Dim objParametro As New ParametrosCompras
+            objParametro.CostoGestion = txtCostoGestion.Text
+            objParametro.CostoEnvio = txtCostoEnvio.Text
+            objParametro.CostoAlmacenamiento = txtCostoAlmacenamiento.Text
+            Label7.Text = objParametro.RetornarConsumo(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer)) & " Unidades"
+            textbox1.Text = objParametro.CalcularLoteOptimo(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
+            textbox2.Text = objParametro.TiempoEntrePedidos(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
+            textbox3.Text = objParametro.ProximoPedido(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
+            Label8.Text = objParametro.RetornarDiasDemora(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer)) & " dias"
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        
     End Sub
 
     Private Sub grbValores_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles grbValores.Enter
