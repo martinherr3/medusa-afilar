@@ -256,39 +256,43 @@ Public Class frmEntrega
 #End Region
 
     Private Sub frmEntrega_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        princ.barra.agregarBoton(Me)
-        'adaptador.Fill(dttpedidos)
-        adaptador.Fill(dspedido)
-        adaptador.FillSchema(tbps, SchemaType.Mapped)
-        DataGrid1.ReadOnly = True
-        dvpedidos = dspedido.Tables.Item(0).DefaultView
-        'dvpedidos = dttpedidos.DefaultView
-        DataGrid1.DataSource = dvpedidos
+        Try
+            princ.barra.agregarBoton(Me)
+            'adaptador.Fill(dttpedidos)
+            adaptador.Fill(dspedido)
+            adaptador.FillSchema(tbps, SchemaType.Mapped)
+            DataGrid1.ReadOnly = True
+            dvpedidos = dspedido.Tables.Item(0).DefaultView
+            'dvpedidos = dttpedidos.DefaultView
+            DataGrid1.DataSource = dvpedidos
 
-        Dim nombrescol(7) As String
-        nombrescol(0) = "ID Pedido"
-        nombrescol(1) = "Fecha Realizacion"
-        nombrescol(2) = "Fecha Entrega(Prometida)"
-        nombrescol(3) = "Prioridad"
-        nombrescol(4) = "Estado"
+            Dim nombrescol(7) As String
+            nombrescol(0) = "ID Pedido"
+            nombrescol(1) = "Fecha Realizacion"
+            nombrescol(2) = "Fecha Entrega(Prometida)"
+            nombrescol(3) = "Prioridad"
+            nombrescol(4) = "Estado"
 
-        Dim anchosgrid(7) As Integer
-        anchosgrid(0) = 60
-        anchosgrid(1) = 100
-        anchosgrid(2) = 100
-        anchosgrid(3) = 50
-        anchosgrid(4) = 75
-        ' esta funcion da solo formato a la grilla no la carga, de eso se encarga el datasource
-        'cargarGrilla(DataGrid1, dspedido.Tables.Item(0), nombrescol, anchosgrid)
-        cargarGrilla(DataGrid1, dspedido.Tables(0), nombrescol, anchosgrid)
-        cargarGrilla(DataGrid2, tbps, nombrescol, anchosgrid)
-        'tbps = dspedidosel.Tables.Item(0)
-        cargarCombo("select idformadeentrega,nombre from formadeentrega", ComboBox1, "nombre", "idformadeentrega")
-        'ComboBox2.Items.Add("Todos")
-        cargarCombo("select idformadeentrega,nombre from formadeentrega", ComboBox2, "nombre", "idformadeentrega")
+            Dim anchosgrid(7) As Integer
+            anchosgrid(0) = 60
+            anchosgrid(1) = 100
+            anchosgrid(2) = 100
+            anchosgrid(3) = 50
+            anchosgrid(4) = 75
+            ' esta funcion da solo formato a la grilla no la carga, de eso se encarga el datasource
+            'cargarGrilla(DataGrid1, dspedido.Tables.Item(0), nombrescol, anchosgrid)
+            cargarGrilla(DataGrid1, dspedido.Tables(0), nombrescol, anchosgrid)
+            cargarGrilla(DataGrid2, tbps, nombrescol, anchosgrid)
+            'tbps = dspedidosel.Tables.Item(0)
+            cargarCombo("select idformadeentrega,nombre from formadeentrega", ComboBox1, "nombre", "idformadeentrega")
+            'ComboBox2.Items.Add("Todos")
+            cargarCombo("select idformadeentrega,nombre from formadeentrega", ComboBox2, "nombre", "idformadeentrega")
 
-        bandCmb2 = 1
-        UltraDateTimeEditor1.Value = Today
+            bandCmb2 = 1
+            UltraDateTimeEditor1.Value = Today
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
 
@@ -298,132 +302,148 @@ Public Class frmEntrega
 
 
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
-        Dim idclientes(10) As Integer
-        Dim tbloc As New DataTable
-        'Dim tbid As DataTable = dspedido.Tables.Item(0)
-        Dim i As Integer
-        For Each updatefila As DataRow In tbps.Rows
-            idclientes(i) = updatefila(6)
-            i = i + 1
-        Next
-        Dim adaptadorID As SqlDataAdapter = New SqlDataAdapter("select idcliente,localidad from cliente", cnn)
-        adaptadorID.Fill(tbloc)
-        Dim j As Integer
-        For Each updatefila As DataRow In tbloc.Rows
-            For n As Integer = 0 To i
-                If updatefila(0) = idclientes(n) Then
-                    idlocalidades(j) = updatefila(1)
-                    j = j + 1
-                End If
+        Try
+            Dim idclientes(10) As Integer
+            Dim tbloc As New DataTable
+            'Dim tbid As DataTable = dspedido.Tables.Item(0)
+            Dim i As Integer
+            For Each updatefila As DataRow In tbps.Rows
+                idclientes(i) = updatefila(6)
+                i = i + 1
             Next
-        Next
-        bandd = j
-        'VERRRRRRRRR
-        'idclientes(i) = updatefila(6)
-        If ComboBox1.Text <> "Retiro Personal     " And ComboBox1.Text <> "System.Data.DataRowView" Then
-            If ComboBox1.Text = "Envio por Viajante  " Then
-                bandasignar = 1
-            Else
-                bandasignar = 0
+            Dim adaptadorID As SqlDataAdapter = New SqlDataAdapter("select idcliente,localidad from cliente", cnn)
+            adaptadorID.Fill(tbloc)
+            Dim j As Integer
+            For Each updatefila As DataRow In tbloc.Rows
+                For n As Integer = 0 To i
+                    If updatefila(0) = idclientes(n) Then
+                        idlocalidades(j) = updatefila(1)
+                        j = j + 1
+                    End If
+                Next
+            Next
+            bandd = j
+            'VERRRRRRRRR
+            'idclientes(i) = updatefila(6)
+            If ComboBox1.Text <> "Retiro Personal     " And ComboBox1.Text <> "System.Data.DataRowView" Then
+                If ComboBox1.Text = "Envio por Viajante  " Then
+                    bandasignar = 1
+                Else
+                    bandasignar = 0
+                End If
+                Dim frmE As New frmAsignar
+                frmE.Show()
             End If
-            Dim frmE As New frmAsignar
-            frmE.Show()
-        End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
-        Dim tbpedido As DataTable = dspedido.Tables.Item(0)
-        If tbpedido.Rows.Count > 0 Then
-            Dim fila() As DataRow
-            fila = tbps.Select("idpedido=" & DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0))
-            If (fila.GetUpperBound(0) = -1) Then
-                Dim nuevafila As DataRow
-                fila = tbpedido.Select("idpedido=" & DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0))
-                nuevafila = tbps.NewRow
+        Try
+            Dim tbpedido As DataTable = dspedido.Tables.Item(0)
+            If tbpedido.Rows.Count > 0 Then
+                Dim fila() As DataRow
+                fila = tbps.Select("idpedido=" & DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0))
+                If (fila.GetUpperBound(0) = -1) Then
+                    Dim nuevafila As DataRow
+                    fila = tbpedido.Select("idpedido=" & DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0))
+                    nuevafila = tbps.NewRow
 
-                nuevafila(0) = fila(0).Item(0)
-                nuevafila(1) = fila(0).Item(1)
-                nuevafila(2) = fila(0).Item(2)
-                nuevafila(3) = fila(0).Item(3)
-                nuevafila(4) = fila(0).Item(4)
-                nuevafila(5) = fila(0).Item(5)
-                nuevafila(6) = fila(0).Item(6)
-                tbps.Rows.Add(nuevafila)
-                DataGrid2.DataSource = tbps
-            Else
-                MsgBox("Pedido ya seleccionado", MsgBoxStyle.Information, "Pedidos")
+                    nuevafila(0) = fila(0).Item(0)
+                    nuevafila(1) = fila(0).Item(1)
+                    nuevafila(2) = fila(0).Item(2)
+                    nuevafila(3) = fila(0).Item(3)
+                    nuevafila(4) = fila(0).Item(4)
+                    nuevafila(5) = fila(0).Item(5)
+                    nuevafila(6) = fila(0).Item(6)
+                    tbps.Rows.Add(nuevafila)
+                    DataGrid2.DataSource = tbps
+                Else
+                    MsgBox("Pedido ya seleccionado", MsgBoxStyle.Information, "Pedidos")
+                End If
+                UltraButton4.Enabled = True
+                ComboBox1.Enabled = True
+                UltraDateTimeEditor1.Enabled = True
             End If
-            UltraButton4.Enabled = True
-            ComboBox1.Enabled = True
-        UltraDateTimeEditor1.Enabled = True
-        End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+       
     End Sub
 
     Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton2.Click
-        If tbps.Rows.Count > 0 Then
-            Dim fila() As DataRow
-            fila = tbps.Select("idpedido=" & tbps.Rows(DataGrid2.CurrentCell.RowNumber()).Item(0))
-            fila(0).Delete()
-        End If
-        If tbps.Rows.Count = 0 Then
-            UltraButton4.Enabled = False
-        End If
-
-        'For i As Integer = 0 To tbps.Rows.Count - 1
-        '    'If tbps.Rows(i)(0) = dspedidosel.Tables.Item(0).Rows(DataGrid2.CurrentCell.RowNumber()).Item(0) Then
-        '    If tbps.Rows(i)(0) = tbps.Rows(DataGrid2.CurrentCell.RowNumber()).Item(0) Then
-        '        tbps.Rows(i).Delete()
-        '    End If
-        'Next
+        Try
+            If tbps.Rows.Count > 0 Then
+                Dim fila() As DataRow
+                fila = tbps.Select("idpedido=" & tbps.Rows(DataGrid2.CurrentCell.RowNumber()).Item(0))
+                fila(0).Delete()
+            End If
+            If tbps.Rows.Count = 0 Then
+                UltraButton4.Enabled = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 
     Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
-        For i As Integer = 0 To tbps.Rows.Count - 1
-            tbps.Rows(0).Delete()
-        Next
-        UltraButton4.Enabled = False
+        Try
+            For i As Integer = 0 To tbps.Rows.Count - 1
+                tbps.Rows(0).Delete()
+            Next
+            UltraButton4.Enabled = False
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        
     End Sub
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
-        If idViajOEmp = 0 Then
-            If vbNo = MessageBox.Show("Al no seleccionar una empresa o viajante para la entrega se registrara como Retiro Personal" & vbCrLf & "¿Desea Continuar?", "Registro de Entrega", MessageBoxButtons.YesNo) Then
-                Exit Sub
-            End If
-            ComboBox1.SelectedIndex = 0
-        End If
-        cnn.Open()
-        For Each updatefila As DataRow In tbps.Rows
-            For i As Integer = 0 To dspedido.Tables(0).Rows.Count - 1
-
-                If dspedido.Tables.Item(0).Rows(i).Item(0) = updatefila(0) Then
-                    dspedido.Tables.Item(0).Rows(i).Item(5) = 3
-                    dspedido.Tables.Item(0).Rows(i).Item(5) = ComboBox1.SelectedValue
-                    dspedido.Tables.Item(0).Rows(i).Item(4) = "Entregado"
-                    updatefila(4) = "Entregado"
-
-                    If ComboBox1.SelectedValue = 2 Then
-                        adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =3, idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idviajante=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
-                    Else
-                        If ComboBox1.SelectedValue = 3 Then
-                            adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =3, idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idempresa=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
-                        Else
-                            adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =3, idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "' WHERE (idpedido =" & updatefila(0) & ")", cnn)
-                        End If
-                    End If
-                    adaptador.UpdateCommand.ExecuteNonQuery()
+        Try
+            If idViajOEmp = 0 Then
+                If vbNo = MessageBox.Show("Al no seleccionar una empresa o viajante para la entrega se registrara como Retiro Personal" & vbCrLf & "¿Desea Continuar?", "Registro de Entrega", MessageBoxButtons.YesNo) Then
+                    Exit Sub
                 End If
-            Next
-        Next
-        ' para finalizar, podemos sacar estos enabled y gestionar de otra forma
+                ComboBox1.SelectedIndex = 0
+            End If
+            cnn.Open()
+            For Each updatefila As DataRow In tbps.Rows
+                For i As Integer = 0 To dspedido.Tables(0).Rows.Count - 1
 
-        DataGrid2.Enabled = False
-        UltraButton1.Enabled = False
-        cnn.Close()
-        'Dim ocommandbuilder_oc As New SqlClient.SqlCommandBuilder(adaptador)
-        'adaptador.UpdateCommand = ocommandbuilder_oc.GetUpdateCommand
-        'adaptador.Update(dspedido, "cliente")
-        Me.Close()
+                    If dspedido.Tables.Item(0).Rows(i).Item(0) = updatefila(0) Then
+                        dspedido.Tables.Item(0).Rows(i).Item(5) = 3
+                        dspedido.Tables.Item(0).Rows(i).Item(5) = ComboBox1.SelectedValue
+                        dspedido.Tables.Item(0).Rows(i).Item(4) = "Entregado"
+                        updatefila(4) = "Entregado"
+
+                        If ComboBox1.SelectedValue = 2 Then
+                            adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =3, idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idviajante=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
+                        Else
+                            If ComboBox1.SelectedValue = 3 Then
+                                adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =3, idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idempresa=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
+                            Else
+                                adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =3, idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "' WHERE (idpedido =" & updatefila(0) & ")", cnn)
+                            End If
+                        End If
+                        adaptador.UpdateCommand.ExecuteNonQuery()
+                    End If
+                Next
+            Next
+            ' para finalizar, podemos sacar estos enabled y gestionar de otra forma
+
+            DataGrid2.Enabled = False
+            UltraButton1.Enabled = False
+            cnn.Close()
+            'Dim ocommandbuilder_oc As New SqlClient.SqlCommandBuilder(adaptador)
+            'adaptador.UpdateCommand = ocommandbuilder_oc.GetUpdateCommand
+            'adaptador.Update(dspedido, "cliente")
+            Me.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+       
     End Sub
 
     Private Sub frmEntrega_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
@@ -431,18 +451,19 @@ Public Class frmEntrega
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox2.SelectedIndexChanged
-        'If bandCmb2 = 1 Then
-        Dim consulta As String
-        If ComboBox2.Text = "Retiro Personal     " Then
-            dvpedidos.RowFilter = "idformadeentrega=" & 1
-        End If
-        If ComboBox2.Text = "Envio por Viajante  " Then
-            dvpedidos.RowFilter = "idformadeentrega=" & 2
-        End If
-        If ComboBox2.Text = "Envio por Emp Transp" Then
-            dvpedidos.RowFilter = "idformadeentrega=" & 3
-        End If
-        'End If
+        Try
+            If ComboBox2.Text = "Retiro Personal     " Then
+                dvpedidos.RowFilter = "idformadeentrega=" & 1
+            End If
+            If ComboBox2.Text = "Envio por Viajante  " Then
+                dvpedidos.RowFilter = "idformadeentrega=" & 2
+            End If
+            If ComboBox2.Text = "Envio por Emp Transp" Then
+                dvpedidos.RowFilter = "idformadeentrega=" & 3
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 End Class
