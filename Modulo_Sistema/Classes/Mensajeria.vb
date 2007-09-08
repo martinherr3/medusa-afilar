@@ -100,8 +100,10 @@ Public Class Mensajeria
     Public Shared Sub getMensajes(ByVal legajo As Integer, ByRef link As System.Windows.Forms.LinkLabel)
         Dim conn As SqlConnection
         conn = cnn
+        If conn.State <> ConnectionState.Open Then
+            conn.Open()
+        End If
 
-        conn.Open()
 
         Dim sql As String = "select count(*), max(prioridad) from mensaje where leido = 'false' and iddestinatario = " & legajo
         Dim comm As New SqlCommand(sql, conn)

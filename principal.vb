@@ -151,7 +151,7 @@ Public Class principal
         'Timer1
         '
         Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1000
+        Me.Timer1.Interval = 60000
         '
         'Panel1
         '
@@ -238,7 +238,7 @@ Public Class principal
         bloquearPantalla(True)
         logeo.ShowDialog()
         bloquearPantalla(False)
-        Dim form As New frmRecibirMPII
+        Dim form As New treeview
         form.MdiParent = Me
         form.Show()
         form.Location = New Point(500, 200)

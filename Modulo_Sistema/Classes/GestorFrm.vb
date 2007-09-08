@@ -1,6 +1,7 @@
 Imports Infragistics.Win.UltraWinExplorerBar
 Imports System.Reflection
 Imports System.Data.SqlClient
+Imports System.Configuration.ConfigurationSettings
 
 
 Public Class GestorFrm
@@ -55,10 +56,23 @@ Public Class GestorFrm
         For Each drMod In TMod.Rows
             Dim grupo As New UltraExplorerBarGroup
             grupo.Text = Trim(drMod.Item("descripcion"))
-            'Dim Apariencia As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-            'Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(principal))
-            'Apariencia.Image = CType(resources.GetObject("Appearance8.Image"), Object)
-            'grupo.Settings.AppearancesLarge.HeaderAppearance = Apariencia
+            '''''''''''''''''
+            Dim projectPath As String
+            projectPath = getAppPath()
+            Dim Apariencia As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+            'aca hay que poner el nombre de la imagen sacada de la base de datos puede ser del nombre del grupo para no poner otro campo a la base de datos
+            Try
+                Apariencia.Image = Image.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\Modulos\" + Trim(drMod.Item("descripcion")) + ".jpg")
+
+            Catch
+                Apariencia.Image = Image.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\Modulos\Default.gif")
+            End Try
+
+
+            grupo.Settings.AppearancesLarge.HeaderAppearance = Apariencia
+
+            ''''''''''''''''''
+            
             dv.RowFilter = "idmodulo = " & drMod.Item("idmodulo")
             If dv.Count <> 0 Then
                 For i = 0 To dv.Count - 1

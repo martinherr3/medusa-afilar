@@ -445,7 +445,7 @@ Public Class programarProduccion
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        princ.barra.agregarBoton(Me)
+        'princ.barra.agregarBoton(Me)
 
         'conn.Open()
 
@@ -517,7 +517,7 @@ Public Class programarProduccion
         'MsgBox(DS.Tables("Fresas").Rows.Count)
         'For i = 0 To DS.Tables("Fresas").Rows.Count - 1
 
-        If grd2.DataSource = Nothing Then
+        If grd2.DataSource Is Nothing Then
             Exit Sub
         End If
 

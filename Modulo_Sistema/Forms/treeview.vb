@@ -116,7 +116,7 @@ Public Class treeview
 
         'Next
         If MsgBox("Seguro desea asignar estos permisos?", MsgBoxStyle.Question, "Confirmacion") = MsgBoxResult.Ok Then
-            permisos.asignarPermiso(UltraTree1, 2)
+            permisos.asignarPermiso(UltraTree1, UltraComboEditor1.SelectedItem.DataValue())
         End If
 
     End Sub
