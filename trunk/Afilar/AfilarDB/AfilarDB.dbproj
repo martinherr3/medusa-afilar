@@ -121,6 +121,9 @@
     <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql">
       <SubType>Code</SubType>
     </PostDeploy>
+    <NotInBuild Include="Data Generation Plans\DataGenerationPlan1.dgen">
+      <SubType>NotInBuild</SubType>
+    </NotInBuild>
     <NotInBuild Include="Scripts\Post-Deployment\DatabaseObjectOptions.sql">
       <SubType>NotInBuild</SubType>
     </NotInBuild>
