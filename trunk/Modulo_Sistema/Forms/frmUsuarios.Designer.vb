@@ -175,9 +175,9 @@ Partial Class frmUsuarios
         Me.lblEmpleado.AutoSize = True
         Me.lblEmpleado.Location = New System.Drawing.Point(104, 9)
         Me.lblEmpleado.Name = "lblEmpleado"
-        Me.lblEmpleado.Size = New System.Drawing.Size(60, 13)
+        Me.lblEmpleado.Size = New System.Drawing.Size(124, 13)
         Me.lblEmpleado.TabIndex = 66
-        Me.lblEmpleado.Text = "Empleado: "
+        Me.lblEmpleado.Text = "Seleccione un empleado"
         '
         'txtContraseña
         '
@@ -188,6 +188,7 @@ Partial Class frmUsuarios
         Me.txtContraseña.Enabled = False
         Me.txtContraseña.Location = New System.Drawing.Point(109, 83)
         Me.txtContraseña.Name = "txtContraseña"
+        Me.txtContraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtContraseña.Size = New System.Drawing.Size(212, 21)
         Me.txtContraseña.TabIndex = 69
         '
@@ -200,6 +201,7 @@ Partial Class frmUsuarios
         Me.txtContraseña2.Enabled = False
         Me.txtContraseña2.Location = New System.Drawing.Point(109, 110)
         Me.txtContraseña2.Name = "txtContraseña2"
+        Me.txtContraseña2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtContraseña2.Size = New System.Drawing.Size(212, 21)
         Me.txtContraseña2.TabIndex = 70
         '
@@ -212,6 +214,7 @@ Partial Class frmUsuarios
         Me.txtContraseña3.Enabled = False
         Me.txtContraseña3.Location = New System.Drawing.Point(109, 56)
         Me.txtContraseña3.Name = "txtContraseña3"
+        Me.txtContraseña3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtContraseña3.Size = New System.Drawing.Size(212, 21)
         Me.txtContraseña3.TabIndex = 71
         '
@@ -258,7 +261,9 @@ Partial Class frmUsuarios
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label13)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmUsuarios"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Usuarios"
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtUsuario, System.ComponentModel.ISupportInitialize).EndInit()

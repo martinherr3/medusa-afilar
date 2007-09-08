@@ -7,25 +7,32 @@ Public Class frmUsuarios
     Dim bandGrabar As Integer
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
-        bandGrabar = 1
-        UltraButton1.Enabled = False
-        UltraButton2.Enabled = False
-        UltraButton3.Enabled = False
-        UltraButton4.Enabled = True
-        UltraButton5.Enabled = True
+        If Not objUsuario.tieneUsuario(objUsuario.Legajo) Then
+            bandGrabar = 1
+            UltraButton1.Enabled = False
+            UltraButton2.Enabled = False
+            UltraButton3.Enabled = False
+            UltraButton4.Enabled = True
+            UltraButton5.Enabled = True
 
-        txtUsuario.Enabled = True
-        txtContraseña.Enabled = True
+            txtUsuario.Enabled = True
+            txtContraseña.Enabled = True
 
-        txtUsuario.Focus()
-        txtUsuario.Text = ""
-        txtContraseña.Text = ""
-        txtContraseña2.Enabled = True
-        txtContraseña3.Enabled = False
-        txtContraseña2.Visible = True
-        Label2.Visible = True
-        txtContraseña3.Visible = False
-        Lblvalidacion.Visible = False
+            txtUsuario.Focus()
+            txtUsuario.Text = ""
+            txtContraseña.Text = ""
+            txtContraseña2.Enabled = True
+            txtContraseña3.Enabled = False
+            txtContraseña2.Visible = True
+            Label2.Visible = True
+            txtContraseña3.Visible = False
+            Lblvalidacion.Visible = False
+
+
+
+        Else
+            MsgBox("El empleado ya tiene una cuenta si desea puede modificarla", MsgBoxStyle.OkOnly, "Advertencia")
+        End If
     End Sub
 
     Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton2.Click
@@ -60,7 +67,7 @@ Public Class frmUsuarios
         If bandGrabar = 1 Then
             objUsuario.registrarUsuario(dsUsuario)
         Else
-            If seguridad.Validar(txtUsuario.Text, Criptologia.EncriptarTexto(txtContraseña3.Text, txtUsuario.Text, True)) Then
+            If seguridad.Validar(Trim(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0)), Criptologia.EncriptarTexto(txtContraseña3.Text, Trim(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0)), True)) Then
                 objUsuario.modificarUsuario(dsUsuario)
             Else
                 MsgBox("Ingrese la contraseña correct ", MsgBoxStyle.Exclamation)

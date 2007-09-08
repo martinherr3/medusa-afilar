@@ -368,7 +368,6 @@ Public Class frmRecibirMPII
         gpbox2.Visible = False
         gpbox3.Visible = False
 
-
         dtOC = DS.Tables("ordencompramp")
         dvDOC = DS.Tables("detalleordencompra").DefaultView
         Dim colsdv As DataColumnCollection
@@ -392,7 +391,15 @@ Public Class frmRecibirMPII
         LoadGrid_oc()
         LoadGrid_docP()
         LoadGrid_doc()
-        
+
+        '*********************************************** mostrar los botones consultar si la primera de las tablas tiene algo si no no muestro el boton siguiente
+        BtnAtras.Visible = False
+        If dvDOC.Count <= 0 Then
+            BtnSiguiente.Visible = False
+        End If
+        '*******************************************************************
+
+
     End Sub
     Private Sub CargarColCantR()
         Dim fila As DataRow
