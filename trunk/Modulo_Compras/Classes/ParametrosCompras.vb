@@ -136,27 +136,31 @@ Public Class ParametrosCompras
     ''' <remarks></remarks>
 
     Public Function RetornarConsumo(ByVal IdTipoMateria As Integer) As Integer
+        Try
+            Dim sqlConsulta As String
 
-        Dim sqlConsulta As String
+            sqlConsulta = "select sum(PxT.cantidad) as CantidadVendida" & _
+                          " from fresa F, tipoFresa T, parte PxT, tipoparte P, MPxTP MxT, tipomateriaprima TMP" & _
+                          " where F.idtipo = T.idtipo and F.idmodelo=T.idmodelo and T.idtipo = PxT.idtipofresa and T.idmodelo = PxT.idmodelo and" & _
+                          " PxT.nombre = P.nombre And P.nombre = MxT.nombre And MxT.idmp = TMP.idtipomateriaprima And F.fechafinfabricacion" & _
+                          " between DateAdd(Year, -1, getdate()) And getdate() And TMP.idtipomateriaprima =" & IdTipoMateria & _
+                          " group by TMP.idtipomateriaprima"
 
-        sqlConsulta = "select sum(PxT.cantidad) as CantidadVendida" & _
-                      " from fresa F, tipoFresa T, parte PxT, tipoparte P, MPxTP MxT, tipomateriaprima TMP" & _
-                      " where F.idtipo = T.idtipo and F.idmodelo=T.idmodelo and T.idtipo = PxT.idtipofresa and T.idmodelo = PxT.idmodelo and" & _
-                      " PxT.nombre = P.nombre And P.nombre = MxT.nombre And MxT.idmp = TMP.idtipomateriaprima And F.fechafinfabricacion" & _
-                      " between DateAdd(Year, -1, getdate()) And getdate() And TMP.idtipomateriaprima =" & IdTipoMateria & _
-                      " group by TMP.idtipomateriaprima"
+            Dim Ad As New SqlClient.SqlDataAdapter(sqlConsulta, cnn)
+            Dim Dato As New DataSet
 
-        Dim Ad As New SqlClient.SqlDataAdapter(sqlConsulta, cnn)
-        Dim Dato As New DataSet
+            Ad.Fill(Dato, "Cantidad")
 
-        Ad.Fill(Dato, "Cantidad")
+            If Dato.Tables(0).Rows.Count > 0 Then
+                Return CType(Dato.Tables(0).Rows(0).Item(0).ToString, Integer)
+            Else
+                Return 0
+            End If
 
-        If Dato.Tables(0).Rows.Count > 0 Then
-            Return CType(Dato.Tables(0).Rows(0).Item(0).ToString, Integer)
-        Else
-            Return 0
-        End If
-
+        Catch ex As Exception
+            Throw ex
+        End Try
+        
     End Function
 
     ''' <summary>
@@ -167,16 +171,21 @@ Public Class ParametrosCompras
     ''' <remarks></remarks>
 
     Public Function TiempoEntrePedidos(ByVal IdTipoMateria As Integer) As Decimal
-        Dim Tiempo As Decimal
-        Dim myConsumo As Integer
-        myConsumo = RetornarConsumo(IdTipoMateria)
-        If myConsumo <> 0 Then
-            Tiempo = (Periodo * CalcularLoteOptimo(IdTipoMateria)) / myConsumo
-        Else
-            Tiempo = 0
-        End If
+        Try
+            Dim Tiempo As Decimal
+            Dim myConsumo As Integer
+            myConsumo = RetornarConsumo(IdTipoMateria)
+            If myConsumo <> 0 Then
+                Tiempo = (Periodo * CalcularLoteOptimo(IdTipoMateria)) / myConsumo
+            Else
+                Tiempo = 0
+            End If
 
-        Return Tiempo
+            Return Tiempo
+        Catch ex As Exception
+            Throw ex
+        End Try
+        
     End Function
 
     ''' <summary>
@@ -187,25 +196,29 @@ Public Class ParametrosCompras
     ''' <remarks></remarks>
 
     Public Function ProximoPedido(ByVal IdTipoMateria As Integer) As Decimal
-        Dim sqlConsulta As String
-        sqlConsulta = "select stockactual from tipomateriaprima where idtipomateriaprima=" & IdTipoMateria
-        Dim Ap As New SqlClient.SqlDataAdapter(sqlConsulta, cnn)
-        Dim Dato As New DataSet
-        Dim stockAct As Integer
-        Ap.Fill(Dato, "tipomateriaprima")
+        Try
+            Dim sqlConsulta As String
+            sqlConsulta = "select stockactual from tipomateriaprima where idtipomateriaprima=" & IdTipoMateria
+            Dim Ap As New SqlClient.SqlDataAdapter(sqlConsulta, cnn)
+            Dim Dato As New DataSet
+            Dim stockAct As Integer
+            Ap.Fill(Dato, "tipomateriaprima")
 
-        If Dato.Tables(0).Rows.Count > 0 Then
-            stockAct = Dato.Tables(0).Rows(0).Item(0)
-        Else
-            stockAct = 0
-        End If
-        Dim myLote As Decimal
-        myLote = CalcularLoteOptimo(IdTipoMateria)
-        If myLote <> 0 Then
-            Return (stockAct / (myLote / 360))
-        Else
-            Return 0
-        End If
+            If Dato.Tables(0).Rows.Count > 0 Then
+                stockAct = Dato.Tables(0).Rows(0).Item(0)
+            Else
+                stockAct = 0
+            End If
+            Dim myLote As Decimal
+            myLote = CalcularLoteOptimo(IdTipoMateria)
+            If myLote <> 0 Then
+                Return (stockAct / (myLote / 360))
+            Else
+                Return 0
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
 
     End Function
 
@@ -270,31 +283,35 @@ Public Class ParametrosCompras
     ''' <remarks></remarks>
 
     Public Function RetornarDiasDemora(ByVal IdTipoMateria As Integer) As Integer
+        Try
+            Dim sqlConsulta As String
 
-        Dim sqlConsulta As String
+            sqlConsulta = "SET dateformat 'dmy'" & _
+                          " Select sum(DateDiff(Day, OC.fecharealizacion, Convert(DateTime, MPR.fecharecepcion))) / count(DateDiff(Day, OC.fecharealizacion, Convert(DateTime, MPR.fecharecepcion)))" & _
+                          " FROM ordencompramp OC, mprecibida MPR, detallemprecibida DMPR" & _
+                          " WHERE OC.idordencompra = MPR.idordencompramp and MPR.idmprecibida = DMPR.idmprecibida and DMPR.idtipomateriaprima=" & IdTipoMateria
 
-        sqlConsulta = "SET dateformat 'dmy'" & _
-                      " Select sum(DateDiff(Day, OC.fecharealizacion, Convert(DateTime, MPR.fecharecepcion))) / count(DateDiff(Day, OC.fecharealizacion, Convert(DateTime, MPR.fecharecepcion)))" & _
-                      " FROM ordencompramp OC, mprecibida MPR, detallemprecibida DMPR" & _
-                      " WHERE OC.idordencompra = MPR.idordencompramp and MPR.idmprecibida = DMPR.idmprecibida and DMPR.idtipomateriaprima=" & IdTipoMateria
+            Dim Ap As New SqlClient.SqlDataAdapter(sqlConsulta, cnn)
+            Dim Dato As New DataSet
+            Dim DiasPromedio As Integer
+            Ap.Fill(Dato)
 
-        Dim Ap As New SqlClient.SqlDataAdapter(sqlConsulta, cnn)
-        Dim Dato As New DataSet
-        Dim DiasPromedio As Integer
-        Ap.Fill(Dato)
-
-        If Dato.Tables(0).Rows.Count > 0 Then
-            If IsNumeric(Dato.Tables(0).Rows(0).Item(0)) Then
-                DiasPromedio = Dato.Tables(0).Rows(0).Item(0)
+            If Dato.Tables(0).Rows.Count > 0 Then
+                If IsNumeric(Dato.Tables(0).Rows(0).Item(0)) Then
+                    DiasPromedio = Dato.Tables(0).Rows(0).Item(0)
+                Else
+                    DiasPromedio = 0
+                End If
             Else
                 DiasPromedio = 0
             End If
-        Else
-            DiasPromedio = 0
-        End If
 
-        Return DiasPromedio
+            Return DiasPromedio
 
+        Catch ex As Exception
+            Throw ex
+        End Try
+        
     End Function
 
     ''' <summary>

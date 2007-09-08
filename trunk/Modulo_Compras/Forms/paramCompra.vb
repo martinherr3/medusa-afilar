@@ -364,35 +364,42 @@ Public Class paramCompra
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Dim connect As New coneccion
+        Try
+            'princ.barra.agregarBoton(Me)
 
-        'princ.barra.agregarBoton(Me)
+            Dim conn As SqlConnection
+            conn = cnn
 
-        Dim conn As SqlConnection
-        conn = cnn
+            'conn = connect.conneccion
+            conn.Open()
 
-        'conn = connect.conneccion
-        conn.Open()
+            Dim sql As String = "SELECT idtipomateriaprima, nombre, stockactual, loteeconomico FROM tipomateriaprima"
+            Dim comm As New SqlCommand(sql, conn)
 
-        Dim sql As String = "SELECT idtipomateriaprima, nombre, stockactual, loteeconomico FROM tipomateriaprima"
-        Dim comm As New SqlCommand(sql, conn)
+            Dim DA As New SqlDataAdapter(comm)
+            Dim DS As New DataSet
+            DA.Fill(DS)
 
-        Dim DA As New SqlDataAdapter(comm)
-        Dim DS As New DataSet
-        DA.Fill(DS)
-
-        grd1.DataSource = DS.Tables.Item(0)
-        conn.Close()
-
+            grd1.DataSource = DS.Tables.Item(0)
+            conn.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+       
     End Sub
 
     Private Sub grd1_CurrentCellChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles grd1.CurrentCellChanged
-        grd1.Select(grd1.CurrentRowIndex())
-        Dim objParam As New ParametrosCompras
-        objParam.BuscarParametros(grd1.Item(grd1.CurrentRowIndex, 0))
+        Try
+            grd1.Select(grd1.CurrentRowIndex())
+            Dim objParam As New ParametrosCompras
+            objParam.BuscarParametros(grd1.Item(grd1.CurrentRowIndex, 0))
 
-        txtCostoEnvio.Text = objParam.CostoEnvio
-        txtCostoGestion.Text = objParam.CostoGestion
-        txtCostoAlmacenamiento.Text = objParam.CostoAlmacenamiento
+            txtCostoEnvio.Text = objParam.CostoEnvio
+            txtCostoGestion.Text = objParam.CostoGestion
+            txtCostoAlmacenamiento.Text = objParam.CostoAlmacenamiento
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 
@@ -446,14 +453,6 @@ Public Class paramCompra
             MessageBox.Show(ex.Message)
         End Try
         
-    End Sub
-
-    Private Sub grbValores_Enter(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles grbValores.Enter
-
-    End Sub
-
-    Private Sub grd1_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles grd1.Navigate
-
     End Sub
 End Class
 
