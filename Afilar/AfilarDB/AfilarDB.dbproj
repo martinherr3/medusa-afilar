@@ -279,6 +279,9 @@
     <Build Include="Schema Objects\Tables\dbo.pago.table.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Tables\dbo.ParametrosCompra.table.sql">
+      <SubType>Code</SubType>
+    </Build>
     <Build Include="Schema Objects\Tables\dbo.parte.table.sql">
       <SubType>Code</SubType>
     </Build>
@@ -604,6 +607,9 @@
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\dbo.pago.FK_pago_ordencompramp.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Tables\Keys\dbo.ParametrosCompra.PK_ParametrosCompra.pkey.sql">
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Tables\Keys\dbo.parte.FK_parte_tipofresa1.fkey.sql">
