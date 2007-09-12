@@ -12,6 +12,7 @@ Public Class Empleado
     Public varCancelar As Integer
     Private adaptadorEmpleado As SqlClient.SqlDataAdapter
 
+
     Public Property id() As Integer
         Get
             Return idEmpleado
