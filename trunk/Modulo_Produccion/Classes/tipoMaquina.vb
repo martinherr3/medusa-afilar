@@ -58,8 +58,12 @@ Public Class tipoMaquina
             idmaximo = tbTMaquina.Select("idtipo=max(idtipo)")
             Dim nuevafila As DataRow
             nuevafila = tbTMaquina.NewRow()
-            nuevafila(2) = CType(idmaximo(0).Item(2), Integer) + 1
+            If idmaximo.Length > 0 Then
+                nuevafila(2) = CType(idmaximo(0).Item(2), Integer) + 1
+            Else
+                nuevafila(2) = 1
 
+            End If
             nuevafila(0) = Nombre
             nuevafila(1) = Descripcion
 
@@ -104,11 +108,11 @@ Public Class tipoMaquina
         If 6 = MsgBox("Esta seguro que desea eliminarlo", MsgBoxStyle.YesNo, "Eliminar Cargo") Then
 
             Dim dsMaquina As New DataSet
-            Dim adaptadorMaquina As SqlClient.SqlDataAdapter = New SqlClient.SqlDataAdapter("select distinct idmaquina from maquina", cnn)
+            Dim adaptadorMaquina As SqlClient.SqlDataAdapter = New SqlClient.SqlDataAdapter("select distinct tipomaquina from maquina", cnn)
             adaptadorMaquina.Fill(dsMaquina, "Maquina")
             Dim tbTMaquinaPedido As DataTable = dsMaquina.Tables.Item(0)
             Dim filabuscada() As DataRow
-            Dim criterio As String = "idmaquina=" & Id
+            Dim criterio As String = "tipomaquina = '" & Nombre & "'"
 
             filabuscada = tbTMaquinaPedido.Select(criterio)
 

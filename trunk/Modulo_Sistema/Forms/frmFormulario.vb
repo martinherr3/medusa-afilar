@@ -111,6 +111,7 @@ Public Class frmFormulario
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.UltraButton11 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.txtID, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtDescripcion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,6 +127,7 @@ Public Class frmFormulario
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton11)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraCheckEditor1)
         Me.UltraTabPageControl1.Controls.Add(Me.txtID)
         Me.UltraTabPageControl1.Controls.Add(Me.TxtDescripcion)
@@ -446,6 +448,14 @@ Public Class frmFormulario
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(740, 233)
         '
+        'UltraButton11
+        '
+        Me.UltraButton11.Location = New System.Drawing.Point(638, 123)
+        Me.UltraButton11.Name = "UltraButton11"
+        Me.UltraButton11.Size = New System.Drawing.Size(80, 31)
+        Me.UltraButton11.TabIndex = 38
+        Me.UltraButton11.Text = "Actualizar"
+        '
         'frmFormulario
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -762,4 +772,6 @@ Public Class frmFormulario
     'Private Sub TextBox1_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) , txtID.ValueChanged
 
     'End Sub
+
+    
 End Class

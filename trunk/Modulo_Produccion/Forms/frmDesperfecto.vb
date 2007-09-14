@@ -65,19 +65,19 @@ Public Class frmDesperfecto
         cargarCombo("select idmaquina, nombre from maquina", cmbMaquina, "nombre", "idmaquina")
         cargarCombo("select idmaquina, nombre from maquina", cmbMaquinaSearch, "nombre", "idmaquina")
 
+        If dsDesperfecto.Tables.Item(0).Rows.Count <> 0 Then
+            CalendarRotura.Value = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2)
+            txtCausa.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3)
+            CalendarReparacion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4)
+            txtCosto.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5)
+            cmbTipoDesperfecto.SelectedValue = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1)
+            cmbMaquina.SelectedValue = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6)
 
-        CalendarRotura.Value = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2)
-        txtCausa.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3)
-        CalendarReparacion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4)
-        txtCosto.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5)
-        cmbTipoDesperfecto.SelectedValue = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1)
-        cmbMaquina.SelectedValue = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6)
 
+            objDesperfecto.tomarDatos(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2), _
+                            DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6))
 
-        objDesperfecto.tomarDatos(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2), _
-                        DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6))
-
-        
+        End If
         'objDesperfecto.mostrarDatos(cmbTipoDesperfecto.SelectedValue, CalendarRotura.Value, txtCausa.Text, CalendarReparacion.Value, Double.Parse(txtCosto.Text), cmbMaquina.SelectedValue, txtNumDesperfecto.Text)
     End Sub
 
@@ -139,38 +139,40 @@ Public Class frmDesperfecto
     End Sub
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
+        Try
+            objDesperfecto.tomarDatos(txtNumDesperfecto.Text, cmbTipoDesperfecto.SelectedValue, CalendarRotura.Value, txtCausa.Text, CalendarReparacion.Text, txtCosto.Text, cmbMaquina.SelectedValue)
 
-        objDesperfecto.tomarDatos(txtNumDesperfecto.Text, cmbTipoDesperfecto.SelectedValue, CalendarRotura.Value, txtCausa.Text, CalendarReparacion.Text, txtCosto.Text, cmbMaquina.SelectedValue)
-
-        If bandGrabar = 1 Then
-            objDesperfecto.registrarDesperfecto(dsDesperfecto)
-        ElseIf bandGrabar = 2 Then
-            objDesperfecto.modificarDesperfecto(dsDesperfecto)
-        ElseIf bandGrabar = 3 Then
-            objDesperfecto.registrarReparacion(dsDesperfecto)
-        End If
-        If objDesperfecto.varCancelar = 0 Then
-            UltraButton1.Enabled = True
-            UltraButton2.Enabled = True
-            UltraButton3.Enabled = True
-            UltraButton4.Enabled = False
-            UltraButton5.Enabled = False
-            UltraButton6.Enabled = True
-            UltraButton7.Enabled = True
-            UltraButton8.Enabled = True
-            UltraButton9.Enabled = True
+            If bandGrabar = 1 Then
+                objDesperfecto.registrarDesperfecto(dsDesperfecto)
+            ElseIf bandGrabar = 2 Then
+                objDesperfecto.modificarDesperfecto(dsDesperfecto)
+            ElseIf bandGrabar = 3 Then
+                objDesperfecto.registrarReparacion(dsDesperfecto)
+            End If
+            If objDesperfecto.varCancelar = 0 Then
+                UltraButton1.Enabled = True
+                UltraButton2.Enabled = True
+                UltraButton3.Enabled = True
+                UltraButton4.Enabled = False
+                UltraButton5.Enabled = False
+                UltraButton6.Enabled = True
+                UltraButton7.Enabled = True
+                UltraButton8.Enabled = True
+                UltraButton9.Enabled = True
 
 
-            cmbMaquina.Enabled = False
-            cmbTipoDesperfecto.Enabled = False
-            txtCausa.Enabled = False
-            txtCosto.Enabled = False
-            txtNumDesperfecto.Enabled = False
-            CalendarReparacion.Enabled = False
-            CalendarRotura.Enabled = False
-            
-        End If
+                cmbMaquina.Enabled = False
+                cmbTipoDesperfecto.Enabled = False
+                txtCausa.Enabled = False
+                txtCosto.Enabled = False
+                txtNumDesperfecto.Enabled = False
+                CalendarReparacion.Enabled = False
+                CalendarRotura.Enabled = False
 
+            End If
+        Catch
+            MsgBox("La operacion no puede continuar", MsgBoxStyle.Information, "Operacion cancelada")
+        End Try
     End Sub
 
     Private Sub UltraButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton5.Click
@@ -183,8 +185,11 @@ Public Class frmDesperfecto
         UltraButton7.Enabled = True
         UltraButton8.Enabled = True
         UltraButton9.Enabled = True
-        CalendarReparacion.Visible = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
-        BtnReparacion.Enabled = Not (DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7))
+        Try
+            CalendarReparacion.Visible = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
+            BtnReparacion.Enabled = Not (DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7))
+        Catch
+        End Try
         cmbMaquina.Enabled = False
         cmbTipoDesperfecto.Enabled = False
         txtCausa.Enabled = False

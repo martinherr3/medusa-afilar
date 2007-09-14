@@ -65,29 +65,36 @@ Public Class frmMaquina
 
         txtNumMaquina.Text = 0
         ' esta funcion da solo formato a la grilla no la carga, de eso se encarga el datasource
-        cargarGrilla(DataGrid1, dsMaquina.Tables.Item(0), nombrescol, anchosgrid)
 
         cargarCombo("select * from estado", cmbEstado, "nombre", "idestado")
         cargarCombo("select * from tipomaquina", cmbTipoMAquina, "nombre", "idtipo")
 
-        txtNumMaquina.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0)
-        txtNombre.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1)
-        txtDescripcion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2)
-        txtNumeroSerie.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3)
-        txtPotencia.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4)
-        txtCostoCompra.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5)
-        txtEstadoAdquisicion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6)
-        cmbEstado.SelectedValue = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
-        txtHorasUso.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 8)
-        cmbTipoMAquina.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 9)
-        'arreglar
+        cargarGrilla(DataGrid1, dsMaquina.Tables.Item(0), nombrescol, anchosgrid)
+        If dsMaquina.Tables.Item(0).Rows.Count > 0 Then
 
 
-        objMaquina.tomarDatos(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2), _
-                        DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6), _
-                        DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 8), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 9))
+            txtNumMaquina.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0)
+            txtNombre.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1)
+            txtDescripcion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2)
+            txtNumeroSerie.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3)
+            txtPotencia.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4)
+            txtCostoCompra.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5)
+            txtEstadoAdquisicion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6)
+            cmbEstado.SelectedValue = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
+            txtHorasUso.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 8)
+            cmbTipoMAquina.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 9)
+            'arreglar
 
 
+            objMaquina.tomarDatos(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2), _
+                            DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6), _
+                            DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 8), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 9))
+
+        Else
+            UltraButton2.Enabled = False
+            UltraButton3.Enabled = False
+
+        End If
         'objMaquina.mostrarDatos(cmbTipoMaquina.SelectedValue, CalendarRotura.Value, txtCausa.Text, CalendarReparacion.Value, Double.Parse(txtCosto.Text), cmbMaquina.SelectedValue, txtNumMaquina.Text)
     End Sub
 
@@ -114,8 +121,13 @@ Public Class frmMaquina
         txtEstadoAdquisicion.Text = ""
         cmbEstado.SelectedValue = 0
         txtHorasUso.Text = "0"
-        cmbTipoMAquina.SelectedIndex = 1
-
+        Try
+            cmbTipoMAquina.SelectedIndex = 0
+        Catch
+            MsgBox("La operacion no puede continuar ya que no existe ningun tipo de maquina disponible", MsgBoxStyle.OkOnly, "Error de Carga")
+            UltraButton5.PerformClick()
+            Exit Sub
+        End Try
         txtNumMaquina.Enabled = False
         txtNombre.Enabled = True
         txtDescripcion.Enabled = True
@@ -158,11 +170,14 @@ Public Class frmMaquina
     End Sub
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
-
-        objMaquina.tomarDatos(txtNumMaquina.Text, txtNombre.Text, txtDescripcion.Text, txtNumeroSerie.Text, txtPotencia.Text, _
-        Double.Parse(txtCostoCompra.Text), txtEstadoAdquisicion.Text, cmbEstado.SelectedValue, Integer.Parse(txtHorasUso.Text), _
-        cmbTipoMAquina.Text)
-
+        Try
+            objMaquina.tomarDatos(txtNumMaquina.Text, txtNombre.Text, txtDescripcion.Text, txtNumeroSerie.Text, txtPotencia.Text, _
+            Double.Parse(txtCostoCompra.Text), txtEstadoAdquisicion.Text, cmbEstado.SelectedValue, Integer.Parse(txtHorasUso.Text), _
+            cmbTipoMAquina.Text)
+        Catch
+            MsgBox("Verifique que los datos ingresados sean correctos", MsgBoxStyle.Information, "Error de carga")
+            Exit Sub
+        End Try
         If bandGrabar = 1 Then
             objMaquina.registrarMaquina(dsMaquina)
         Else

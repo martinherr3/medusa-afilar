@@ -551,12 +551,14 @@ Public Class abmOperacion
 
 
         cargarComboTag("select idgradodificultad, nombre from gradodificultad", comboDif, 0, 12)
-
-        fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-        comboDif.Text = fila.Item(1)
-
-        mostrarPosicion("operacion")
-
+        If ds.Tables("operacion").Rows.Count <> 0 Then
+            fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
+            Try
+                comboDif.Text = fila.Item(1)
+            Catch
+            End Try
+            mostrarPosicion("operacion")
+        End If
 
         princ.barra.agregarBoton(Me)
 
@@ -690,28 +692,40 @@ Public Class abmOperacion
         BindingContext(ds, tabla).Position += 1
         mostrarPosicion(tabla)
         fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-        comboDif.Text = fila.Item(1)
+        Try
+            comboDif.Text = fila.Item(1)
+        Catch
+        End Try
     End Sub
 
     Private Sub UltraButton6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton6.Click
         BindingContext(ds, tabla).Position = BindingContext(ds, tabla).Count - 1
         mostrarPosicion(tabla)
         fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-        comboDif.Text = fila.Item(1)
+        Try
+            comboDif.Text = fila.Item(1)
+        Catch
+        End Try
     End Sub
 
     Private Sub UltraButton8_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton8.Click
         BindingContext(ds, tabla).Position = 0
         mostrarPosicion(tabla)
         fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-        comboDif.Text = fila.Item(1)
+        Try
+            comboDif.Text = fila.Item(1)
+        Catch
+        End Try
     End Sub
 
     Private Sub UltraButton9_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton9.Click
         BindingContext(ds, tabla).Position -= 1
         mostrarPosicion(tabla)
         fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-        comboDif.Text = fila.Item(1)
+        Try
+            comboDif.Text = fila.Item(1)
+        Catch
+        End Try
     End Sub
 
     Private Sub abmOperacion_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
