@@ -166,8 +166,11 @@ Public Class Maquina
             idmaximo = tbMaquina.Select("idMaquina=max(idMaquina)")
             Dim nuevafila As DataRow
             nuevafila = tbMaquina.NewRow()
-            nuevafila(0) = CType(idmaximo(0).Item(0), Integer) + 1
-
+            If idmaximo.Length <> 0 Then
+                nuevafila(0) = CType(idmaximo(0).Item(0), Integer) + 1
+            Else
+                nuevafila(0) = 1
+            End If
             nuevafila(1) = strNombre
             nuevafila(2) = strDescripcion
             nuevafila(3) = strNumeroDeSerie
@@ -324,6 +327,10 @@ Public Class Maquina
         idmaximo = tbMaquina.Select("idMaquina=max(idMaquina)")
         Dim nuevafila As DataRow
         nuevafila = tbMaquina.NewRow()
-        Return CType(idmaximo(0).Item(0), Integer) + 1
+        If idmaximo.Length <> 0 Then
+            Return CType(idmaximo(0).Item(0), Integer) + 1
+        Else
+            Return 1
+        End If
     End Function
 End Class

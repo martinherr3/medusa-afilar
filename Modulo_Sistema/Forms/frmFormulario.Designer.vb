@@ -559,4 +559,5 @@ Partial Class frmFormulario
     Friend WithEvents UltraTabPageControl2 As Infragistics.Win.UltraWinTabControl.UltraTabPageControl
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
     Friend WithEvents UltraCheckEditor1 As Infragistics.Win.UltraWinEditors.UltraCheckEditor
+    Friend WithEvents UltraButton11 As Infragistics.Win.Misc.UltraButton
 End Class

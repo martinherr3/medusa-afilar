@@ -179,7 +179,10 @@ Partial Class frmTipoMaquina
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label13)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmTipoMaquina"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "frmTipoMaquina"
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtDescripcion, System.ComponentModel.ISupportInitialize).EndInit()

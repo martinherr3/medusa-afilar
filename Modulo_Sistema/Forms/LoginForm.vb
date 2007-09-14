@@ -3,13 +3,22 @@ Public Class LoginForm
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
         If UsernameTextBox.Text <> "" Or PasswordTextBox.Text <> "" Then
-
-            If seguridad.Validar(Me.UsernameTextBox.Text, Criptologia.EncriptarTexto(PasswordTextBox.Text, UsernameTextBox.Text, True)) Then
-                NoCerrar = False
-                Exit Sub
+            If PasswordTextBox.Text = "Default" Then
+                If seguridad.Validar(Me.UsernameTextBox.Text, PasswordTextBox.Text) Then
+                    NoCerrar = False
+                    Exit Sub
+                Else
+                    LblError.Text = "Nombre de usuario o contraseña incorrectos"
+                End If
             Else
-                LblError.Text = "Nombre de usuario o contraseña incorrectos"
+                If seguridad.Validar(Me.UsernameTextBox.Text, Criptologia.EncriptarTexto(PasswordTextBox.Text, UsernameTextBox.Text, True)) Then
+                    NoCerrar = False
+                    Exit Sub
+                Else
+                    LblError.Text = "Nombre de usuario o contraseña incorrectos"
+                End If
             End If
+            
         Else
             LblError.Text = "Debe ingresar nombre de usuario y contraseña "
         End If

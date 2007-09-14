@@ -281,7 +281,11 @@ Public Class Desperfecto
         idmaximo = tbDesperfecto.Select("idDesperfecto=max(idDesperfecto)")
         Dim nuevafila As DataRow
         nuevafila = tbDesperfecto.NewRow()
-        Return CType(idmaximo(0).Item(0), Integer) + 1
+        If idmaximo.Length <> 0 Then
+            Return CType(idmaximo(0).Item(0), Integer) + 1
+        Else
+            Return 1
+        End If
     End Function
     Public Sub registrarReparacion(ByVal dscl As DataSet)
 

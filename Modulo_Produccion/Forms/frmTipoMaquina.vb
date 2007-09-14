@@ -34,16 +34,29 @@ Public Class frmTipoMaquina
 
     Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
         objTMaquina.eliminarTMaquina(dsTMaquina)
+        UltraButton5.PerformClick()
     End Sub
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
-        objTMaquina.tomarDatos(DataGrid1.Item(DataGrid1.CurrentRowIndex, 2), txtNombre.Text, txtDescripcion.Text)
+
+
 
         If bandGrabar = 1 Then
-            objTMaquina.registrarTMaquina(dsTMaquina)
+            If txtNombre.Text <> "" Then
+                objTMaquina.tomarDatos(0, txtNombre.Text, txtDescripcion.Text)
+                objTMaquina.registrarTMaquina(dsTMaquina)
+            End If
         Else
-            objTMaquina.modificarTMaquina(dsTMaquina)
+            Try
+
+                objTMaquina.tomarDatos(DataGrid1.Item(DataGrid1.CurrentRowIndex, 2), txtNombre.Text, txtDescripcion.Text)
+                objTMaquina.modificarTMaquina(dsTMaquina)
+
+            Catch
+                MsgBox("El sistema no puede procesar la solisitud, por favor seleccione el item a modificar", MsgBoxStyle.Information, "Error")
+            End Try
         End If
+
         If objTMaquina.varCancelar = 0 Then
             UltraButton1.Enabled = True
             UltraButton2.Enabled = True
@@ -54,6 +67,7 @@ Public Class frmTipoMaquina
             txtNombre.Enabled = False
             txtDescripcion.Enabled = False
         End If
+
     End Sub
 
     Private Sub UltraButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton5.Click
@@ -91,14 +105,15 @@ Public Class frmTipoMaquina
         anchosgrid(2) = 100
 
         cargarGrilla(DataGrid1, dsTMaquina.Tables.Item(0), nombrescol, anchosgrid)
+        If dsTMaquina.Tables.Item(0).Rows.Count > 0 Then
 
+            txtNombre.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1)
+            txtDescripcion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2)
 
-        txtNombre.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1)
-        txtDescripcion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2)
+            objTMaquina.tomarDatos(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1))
 
-        objTMaquina.tomarDatos(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1))
-
-        objTMaquina.mostrarDatos(txtNombre.Text, txtDescripcion.Text)
+            objTMaquina.mostrarDatos(txtNombre.Text, txtDescripcion.Text)
+        End If
     End Sub
 
     Private Sub DataGrid1_CurrentCellChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGrid1.CurrentCellChanged

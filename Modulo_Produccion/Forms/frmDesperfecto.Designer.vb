@@ -60,6 +60,7 @@ Partial Class frmDesperfecto
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.checkMaqina = New System.Windows.Forms.CheckBox
         Me.cmbMaquinaSearch = New System.Windows.Forms.ComboBox
@@ -69,7 +70,6 @@ Partial Class frmDesperfecto
         Me.Label4 = New System.Windows.Forms.Label
         Me.UltraTextEditor1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
-        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage2 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
@@ -357,6 +357,14 @@ Partial Class frmDesperfecto
         Me.UltraButton3.TabIndex = 13
         Me.UltraButton3.Text = "&Eliminar"
         '
+        'UltraButton10
+        '
+        Me.UltraButton10.Location = New System.Drawing.Point(640, 224)
+        Me.UltraButton10.Name = "UltraButton10"
+        Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
+        Me.UltraButton10.TabIndex = 14
+        Me.UltraButton10.Text = "Salir"
+        '
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.checkMaqina)
@@ -468,14 +476,6 @@ Partial Class frmDesperfecto
         Me.DataGrid1.Size = New System.Drawing.Size(704, 155)
         Me.DataGrid1.TabIndex = 20
         '
-        'UltraButton10
-        '
-        Me.UltraButton10.Location = New System.Drawing.Point(640, 224)
-        Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
-        Me.UltraButton10.TabIndex = 14
-        Me.UltraButton10.Text = "Salir"
-        '
         'UltraTabControl1
         '
         Appearance8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -524,7 +524,10 @@ Partial Class frmDesperfecto
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(747, 282)
         Me.Controls.Add(Me.UltraTabControl1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmDesperfecto"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "frmDesperfecto"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()

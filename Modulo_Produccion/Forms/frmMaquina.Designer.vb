@@ -58,7 +58,9 @@ Partial Class frmMaquina
         Me.UltraButton9 = New Infragistics.Win.Misc.UltraButton
         Me.Label9 = New System.Windows.Forms.Label
         Me.cmbEstado = New System.Windows.Forms.ComboBox
+        Me.Label16 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
+        Me.Label15 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.cmbTipoMAquina = New System.Windows.Forms.ComboBox
         Me.Label3 = New System.Windows.Forms.Label
@@ -76,8 +78,6 @@ Partial Class frmMaquina
         Me.UltraTabSharedControlsPage3 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
-        Me.Label15 = New System.Windows.Forms.Label
-        Me.Label16 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.txtHorasUso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtEstadoAdquisicion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,7 +139,7 @@ Partial Class frmMaquina
         Me.txtHorasUso.Location = New System.Drawing.Point(535, 127)
         Me.txtHorasUso.Name = "txtHorasUso"
         Me.txtHorasUso.Size = New System.Drawing.Size(128, 21)
-        Me.txtHorasUso.TabIndex = 51
+        Me.txtHorasUso.TabIndex = 10
         '
         'Label13
         '
@@ -161,7 +161,7 @@ Partial Class frmMaquina
         Me.txtEstadoAdquisicion.Location = New System.Drawing.Point(535, 72)
         Me.txtEstadoAdquisicion.Name = "txtEstadoAdquisicion"
         Me.txtEstadoAdquisicion.Size = New System.Drawing.Size(128, 21)
-        Me.txtEstadoAdquisicion.TabIndex = 47
+        Me.txtEstadoAdquisicion.TabIndex = 9
         '
         'Label11
         '
@@ -183,7 +183,7 @@ Partial Class frmMaquina
         Me.txtCostoCompra.Location = New System.Drawing.Point(114, 153)
         Me.txtCostoCompra.Name = "txtCostoCompra"
         Me.txtCostoCompra.Size = New System.Drawing.Size(128, 21)
-        Me.txtCostoCompra.TabIndex = 45
+        Me.txtCostoCompra.TabIndex = 6
         '
         'Label10
         '
@@ -205,7 +205,7 @@ Partial Class frmMaquina
         Me.txtPotencia.Location = New System.Drawing.Point(114, 125)
         Me.txtPotencia.Name = "txtPotencia"
         Me.txtPotencia.Size = New System.Drawing.Size(128, 21)
-        Me.txtPotencia.TabIndex = 43
+        Me.txtPotencia.TabIndex = 5
         '
         'Label8
         '
@@ -227,7 +227,7 @@ Partial Class frmMaquina
         Me.txtNumeroSerie.Location = New System.Drawing.Point(114, 97)
         Me.txtNumeroSerie.Name = "txtNumeroSerie"
         Me.txtNumeroSerie.Size = New System.Drawing.Size(128, 21)
-        Me.txtNumeroSerie.TabIndex = 41
+        Me.txtNumeroSerie.TabIndex = 4
         '
         'Label7
         '
@@ -249,7 +249,7 @@ Partial Class frmMaquina
         Me.txtNumMaquina.Location = New System.Drawing.Point(535, 16)
         Me.txtNumMaquina.Name = "txtNumMaquina"
         Me.txtNumMaquina.Size = New System.Drawing.Size(128, 21)
-        Me.txtNumMaquina.TabIndex = 1
+        Me.txtNumMaquina.TabIndex = 7
         '
         'txtDescripcion
         '
@@ -261,7 +261,7 @@ Partial Class frmMaquina
         Me.txtDescripcion.Location = New System.Drawing.Point(114, 69)
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(128, 21)
-        Me.txtDescripcion.TabIndex = 4
+        Me.txtDescripcion.TabIndex = 3
         '
         'txtNombre
         '
@@ -337,7 +337,17 @@ Partial Class frmMaquina
         Me.cmbEstado.Location = New System.Drawing.Point(535, 45)
         Me.cmbEstado.Name = "cmbEstado"
         Me.cmbEstado.Size = New System.Drawing.Size(128, 21)
-        Me.cmbEstado.TabIndex = 7
+        Me.cmbEstado.TabIndex = 8
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label16.Location = New System.Drawing.Point(418, 49)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(40, 13)
+        Me.Label16.TabIndex = 31
+        Me.Label16.Text = "Estado"
         '
         'Label5
         '
@@ -348,6 +358,16 @@ Partial Class frmMaquina
         Me.Label5.Size = New System.Drawing.Size(63, 13)
         Me.Label5.TabIndex = 30
         Me.Label5.Text = "Descripcion"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label15.Location = New System.Drawing.Point(418, 19)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(44, 13)
+        Me.Label15.TabIndex = 23
+        Me.Label15.Text = "Número"
         '
         'Label1
         '
@@ -366,7 +386,7 @@ Partial Class frmMaquina
         Me.cmbTipoMAquina.Location = New System.Drawing.Point(114, 16)
         Me.cmbTipoMAquina.Name = "cmbTipoMAquina"
         Me.cmbTipoMAquina.Size = New System.Drawing.Size(270, 21)
-        Me.cmbTipoMAquina.TabIndex = 0
+        Me.cmbTipoMAquina.TabIndex = 1
         '
         'Label3
         '
@@ -403,7 +423,7 @@ Partial Class frmMaquina
         Me.UltraButton5.Location = New System.Drawing.Point(559, 236)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(80, 31)
-        Me.UltraButton5.TabIndex = 10
+        Me.UltraButton5.TabIndex = 12
         Me.UltraButton5.Text = "&Cancelar"
         '
         'UltraButton4
@@ -415,7 +435,7 @@ Partial Class frmMaquina
         Me.UltraButton4.Location = New System.Drawing.Point(471, 236)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(80, 31)
-        Me.UltraButton4.TabIndex = 9
+        Me.UltraButton4.TabIndex = 11
         Me.UltraButton4.Text = "&Grabar"
         '
         'UltraButton3
@@ -448,11 +468,12 @@ Partial Class frmMaquina
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Location = New System.Drawing.Point(214, 23)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(40, 13)
+        Me.Label4.Size = New System.Drawing.Size(47, 13)
         Me.Label4.TabIndex = 21
-        Me.Label4.Text = "Causa:"
+        Me.Label4.Text = "Nombre:"
         '
         'UltraTextEditor1
         '
@@ -539,33 +560,16 @@ Partial Class frmMaquina
         Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
         Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
         '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label15.Location = New System.Drawing.Point(418, 19)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(44, 13)
-        Me.Label15.TabIndex = 23
-        Me.Label15.Text = "Número"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label16.Location = New System.Drawing.Point(418, 49)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(40, 13)
-        Me.Label16.TabIndex = 31
-        Me.Label16.Text = "Estado"
-        '
         'frmMaquina
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(746, 338)
         Me.Controls.Add(Me.UltraTabControl1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmMaquina"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "frmMaquina"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()

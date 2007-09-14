@@ -6,7 +6,7 @@ Public Class principal
     Private i As System.Drawing.Image
     Private band As Boolean = True
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Private mMenu As New System.Windows.Forms.MainMenu()
+    Public mMenu As New System.Windows.Forms.MainMenu()
     Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
     Private logeo As New LoginForm
 
@@ -238,14 +238,21 @@ Public Class principal
         bloquearPantalla(True)
         logeo.ShowDialog()
         bloquearPantalla(False)
-        Dim form As New treeview
+        Dim form As New frmMaquina
         form.MdiParent = Me
         form.Show()
-        form.Location = New Point(500, 200)
+        'form.Location = New Point(500, 200)
         barra = New BarraDeEstado(UltraStatusBar1)
+        Actualizar()
+        'GestorFrm.InitMenu(Me.UltraExplorerBar1, mMenu, Me)
+        'Me.Menu = mMenu
+        Mensajeria.getMensajes(seguridad.id, LinkLabel1)
+    End Sub
+    Public Sub Actualizar()
         GestorFrm.InitMenu(Me.UltraExplorerBar1, mMenu, Me)
         Me.Menu = mMenu
-        Mensajeria.getMensajes(seguridad.id, LinkLabel1)
+        Me.Refresh()
+
     End Sub
     Public Sub mnu_Click(ByVal sender As Object, ByVal e As System.EventArgs)
         Dim formtoopen As String
