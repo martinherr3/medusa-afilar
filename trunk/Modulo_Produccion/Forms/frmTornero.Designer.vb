@@ -62,11 +62,11 @@ Partial Class frmTornero
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.txtNombreBuscar = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label2 = New System.Windows.Forms.Label
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
-        Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage2 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
@@ -129,7 +129,7 @@ Partial Class frmTornero
         Me.txtObservaciones.Location = New System.Drawing.Point(93, 115)
         Me.txtObservaciones.Name = "txtObservaciones"
         Me.txtObservaciones.Size = New System.Drawing.Size(241, 21)
-        Me.txtObservaciones.TabIndex = 42
+        Me.txtObservaciones.TabIndex = 6
         '
         'Label1
         '
@@ -161,7 +161,7 @@ Partial Class frmTornero
         Me.txtEfectividad.Location = New System.Drawing.Point(432, 118)
         Me.txtEfectividad.Name = "txtEfectividad"
         Me.txtEfectividad.Size = New System.Drawing.Size(128, 21)
-        Me.txtEfectividad.TabIndex = 39
+        Me.txtEfectividad.TabIndex = 7
         '
         'txtCantidad
         '
@@ -173,7 +173,7 @@ Partial Class frmTornero
         Me.txtCantidad.Location = New System.Drawing.Point(432, 91)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(128, 21)
-        Me.txtCantidad.TabIndex = 8
+        Me.txtCantidad.TabIndex = 5
         '
         'txtDireccion
         '
@@ -185,7 +185,7 @@ Partial Class frmTornero
         Me.txtDireccion.Location = New System.Drawing.Point(432, 64)
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(184, 21)
-        Me.txtDireccion.TabIndex = 5
+        Me.txtDireccion.TabIndex = 3
         '
         'txtApellido
         '
@@ -197,7 +197,7 @@ Partial Class frmTornero
         Me.txtApellido.Location = New System.Drawing.Point(432, 40)
         Me.txtApellido.Name = "txtApellido"
         Me.txtApellido.Size = New System.Drawing.Size(184, 21)
-        Me.txtApellido.TabIndex = 3
+        Me.txtApellido.TabIndex = 1
         '
         'txtCelular
         '
@@ -209,7 +209,7 @@ Partial Class frmTornero
         Me.txtCelular.Location = New System.Drawing.Point(74, 91)
         Me.txtCelular.Name = "txtCelular"
         Me.txtCelular.Size = New System.Drawing.Size(128, 21)
-        Me.txtCelular.TabIndex = 6
+        Me.txtCelular.TabIndex = 4
         '
         'txtTelefono
         '
@@ -221,7 +221,7 @@ Partial Class frmTornero
         Me.txtTelefono.Location = New System.Drawing.Point(74, 64)
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(128, 21)
-        Me.txtTelefono.TabIndex = 4
+        Me.txtTelefono.TabIndex = 2
         '
         'txtNombre
         '
@@ -233,7 +233,7 @@ Partial Class frmTornero
         Me.txtNombre.Location = New System.Drawing.Point(74, 40)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(190, 21)
-        Me.txtNombre.TabIndex = 2
+        Me.txtNombre.TabIndex = 0
         '
         'Label10
         '
@@ -371,7 +371,7 @@ Partial Class frmTornero
         Me.UltraButton5.Location = New System.Drawing.Point(552, 192)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(80, 24)
-        Me.UltraButton5.TabIndex = 10
+        Me.UltraButton5.TabIndex = 9
         Me.UltraButton5.Text = "&Cancelar"
         '
         'UltraButton4
@@ -382,7 +382,7 @@ Partial Class frmTornero
         Me.UltraButton4.Location = New System.Drawing.Point(464, 192)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(80, 24)
-        Me.UltraButton4.TabIndex = 9
+        Me.UltraButton4.TabIndex = 8
         Me.UltraButton4.Text = "&Grabar"
         '
         'UltraButton3
@@ -392,6 +392,14 @@ Partial Class frmTornero
         Me.UltraButton3.Size = New System.Drawing.Size(80, 24)
         Me.UltraButton3.TabIndex = 13
         Me.UltraButton3.Text = "&Eliminar"
+        '
+        'UltraButton10
+        '
+        Me.UltraButton10.Location = New System.Drawing.Point(640, 192)
+        Me.UltraButton10.Name = "UltraButton10"
+        Me.UltraButton10.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton10.TabIndex = 10
+        Me.UltraButton10.Text = "Salir"
         '
         'UltraTabPageControl2
         '
@@ -453,14 +461,6 @@ Partial Class frmTornero
         Me.DataGrid1.Size = New System.Drawing.Size(704, 150)
         Me.DataGrid1.TabIndex = 20
         '
-        'UltraButton10
-        '
-        Me.UltraButton10.Location = New System.Drawing.Point(640, 192)
-        Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(80, 24)
-        Me.UltraButton10.TabIndex = 14
-        Me.UltraButton10.Text = "Salir"
-        '
         'UltraTabControl1
         '
         Appearance11.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -516,7 +516,10 @@ Partial Class frmTornero
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(748, 259)
         Me.Controls.Add(Me.UltraTabControl1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmTornero"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "frmTornero"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()

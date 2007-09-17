@@ -141,8 +141,11 @@ Public Class Tornero
             idmaximo = tbTornero.Select("idtornero=max(idtornero)")
             Dim nuevafila As DataRow
             nuevafila = tbTornero.NewRow()
-            nuevafila(0) = CType(idmaximo(0).Item(0), Integer) + 1
-
+            If idmaximo.Length <> 0 Then
+                nuevafila(0) = CType(idmaximo(0).Item(0), Integer) + 1
+            Else
+                nuevafila(0) = 1
+            End If
             nuevafila(1) = nombreTornero
             nuevafila(2) = apellidoTornero
             nuevafila(3) = direccionTornero

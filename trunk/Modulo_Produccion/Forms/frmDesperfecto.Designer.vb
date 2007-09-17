@@ -110,8 +110,7 @@ Partial Class frmDesperfecto
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton5)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton4)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton10)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(740, 258)
         '
@@ -375,7 +374,8 @@ Partial Class frmDesperfecto
         Me.UltraTabPageControl2.Controls.Add(Me.Label4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraTextEditor1)
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton10)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(740, 258)
         '
@@ -498,10 +498,10 @@ Partial Class frmDesperfecto
         Me.UltraTabControl1.Size = New System.Drawing.Size(744, 281)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
         Me.UltraTabControl1.TabIndex = 1
-        UltraTab1.TabPage = Me.UltraTabPageControl1
-        UltraTab1.Text = "Gestionar"
-        UltraTab2.TabPage = Me.UltraTabPageControl2
-        UltraTab2.Text = "Consultar"
+        UltraTab1.TabPage = Me.UltraTabPageControl2
+        UltraTab1.Text = "Consultar"
+        UltraTab2.TabPage = Me.UltraTabPageControl1
+        UltraTab2.Text = "Gestionar"
         Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
         Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
         '

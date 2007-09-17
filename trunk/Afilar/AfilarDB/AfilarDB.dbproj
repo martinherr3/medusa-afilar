@@ -159,6 +159,12 @@
     </NotInBuild>
   </ItemGroup>
   <ItemGroup>
+    <Build Include="Schema Objects\dbo.trig_insert_Empleado.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\dbo.trig_update_TipoMateriaPrima.trigger.sql">
+      <SubType>Code</SubType>
+    </Build>
     <Build Include="Schema Objects\Stored Procedures\dbo.sp_generate_inserts.proc.sql">
       <SubType>Code</SubType>
     </Build>
