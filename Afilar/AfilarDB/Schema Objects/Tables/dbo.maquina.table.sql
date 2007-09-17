@@ -8,7 +8,7 @@
 [costodecompra] [decimal] (18, 0) NULL,
 [estadodeadquisicion] [char] (20) COLLATE Traditional_Spanish_CI_AS NULL,
 [idestado] [int] NULL,
-[horasdeuso] [datetime] NULL,
+[horasdeuso] [int] NULL,
 [tipomaquina] [char] (40) COLLATE Traditional_Spanish_CI_AS NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 

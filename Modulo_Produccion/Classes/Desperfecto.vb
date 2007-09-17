@@ -136,8 +136,11 @@ Public Class Desperfecto
             idmaximo = tbDesperfecto.Select("idDesperfecto=max(idDesperfecto)")
             Dim nuevafila As DataRow
             nuevafila = tbDesperfecto.NewRow()
-            nuevafila(0) = CType(idmaximo(0).Item(0), Integer) + 1
-
+            If idmaximo.Length <> 0 Then
+                nuevafila(0) = CType(idmaximo(0).Item(0), Integer) + 1
+            Else
+                nuevafila(0) = 1
+            End If
             nuevafila(1) = intIdTipoDesperfecto
             nuevafila(2) = dateFechaRotura
             nuevafila(3) = strCausa

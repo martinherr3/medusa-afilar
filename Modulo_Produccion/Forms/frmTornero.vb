@@ -41,27 +41,40 @@ Public Class frmTornero
 
         ' esta funcion da solo formato a la grilla no la carga, de eso se encarga el datasource
         cargarGrilla(DataGrid1, dsTornero.Tables.Item(0), nombrescol, anchosgrid)
-
-        txtNombre.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1)
-        txtApellido.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2)
-        txtDireccion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3)
-        txtTelefono.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4)
-        txtCelular.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5)
-        txtCantidad.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6)
-        txtEfectividad.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
-        txtObservaciones.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 8)
-
-
+        If dsTornero.Tables.Item(0).Rows.Count <> 0 Then
+            txtNombre.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1)
+            txtApellido.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2)
+            txtDireccion.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3)
+            txtTelefono.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4)
+            txtCelular.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5)
+            txtCantidad.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6)
+            txtEfectividad.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
+            txtObservaciones.Text = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 8)
 
 
 
-        objTornero.tomarDatos(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2), _
-                        DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5), _
-                        DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 8))
 
-        objTornero.mostrarDatos(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, _
-        txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
 
+            objTornero.tomarDatos(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2), _
+                            DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5), _
+                            DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 8))
+
+            objTornero.mostrarDatos(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, _
+            txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
+        End If
+        UltraButton1.Enabled = True
+        UltraButton2.Enabled = True
+        UltraButton3.Enabled = True
+        UltraButton4.Enabled = False
+        UltraButton5.Enabled = False
+        txtNombre.Enabled = False
+        txtApellido.Enabled = False
+        txtDireccion.Enabled = False
+        txtTelefono.Enabled = False
+        txtCelular.Enabled = False
+        txtCantidad.Enabled = False
+        txtEfectividad.Enabled = False
+        txtObservaciones.Enabled = False
     End Sub
 
     Private Sub DataGrid1_CurrentCellChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGrid1.CurrentCellChanged
@@ -123,36 +136,53 @@ Public Class frmTornero
 
     Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
         objTornero.eliminarTornero(dsTornero)
+        txtApellido.Text = ""
+        txtCantidad.Text = ""
+        txtCelular.Text = ""
+        txtDireccion.Text = ""
+        txtEfectividad.Text = ""
+        txtNombre.Text = ""
+        txtObservaciones.Text = ""
+        txtTelefono.Text = ""
+
     End Sub
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
 
-        objTornero.tomarDatos(DataGrid1.Item(DataGrid1.CurrentRowIndex, 0), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, _
-       txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
 
-        If bandGrabar = 1 Then
-            objTornero.registrarTornero(dsTornero)
-        Else
-            objTornero.modificarTornero(dsTornero)
-        End If
-        If objTornero.varCancelar = 0 Then
-            UltraButton1.Enabled = True
-            UltraButton2.Enabled = True
-            UltraButton3.Enabled = True
-            UltraButton4.Enabled = False
-            UltraButton5.Enabled = False
+        Try
+            If bandGrabar = 1 Then
+                objTornero.registrarTornero(dsTornero)
+                objTornero.tomarDatos(1, txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, _
+           txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
+
+            Else
+                objTornero.modificarTornero(dsTornero)
+                objTornero.tomarDatos(DataGrid1.Item(DataGrid1.CurrentRowIndex, 0), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, _
+           txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
+
+            End If
+        
+            If objTornero.varCancelar = 0 Then
+                UltraButton1.Enabled = True
+                UltraButton2.Enabled = True
+                UltraButton3.Enabled = True
+                UltraButton4.Enabled = False
+                UltraButton5.Enabled = False
 
 
-            txtNombre.Enabled = False
-            txtApellido.Enabled = False
-            txtDireccion.Enabled = False
-            txtTelefono.Enabled = False
-            txtCelular.Enabled = False
-            txtCantidad.Enabled = False
-            txtEfectividad.Enabled = False
-            txtObservaciones.Enabled = False
-        End If
-
+                txtNombre.Enabled = False
+                txtApellido.Enabled = False
+                txtDireccion.Enabled = False
+                txtTelefono.Enabled = False
+                txtCelular.Enabled = False
+                txtCantidad.Enabled = False
+                txtEfectividad.Enabled = False
+                txtObservaciones.Enabled = False
+            End If
+        Catch
+            MsgBox("El sistema no puede continuar con la operacion, por favor verifique los datos ingresados", MsgBoxStyle.Information, "Error de carga de datos")
+        End Try
     End Sub
 
     Private Sub UltraButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton5.Click
