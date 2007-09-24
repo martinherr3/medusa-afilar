@@ -1,5 +1,5 @@
 ﻿Create Trigger trig_update_TipoMateriaPrima
-on [Afilar].[dbo].[tipomateriaprima]
+on [tipomateriaprima]
 For Update
 as
 INSERT INTO [Afilar].[dbo].[mensaje]
