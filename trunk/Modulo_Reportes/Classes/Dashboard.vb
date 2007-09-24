@@ -7,8 +7,6 @@ Public Class Dashboard
 
     Public Sub obtenerDatosProduccion(ByVal desde As Date, ByVal hasta As Date, ByRef graph As Dundas.Charting.WinControl.Chart)
 
-
-        'Dim resultado As New SqlClient.SqlDataReader
         selectCommand.Connection = cnn
         selectCommand.Connection.Open()
         selectCommand.CommandText = "SELECT TOP 12 SUM(f.precio) As precio, SUM(f.costofabricacion) As costo, MONTH(f.fechafinfabricacion) As mes, YEAR(f.fechafinfabricacion) As ano" & _
@@ -35,8 +33,6 @@ Public Class Dashboard
             xval.SetValue(Convert.ToString(reader.Item(2)) + "-" + Convert.ToString(reader.Item(3)), i)
             i = i + 1
         End While
-
-        'graph.Series("servicios").Points.DataBind(reader, "mes", "precio", "Tooltip=mes, Label=precio{C1}")
 
         graph.Series("fresas").Points.DataBindXY(xval, yval)
 
@@ -74,8 +70,6 @@ Public Class Dashboard
             i = i + 1
         End While
 
-        'graph.Series("servicios").Points.DataBind(reader, "mes", "precio", "Tooltip=mes, Label=precio{C1}")
-
         graph.Series("servicios").Points.DataBindXY(xval, yval)
 
         selectCommand.Connection.Close()
@@ -83,5 +77,154 @@ Public Class Dashboard
     End Sub
 
 
+    Public Sub obtenerPorcentajesServicio(ByVal desde As Date, ByVal hasta As Date, ByRef graph As Dundas.Charting.WinControl.Chart)
+
+        selectCommand.Connection = cnn
+        selectCommand.Connection.Open()
+        selectCommand.CommandText = "SELECT o.nombre, COUNT(o.nombre)" & _
+                                    " FROM detalleordenservicio dos" & _
+                                    " INNER JOIN operacion o ON dos.idoperacion = o.idoperacion" & _
+                                    " INNER JOIN pedido p ON dos.idpedido = p.idpedido" & _
+                                    " WHERE p.fecharealizacion > '" + desde.Date + "'" & _
+                                    " AND p.fecharealizacion < '" + hasta.Date + "'" & _
+                                    " GROUP BY o.nombre"
+
+        selectCommand.CommandType = CommandType.Text
+        adapter.SelectCommand = selectCommand
+        adapter.Fill(ds, "porcentajeServicios")
+        Dim i As Integer = ds.Tables("porcentajeServicios").Rows.Count - 1
+        reader = selectCommand.ExecuteReader
+
+        Dim yval(i) As Double
+        Dim xval(i) As String
+        i = 0
+
+        While reader.Read
+            yval.SetValue(Convert.ToDouble(reader.Item(1)), i)
+            xval.SetValue(Convert.ToString(reader.Item(0)), i)
+            i = i + 1
+        End While
+
+        graph.Series("Servicios").Points.DataBindXY(xval, yval)
+
+        selectCommand.Connection.Close()
+
+    End Sub
+
+
+    Public Sub obtenerPorcentajesFresa(ByVal desde As Date, ByVal hasta As Date, ByRef graph As Dundas.Charting.WinControl.Chart)
+
+        selectCommand.Connection = cnn
+        selectCommand.Connection.Open()
+        selectCommand.CommandText = "SELECT mf.nombre, COUNT(mf.idmodelo)" & _
+                                    " FROM fresa f" & _
+                                    " INNER JOIN modelofresa mf ON f.idmodelo = mf.idmodelo" & _
+                                    " INNER JOIN pedido p ON f.nropedido = p.idpedido" & _
+                                    " WHERE p.fecharealizacion > '" + desde.Date + "'" & _
+                                    " AND p.fecharealizacion < '" + hasta.Date + "'" & _
+                                    " GROUP BY mf.nombre"
+
+        selectCommand.CommandType = CommandType.Text
+        adapter.SelectCommand = selectCommand
+        adapter.Fill(ds, "porcentajeFresas")
+        Dim i As Integer = ds.Tables("porcentajeFresas").Rows.Count - 1
+        reader = selectCommand.ExecuteReader
+
+        Dim yval(i) As Double
+        Dim xval(i) As String
+        i = 0
+
+        While reader.Read
+            yval.SetValue(Convert.ToDouble(reader.Item(1)), i)
+            xval.SetValue(Convert.ToString(reader.Item(0)), i)
+            i = i + 1
+        End While
+
+        graph.Series("Fresas").Points.DataBindXY(xval, yval)
+
+        selectCommand.Connection.Close()
+
+    End Sub
+
+
+    Public Function obtenerPorcentajeCostoProduccion(ByVal desde As Date, ByVal hasta As Date) As Double
+
+        selectCommand.Connection = cnn
+        selectCommand.Connection.Open()
+        selectCommand.CommandText = "SELECT SUM(f.precio) As precio, SUM(f.costofabricacion) As costo" & _
+                                    " FROM fresa f" & _
+                                    " WHERE f.fechafinfabricacion > '" + desde.Date + "'" & _
+                                    " AND f.fechafinfabricacion < '" + hasta.Date + "'"
+
+        selectCommand.CommandType = CommandType.Text
+        adapter.SelectCommand = selectCommand
+        reader = selectCommand.ExecuteReader
+        Dim costo As Double
+        Dim precio As Double
+
+        reader.Read()
+        If reader.Item(0) IsNot DBNull.Value Then
+            precio = reader.Item(0)
+            costo = reader.Item(1)
+        End If
+
+        selectCommand.Connection.Close()
+
+        Return ((costo * 100) / precio)
+
+    End Function
+
+
+    Public Function obtenerExactitudPlanificacionInicio(ByVal desde As Date, ByVal hasta As Date) As Double
+
+        selectCommand.Connection = cnn
+        selectCommand.Connection.Open()
+        selectCommand.CommandText = "SELECT AVG(DATEDIFF(hh,dhr.fechahorainicioplanificada, dhr.fechahorainicioreal))" & _
+                                    " FROM detallehojaderuta dhr" & _
+                                    " WHERE dhr.fechahorainicioreal > '" + desde.Date + "'" & _
+                                    " AND dhr.fechahorafinreal < '" + hasta.Date + "'"
+
+        selectCommand.CommandType = CommandType.Text
+        adapter.SelectCommand = selectCommand
+        reader = selectCommand.ExecuteReader
+        Dim desviacion As Double
+
+        reader.Read()
+        If reader.Item(0) IsNot DBNull.Value Then
+            desviacion = reader.Item(0)
+        End If
+
+        selectCommand.Connection.Close()
+
+        Return desviacion
+
+    End Function
+
+
+    Public Function obtenerExactitudPlanificacionFin(ByVal desde As Date, ByVal hasta As Date) As Double
+
+        selectCommand.Connection = cnn
+        selectCommand.Connection.Open()
+        selectCommand.CommandText = "SELECT AVG(DATEDIFF(hh,dhr.fechahorafinplanificada, dhr.fechahorafinreal))" & _
+                                    " FROM detallehojaderuta dhr" & _
+                                    " WHERE dhr.fechahorainicioreal > '" + desde.Date + "'" & _
+                                    " AND dhr.fechahorafinreal < '" + hasta.Date + "'"
+
+        selectCommand.CommandType = CommandType.Text
+        adapter.SelectCommand = selectCommand
+        reader = selectCommand.ExecuteReader
+        Dim desviacion As Double
+
+        While reader.Read
+            If reader.Item(0) IsNot DBNull.Value Then
+                desviacion = reader.Item(0)
+            End If
+        End While
+
+        selectCommand.Connection.Close()
+
+        Return desviacion
+
+    End Function
 
 End Class
