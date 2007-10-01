@@ -239,10 +239,10 @@ Public Class principal
         bloquearPantalla(True)
         logeo.ShowDialog()
         bloquearPantalla(False)
-        Dim form As New Form1
-        form.MdiParent = Me
-        form.Show()
-        form.Location = New Point(500, 200)
+        'Dim form As New Form1
+        'form.MdiParent = Me
+        'form.Show()
+        'form.Location = New Point(500, 200)
         barra = New BarraDeEstado(UltraStatusBar1)
         Actualizar()
         'GestorFrm.InitMenu(Me.UltraExplorerBar1, mMenu, Me)
