@@ -134,10 +134,12 @@ Partial Class frmCodigoBarra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(538, 266)
+        Me.ClientSize = New System.Drawing.Size(887, 586)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmCodigoBarra"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Ejemplo de Uso de Codigo Barra"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

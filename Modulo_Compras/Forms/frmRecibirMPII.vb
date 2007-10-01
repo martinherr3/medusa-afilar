@@ -679,7 +679,7 @@ Public Class frmRecibirMPII
                         'cargo detalle mp recibida
                         Dim mpr As String
                         mpr = "insert into detallemprecibida values (" & mprec & "," _
-                        & CType(dvDOC.Item(i).Item("cantidadr"), Integer) & ",$" & dvDOC.Item(i).Item("precio") & ",'', 3," _
+                        & CType(dvDOC.Item(i).Item("cantidadr"), Integer) & ",$" & Replace(dvDOC.Item(i).Item("precio"), ",", ".") & ",'', 3," _
                         & dvDOC.Item(i).Item("idtipomateriaprima") & ")"
                         'sqlcommandDMPR.CommandText = "insert into detallemprecibida values (" & mprec & "," _
                         '& CType(dvDOC.Item(i).Item("cantidadr"), Integer) & "," & dvDOC.Item(i).Item("precio") & ",'', 3," _

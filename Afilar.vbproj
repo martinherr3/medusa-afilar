@@ -167,6 +167,8 @@
       <HintPath>D:\Infragistics\NetAdvantage 2005 Volume 1\Windows Forms\Bin\Infragistics.Win.v5.1.dll</HintPath>
       <AssemblyFolderKey>hklm\infragistics.winassemblies.20051</AssemblyFolderKey>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualBasic">
       <Name>Microsoft.VisualBasic</Name>
     </Reference>
@@ -214,6 +216,11 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo_Produccion\dsHojaRuta.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHojaRuta.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmBase.Designer.vb">
       <DependentUpon>frmBase.vb</DependentUpon>
     </Compile>
@@ -278,6 +285,12 @@
       <DependentUpon>consultarModeloFresa.vb</DependentUpon>
     </Compile>
     <Compile Include="Modulo_Produccion\Forms\consultarModeloFresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Produccion\Forms\frmCodigoBarra.Designer.vb">
@@ -643,6 +656,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>consultarModeloFresa.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\Form1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Produccion\Forms\frmCodigoBarra.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmCodigoBarra.vb</DependentUpon>
@@ -779,11 +796,11 @@
       <DependentUpon>informeCompras2.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="licenses.licx" />
     <EmbeddedResource Include="Modulo_Sistema\Forms\LoginForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>LoginForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <SubType>Designer</SubType>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -886,6 +903,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Modulo_Produccion\dsHojaRuta.xsc">
+      <DependentUpon>dsHojaRuta.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Produccion\dsHojaRuta.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHojaRuta.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Modulo_Produccion\dsHojaRuta.xss">
+      <DependentUpon>dsHojaRuta.xsd</DependentUpon>
+    </None>
     <None Include="Modulo_Compras\DSCompras.xsc">
       <DependentUpon>DSCompras.xsd</DependentUpon>
     </None>

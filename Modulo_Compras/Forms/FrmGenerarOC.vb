@@ -89,9 +89,11 @@ Public Class FrmGenerarOC
     Friend WithEvents Dsoc2 As Afilar.dsoc
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGenerarOC))
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -152,7 +154,7 @@ Public Class FrmGenerarOC
         '
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(708, 489)
         '
@@ -183,6 +185,7 @@ Public Class FrmGenerarOC
         '
         'CmbFormapago
         '
+        Me.CmbFormapago.AutoSize = True
         Me.CmbFormapago.Location = New System.Drawing.Point(472, 104)
         Me.CmbFormapago.Name = "CmbFormapago"
         Me.CmbFormapago.Size = New System.Drawing.Size(160, 21)
@@ -191,6 +194,7 @@ Public Class FrmGenerarOC
         '
         'TxtPrecio
         '
+        Me.TxtPrecio.AutoSize = True
         Me.TxtPrecio.Location = New System.Drawing.Point(472, 56)
         Me.TxtPrecio.Name = "TxtPrecio"
         Me.TxtPrecio.Size = New System.Drawing.Size(160, 21)
@@ -199,6 +203,7 @@ Public Class FrmGenerarOC
         '
         'CmbCantidad
         '
+        Me.CmbCantidad.AutoSize = True
         Me.CmbCantidad.Location = New System.Drawing.Point(472, 80)
         Me.CmbCantidad.Name = "CmbCantidad"
         Me.CmbCantidad.Size = New System.Drawing.Size(160, 21)
@@ -377,18 +382,20 @@ Public Class FrmGenerarOC
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.crv)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(708, 489)
         '
         'crv
         '
         Me.crv.ActiveViewIndex = -1
+        Me.crv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.crv.Location = New System.Drawing.Point(8, 16)
         Me.crv.Name = "crv"
-        Me.crv.ReportSource = Nothing
+        Me.crv.SelectionFormula = ""
         Me.crv.Size = New System.Drawing.Size(688, 464)
         Me.crv.TabIndex = 15
+        Me.crv.ViewTimeSelectionFormula = ""
         '
         'BtnAceptar
         '
@@ -429,36 +436,25 @@ Public Class FrmGenerarOC
         '
         'SqlSelectCommand1
         '
-        Me.SqlSelectCommand1.CommandText = "SELECT proveedor.idproveedor AS Expr1, proveedor.nombre, tipomateriaprima.idtipom" & _
-        "ateriaprima AS Expr2, tipomateriaprima.nombre AS Expr3, ordencompramp.fechareali" & _
-        "zacion, ordencompramp.plazodeentrega, ordencompramp.idordencompra, ordencompramp" & _
-        ".nroorden, ordencompramp.condicionesdepago, ordencompramp.causa, ordencompramp.i" & _
-        "destado, ordencompramp.idproveedor, detalleordencompra.idordencompra AS Expr4, d" & _
-        "etalleordencompra.idtipomateriaprima, detalleordencompra.cantidad, detalleordenc" & _
-        "ompra.precio, detalleordencompra.idestado AS Expr5 FROM ordencompramp INNER JOIN" & _
-        " detalleordencompra ON ordencompramp.idordencompra = detalleordencompra.idordenc" & _
-        "ompra INNER JOIN proveedor ON ordencompramp.idproveedor = proveedor.idproveedor " & _
-        "INNER JOIN tipomateriaprima ON detalleordencompra.idtipomateriaprima = tipomater" & _
-        "iaprima.idtipomateriaprima WHERE (MONTH(ordencompramp.fecharealizacion) = MONTH(" & _
-        "GETDATE())) AND (DAY(ordencompramp.fecharealizacion) = DAY(GETDATE())) AND (YEAR" & _
-        "(ordencompramp.fecharealizacion) = YEAR(GETDATE()))"
+        Me.SqlSelectCommand1.CommandText = resources.GetString("SqlSelectCommand1.CommandText")
         Me.SqlSelectCommand1.Connection = Me.SqlConnection2
         '
         'SqlConnection2
         '
         Me.SqlConnection2.ConnectionString = "workstation id=OCTAVO;packet size=4096;integrated security=SSPI;initial catalog=A" & _
-        "filar;persist security info=False"
+            "filar;persist security info=False"
+        Me.SqlConnection2.FireInfoMessageEventOnUserErrors = False
         '
         'UltraTabControl1
         '
         Appearance3.BackColor = System.Drawing.Color.Silver
-        Appearance3.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance3.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ActiveTabAppearance = Appearance3
-        Appearance4.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Appearance4.BackColor2 = System.Drawing.Color.Silver
         Me.UltraTabControl1.Appearance = Appearance4
-        Appearance5.BackColor = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
-        Appearance5.BackColor2 = System.Drawing.Color.FromArgb(CType(224, Byte), CType(224, Byte), CType(224, Byte))
+        Appearance5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance5.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.UltraTabControl1.ClientAreaAppearance = Appearance5
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
@@ -486,6 +482,7 @@ Public Class FrmGenerarOC
         '
         Me.Dsoc2.DataSetName = "dsoc"
         Me.Dsoc2.Locale = New System.Globalization.CultureInfo("es-AR")
+        Me.Dsoc2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FrmGenerarOC
         '
@@ -704,7 +701,7 @@ Public Class FrmGenerarOC
         grdTableStyle1.GridColumnStyles.AddRange(New DataGridColumnStyle() {grdColStyle1, grdColStyle2, grdColStyle3})
         GrdMP.TableStyles.Add(grdTableStyle1)
         '*********************************************************
-        'NO SE COMO PONER LAS FILAS QUE YO QUIERA EL OTRO COLOR
+
         'Marcar_MP_Critica()
 
     End Sub
@@ -952,4 +949,7 @@ Public Class FrmGenerarOC
         'crv.SelectionFormula = SelectFormula
 
     End Sub
+
+   
+    
 End Class
