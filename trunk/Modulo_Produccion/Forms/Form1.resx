@@ -117,28 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="SqlDataAdapter8.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+  <metadata name="adaptadorCompra2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>119, 35</value>
   </metadata>
-  <metadata name="SqlSelectCommand1.DesignTimeVisible" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="SqlSelectCommand2.DesignTimeVisible" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <metadata name="SqlSelectCommand1.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="SqlSelectCommand2.CommandDesignTimeVisible" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
-  <metadata name="SqlSelectCommand1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="SqlSelectCommand2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>
   </metadata>
-  <data name="SqlSelectCommand1.CommandText" xml:space="preserve">
-    <value>SELECT proveedor.idproveedor AS Expr1, proveedor.nombre, tipomateriaprima.idtipomateriaprima AS Expr2, tipomateriaprima.nombre AS Expr3, ordencompramp.fecharealizacion, ordencompramp.plazodeentrega, ordencompramp.idordencompra, ordencompramp.nroorden, ordencompramp.condicionesdepago, ordencompramp.causa, ordencompramp.idestado, ordencompramp.idproveedor, detalleordencompra.idordencompra AS Expr4, detalleordencompra.idtipomateriaprima, detalleordencompra.cantidad, detalleordencompra.precio, detalleordencompra.idestado AS Expr5 FROM ordencompramp INNER JOIN detalleordencompra ON ordencompramp.idordencompra = detalleordencompra.idordencompra INNER JOIN proveedor ON ordencompramp.idproveedor = proveedor.idproveedor INNER JOIN tipomateriaprima ON detalleordencompra.idtipomateriaprima = tipomateriaprima.idtipomateriaprima WHERE (MONTH(ordencompramp.fecharealizacion) = MONTH(GETDATE())) AND (DAY(ordencompramp.fecharealizacion) = DAY(GETDATE())) AND (YEAR(ordencompramp.fecharealizacion) = YEAR(GETDATE()))</value>
+  <data name="SqlSelectCommand2.CommandText" xml:space="preserve">
+    <value>SELECT     hojaderuta.idhojaderuta AS Expr1, hojaderuta.fechainicioproduccion AS Expr2, detallehojaderuta.idhojaderuta AS Expr3, 
+                      detallehojaderuta.idetapadefabricacion AS Expr5, detallehojaderuta.idlegajo AS Expr4, detallehojaderuta.idtorneado AS Expr6, 
+                      detallehojaderuta.fechahorainicioreal AS Expr7, detallehojaderuta.fechahorainicioplanificada AS Expr8, detallehojaderuta.fechahorafinreal AS Expr9, 
+                      detallehojaderuta.fechahorafinplanificada AS Expr10, detallehojaderuta.observaciones AS Expr11, hojaderuta.idhojaderuta, 
+                      hojaderuta.fechainicioproduccion, detallehojaderuta.idhojaderuta AS Expr12, detallehojaderuta.idetapadefabricacion, 
+                      detallehojaderuta.idlegajo AS Expr13, detallehojaderuta.idtorneado, detallehojaderuta.fechahorainicioreal, 
+                      detallehojaderuta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detallehojaderuta.fechahorafinplanificada, 
+                      detallehojaderuta.observaciones AS Expr14, empleado.*, etapadefabricacion.*, operacion.*
+FROM         operacion INNER JOIN
+                      etapadefabricacion ON operacion.idoperacion = etapadefabricacion.idoperacion INNER JOIN
+                      hojaderuta INNER JOIN
+                      detallehojaderuta ON hojaderuta.idhojaderuta = detallehojaderuta.idhojaderuta INNER JOIN
+                      empleado ON detallehojaderuta.idlegajo = empleado.idlegajo ON etapadefabricacion.idetapafabricacion = detallehojaderuta.idetapadefabricacion</value>
   </data>
-  <metadata name="SqlConnection2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>361, 17</value>
-  </metadata>
-  <metadata name="Dsoc2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>489, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>70</value>
+  <metadata name="SqlConnection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>266, 35</value>
   </metadata>
 </root>
