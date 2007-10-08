@@ -9,14 +9,10 @@ Public Class TipoFresa
     'Private cnn As New SqlClient.SqlConnection
 
 
-    Property adaptadorTipoFresa()
+    ReadOnly Property adaptadorTipoFresa() As SqlClient.SqlDataAdapter
         Get
             Return madaptadorTipoFresa
         End Get
-
-        Set(ByVal Value)
-
-        End Set
     End Property
 
 
@@ -27,13 +23,13 @@ Public Class TipoFresa
         Me.adaptadorTipoFresa.DeleteCommand = Me.deleteTipoFresa
         Me.adaptadorTipoFresa.InsertCommand = Me.insertTipoFresa
         Me.adaptadorTipoFresa.SelectCommand = Me.selectTipoFresa
-        Me.adaptadorTipoFresa.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "tipofresa", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("idtipo", "idtipo"), New System.Data.Common.DataColumnMapping("idmodelo", "idmodelo"), New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("diametroexterior", "diametroexterior"), New System.Data.Common.DataColumnMapping("diametroagujero", "diametroagujero"), New System.Data.Common.DataColumnMapping("cantidaddientes", "cantidaddientes"), New System.Data.Common.DataColumnMapping("plano", "plano"), New System.Data.Common.DataColumnMapping("posiciondetrabajo", "posiciondetrabajo"), New System.Data.Common.DataColumnMapping("caracteristicas", "caracteristicas"), New System.Data.Common.DataColumnMapping("costo", "costo"), New System.Data.Common.DataColumnMapping("precio", "precio"), New System.Data.Common.DataColumnMapping("estado", "estado")})})
+        Me.adaptadorTipoFresa.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "tipofresa", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("idtipo", "idtipo"), New System.Data.Common.DataColumnMapping("idmodelo", "idmodelo"), New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("diametroexterior", "diametroexterior"), New System.Data.Common.DataColumnMapping("diametroagujero", "diametroagujero"), New System.Data.Common.DataColumnMapping("cantidaddientes", "cantidaddientes"), New System.Data.Common.DataColumnMapping("plano", "plano"), New System.Data.Common.DataColumnMapping("posiciondetrabajo", "posiciondetrabajo"), New System.Data.Common.DataColumnMapping("caracteristicas", "caracteristicas"), New System.Data.Common.DataColumnMapping("costo", "costo"), New System.Data.Common.DataColumnMapping("precio", "precio"), New System.Data.Common.DataColumnMapping("estado", "estado"), New System.Data.Common.DataColumnMapping("imagen", "imagen")})})
         Me.adaptadorTipoFresa.UpdateCommand = Me.updateTipoFresa
         '
         'SqlSelectCommand1
         '
         Me.selectTipoFresa.CommandText = "SELECT idtipo, idmodelo, nombre, diametroexterior, diametroagujero, cantidaddient" & _
-        "es, plano, posiciondetrabajo, caracteristicas, costo, precio, estado FROM tipofr" & _
+        "es, plano, posiciondetrabajo, caracteristicas, costo, precio, estado, imagen FROM tipofr" & _
         "esa"
         Me.selectTipoFresa.Connection = cnn
         '
@@ -41,10 +37,10 @@ Public Class TipoFresa
         '
         Me.insertTipoFresa.CommandText = "INSERT INTO tipofresa(idtipo, idmodelo, nombre, diametroexterior, diametroagujero" & _
         ", cantidaddientes, plano, posiciondetrabajo, caracteristicas, costo, precio, est" & _
-        "ado) VALUES (@idtipo, @idmodelo, @nombre, @diametroexterior, @diametroagujero, @" & _
+        "ado, imagen) VALUES (@idtipo, @idmodelo, @nombre, @diametroexterior, @diametroagujero, @" & _
         "cantidaddientes, @plano, @posiciondetrabajo, @caracteristicas, @costo, @precio, " & _
-        "@estado); SELECT idtipo, idmodelo, nombre, diametroexterior, diametroagujero, ca" & _
-        "ntidaddientes, plano, posiciondetrabajo, caracteristicas, costo, precio, estado " & _
+        "@estado, @imagen); SELECT idtipo, idmodelo, nombre, diametroexterior, diametroagujero, ca" & _
+        "ntidaddientes, plano, posiciondetrabajo, caracteristicas, costo, precio, estado, imagen " & _
         "FROM tipofresa WHERE (idmodelo = @idmodelo) AND (idtipo = @idtipo)"
         Me.insertTipoFresa.Connection = cnn
         Me.insertTipoFresa.Parameters.Add(New System.Data.SqlClient.SqlParameter("@idtipo", System.Data.SqlDbType.Int, 4, "idtipo"))
@@ -59,6 +55,7 @@ Public Class TipoFresa
         Me.insertTipoFresa.Parameters.Add(New System.Data.SqlClient.SqlParameter("@costo", System.Data.SqlDbType.Decimal, 9, System.Data.ParameterDirection.Input, False, CType(18, Byte), CType(0, Byte), "costo", System.Data.DataRowVersion.Current, Nothing))
         Me.insertTipoFresa.Parameters.Add(New System.Data.SqlClient.SqlParameter("@precio", System.Data.SqlDbType.Decimal, 9, System.Data.ParameterDirection.Input, False, CType(18, Byte), CType(0, Byte), "precio", System.Data.DataRowVersion.Current, Nothing))
         Me.insertTipoFresa.Parameters.Add(New System.Data.SqlClient.SqlParameter("@estado", System.Data.SqlDbType.VarChar, 15, "estado"))
+        Me.insertTipoFresa.Parameters.Add(New System.Data.SqlClient.SqlParameter("@imagen", System.Data.SqlDbType.Image, 2147483647, "imagen"))
         '
         'SqlUpdateCommand1
         '
