@@ -35,6 +35,10 @@ Public Class registrarModeloFresa
     Friend WithEvents btnModParteAdicional As Infragistics.Win.Misc.UltraButton
     Private modificar As Boolean = False
     Private modificarTipoFresa As Boolean = False
+    Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents UltraButton13 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Private modificarParteAdicional As Boolean = False
 #End Region
 
@@ -194,7 +198,6 @@ Public Class registrarModeloFresa
     Friend WithEvents comboOperacion As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents UltraButton5 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents UltraButton6 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents textDiamAgu As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents textDiamExt As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents comboPT As Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -327,7 +330,6 @@ Public Class registrarModeloFresa
         Me.TabPage2 = New System.Windows.Forms.TabPage
         Me.btnModificarFresa = New Infragistics.Win.Misc.UltraButton
         Me.btnNuevaFresa = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
         Me.textPlanoTF = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
         Me.imagen = New System.Windows.Forms.PictureBox
@@ -448,6 +450,10 @@ Public Class registrarModeloFresa
         Me.Label16 = New System.Windows.Forms.Label
         Me.tab = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraButton13 = New Infragistics.Win.Misc.UltraButton
+        Me.Panel1 = New System.Windows.Forms.Panel
+        Me.Panel2 = New System.Windows.Forms.Panel
         Me.tab1.SuspendLayout()
         CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox3.SuspendLayout()
@@ -525,6 +531,8 @@ Public Class registrarModeloFresa
         CType(Me.textCostoAdicional, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tab, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tab.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'tab1
@@ -535,7 +543,7 @@ Public Class registrarModeloFresa
         Me.tab1.Controls.Add(Me.UltraGroupBox3)
         Me.tab1.Controls.Add(Me.UltraGroupBox1)
         Me.tab1.Controls.Add(Me.botonFresa)
-        Me.tab1.Location = New System.Drawing.Point(2, 21)
+        Me.tab1.Location = New System.Drawing.Point(-10000, -10000)
         Me.tab1.Name = "tab1"
         Me.tab1.Size = New System.Drawing.Size(812, 425)
         '
@@ -935,7 +943,7 @@ Public Class registrarModeloFresa
         '
         Me.UltraTabPageControl1.Controls.Add(Me.TabControl1)
         Me.UltraTabPageControl1.Enabled = False
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 425)
         '
@@ -955,12 +963,12 @@ Public Class registrarModeloFresa
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.TabPage2.Controls.Add(Me.Panel1)
+        Me.TabPage2.Controls.Add(Me.UltraButton13)
         Me.TabPage2.Controls.Add(Me.btnModificarFresa)
         Me.TabPage2.Controls.Add(Me.btnNuevaFresa)
-        Me.TabPage2.Controls.Add(Me.UltraButton6)
         Me.TabPage2.Controls.Add(Me.textPlanoTF)
         Me.TabPage2.Controls.Add(Me.UltraButton5)
-        Me.TabPage2.Controls.Add(Me.imagen)
         Me.TabPage2.Controls.Add(Me.UltraButton24)
         Me.TabPage2.Controls.Add(Me.UltraButton23)
         Me.TabPage2.Controls.Add(Me.textImagenTF)
@@ -972,10 +980,11 @@ Public Class registrarModeloFresa
         Me.TabPage2.Size = New System.Drawing.Size(808, 390)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Caracteristicas"
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'btnModificarFresa
         '
-        Me.btnModificarFresa.Location = New System.Drawing.Point(176, 360)
+        Me.btnModificarFresa.Location = New System.Drawing.Point(175, 360)
         Me.btnModificarFresa.Name = "btnModificarFresa"
         Me.btnModificarFresa.Size = New System.Drawing.Size(63, 22)
         Me.btnModificarFresa.TabIndex = 30
@@ -989,19 +998,12 @@ Public Class registrarModeloFresa
         Me.btnNuevaFresa.TabIndex = 29
         Me.btnNuevaFresa.Text = "Nuevo"
         '
-        'UltraButton6
-        '
-        Me.UltraButton6.Location = New System.Drawing.Point(313, 291)
-        Me.UltraButton6.Name = "UltraButton6"
-        Me.UltraButton6.Size = New System.Drawing.Size(92, 22)
-        Me.UltraButton6.TabIndex = 5
-        Me.UltraButton6.Text = "Abrir Corel"
-        '
         'textPlanoTF
         '
         Me.textPlanoTF.AutoSize = True
         Me.textPlanoTF.Location = New System.Drawing.Point(75, 263)
         Me.textPlanoTF.Name = "textPlanoTF"
+        Me.textPlanoTF.ReadOnly = True
         Me.textPlanoTF.Size = New System.Drawing.Size(228, 21)
         Me.textPlanoTF.TabIndex = 2
         '
@@ -1016,9 +1018,10 @@ Public Class registrarModeloFresa
         'imagen
         '
         Me.imagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.imagen.Location = New System.Drawing.Point(417, 213)
+        Me.imagen.Location = New System.Drawing.Point(0, 0)
         Me.imagen.Name = "imagen"
-        Me.imagen.Size = New System.Drawing.Size(357, 169)
+        Me.imagen.Size = New System.Drawing.Size(365, 168)
+        Me.imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.imagen.TabIndex = 25
         Me.imagen.TabStop = False
         '
@@ -1043,6 +1046,7 @@ Public Class registrarModeloFresa
         Me.textImagenTF.AutoSize = True
         Me.textImagenTF.Location = New System.Drawing.Point(75, 235)
         Me.textImagenTF.Name = "textImagenTF"
+        Me.textImagenTF.ReadOnly = True
         Me.textImagenTF.Size = New System.Drawing.Size(228, 21)
         Me.textImagenTF.TabIndex = 1
         '
@@ -1294,6 +1298,7 @@ Public Class registrarModeloFresa
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.TabPage1.Controls.Add(Me.UltraButton1)
         Me.TabPage1.Controls.Add(Me.UltraButton19)
         Me.TabPage1.Controls.Add(Me.UltraButton20)
         Me.TabPage1.Controls.Add(Me.UltraGroupBox11)
@@ -1303,6 +1308,7 @@ Public Class registrarModeloFresa
         Me.TabPage1.Size = New System.Drawing.Size(808, 390)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "Partes"
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'UltraButton19
         '
@@ -1530,6 +1536,7 @@ Public Class registrarModeloFresa
         Me.TabPage3.Size = New System.Drawing.Size(808, 390)
         Me.TabPage3.TabIndex = 3
         Me.TabPage3.Text = "Fabricacion y precio final"
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'UltraButton11
         '
@@ -1830,11 +1837,11 @@ Public Class registrarModeloFresa
         '
         'UltraTabPageControl2
         '
+        Me.UltraTabPageControl2.Controls.Add(Me.Panel2)
         Me.UltraTabPageControl2.Controls.Add(Me.btnModParteAdicional)
         Me.UltraTabPageControl2.Controls.Add(Me.btnNuevaParteAdicional)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraButton12)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraButton9)
-        Me.UltraTabPageControl2.Controls.Add(Me.imagen2)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox5)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox2)
@@ -1879,10 +1886,10 @@ Public Class registrarModeloFresa
         '
         Me.imagen2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.imagen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.imagen2.Location = New System.Drawing.Point(464, 176)
+        Me.imagen2.Location = New System.Drawing.Point(0, 0)
         Me.imagen2.Name = "imagen2"
-        Me.imagen2.Size = New System.Drawing.Size(314, 208)
-        Me.imagen2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.imagen2.Size = New System.Drawing.Size(328, 208)
+        Me.imagen2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.imagen2.TabIndex = 5
         Me.imagen2.TabStop = False
         '
@@ -1927,6 +1934,7 @@ Public Class registrarModeloFresa
         Me.textImagenA.AutoSize = True
         Me.textImagenA.Location = New System.Drawing.Point(56, 80)
         Me.textImagenA.Name = "textImagenA"
+        Me.textImagenA.ReadOnly = True
         Me.textImagenA.Size = New System.Drawing.Size(264, 21)
         Me.textImagenA.TabIndex = 3
         '
@@ -1935,6 +1943,7 @@ Public Class registrarModeloFresa
         Me.textPlanoA.AutoSize = True
         Me.textPlanoA.Location = New System.Drawing.Point(56, 56)
         Me.textPlanoA.Name = "textPlanoA"
+        Me.textPlanoA.ReadOnly = True
         Me.textPlanoA.Size = New System.Drawing.Size(264, 21)
         Me.textPlanoA.TabIndex = 2
         '
@@ -2206,6 +2215,40 @@ Public Class registrarModeloFresa
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(812, 425)
         '
+        'UltraButton1
+        '
+        Me.UltraButton1.Location = New System.Drawing.Point(52, 362)
+        Me.UltraButton1.Name = "UltraButton1"
+        Me.UltraButton1.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton1.TabIndex = 16
+        Me.UltraButton1.Text = "Cancelar"
+        '
+        'UltraButton13
+        '
+        Me.UltraButton13.Location = New System.Drawing.Point(110, 360)
+        Me.UltraButton13.Name = "UltraButton13"
+        Me.UltraButton13.Size = New System.Drawing.Size(63, 22)
+        Me.UltraButton13.TabIndex = 31
+        Me.UltraButton13.Text = "Cancelar"
+        '
+        'Panel1
+        '
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.Controls.Add(Me.imagen)
+        Me.Panel1.Location = New System.Drawing.Point(411, 213)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(365, 169)
+        Me.Panel1.TabIndex = 32
+        '
+        'Panel2
+        '
+        Me.Panel2.AutoScroll = True
+        Me.Panel2.Controls.Add(Me.imagen2)
+        Me.Panel2.Location = New System.Drawing.Point(450, 176)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(328, 209)
+        Me.Panel2.TabIndex = 19
+        '
         'registrarModeloFresa
         '
         Me.ClientSize = New System.Drawing.Size(818, 448)
@@ -2302,6 +2345,10 @@ Public Class registrarModeloFresa
         CType(Me.textCostoAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tab, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tab.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2435,30 +2482,42 @@ Public Class registrarModeloFresa
 
         If band = False Then
 
+            'Limpio controles
             textDiamAgu.Text = ""
             textDiamExt.Text = ""
             textCantDien.Text = ""
             textIDFresa.Text = ""
             textNombreFresa.Text = ""
+            textImagenTF.Text = ""
+            textPlanoTF.Text = ""
+            imagen.Image = Nothing
+            imagen.Refresh()
+
+            Dim criterio As String
+            Dim filas() As DataRow
+            criterio = "idmodelo = " + IdModeloFresa.ToString
+            filas = ds.Tables("tipofresa").Select(criterio)
+            'ultimoIdFresa = filas.Length
+
+            lista3.Items.Clear()
+            lista4.Items.Clear()
+
+            'seteo controles
             btnModificarFresa.Enabled = True
             btnNuevaFresa.Enabled = True
+            textNombreFresa.Enabled = False
+            textDiamAgu.Enabled = False
+            textDiamExt.Enabled = False
+            textCantDien.Enabled = False
+            comboPT.Enabled = False
+            textCarFresa.Enabled = False
+
 
             comboIDFresa.Enabled = False
             TabControl1.SelectedTab = TabControl1.TabPages(0)
             tab.SelectedTab = tab.Tabs(1)
             tab.Tabs(1).Enabled = True
             tab.Tabs(0).Enabled = False
-
-            Dim criterio As String
-            Dim filas() As DataRow
-            criterio = "idmodelo = " + IdModeloFresa.ToString
-            filas = ds.Tables("tipofresa").Select(criterio)
-            ultimoIdFresa = filas.Length
-
-            'lista3.SelectedItems.Clear()
-            'lista4.SelectedItems.Clear()
-            lista3.Items.Clear()
-            lista4.Items.Clear()
 
         End If
 
@@ -2585,7 +2644,7 @@ Public Class registrarModeloFresa
             nuevaParte("idparte") = textIDParte.Text
             nuevaParte("nombre") = comboNParte.SelectedItem.ToString
             nuevaParte("cantidad") = textCantidad.Text
-            'nuevaParte("descripcion") = textDesc.Text
+            nuevaParte("descripcion") = textDescParte.Text
             nuevaParte("idtipomateriaprima") = comboMatPrim.SelectedItem.Tag
 
 
@@ -2607,7 +2666,7 @@ Public Class registrarModeloFresa
             comboNParte.SelectedItem = Nothing
             comboMatPrim.SelectedItem = Nothing
             textCantidad.Text = 0
-            'textDesc.Text = ""
+            textDescParte.Text = ""
         End If
 
 
@@ -2652,9 +2711,6 @@ Public Class registrarModeloFresa
             textTiempo.Text = 0
             orden.UpButton()
             textDetalles.Text = ""
-
-            'da = etapa.adaptadorEtapa
-            'da.Update(ds, "etapadefabricacion")
         End If
 
     End Sub
@@ -2705,14 +2761,8 @@ Public Class registrarModeloFresa
             fila = ds.Tables("parte").Select(criterio)
 
             fila(0).Delete()
-            'ds.Tables("parte").Rows.Remove(fila(0))
             textIDParte.Text = i
-
-            'da = parte.adaptadorParte
-            'da.Update(ds, "parte")
-
             lista3.SelectedItems.Item(0).Remove()
-
 
         End If
     End Sub
@@ -2775,9 +2825,7 @@ Public Class registrarModeloFresa
             fila = ds.Tables("parte").Select(criterio)
 
             fila(0).Delete()
-            'ds.Tables("parte").Rows.Remove(fila(0))
             textIDParte.Text = i
-
             lista3.SelectedItems.Item(0).Remove()
 
         End If
@@ -2867,15 +2915,11 @@ Public Class registrarModeloFresa
             item.SubItems.Add(orden.Text)
             item.SubItems.Add(textTiempo.Text)
 
-            'textIDEtapa.Text = textIDEtapa.Text + 1
             textIDEtapa.Text = lista4.Items.Count + 1
             comboOperacion.SelectedItem = Nothing
             textTiempo.Text = 0
             orden.UpButton()
             textDetalles.Text = ""
-
-            'da = etapa.adaptadorEtapa
-            'da.Update(ds, "etapadefabricacion")
         End If
     End Sub
 
@@ -2891,14 +2935,10 @@ Public Class registrarModeloFresa
             fila = ds.Tables("etapadefabricacion").Select(criterio)
 
             fila(0).Delete()
-            'ds.Tables("parte").Rows.Remove(fila(0))
+
             textIDEtapa.Text = i
 
-            'da = etapa.adaptadorEtapa
-            'da.Update(ds, "etapadefabricacion")
-
             lista4.SelectedItems.Item(0).Remove()
-
 
         End If
     End Sub
@@ -2936,7 +2976,9 @@ Public Class registrarModeloFresa
                     nuevaFresa("diametroexterior") = textDiamExt.Text
                     nuevaFresa("diametroagujero") = textDiamAgu.Text
                     nuevaFresa("cantidaddientes") = textCantDien.Text
-                    nuevaFresa("imagen") = Image2Bytes(imagen.Image)
+                    If textImagenTF.Text <> "" Then
+                        nuevaFresa("imagen") = Image2Bytes(imagen.Image)
+                    End If
                     nuevaFresa("plano") = textPlanoTF.Text
                     nuevaFresa("posiciondetrabajo") = comboPT.Text
                     nuevaFresa("caracteristicas") = textCarFresa.Text
@@ -2963,7 +3005,9 @@ Public Class registrarModeloFresa
                         nuevaFresa("diametroexterior") = textDiamExt.Text
                         nuevaFresa("diametroagujero") = textDiamAgu.Text
                         nuevaFresa("cantidaddientes") = textCantDien.Text
-                        nuevaFresa("imagen") = Image2Bytes(imagen.Image)
+                        If textImagenTF.Text <> "" Then
+                            nuevaFresa("imagen") = Image2Bytes(imagen.Image)
+                        End If
                         nuevaFresa("plano") = textPlanoTF.Text
                         nuevaFresa("posiciondetrabajo") = comboPT.Text
                         nuevaFresa("caracteristicas") = textCarFresa.Text
@@ -2987,6 +3031,7 @@ Public Class registrarModeloFresa
                         modificadaFresa("diametroagujero") = textDiamAgu.Text
                         modificadaFresa("cantidaddientes") = textCantDien.Text
                         modificadaFresa("plano") = textPlanoTF.Text
+                        modificadaFresa("imagen") = Image2Bytes(imagen.Image)
                         modificadaFresa("posiciondetrabajo") = comboPT.Text
                         modificadaFresa("caracteristicas") = textCarFresa.Text
                         modificadaFresa("costo") = textCostoTF.Text
@@ -3090,7 +3135,7 @@ Public Class registrarModeloFresa
         ofd.FilterIndex = 2
         ofd.RestoreDirectory = True
 
-        If ofd.ShowDialog() = DialogResult.OK Then
+        If ofd.ShowDialog() = Windows.Forms.DialogResult.OK Then
             'Dim s As System.IO.Stream
             'Dim i As System.Drawing.Image
             Image.FromFile(ofd.FileName.ToString)
@@ -3109,7 +3154,7 @@ Public Class registrarModeloFresa
         ofd.FilterIndex = 2
         ofd.RestoreDirectory = True
 
-        If ofd.ShowDialog() = DialogResult.OK Then
+        If ofd.ShowDialog() = Windows.Forms.DialogResult.OK Then
 
             textPlanoTF.Text = ofd.FileName.ToString
 
@@ -3200,17 +3245,6 @@ Public Class registrarModeloFresa
 
 
         If band = False Then
-
-            tab.SelectedTab = tab.Tabs(2)
-            tab.Tabs(2).Enabled = True
-            tab.Tabs(0).Enabled = False
-
-            botonFresa.Enabled = False
-            BotonParte.Enabled = False
-            btnModParteAdicional.Enabled = True
-            btnNuevaParteAdicional.Enabled = True
-            comboIDAdicional.Enabled = False
-
             textIDAdicional.Text = ""
             comboNombre.Text = ""
             textPlanoA.Text = ""
@@ -3220,7 +3254,21 @@ Public Class registrarModeloFresa
             textTiempoAdicional.Text = ""
             textCostoAdicional.Text = ""
             textPrecioAdicional.Text = ""
+            textImagenA.Text = ""
+            textPlanoA.Text = ""
+            imagen2.Image = Nothing
+            imagen2.Refresh()
 
+            botonFresa.Enabled = False
+            BotonParte.Enabled = False
+            btnModParteAdicional.Enabled = True
+            btnNuevaParteAdicional.Enabled = True
+            comboIDAdicional.Enabled = False
+            deshabilitarControlesAdicional()
+
+            tab.SelectedTab = tab.Tabs(2)
+            tab.Tabs(2).Enabled = True
+            tab.Tabs(0).Enabled = False
         End If
     End Sub
 
@@ -3274,7 +3322,9 @@ Public Class registrarModeloFresa
                 fila("idadicional") = textIDAdicional.Text
                 fila("nombre") = comboNombre.Text
                 fila("plano") = textPlanoA.Text
-                fila("imagen") = Image2Bytes(imagen2.Image)
+                If textImagenA.Text <> "" Then
+                    fila("imagen") = Image2Bytes(imagen2.Image)
+                End If
                 fila("idmateriaprima") = comboMPAdicional.SelectedItem.Tag
                 fila("cantidad") = textCantMPAdicional.Text
                 fila("descripcion") = textDescAdicional.Text
@@ -3289,7 +3339,9 @@ Public Class registrarModeloFresa
                     If fila("idmodelo") = textID.Text Then
                         fila("nombre") = comboNombre.Text
                         fila("plano") = textPlanoA.Text
-                        fila("imagen") = Image2Bytes(imagen2.Image)
+                        If textImagenA.Text <> "" Then
+                            fila("imagen") = Image2Bytes(imagen2.Image)
+                        End If
                         fila("idmateriaprima") = comboMPAdicional.SelectedItem.Tag
                         fila("cantidad") = textCantMPAdicional.Text
                         fila("descripcion") = textDescAdicional.Text
@@ -3407,7 +3459,6 @@ Public Class registrarModeloFresa
 
                     If banderaFresa = True Then
                         fresa.actualizarDatos(ds, "tipofresa")
-
                         parte.actualizarDatos(ds, "parte")
                         etapa.actualizarDatos(ds, "etapadefabricacion")
                     End If
@@ -3458,8 +3509,11 @@ Public Class registrarModeloFresa
     Private Sub UltraButton11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton11.Click
 
         btnNuevaFresa.Enabled = True
+        btnModificarFresa.Enabled = True
         banderaAd = True
-        ultimoIdFresa = ultimoIdFresa - 1
+        If modificarTipoFresa = False Then
+            ultimoIdFresa = ultimoIdFresa - 1
+        End If
         tab.SelectedTab = tab.Tabs(0)
         tab.Tabs(1).Enabled = False
         botonFresa.Enabled = True
@@ -3471,7 +3525,7 @@ Public Class registrarModeloFresa
 
 
     Private Sub UltraButton12_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton12.Click
-        If textIDAdicional.Text = 1 Then
+        If textIDAdicional.Text = "1" Then
             textIDAdicional.Text = ""
             banderaAd2 = True
         Else
@@ -3569,9 +3623,9 @@ Public Class registrarModeloFresa
             End If
         Next
 
-
-        textCostoTF.Text = costo_etapas + costo_partes
-
+        Dim resultado As New Double
+        resultado = costo_etapas + costo_partes
+        textCostoTF.Text = Math.Round(resultado, 3, MidpointRounding.AwayFromZero)
 
     End Sub
 
@@ -3641,6 +3695,12 @@ Public Class registrarModeloFresa
         textCostoTF.Text = ""
         textPrecioTF.Text = ""
 
+        textNombreFresa.Enabled = True
+        textDiamAgu.Enabled = True
+        textDiamExt.Enabled = True
+        textCantDien.Enabled = True
+        comboPT.Enabled = True
+        textCarFresa.Enabled = True
         btnNuevaFresa.Enabled = False
         btnModificarFresa.Enabled = False
 
@@ -3661,6 +3721,12 @@ Public Class registrarModeloFresa
         Dim itemCombo As Infragistics.Win.ValueListItem
         comboIDFresa.Items.Clear()
         Dim filas() As DataRow = ds.Tables("tipofresa").Select("idmodelo = " + textID.Text)
+
+        If filas.Length = 0 Then
+            MsgBox("No hay elementos a modificar", MsgBoxStyle.Information, "Afilar")
+            Exit Sub
+        End If
+
         Dim fila As DataRow
 
         itemCombo = comboIDFresa.Items.Add("")
@@ -3673,6 +3739,7 @@ Public Class registrarModeloFresa
 
         comboIDFresa.Enabled = True
         btnNuevaFresa.Enabled = False
+        btnModificarFresa.Enabled = False
         modificarTipoFresa = True
 
     End Sub
@@ -3695,7 +3762,7 @@ Public Class registrarModeloFresa
         comboPT.Text = fila("posiciondetrabajo")
         textPrecioTF.Text = fila("precio")
         'Imagen
-        If fila("imagen") IsNot DBNull.Value Then
+        If fila(12) IsNot DBNull.Value Then
             Dim image As Image = Bytes2Image(CType(fila("imagen"), Byte()))
             If image IsNot Nothing Then
                 imagen.Image = image
@@ -3725,6 +3792,14 @@ Public Class registrarModeloFresa
         Next
         textIDEtapa.Text = lista4.Items.Count + 1
 
+        'habilito textBox
+        textNombreFresa.Enabled = True
+        textDiamAgu.Enabled = True
+        textDiamExt.Enabled = True
+        textCantDien.Enabled = True
+        comboPT.Enabled = True
+        textCarFresa.Enabled = True
+
     End Sub
 
     Private Sub btnNuevaParteAdicional_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevaParteAdicional.Click
@@ -3742,15 +3817,27 @@ Public Class registrarModeloFresa
         textTiempoAdicional.Text = ""
         textCostoAdicional.Text = ""
         textPrecioAdicional.Text = ""
+        textImagenA.Text = ""
+        textPlanoA.Text = ""
+        imagen2.Image = Nothing
+        imagen2.Refresh()
 
         btnModParteAdicional.Enabled = False
+        btnNuevaParteAdicional.Enabled = False
         comboIDAdicional.Enabled = False
+        habilitarControlesAdicional()
 
     End Sub
 
 
     Private Sub btnModParteAdicional_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnModParteAdicional.Click
         Dim filas() As DataRow = ds.Tables("parteAdicional").Select("idmodelo = " + textID.Text)
+
+        If filas.Length = 0 Then
+            MsgBox("No hay elementos para modificar", MsgBoxStyle.Information, "Afilar")
+            Exit Sub
+        End If
+
         Dim fila As DataRow
         Dim itemCombo As Infragistics.Win.ValueListItem
         comboIDAdicional.Items.Clear()
@@ -3765,7 +3852,9 @@ Public Class registrarModeloFresa
 
         comboIDAdicional.Enabled = True
         btnNuevaParteAdicional.Enabled = False
+        btnModParteAdicional.Enabled = False
         modificarParteAdicional = True
+        habilitarControlesAdicional()
 
     End Sub
 
@@ -3805,7 +3894,66 @@ Public Class registrarModeloFresa
 
     End Sub
 
-    Private Sub tab_SelectedTabChanged(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinTabControl.SelectedTabChangedEventArgs) Handles tab.SelectedTabChanged
 
+    Private Sub UltraButton1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
+        cancelarFresa()
+    End Sub
+
+    Private Sub UltraButton13_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton13.Click
+
+        cancelarFresa()
+    End Sub
+
+
+    Private Sub cancelarFresa()
+        btnNuevaFresa.Enabled = True
+        btnModificarFresa.Enabled = True
+        banderaAd = True
+        If modificarTipoFresa = False Then
+            ultimoIdFresa = ultimoIdFresa - 1
+        End If
+        tab.Tabs(1).Enabled = False
+        botonFresa.Enabled = True
+        BotonParte.Enabled = True
+        modificarTipoFresa = False
+        tab.Tabs(0).Enabled = True
+        tab.SelectedTab = tab.Tabs(0)
+    End Sub
+
+    Private Sub deshabilitarControlesAdicional()
+        comboNombre.Enabled = False
+        textPrecioAdicional.Enabled = False
+        textCostoAdicional.Enabled = False
+        textDescAdicional.Enabled = False
+        comboMPAdicional.Enabled = False
+        textCantMPAdicional.Enabled = False
+        textTiempoAdicional.Enabled = False
+    End Sub
+
+    Private Sub habilitarControlesAdicional()
+        comboNombre.Enabled = True
+        textPrecioAdicional.Enabled = True
+        textCostoAdicional.Enabled = True
+        textDescAdicional.Enabled = True
+        comboMPAdicional.Enabled = True
+        textCantMPAdicional.Enabled = True
+        textTiempoAdicional.Enabled = True
+    End Sub
+
+
+    Private Sub textVA_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles textVA.KeyPress
+        soloNumeros(e)
+    End Sub
+
+    Private Sub textTiempo_KeyPress_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles textTiempo.KeyPress
+        soloNumeros(e)
+    End Sub
+
+    Private Sub textPrecioTF_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles textPrecioTF.KeyPress
+        soloNumeros(e)
+    End Sub
+
+    Private Sub textCantMPAdicional_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles textCantMPAdicional.KeyPress
+        soloNumeros(e)
     End Sub
 End Class
