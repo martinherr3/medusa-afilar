@@ -328,11 +328,13 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage2 = New System.Windows.Forms.TabPage
+        Me.Panel1 = New System.Windows.Forms.Panel
+        Me.imagen = New System.Windows.Forms.PictureBox
+        Me.UltraButton13 = New Infragistics.Win.Misc.UltraButton
         Me.btnModificarFresa = New Infragistics.Win.Misc.UltraButton
         Me.btnNuevaFresa = New Infragistics.Win.Misc.UltraButton
         Me.textPlanoTF = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
-        Me.imagen = New System.Windows.Forms.PictureBox
         Me.UltraButton24 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton23 = New Infragistics.Win.Misc.UltraButton
         Me.textImagenTF = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -360,6 +362,7 @@ Public Class registrarModeloFresa
         Me.Label13 = New System.Windows.Forms.Label
         Me.Label14 = New System.Windows.Forms.Label
         Me.TabPage1 = New System.Windows.Forms.TabPage
+        Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton19 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton20 = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox11 = New Infragistics.Win.Misc.UltraGroupBox
@@ -416,11 +419,12 @@ Public Class registrarModeloFresa
         Me.comboOperacion = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.Label50 = New System.Windows.Forms.Label
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.Panel2 = New System.Windows.Forms.Panel
+        Me.imagen2 = New System.Windows.Forms.PictureBox
         Me.btnModParteAdicional = New Infragistics.Win.Misc.UltraButton
         Me.btnNuevaParteAdicional = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton12 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton9 = New Infragistics.Win.Misc.UltraButton
-        Me.imagen2 = New System.Windows.Forms.PictureBox
         Me.UltraGroupBox5 = New Infragistics.Win.Misc.UltraGroupBox
         Me.UltraButton8 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton7 = New Infragistics.Win.Misc.UltraButton
@@ -450,10 +454,6 @@ Public Class registrarModeloFresa
         Me.Label16 = New System.Windows.Forms.Label
         Me.tab = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton13 = New Infragistics.Win.Misc.UltraButton
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.Panel2 = New System.Windows.Forms.Panel
         Me.tab1.SuspendLayout()
         CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox3.SuspendLayout()
@@ -472,8 +472,9 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
-        CType(Me.textPlanoTF, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         CType(Me.imagen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.textPlanoTF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textImagenTF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox9.SuspendLayout()
@@ -511,6 +512,7 @@ Public Class registrarModeloFresa
         CType(Me.textIDEtapa, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboOperacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         CType(Me.imagen2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox5.SuspendLayout()
@@ -531,8 +533,6 @@ Public Class registrarModeloFresa
         CType(Me.textCostoAdicional, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tab, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tab.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'tab1
@@ -982,6 +982,33 @@ Public Class registrarModeloFresa
         Me.TabPage2.Text = "Caracteristicas"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'Panel1
+        '
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.Controls.Add(Me.imagen)
+        Me.Panel1.Location = New System.Drawing.Point(411, 213)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(365, 169)
+        Me.Panel1.TabIndex = 32
+        '
+        'imagen
+        '
+        Me.imagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.imagen.Location = New System.Drawing.Point(0, 0)
+        Me.imagen.Name = "imagen"
+        Me.imagen.Size = New System.Drawing.Size(365, 168)
+        Me.imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.imagen.TabIndex = 25
+        Me.imagen.TabStop = False
+        '
+        'UltraButton13
+        '
+        Me.UltraButton13.Location = New System.Drawing.Point(110, 360)
+        Me.UltraButton13.Name = "UltraButton13"
+        Me.UltraButton13.Size = New System.Drawing.Size(63, 22)
+        Me.UltraButton13.TabIndex = 31
+        Me.UltraButton13.Text = "Cancelar"
+        '
         'btnModificarFresa
         '
         Me.btnModificarFresa.Location = New System.Drawing.Point(175, 360)
@@ -1014,16 +1041,6 @@ Public Class registrarModeloFresa
         Me.UltraButton5.Size = New System.Drawing.Size(92, 22)
         Me.UltraButton5.TabIndex = 4
         Me.UltraButton5.Text = "Buscar plano"
-        '
-        'imagen
-        '
-        Me.imagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.imagen.Location = New System.Drawing.Point(0, 0)
-        Me.imagen.Name = "imagen"
-        Me.imagen.Size = New System.Drawing.Size(365, 168)
-        Me.imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.imagen.TabIndex = 25
-        Me.imagen.TabStop = False
         '
         'UltraButton24
         '
@@ -1309,6 +1326,14 @@ Public Class registrarModeloFresa
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "Partes"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'UltraButton1
+        '
+        Me.UltraButton1.Location = New System.Drawing.Point(52, 362)
+        Me.UltraButton1.Name = "UltraButton1"
+        Me.UltraButton1.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton1.TabIndex = 16
+        Me.UltraButton1.Text = "Cancelar"
         '
         'UltraButton19
         '
@@ -1677,7 +1702,7 @@ Public Class registrarModeloFresa
         'ColumnHeader26
         '
         Me.ColumnHeader26.Text = "ID etapa"
-        Me.ColumnHeader26.Width = 44
+        Me.ColumnHeader26.Width = 65
         '
         'ColumnHeader27
         '
@@ -1850,6 +1875,26 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 425)
         '
+        'Panel2
+        '
+        Me.Panel2.AutoScroll = True
+        Me.Panel2.Controls.Add(Me.imagen2)
+        Me.Panel2.Location = New System.Drawing.Point(450, 176)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(328, 209)
+        Me.Panel2.TabIndex = 19
+        '
+        'imagen2
+        '
+        Me.imagen2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.imagen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.imagen2.Location = New System.Drawing.Point(0, 0)
+        Me.imagen2.Name = "imagen2"
+        Me.imagen2.Size = New System.Drawing.Size(328, 208)
+        Me.imagen2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.imagen2.TabIndex = 5
+        Me.imagen2.TabStop = False
+        '
         'btnModParteAdicional
         '
         Me.btnModParteAdicional.Location = New System.Drawing.Point(298, 391)
@@ -1881,17 +1926,6 @@ Public Class registrarModeloFresa
         Me.UltraButton9.Size = New System.Drawing.Size(68, 24)
         Me.UltraButton9.TabIndex = 3
         Me.UltraButton9.Text = "Guardar"
-        '
-        'imagen2
-        '
-        Me.imagen2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.imagen2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.imagen2.Location = New System.Drawing.Point(0, 0)
-        Me.imagen2.Name = "imagen2"
-        Me.imagen2.Size = New System.Drawing.Size(328, 208)
-        Me.imagen2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.imagen2.TabIndex = 5
-        Me.imagen2.TabStop = False
         '
         'UltraGroupBox5
         '
@@ -2215,40 +2249,6 @@ Public Class registrarModeloFresa
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(812, 425)
         '
-        'UltraButton1
-        '
-        Me.UltraButton1.Location = New System.Drawing.Point(52, 362)
-        Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(88, 24)
-        Me.UltraButton1.TabIndex = 16
-        Me.UltraButton1.Text = "Cancelar"
-        '
-        'UltraButton13
-        '
-        Me.UltraButton13.Location = New System.Drawing.Point(110, 360)
-        Me.UltraButton13.Name = "UltraButton13"
-        Me.UltraButton13.Size = New System.Drawing.Size(63, 22)
-        Me.UltraButton13.TabIndex = 31
-        Me.UltraButton13.Text = "Cancelar"
-        '
-        'Panel1
-        '
-        Me.Panel1.AutoScroll = True
-        Me.Panel1.Controls.Add(Me.imagen)
-        Me.Panel1.Location = New System.Drawing.Point(411, 213)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(365, 169)
-        Me.Panel1.TabIndex = 32
-        '
-        'Panel2
-        '
-        Me.Panel2.AutoScroll = True
-        Me.Panel2.Controls.Add(Me.imagen2)
-        Me.Panel2.Location = New System.Drawing.Point(450, 176)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(328, 209)
-        Me.Panel2.TabIndex = 19
-        '
         'registrarModeloFresa
         '
         Me.ClientSize = New System.Drawing.Size(818, 448)
@@ -2279,8 +2279,10 @@ Public Class registrarModeloFresa
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
-        CType(Me.textPlanoTF, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         CType(Me.imagen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.textPlanoTF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textImagenTF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox9.ResumeLayout(False)
@@ -2322,6 +2324,8 @@ Public Class registrarModeloFresa
         CType(Me.textIDEtapa, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboOperacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabPageControl2.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         CType(Me.imagen2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox5.ResumeLayout(False)
@@ -2345,10 +2349,6 @@ Public Class registrarModeloFresa
         CType(Me.textCostoAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tab, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tab.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2914,8 +2914,8 @@ Public Class registrarModeloFresa
             item.SubItems.Add(comboOperacion.SelectedItem.ToString)
             item.SubItems.Add(orden.Text)
             item.SubItems.Add(textTiempo.Text)
-
-            textIDEtapa.Text = lista4.Items.Count + 1
+            'ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+            textIDEtapa.Text = textID.Text & textIDFresa.Text & lista4.Items.Count + 1
             comboOperacion.SelectedItem = Nothing
             textTiempo.Text = 0
             orden.UpButton()
@@ -3705,7 +3705,7 @@ Public Class registrarModeloFresa
         btnModificarFresa.Enabled = False
 
         textIDParte.Text = 1
-        textIDEtapa.Text = 1
+        textIDEtapa.Text = textID.Text & textIDFresa.Text & 1
         orden.Text = 1
         textTiempo.Text = 0
 
