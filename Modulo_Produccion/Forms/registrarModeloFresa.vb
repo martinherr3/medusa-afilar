@@ -3128,22 +3128,18 @@ Public Class registrarModeloFresa
 
     Private Sub UltraButton23_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton23.Click
 
-
-
         ofd.InitialDirectory = "c:\"
         ofd.Filter = "Imagen (*.jpg)|*.jpg|Imagen (*.bmp)|*.bmp|Imagen (*.gif)|*.gif"
         ofd.FilterIndex = 2
         ofd.RestoreDirectory = True
 
         If ofd.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            'Dim s As System.IO.Stream
-            'Dim i As System.Drawing.Image
+
             Image.FromFile(ofd.FileName.ToString)
-            's = ofd.OpenFile
             textImagenTF.Text = ofd.FileName.ToString
-            'imagen.Image = i.FromStream(s)
             imagen.Image = Image.FromFile(ofd.FileName)
             imagen.Refresh()
+
         End If
 
     End Sub
@@ -3168,11 +3164,8 @@ Public Class registrarModeloFresa
         ofd.RestoreDirectory = True
 
         If ofd.ShowDialog() = Windows.Forms.DialogResult.OK Then
-            'Dim s As System.IO.Stream
             Image.FromFile(ofd.FileName.ToString)
-            's = ofd.OpenFile
             textImagenA.Text = ofd.FileName.ToString
-            'imagen.Image = i.FromStream(s)
             imagen2.Image = Image.FromFile(ofd.FileName)
             imagen2.Refresh()
         End If
@@ -3190,8 +3183,6 @@ Public Class registrarModeloFresa
 
         End If
     End Sub
-
-
 
     Private Sub UltraButton25_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BotonParte.Click
         Dim band As Boolean
