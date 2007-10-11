@@ -81,13 +81,14 @@ Public Class Dashboard
 
         selectCommand.Connection = cnn
         selectCommand.Connection.Open()
-        selectCommand.CommandText = "SELECT o.nombre, COUNT(o.nombre)" & _
+        selectCommand.CommandText = "SELECT TOP 6 o.nombre, COUNT(o.nombre)" & _
                                     " FROM detalleordenservicio dos" & _
                                     " INNER JOIN operacion o ON dos.idoperacion = o.idoperacion" & _
                                     " INNER JOIN pedido p ON dos.idpedido = p.idpedido" & _
                                     " WHERE p.fecharealizacion > '" + desde.Date + "'" & _
                                     " AND p.fecharealizacion < '" + hasta.Date + "'" & _
-                                    " GROUP BY o.nombre"
+                                    " GROUP BY o.nombre" & _
+                                    " ORDER BY COUNT(o.nombre) desc"
 
         selectCommand.CommandType = CommandType.Text
         adapter.SelectCommand = selectCommand
@@ -116,13 +117,14 @@ Public Class Dashboard
 
         selectCommand.Connection = cnn
         selectCommand.Connection.Open()
-        selectCommand.CommandText = "SELECT mf.nombre, COUNT(mf.idmodelo)" & _
+        selectCommand.CommandText = "SELECT TOP 6 mf.nombre, COUNT(mf.idmodelo)" & _
                                     " FROM fresa f" & _
                                     " INNER JOIN modelofresa mf ON f.idmodelo = mf.idmodelo" & _
                                     " INNER JOIN pedido p ON f.nropedido = p.idpedido" & _
                                     " WHERE p.fecharealizacion > '" + desde.Date + "'" & _
                                     " AND p.fecharealizacion < '" + hasta.Date + "'" & _
-                                    " GROUP BY mf.nombre"
+                                    " GROUP BY mf.nombre" & _
+                                    " ORDER BY COUNT(mf.idmodelo) desc"
 
         selectCommand.CommandType = CommandType.Text
         adapter.SelectCommand = selectCommand
