@@ -96,7 +96,7 @@ Public Class principal
         Me.UltraExplorerBar1.Location = New System.Drawing.Point(0, 110)
         Me.UltraExplorerBar1.Name = "UltraExplorerBar1"
         Me.UltraExplorerBar1.ShowDefaultContextMenu = False
-        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 585)
+        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 588)
         Me.UltraExplorerBar1.StateButtonCheckStyle = Infragistics.Win.UltraWinExplorerBar.StateButtonCheckStyle.ExclusiveWithinGroup
         Me.UltraExplorerBar1.Style = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.Listbar
         Me.UltraExplorerBar1.TabIndex = 2
@@ -199,7 +199,7 @@ Public Class principal
         Me.LinkLabel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(197, Byte), Integer))
         Me.LinkLabel1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel1.LinkColor = System.Drawing.Color.LightSteelBlue
-        Me.LinkLabel1.Location = New System.Drawing.Point(629, 55)
+        Me.LinkLabel1.Location = New System.Drawing.Point(788, 56)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(69, 15)
         Me.LinkLabel1.TabIndex = 23
@@ -251,23 +251,27 @@ Public Class principal
         acomodarImagenes()
 
     End Sub
+
     Public Sub acomodarImagenes()
         PictureBox1.Width = Me.Width
         UltraExplorerBar1.Height = Me.Height - 192
 
     End Sub
+
     Public Sub Actualizar()
         GestorFrm.InitMenu(Me.UltraExplorerBar1, mMenu, Me)
         Me.Menu = mMenu
         Me.Refresh()
 
     End Sub
+
     Public Sub mnu_Click(ByVal sender As Object, ByVal e As System.EventArgs)
         Dim formtoopen As String
         formtoopen = CType(sender, MenuItem).Tag
         formtoopen = Trim(formtoopen)
         GestorFrm.OpenForm(formtoopen, Me)
     End Sub
+
     Private Sub bloquearPantalla(ByVal ban As Boolean)
         If ban Then
             Panel1.Height = Me.Height
@@ -278,6 +282,7 @@ Public Class principal
         End If
 
     End Sub
+
     Private Sub UltraExplorerBar1_ItemClick(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinExplorerBar.ItemEventArgs) Handles UltraExplorerBar1.ItemClick
         GestorFrm.OpenForm(Me.UltraExplorerBar1.ActiveItem.Key, Me)
 
