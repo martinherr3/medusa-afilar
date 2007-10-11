@@ -21,6 +21,20 @@ Public Class frmpedidocliente
     Dim DOS As New detalleordenservicio
     Dim obj As New objdelservicio
     Dim bnuevo As Boolean
+    Friend WithEvents btnSalir As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents cmbFiltrar As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents btnFiltrar As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents txtFiltrar As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents dateHasta As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dateDesde As System.Windows.Forms.DateTimePicker
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents radioRealizacion As System.Windows.Forms.RadioButton
+    Friend WithEvents radioEntrega As System.Windows.Forms.RadioButton
+    Friend WithEvents radioNinguno As System.Windows.Forms.RadioButton
     Dim bpedido As Boolean
 
 
@@ -109,9 +123,13 @@ Public Class frmpedidocliente
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
@@ -121,6 +139,7 @@ Public Class frmpedidocliente
         Me.btngrabar = New Infragistics.Win.Misc.UltraButton
         Me.btnnuevo = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.Label12 = New System.Windows.Forms.Label
         Me.combocliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.fechaentrega = New Infragistics.Win.UltraWinSchedule.UltraCalendarCombo
         Me.comboformaentrega = New Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -156,6 +175,19 @@ Public Class frmpedidocliente
         Me.DataGridservicios = New System.Windows.Forms.DataGrid
         Me.DataGridfresasfab = New System.Windows.Forms.DataGrid
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.radioNinguno = New System.Windows.Forms.RadioButton
+        Me.radioRealizacion = New System.Windows.Forms.RadioButton
+        Me.radioEntrega = New System.Windows.Forms.RadioButton
+        Me.Label15 = New System.Windows.Forms.Label
+        Me.Label14 = New System.Windows.Forms.Label
+        Me.dateHasta = New System.Windows.Forms.DateTimePicker
+        Me.dateDesde = New System.Windows.Forms.DateTimePicker
+        Me.cmbFiltrar = New Infragistics.Win.UltraWinEditors.UltraComboEditor
+        Me.btnFiltrar = New Infragistics.Win.Misc.UltraButton
+        Me.Label13 = New System.Windows.Forms.Label
+        Me.txtFiltrar = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.btnSalir = New Infragistics.Win.Misc.UltraButton
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
@@ -185,6 +217,9 @@ Public Class frmpedidocliente
         CType(Me.DataGridservicios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
@@ -200,24 +235,24 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
-        Me.UltraTabPageControl1.Size = New System.Drawing.Size(868, 537)
+        Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
         '
         'txtimportetotal
         '
         Me.txtimportetotal.AutoSize = True
-        Me.txtimportetotal.Location = New System.Drawing.Point(672, 484)
+        Me.txtimportetotal.Location = New System.Drawing.Point(664, 512)
         Me.txtimportetotal.Name = "txtimportetotal"
         Me.txtimportetotal.ReadOnly = True
-        Me.txtimportetotal.Size = New System.Drawing.Size(64, 21)
+        Me.txtimportetotal.Size = New System.Drawing.Size(65, 21)
         Me.txtimportetotal.TabIndex = 7
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.Transparent
-        Me.Label11.Location = New System.Drawing.Point(594, 489)
+        Me.Label11.Location = New System.Drawing.Point(585, 520)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(77, 13)
         Me.Label11.TabIndex = 6
@@ -225,7 +260,7 @@ Public Class frmpedidocliente
         '
         'btnmodificar
         '
-        Me.btnmodificar.Location = New System.Drawing.Point(272, 479)
+        Me.btnmodificar.Location = New System.Drawing.Point(200, 509)
         Me.btnmodificar.Name = "btnmodificar"
         Me.btnmodificar.Size = New System.Drawing.Size(88, 24)
         Me.btnmodificar.TabIndex = 4
@@ -233,7 +268,7 @@ Public Class frmpedidocliente
         '
         'btngrabar
         '
-        Me.btngrabar.Location = New System.Drawing.Point(160, 479)
+        Me.btngrabar.Location = New System.Drawing.Point(106, 509)
         Me.btngrabar.Name = "btngrabar"
         Me.btngrabar.Size = New System.Drawing.Size(88, 24)
         Me.btngrabar.TabIndex = 3
@@ -241,7 +276,7 @@ Public Class frmpedidocliente
         '
         'btnnuevo
         '
-        Me.btnnuevo.Location = New System.Drawing.Point(48, 479)
+        Me.btnnuevo.Location = New System.Drawing.Point(12, 509)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(88, 24)
         Me.btnnuevo.TabIndex = 2
@@ -252,6 +287,7 @@ Public Class frmpedidocliente
         Me.UltraGroupBox2.BackColor = System.Drawing.Color.Transparent
         Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
         Me.UltraGroupBox2.ContentAreaAppearance = Appearance1
+        Me.UltraGroupBox2.Controls.Add(Me.Label12)
         Me.UltraGroupBox2.Controls.Add(Me.combocliente)
         Me.UltraGroupBox2.Controls.Add(Me.fechaentrega)
         Me.UltraGroupBox2.Controls.Add(Me.comboformaentrega)
@@ -265,13 +301,22 @@ Public Class frmpedidocliente
         Me.UltraGroupBox2.Controls.Add(Me.Label2)
         Me.UltraGroupBox2.Controls.Add(Me.lblnropedido)
         Me.UltraGroupBox2.Controls.Add(Me.Label1)
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(16, 8)
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(11, 8)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(784, 96)
+        Me.UltraGroupBox2.Size = New System.Drawing.Size(790, 96)
         Me.UltraGroupBox2.SupportThemes = False
         Me.UltraGroupBox2.TabIndex = 1
         Me.UltraGroupBox2.Text = "Datos del cliente"
         Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(700, 42)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(78, 13)
+        Me.Label12.TabIndex = 19
+        Me.Label12.Text = "Tipo de pedido"
         '
         'combocliente
         '
@@ -292,6 +337,7 @@ Public Class frmpedidocliente
         Me.fechaentrega.NullDateLabel = ""
         Me.fechaentrega.Size = New System.Drawing.Size(176, 21)
         Me.fechaentrega.TabIndex = 17
+        Me.fechaentrega.Value = New Date(2007, 10, 10, 0, 0, 0, 0)
         '
         'comboformaentrega
         '
@@ -320,16 +366,16 @@ Public Class frmpedidocliente
         ValueListItem2.DisplayText = "Reparación"
         Me.UltraOptionSet1.Items.Add(ValueListItem1)
         Me.UltraOptionSet1.Items.Add(ValueListItem2)
-        Me.UltraOptionSet1.Location = New System.Drawing.Point(672, 23)
+        Me.UltraOptionSet1.Location = New System.Drawing.Point(703, 58)
         Me.UltraOptionSet1.Name = "UltraOptionSet1"
-        Me.UltraOptionSet1.Size = New System.Drawing.Size(88, 32)
+        Me.UltraOptionSet1.Size = New System.Drawing.Size(82, 32)
         Me.UltraOptionSet1.TabIndex = 14
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(10, 67)
+        Me.Label6.Location = New System.Drawing.Point(8, 68)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(39, 13)
         Me.Label6.TabIndex = 12
@@ -338,16 +384,16 @@ Public Class frmpedidocliente
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(410, 69)
+        Me.Label5.Location = New System.Drawing.Point(424, 74)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(40, 17)
+        Me.Label5.Size = New System.Drawing.Size(40, 16)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Estado"
         '
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(376, 45)
+        Me.Label4.Location = New System.Drawing.Point(387, 50)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 16)
         Me.Label4.TabIndex = 6
@@ -356,9 +402,9 @@ Public Class frmpedidocliente
         'label3
         '
         Me.label3.BackColor = System.Drawing.Color.Transparent
-        Me.label3.Location = New System.Drawing.Point(376, 21)
+        Me.label3.Location = New System.Drawing.Point(387, 27)
         Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(120, 16)
+        Me.label3.Size = New System.Drawing.Size(80, 13)
         Me.label3.TabIndex = 4
         Me.label3.Text = "Fecha Entrega"
         '
@@ -391,7 +437,7 @@ Public Class frmpedidocliente
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(8, 21)
+        Me.Label1.Location = New System.Drawing.Point(8, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 13)
         Me.Label1.TabIndex = 0
@@ -410,9 +456,9 @@ Public Class frmpedidocliente
         Me.UltraGroupBox1.Controls.Add(Me.DataGridF)
         Me.UltraGroupBox1.Controls.Add(Me.DataGridMf)
         Me.UltraGroupBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(16, 112)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(12, 112)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(784, 360)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(790, 391)
         Me.UltraGroupBox1.SupportThemes = False
         Me.UltraGroupBox1.TabIndex = 0
         Me.UltraGroupBox1.Text = "Productos a Fabricar"
@@ -421,25 +467,26 @@ Public Class frmpedidocliente
         'txtsubtotal
         '
         Me.txtsubtotal.AutoSize = True
-        Me.txtsubtotal.Location = New System.Drawing.Point(656, 335)
+        Me.txtsubtotal.Location = New System.Drawing.Point(652, 361)
         Me.txtsubtotal.Name = "txtsubtotal"
         Me.txtsubtotal.ReadOnly = True
-        Me.txtsubtotal.Size = New System.Drawing.Size(64, 22)
+        Me.txtsubtotal.Size = New System.Drawing.Size(65, 22)
         Me.txtsubtotal.TabIndex = 6
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(593, 339)
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Label7.Location = New System.Drawing.Point(589, 370)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(63, 13)
+        Me.Label7.Size = New System.Drawing.Size(61, 13)
         Me.Label7.TabIndex = 5
         Me.Label7.Text = "Subtotal:  $"
         '
         'btnquiter
         '
-        Me.btnquiter.Location = New System.Drawing.Point(152, 170)
+        Me.btnquiter.Location = New System.Drawing.Point(112, 171)
         Me.btnquiter.Name = "btnquiter"
         Me.btnquiter.Size = New System.Drawing.Size(80, 24)
         Me.btnquiter.TabIndex = 4
@@ -447,7 +494,7 @@ Public Class frmpedidocliente
         '
         'btnagregar
         '
-        Me.btnagregar.Location = New System.Drawing.Point(54, 170)
+        Me.btnagregar.Location = New System.Drawing.Point(24, 171)
         Me.btnagregar.Name = "btnagregar"
         Me.btnagregar.Size = New System.Drawing.Size(82, 24)
         Me.btnagregar.TabIndex = 3
@@ -472,14 +519,14 @@ Public Class frmpedidocliente
         Me.DataGridpp.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGridpp.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridpp.LinkColor = System.Drawing.Color.Teal
-        Me.DataGridpp.Location = New System.Drawing.Point(440, 198)
+        Me.DataGridpp.Location = New System.Drawing.Point(440, 196)
         Me.DataGridpp.Name = "DataGridpp"
         Me.DataGridpp.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGridpp.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
         Me.DataGridpp.ReadOnly = True
         Me.DataGridpp.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGridpp.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridpp.Size = New System.Drawing.Size(328, 136)
+        Me.DataGridpp.Size = New System.Drawing.Size(328, 148)
         Me.DataGridpp.TabIndex = 2
         '
         'DataGridF
@@ -501,13 +548,13 @@ Public Class frmpedidocliente
         Me.DataGridF.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGridF.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridF.LinkColor = System.Drawing.Color.Teal
-        Me.DataGridF.Location = New System.Drawing.Point(24, 198)
+        Me.DataGridF.Location = New System.Drawing.Point(24, 196)
         Me.DataGridF.Name = "DataGridF"
         Me.DataGridF.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGridF.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
         Me.DataGridF.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGridF.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridF.Size = New System.Drawing.Size(376, 136)
+        Me.DataGridF.Size = New System.Drawing.Size(376, 148)
         Me.DataGridF.TabIndex = 1
         '
         'DataGridMf
@@ -551,9 +598,9 @@ Public Class frmpedidocliente
         Me.UltraGroupBox3.Controls.Add(Me.DataGriddos)
         Me.UltraGroupBox3.Controls.Add(Me.DataGridservicios)
         Me.UltraGroupBox3.Controls.Add(Me.DataGridfresasfab)
-        Me.UltraGroupBox3.Location = New System.Drawing.Point(16, 112)
+        Me.UltraGroupBox3.Location = New System.Drawing.Point(12, 112)
         Me.UltraGroupBox3.Name = "UltraGroupBox3"
-        Me.UltraGroupBox3.Size = New System.Drawing.Size(784, 360)
+        Me.UltraGroupBox3.Size = New System.Drawing.Size(790, 391)
         Me.UltraGroupBox3.SupportThemes = False
         Me.UltraGroupBox3.TabIndex = 5
         Me.UltraGroupBox3.Text = "Servicios a Realizar"
@@ -561,7 +608,7 @@ Public Class frmpedidocliente
         '
         'botquitar
         '
-        Me.botquitar.Location = New System.Drawing.Point(136, 173)
+        Me.botquitar.Location = New System.Drawing.Point(118, 171)
         Me.botquitar.Name = "botquitar"
         Me.botquitar.Size = New System.Drawing.Size(96, 24)
         Me.botquitar.TabIndex = 12
@@ -576,16 +623,17 @@ Public Class frmpedidocliente
         Me.UltraGroupBox4.Controls.Add(Me.Label9)
         Me.UltraGroupBox4.Controls.Add(Me.txtitem)
         Me.UltraGroupBox4.Controls.Add(Me.Label8)
-        Me.UltraGroupBox4.Location = New System.Drawing.Point(544, 48)
+        Me.UltraGroupBox4.Location = New System.Drawing.Point(560, 39)
         Me.UltraGroupBox4.Name = "UltraGroupBox4"
-        Me.UltraGroupBox4.Size = New System.Drawing.Size(224, 80)
+        Me.UltraGroupBox4.Size = New System.Drawing.Size(224, 129)
         Me.UltraGroupBox4.SupportThemes = False
         Me.UltraGroupBox4.TabIndex = 10
+        Me.UltraGroupBox4.Text = "Otro Item"
         '
         'txtcantidad
         '
         Me.txtcantidad.AutoSize = True
-        Me.txtcantidad.Location = New System.Drawing.Point(72, 46)
+        Me.txtcantidad.Location = New System.Drawing.Point(58, 52)
         Me.txtcantidad.Name = "txtcantidad"
         Me.txtcantidad.Size = New System.Drawing.Size(56, 21)
         Me.txtcantidad.TabIndex = 3
@@ -593,7 +641,7 @@ Public Class frmpedidocliente
         'Label9
         '
         Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(18, 48)
+        Me.Label9.Location = New System.Drawing.Point(8, 57)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(56, 16)
         Me.Label9.TabIndex = 2
@@ -602,25 +650,25 @@ Public Class frmpedidocliente
         'txtitem
         '
         Me.txtitem.AutoSize = True
-        Me.txtitem.Location = New System.Drawing.Point(72, 14)
+        Me.txtitem.Location = New System.Drawing.Point(58, 26)
         Me.txtitem.Name = "txtitem"
-        Me.txtitem.Size = New System.Drawing.Size(144, 21)
+        Me.txtitem.Size = New System.Drawing.Size(160, 21)
         Me.txtitem.TabIndex = 1
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Location = New System.Drawing.Point(40, 16)
+        Me.Label8.Location = New System.Drawing.Point(13, 34)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(27, 13)
+        Me.Label8.Size = New System.Drawing.Size(44, 13)
         Me.Label8.TabIndex = 0
-        Me.Label8.Text = "Item"
+        Me.Label8.Text = "Nombre"
         '
         'txtsubtot
         '
         Me.txtsubtot.AutoSize = True
-        Me.txtsubtot.Location = New System.Drawing.Point(655, 328)
+        Me.txtsubtot.Location = New System.Drawing.Point(652, 361)
         Me.txtsubtot.Name = "txtsubtot"
         Me.txtsubtot.ReadOnly = True
         Me.txtsubtot.Size = New System.Drawing.Size(65, 21)
@@ -630,7 +678,7 @@ Public Class frmpedidocliente
         '
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Location = New System.Drawing.Point(596, 333)
+        Me.Label10.Location = New System.Drawing.Point(592, 369)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(58, 13)
         Me.Label10.TabIndex = 8
@@ -638,7 +686,7 @@ Public Class frmpedidocliente
         '
         'botagregar
         '
-        Me.botagregar.Location = New System.Drawing.Point(32, 172)
+        Me.botagregar.Location = New System.Drawing.Point(24, 171)
         Me.botagregar.Name = "botagregar"
         Me.botagregar.Size = New System.Drawing.Size(88, 24)
         Me.botagregar.TabIndex = 3
@@ -663,14 +711,14 @@ Public Class frmpedidocliente
         Me.DataGriddos.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGriddos.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGriddos.LinkColor = System.Drawing.Color.Teal
-        Me.DataGriddos.Location = New System.Drawing.Point(22, 200)
+        Me.DataGriddos.Location = New System.Drawing.Point(24, 200)
         Me.DataGriddos.Name = "DataGriddos"
         Me.DataGriddos.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGriddos.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
         Me.DataGriddos.ReadOnly = True
         Me.DataGriddos.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGriddos.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGriddos.Size = New System.Drawing.Size(514, 152)
+        Me.DataGriddos.Size = New System.Drawing.Size(520, 182)
         Me.DataGriddos.TabIndex = 2
         '
         'DataGridservicios
@@ -692,7 +740,7 @@ Public Class frmpedidocliente
         Me.DataGridservicios.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGridservicios.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridservicios.LinkColor = System.Drawing.Color.Teal
-        Me.DataGridservicios.Location = New System.Drawing.Point(304, 24)
+        Me.DataGridservicios.Location = New System.Drawing.Point(323, 24)
         Me.DataGridservicios.Name = "DataGridservicios"
         Me.DataGridservicios.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGridservicios.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
@@ -720,7 +768,7 @@ Public Class frmpedidocliente
         Me.DataGridfresasfab.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGridfresasfab.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridfresasfab.LinkColor = System.Drawing.Color.Teal
-        Me.DataGridfresasfab.Location = New System.Drawing.Point(16, 24)
+        Me.DataGridfresasfab.Location = New System.Drawing.Point(24, 24)
         Me.DataGridfresasfab.Name = "DataGridfresasfab"
         Me.DataGridfresasfab.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGridfresasfab.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
@@ -732,10 +780,155 @@ Public Class frmpedidocliente
         '
         'UltraTabPageControl2
         '
+        Me.UltraTabPageControl2.Controls.Add(Me.GroupBox1)
+        Me.UltraTabPageControl2.Controls.Add(Me.Label15)
+        Me.UltraTabPageControl2.Controls.Add(Me.Label14)
+        Me.UltraTabPageControl2.Controls.Add(Me.dateHasta)
+        Me.UltraTabPageControl2.Controls.Add(Me.dateDesde)
+        Me.UltraTabPageControl2.Controls.Add(Me.cmbFiltrar)
+        Me.UltraTabPageControl2.Controls.Add(Me.btnFiltrar)
+        Me.UltraTabPageControl2.Controls.Add(Me.Label13)
+        Me.UltraTabPageControl2.Controls.Add(Me.txtFiltrar)
+        Me.UltraTabPageControl2.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl2.Controls.Add(Me.dgpedidos)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
-        Me.UltraTabPageControl2.Size = New System.Drawing.Size(868, 537)
+        Me.UltraTabPageControl2.Size = New System.Drawing.Size(813, 545)
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.radioNinguno)
+        Me.GroupBox1.Controls.Add(Me.radioRealizacion)
+        Me.GroupBox1.Controls.Add(Me.radioEntrega)
+        Me.GroupBox1.Location = New System.Drawing.Point(679, 8)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(117, 74)
+        Me.GroupBox1.TabIndex = 29
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Filtrar fecha por:"
+        '
+        'radioNinguno
+        '
+        Me.radioNinguno.AutoSize = True
+        Me.radioNinguno.Location = New System.Drawing.Point(6, 52)
+        Me.radioNinguno.Name = "radioNinguno"
+        Me.radioNinguno.Size = New System.Drawing.Size(65, 17)
+        Me.radioNinguno.TabIndex = 2
+        Me.radioNinguno.Text = "Ninguno"
+        Me.radioNinguno.UseVisualStyleBackColor = True
+        '
+        'radioRealizacion
+        '
+        Me.radioRealizacion.AutoSize = True
+        Me.radioRealizacion.Checked = True
+        Me.radioRealizacion.Location = New System.Drawing.Point(6, 20)
+        Me.radioRealizacion.Name = "radioRealizacion"
+        Me.radioRealizacion.Size = New System.Drawing.Size(80, 17)
+        Me.radioRealizacion.TabIndex = 1
+        Me.radioRealizacion.TabStop = True
+        Me.radioRealizacion.Text = "Realizacion"
+        Me.radioRealizacion.UseVisualStyleBackColor = True
+        '
+        'radioEntrega
+        '
+        Me.radioEntrega.AutoSize = True
+        Me.radioEntrega.Location = New System.Drawing.Point(6, 36)
+        Me.radioEntrega.Name = "radioEntrega"
+        Me.radioEntrega.Size = New System.Drawing.Size(62, 17)
+        Me.radioEntrega.TabIndex = 0
+        Me.radioEntrega.Text = "Entrega"
+        Me.radioEntrega.UseVisualStyleBackColor = True
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.BackColor = System.Drawing.Color.Transparent
+        Me.Label15.Location = New System.Drawing.Point(419, 25)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(38, 13)
+        Me.Label15.TabIndex = 28
+        Me.Label15.Text = "Desde"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
+        Me.Label14.Location = New System.Drawing.Point(421, 50)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(35, 13)
+        Me.Label14.TabIndex = 27
+        Me.Label14.Text = "Hasta"
+        '
+        'dateHasta
+        '
+        Me.dateHasta.Location = New System.Drawing.Point(458, 46)
+        Me.dateHasta.Name = "dateHasta"
+        Me.dateHasta.Size = New System.Drawing.Size(201, 20)
+        Me.dateHasta.TabIndex = 26
+        '
+        'dateDesde
+        '
+        Me.dateDesde.Location = New System.Drawing.Point(458, 20)
+        Me.dateDesde.Name = "dateDesde"
+        Me.dateDesde.Size = New System.Drawing.Size(201, 20)
+        Me.dateDesde.TabIndex = 25
+        '
+        'cmbFiltrar
+        '
+        Me.cmbFiltrar.AutoSize = True
+        ValueListItem3.DataValue = "ValueListItem0"
+        ValueListItem3.DisplayText = "Nombre cliente"
+        ValueListItem3.Tag = "nombreCliente"
+        ValueListItem4.DataValue = "ValueListItem1"
+        ValueListItem4.DisplayText = "Numero Pedido"
+        ValueListItem4.Tag = "NroPedido"
+        Appearance6.FontData.BoldAsString = "True"
+        ValueListItem5.Appearance = Appearance6
+        ValueListItem5.DataValue = "ValueListItem7"
+        ValueListItem5.DisplayText = "Ninguno"
+        ValueListItem5.Tag = "ninguno"
+        Me.cmbFiltrar.Items.Add(ValueListItem3)
+        Me.cmbFiltrar.Items.Add(ValueListItem4)
+        Me.cmbFiltrar.Items.Add(ValueListItem5)
+        Me.cmbFiltrar.Location = New System.Drawing.Point(74, 19)
+        Me.cmbFiltrar.Name = "cmbFiltrar"
+        Me.cmbFiltrar.Size = New System.Drawing.Size(224, 21)
+        Me.cmbFiltrar.TabIndex = 24
+        '
+        'btnFiltrar
+        '
+        Me.btnFiltrar.Location = New System.Drawing.Point(304, 46)
+        Me.btnFiltrar.Name = "btnFiltrar"
+        Me.btnFiltrar.Size = New System.Drawing.Size(80, 21)
+        Me.btnFiltrar.TabIndex = 23
+        Me.btnFiltrar.Text = "Filtrar"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
+        Me.Label13.Location = New System.Drawing.Point(20, 22)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(53, 13)
+        Me.Label13.TabIndex = 22
+        Me.Label13.Text = "Filtrar por:"
+        '
+        'txtFiltrar
+        '
+        Me.txtFiltrar.AutoSize = True
+        Me.txtFiltrar.Location = New System.Drawing.Point(74, 46)
+        Me.txtFiltrar.Name = "txtFiltrar"
+        Me.txtFiltrar.Size = New System.Drawing.Size(224, 21)
+        Me.txtFiltrar.TabIndex = 21
+        '
+        'btnSalir
+        '
+        Me.btnSalir.Location = New System.Drawing.Point(708, 509)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(88, 24)
+        Me.btnSalir.TabIndex = 3
+        Me.btnSalir.Text = "Salir"
         '
         'dgpedidos
         '
@@ -756,33 +949,33 @@ Public Class frmpedidocliente
         Me.dgpedidos.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.dgpedidos.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.dgpedidos.LinkColor = System.Drawing.Color.Teal
-        Me.dgpedidos.Location = New System.Drawing.Point(85, 31)
+        Me.dgpedidos.Location = New System.Drawing.Point(10, 100)
         Me.dgpedidos.Name = "dgpedidos"
         Me.dgpedidos.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.dgpedidos.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
         Me.dgpedidos.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.dgpedidos.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.dgpedidos.Size = New System.Drawing.Size(632, 224)
+        Me.dgpedidos.Size = New System.Drawing.Size(786, 403)
         Me.dgpedidos.TabIndex = 0
         '
         'UltraTabControl1
         '
-        Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance6.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance6
         Appearance7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance7.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance7
+        Appearance7.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance7
+        Appearance8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance8
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance8.BackColor = System.Drawing.Color.Silver
-        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance8
+        Appearance9.BackColor = System.Drawing.Color.Silver
+        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance9
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
-        Me.UltraTabControl1.Size = New System.Drawing.Size(872, 560)
+        Me.UltraTabControl1.Size = New System.Drawing.Size(817, 568)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
         Me.UltraTabControl1.TabIndex = 0
         UltraTab1.TabPage = Me.UltraTabPageControl1
@@ -796,12 +989,12 @@ Public Class frmpedidocliente
         '
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
-        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(868, 537)
+        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
         '
         'frmpedidocliente
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(810, 536)
+        Me.ClientSize = New System.Drawing.Size(816, 566)
         Me.Controls.Add(Me.UltraTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(196, 105)
@@ -839,6 +1032,11 @@ Public Class frmpedidocliente
         CType(Me.DataGridservicios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabPageControl2.ResumeLayout(False)
+        Me.UltraTabPageControl2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
@@ -850,7 +1048,7 @@ Public Class frmpedidocliente
 
     Private Sub frmpedidocliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' seteo el estilo del datagrid 
-        modelo.setearGrilla(DataGridMF)
+        modelo.setearGrilla(DataGridMf)
         tipofresa.setearGrilla(DataGridMf)
         parteAdicional.setearGrilla(DataGridMf)
         fresa.setearGrilla(DataGridF)
@@ -969,6 +1167,7 @@ Public Class frmpedidocliente
         idobj = 0
         nroserie = 0
     End Sub
+
     Function calcularnroserie() As Object
         If cnn.State = ConnectionState.Closed Then
             cnn.Open()
@@ -987,6 +1186,7 @@ Public Class frmpedidocliente
             cnn.Close()
         End If
     End Function
+
     Function calcularidobj() As Object
         If cnn.State = ConnectionState.Closed Then
             cnn.Open()
@@ -1005,6 +1205,8 @@ Public Class frmpedidocliente
             cnn.Close()
         End If
     End Function
+
+
     Function calcularNropedido() As Object
         cnn.Open()
         Dim strsql = "select max(idpedido) from pedido"
@@ -1018,13 +1220,7 @@ Public Class frmpedidocliente
         nropedido += 1
         calcularNropedido = nropedido
     End Function
-    Private Sub UltraTabPageControl1_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl1.Paint
 
-    End Sub
-
-    Private Sub DataGridMF_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs)
-
-    End Sub
 
     Private Sub DataGridMF_MouseUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs)
         Dim row As Integer
@@ -1093,9 +1289,6 @@ Public Class frmpedidocliente
         DataGridMf.Refresh()
     End Sub
 
-    Private Sub UltraTabControl1_SelectedTabChanged(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinTabControl.SelectedTabChangedEventArgs) Handles UltraTabControl1.SelectedTabChanged
-       
-    End Sub
 
     Private Sub btnagregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnagregar.Click
 
@@ -1141,9 +1334,6 @@ Public Class frmpedidocliente
         txtimportetotal.Text = CStr(CDec(txtsubtotal.Text) + CDec(txtsubtot.Text))
     End Sub
 
-    Private Sub UltraGroupBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraGroupBox2.Click
-
-    End Sub
 
     Private Sub btnnuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnnuevo.Click
         lblnropedido.Text = calcularNropedido()
@@ -1191,9 +1381,6 @@ Public Class frmpedidocliente
         combocliente.Text = String.Empty
     End Sub
 
-    Private Sub UltraGroupBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraGroupBox1.Click
-
-    End Sub
 
     Private Sub btngrabar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btngrabar.Click
         Dim i As Integer
@@ -1268,33 +1455,40 @@ Public Class frmpedidocliente
         btnmodificar.Enabled = False
     End Sub
 
-    Private Sub UltraTabControl1_ChangeUICues(ByVal sender As Object, ByVal e As System.Windows.Forms.UICuesEventArgs) Handles UltraTabControl1.ChangeUICues
-
-    End Sub
 
     Private Sub UltraTabControl1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles UltraTabControl1.Click
         If UltraTabControl1.SelectedTab.Index = 1 Then
-            'dgpedidos.DataSource = Nothing
-            Dim str As String = "select pedido.idpedido As NroPedido, pedido.fecharealizacion, pedido.fechaentrega, estado.nombre as estado," _
-            & "rtrim(cliente.apellido) + ', ' + cliente.nombre as nombreCliente from cliente, pedido, estado where cliente.idcliente=pedido.idcliente and pedido.idestado=estado.idestado"
-            Dim da = New SqlClient.SqlDataAdapter(str, cnn)
-            'pedidos.Clear()
-            'Dim pedido As New DataTable("pedido")
+
+            'periodo inicial (ultimos seis meses)
+            Dim desde As New Date(Now.Year, Now.Month - 6, Now.Day)
+            dateDesde.Value = desde
+            dateHasta.Value = Now
+
+            cmbFiltrar.Text = "Ninguno"
+
+            Dim consulta As String = "SELECT pedido.idpedido AS NroPedido, " & _
+                                  "pedido.fecharealizacion, " & _
+                                  "pedido.fechaentrega, " & _
+                                  "estado.nombre AS estado, " & _
+                                  "rtrim(cliente.apellido) + ', ' + cliente.nombre AS nombreCliente " & _
+                                  "FROM cliente, pedido, estado " & _
+                                  "WHERE cliente.idcliente = pedido.idcliente And pedido.idestado = estado.idestado " & _
+                                  "AND pedido.fecharealizacion >= '" + dateDesde.Value + "' " & _
+                                  "AND pedido.fecharealizacion <= '" + dateHasta.Value + "'"
+
+            Dim da As SqlClient.SqlDataAdapter
+            da = New SqlClient.SqlDataAdapter(consulta, cnn)
+
             ds.Tables("PR").Clear()
             da.Fill(ds, "PR")
-            'dvpedidos = pedidos.DefaultView
-            'dgpedidos.DataSource = dvpedidos
+            Dim dvpedidos As New DataView(ds.Tables("PR"))
+            dgpedidos.DataSource = dvpedidos
+
             dgpedidos.Refresh()
-            'dgclientes.DataSource = Nothing
-            'str = "select cliente.apellido as Apellido, cliente.nombre As Nombre,cliente.direccion as Direccion,localidad.nombre as Localidad,cliente.documento from cliente," _
-            '& "localidad where cliente.localidad=localidad.idlocalidad"
-            'Dim dacli As New SqlClient.SqlDataAdapter(str, cnn)
-            'Dim clientes As New DataTable
-            'dacli.Fill(clientes)
-            'dvclientes = clientes.DefaultView
-            'dgclientes.DataSource = dvclientes
+
         End If
     End Sub
+
     Sub setearfresas(ByVal dg As DataGrid)
         Dim ts As New DataGridTableStyle
 
@@ -1325,30 +1519,27 @@ Public Class frmpedidocliente
         'ts.GridColumnStyles.Add(c0)
 
 
-        Dim c1 As New grdstyle.CGridTextBoxStyle("Nropedido", 85, HorizontalAlignment.Center, True, "NRO PEDIDO", "", "")
+        Dim c1 As New grdstyle.CGridTextBoxStyle("Nropedido", 100, HorizontalAlignment.Center, True, "NRO PEDIDO", "", "")
         ts.GridColumnStyles.Add(c1)
 
-        Dim c2 As New grdstyle.CGridTextBoxStyle("fecharealizacion", 115, HorizontalAlignment.Center, True, "FECHA REALIZACION", "", "")
+        Dim c2 As New grdstyle.CGridTextBoxStyle("fecharealizacion", 120, HorizontalAlignment.Center, True, "FECHA REALIZACION", "", "")
         ts.GridColumnStyles.Add(c2)
 
-        Dim c3 As New grdstyle.CGridTextBoxStyle("fechaentrega", 115, HorizontalAlignment.Center, True, "FECHA ENTREGA", "", "")
+        Dim c3 As New grdstyle.CGridTextBoxStyle("fechaentrega", 120, HorizontalAlignment.Center, True, "FECHA ENTREGA", "", "")
         ts.GridColumnStyles.Add(c3)
 
-        Dim c4 As New grdstyle.CGridTextBoxStyle("estado", 110, HorizontalAlignment.Center, True, "ESTADO", "", "")
+        Dim c4 As New grdstyle.CGridTextBoxStyle("estado", 115, HorizontalAlignment.Center, True, "ESTADO", "", "")
         ts.GridColumnStyles.Add(c4)
 
         'Dim c5 As New grdstyle.CGridTextBoxStyle("apellidocliente", 100, HorizontalAlignment.Center, True, "APELLIDO", "", "")
         'ts.GridColumnStyles.Add(c5)
 
-        Dim c6 As New grdstyle.CGridTextBoxStyle("nombrecliente", 150, HorizontalAlignment.Center, True, "CLIENTE", "", "")
+        Dim c6 As New grdstyle.CGridTextBoxStyle("nombrecliente", 295, HorizontalAlignment.Center, True, "CLIENTE", "", "")
         ts.GridColumnStyles.Add(c6)
 
         dg.TableStyles.Add(ts)
     End Sub
 
-    Private Sub dgpedidos_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles dgpedidos.Navigate
-
-    End Sub
 
     Private Sub dgpedidos_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgpedidos.DoubleClick
         Dim cmd As New SqlClient.SqlCommand
@@ -1521,33 +1712,6 @@ Public Class frmpedidocliente
 
     End Sub
 
-    Private Sub dgclientes_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs)
-
-    End Sub
-
-    Private Sub dgclientes_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        'If cnn.State = ConnectionState.Closed Then
-        '    cnn.Open()
-        'End If
-        'Dim cmd As New SqlClient.SqlCommand
-        'cmd.CommandText = "select idcliente from cliente where documento=" & dgclientes.Item(dgclientes.CurrentRowIndex, 4)
-        'cmd.Connection = cnn
-        'idcliente = cmd.ExecuteScalar
-        'cnn.Close()
-        ''txtcliente.Text = RTrim(dgclientes.Item(dgclientes.CurrentRowIndex, 0)) & ", " & RTrim(dgclientes.Item(dgclientes.CurrentRowIndex, 1))
-        ''txtcliente.AutoSize = True
-
-
-        'DataGridfresasfab.DataSource = Nothing
-        'fresasfab.Clear()
-
-
-
-    End Sub
-
-    Private Sub dgclientes_DockChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
 
     Private Sub btnmodificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnmodificar.Click
 
@@ -1578,9 +1742,6 @@ Public Class frmpedidocliente
         idobj = calcularidobj()
     End Sub
 
-    Private Sub UltraOptionSet1_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraOptionSet1.ValueChanged
-
-    End Sub
 
     Private Sub UltraOptionSet1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles UltraOptionSet1.Click
         If Me.UltraOptionSet1.CheckedIndex = 0 Then
@@ -1593,13 +1754,6 @@ Public Class frmpedidocliente
         End If
     End Sub
 
-    Private Sub txtcliente_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub txtcliente_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
 
     Private Sub btnquiter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnquiter.Click
         Dim i As Integer
@@ -1656,6 +1810,7 @@ Public Class frmpedidocliente
         txtsubtotal.Text = subtotal
         txtimportetotal.Text = CDec(txtsubtot.Text) + CDec(txtsubtotal.Text)
     End Sub
+
 
     Private Sub DataGridMf_MouseUp1(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles DataGridMf.MouseUp
         Dim row As Integer
@@ -1724,9 +1879,6 @@ Public Class frmpedidocliente
         DataGridMf.Refresh()
     End Sub
 
-    Private Sub UltraGroupBox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraGroupBox3.Click
-
-    End Sub
 
     Private Sub botagregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles botagregar.Click
 
@@ -1830,9 +1982,6 @@ Public Class frmpedidocliente
         Next
     End Sub
 
-    Private Sub btnotro_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
 
     Private Sub botquitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles botquitar.Click
         ds.Tables("DOS").Rows(Me.DataGriddos.CurrentRowIndex).Delete()
@@ -1843,17 +1992,11 @@ Public Class frmpedidocliente
         For i = 0 To ds.Tables("DOS").Rows.Count - 1
             If Not (ds.Tables("DOS").Rows(i).RowState = DataRowState.Deleted) Then
                 subtotal += ds.Tables("DOS").Rows(i)("precio") * ds.Tables("DOS").Rows(i)("cantidad")
-
             End If
-
-
         Next
         txtimportetotal.Text = CDec(txtsubtot.Text) + CDec(txtsubtotal.Text)
     End Sub
 
-    Private Sub btnbuscli_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
     Function SoloNumeros(ByVal Keyascii As Short) As Short
         If InStr("1234567890", Chr(Keyascii)) = 0 Then
             SoloNumeros = 0
@@ -1867,6 +2010,7 @@ Public Class frmpedidocliente
                 SoloNumeros = Keyascii
         End Select
     End Function
+
     Function validarfecha(ByVal Keyascii As Short) As Short
         If InStr("1234567890/", Chr(Keyascii)) = 0 Then
             validarfecha = 0
@@ -1880,6 +2024,7 @@ Public Class frmpedidocliente
                 validarfecha = Keyascii
         End Select
     End Function
+
     Function SoloLETRAS(ByVal KeyAscii As Integer) As Integer
         KeyAscii = Asc(UCase(Chr(KeyAscii))) 'Transformar letras minusculas a Mayúsculas
         ' Intercepta un código ASCII recibido admitiendo solamente
@@ -1894,17 +2039,7 @@ Public Class frmpedidocliente
         If KeyAscii = 8 Then SoloLETRAS = KeyAscii ' Backspace
         If KeyAscii = 13 Then SoloLETRAS = KeyAscii ' Enter
     End Function
-    Private Sub chkfecharealizacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
-    End Sub
-
-    Private Sub chkfecharealizacion_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
-
-    End Sub
-
-    Private Sub txtfecharealizacion_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
 
     Private Sub txtfecharealizacion_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         Dim KeyAscii As Short = CShort(Asc(e.KeyChar))
@@ -1914,39 +2049,11 @@ Public Class frmpedidocliente
         End If
     End Sub
 
-    Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        'Dim str As String
-        'Dim b As Boolean
-        'b = False
-        'If chkapellido.Checked = True Then
-        '    If b = False Then
-        '        b = True
-        '        str = "apellido='" & txtapellido.Text & "'"
-        '    Else
-        '        str &= " and apellido='" & txtapellido.Text & "'"
-
-        '    End If
-
-        'End If
-        'If chknombre.Checked = True Then
-        '    If b = False Then
-        '        b = True
-        '        str = "nombre='" & txtnombre.Text & "'"
-        '    Else
-        '        str &= " and nombre='" & txtnombre.Text & "'"
-
-        '    End If
-        'End If
-        'If b = False Then
-        '    dvclientes.RowFilter = Nothing
-        'Else
-        '    dvclientes.RowFilter = str
-        'End If
-    End Sub
 
     Private Sub frmpedidocliente_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
         princ.barra.eliminarBoton()
     End Sub
+
 
     Private Sub combocliente_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles combocliente.ValueChanged
         If combocliente.Text = String.Empty Then
@@ -1962,13 +2069,6 @@ Public Class frmpedidocliente
         DataGridfresasfab.Refresh()
     End Sub
 
-    Private Sub combocliente_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles combocliente.Click
-
-    End Sub
-
-    Private Sub DataGridF_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles DataGridF.Navigate
-
-    End Sub
 
     Private Sub DataGridF_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles DataGridF.MouseUp
         If sel_check_col(DataGridF, 0, e) Then
@@ -2010,9 +2110,6 @@ Public Class frmpedidocliente
         End If
     End Sub
 
-    Private Sub DataGridpp_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles DataGridpp.Navigate
-
-    End Sub
 
     Private Sub DataGridpp_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles DataGridpp.MouseUp
         If sel_check_col(DataGridpp, 0, e) Then
@@ -2054,15 +2151,97 @@ Public Class frmpedidocliente
         End If
     End Sub
 
-    Private Sub UltraTabPageControl2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl2.Paint
+
+    Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
+        Me.Close()
+    End Sub
+
+
+    Private Sub btnFiltrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltrar.Click
+
+        Dim consulta As String = ""
+
+        If radioRealizacion.Checked = True Then
+            consulta = "SELECT pedido.idpedido AS NroPedido, " & _
+                      "pedido.fecharealizacion, " & _
+                      "pedido.fechaentrega, " & _
+                      "estado.nombre AS estado, " & _
+                      "rtrim(cliente.apellido) + ', ' + cliente.nombre AS nombreCliente " & _
+                      "FROM cliente, pedido, estado " & _
+                      "WHERE cliente.idcliente = pedido.idcliente And pedido.idestado = estado.idestado " & _
+                      "AND pedido.fecharealizacion >= '" + dateDesde.Value + "' " & _
+                      "AND pedido.fecharealizacion <= '" + dateHasta.Value + "'"
+        End If
+
+        If radioEntrega.Checked = True Then
+            consulta = "SELECT pedido.idpedido AS NroPedido, " & _
+                      "pedido.fecharealizacion, " & _
+                      "pedido.fechaentrega, " & _
+                      "estado.nombre AS estado, " & _
+                      "rtrim(cliente.apellido) + ', ' + cliente.nombre AS nombreCliente " & _
+                      "FROM cliente, pedido, estado " & _
+                      "WHERE cliente.idcliente = pedido.idcliente And pedido.idestado = estado.idestado " & _
+                      "AND pedido.fechaentrega >= '" + dateDesde.Value + "' " & _
+                      "AND pedido.fechaentrega <= '" + dateHasta.Value + "'"
+        End If
+
+        If radioNinguno.Checked = True Then
+            consulta = "SELECT pedido.idpedido AS NroPedido, " & _
+                      "pedido.fecharealizacion, " & _
+                      "pedido.fechaentrega, " & _
+                      "estado.nombre AS estado, " & _
+                      "rtrim(cliente.apellido) + ', ' + cliente.nombre AS nombreCliente " & _
+                      "FROM cliente, pedido, estado " & _
+                      "WHERE cliente.idcliente = pedido.idcliente And pedido.idestado = estado.idestado "
+        End If
+
+
+        Dim da As SqlClient.SqlDataAdapter
+        da = New SqlClient.SqlDataAdapter(consulta, cnn)
+
+        ds.Tables("PR").Clear()
+        da.Fill(ds, "PR")
+
+        Dim dataView As New DataView(ds.Tables("PR"))
+        Dim filtrar As Boolean
+        Const FILTRO_NINGUNO As String = "ninguno"
+
+        If (txtFiltrar.Text = "" And cmbFiltrar.SelectedItem.Tag <> FILTRO_NINGUNO) Then
+            MsgBox("Debe ingresar condicion a filtrar", MsgBoxStyle.Information)
+            filtrar = False
+            txtFiltrar.Focus()
+            Exit Sub
+        End If
+
+        'Por si hace falta filtrar por estado mas adelante
+        'Dim estado As String
+        'If radioAlta.Checked Then
+        '    estado = Constantes.MODELO_FRESA_ESTADO_ALTA
+        'Else
+        '    estado = Constantes.MODELO_FRESA_ESTADO_BAJA
+        'End If
+
+
+        Select Case cmbFiltrar.SelectedItem.Tag.ToString
+            Case "NroPedido"
+                dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " = " & txtFiltrar.Text '& " And estado = '" & estado & "'"
+            Case "nombreCliente"
+                dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'" '& " And estado = '" & estado & "'"
+            Case FILTRO_NINGUNO
+                'nothing to do
+            Case Else
+                dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'" '& " And estado = '" & estado & "'"
+        End Select
+
+        dgpedidos.DataSource = dataView
+
+        dgpedidos.Refresh()
 
     End Sub
 
-    Private Sub DataGridMf_Navigate_1(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles DataGridMf.Navigate
 
+    Private Sub cargarPresupuesto()
+        'TODO
     End Sub
 
-    Private Sub dgpedidos_PreviewKeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.PreviewKeyDownEventArgs) Handles dgpedidos.PreviewKeyDown
-
-    End Sub
 End Class
