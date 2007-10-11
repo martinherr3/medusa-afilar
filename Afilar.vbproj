@@ -86,7 +86,7 @@
     <Reference Include="DundasWinChart, Version=5.5.1.1711, Culture=neutral, PublicKeyToken=a4c03dce5db22406, processorArchitecture=MSIL" />
     <Reference Include="DundasWinGauge, Version=2.0.2.201, Culture=neutral, PublicKeyToken=ed845c6a255edda6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Archivos de programa\Dundas Software\Gauges\WinControlVS2005\Bin\DundasWinGauge.dll</HintPath>
+      <HintPath>C:\Dundas Software\Gauges\WinControlVS2005\Bin\DundasWinGauge.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics.Shared.v5.1">
       <Name>Infragistics.Shared.v5.1</Name>
@@ -169,6 +169,7 @@
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.SqlServer.XMLSrc, Version=9.0.242.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic">
       <Name>Microsoft.VisualBasic</Name>
     </Reference>
@@ -336,6 +337,12 @@
     <Compile Include="Modulo_Reportes\Forms\DashboardForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo_Reportes\Forms\GestorReportesForm.Designer.vb">
+      <DependentUpon>GestorReportesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Forms\GestorReportesForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -378,6 +385,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSFresa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\consultarPresupuesto.Designer.vb">
+      <DependentUpon>consultarPresupuesto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\consultarPresupuesto.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Ventas\Forms\emitirPresupuesto.vb">
       <SubType>Form</SubType>
@@ -687,6 +700,10 @@
     <EmbeddedResource Include="Modulo_Reportes\Forms\DashboardForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DashboardForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Forms\GestorReportesForm.resx">
+      <DependentUpon>GestorReportesForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Sistema\Forms\frmMensajes.resx">
       <DependentUpon>frmMensajes.vb</DependentUpon>
