@@ -19,15 +19,15 @@ Partial Class consultarModeloFresa
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ValueListItem9 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem10 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem11 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem12 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem13 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem14 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem15 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem16 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.dataGridMF = New System.Windows.Forms.DataGrid
         Me.btnSalir = New Infragistics.Win.Misc.UltraButton
         Me.txtFiltrar = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -126,40 +126,40 @@ Partial Class consultarModeloFresa
         'cmbFiltrar
         '
         Me.cmbFiltrar.AutoSize = True
-        ValueListItem9.DataValue = "ValueListItem0"
-        ValueListItem9.DisplayText = "Nombre"
-        ValueListItem9.Tag = "nombre"
-        ValueListItem10.DataValue = "ValueListItem1"
-        ValueListItem10.DisplayText = "ID"
-        ValueListItem10.Tag = "idmodelo"
-        ValueListItem11.DataValue = "ValueListItem2"
-        ValueListItem11.DisplayText = "Grupo modelo"
-        ValueListItem11.Tag = "grupomodelo"
-        ValueListItem12.DataValue = "ValueListItem3"
-        ValueListItem12.DisplayText = "Material a trabajar"
-        ValueListItem12.Tag = "materialatrabajar"
-        ValueListItem13.DataValue = "ValueListItem4"
-        ValueListItem13.DisplayText = "Tipo acabado"
-        ValueListItem13.Tag = "tipoacabado"
-        ValueListItem14.DataValue = "ValueListItem5"
-        ValueListItem14.DisplayText = "Tipo modelo"
-        ValueListItem14.Tag = "tipomodelo"
-        ValueListItem15.DataValue = "ValueListItem6"
-        ValueListItem15.DisplayText = "Precio"
-        ValueListItem15.Tag = "precio"
-        Appearance2.FontData.BoldAsString = "True"
-        ValueListItem16.Appearance = Appearance2
-        ValueListItem16.DataValue = "ValueListItem7"
-        ValueListItem16.DisplayText = "Ninguno"
-        ValueListItem16.Tag = "ninguno"
-        Me.cmbFiltrar.Items.Add(ValueListItem9)
-        Me.cmbFiltrar.Items.Add(ValueListItem10)
-        Me.cmbFiltrar.Items.Add(ValueListItem11)
-        Me.cmbFiltrar.Items.Add(ValueListItem12)
-        Me.cmbFiltrar.Items.Add(ValueListItem13)
-        Me.cmbFiltrar.Items.Add(ValueListItem14)
-        Me.cmbFiltrar.Items.Add(ValueListItem15)
-        Me.cmbFiltrar.Items.Add(ValueListItem16)
+        ValueListItem1.DataValue = "ValueListItem0"
+        ValueListItem1.DisplayText = "Nombre"
+        ValueListItem1.Tag = "nombre"
+        ValueListItem2.DataValue = "ValueListItem1"
+        ValueListItem2.DisplayText = "ID"
+        ValueListItem2.Tag = "idmodelo"
+        ValueListItem3.DataValue = "ValueListItem2"
+        ValueListItem3.DisplayText = "Grupo modelo"
+        ValueListItem3.Tag = "grupomodelo"
+        ValueListItem4.DataValue = "ValueListItem3"
+        ValueListItem4.DisplayText = "Material a trabajar"
+        ValueListItem4.Tag = "materialatrabajar"
+        ValueListItem5.DataValue = "ValueListItem4"
+        ValueListItem5.DisplayText = "Tipo acabado"
+        ValueListItem5.Tag = "tipoacabado"
+        ValueListItem6.DataValue = "ValueListItem5"
+        ValueListItem6.DisplayText = "Tipo modelo"
+        ValueListItem6.Tag = "tipomodelo"
+        ValueListItem7.DataValue = "ValueListItem6"
+        ValueListItem7.DisplayText = "Precio"
+        ValueListItem7.Tag = "precio"
+        Appearance1.FontData.BoldAsString = "True"
+        ValueListItem8.Appearance = Appearance1
+        ValueListItem8.DataValue = "ValueListItem7"
+        ValueListItem8.DisplayText = "Ninguno"
+        ValueListItem8.Tag = "ninguno"
+        Me.cmbFiltrar.Items.Add(ValueListItem1)
+        Me.cmbFiltrar.Items.Add(ValueListItem2)
+        Me.cmbFiltrar.Items.Add(ValueListItem3)
+        Me.cmbFiltrar.Items.Add(ValueListItem4)
+        Me.cmbFiltrar.Items.Add(ValueListItem5)
+        Me.cmbFiltrar.Items.Add(ValueListItem6)
+        Me.cmbFiltrar.Items.Add(ValueListItem7)
+        Me.cmbFiltrar.Items.Add(ValueListItem8)
         Me.cmbFiltrar.Location = New System.Drawing.Point(70, 31)
         Me.cmbFiltrar.Name = "cmbFiltrar"
         Me.cmbFiltrar.Size = New System.Drawing.Size(224, 21)
