@@ -364,4 +364,32 @@ Module ModuloPrincipal
         Return bm
     End Function
 
+
+    Public Function Redondear(ByVal Numero As String) As String
+        Dim ParteEntera As String = Int(Numero)
+        Dim ParteDecimal As String
+        If Not (Len(Numero) - Len(ParteEntera)) = 0 Then
+            ParteDecimal = Right(Numero, Len(Numero) - Len(ParteEntera) - 1)
+        Else
+            ParteDecimal = "00"
+        End If
+        Dim Num As Double
+        If Len(ParteDecimal) >= 3 Then
+            ParteDecimal = Left(ParteDecimal, 3)
+            If Mid(ParteDecimal, 3, 1) >= "5" Then
+                ParteDecimal = Left(ParteDecimal, 2)
+                Num = Convert.ToDouble(ParteDecimal)
+                Num = Num + 1
+                If Len(CStr(Num)) = 3 Then ParteEntera = ParteEntera + 1
+                ParteDecimal = Right(CStr(Num), 2)
+            End If
+        Else
+            ParteDecimal = Left(ParteDecimal, 2) '<-- El problema estaba aquí. Si el tercer decimal no
+            ' empezaba por un numero mayor de 5, saltaba y retornaba
+            ' el mismo valor de entrada.
+
+        End If
+        Redondear = ParteEntera & "," & ParteDecimal
+    End Function
+
 End Module
