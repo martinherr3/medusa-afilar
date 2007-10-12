@@ -844,7 +844,7 @@ Public Class frmpedidocliente
         '
         Me.Label15.AutoSize = True
         Me.Label15.BackColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(419, 25)
+        Me.Label15.Location = New System.Drawing.Point(410, 36)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(38, 13)
         Me.Label15.TabIndex = 28
@@ -854,7 +854,7 @@ Public Class frmpedidocliente
         '
         Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.Color.Transparent
-        Me.Label14.Location = New System.Drawing.Point(421, 50)
+        Me.Label14.Location = New System.Drawing.Point(412, 61)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(35, 13)
         Me.Label14.TabIndex = 27
@@ -862,14 +862,14 @@ Public Class frmpedidocliente
         '
         'dateHasta
         '
-        Me.dateHasta.Location = New System.Drawing.Point(458, 46)
+        Me.dateHasta.Location = New System.Drawing.Point(449, 57)
         Me.dateHasta.Name = "dateHasta"
         Me.dateHasta.Size = New System.Drawing.Size(201, 20)
         Me.dateHasta.TabIndex = 26
         '
         'dateDesde
         '
-        Me.dateDesde.Location = New System.Drawing.Point(458, 20)
+        Me.dateDesde.Location = New System.Drawing.Point(449, 31)
         Me.dateDesde.Name = "dateDesde"
         Me.dateDesde.Size = New System.Drawing.Size(201, 20)
         Me.dateDesde.TabIndex = 25
@@ -891,16 +891,16 @@ Public Class frmpedidocliente
         Me.cmbFiltrar.Items.Add(ValueListItem3)
         Me.cmbFiltrar.Items.Add(ValueListItem4)
         Me.cmbFiltrar.Items.Add(ValueListItem5)
-        Me.cmbFiltrar.Location = New System.Drawing.Point(74, 19)
+        Me.cmbFiltrar.Location = New System.Drawing.Point(65, 30)
         Me.cmbFiltrar.Name = "cmbFiltrar"
         Me.cmbFiltrar.Size = New System.Drawing.Size(224, 21)
         Me.cmbFiltrar.TabIndex = 24
         '
         'btnFiltrar
         '
-        Me.btnFiltrar.Location = New System.Drawing.Point(304, 46)
+        Me.btnFiltrar.Location = New System.Drawing.Point(295, 30)
         Me.btnFiltrar.Name = "btnFiltrar"
-        Me.btnFiltrar.Size = New System.Drawing.Size(80, 21)
+        Me.btnFiltrar.Size = New System.Drawing.Size(80, 48)
         Me.btnFiltrar.TabIndex = 23
         Me.btnFiltrar.Text = "Filtrar"
         '
@@ -908,7 +908,7 @@ Public Class frmpedidocliente
         '
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Location = New System.Drawing.Point(20, 22)
+        Me.Label13.Location = New System.Drawing.Point(11, 33)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(53, 13)
         Me.Label13.TabIndex = 22
@@ -917,7 +917,7 @@ Public Class frmpedidocliente
         'txtFiltrar
         '
         Me.txtFiltrar.AutoSize = True
-        Me.txtFiltrar.Location = New System.Drawing.Point(74, 46)
+        Me.txtFiltrar.Location = New System.Drawing.Point(65, 57)
         Me.txtFiltrar.Name = "txtFiltrar"
         Me.txtFiltrar.Size = New System.Drawing.Size(224, 21)
         Me.txtFiltrar.TabIndex = 21
