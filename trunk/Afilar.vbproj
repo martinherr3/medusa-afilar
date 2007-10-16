@@ -709,6 +709,10 @@
       <DependentUpon>frmMensajes.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\consultarPresupuesto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>consultarPresupuesto.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\emitirPresupuesto.resx">
       <DependentUpon>emitirPresupuesto.vb</DependentUpon>
       <SubType>Designer</SubType>
