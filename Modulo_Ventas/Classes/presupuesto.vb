@@ -17,7 +17,14 @@ Public Class presupuesto
         '
         'SqlSelectCommand1
         '
-        Me.selectPresupuesto.CommandText = "SELECT idpresupuesto, fecha, idcliente, idempleado FROM presupuesto"
+        'Me.selectPresupuesto.CommandText = "SELECT idpresupuesto, fecha, idcliente, idempleado FROM presupuesto"
+        Me.selectPresupuesto.CommandText = "SELECT p.idpresupuesto, p.fecha, p.idcliente, p.idempleado, " & _
+                                           "rtrim(c.apellido) + ', ' + c.nombre AS 'nombreCliente', " & _
+                                           "rtrim(e.apellido) + ', ' + e.nombre AS 'nombreEmpleado' " & _
+                                           "FROM presupuesto p " & _
+                                           "INNER JOIN cliente c ON c.idcliente = p.idcliente " & _
+                                           "INNER JOIN empleado e ON e.idlegajo = p.idempleado"
+
         Me.selectPresupuesto.Connection = cnn
         '
         'SqlInsertCommand1
@@ -62,11 +69,7 @@ Public Class presupuesto
         Me.deletePresupuesto.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_fecha", System.Data.SqlDbType.DateTime, 8, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "fecha", System.Data.DataRowVersion.Original, Nothing))
         Me.deletePresupuesto.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_idcliente", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "idcliente", System.Data.DataRowVersion.Original, Nothing))
         Me.deletePresupuesto.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_idempleado", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "idempleado", System.Data.DataRowVersion.Original, Nothing))
-        '
-        'cnn
-        '
-        'Me.cnn.ConnectionString = "workstation id=OCTAVO;packet size=4096;integrated security=SSPI;initial catalog=A" & _
-        '"filar;persist security info=False"
+
     End Sub
 
 
@@ -78,4 +81,42 @@ Public Class presupuesto
     Public Sub actualizarDatos(ByVal ds As DataSet, ByVal tabla As String)
         adaptadorPresupuesto.Update(ds, tabla)
     End Sub
+
+
+    Public Function selectPorFecha(ByVal fechaDesde As Date, ByVal fechaHasta As Date) As DataSet
+        Dim consulta As String = "SELECT p.idpresupuesto, p.fecha, " & _
+                                 "rtrim(c.apellido) + ', ' + c.nombre AS 'nombreCliente', " & _
+                                 "rtrim(e.apellido) + ', ' + e.nombre AS 'nombreEmpleado' " & _
+                                 "FROM presupuesto p " & _
+                                 "INNER JOIN cliente c ON c.idcliente = p.idcliente " & _
+                                 "INNER JOIN empleado e ON e.idlegajo = p.idempleado " & _
+                                 "WHERE p.fecha >= '" + fechaDesde.Date + "' " & _
+                                 "AND p.fecha <= '" + fechaHasta.Date + "'"
+
+        Me.selectPresupuesto.CommandText = consulta
+        Dim ds As New DataSet
+
+        adaptadorPresupuesto.Fill(ds, "presupuesto")
+
+        Return ds
+
+    End Function
+
+
+    Public Function selectTodo() As DataSet
+        Dim consulta As String = "SELECT p.idpresupuesto, p.fecha, " & _
+                                 "rtrim(c.apellido) + ', ' + c.nombre AS 'nombreCliente', " & _
+                                 "rtrim(e.apellido) + ', ' + e.nombre AS 'nombreEmpleado' " & _
+                                 "FROM presupuesto p " & _
+                                 "INNER JOIN cliente c ON c.idcliente = p.idcliente " & _
+                                 "INNER JOIN empleado e ON e.idlegajo = p.idempleado"
+
+        Me.selectPresupuesto.CommandText = consulta
+        Dim ds As New DataSet
+
+        adaptadorPresupuesto.Fill(ds, "presupuesto")
+
+        Return ds
+
+    End Function
 End Class

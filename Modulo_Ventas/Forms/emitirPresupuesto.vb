@@ -559,8 +559,8 @@ Public Class emitirPresupuesto
 
             Dim i As Integer
             'Ver el - 1 que es muy dudoso, codigo basura
-            'i = dataGridMF.Item(dataGridMF.CurrentRowIndex, 1) - 1
-            i = dataGridMF.Item(dataGridMF.CurrentRowIndex, 1)
+            i = dataGridMF.Item(dataGridMF.CurrentRowIndex, 1) - 1
+            'i = dataGridMF.Item(dataGridMF.CurrentRowIndex, 1)
 
             Select Case ds.Tables("modelofresa").Rows(i).Item("seleccionarMF")
 
@@ -713,7 +713,7 @@ Public Class emitirPresupuesto
                     nueva("idpresupuesto") = textPresupuesto.Text
                     nueva("idmodelo") = fila("idmodelo")
                     nueva("idproducto") = fila("idtipo")
-                    nueva("tipo") = 1
+                    nueva("tipo") = Constantes.PRESUPUESTO_TIPO_FRESA
                     nueva("cantidad") = 1
                     nueva("precio") = fila("precio")
 
@@ -734,7 +734,7 @@ Public Class emitirPresupuesto
                     nueva("iddetpre") = i
                     nueva("idpresupuesto") = textPresupuesto.Text
                     nueva("idmodelo") = fila("idmodelo")
-                    nueva("tipo") = 2
+                    nueva("tipo") = Constantes.PRESUPUESTO_PARTE_ADICIONAL
                     nueva("idproducto") = fila("idadicional")
                     nueva("cantidad") = 1
                     nueva("precio") = fila("precio")
