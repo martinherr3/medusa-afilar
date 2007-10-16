@@ -4,6 +4,10 @@ Public Class Constantes
     Public Const MODELO_FRESA_ESTADO_BAJA As String = "Baja"
     Public Const MODELO_FRESA_ESTADO_ALTA As String = "Alta"
 
+    'Campo tipo de Emitir presupuesto
+    Public Const PRESUPUESTO_TIPO_FRESA As Integer = 1
+    Public Const PRESUPUESTO_PARTE_ADICIONAL As Integer = 2
+
     'setea el inicio de las coordenadas X e Y de los formularios, las que heredan
     'de frmBase
     Private _InicioX As Integer = 200
