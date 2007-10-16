@@ -19,8 +19,17 @@ Public Class detallePresupuesto
         '
         'SqlSelectCommand3
         '
-        Me.selectDP.CommandText = "SELECT iddetpre, idpresupuesto, idmodelo, idproducto, tipo, cantidad, precio FROM" & _
-        " detallepresupuesto"
+        'Me.selectDP.CommandText = "SELECT iddetpre, idpresupuesto, idmodelo, idproducto, tipo, cantidad, precio FROM" & _
+        '" detallepresupuesto"
+        Me.selectDP.CommandText = "SELECT dp.iddetpre, dp.idpresupuesto, dp.idmodelo, mf.nombre AS 'nombreModelo', " & _
+                                  "dp.idproducto, dp.tipo, (case when dp.tipo = '1' then tf.nombre else pa.nombre end) AS 'nombreProducto', dp.cantidad, dp.precio, " & _
+                                  "(case when dp.tipo = '1' then 'Tipo Fresa' else 'Parte Adicional' end) As 'tipoProducto'" & _
+                                  "FROM detallepresupuesto dp " & _
+                                  "INNER JOIN modelofresa mf ON mf.idmodelo = dp.idmodelo " & _
+                                  "INNER JOIN tipofresa tf ON tf.idtipo = dp.idproducto " & _
+                                  "AND tf.idmodelo = dp.idmodelo " & _
+                                  "INNER JOIN parteadicional pa ON pa.idadicional = dp.idproducto " & _
+                                  "AND pa.idmodelo = dp.idmodelo"
         Me.selectDP.Connection = cnn
         '
         'SqlInsertCommand1
@@ -93,8 +102,11 @@ Public Class detallePresupuesto
         adaptadorDP.Fill(ds, tabla)
     End Sub
 
+
     Public Sub actualizarDatos(ByVal ds As DataSet, ByVal tabla As String)
         adaptadorDP.Update(ds, tabla)
     End Sub
+
+
 
 End Class

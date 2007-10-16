@@ -32,9 +32,9 @@ Public Class frmpedidocliente
     Friend WithEvents dateHasta As System.Windows.Forms.DateTimePicker
     Friend WithEvents dateDesde As System.Windows.Forms.DateTimePicker
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents radioNinguno As System.Windows.Forms.RadioButton
     Friend WithEvents radioRealizacion As System.Windows.Forms.RadioButton
     Friend WithEvents radioEntrega As System.Windows.Forms.RadioButton
-    Friend WithEvents radioNinguno As System.Windows.Forms.RadioButton
     Dim bpedido As Boolean
 
 
@@ -175,10 +175,6 @@ Public Class frmpedidocliente
         Me.DataGridservicios = New System.Windows.Forms.DataGrid
         Me.DataGridfresasfab = New System.Windows.Forms.DataGrid
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.radioNinguno = New System.Windows.Forms.RadioButton
-        Me.radioRealizacion = New System.Windows.Forms.RadioButton
-        Me.radioEntrega = New System.Windows.Forms.RadioButton
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label14 = New System.Windows.Forms.Label
         Me.dateHasta = New System.Windows.Forms.DateTimePicker
@@ -191,6 +187,10 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.radioNinguno = New System.Windows.Forms.RadioButton
+        Me.radioEntrega = New System.Windows.Forms.RadioButton
+        Me.radioRealizacion = New System.Windows.Forms.RadioButton
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -217,12 +217,12 @@ Public Class frmpedidocliente
         CType(Me.DataGridservicios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -795,51 +795,6 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(813, 545)
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.radioNinguno)
-        Me.GroupBox1.Controls.Add(Me.radioRealizacion)
-        Me.GroupBox1.Controls.Add(Me.radioEntrega)
-        Me.GroupBox1.Location = New System.Drawing.Point(679, 8)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(117, 74)
-        Me.GroupBox1.TabIndex = 29
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Filtrar fecha por:"
-        '
-        'radioNinguno
-        '
-        Me.radioNinguno.AutoSize = True
-        Me.radioNinguno.Location = New System.Drawing.Point(6, 52)
-        Me.radioNinguno.Name = "radioNinguno"
-        Me.radioNinguno.Size = New System.Drawing.Size(65, 17)
-        Me.radioNinguno.TabIndex = 2
-        Me.radioNinguno.Text = "Ninguno"
-        Me.radioNinguno.UseVisualStyleBackColor = True
-        '
-        'radioRealizacion
-        '
-        Me.radioRealizacion.AutoSize = True
-        Me.radioRealizacion.Checked = True
-        Me.radioRealizacion.Location = New System.Drawing.Point(6, 20)
-        Me.radioRealizacion.Name = "radioRealizacion"
-        Me.radioRealizacion.Size = New System.Drawing.Size(80, 17)
-        Me.radioRealizacion.TabIndex = 1
-        Me.radioRealizacion.TabStop = True
-        Me.radioRealizacion.Text = "Realizacion"
-        Me.radioRealizacion.UseVisualStyleBackColor = True
-        '
-        'radioEntrega
-        '
-        Me.radioEntrega.AutoSize = True
-        Me.radioEntrega.Location = New System.Drawing.Point(6, 36)
-        Me.radioEntrega.Name = "radioEntrega"
-        Me.radioEntrega.Size = New System.Drawing.Size(62, 17)
-        Me.radioEntrega.TabIndex = 0
-        Me.radioEntrega.Text = "Entrega"
-        Me.radioEntrega.UseVisualStyleBackColor = True
-        '
         'Label15
         '
         Me.Label15.AutoSize = True
@@ -991,6 +946,51 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.radioNinguno)
+        Me.GroupBox1.Controls.Add(Me.radioRealizacion)
+        Me.GroupBox1.Controls.Add(Me.radioEntrega)
+        Me.GroupBox1.Location = New System.Drawing.Point(679, 8)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(117, 74)
+        Me.GroupBox1.TabIndex = 29
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Filtrar fecha por:"
+        '
+        'radioNinguno
+        '
+        Me.radioNinguno.AutoSize = True
+        Me.radioNinguno.Location = New System.Drawing.Point(6, 52)
+        Me.radioNinguno.Name = "radioNinguno"
+        Me.radioNinguno.Size = New System.Drawing.Size(65, 17)
+        Me.radioNinguno.TabIndex = 2
+        Me.radioNinguno.Text = "Ninguno"
+        Me.radioNinguno.UseVisualStyleBackColor = True
+        '
+        'radioEntrega
+        '
+        Me.radioEntrega.AutoSize = True
+        Me.radioEntrega.Location = New System.Drawing.Point(6, 36)
+        Me.radioEntrega.Name = "radioEntrega"
+        Me.radioEntrega.Size = New System.Drawing.Size(62, 17)
+        Me.radioEntrega.TabIndex = 0
+        Me.radioEntrega.Text = "Entrega"
+        Me.radioEntrega.UseVisualStyleBackColor = True
+        '
+        'radioRealizacion
+        '
+        Me.radioRealizacion.AutoSize = True
+        Me.radioRealizacion.Checked = True
+        Me.radioRealizacion.Location = New System.Drawing.Point(6, 20)
+        Me.radioRealizacion.Name = "radioRealizacion"
+        Me.radioRealizacion.Size = New System.Drawing.Size(80, 17)
+        Me.radioRealizacion.TabIndex = 1
+        Me.radioRealizacion.TabStop = True
+        Me.radioRealizacion.Text = "Realizacion"
+        Me.radioRealizacion.UseVisualStyleBackColor = True
+        '
         'frmpedidocliente
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -1033,13 +1033,13 @@ Public Class frmpedidocliente
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabPageControl2.ResumeLayout(False)
         Me.UltraTabPageControl2.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

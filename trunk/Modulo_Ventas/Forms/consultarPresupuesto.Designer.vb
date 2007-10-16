@@ -19,15 +19,12 @@ Partial Class consultarPresupuesto
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem9 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.dataGridPresupuesto = New System.Windows.Forms.DataGrid
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.radioNinguno = New System.Windows.Forms.RadioButton
-        Me.radioRealizacion = New System.Windows.Forms.RadioButton
-        Me.radioEntrega = New System.Windows.Forms.RadioButton
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label14 = New System.Windows.Forms.Label
         Me.dateHasta = New System.Windows.Forms.DateTimePicker
@@ -37,10 +34,13 @@ Partial Class consultarPresupuesto
         Me.Label13 = New System.Windows.Forms.Label
         Me.txtFiltrar = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.btnSalir = New Infragistics.Win.Misc.UltraButton
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.checkFecha = New System.Windows.Forms.CheckBox
+        Me.btnRealizarPedido = New Infragistics.Win.Misc.UltraButton
         CType(Me.dataGridPresupuesto, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dataGridPresupuesto
@@ -70,51 +70,6 @@ Partial Class consultarPresupuesto
         Me.dataGridPresupuesto.SelectionForeColor = System.Drawing.Color.WhiteSmoke
         Me.dataGridPresupuesto.Size = New System.Drawing.Size(784, 293)
         Me.dataGridPresupuesto.TabIndex = 4
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.radioNinguno)
-        Me.GroupBox1.Controls.Add(Me.radioRealizacion)
-        Me.GroupBox1.Controls.Add(Me.radioEntrega)
-        Me.GroupBox1.Location = New System.Drawing.Point(682, 13)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(114, 74)
-        Me.GroupBox1.TabIndex = 38
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Filtrar fecha por:"
-        '
-        'radioNinguno
-        '
-        Me.radioNinguno.AutoSize = True
-        Me.radioNinguno.Location = New System.Drawing.Point(6, 52)
-        Me.radioNinguno.Name = "radioNinguno"
-        Me.radioNinguno.Size = New System.Drawing.Size(65, 17)
-        Me.radioNinguno.TabIndex = 2
-        Me.radioNinguno.Text = "Ninguno"
-        Me.radioNinguno.UseVisualStyleBackColor = True
-        '
-        'radioRealizacion
-        '
-        Me.radioRealizacion.AutoSize = True
-        Me.radioRealizacion.Checked = True
-        Me.radioRealizacion.Location = New System.Drawing.Point(6, 20)
-        Me.radioRealizacion.Name = "radioRealizacion"
-        Me.radioRealizacion.Size = New System.Drawing.Size(80, 17)
-        Me.radioRealizacion.TabIndex = 1
-        Me.radioRealizacion.TabStop = True
-        Me.radioRealizacion.Text = "Realizacion"
-        Me.radioRealizacion.UseVisualStyleBackColor = True
-        '
-        'radioEntrega
-        '
-        Me.radioEntrega.AutoSize = True
-        Me.radioEntrega.Location = New System.Drawing.Point(6, 36)
-        Me.radioEntrega.Name = "radioEntrega"
-        Me.radioEntrega.Size = New System.Drawing.Size(62, 17)
-        Me.radioEntrega.TabIndex = 0
-        Me.radioEntrega.Text = "Entrega"
-        Me.radioEntrega.UseVisualStyleBackColor = True
         '
         'Label15
         '
@@ -153,20 +108,24 @@ Partial Class consultarPresupuesto
         'cmbFiltrar
         '
         Me.cmbFiltrar.AutoSize = True
-        ValueListItem7.DataValue = "ValueListItem0"
-        ValueListItem7.DisplayText = "Nombre cliente"
-        ValueListItem7.Tag = "nombreCliente"
-        ValueListItem8.DataValue = "ValueListItem1"
-        ValueListItem8.DisplayText = "Numero Pedido"
-        ValueListItem8.Tag = "NroPedido"
-        Appearance3.FontData.BoldAsString = "True"
-        ValueListItem9.Appearance = Appearance3
-        ValueListItem9.DataValue = "ValueListItem7"
-        ValueListItem9.DisplayText = "Ninguno"
-        ValueListItem9.Tag = "ninguno"
-        Me.cmbFiltrar.Items.Add(ValueListItem7)
-        Me.cmbFiltrar.Items.Add(ValueListItem8)
-        Me.cmbFiltrar.Items.Add(ValueListItem9)
+        ValueListItem1.DataValue = "ValueListItem0"
+        ValueListItem1.DisplayText = "Nombre cliente"
+        ValueListItem1.Tag = "nombreCliente"
+        ValueListItem2.DataValue = "ValueListItem3"
+        ValueListItem2.DisplayText = "Nombre empleado"
+        ValueListItem2.Tag = "nombreEmpleado"
+        ValueListItem3.DataValue = "ValueListItem1"
+        ValueListItem3.DisplayText = "Nro. presupuesto"
+        ValueListItem3.Tag = "idpresupuesto"
+        Appearance1.FontData.BoldAsString = "True"
+        ValueListItem4.Appearance = Appearance1
+        ValueListItem4.DataValue = "ValueListItem7"
+        ValueListItem4.DisplayText = "Ninguno"
+        ValueListItem4.Tag = "ninguno"
+        Me.cmbFiltrar.Items.Add(ValueListItem1)
+        Me.cmbFiltrar.Items.Add(ValueListItem2)
+        Me.cmbFiltrar.Items.Add(ValueListItem3)
+        Me.cmbFiltrar.Items.Add(ValueListItem4)
         Me.cmbFiltrar.Location = New System.Drawing.Point(69, 29)
         Me.cmbFiltrar.Name = "cmbFiltrar"
         Me.cmbFiltrar.Size = New System.Drawing.Size(224, 21)
@@ -200,19 +159,51 @@ Partial Class consultarPresupuesto
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(711, 392)
+        Me.btnSalir.Location = New System.Drawing.Point(711, 396)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(88, 24)
         Me.btnSalir.TabIndex = 39
         Me.btnSalir.Text = "Salir"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.checkFecha)
+        Me.GroupBox1.Location = New System.Drawing.Point(682, 25)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(117, 51)
+        Me.GroupBox1.TabIndex = 40
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Fecha:"
+        '
+        'checkFecha
+        '
+        Me.checkFecha.AutoSize = True
+        Me.checkFecha.Checked = True
+        Me.checkFecha.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.checkFecha.Location = New System.Drawing.Point(7, 22)
+        Me.checkFecha.Name = "checkFecha"
+        Me.checkFecha.Size = New System.Drawing.Size(89, 17)
+        Me.checkFecha.TabIndex = 0
+        Me.checkFecha.Text = "Activar fecha"
+        Me.checkFecha.UseVisualStyleBackColor = True
+        '
+        'btnRealizarPedido
+        '
+        Me.btnRealizarPedido.Location = New System.Drawing.Point(12, 396)
+        Me.btnRealizarPedido.Name = "btnRealizarPedido"
+        Me.btnRealizarPedido.Size = New System.Drawing.Size(103, 24)
+        Me.btnRealizarPedido.TabIndex = 41
+        Me.btnRealizarPedido.Text = "Realizar pedido"
         '
         'consultarPresupuesto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(811, 428)
-        Me.Controls.Add(Me.btnSalir)
+        Me.Controls.Add(Me.btnRealizarPedido)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.dateHasta)
@@ -228,19 +219,15 @@ Partial Class consultarPresupuesto
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Consultar Presupuestos"
         CType(Me.dataGridPresupuesto, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents dataGridPresupuesto As System.Windows.Forms.DataGrid
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents radioNinguno As System.Windows.Forms.RadioButton
-    Friend WithEvents radioRealizacion As System.Windows.Forms.RadioButton
-    Friend WithEvents radioEntrega As System.Windows.Forms.RadioButton
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents dateHasta As System.Windows.Forms.DateTimePicker
@@ -250,4 +237,7 @@ Partial Class consultarPresupuesto
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents txtFiltrar As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents btnSalir As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents checkFecha As System.Windows.Forms.CheckBox
+    Friend WithEvents btnRealizarPedido As Infragistics.Win.Misc.UltraButton
 End Class
