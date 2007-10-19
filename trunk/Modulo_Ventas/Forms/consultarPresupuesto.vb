@@ -7,10 +7,20 @@ Public Class consultarPresupuesto
     Private tsPresupuesto As DataGridTableStyle
     Private tsDetallePresupuesto As DataGridTableStyle
     Private desdeFormPedido As Boolean = False
+    Private idCliente As Integer
 #End Region
 
 
+#Region "Properties"
+    'TODO
+#End Region
+
+
+#Region "Eventos y otros metodos"
     Private Sub consultarPresupuesto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        princ.barra.agregarBoton(Me)
+
         'periodo inicial (ultimo mes)
         Dim desde As New Date(Now.Year, Now.Month - 1, Now.Day)
         dateDesde.Value = desde
@@ -132,6 +142,25 @@ Public Class consultarPresupuesto
     Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
         Me.Close()
     End Sub
+
+
+    Private Sub btnRealizarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRealizarPedido.Click
+        Dim pedido As New frmpedidocliente
+
+
+        Try
+            pedido.IdPesupuesto = dataGridPresupuesto.Item(dataGridPresupuesto.CurrentRowIndex, 0)
+            'MsgBox(pedido.IdPesupuesto)
+            pedido.Location = New System.Drawing.Point(196, 150)
+            pedido.Show(princ)
+        Catch
+
+        End Try
+
+
+    End Sub
+
+#End Region
 
 
 End Class

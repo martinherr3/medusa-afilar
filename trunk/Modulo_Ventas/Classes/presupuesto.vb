@@ -4,6 +4,7 @@ Public Class presupuesto
     Private insertPresupuesto As New SqlClient.SqlCommand
     Private updatePresupuesto As New SqlClient.SqlCommand
     Private adaptadorPresupuesto As New SqlClient.SqlDataAdapter
+    Private resultado As SqlClient.SqlDataReader
 
     Public Sub cargarAdaptador()
         '
@@ -119,4 +120,28 @@ Public Class presupuesto
         Return ds
 
     End Function
+
+
+    Public Function obtenerPresupuesto(ByVal idPresupuesto As Integer) As DataSet
+        selectPresupuesto.Connection = cnn
+        selectPresupuesto.Connection.Open()
+        selectPresupuesto.CommandType = CommandType.Text
+        selectPresupuesto.CommandText = "SELECT * " & _
+                                        "FROM presupuesto " & _
+                                        "WHERE idpresupuesto = " + idPresupuesto.ToString
+
+        Dim adaptador As New SqlClient.SqlDataAdapter
+        adaptador.SelectCommand = selectPresupuesto
+        Dim ds As New DataSet
+
+        adaptador.Fill(ds, "presupuesto")
+
+        'resultado = selectPresupuesto.ExecuteReader
+
+        selectPresupuesto.Connection.Close()
+
+        Return ds
+
+    End Function
+
 End Class

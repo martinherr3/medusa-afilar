@@ -4,6 +4,7 @@ Public Class detallePresupuesto
     Private selectDP As New SqlClient.SqlCommand
     Private updateDP As New SqlClient.SqlCommand
     Private adaptadorDP As New SqlClient.SqlDataAdapter
+    Private resultado As SqlClient.SqlDataReader
 
 
 
@@ -108,5 +109,27 @@ Public Class detallePresupuesto
     End Sub
 
 
+    Public Function obtenerDetallePresupuesto(ByVal idPresupuesto As Integer) As DataSet
+        selectDP.Connection = cnn
+        selectDP.Connection.Open()
+        selectDP.CommandText = "SELECT * " & _
+                               "FROM detallepresupuesto " & _
+                               "WHERE idpresupuesto = " + idPresupuesto.ToString
+
+        selectDP.CommandType = CommandType.Text
+
+        Dim adaptador As New SqlClient.SqlDataAdapter
+        adaptador.SelectCommand = selectDP
+        Dim ds As New DataSet
+
+        adaptador.Fill(ds, "detallepresupuesto")
+
+        'resultado = selectDP.ExecuteReader
+
+        selectDP.Connection.Close()
+
+        Return ds
+
+    End Function
 
 End Class

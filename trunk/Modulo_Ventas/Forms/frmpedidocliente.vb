@@ -1,18 +1,21 @@
 Imports Afilar.grdstyle
+
+
 Public Class frmpedidocliente
     Inherits System.Windows.Forms.Form
+
+#Region "Members"
     Dim ds As New DataSet
-    Dim tipofresa As New tipoFresa
-    Dim parteAdicional As New parteAdicional
-    Dim modelo As New modeloFresa
-    Dim fresa As New fresa
+    Dim tipofresa As New TipoFresa
+    Dim parteAdicional As New ParteAdicional
+    Dim modelo As New ModeloFresa
+    Dim fresa As New Fresa
     Dim nroserie As Integer
     Dim idobj As Integer
     Dim pedido As New pedidocliente
     Dim partepedida As New partepedida
     Dim bandeabm As Boolean
     Dim idpartepedida As Object
-    'Dim pedidos As New DataTable
     Dim dvpedidos As New DataView
     Dim dvclientes As New DataView
     Dim idcliente As Object
@@ -21,6 +24,7 @@ Public Class frmpedidocliente
     Dim DOS As New detalleordenservicio
     Dim obj As New objdelservicio
     Dim bnuevo As Boolean
+    Private _idPesupuesto As Integer = Nothing
     Friend WithEvents btnSalir As Infragistics.Win.Misc.UltraButton
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents cmbFiltrar As Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -36,8 +40,19 @@ Public Class frmpedidocliente
     Friend WithEvents radioRealizacion As System.Windows.Forms.RadioButton
     Friend WithEvents radioEntrega As System.Windows.Forms.RadioButton
     Dim bpedido As Boolean
+#End Region
 
 
+#Region "Properties"
+    Public Property IdPesupuesto() As Integer
+        Set(ByVal value As Integer)
+            _idPesupuesto = value
+        End Set
+        Get
+            Return _idPesupuesto
+        End Get
+    End Property
+#End Region
 
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -175,6 +190,10 @@ Public Class frmpedidocliente
         Me.DataGridservicios = New System.Windows.Forms.DataGrid
         Me.DataGridfresasfab = New System.Windows.Forms.DataGrid
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.radioNinguno = New System.Windows.Forms.RadioButton
+        Me.radioRealizacion = New System.Windows.Forms.RadioButton
+        Me.radioEntrega = New System.Windows.Forms.RadioButton
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label14 = New System.Windows.Forms.Label
         Me.dateHasta = New System.Windows.Forms.DateTimePicker
@@ -187,10 +206,6 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.radioNinguno = New System.Windows.Forms.RadioButton
-        Me.radioEntrega = New System.Windows.Forms.RadioButton
-        Me.radioRealizacion = New System.Windows.Forms.RadioButton
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -217,12 +232,12 @@ Public Class frmpedidocliente
         CType(Me.DataGridservicios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -235,7 +250,7 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
         '
@@ -321,7 +336,7 @@ Public Class frmpedidocliente
         'combocliente
         '
         Me.combocliente.AutoSize = True
-        Me.combocliente.Location = New System.Drawing.Point(48, 64)
+        Me.combocliente.Location = New System.Drawing.Point(53, 69)
         Me.combocliente.Name = "combocliente"
         Me.combocliente.Size = New System.Drawing.Size(176, 21)
         Me.combocliente.TabIndex = 18
@@ -375,7 +390,7 @@ Public Class frmpedidocliente
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(8, 68)
+        Me.Label6.Location = New System.Drawing.Point(8, 74)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(39, 13)
         Me.Label6.TabIndex = 12
@@ -411,15 +426,15 @@ Public Class frmpedidocliente
         'lblfecharealizacion
         '
         Me.lblfecharealizacion.BackColor = System.Drawing.Color.Transparent
-        Me.lblfecharealizacion.Location = New System.Drawing.Point(104, 45)
+        Me.lblfecharealizacion.Location = New System.Drawing.Point(106, 50)
         Me.lblfecharealizacion.Name = "lblfecharealizacion"
-        Me.lblfecharealizacion.Size = New System.Drawing.Size(64, 16)
+        Me.lblfecharealizacion.Size = New System.Drawing.Size(77, 16)
         Me.lblfecharealizacion.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(8, 45)
+        Me.Label2.Location = New System.Drawing.Point(8, 50)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(96, 16)
         Me.Label2.TabIndex = 2
@@ -428,16 +443,16 @@ Public Class frmpedidocliente
         'lblnropedido
         '
         Me.lblnropedido.BackColor = System.Drawing.Color.Transparent
-        Me.lblnropedido.Location = New System.Drawing.Point(68, 21)
+        Me.lblnropedido.Location = New System.Drawing.Point(69, 27)
         Me.lblnropedido.Name = "lblnropedido"
-        Me.lblnropedido.Size = New System.Drawing.Size(40, 16)
+        Me.lblnropedido.Size = New System.Drawing.Size(114, 15)
         Me.lblnropedido.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(8, 22)
+        Me.Label1.Location = New System.Drawing.Point(8, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 13)
         Me.Label1.TabIndex = 0
@@ -791,9 +806,54 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl2.Controls.Add(Me.txtFiltrar)
         Me.UltraTabPageControl2.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl2.Controls.Add(Me.dgpedidos)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(813, 545)
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.radioNinguno)
+        Me.GroupBox1.Controls.Add(Me.radioRealizacion)
+        Me.GroupBox1.Controls.Add(Me.radioEntrega)
+        Me.GroupBox1.Location = New System.Drawing.Point(679, 8)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(117, 74)
+        Me.GroupBox1.TabIndex = 29
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Filtrar fecha por:"
+        '
+        'radioNinguno
+        '
+        Me.radioNinguno.AutoSize = True
+        Me.radioNinguno.Location = New System.Drawing.Point(6, 52)
+        Me.radioNinguno.Name = "radioNinguno"
+        Me.radioNinguno.Size = New System.Drawing.Size(65, 17)
+        Me.radioNinguno.TabIndex = 2
+        Me.radioNinguno.Text = "Ninguno"
+        Me.radioNinguno.UseVisualStyleBackColor = True
+        '
+        'radioRealizacion
+        '
+        Me.radioRealizacion.AutoSize = True
+        Me.radioRealizacion.Checked = True
+        Me.radioRealizacion.Location = New System.Drawing.Point(6, 20)
+        Me.radioRealizacion.Name = "radioRealizacion"
+        Me.radioRealizacion.Size = New System.Drawing.Size(80, 17)
+        Me.radioRealizacion.TabIndex = 1
+        Me.radioRealizacion.TabStop = True
+        Me.radioRealizacion.Text = "Realizacion"
+        Me.radioRealizacion.UseVisualStyleBackColor = True
+        '
+        'radioEntrega
+        '
+        Me.radioEntrega.AutoSize = True
+        Me.radioEntrega.Location = New System.Drawing.Point(6, 36)
+        Me.radioEntrega.Name = "radioEntrega"
+        Me.radioEntrega.Size = New System.Drawing.Size(62, 17)
+        Me.radioEntrega.TabIndex = 0
+        Me.radioEntrega.Text = "Entrega"
+        Me.radioEntrega.UseVisualStyleBackColor = True
         '
         'Label15
         '
@@ -946,51 +1006,6 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.radioNinguno)
-        Me.GroupBox1.Controls.Add(Me.radioRealizacion)
-        Me.GroupBox1.Controls.Add(Me.radioEntrega)
-        Me.GroupBox1.Location = New System.Drawing.Point(679, 8)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(117, 74)
-        Me.GroupBox1.TabIndex = 29
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Filtrar fecha por:"
-        '
-        'radioNinguno
-        '
-        Me.radioNinguno.AutoSize = True
-        Me.radioNinguno.Location = New System.Drawing.Point(6, 52)
-        Me.radioNinguno.Name = "radioNinguno"
-        Me.radioNinguno.Size = New System.Drawing.Size(65, 17)
-        Me.radioNinguno.TabIndex = 2
-        Me.radioNinguno.Text = "Ninguno"
-        Me.radioNinguno.UseVisualStyleBackColor = True
-        '
-        'radioEntrega
-        '
-        Me.radioEntrega.AutoSize = True
-        Me.radioEntrega.Location = New System.Drawing.Point(6, 36)
-        Me.radioEntrega.Name = "radioEntrega"
-        Me.radioEntrega.Size = New System.Drawing.Size(62, 17)
-        Me.radioEntrega.TabIndex = 0
-        Me.radioEntrega.Text = "Entrega"
-        Me.radioEntrega.UseVisualStyleBackColor = True
-        '
-        'radioRealizacion
-        '
-        Me.radioRealizacion.AutoSize = True
-        Me.radioRealizacion.Checked = True
-        Me.radioRealizacion.Location = New System.Drawing.Point(6, 20)
-        Me.radioRealizacion.Name = "radioRealizacion"
-        Me.radioRealizacion.Size = New System.Drawing.Size(80, 17)
-        Me.radioRealizacion.TabIndex = 1
-        Me.radioRealizacion.TabStop = True
-        Me.radioRealizacion.Text = "Realizacion"
-        Me.radioRealizacion.UseVisualStyleBackColor = True
-        '
         'frmpedidocliente
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -1033,19 +1048,21 @@ Public Class frmpedidocliente
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabPageControl2.ResumeLayout(False)
         Me.UltraTabPageControl2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
 #End Region
 
+
+#Region "Metodos"
     Private Sub frmpedidocliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' seteo el estilo del datagrid 
         modelo.setearGrilla(DataGridMf)
@@ -1055,6 +1072,7 @@ Public Class frmpedidocliente
         partepedida.setearGrilla(DataGridpp)
         serv.setearGrilla(Me.DataGridservicios)
         DOS.setearGrilla(Me.DataGriddos)
+
         ' cargo los datos en el dataset (de las tablas modelofresa, tipofresa, parteadicional)
         modelo.cargarAdaptador()
         modelo.cargarDatos(ds, "modelofresa")
@@ -1166,6 +1184,11 @@ Public Class frmpedidocliente
         idpartepedida = 0
         idobj = 0
         nroserie = 0
+
+        If Me.IdPesupuesto <> Nothing Then
+            cargarPresupuesto()
+        End If
+
     End Sub
 
     Function calcularnroserie() As Object
@@ -1542,6 +1565,7 @@ Public Class frmpedidocliente
 
 
     Private Sub dgpedidos_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles dgpedidos.DoubleClick
+
         Dim cmd As New SqlClient.SqlCommand
         Dim i As Integer
         Dim j As Integer
@@ -1604,7 +1628,12 @@ Public Class frmpedidocliente
         'cmbestado.SelectedValue = ds.Tables("pedidocliente").Rows(0).Item("idestado")
         comboestado.Text = comboestado.Items(ds.Tables("pedidocliente").Rows(0).Item("idestado") - 1).DisplayText
         fechaentrega.Value = CDate(ds.Tables("pedidocliente").Rows(0).Item("fechaentrega"))
-        comboformaentrega.Text = comboformaentrega.Items(ds.Tables("pedidocliente").Rows(0).Item("idformadeentrega") - 1).DisplayText
+        Try
+            comboformaentrega.Text = comboformaentrega.Items(ds.Tables("pedidocliente").Rows(0).Item("idformadeentrega") - 1).DisplayText
+        Catch
+
+        End Try
+
         'cmbformaentrega.SelectedValue = ds.Tables("pedidocliente").Rows(0).Item("idformadeentrega")
 
         lblfecharealizacion.Text = CStr(ds.Tables("pedidocliente").Rows(0).Item("fecharealizacion"))
@@ -1708,6 +1737,7 @@ Public Class frmpedidocliente
         total += subtotal
         txtimportetotal.Text = total
         UltraTabControl1.SelectedTab = UltraTabControl1.Tabs(0)
+
 
 
     End Sub
@@ -2241,7 +2271,94 @@ Public Class frmpedidocliente
 
 
     Private Sub cargarPresupuesto()
-        'TODO
+        Dim presupuesto As New presupuesto
+        Dim detallePresupuesto As New detallePresupuesto
+
+        'Dim readerPresupuesto As SqlClient.SqlDataReader
+        Dim dsPresupuesto As New DataSet
+        Dim dsDetalle As New DataSet
+
+        dsPresupuesto = presupuesto.obtenerPresupuesto(Me.IdPesupuesto)
+        dsDetalle = detallePresupuesto.obtenerDetallePresupuesto(Me.IdPesupuesto)
+
+        'seteo fecha, numero de pedido
+        lblnropedido.Text = calcularNropedido()
+        nroserie = calcularnroserie()
+        lblfecharealizacion.Text = Format(Now, "dd/MM/yyyy")
+
+        'Jose code
+        Dim i As Integer
+        Dim j As Integer
+        'Cargo los tipos de fresas
+        For i = 0 To ds.Tables("tipofresa").Rows.Count - 1
+            For j = 0 To dsDetalle.Tables("detallepresupuesto").Rows.Count - 1
+                If ds.Tables("tipofresa").Rows(i).Item("idtipo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idproducto") And ds.Tables("tipofresa").Rows(i).Item("idmodelo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idmodelo") And dsDetalle.Tables("detallepresupuesto").Rows(j).Item("tipo") = Constantes.PRESUPUESTO_TIPO_FRESA Then
+                    nroserie += 1
+                    Dim dr As DataRow = ds.Tables("fresa").NewRow
+                    dr("nroserie") = CInt(nroserie)
+                    dr("idtipo") = ds.Tables("tipofresa").Rows(i).Item("idtipo")
+                    dr("idmodelo") = ds.Tables("tipofresa").Rows(i).Item("idmodelo")
+                    dr("nropedido") = lblnropedido.Text
+                    dr("estado") = Estado.PEDIDO_PENDIENTE
+                    dr("nombre") = ds.Tables("tipofresa").Rows(i).Item("nombre")
+                    ds.Tables("fresa").Rows.Add(dr)
+                    dr("precio") = CDec(ds.Tables("tipofresa").Rows(i).Item("precio"))
+                    ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = False
+                End If
+            Next
+        Next
+
+        For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
+            For j = 0 To dsDetalle.Tables("detallepresupuesto").Rows.Count - 1
+                If ds.Tables("tipofresa").Rows(i).Item("idtipo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idproducto") And ds.Tables("tipofresa").Rows(i).Item("idmodelo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idmodelo") And dsDetalle.Tables("detallepresupuesto").Rows(j).Item("tipo") = Constantes.PRESUPUESTO_PARTE_ADICIONAL Then
+                    idpartepedida += 1
+                    Dim dr As DataRow = ds.Tables("partepedida").NewRow
+                    dr("idpartepedida") = CInt(idpartepedida)
+                    dr("idmodelo") = ds.Tables("parteadicional").Rows(i).Item("idmodelo")
+                    dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
+                    dr("idpedido") = CLng(lblnropedido.Text)
+                    dr("nombre") = ds.Tables("parteadicional").Rows(i).Item("nombre")
+                    dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
+                    ds.Tables("partepedida").Rows.Add(dr)
+                    ds.Tables("parteadicional").Rows(i).Item("seleccionarpa") = False
+                End If
+            Next
+        Next
+
+        'calculo totales y subtotales
+        Dim subtotal As Decimal = 0
+        For i = 0 To ds.Tables("fresa").Rows.Count - 1
+            subtotal += ds.Tables("fresa").Rows(i).Item("precio")
+        Next
+        For i = 0 To ds.Tables("partepedida").Rows.Count - 1
+            subtotal += CDec(ds.Tables("partepedida").Rows(i).Item("precio"))
+        Next
+
+        txtsubtot.Text = "0"
+        txtsubtotal.Text = CStr(subtotal)
+        If txtsubtotal.Text <> "" And txtsubtot.Text <> "" Then
+            txtimportetotal.Text = CStr(CDec(txtsubtotal.Text) + CDec(txtsubtot.Text))
+        End If
+
+        'seteo combo cliente
+        Dim idCliente As Integer = dsPresupuesto.Tables("presupuesto").Rows(0).Item("idcliente")
+        Dim item As Infragistics.Win.ValueListItem
+        For Each item In combocliente.Items
+            If item.Tag = idCliente Then
+                combocliente.SelectedItem = item
+            End If
+        Next
+
+        'habitilo y dehabitilo controles
+        btngrabar.Enabled = True
+        Me.fechaentrega.ReadOnly = False
+        Me.comboestado.ReadOnly = False
+        Me.comboformaentrega.ReadOnly = False
+
     End Sub
+
+
+
+#End Region
 
 End Class

@@ -24,6 +24,7 @@ Partial Class consultarPresupuesto
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.dataGridPresupuesto = New System.Windows.Forms.DataGrid
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label14 = New System.Windows.Forms.Label
@@ -133,6 +134,8 @@ Partial Class consultarPresupuesto
         '
         'btnFiltrar
         '
+        Appearance2.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.btnFiltrar.Appearance = Appearance2
         Me.btnFiltrar.Location = New System.Drawing.Point(299, 29)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(80, 48)
@@ -190,7 +193,7 @@ Partial Class consultarPresupuesto
         '
         'btnRealizarPedido
         '
-        Me.btnRealizarPedido.Location = New System.Drawing.Point(12, 396)
+        Me.btnRealizarPedido.Location = New System.Drawing.Point(15, 396)
         Me.btnRealizarPedido.Name = "btnRealizarPedido"
         Me.btnRealizarPedido.Size = New System.Drawing.Size(103, 24)
         Me.btnRealizarPedido.TabIndex = 41
