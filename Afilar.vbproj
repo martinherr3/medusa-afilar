@@ -349,6 +349,7 @@
     <Compile Include="Modulo_Sistema\Classes\BaseDatos.vb" />
     <Compile Include="Modulo_Produccion\Classes\Cargo.vb" />
     <Compile Include="Modulo_Sistema\Classes\Constantes.vb" />
+    <Compile Include="Modulo_Sistema\Classes\Estado.vb" />
     <Compile Include="Modulo_Sistema\Classes\Mensajeria.vb" />
     <Compile Include="Modulo_Sistema\Classes\PaintRowEventArgs.vb" />
     <Compile Include="Modulo_Sistema\Classes\Parametro.vb" />
