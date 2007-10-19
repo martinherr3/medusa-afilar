@@ -18,7 +18,7 @@ Public Class consultarModeloFresa
 
     Private Sub consultarModeloFresa_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
 
         ' seteo el estilo del datagrid 
         modelo.setearGrilla(dataGridMF)
