@@ -124,8 +124,6 @@ Public Class detallePresupuesto
 
         adaptador.Fill(ds, "detallepresupuesto")
 
-        'resultado = selectDP.ExecuteReader
-
         selectDP.Connection.Close()
 
         Return ds

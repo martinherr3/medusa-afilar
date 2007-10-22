@@ -147,16 +147,22 @@ Public Class consultarPresupuesto
     Private Sub btnRealizarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRealizarPedido.Click
         Dim pedido As New frmpedidocliente
 
+        Dim fechaPermitida As New Date(Now.Year, Now.Month - Constantes.PEDIDO_PRESUPUESTO_TIEMPO, Now.Day)
+        Dim fechaEmision As New Date
 
-        Try
-            pedido.IdPesupuesto = dataGridPresupuesto.Item(dataGridPresupuesto.CurrentRowIndex, 0)
-            'MsgBox(pedido.IdPesupuesto)
-            pedido.Location = New System.Drawing.Point(196, 150)
-            pedido.Show(princ)
-        Catch
-
-        End Try
-
+        fechaEmision = (dataGridPresupuesto.Item(dataGridPresupuesto.CurrentRowIndex, 1))
+        If fechaEmision.Date < fechaPermitida.Date Then
+            If MsgBox("El presupuesto tiene mas de un mes, decea realizar el pedido?", MsgBoxStyle.YesNo, "Afilar") = MsgBoxResult.Yes Then
+                Try
+                    pedido.IdPesupuesto = dataGridPresupuesto.Item(dataGridPresupuesto.CurrentRowIndex, 0)
+                    'MsgBox(pedido.IdPesupuesto)
+                    pedido.Location = New System.Drawing.Point(196, 150)
+                    pedido.Show(princ)
+                Catch
+                    'nada
+                End Try
+            End If
+        End If
 
     End Sub
 

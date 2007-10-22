@@ -136,8 +136,6 @@ Public Class presupuesto
 
         adaptador.Fill(ds, "presupuesto")
 
-        'resultado = selectPresupuesto.ExecuteReader
-
         selectPresupuesto.Connection.Close()
 
         Return ds
