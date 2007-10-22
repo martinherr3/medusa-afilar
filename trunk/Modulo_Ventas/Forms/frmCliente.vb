@@ -670,7 +670,7 @@ Public Class frmCliente
             objcliente.mostrarDatos(TextBox2.Text, ComboBox1.SelectedValue, TextBox3.Text, ComboBox2.SelectedValue, TextBox5.Text, _
             TextBox4.Text, textBox6.Text, TextBox7.Text, TextBox1.Text)
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
     End Sub
 
@@ -739,6 +739,7 @@ Public Class frmCliente
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
         Try
+
             objcliente.tomarDatos(TextBox2.Text, ComboBox1.SelectedValue, TextBox3.Text, ComboBox2.SelectedValue, TextBox5.Text, _
                     TextBox4.Text, CType(TextBox1.Text, Decimal), textBox6.Text, TextBox7.Text, DataGrid1.Item(DataGrid1.CurrentRowIndex, 0))
 
@@ -764,6 +765,7 @@ Public Class frmCliente
                 ComboBox1.Enabled = False
                 ComboBox2.Enabled = False
             End If
+            Dim j As Integer
 
         Catch ex As Exception
             MessageBox.Show(ex.Message)
