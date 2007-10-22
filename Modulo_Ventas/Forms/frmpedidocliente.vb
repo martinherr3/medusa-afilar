@@ -1277,13 +1277,6 @@ Public Class frmpedidocliente
                     Next
 
 
-                    'Dim element As DataRow
-
-                    'For Each element In ds.Tables("modelofresa").Rows.Item(i).GetChildRows("Fresas individuales")
-                    '    element.Item("seleccionarTF") = True
-                    'Next
-
-
                 Case True
 
                     ds.Tables("modelofresa").Rows(i).Item("seleccionarMF") = False
@@ -1419,23 +1412,7 @@ Public Class frmpedidocliente
             MsgBox("fecha entrega no válida")
             Exit Sub
         End If
-        'If txtprioridad.Text = "" Then
-        'MsgBox("ingrese prioridad")
-        'txtprioridad.Focus()
-        'Exit Sub
-        'End If
 
-        'If dtfresa.Rows.Count < 1 And dtpartepedida.Rows.Count < 1 Then
-        'MsgBox("falta Detalle Pedido")
-        'Exit Sub
-        'Else
-        '   For i = 0 To dtfresa.Rows.Count - 1
-        '  If Not (dtfresa.Rows(i).RowState = DataRowState.Deleted) Then
-        ' b1 = True
-        'End If
-        '   Next
-
-        'End If
         If bandeabm = False Then
             Dim dr As DataRow = ds.Tables("pedidocliente").NewRow
             dr("idpedido") = CObj(lblnropedido.Text)
@@ -1517,10 +1494,6 @@ Public Class frmpedidocliente
 
         ts.MappingName = "FF"
 
-        'Dim c0 As New grdstyle.CGridCheckBoxStyle("seleccionarF", 20, HorizontalAlignment.Center, False, "", "", False, True, False, "")
-        'ts.GridColumnStyles.Add(c0)
-
-
         Dim c1 As New grdstyle.CGridTextBoxStyle("Nroserie", 80, HorizontalAlignment.Center, True, "NRO SERIE", "", "")
         ts.GridColumnStyles.Add(c1)
 
@@ -1538,10 +1511,6 @@ Public Class frmpedidocliente
 
         ts.MappingName = "pr"
 
-        'Dim c0 As New grdstyle.CGridCheckBoxStyle("seleccionarF", 20, HorizontalAlignment.Center, False, "", "", False, True, False, "")
-        'ts.GridColumnStyles.Add(c0)
-
-
         Dim c1 As New grdstyle.CGridTextBoxStyle("Nropedido", 100, HorizontalAlignment.Center, True, "NRO PEDIDO", "", "")
         ts.GridColumnStyles.Add(c1)
 
@@ -1553,9 +1522,6 @@ Public Class frmpedidocliente
 
         Dim c4 As New grdstyle.CGridTextBoxStyle("estado", 115, HorizontalAlignment.Center, True, "ESTADO", "", "")
         ts.GridColumnStyles.Add(c4)
-
-        'Dim c5 As New grdstyle.CGridTextBoxStyle("apellidocliente", 100, HorizontalAlignment.Center, True, "APELLIDO", "", "")
-        'ts.GridColumnStyles.Add(c5)
 
         Dim c6 As New grdstyle.CGridTextBoxStyle("nombrecliente", 295, HorizontalAlignment.Center, True, "CLIENTE", "", "")
         ts.GridColumnStyles.Add(c6)
@@ -1850,57 +1816,53 @@ Public Class frmpedidocliente
 
             Dim i As Integer
             i = DataGridMf.Item(DataGridMf.CurrentRowIndex, 1) - 1
+            Try
+                Select Case ds.Tables("modelofresa").Rows(DataGridMf.CurrentRowIndex).Item("seleccionarMF")
 
-            Select Case ds.Tables("modelofresa").Rows(DataGridMf.CurrentRowIndex).Item("seleccionarMF")
+                    Case False
 
-                Case False
-
-                    ds.Tables("modelofresa").Rows(i).Item("seleccionarMF") = True
-                    'MsgBox("paso a TRUE")
-
-
-                    Dim elemento As DataRow
-                    Dim hijos As Array
-
-                    hijos = obtenerHijos(ds.Tables("modelofresa").Rows.Item(i), "Fresas individuales")
-                    For Each elemento In hijos
-                        elemento.Item("seleccionarTF") = True
-                    Next
+                        ds.Tables("modelofresa").Rows(i).Item("seleccionarMF") = True
+                        'MsgBox("paso a TRUE")
 
 
-                    hijos = obtenerHijos(ds.Tables("modelofresa").Rows.Item(i), "Partes adicionales")
-                    For Each elemento In hijos
-                        elemento.Item("seleccionarPA") = True
-                    Next
+                        Dim elemento As DataRow
+                        Dim hijos As Array
+
+                        hijos = obtenerHijos(ds.Tables("modelofresa").Rows.Item(i), "Fresas individuales")
+                        For Each elemento In hijos
+                            elemento.Item("seleccionarTF") = True
+                        Next
 
 
-                    'Dim element As DataRow
-
-                    'For Each element In ds.Tables("modelofresa").Rows.Item(i).GetChildRows("Fresas individuales")
-                    '    element.Item("seleccionarTF") = True
-                    'Next
-
-
-                Case True
-
-                    ds.Tables("modelofresa").Rows(i).Item("seleccionarMF") = False
-                    'MsgBox("paso a FALSE")
-
-                    Dim elemento As DataRow
-                    Dim hijos As Array
-
-                    hijos = obtenerHijos(ds.Tables("modelofresa").Rows.Item(i), "Fresas individuales")
-                    For Each elemento In hijos
-                        elemento.Item("seleccionarTF") = False
-                    Next
+                        hijos = obtenerHijos(ds.Tables("modelofresa").Rows.Item(i), "Partes adicionales")
+                        For Each elemento In hijos
+                            elemento.Item("seleccionarPA") = True
+                        Next
 
 
-                    hijos = obtenerHijos(ds.Tables("modelofresa").Rows.Item(i), "Partes adicionales")
-                    For Each elemento In hijos
-                        elemento.Item("seleccionarPA") = False
-                    Next
+                    Case True
 
-            End Select
+                        ds.Tables("modelofresa").Rows(i).Item("seleccionarMF") = False
+                        'MsgBox("paso a FALSE")
+
+                        Dim elemento As DataRow
+                        Dim hijos As Array
+
+                        hijos = obtenerHijos(ds.Tables("modelofresa").Rows.Item(i), "Fresas individuales")
+                        For Each elemento In hijos
+                            elemento.Item("seleccionarTF") = False
+                        Next
+
+
+                        hijos = obtenerHijos(ds.Tables("modelofresa").Rows.Item(i), "Partes adicionales")
+                        For Each elemento In hijos
+                            elemento.Item("seleccionarPA") = False
+                        Next
+
+                End Select
+            Catch
+                'nada
+            End Try
 
             DataGridMf.Select(row)
 
@@ -2101,84 +2063,44 @@ Public Class frmpedidocliente
 
 
     Private Sub DataGridF_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles DataGridF.MouseUp
-        If sel_check_col(DataGridF, 0, e) Then
+        Try
+            If sel_check_col(DataGridF, 0, e) Then
 
-            Select Case ds.Tables("fresa").Rows(DataGridF.CurrentRowIndex).Item("seleccionarf")
-                Case False
-                    ds.Tables("fresa").Rows(DataGridF.CurrentRowIndex).Item("seleccionarf") = True
-                    'Dim i As Integer
-                    'For i = 0 To ds.Tables("fresa").Rows.Count - 1
-                    'If ds.Tables("tipofresa").Rows(i).Item("idmodelo") = ds.Tables("modelofresa").Rows(dgmodelofresa.CurrentRowIndex).Item("idmodelo") Then
-                    'ds.Tables("tipofresa").Rows(i).Item("select") = True
-                    'End If
-                    'Next i
-                    'For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
-                    'If ds.Tables("parteadicional").Rows(i).Item("idmodelo") = ds.Tables("modelofresa").Rows(dgmodelofresa.CurrentRowIndex).Item("idmodelo") Then
-                    'ds.Tables("parteadicional").Rows(i).Item("select") = "Y"
-                    'End If
-                    '                    Next i
+                Select Case ds.Tables("fresa").Rows(DataGridF.CurrentRowIndex).Item("seleccionarf")
+                    Case False
+                        ds.Tables("fresa").Rows(DataGridF.CurrentRowIndex).Item("seleccionarf") = True
 
-                Case True
-                    ds.Tables("fresa").Rows(DataGridF.CurrentRowIndex).Item("seleccionarF") = False
-                    DataGridF.Refresh()
-
-                    'Dim i As Integer
-
-                    'For i = 0 To ds.Tables("tipofresa").Rows.Count - 1
-                    'If ds.Tables("tipofresa").Rows(i).Item("idmodelo") = ds.Tables("modelofresa").Rows(dgmodelofresa.CurrentRowIndex).Item("idmodelo") Then
-                    'ds.Tables("tipofresa").Rows(i).Item("select") = "N"
-                    'End If
-                    '                    Next i
-                    'For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
-                    'If ds.Tables("parteadicional").Rows(i).Item("idmodelo") = ds.Tables("modelofresa").Rows(dgmodelofresa.CurrentRowIndex).Item("idmodelo") Then
-                    'ds.Tables("parteadicional").Rows(i).Item("select") = "N"
-                    'End If
-                    '                    Next i
-            End Select
-            DataGridF.Select(DataGridF.CurrentCell.RowNumber)
-            DataGridF.Refresh()
-        End If
+                    Case True
+                        ds.Tables("fresa").Rows(DataGridF.CurrentRowIndex).Item("seleccionarF") = False
+                        DataGridF.Refresh()
+                End Select
+                DataGridF.Select(DataGridF.CurrentCell.RowNumber)
+                DataGridF.Refresh()
+            End If
+        Catch
+            'nada
+        End Try
     End Sub
 
 
     Private Sub DataGridpp_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles DataGridpp.MouseUp
-        If sel_check_col(DataGridpp, 0, e) Then
+        Try
+            If sel_check_col(DataGridpp, 0, e) Then
 
-            Select Case ds.Tables("partepedida").Rows(DataGridpp.CurrentRowIndex).Item("seleccionarpp")
-                Case False
-                    ds.Tables("partepedida").Rows(DataGridpp.CurrentRowIndex).Item("seleccionarpp") = True
-                    'Dim i As Integer
-                    'For i = 0 To ds.Tables("fresa").Rows.Count - 1
-                    'If ds.Tables("tipofresa").Rows(i).Item("idmodelo") = ds.Tables("modelofresa").Rows(dgmodelofresa.CurrentRowIndex).Item("idmodelo") Then
-                    'ds.Tables("tipofresa").Rows(i).Item("select") = True
-                    'End If
-                    'Next i
-                    'For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
-                    'If ds.Tables("parteadicional").Rows(i).Item("idmodelo") = ds.Tables("modelofresa").Rows(dgmodelofresa.CurrentRowIndex).Item("idmodelo") Then
-                    'ds.Tables("parteadicional").Rows(i).Item("select") = "Y"
-                    'End If
-                    '                    Next i
+                Select Case ds.Tables("partepedida").Rows(DataGridpp.CurrentRowIndex).Item("seleccionarpp")
+                    Case False
+                        ds.Tables("partepedida").Rows(DataGridpp.CurrentRowIndex).Item("seleccionarpp") = True
 
-                Case True
-                    ds.Tables("partepedida").Rows(DataGridpp.CurrentRowIndex).Item("seleccionarpp") = False
-                    'DataGridpp.Refresh()
+                    Case True
+                        ds.Tables("partepedida").Rows(DataGridpp.CurrentRowIndex).Item("seleccionarpp") = False
 
-                    'Dim i As Integer
-
-                    'For i = 0 To ds.Tables("tipofresa").Rows.Count - 1
-                    'If ds.Tables("tipofresa").Rows(i).Item("idmodelo") = ds.Tables("modelofresa").Rows(dgmodelofresa.CurrentRowIndex).Item("idmodelo") Then
-                    'ds.Tables("tipofresa").Rows(i).Item("select") = "N"
-                    'End If
-                    '                    Next i
-                    'For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
-                    'If ds.Tables("parteadicional").Rows(i).Item("idmodelo") = ds.Tables("modelofresa").Rows(dgmodelofresa.CurrentRowIndex).Item("idmodelo") Then
-                    'ds.Tables("parteadicional").Rows(i).Item("select") = "N"
-                    'End If
-                    '                    Next i
-            End Select
-            DataGridpp.Select(DataGridpp.CurrentCell.RowNumber)
-            DataGridpp.Refresh()
-        End If
+                End Select
+                DataGridpp.Select(DataGridpp.CurrentCell.RowNumber)
+                DataGridpp.Refresh()
+            End If
+        Catch
+            'nada
+        End Try
     End Sub
 
 
@@ -2356,7 +2278,6 @@ Public Class frmpedidocliente
         Me.comboformaentrega.ReadOnly = False
 
     End Sub
-
 
 
 #End Region

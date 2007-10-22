@@ -70,13 +70,6 @@ Public Class emitirPresupuesto
     Friend WithEvents DsAdicional1 As Afilar.DSAdicional
     Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(emitirPresupuesto))
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -86,7 +79,18 @@ Public Class emitirPresupuesto
         Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(emitirPresupuesto))
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.cmbFiltrar = New Infragistics.Win.UltraWinEditors.UltraComboEditor
+        Me.btnFiltrar = New Infragistics.Win.Misc.UltraButton
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.txtFiltrar = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.comboCliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.textPresupuesto = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -110,11 +114,9 @@ Public Class emitirPresupuesto
         Me.SqlSelectCommand2 = New System.Data.SqlClient.SqlCommand
         Me.DsFresa1 = New Afilar.DSFresa
         Me.DsAdicional1 = New Afilar.DSAdicional
-        Me.cmbFiltrar = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.btnFiltrar = New Infragistics.Win.Misc.UltraButton
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.txtFiltrar = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.UltraTabPageControl1.SuspendLayout()
+        CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textPresupuesto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,8 +128,6 @@ Public Class emitirPresupuesto
         Me.UltraTabSharedControlsPage1.SuspendLayout()
         CType(Me.DsFresa1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DsAdicional1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -146,10 +146,77 @@ Public Class emitirPresupuesto
         Me.UltraTabPageControl1.Controls.Add(Me.Label3)
         Me.UltraTabPageControl1.Controls.Add(Me.Label2)
         Me.UltraTabPageControl1.Controls.Add(Me.Label4)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 537)
+        '
+        'cmbFiltrar
+        '
+        Me.cmbFiltrar.AutoSize = True
+        ValueListItem1.DataValue = "ValueListItem0"
+        ValueListItem1.DisplayText = "Nombre"
+        ValueListItem1.Tag = "nombre"
+        ValueListItem2.DataValue = "ValueListItem1"
+        ValueListItem2.DisplayText = "ID"
+        ValueListItem2.Tag = "idmodelo"
+        ValueListItem3.DataValue = "ValueListItem2"
+        ValueListItem3.DisplayText = "Grupo modelo"
+        ValueListItem3.Tag = "grupomodelo"
+        ValueListItem4.DataValue = "ValueListItem3"
+        ValueListItem4.DisplayText = "Material a trabajar"
+        ValueListItem4.Tag = "materialatrabajar"
+        ValueListItem5.DataValue = "ValueListItem4"
+        ValueListItem5.DisplayText = "Tipo acabado"
+        ValueListItem5.Tag = "tipoacabado"
+        ValueListItem6.DataValue = "ValueListItem5"
+        ValueListItem6.DisplayText = "Tipo modelo"
+        ValueListItem6.Tag = "tipomodelo"
+        ValueListItem7.DataValue = "ValueListItem6"
+        ValueListItem7.DisplayText = "Precio"
+        ValueListItem7.Tag = "precio"
+        Appearance1.FontData.BoldAsString = "True"
+        ValueListItem8.Appearance = Appearance1
+        ValueListItem8.DataValue = "ValueListItem7"
+        ValueListItem8.DisplayText = "Ninguno"
+        ValueListItem8.Tag = "ninguno"
+        Me.cmbFiltrar.Items.Add(ValueListItem1)
+        Me.cmbFiltrar.Items.Add(ValueListItem2)
+        Me.cmbFiltrar.Items.Add(ValueListItem3)
+        Me.cmbFiltrar.Items.Add(ValueListItem4)
+        Me.cmbFiltrar.Items.Add(ValueListItem5)
+        Me.cmbFiltrar.Items.Add(ValueListItem6)
+        Me.cmbFiltrar.Items.Add(ValueListItem7)
+        Me.cmbFiltrar.Items.Add(ValueListItem8)
+        Me.cmbFiltrar.Location = New System.Drawing.Point(322, 32)
+        Me.cmbFiltrar.Name = "cmbFiltrar"
+        Me.cmbFiltrar.Size = New System.Drawing.Size(224, 21)
+        Me.cmbFiltrar.TabIndex = 24
+        '
+        'btnFiltrar
+        '
+        Me.btnFiltrar.Location = New System.Drawing.Point(552, 32)
+        Me.btnFiltrar.Name = "btnFiltrar"
+        Me.btnFiltrar.Size = New System.Drawing.Size(80, 45)
+        Me.btnFiltrar.TabIndex = 23
+        Me.btnFiltrar.Text = "Filtrar"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Location = New System.Drawing.Point(268, 36)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(53, 13)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "Filtrar por:"
+        '
+        'txtFiltrar
+        '
+        Me.txtFiltrar.AutoSize = True
+        Me.txtFiltrar.Location = New System.Drawing.Point(322, 56)
+        Me.txtFiltrar.Name = "txtFiltrar"
+        Me.txtFiltrar.Size = New System.Drawing.Size(224, 21)
+        Me.txtFiltrar.TabIndex = 21
         '
         'UltraButton4
         '
@@ -273,7 +340,8 @@ Public Class emitirPresupuesto
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.crv)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton3)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 537)
         '
@@ -281,6 +349,7 @@ Public Class emitirPresupuesto
         '
         Me.crv.ActiveViewIndex = -1
         Me.crv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.crv.DisplayGroupTree = False
         Me.crv.Location = New System.Drawing.Point(16, 32)
         Me.crv.Name = "crv"
         Me.crv.SelectionFormula = ""
@@ -368,74 +437,6 @@ Public Class emitirPresupuesto
         Me.DsAdicional1.Locale = New System.Globalization.CultureInfo("es-AR")
         Me.DsAdicional1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'cmbFiltrar
-        '
-        Me.cmbFiltrar.AutoSize = True
-        ValueListItem1.DataValue = "ValueListItem0"
-        ValueListItem1.DisplayText = "Nombre"
-        ValueListItem1.Tag = "nombre"
-        ValueListItem2.DataValue = "ValueListItem1"
-        ValueListItem2.DisplayText = "ID"
-        ValueListItem2.Tag = "idmodelo"
-        ValueListItem3.DataValue = "ValueListItem2"
-        ValueListItem3.DisplayText = "Grupo modelo"
-        ValueListItem3.Tag = "grupomodelo"
-        ValueListItem4.DataValue = "ValueListItem3"
-        ValueListItem4.DisplayText = "Material a trabajar"
-        ValueListItem4.Tag = "materialatrabajar"
-        ValueListItem5.DataValue = "ValueListItem4"
-        ValueListItem5.DisplayText = "Tipo acabado"
-        ValueListItem5.Tag = "tipoacabado"
-        ValueListItem6.DataValue = "ValueListItem5"
-        ValueListItem6.DisplayText = "Tipo modelo"
-        ValueListItem6.Tag = "tipomodelo"
-        ValueListItem7.DataValue = "ValueListItem6"
-        ValueListItem7.DisplayText = "Precio"
-        ValueListItem7.Tag = "precio"
-        Appearance1.FontData.BoldAsString = "True"
-        ValueListItem8.Appearance = Appearance1
-        ValueListItem8.DataValue = "ValueListItem7"
-        ValueListItem8.DisplayText = "Ninguno"
-        ValueListItem8.Tag = "ninguno"
-        Me.cmbFiltrar.Items.Add(ValueListItem1)
-        Me.cmbFiltrar.Items.Add(ValueListItem2)
-        Me.cmbFiltrar.Items.Add(ValueListItem3)
-        Me.cmbFiltrar.Items.Add(ValueListItem4)
-        Me.cmbFiltrar.Items.Add(ValueListItem5)
-        Me.cmbFiltrar.Items.Add(ValueListItem6)
-        Me.cmbFiltrar.Items.Add(ValueListItem7)
-        Me.cmbFiltrar.Items.Add(ValueListItem8)
-        Me.cmbFiltrar.Location = New System.Drawing.Point(322, 32)
-        Me.cmbFiltrar.Name = "cmbFiltrar"
-        Me.cmbFiltrar.Size = New System.Drawing.Size(224, 21)
-        Me.cmbFiltrar.TabIndex = 24
-        '
-        'btnFiltrar
-        '
-        Me.btnFiltrar.Location = New System.Drawing.Point(466, 56)
-        Me.btnFiltrar.Name = "btnFiltrar"
-        Me.btnFiltrar.Size = New System.Drawing.Size(80, 21)
-        Me.btnFiltrar.TabIndex = 23
-        Me.btnFiltrar.Text = "Filtrar"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(268, 36)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(53, 13)
-        Me.Label5.TabIndex = 22
-        Me.Label5.Text = "Filtrar por:"
-        '
-        'txtFiltrar
-        '
-        Me.txtFiltrar.AutoSize = True
-        Me.txtFiltrar.Location = New System.Drawing.Point(322, 56)
-        Me.txtFiltrar.Name = "txtFiltrar"
-        Me.txtFiltrar.Size = New System.Drawing.Size(137, 21)
-        Me.txtFiltrar.TabIndex = 21
-        '
         'emitirPresupuesto
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -448,6 +449,8 @@ Public Class emitirPresupuesto
         Me.Text = "Emitir presupuesto"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()
+        CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textPresupuesto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
@@ -459,8 +462,6 @@ Public Class emitirPresupuesto
         Me.UltraTabSharedControlsPage1.ResumeLayout(False)
         CType(Me.DsFresa1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DsAdicional1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -541,12 +542,6 @@ Public Class emitirPresupuesto
 
     Private Sub emitirPresupuesto_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
         princ.barra.eliminarBoton()
-    End Sub
-
-
-
-    Private Sub dataGridMF_CurrentCellChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles dataGridMF.CurrentCellChanged
-        'dataGridMF.Select(dataGridMF.CurrentCell.RowNumber)
     End Sub
 
 
@@ -777,8 +772,6 @@ Public Class emitirPresupuesto
         End If
 
     End Sub
-#End Region
-
 
     Private Sub btnFiltrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFiltrar.Click
         Dim dataView As New DataView(ds.Tables("modelofresa"))
@@ -807,4 +800,9 @@ Public Class emitirPresupuesto
         dataGridMF.DataSource = dataView
 
     End Sub
+
+#End Region
+
+
+
 End Class
