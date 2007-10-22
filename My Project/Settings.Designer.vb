@@ -57,7 +57,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=NOTEBOOK;Initial Catalog=Afilar;Integrated Security=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=Desktop;Initial Catalog=Afilar;Integrated Security=True")>  _
         Public ReadOnly Property AfilarConnectionString() As String
             Get
                 Return CType(Me("AfilarConnectionString"),String)
