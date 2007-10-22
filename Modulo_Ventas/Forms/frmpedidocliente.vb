@@ -1307,47 +1307,51 @@ Public Class frmpedidocliente
 
 
     Private Sub btnagregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnagregar.Click
+        Try
+            Dim i As Integer
+            Dim j As Integer
+            'Cargo los tipos de fresas
+            For i = 0 To ds.Tables("tipofresa").Rows.Count - 1
+                If ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = True Then
+                    nroserie += 1
+                    Dim dr As DataRow = ds.Tables("fresa").NewRow
+                    dr("nroserie") = CInt(nroserie)
+                    dr("idtipo") = ds.Tables("tipofresa").Rows(i).Item("idtipo")
+                    dr("idmodelo") = ds.Tables("tipofresa").Rows(i).Item("idmodelo")
+                    dr("nropedido") = CLng(lblnropedido.Text)
+                    dr("estado") = comboestado.SelectedItem.Tag()
+                    dr("nombre") = ds.Tables("tipofresa").Rows(i).Item("nombre")
+                    ds.Tables("fresa").Rows.Add(dr)
+                    dr("precio") = CDec(ds.Tables("tipofresa").Rows(i).Item("precio"))
+                    ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = False
+                End If
+            Next
+            For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
+                idpartepedida += 1
+                Dim dr As DataRow = ds.Tables("partepedida").NewRow
+                dr("idpartepedida") = CInt(idpartepedida)
+                dr("idmodelo") = ds.Tables("parteadicional").Rows(i).Item("idmodelo")
+                dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
+                dr("idpedido") = CLng(lblnropedido.Text)
+                dr("nombre") = ds.Tables("parteadicional").Rows(i).Item("nombre")
+                dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
+                ds.Tables("partepedida").Rows.Add(dr)
+                ds.Tables("parteadicional").Rows(i).Item("seleccionarpa") = False
+            Next
+            Dim subtotal As Decimal = 0
+            For i = 0 To ds.Tables("fresa").Rows.Count - 1
+                subtotal += ds.Tables("fresa").Rows(i).Item("precio")
+            Next
+            For i = 0 To ds.Tables("partepedida").Rows.Count - 1
+                subtotal += CDec(ds.Tables("partepedida").Rows(i).Item("precio"))
+            Next
 
-        Dim i As Integer
-        Dim j As Integer
-        'Cargo los tipos de fresas
-        For i = 0 To ds.Tables("tipofresa").Rows.Count - 1
-            If ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = True Then
-                nroserie += 1
-                Dim dr As DataRow = ds.Tables("fresa").NewRow
-                dr("nroserie") = CInt(nroserie)
-                dr("idtipo") = ds.Tables("tipofresa").Rows(i).Item("idtipo")
-                dr("idmodelo") = ds.Tables("tipofresa").Rows(i).Item("idmodelo")
-                dr("nropedido") = CLng(lblnropedido.Text)
-                dr("estado") = comboestado.SelectedItem.Tag()
-                dr("nombre") = ds.Tables("tipofresa").Rows(i).Item("nombre")
-                ds.Tables("fresa").Rows.Add(dr)
-                dr("precio") = CDec(ds.Tables("tipofresa").Rows(i).Item("precio"))
-                ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = False
-            End If
-        Next
-        For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
-            idpartepedida += 1
-            Dim dr As DataRow = ds.Tables("partepedida").NewRow
-            dr("idpartepedida") = CInt(idpartepedida)
-            dr("idmodelo") = ds.Tables("parteadicional").Rows(i).Item("idmodelo")
-            dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
-            dr("idpedido") = CLng(lblnropedido.Text)
-            dr("nombre") = ds.Tables("parteadicional").Rows(i).Item("nombre")
-            dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
-            ds.Tables("partepedida").Rows.Add(dr)
-            ds.Tables("parteadicional").Rows(i).Item("seleccionarpa") = False
-        Next
-        Dim subtotal As Decimal = 0
-        For i = 0 To ds.Tables("fresa").Rows.Count - 1
-            subtotal += ds.Tables("fresa").Rows(i).Item("precio")
-        Next
-        For i = 0 To ds.Tables("partepedida").Rows.Count - 1
-            subtotal += CDec(ds.Tables("partepedida").Rows(i).Item("precio"))
-        Next
-
-        txtsubtotal.Text = CStr(subtotal)
-        txtimportetotal.Text = CStr(CDec(txtsubtotal.Text) + CDec(txtsubtot.Text))
+            txtsubtotal.Text = CStr(subtotal)
+            txtimportetotal.Text = CStr(CDec(txtsubtotal.Text) + CDec(txtsubtot.Text))
+        Catch ex As Exception
+            MessageBox.Show("Problemas de Red, consulte a su Admnistrador")
+        End Try
+        
     End Sub
 
 
@@ -1873,105 +1877,110 @@ Public Class frmpedidocliente
 
 
     Private Sub botagregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles botagregar.Click
-
-        Dim i As Integer
-        Dim b As Boolean
-        b = False
-        For i = 0 To ds.Tables("servicios").Rows.Count - 1
-            If ds.Tables("servicios").Rows(i).Item("seleccionarserv") = True Then
-                b = True
-            End If
-
-        Next
-        If b = False Then
-            MsgBox("seleccione un servicio")
-            Exit Sub
-        End If
-        Dim dr2 As DataRow = ds.Tables("OBJ").NewRow
-        idobj = CInt(idobj) + 1
-        If txtitem.Text = String.Empty Then
-            dr2("idobjetodelservicio") = idobj
-            dr2("nombre") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nombre")
-            dr2("cantidad") = 1
-            dr2("nroserie") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nroserie")
-            ds.Tables("OBJ").Rows.Add(dr2)
+        Try
+            Dim i As Integer
+            Dim b As Boolean
+            b = False
             For i = 0 To ds.Tables("servicios").Rows.Count - 1
                 If ds.Tables("servicios").Rows(i).Item("seleccionarserv") = True Then
-                    Dim dr1 As DataRow = ds.Tables("dos").NewRow
-                    dr1("idpedido") = CLng(lblnropedido.Text)
-                    dr1("idoperacion") = ds.Tables("servicios").Rows(i).Item("idoperacion")
-                    dr1("idobjetodelservicio") = idobj
-                    dr1("item") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nombre")
-                    dr1("operacion") = ds.Tables("servicios").Rows(i).Item("nombre")
-                    dr1("cantidad") = 1
-                    dr1("nroserie") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nroserie")
-                    If ds.Tables("servicios").Rows(i).Item("precio") = 0 Then
-                        MsgBox("Falta Precio de Servicio")
-                        Exit Sub
-                    Else
-                        dr1("precio") = CDec(ds.Tables("servicios").Rows(i).Item("precio"))
-                    End If
-                    ds.Tables("dos").Rows.Add(dr1)
+                    b = True
                 End If
-            Next
-        End If
-        If Not (txtitem.Text = String.Empty) Then
-            dr2("idobjetodelservicio") = idobj
-            dr2("nombre") = txtitem.Text
-            dr2("cantidad") = CInt(txtcantidad.Text)
-            ds.Tables("OBJ").Rows.Add(dr2)
-            For i = 0 To ds.Tables("servicios").Rows.Count - 1
-                If ds.Tables("servicios").Rows(i).Item("seleccionarserv") = True Then
 
-                    Dim dr1 As DataRow = ds.Tables("DOS").NewRow
-                    dr1("idpedido") = CLng(lblnropedido.Text)
-                    dr1("idoperacion") = ds.Tables("servicios").Rows(i).Item("idoperacion")
-                    dr1("idobjetodelservicio") = idobj
-                    dr1("item") = txtitem.Text
-                    dr1("operacion") = ds.Tables("servicios").Rows(i).Item("nombre")
-                    If txtcantidad.Text = "" Then
-                        MsgBox("Ingrese cantidad")
-                        Exit Sub
+            Next
+            If b = False Then
+                MsgBox("seleccione un servicio")
+                Exit Sub
+            End If
+            Dim dr2 As DataRow = ds.Tables("OBJ").NewRow
+            idobj = CInt(idobj) + 1
+            If txtitem.Text = String.Empty Then
+                dr2("idobjetodelservicio") = idobj
+                dr2("nombre") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nombre")
+                dr2("cantidad") = 1
+                dr2("nroserie") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nroserie")
+                ds.Tables("OBJ").Rows.Add(dr2)
+                For i = 0 To ds.Tables("servicios").Rows.Count - 1
+                    If ds.Tables("servicios").Rows(i).Item("seleccionarserv") = True Then
+                        Dim dr1 As DataRow = ds.Tables("dos").NewRow
+                        dr1("idpedido") = CLng(lblnropedido.Text)
+                        dr1("idoperacion") = ds.Tables("servicios").Rows(i).Item("idoperacion")
+                        dr1("idobjetodelservicio") = idobj
+                        dr1("item") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nombre")
+                        dr1("operacion") = ds.Tables("servicios").Rows(i).Item("nombre")
+                        dr1("cantidad") = 1
+                        dr1("nroserie") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nroserie")
+                        If ds.Tables("servicios").Rows(i).Item("precio") = 0 Then
+                            MsgBox("Falta Precio de Servicio")
+                            Exit Sub
+                        Else
+                            dr1("precio") = CDec(ds.Tables("servicios").Rows(i).Item("precio"))
+                        End If
+                        ds.Tables("dos").Rows.Add(dr1)
                     End If
-                    dr1("cantidad") = CInt(txtcantidad.Text)
-                    If ds.Tables("servicios").Rows(i).Item("precio") = 0 Then
-                        MsgBox("Falta Precio de Servicio")
-                        Exit Sub
-                    Else
-                        dr1("precio") = CDec(ds.Tables("servicios").Rows(i).Item("precio"))
+                Next
+            End If
+            If Not (txtitem.Text = String.Empty) Then
+                dr2("idobjetodelservicio") = idobj
+                dr2("nombre") = txtitem.Text
+                dr2("cantidad") = CInt(txtcantidad.Text)
+                ds.Tables("OBJ").Rows.Add(dr2)
+                For i = 0 To ds.Tables("servicios").Rows.Count - 1
+                    If ds.Tables("servicios").Rows(i).Item("seleccionarserv") = True Then
+
+                        Dim dr1 As DataRow = ds.Tables("DOS").NewRow
+                        dr1("idpedido") = CLng(lblnropedido.Text)
+                        dr1("idoperacion") = ds.Tables("servicios").Rows(i).Item("idoperacion")
+                        dr1("idobjetodelservicio") = idobj
+                        dr1("item") = txtitem.Text
+                        dr1("operacion") = ds.Tables("servicios").Rows(i).Item("nombre")
+                        If txtcantidad.Text = "" Then
+                            MsgBox("Ingrese cantidad")
+                            Exit Sub
+                        End If
+                        dr1("cantidad") = CInt(txtcantidad.Text)
+                        If ds.Tables("servicios").Rows(i).Item("precio") = 0 Then
+                            MsgBox("Falta Precio de Servicio")
+                            Exit Sub
+                        Else
+                            dr1("precio") = CDec(ds.Tables("servicios").Rows(i).Item("precio"))
+                        End If
+                        ds.Tables("DOS").Rows.Add(dr1)
                     End If
-                    ds.Tables("DOS").Rows.Add(dr1)
+                Next
+            End If
+            For i = 0 To ds.Tables("servicios").Rows.Count - 1
+                ds.Tables("servicios").Rows(i).Item("seleccionarserv") = False
+            Next
+            Dim subtotal As Decimal
+            For i = 0 To ds.Tables("DOS").Rows.Count - 1
+                If Not (ds.Tables("DOS").Rows(i).RowState = DataRowState.Deleted) Then
+                    subtotal += CDec(ds.Tables("DOS").Rows(i).Item("precio")) * CInt(ds.Tables("DOS").Rows(i).Item("cantidad"))
                 End If
             Next
-        End If
-        For i = 0 To ds.Tables("servicios").Rows.Count - 1
-            ds.Tables("servicios").Rows(i).Item("seleccionarserv") = False
-        Next
-        Dim subtotal As Decimal
-        For i = 0 To ds.Tables("DOS").Rows.Count - 1
-            If Not (ds.Tables("DOS").Rows(i).RowState = DataRowState.Deleted) Then
-                subtotal += CDec(ds.Tables("DOS").Rows(i).Item("precio")) * CInt(ds.Tables("DOS").Rows(i).Item("cantidad"))
+            txtsubtot.Text = subtotal
+            Dim total As Decimal
+            If Not (txtimportetotal.Text = String.Empty) Then
+                total = CDec(txtimportetotal.Text)
+            Else
+                total = 0
             End If
-        Next
-        txtsubtot.Text = subtotal
-        Dim total As Decimal
-        If Not (txtimportetotal.Text = String.Empty) Then
-            total = CDec(txtimportetotal.Text)
-        Else
-            total = 0
-        End If
-        total += subtotal
-        txtimportetotal.Text = total
-        'Va al ultimo
-        txtitem.Text = ""
-        'txtdescripcion.Text = ""
-        txtcantidad.Text = ""
-        'txtitem.Enabled = False
-        'txtdescripcion.Enabled = False
-        'txtcantidad.Enabled = False
-        For i = 0 To ds.Tables("servicios").Rows.Count - 1
-            ds.Tables("servicios").Rows(i)("precio") = 0
-        Next
+            total += subtotal
+            txtimportetotal.Text = total
+            'Va al ultimo
+            txtitem.Text = ""
+            'txtdescripcion.Text = ""
+            txtcantidad.Text = ""
+            'txtitem.Enabled = False
+            'txtdescripcion.Enabled = False
+            'txtcantidad.Enabled = False
+            For i = 0 To ds.Tables("servicios").Rows.Count - 1
+                ds.Tables("servicios").Rows(i)("precio") = 0
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Problemas de red, consulte a su Administrador")
+        End Try
+
+        
     End Sub
 
 
