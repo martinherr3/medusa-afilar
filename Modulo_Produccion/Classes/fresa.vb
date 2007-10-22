@@ -6,23 +6,25 @@ Public Class Fresa
     Public Sub cargaradaptador(ByVal strsql As String, ByVal conexion As SqlClient.SqlConnection)
         mdafresa = New SqlClient.SqlDataAdapter(strsql, conexion)
     End Sub
+
     Public Sub cargardatos(ByVal ds As DataSet, ByVal tabla As String)
         mdafresa.Fill(ds, tabla)
     End Sub
+
     Public Sub cargaresquema(ByVal ds As DataSet, ByVal tabla As String)
         mdafresa.FillSchema(ds, SchemaType.Source, tabla)
     End Sub
+
     Public Sub actualizar(ByVal ds As DataSet, ByVal tabla As String)
         cmdbuilder = New SqlClient.SqlCommandBuilder(mdafresa)
         mdafresa.Update(ds, tabla)
     End Sub
+
     Public Sub cargarcol(ByVal ds As DataSet)
         ds.Tables("fresa").Columns.Add("seleccionarF", GetType(Boolean)).DefaultValue = False
-        'Dim dc1 As New DataColumn("seleccionarF")
-        'dc1.DefaultValue = False
-        'ds.Tables("fresa").Columns.Add(dc1)
         ds.Tables("fresa").Columns.Add("nombre", GetType(String)).DefaultValue = String.Empty
     End Sub
+
     Public Sub setearGrilla(ByVal dg As DataGrid)
 
         ts = New DataGridTableStyle

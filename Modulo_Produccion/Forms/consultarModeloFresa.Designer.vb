@@ -101,7 +101,7 @@ Partial Class consultarModeloFresa
         '
         'btnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(614, 419)
+        Me.btnModificar.Location = New System.Drawing.Point(220, 419)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(80, 24)
         Me.btnModificar.TabIndex = 17
@@ -109,7 +109,7 @@ Partial Class consultarModeloFresa
         '
         'btnBaja
         '
-        Me.btnBaja.Location = New System.Drawing.Point(510, 419)
+        Me.btnBaja.Location = New System.Drawing.Point(134, 419)
         Me.btnBaja.Name = "btnBaja"
         Me.btnBaja.Size = New System.Drawing.Size(80, 24)
         Me.btnBaja.TabIndex = 18
@@ -193,7 +193,7 @@ Partial Class consultarModeloFresa
         '
         Me.GroupBox1.Controls.Add(Me.radioAlta)
         Me.GroupBox1.Controls.Add(Me.radioBaja)
-        Me.GroupBox1.Location = New System.Drawing.Point(357, 400)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 400)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(116, 43)
         Me.GroupBox1.TabIndex = 23
