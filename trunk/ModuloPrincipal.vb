@@ -13,8 +13,9 @@ Module ModuloPrincipal
     'fin negrada
 
     Public cnn As New SqlClient.SqlConnection
-    Public princ As New principal
+    Public princ As principal
     Public seguridad As New ClsSeg
+    Private splash As PantallaInicio
 
 
     Sub main()
@@ -23,8 +24,18 @@ Module ModuloPrincipal
         cnn.ConnectionString = oBaseDatos.GetConection()
         oBaseDatos = Nothing
 
+        splash = New PantallaInicio
+        splash.Show()
+        splash.Refresh()
+
+        Threading.Thread.Sleep(8000)
+
+        princ = New principal
+        princ.Show()
+        splash.Close()
+
         System.Windows.Forms.Application.Run(princ)
-        
+
     End Sub
 
 
