@@ -7,6 +7,7 @@ Public Class Constantes
     'Campo tipo de Emitir presupuesto
     Public Const PRESUPUESTO_TIPO_FRESA As Integer = 1
     Public Const PRESUPUESTO_PARTE_ADICIONAL As Integer = 2
+    Public Const PEDIDO_PRESUPUESTO_TIEMPO As Integer = 1
 
     'setea el inicio de las coordenadas X e Y de los formularios, las que heredan
     'de frmBase
