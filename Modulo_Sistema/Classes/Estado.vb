@@ -1,41 +1,44 @@
-Public Class Estado
+Public Enum Estado
 
     'Estados para clase PEDIDO
-    Public Const PEDIDO_PENDIENTE As Integer = 1
-    Public Const PEDIDO_PROGRAMADO As Integer = 2
-    Public Const PEDIDO_EN_PRODUCCION As Integer = 3
-    Public Const PEDIDO_FINALIZADO As Integer = 4
-    Public Const PEDIDO_ENTREGADO As Integer = 5
-    Public Const PEDIDO_CANCELADO As Integer = 6
+    PEDIDO_PENDIENTE = 1
+    PEDIDO_PROGRAMADO = 2
+    PEDIDO_EN_PRODUCCION = 3
+    PEDIDO_FINALIZADO = 4
+    PEDIDO_ENTREGADO = 5
+    PEDIDO_CANCELADO = 6
 
     'Estados para clase ORDEN DE COMPRA
-    Public Const ORDEN_DE_COMPRA_PENDIENTE As Integer = 11
-    Public Const ORDEN_DE_COMPRA_RECIBIDO As Integer = 12
-    Public Const ORDEN_DE_COMPRA_RECHAZADO As Integer = 13
-    Public Const ORDEN_DE_COMPRA_PARCIALMENTE_ENTREGADO As Integer = 14
+    ORDEN_DE_COMPRA_PENDIENTE = 11
+    ORDEN_DE_COMPRA_RECIBIDO = 12
+    ORDEN_DE_COMPRA_RECHAZADO = 13
+    ORDEN_DE_COMPRA_PARCIALMENTE_ENTREGADO = 14
 
     'Estados para clase FRESA
-    Public Const FRESA_PENDIENTE As Integer = 21
-    Public Const FRESA_PARA_TORNEAR As Integer = 22
-    Public Const FRESA_TORNEANDO As Integer = 23
-    Public Const FRESA_FABRICANDO As Integer = 24
-    Public Const FRESA_FINALIZADO As Integer = 25
-    Public Const FRESA_RECHAZADA As Integer = 26
+    FRESA_PENDIENTE = 21
+    FRESA_PARA_TORNEAR = 22
+    FRESA_TORNEANDO = 23
+    FRESA_FABRICANDO = 24
+    FRESA_FINALIZADO = 25
+    FRESA_RECHAZADA = 26
 
     'Estados para clase MAQUINA
-    Public Const MAQUINA_OPERANDO As Integer = 31
-    Public Const MAQUINA_REPARANDOSE As Integer = 32
-    Public Const MAQUINA_DE_BAJA As Integer = 33
+    MAQUINA_OPERANDO = 31
+    MAQUINA_REPARANDOSE = 32
+    MAQUINA_DE_BAJA = 33
 
     'Estados para clase ORDEN DE SERVICIO
-    Public Const ORDEN_DE_SERVICIO_PENDIENTE As Integer = 41
-    Public Const ORDEN_DE_SERVICIO_EJECUTANDO As Integer = 41
-    Public Const ORDEN_DE_SERVICIO_FINALIZADO As Integer = 41
+    ORDEN_DE_SERVICIO_PENDIENTE = 41
+    ORDEN_DE_SERVICIO_EJECUTANDO = 41
+    ORDEN_DE_SERVICIO_FINALIZADO = 41
 
     'Estados para clase HOJA DE RUTA
-    Public Const HOJA_DE_RUTA_CREADA As Integer = 51
-    Public Const HOJA_DE_RUTA_EMITIDA As Integer = 52
-    Public Const HOJA_DE_RUTA_REGISTRADA As Integer = 53
+    HOJA_DE_RUTA_CREADA = 51
+    HOJA_DE_RUTA_EMITIDA = 52
+    HOJA_DE_RUTA_REGISTRADA = 53
+
+End Enum
 
 
-End Class
+
+
