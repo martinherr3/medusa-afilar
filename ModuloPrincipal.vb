@@ -13,7 +13,7 @@ Module ModuloPrincipal
     'fin negrada
 
     Public cnn As New SqlClient.SqlConnection
-    Public princ As principal
+    Public princ As New principal
     Public seguridad As New ClsSeg
     Private splash As PantallaInicio
 
@@ -24,17 +24,22 @@ Module ModuloPrincipal
         cnn.ConnectionString = oBaseDatos.GetConection()
         oBaseDatos = Nothing
 
-        splash = New PantallaInicio
-        splash.Show()
-        splash.Refresh()
+        If AppSettings.Get("splashScreen") = "TRUE" Then
+            splash = New PantallaInicio
+            splash.Show()
+            splash.Refresh()
 
-        Threading.Thread.Sleep(8000)
+            Threading.Thread.Sleep(8000)
 
-        princ = New principal
-        princ.Show()
-        splash.Close()
+            princ.Show()
+            splash.Close()
+        End If
 
-        System.Windows.Forms.Application.Run(princ)
+        Try
+            System.Windows.Forms.Application.Run(princ)
+        Catch
+
+        End Try
 
     End Sub
 
