@@ -217,12 +217,6 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formweb.Designer.vb">
-      <DependentUpon>Formweb.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formweb.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Modulo_Produccion\dsHojaRuta.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -361,6 +355,7 @@
     <Compile Include="Modulo_Sistema\Classes\BaseDatos.vb" />
     <Compile Include="Modulo_Produccion\Classes\Cargo.vb" />
     <Compile Include="Modulo_Sistema\Classes\Constantes.vb" />
+    <Compile Include="Modulo_Sistema\Classes\Estado.vb" />
     <Compile Include="Modulo_Sistema\Classes\Mensajeria.vb" />
     <Compile Include="Modulo_Sistema\Classes\PaintRowEventArgs.vb" />
     <Compile Include="Modulo_Sistema\Classes\Parametro.vb" />
@@ -368,6 +363,12 @@
       <DependentUpon>frmMensajes.vb</DependentUpon>
     </Compile>
     <Compile Include="Modulo_Sistema\Forms\frmMensajes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\PantallaInicio.Designer.vb">
+      <DependentUpon>PantallaInicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Sistema\Forms\PantallaInicio.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Ventas\Classes\Cliente.vb">
@@ -629,10 +630,6 @@
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\Usuario.vb" />
     <Compile Include="Modulo_Produccion\Classes\UnidadDeMedida.vb" />
-    <EmbeddedResource Include="Formweb.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>Formweb.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBase.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmBase.vb</DependentUpon>
@@ -727,6 +724,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Sistema\Forms\frmMensajes.resx">
       <DependentUpon>frmMensajes.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Sistema\Forms\PantallaInicio.resx">
+      <DependentUpon>PantallaInicio.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\emitirPresupuesto.resx">
@@ -940,6 +941,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Modulo_Produccion\DSAdicional.xss">
+      <DependentUpon>DSAdicional.xsd</DependentUpon>
+    </None>
     <None Include="Modulo_Produccion\dsHojaRuta.xsc">
       <DependentUpon>dsHojaRuta.xsd</DependentUpon>
     </None>
@@ -980,6 +984,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modulo_Produccion\Reports\" />
+    <Folder Include="Modulo_Reportes\DataSets\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
