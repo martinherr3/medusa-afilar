@@ -56,7 +56,6 @@ Public Class BaseDatos
     Public Function GetConection() As String
         Dim strConection As String
 
-        '"workstation id=GERARDO;packet size=4096;integrated security=SSPI;initial catalog=Afilar;persist security info=False"
         strConection = ""
         strConection &= "Initial Catalog=" & strNombreBD.Trim() & ";"
         strConection &= "Data Source=" & strInstancia.Trim() & ";"
