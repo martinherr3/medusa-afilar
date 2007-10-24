@@ -337,6 +337,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Reportes\Classes\Dashboard.vb" />
+    <Compile Include="Modulo_Reportes\DataSets\DSPedido.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPedido.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Reportes\Forms\DashboardForm.Designer.vb">
       <DependentUpon>DashboardForm.vb</DependentUpon>
     </Compile>
@@ -348,6 +353,18 @@
     </Compile>
     <Compile Include="Modulo_Reportes\Forms\GestorReportesForm.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Reports\RptFresa.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptFresa.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Reports\RptPedidos.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptPedidos.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
       <SubType>Code</SubType>
@@ -485,9 +502,6 @@
     <Compile Include="Modulo_Ventas\Forms\frmpedidocliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modulo_Ventas\Forms\Frmpedidofresa.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Modulo_Ventas\Forms\frmProvincia.Designer.vb">
       <DependentUpon>frmProvincia.vb</DependentUpon>
     </Compile>
@@ -537,6 +551,10 @@
     </Compile>
     <Compile Include="ModuloPrincipal.vb">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -722,6 +740,14 @@
       <DependentUpon>GestorReportesForm.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Reports\RptFresa.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptFresa.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Reports\RptPedidos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptPedidos.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Sistema\Forms\frmMensajes.resx">
       <DependentUpon>frmMensajes.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -796,10 +822,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\frmpedidocliente.resx">
       <DependentUpon>frmpedidocliente.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Ventas\Forms\Frmpedidofresa.resx">
-      <DependentUpon>Frmpedidofresa.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\frmProvincia.resx">
@@ -924,6 +946,10 @@
       <LastGenOutput>DSOC.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
@@ -976,6 +1002,17 @@
     <None Include="Modulo_Produccion\DSFresa.xss">
       <DependentUpon>DSFresa.xsd</DependentUpon>
     </None>
+    <None Include="Modulo_Reportes\DataSets\DSPedido.xsc">
+      <DependentUpon>DSPedido.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSPedido.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPedido.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSPedido.xss">
+      <DependentUpon>DSPedido.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -984,7 +1021,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modulo_Produccion\Reports\" />
-    <Folder Include="Modulo_Reportes\DataSets\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
