@@ -352,8 +352,8 @@ Public Class frmRecibirMPII
     Dim DS As New DataSet
     Dim dtOC As New DataTable
     Dim dvDOC As New DataView
-    Dim Sqldataadapter1 As New SqlDataAdapter("select fecharealizacion, nroorden,ordencompramp.idordencompra, ordencompramp.idproveedor, proveedor.nombre from ordencompramp inner join proveedor on ordencompramp.idproveedor = proveedor.idproveedor where ordencompramp.idestado=1", cnn)
-    Dim Sqldataadapter2 As New SqlDataAdapter("select tipomateriaprima.nombre, cantidad, precio, idordencompra, detalleordencompra.idtipomateriaprima from detalleordencompra inner join tipomateriaprima on detalleordencompra.idtipomateriaprima = tipomateriaprima.idtipomateriaprima where idordencompra in (select idordencompra from ordencompramp where idestado =1) and idestado =1 ", cnn)
+    Dim Sqldataadapter1 As New SqlDataAdapter("select fecharealizacion, nroorden,ordencompramp.idordencompra, ordencompramp.idproveedor, proveedor.nombre from ordencompramp inner join proveedor on ordencompramp.idproveedor = proveedor.idproveedor where ordencompramp.idestado = " & Estado.ORDEN_DE_COMPRA_PENDIENTE, cnn)
+    Dim Sqldataadapter2 As New SqlDataAdapter("select tipomateriaprima.nombre, cantidad, precio, idordencompra, detalleordencompra.idtipomateriaprima from detalleordencompra inner join tipomateriaprima on detalleordencompra.idtipomateriaprima = tipomateriaprima.idtipomateriaprima where idordencompra in (select idordencompra from ordencompramp where idestado = " & Estado.ORDEN_DE_COMPRA_PENDIENTE & ") and idestado = " & Estado.ORDEN_DE_COMPRA_PENDIENTE, cnn)
     ''IDESTADO =1 ES "PENDIENTE DE ENTREGA" tendriamos que agregar la tabra estado
 
 
@@ -514,6 +514,7 @@ Public Class frmRecibirMPII
         Next i
     End Sub
     Private Sub BtnSiguiente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSiguiente.Click
+        BtnAtras.Visible = True
         If gpbox1.Visible Then
             Me.gpbox1.Visible = False
             Me.gpbox2.Visible = True
@@ -542,10 +543,10 @@ Public Class frmRecibirMPII
                     If textRemito.Text <> "" Then
                         carga()
                     Else
-                        MsgBox("Primero debe cargar el numero de remito", MsgBoxStyle.OKOnly, "Remito")
+                        MsgBox("Primero debe cargar el numero de remito", MsgBoxStyle.OkOnly, "Remito")
                     End If
                 End If
-                End If
+            End If
         End If
 
 
@@ -654,7 +655,8 @@ Public Class frmRecibirMPII
 
                     If dvDOC.Item(i).Item("Column1") = "Y" Then
                         If dvDOC.Item(i).Item("cantidad") = 0 Then
-                            sqlcommandDOC.CommandText = "update detalleordencompra set idestado = 3 where idordencompra=" _
+                            'estaba como 3
+                            sqlcommandDOC.CommandText = "update detalleordencompra set idestado = " & Estado.ORDEN_DE_COMPRA_RECIBIDO & " where idordencompra=" _
                                                 & DgOc.Item(DgOc.CurrentCell.RowNumber, 2) & _
                                                 "and idtipomateriaprima =" & dvDOC.Item(i).Item("idtipomateriaprima")
                         Else
@@ -679,7 +681,7 @@ Public Class frmRecibirMPII
                         'cargo detalle mp recibida
                         Dim mpr As String
                         mpr = "insert into detallemprecibida values (" & mprec & "," _
-                        & CType(dvDOC.Item(i).Item("cantidadr"), Integer) & ",$" & Replace(dvDOC.Item(i).Item("precio"), ",", ".") & ",'', 3," _
+                        & CType(dvDOC.Item(i).Item("cantidadr"), Integer) & ",$" & Replace(dvDOC.Item(i).Item("precio"), ",", ".") & ",'', " & Estado.ORDEN_DE_COMPRA_RECIBIDO & "," _
                         & dvDOC.Item(i).Item("idtipomateriaprima") & ")"
                         'sqlcommandDMPR.CommandText = "insert into detallemprecibida values (" & mprec & "," _
                         '& CType(dvDOC.Item(i).Item("cantidadr"), Integer) & "," & dvDOC.Item(i).Item("precio") & ",'', 3," _
@@ -699,9 +701,13 @@ Public Class frmRecibirMPII
                                 band = True
                             End If
 
+                            'sqlcommandDMPR.CommandText = "insert into detallemprecibida values (" & mprec & "," _
+                            '& CType(dvDOC.Item(i).Item("cantidad"), Integer) & " , $" & Replace(dvDOC.Item(i).Item("precio"), ",", ".") & ",'', " & "'" _
+                            '& dvDOC.Item(i).Item("descripcion") & "', " & Estado.ORDEN_DE_COMPRA_RECHAZADO & "," & dvDOC.Item(i).Item("idtipomateriaprima") _
+                            '& ")"
                             sqlcommandDMPR.CommandText = "insert into detallemprecibida values (" & mprec & "," _
-                            & CType(dvDOC.Item(i).Item("cantidad"), Integer) & " , " & dvDOC.Item(i).Item("precio") & "," & "'" _
-                            & dvDOC.Item(i).Item("descripcion") & "', 6," & dvDOC.Item(i).Item("idtipomateriaprima") _
+                            & CType(dvDOC.Item(i).Item("cantidad"), Integer) & " , $" & Replace(dvDOC.Item(i).Item("precio"), ",", ".") & "," & "'" _
+                            & dvDOC.Item(i).Item("descripcion") & "', " & Estado.ORDEN_DE_COMPRA_RECHAZADO & "," & dvDOC.Item(i).Item("idtipomateriaprima") _
                             & ")"
                             sqlcommandDMPR.ExecuteNonQuery()
 
@@ -710,7 +716,7 @@ Public Class frmRecibirMPII
 
                 Next
                 If Not banpedincompleto Then
-                    sqlcommandOC.CommandText = "update ordencompramp set idestado =3 where nroorden=" _
+                    sqlcommandOC.CommandText = "update ordencompramp set idestado = " & Estado.ORDEN_DE_COMPRA_RECIBIDO & " where nroorden=" _
                                            & DgOc.Item(DgOc.CurrentCell.RowNumber, 1)
                     sqlcommandOC.ExecuteNonQuery()
 
