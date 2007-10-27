@@ -811,7 +811,7 @@ Public Class FrmGenerarOC
             nuevafilaoc(3) = nuevafilaoc(2) 'nro orden
             nuevafilaoc(4) = fpago  'pago
             nuevafilaoc(5) = "ni" 'causa
-            nuevafilaoc(6) = 1 'idestado
+            nuevafilaoc(6) = Estado.ORDEN_DE_COMPRA_PENDIENTE 'idestado antes estaba en 1
             nuevafilaoc(7) = idpro 'idproveedor
             cfilas.Add(nuevafilaoc)
             Cargar_detalleOC(nuevafilaoc(2), idmp, cant, pre)
@@ -827,7 +827,7 @@ Public Class FrmGenerarOC
         nuevafiladetoc(1) = idmp 'idtipomp
         nuevafiladetoc(2) = cant  'cant
         nuevafiladetoc(3) = pre 'precio
-        nuevafiladetoc(4) = 1 'estado pendiente
+        nuevafiladetoc(4) = Estado.ORDEN_DE_COMPRA_PENDIENTE  'estado pendiente
         cfilasdet.Add(nuevafiladetoc)
     End Sub
     Private Function Existe_OC(ByVal id As Integer) As Integer
