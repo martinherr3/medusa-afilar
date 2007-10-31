@@ -342,6 +342,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSPedido.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modulo_Reportes\DataSets\DSPedidoFresa.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPedidoFresa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\DataSets\DSPedidoServicio.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPedidoServicio.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Reportes\Forms\DashboardForm.Designer.vb">
       <DependentUpon>DashboardForm.vb</DependentUpon>
     </Compile>
@@ -364,6 +374,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptPedidos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Reports\RptServicio.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptServicio.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
@@ -748,6 +764,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptPedidos.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Reports\RptServicio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptServicio.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Sistema\Forms\frmMensajes.resx">
       <DependentUpon>frmMensajes.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1012,6 +1032,28 @@
     </None>
     <None Include="Modulo_Reportes\DataSets\DSPedido.xss">
       <DependentUpon>DSPedido.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSPedidoFresa.xsc">
+      <DependentUpon>DSPedidoFresa.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSPedidoFresa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPedidoFresa.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSPedidoFresa.xss">
+      <DependentUpon>DSPedidoFresa.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSPedidoServicio.xsc">
+      <DependentUpon>DSPedidoServicio.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSPedidoServicio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPedidoServicio.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSPedidoServicio.xss">
+      <DependentUpon>DSPedidoServicio.xsd</DependentUpon>
     </None>
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
