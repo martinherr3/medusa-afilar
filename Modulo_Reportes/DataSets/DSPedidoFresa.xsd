@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSPedidoFresa" targetNamespace="http://tempuri.org/DSPedidoFresa.xsd" xmlns:mstns="http://tempuri.org/DSPedidoFresa.xsd" xmlns="http://tempuri.org/DSPedidoFresa.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="AfilarConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="AfilarConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Afilar.My.MySettings.GlobalReference.Default.AfilarConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="fresaTableAdapter" GeneratorDataComponentClassName="fresaTableAdapter" Name="fresa" UserDataComponentName="fresaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT     fresa.nroserie, fresa.fechafinfabricacion, fresa.costofabricacion, fresa.estado, fresa.nropedido, fresa.controlcalidad, fresa.idhojaderuta, fresa.precio, 
+                      fresa.idtipo, fresa.idmodelo, tipofresa.nombre
+FROM         fresa INNER JOIN
+                      tipofresa ON fresa.idtipo = tipofresa.idtipo AND fresa.idmodelo = tipofresa.idmodelo</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nroserie" DataSetColumn="nroserie" />
+              <Mapping SourceColumn="fechafinfabricacion" DataSetColumn="fechafinfabricacion" />
+              <Mapping SourceColumn="costofabricacion" DataSetColumn="costofabricacion" />
+              <Mapping SourceColumn="estado" DataSetColumn="estado" />
+              <Mapping SourceColumn="nropedido" DataSetColumn="nropedido" />
+              <Mapping SourceColumn="controlcalidad" DataSetColumn="controlcalidad" />
+              <Mapping SourceColumn="idhojaderuta" DataSetColumn="idhojaderuta" />
+              <Mapping SourceColumn="precio" DataSetColumn="precio" />
+              <Mapping SourceColumn="idtipo" DataSetColumn="idtipo" />
+              <Mapping SourceColumn="idmodelo" DataSetColumn="idmodelo" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSPedidoFresa" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSPedidoFresa" msprop:Generator_DataSetName="DSPedidoFresa">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="fresa" msprop:Generator_UserTableName="fresa" msprop:Generator_RowDeletedName="fresaRowDeleted" msprop:Generator_TableClassName="fresaDataTable" msprop:Generator_RowChangedName="fresaRowChanged" msprop:Generator_RowClassName="fresaRow" msprop:Generator_RowChangingName="fresaRowChanging" msprop:Generator_RowEvArgName="fresaRowChangeEvent" msprop:Generator_RowEvHandlerName="fresaRowChangeEventHandler" msprop:Generator_TablePropName="fresa" msprop:Generator_TableVarName="tablefresa" msprop:Generator_RowDeletingName="fresaRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nroserie" msprop:Generator_UserColumnName="nroserie" msprop:Generator_ColumnPropNameInRow="nroserie" msprop:Generator_ColumnVarNameInTable="columnnroserie" msprop:Generator_ColumnPropNameInTable="nroserieColumn" type="xs:int" />
+              <xs:element name="fechafinfabricacion" msprop:Generator_UserColumnName="fechafinfabricacion" msprop:Generator_ColumnPropNameInRow="fechafinfabricacion" msprop:Generator_ColumnVarNameInTable="columnfechafinfabricacion" msprop:Generator_ColumnPropNameInTable="fechafinfabricacionColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="costofabricacion" msprop:Generator_UserColumnName="costofabricacion" msprop:Generator_ColumnPropNameInRow="costofabricacion" msprop:Generator_ColumnVarNameInTable="columncostofabricacion" msprop:Generator_ColumnPropNameInTable="costofabricacionColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_UserColumnName="estado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInTable="estadoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="nropedido" msprop:Generator_UserColumnName="nropedido" msprop:Generator_ColumnPropNameInRow="nropedido" msprop:Generator_ColumnVarNameInTable="columnnropedido" msprop:Generator_ColumnPropNameInTable="nropedidoColumn" type="xs:decimal" />
+              <xs:element name="controlcalidad" msprop:Generator_UserColumnName="controlcalidad" msprop:Generator_ColumnPropNameInRow="controlcalidad" msprop:Generator_ColumnVarNameInTable="columncontrolcalidad" msprop:Generator_ColumnPropNameInTable="controlcalidadColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idhojaderuta" msprop:Generator_UserColumnName="idhojaderuta" msprop:Generator_ColumnPropNameInRow="idhojaderuta" msprop:Generator_ColumnVarNameInTable="columnidhojaderuta" msprop:Generator_ColumnPropNameInTable="idhojaderutaColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="precio" msprop:Generator_UserColumnName="precio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInTable="precioColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="idtipo" msprop:Generator_UserColumnName="idtipo" msprop:Generator_ColumnPropNameInRow="idtipo" msprop:Generator_ColumnVarNameInTable="columnidtipo" msprop:Generator_ColumnPropNameInTable="idtipoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idmodelo" msprop:Generator_UserColumnName="idmodelo" msprop:Generator_ColumnPropNameInRow="idmodelo" msprop:Generator_ColumnVarNameInTable="columnidmodelo" msprop:Generator_ColumnPropNameInTable="idmodeloColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:fresa" />
+      <xs:field xpath="mstns:nroserie" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
