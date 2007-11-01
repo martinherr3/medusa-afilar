@@ -185,7 +185,7 @@ Public Class FrmPagoProveedor
 #End Region
     Dim DS As New DataSet
     Dim dvOCP As New DataView
-    Dim SQLdataadapter1 As New SqlDataAdapter("select ordencompramp.idordencompra, max(fecharealizacion) as fecharealizacion, sum (detalleordencompra.precio)as total, max(idproveedor)as idproveedor from ordencompramp join detalleordencompra on ordencompramp.idordencompra=detalleordencompra.idordencompra and ordencompramp.idestado=3 group by ordencompramp.idordencompra", cnn)
+    Dim SQLdataadapter1 As New SqlDataAdapter("select ordencompramp.idordencompra, max(fecharealizacion) as fecharealizacion, sum (detalleordencompra.precio)as total, max(idproveedor)as idproveedor from ordencompramp join detalleordencompra on ordencompramp.idordencompra=detalleordencompra.idordencompra and ordencompramp.idestado= " & Estado.ORDEN_DE_COMPRA_RECIBIDO & " group by ordencompramp.idordencompra", cnn)
 
     Private Sub FrmPagoProveedor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         princ.barra.agregarBoton(Me)
@@ -238,11 +238,11 @@ Public Class FrmPagoProveedor
             Try
                 cnn.Open()
                 sqlcommandP.CommandText = "insert into pago values (" _
-                                            & Grdocp.Item(Grdocp.CurrentCell.RowNumber, 2) _
+                                            & Replace(Grdocp.Item(Grdocp.CurrentCell.RowNumber, 2), ",", ".") _
                                             & ",'" & Today & "' ,'" & formadepago _
                                             & "'," & Grdocp.Item(Grdocp.CurrentCell.RowNumber, 0) & ")"
                 'id Estado =7 PAGADO
-                sqlcommandoc.CommandText = "update ordencompramp set idestado = 7 where idordencompra = " & Grdocp.Item(Grdocp.CurrentCell.RowNumber, 0)
+                sqlcommandoc.CommandText = "update ordencompramp set idestado = " & Estado.ORDEN_DE_COMPRA_PAGADO & " where idordencompra = " & Grdocp.Item(Grdocp.CurrentCell.RowNumber, 0)
                 sqlcommandP.ExecuteNonQuery()
                 sqlcommandoc.ExecuteNonQuery()
                 cnn.Close()
@@ -250,6 +250,7 @@ Public Class FrmPagoProveedor
             Catch exp As Exception
                 MsgBox(exp.Message, MsgBoxStyle.Critical, Me.Text)
                 cnn.Close()
+
         End Try
 
 
