@@ -55,6 +55,14 @@ Public Class frmSegProd
     End Sub
 
     
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        If obj.registrarAvance() Then
+            MsgBox("se registro con exito")
+        Else
+            MsgBox("no se pudo continuar")
+        End If
+
+    End Sub
 End Class
 
 
@@ -73,7 +81,7 @@ Public Class ProdTacking
 
 
     Public Sub New(ByVal idfresa As Integer)
-        adapterfresa = New SqlDataAdapter("select detallehojaderuta.idhojaderuta, detallehojaderuta.idetapadefabricacion, operacion.duracionpromedio, tipofresa.imagen, etapadefabricacion.idetapafabricacion, fresa.nroserie, etapadefabricacion.orden, operacion.nombre as nombreoperacion, detallehojaderuta.fechahorainicioreal, detallehojaderuta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detallehojaderuta.fechahorafinplanificada, hojaderuta.fechainicioproduccion, operacion.maquina, tipofresa.nombre from fresa inner join hojaderuta on hojaderuta.idhojaderuta = fresa.idhojaderuta inner join tipofresa on fresa.idtipo = tipofresa.idtipo and fresa.idmodelo = tipofresa.idmodelo inner join detallehojaderuta on detallehojaderuta.idhojaderuta = fresa.idhojaderuta inner join etapadefabricacion on etapadefabricacion.idetapafabricacion = detallehojaderuta.idetapadefabricacion inner join operacion on etapadefabricacion.idoperacion = operacion.idoperacion where Fresa.nroserie = " & idfresa & " order by operacion.idoperacion", cnn)
+        adapterfresa = New SqlDataAdapter("select detallehojaderuta.idhojaderuta, detallehojaderuta.idetapadefabricacion, operacion.duracionpromedio, tipofresa.imagen, etapadefabricacion.idetapafabricacion, fresa.nroserie, etapadefabricacion.orden, operacion.nombre as nombreoperacion, detallehojaderuta.fechahorainicioreal, detallehojaderuta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detallehojaderuta.fechahorafinplanificada, hojaderuta.fechainicioproduccion, operacion.maquina, tipofresa.nombre, operacion.idoperacion, detallehojaderuta.idtorneado from fresa inner join hojaderuta on hojaderuta.idhojaderuta = fresa.idhojaderuta inner join tipofresa on fresa.idtipo = tipofresa.idtipo and fresa.idmodelo = tipofresa.idmodelo inner join detallehojaderuta on detallehojaderuta.idhojaderuta = fresa.idhojaderuta inner join etapadefabricacion on etapadefabricacion.idetapafabricacion = detallehojaderuta.idetapadefabricacion inner join operacion on etapadefabricacion.idoperacion = operacion.idoperacion where Fresa.nroserie = " & idfresa & " order by etapadefabricacion.orden", cnn)
         DS = New DataSet
         adapterfresa.Fill(DS, "Fresa")
         Dim TFresa As DataTable = DS.Tables.Item("Fresa")
@@ -129,25 +137,36 @@ Public Class ProdTacking
         Dim conn As SqlConnection
         conn = cnn
         conn.Open()
-        Try
+        'Try
+        If nextOp = 1 Then
+            'marco el comienzo de la primera operacion
+            Dim sql2 As String = "UPDATE detallehojaderuta set fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
+            Dim comm2 As New SqlCommand(sql2, conn)
+
+            comm2.ExecuteNonQuery()
+        Else
             'Aca registro la fecha de fin de la operacion actual
-            Dim sql1 As String = "UPDATE detallehojaderuta fechahorafinreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapadefabricacion from etapadefabricacion where orden = " & nextOp & ")"
+            Dim sql1 As String = "UPDATE detallehojaderuta set fechahorafinreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp - 1 & ")"
             Dim comm1 As New SqlCommand(sql1, conn)
 
-            comm1.ExecuteReader()
+            comm1.ExecuteNonQuery()
 
 
             'Aca registro el comienzo de la proxima operacion
-            Dim sql2 As String = "UPDATE detallehojaderuta fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapadefabricacion from etapadefabricacion where orden = " & nextOp - 1 & ")"
-            Dim comm2 As New SqlCommand(sql1, conn)
+            Dim sql2 As String = "UPDATE detallehojaderuta set fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
+            Dim comm2 As New SqlCommand(sql2, conn)
 
-            comm2.ExecuteReader()
+            comm2.ExecuteNonQuery()
+        End If
+        
 
-            conn.Close()
-            Return True
-        Catch
-            Return False
-        End Try
+        conn.Close()
+        Return True
+        'Catch
+        'conn.Close()
+        ' Return False
+
+        'End Try
 
     End Function
     Public Sub getDatos(ByRef barra As UltraExplorerBar)
@@ -179,19 +198,34 @@ Public Class ProdTacking
 
             grupo.Settings.AppearancesLarge.HeaderAppearance = Apariencia
             '
-            'acordate de hacer un order by este capo
+            Dim constante As New Constantes
+
             grupo.Items.Add("orden", "Numero de orden:" & DrFresa.Item("orden"))
             grupo.Items.Add("fechahorainicioreal", "Inicio real de operacion: " & DrFresa.Item("fechahorainicioreal"))
-            grupo.Items.Add("fechahorainicioplanificada", "Inicio planificado de operacion: " & DrFresa.Item("fechahorainicioplanificada"))
-            grupo.Items.Add("fechahorafinreal", "Operacion finalizada: " & DrFresa.Item("fechahorafinreal"))
-            grupo.Items.Add("fechahorafinplanificada", "Fecha planificada de finalizacion: " & DrFresa.Item("fechahorafinplanificada"))
-            grupo.Items.Add("duracionpromedio", "Duracion promedio: " & DrFresa.Item("duracionpromedio"))
-            If IsDBNull(DrFresa.Item("maquina")) Then
-                grupo.Items.Add("maquina", "Maquina de trabajo: " & "")
+            If DrFresa.Item("idoperacion") <> constante.OperacionTorneado Then
+
+                'grupo.Items.Add("fechahorainicioreal", "Inicio real de operacion: " & DrFresa.Item("fechahorainicioreal"))
+                grupo.Items.Add("fechahorainicioplanificada", "Inicio planificado de operacion: " & DrFresa.Item("fechahorainicioplanificada"))
+                grupo.Items.Add("fechahorafinreal", "Operacion finalizada: " & DrFresa.Item("fechahorafinreal"))
+                grupo.Items.Add("fechahorafinplanificada", "Fecha planificada de finalizacion: " & DrFresa.Item("fechahorafinplanificada"))
+                grupo.Items.Add("duracionpromedio", "Duracion promedio: " & DrFresa.Item("duracionpromedio"))
+                If IsDBNull(DrFresa.Item("maquina")) Then
+                    grupo.Items.Add("maquina", "Maquina de trabajo: " & "")
+                Else
+                    grupo.Items.Add("maquina", "Maquina de trabajo: " & DrFresa.Item("maquina"))
+                End If
+                grupo.Items.Add("maquina", "Operario resposable: " & "")
             Else
-                grupo.Items.Add("maquina", "Maquina de trabajo: " & DrFresa.Item("maquina"))
+                Dim DrTorneado As DataRow
+
+                DrTorneado = torneado(DrFresa.Item("idtorneado"))
+                'grupo.Items.Add("fechahorainicioreal", "Inicio real de operacion: " & DrFresa.Item("fechahorainicioreal"))
+                grupo.Items.Add("fechahorainicioplanificada", "Piesa enviada el: " & DrTorneado.Item("fechasalidad"))
+                grupo.Items.Add("fechahorainicioplanificada", "Piesa recivida el: " & DrTorneado.Item("fecharecepcion"))
+                grupo.Items.Add("fechahorafinplanificada", "Fecha planificada de finalizacion: " & DrFresa.Item("fechahorafinplanificada"))
+                grupo.Items.Add("torneroresponsable", "Tornero responsable: " & Trim(DrTorneado.Item("apellido")) & ", " & Trim(DrTorneado.Item("nombre")))
+                grupo.Items.Add("cantidadtorneado", "Cantidad de piezas torneadas: " & DrTorneado.Item("cantidadtorneados"))
             End If
-            grupo.Items.Add("maquina", "Operario resposable: " & "")
             barra.Groups.Add(grupo)
             Apariencia.Dispose()
 
@@ -199,5 +233,17 @@ Public Class ProdTacking
 
 
     End Sub
+
+    Public Function torneado(ByVal idTorneado As Integer) As DataRow
+        Dim adapterTorneado As SqlDataAdapter
+
+        adapterTorneado = New SqlDataAdapter("select * from torneado inner join tornero on tornero.idtornero = torneado.idtornero where idtorneado = " & idTorneado, cnn)
+        Dim DST As New DataSet
+        adapterTorneado.Fill(DST, "torneado")
+        Dim TTorneado As DataTable = DST.Tables.Item("torneado")
+        Return TTorneado.Rows(0)
+
+       
+    End Function
 
 End Class

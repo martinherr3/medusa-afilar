@@ -34,4 +34,10 @@ Public Class LoginForm
     Private Sub LoginForm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         e.Cancel = NoCerrar
     End Sub
+
+    Private Sub LoginForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        PasswordTextBox.Text = "test"
+        UsernameTextBox.Text = "jperez"
+        OK.PerformClick()
+    End Sub
 End Class

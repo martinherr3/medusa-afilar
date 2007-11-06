@@ -35,11 +35,11 @@ Module ModuloPrincipal
             splash.Close()
         End If
 
-        Try
-            System.Windows.Forms.Application.Run(princ)
-        Catch
+        'Try
+        System.Windows.Forms.Application.Run(princ)
+        ' Catch
 
-        End Try
+        ' End Try
 
     End Sub
 
