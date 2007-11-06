@@ -13,6 +13,8 @@ Public Class Constantes
     'de frmBase
     Private _InicioX As Integer = 200
     Private _InicioY As Integer = 105
+    'Este es el id de la operacion torneado para lo que se nescesite
+    Private _OperacionTorneado As Integer = 699
 
 
     Public ReadOnly Property InicioX() As Integer
@@ -28,4 +30,9 @@ Public Class Constantes
         End Get
     End Property
 
+    Public ReadOnly Property OperacionTorneado() As Integer
+        Get
+            OperacionTorneado = _OperacionTorneado
+        End Get
+    End Property
 End Class
