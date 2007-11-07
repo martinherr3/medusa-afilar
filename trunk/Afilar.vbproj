@@ -337,9 +337,20 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Reportes\Classes\Dashboard.vb" />
+    <Compile Include="Modulo_Reportes\DataSets\DSCliente.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSCliente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\DataSets\DSCliente.vb">
+      <DependentUpon>DSCliente.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Reportes\DataSets\DSPedido.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>DSPedido.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\DataSets\DSPedido.vb">
       <DependentUpon>DSPedido.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modulo_Reportes\DataSets\DSPedidoFresa.Designer.vb">
@@ -363,6 +374,12 @@
     </Compile>
     <Compile Include="Modulo_Reportes\Forms\GestorReportesForm.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Reports\RptCliente.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCliente.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Modulo_Reportes\Reports\RptFresa.vb">
       <AutoGen>True</AutoGen>
@@ -422,12 +439,15 @@
     <Compile Include="Modulo_Compras\Forms\Diagrama_ABC.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modulo_Produccion\DSAdicional.Designer.vb">
+    <Compile Include="Modulo_Ventas\DSAdicional.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSAdicional.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Modulo_Produccion\DSFresa.Designer.vb">
+    <Compile Include="Modulo_Ventas\DSAdicional.vb">
+      <DependentUpon>DSAdicional.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\DSFresa.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSFresa.xsd</DependentUpon>
@@ -756,6 +776,10 @@
       <DependentUpon>GestorReportesForm.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Reports\RptCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCliente.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Reportes\Reports\RptFresa.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptFresa.vb</LastGenOutput>
@@ -941,7 +965,7 @@
     <Content Include="Imagenes\Sesion.gif" />
     <Content Include="Imagenes\Tilde.gif" />
     <Content Include="Imagenes\UsuarioMSN.gif" />
-    <Content Include="Modulo_Produccion\DSAdicional.xsd">
+    <Content Include="Modulo_Ventas\DSAdicional.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSAdicional.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
@@ -956,7 +980,7 @@
       <LastGenOutput>dsComprasDos.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Modulo_Produccion\DSFresa.xsd">
+    <Content Include="Modulo_Ventas\DSFresa.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSFresa.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
@@ -987,7 +1011,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Modulo_Produccion\DSAdicional.xss">
+    <None Include="Modulo_Ventas\DSAdicional.xss">
       <DependentUpon>DSAdicional.xsd</DependentUpon>
     </None>
     <None Include="Modulo_Produccion\dsHojaRuta.xsc">
@@ -1013,14 +1037,25 @@
     <None Include="Modulo_Compras\DSOC.xss">
       <DependentUpon>DSOC.xsd</DependentUpon>
     </None>
-    <None Include="Modulo_Produccion\DSAdicional.xsc">
+    <None Include="Modulo_Ventas\DSAdicional.xsc">
       <DependentUpon>DSAdicional.xsd</DependentUpon>
     </None>
-    <None Include="Modulo_Produccion\DSFresa.xsc">
+    <None Include="Modulo_Ventas\DSFresa.xsc">
       <DependentUpon>DSFresa.xsd</DependentUpon>
     </None>
-    <None Include="Modulo_Produccion\DSFresa.xss">
+    <None Include="Modulo_Ventas\DSFresa.xss">
       <DependentUpon>DSFresa.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSCliente.xsc">
+      <DependentUpon>DSCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSCliente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSCliente.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSCliente.xss">
+      <DependentUpon>DSCliente.xsd</DependentUpon>
     </None>
     <None Include="Modulo_Reportes\DataSets\DSPedido.xsc">
       <DependentUpon>DSPedido.xsd</DependentUpon>
