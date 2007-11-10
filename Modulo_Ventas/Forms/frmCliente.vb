@@ -739,9 +739,15 @@ Public Class frmCliente
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
         Try
+            Dim valorId As Integer
+            If DataGrid1.CurrentRowIndex = -1 Then
+                valorId = 0
+            Else
+                valorId = DataGrid1.Item(DataGrid1.CurrentRowIndex, 0)
+            End If
 
             objcliente.tomarDatos(TextBox2.Text, ComboBox1.SelectedValue, TextBox3.Text, ComboBox2.SelectedValue, TextBox5.Text, _
-                    TextBox4.Text, CType(TextBox1.Text, Decimal), textBox6.Text, TextBox7.Text, DataGrid1.Item(DataGrid1.CurrentRowIndex, 0))
+                    TextBox4.Text, CType(TextBox1.Text, Decimal), textBox6.Text, TextBox7.Text, valorId)
 
             If bandGrabar = 1 Then
                 objcliente.registrarCliente(dscliente)
@@ -862,7 +868,7 @@ Public Class frmCliente
             objcliente.mostrarDatos(TextBox2.Text, ComboBox1.SelectedValue, TextBox3.Text, ComboBox2.SelectedValue, TextBox5.Text, _
             TextBox4.Text, textBox6.Text, TextBox7.Text, TextBox1.Text)
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
     End Sub
 
@@ -871,7 +877,7 @@ Public Class frmCliente
         Try
             soloNumeros(e)
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
     End Sub
 
@@ -895,7 +901,7 @@ Public Class frmCliente
                 ComboBox2.Enabled = False
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
         
     End Sub
@@ -918,7 +924,7 @@ Public Class frmCliente
                 End If
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
     End Sub
 
