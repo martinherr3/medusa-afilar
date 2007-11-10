@@ -217,6 +217,18 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modulo_Produccion\Classes\BarInformation.vb" />
+    <Compile Include="Modulo_Produccion\Classes\cierre.vb" />
+    <Compile Include="Modulo_Produccion\Classes\gantt.Designer.vb">
+      <DependentUpon>gantt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Classes\gantt.vb" />
+    <Compile Include="Modulo_Produccion\Classes\GanttChart.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Classes\maquinaProd.vb" />
+    <Compile Include="Modulo_Produccion\Classes\programador.vb" />
+    <Compile Include="Modulo_Produccion\Classes\tareasProd.vb" />
     <Compile Include="Modulo_Produccion\dsHojaRuta.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -334,6 +346,9 @@
       <DependentUpon>frmTornero.vb</DependentUpon>
     </Compile>
     <Compile Include="Modulo_Produccion\Forms\frmTornero.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\ProdNuevo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Reportes\Classes\Dashboard.vb" />
@@ -464,9 +479,6 @@
     <Compile Include="Modulo_Produccion\Classes\Empleado.vb" />
     <Compile Include="Modulo_Produccion\Classes\etapaFabricacion.vb">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\programarProduccion.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\Formulario.vb" />
     <Compile Include="Modulo_Produccion\Classes\fresa.vb">
@@ -768,6 +780,10 @@
       <DependentUpon>frmTornero.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\ProdNuevo.resx">
+      <DependentUpon>ProdNuevo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Reportes\Forms\DashboardForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DashboardForm.vb</DependentUpon>
@@ -802,10 +818,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\emitirPresupuesto.resx">
       <DependentUpon>emitirPresupuesto.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Produccion\Forms\programarProduccion.resx">
-      <DependentUpon>programarProduccion.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\frmAsignar.resx">
