@@ -66,8 +66,6 @@ Public Class emitirPresupuesto
     Friend WithEvents cnn As System.Data.SqlClient.SqlConnection
     Friend WithEvents aAdicional As System.Data.SqlClient.SqlDataAdapter
     Friend WithEvents SqlSelectCommand2 As System.Data.SqlClient.SqlCommand
-    Friend WithEvents DsFresa1 As Afilar.DSFresa
-    Friend WithEvents DsAdicional1 As Afilar.DSAdicional
     Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -112,8 +110,6 @@ Public Class emitirPresupuesto
         Me.cnn = New System.Data.SqlClient.SqlConnection
         Me.aAdicional = New System.Data.SqlClient.SqlDataAdapter
         Me.SqlSelectCommand2 = New System.Data.SqlClient.SqlCommand
-        Me.DsFresa1 = New Afilar.DSFresa
-        Me.DsAdicional1 = New Afilar.DSAdicional
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,8 +122,6 @@ Public Class emitirPresupuesto
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
         Me.UltraTabSharedControlsPage1.SuspendLayout()
-        CType(Me.DsFresa1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DsAdicional1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -146,7 +140,8 @@ Public Class emitirPresupuesto
         Me.UltraTabPageControl1.Controls.Add(Me.Label3)
         Me.UltraTabPageControl1.Controls.Add(Me.Label2)
         Me.UltraTabPageControl1.Controls.Add(Me.Label4)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 537)
         '
@@ -340,8 +335,7 @@ Public Class emitirPresupuesto
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.crv)
-        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 537)
         '
@@ -425,18 +419,6 @@ Public Class emitirPresupuesto
         Me.SqlSelectCommand2.CommandText = resources.GetString("SqlSelectCommand2.CommandText")
         Me.SqlSelectCommand2.Connection = Me.cnn
         '
-        'DsFresa1
-        '
-        Me.DsFresa1.DataSetName = "DSFresa"
-        Me.DsFresa1.Locale = New System.Globalization.CultureInfo("es-AR")
-        Me.DsFresa1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DsAdicional1
-        '
-        Me.DsAdicional1.DataSetName = "DSAdicional"
-        Me.DsAdicional1.Locale = New System.Globalization.CultureInfo("es-AR")
-        Me.DsAdicional1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'emitirPresupuesto
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -460,8 +442,6 @@ Public Class emitirPresupuesto
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
         Me.UltraTabSharedControlsPage1.ResumeLayout(False)
-        CType(Me.DsFresa1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DsAdicional1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -754,6 +734,7 @@ Public Class emitirPresupuesto
 
                 aAdicional.Fill(ds2)
                 afresa.Fill(ds2)
+
                 Dim p As New repPres
 
                 p.SetDataSource(ds2)
@@ -802,7 +783,6 @@ Public Class emitirPresupuesto
     End Sub
 
 #End Region
-
 
 
 End Class

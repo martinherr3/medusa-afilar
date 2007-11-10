@@ -248,6 +248,18 @@ Partial Public Class DSPedidoServicio
         
         Private columnmaquina As System.Data.DataColumn
         
+        Private columnExpr1 As System.Data.DataColumn
+        
+        Private columnidestado As System.Data.DataColumn
+        
+        Private columnprioridad As System.Data.DataColumn
+        
+        Private columnidcliente As System.Data.DataColumn
+        
+        Private columnnombre As System.Data.DataColumn
+        
+        Private columnapellido As System.Data.DataColumn
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -357,6 +369,48 @@ Partial Public Class DSPedidoServicio
             End Get
         End Property
         
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Expr1Column() As System.Data.DataColumn
+            Get
+                Return Me.columnExpr1
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property idestadoColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnidestado
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property prioridadColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnprioridad
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property idclienteColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnidcliente
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nombreColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnnombre
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property apellidoColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnapellido
+            End Get
+        End Property
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -386,9 +440,26 @@ Partial Public Class DSPedidoServicio
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AdddetalleordenservicioRow(ByVal idpedido As Decimal, ByVal idoperacion As Integer, ByVal idobjetodelservicio As Integer, ByVal preciodeservicio As Decimal, ByVal observacion As String, ByVal idhojaderuta As Integer, ByVal precio As Decimal, ByVal nombreObjetodelServicio As String, ByVal cantidad As Integer, ByVal nombreOperacion As String, ByVal maquina As String) As detalleordenservicioRow
+        Public Overloads Function AdddetalleordenservicioRow( _
+                    ByVal idpedido As Decimal,  _
+                    ByVal idoperacion As Integer,  _
+                    ByVal idobjetodelservicio As Integer,  _
+                    ByVal preciodeservicio As Decimal,  _
+                    ByVal observacion As String,  _
+                    ByVal idhojaderuta As Integer,  _
+                    ByVal precio As Decimal,  _
+                    ByVal nombreObjetodelServicio As String,  _
+                    ByVal cantidad As Integer,  _
+                    ByVal nombreOperacion As String,  _
+                    ByVal maquina As String,  _
+                    ByVal Expr1 As Decimal,  _
+                    ByVal idestado As Integer,  _
+                    ByVal prioridad As Integer,  _
+                    ByVal idcliente As Integer,  _
+                    ByVal nombre As String,  _
+                    ByVal apellido As String) As detalleordenservicioRow
             Dim rowdetalleordenservicioRow As detalleordenservicioRow = CType(Me.NewRow,detalleordenservicioRow)
-            rowdetalleordenservicioRow.ItemArray = New Object() {idpedido, idoperacion, idobjetodelservicio, preciodeservicio, observacion, idhojaderuta, precio, nombreObjetodelServicio, cantidad, nombreOperacion, maquina}
+            rowdetalleordenservicioRow.ItemArray = New Object() {idpedido, idoperacion, idobjetodelservicio, preciodeservicio, observacion, idhojaderuta, precio, nombreObjetodelServicio, cantidad, nombreOperacion, maquina, Expr1, idestado, prioridad, idcliente, nombre, apellido}
             Me.Rows.Add(rowdetalleordenservicioRow)
             Return rowdetalleordenservicioRow
         End Function
@@ -428,6 +499,12 @@ Partial Public Class DSPedidoServicio
             Me.columncantidad = MyBase.Columns("cantidad")
             Me.columnnombreOperacion = MyBase.Columns("nombreOperacion")
             Me.columnmaquina = MyBase.Columns("maquina")
+            Me.columnExpr1 = MyBase.Columns("Expr1")
+            Me.columnidestado = MyBase.Columns("idestado")
+            Me.columnprioridad = MyBase.Columns("prioridad")
+            Me.columnidcliente = MyBase.Columns("idcliente")
+            Me.columnnombre = MyBase.Columns("nombre")
+            Me.columnapellido = MyBase.Columns("apellido")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -454,6 +531,18 @@ Partial Public Class DSPedidoServicio
             MyBase.Columns.Add(Me.columnnombreOperacion)
             Me.columnmaquina = New System.Data.DataColumn("maquina", GetType(String), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmaquina)
+            Me.columnExpr1 = New System.Data.DataColumn("Expr1", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnExpr1)
+            Me.columnidestado = New System.Data.DataColumn("idestado", GetType(Integer), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidestado)
+            Me.columnprioridad = New System.Data.DataColumn("prioridad", GetType(Integer), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnprioridad)
+            Me.columnidcliente = New System.Data.DataColumn("idcliente", GetType(Integer), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidcliente)
+            Me.columnnombre = New System.Data.DataColumn("nombre", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombre)
+            Me.columnapellido = New System.Data.DataColumn("apellido", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnapellido)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnidpedido, Me.columnidoperacion, Me.columnidobjetodelservicio}, true))
             Me.columnidpedido.AllowDBNull = false
             Me.columnidoperacion.AllowDBNull = false
@@ -462,6 +551,10 @@ Partial Public Class DSPedidoServicio
             Me.columnnombreObjetodelServicio.MaxLength = 20
             Me.columnnombreOperacion.MaxLength = 40
             Me.columnmaquina.MaxLength = 40
+            Me.columnExpr1.AllowDBNull = false
+            Me.columnnombre.AllowDBNull = false
+            Me.columnnombre.MaxLength = 50
+            Me.columnapellido.MaxLength = 50
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -706,6 +799,82 @@ Partial Public Class DSPedidoServicio
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property Expr1() As Decimal
+            Get
+                Return CType(Me(Me.tabledetalleordenservicio.Expr1Column),Decimal)
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.Expr1Column) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property idestado() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabledetalleordenservicio.idestadoColumn),Integer)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'idestado' de la tabla 'detalleordenservicio' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.idestadoColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property prioridad() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabledetalleordenservicio.prioridadColumn),Integer)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'prioridad' de la tabla 'detalleordenservicio' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.prioridadColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property idcliente() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabledetalleordenservicio.idclienteColumn),Integer)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'idcliente' de la tabla 'detalleordenservicio' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.idclienteColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nombre() As String
+            Get
+                Return CType(Me(Me.tabledetalleordenservicio.nombreColumn),String)
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.nombreColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property apellido() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledetalleordenservicio.apellidoColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'apellido' de la tabla 'detalleordenservicio' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.apellidoColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IspreciodeservicioNull() As Boolean
             Return Me.IsNull(Me.tabledetalleordenservicio.preciodeservicioColumn)
         End Function
@@ -783,6 +952,46 @@ Partial Public Class DSPedidoServicio
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetmaquinaNull()
             Me(Me.tabledetalleordenservicio.maquinaColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsidestadoNull() As Boolean
+            Return Me.IsNull(Me.tabledetalleordenservicio.idestadoColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetidestadoNull()
+            Me(Me.tabledetalleordenservicio.idestadoColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsprioridadNull() As Boolean
+            Return Me.IsNull(Me.tabledetalleordenservicio.prioridadColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetprioridadNull()
+            Me(Me.tabledetalleordenservicio.prioridadColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsidclienteNull() As Boolean
+            Return Me.IsNull(Me.tabledetalleordenservicio.idclienteColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetidclienteNull()
+            Me(Me.tabledetalleordenservicio.idclienteColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsapellidoNull() As Boolean
+            Return Me.IsNull(Me.tabledetalleordenservicio.apellidoColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetapellidoNull()
+            Me(Me.tabledetalleordenservicio.apellidoColumn) = System.Convert.DBNull
         End Sub
     End Class
     
@@ -919,6 +1128,12 @@ Namespace DSPedidoServicioTableAdapters
             tableMapping.ColumnMappings.Add("cantidad", "cantidad")
             tableMapping.ColumnMappings.Add("nombreOperacion", "nombreOperacion")
             tableMapping.ColumnMappings.Add("maquina", "maquina")
+            tableMapping.ColumnMappings.Add("Expr1", "Expr1")
+            tableMapping.ColumnMappings.Add("idestado", "idestado")
+            tableMapping.ColumnMappings.Add("prioridad", "prioridad")
+            tableMapping.ColumnMappings.Add("idcliente", "idcliente")
+            tableMapping.ColumnMappings.Add("nombre", "nombre")
+            tableMapping.ColumnMappings.Add("apellido", "apellido")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -938,10 +1153,14 @@ Namespace DSPedidoServicioTableAdapters
                 "                    detalleordenservicio.observacion, detalleordenservicio.idhoj"& _ 
                 "aderuta, detalleordenservicio.precio, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      objetodelservicio."& _ 
                 "nombre AS nombreObjetodelServicio, objetodelservicio.cantidad, operacion.nombre "& _ 
-                "AS nombreOperacion, operacion.maquina"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         detalleordenservicio INNER J"& _ 
-                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      objetodelservicio ON detalleordenservicio.idobjetodel"& _ 
-                "servicio = objetodelservicio.idobjetodelservicio INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
-                "   operacion ON detalleordenservicio.idoperacion = operacion.idoperacion"
+                "AS nombreOperacion, operacion.maquina, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Pedido.idpedido A"& _ 
+                "S Expr1, Pedido.idestado, Pedido.prioridad, Pedido.idcliente, cliente.nombre, cl"& _ 
+                "iente.apellido"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         detalleordenservicio INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "    objetodelservicio ON detalleordenservicio.idobjetodelservicio = objetodelser"& _ 
+                "vicio.idobjetodelservicio INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      operacion ON detalle"& _ 
+                "ordenservicio.idoperacion = operacion.idoperacion INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "    Pedido ON detalleordenservicio.idpedido = Pedido.idpedido INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                cliente ON Pedido.idcliente = cliente.idcliente"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         
