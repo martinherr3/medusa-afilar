@@ -239,7 +239,7 @@ Public Class principal
         bloquearPantalla(True)
         logeo.ShowDialog()
         bloquearPantalla(False)
-        Dim form As New frmSegProd
+        Dim form As New ProdNuevo
         form.MdiParent = Me
         form.Show()
         form.Location = New Point(500, 200)
@@ -520,12 +520,12 @@ Public Class principal
         Mensajeria.getMensajes(seguridad.id, LinkLabel1)
     End Sub
 
-    Private Sub MenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim f As New programarProduccion
-        f.MdiParent = Me
-        f.Show()
+    'Private Sub MenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    '    Dim f As New programarProduccion
+    '    f.MdiParent = Me
+    '    f.Show()
 
-    End Sub
+    'End Sub
 
     Private Sub MenuItem10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim f As New frmCliente
