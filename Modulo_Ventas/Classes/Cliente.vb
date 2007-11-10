@@ -163,7 +163,11 @@ Public Class Cliente
                 idmaximo = tbcliente.Select("idcliente=max(idcliente)")
                 Dim nuevafila As DataRow
                 nuevafila = tbcliente.NewRow()
-                nuevafila(0) = CType(idmaximo(0).Item(0), Integer) + 1
+                If idmaximo.Length = 0 Then
+                    nuevafila(0) = 1
+                Else
+                    nuevafila(0) = CType(idmaximo(0).Item(0), Integer) + 1
+                End If
 
                 nuevafila(1) = nombrecliente
                 nuevafila(2) = apellidocliente
