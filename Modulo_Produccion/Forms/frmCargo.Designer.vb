@@ -23,8 +23,14 @@ Partial Class frmCargo
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCargo))
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
@@ -60,7 +66,7 @@ Partial Class frmCargo
         Me.DataGrid1.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGrid1.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGrid1.LinkColor = System.Drawing.Color.Teal
-        Me.DataGrid1.Location = New System.Drawing.Point(46, 79)
+        Me.DataGrid1.Location = New System.Drawing.Point(13, 110)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGrid1.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
@@ -68,89 +74,101 @@ Partial Class frmCargo
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(257, 182)
+        Me.DataGrid1.Size = New System.Drawing.Size(305, 151)
         Me.DataGrid1.TabIndex = 52
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(50, 287)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance1
+        Me.UltraButton2.Location = New System.Drawing.Point(13, 286)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(79, 25)
+        Me.UltraButton2.Size = New System.Drawing.Size(79, 31)
         Me.UltraButton2.TabIndex = 49
         Me.UltraButton2.Text = "&Modificar"
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(50, 318)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance2
+        Me.UltraButton1.Location = New System.Drawing.Point(13, 318)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(78, 25)
+        Me.UltraButton1.Size = New System.Drawing.Size(79, 31)
         Me.UltraButton1.TabIndex = 48
         Me.UltraButton1.Text = "&Nuevo"
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(222, 287)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.UltraButton5.Appearance = Appearance3
+        Me.UltraButton5.Location = New System.Drawing.Point(237, 286)
         Me.UltraButton5.Name = "UltraButton5"
-        Me.UltraButton5.Size = New System.Drawing.Size(81, 25)
+        Me.UltraButton5.Size = New System.Drawing.Size(81, 31)
         Me.UltraButton5.TabIndex = 47
         Me.UltraButton5.Text = "&Cancelar"
         '
         'UltraButton4
         '
-        Appearance1.BackColor = System.Drawing.Color.White
-        Appearance1.ForeColor = System.Drawing.Color.Black
-        Me.UltraButton4.Appearance = Appearance1
-        Me.UltraButton4.Location = New System.Drawing.Point(134, 318)
+        Appearance4.BackColor = System.Drawing.Color.White
+        Appearance4.ForeColor = System.Drawing.Color.Black
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance4
+        Me.UltraButton4.Location = New System.Drawing.Point(93, 318)
         Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(82, 25)
+        Me.UltraButton4.Size = New System.Drawing.Size(81, 31)
         Me.UltraButton4.TabIndex = 46
         Me.UltraButton4.Text = "&Grabar"
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(135, 287)
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance5
+        Me.UltraButton3.Location = New System.Drawing.Point(93, 286)
         Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(81, 25)
+        Me.UltraButton3.Size = New System.Drawing.Size(81, 31)
         Me.UltraButton3.TabIndex = 50
         Me.UltraButton3.Text = "&Eliminar"
         '
         'UltraButton10
         '
-        Me.UltraButton10.Location = New System.Drawing.Point(222, 318)
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.UltraButton10.Appearance = Appearance6
+        Me.UltraButton10.Location = New System.Drawing.Point(237, 318)
         Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(81, 25)
+        Me.UltraButton10.Size = New System.Drawing.Size(81, 31)
         Me.UltraButton10.TabIndex = 51
-        Me.UltraButton10.Text = "Salir"
+        Me.UltraButton10.Text = "&Salir"
         '
         'txtDescripcion
         '
-        Appearance2.BackColorDisabled = System.Drawing.Color.White
-        Appearance2.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtDescripcion.Appearance = Appearance2
+        Appearance7.BackColorDisabled = System.Drawing.Color.White
+        Appearance7.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtDescripcion.Appearance = Appearance7
         Me.txtDescripcion.AutoSize = True
         Me.txtDescripcion.Enabled = False
-        Me.txtDescripcion.Location = New System.Drawing.Point(91, 42)
+        Me.txtDescripcion.Location = New System.Drawing.Point(12, 66)
+        Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(212, 21)
+        Me.txtDescripcion.Size = New System.Drawing.Size(306, 38)
         Me.txtDescripcion.TabIndex = 43
         '
         'txtNombre
         '
-        Appearance3.BackColorDisabled = System.Drawing.Color.White
-        Appearance3.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtNombre.Appearance = Appearance3
+        Appearance8.BackColorDisabled = System.Drawing.Color.White
+        Appearance8.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtNombre.Appearance = Appearance8
         Me.txtNombre.AutoSize = True
         Me.txtNombre.Enabled = False
-        Me.txtNombre.Location = New System.Drawing.Point(91, 18)
+        Me.txtNombre.Location = New System.Drawing.Point(12, 23)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(212, 21)
+        Me.txtNombre.Size = New System.Drawing.Size(306, 21)
         Me.txtNombre.TabIndex = 42
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.SystemColors.Control
-        Me.Label12.Location = New System.Drawing.Point(28, 50)
+        Me.Label12.Location = New System.Drawing.Point(12, 50)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(63, 13)
         Me.Label12.TabIndex = 45
@@ -160,7 +178,7 @@ Partial Class frmCargo
         '
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.SystemColors.Control
-        Me.Label13.Location = New System.Drawing.Point(47, 26)
+        Me.Label13.Location = New System.Drawing.Point(12, 9)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(44, 13)
         Me.Label13.TabIndex = 44

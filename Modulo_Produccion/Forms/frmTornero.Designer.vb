@@ -28,10 +28,20 @@ Partial Class frmTornero
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTornero))
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
@@ -117,7 +127,7 @@ Partial Class frmTornero
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton10)
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
-        Me.UltraTabPageControl1.Size = New System.Drawing.Size(740, 233)
+        Me.UltraTabPageControl1.Size = New System.Drawing.Size(679, 236)
         '
         'txtObservaciones
         '
@@ -126,7 +136,7 @@ Partial Class frmTornero
         Me.txtObservaciones.Appearance = Appearance1
         Me.txtObservaciones.AutoSize = True
         Me.txtObservaciones.Enabled = False
-        Me.txtObservaciones.Location = New System.Drawing.Point(93, 115)
+        Me.txtObservaciones.Location = New System.Drawing.Point(93, 113)
         Me.txtObservaciones.Name = "txtObservaciones"
         Me.txtObservaciones.Size = New System.Drawing.Size(241, 21)
         Me.txtObservaciones.TabIndex = 6
@@ -135,7 +145,7 @@ Partial Class frmTornero
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(9, 123)
+        Me.Label1.Location = New System.Drawing.Point(17, 118)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(78, 13)
         Me.Label1.TabIndex = 43
@@ -145,7 +155,7 @@ Partial Class frmTornero
         '
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(372, 118)
+        Me.Label11.Location = New System.Drawing.Point(401, 118)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(60, 13)
         Me.Label11.TabIndex = 40
@@ -158,9 +168,9 @@ Partial Class frmTornero
         Me.txtEfectividad.Appearance = Appearance2
         Me.txtEfectividad.AutoSize = True
         Me.txtEfectividad.Enabled = False
-        Me.txtEfectividad.Location = New System.Drawing.Point(432, 118)
+        Me.txtEfectividad.Location = New System.Drawing.Point(461, 113)
         Me.txtEfectividad.Name = "txtEfectividad"
-        Me.txtEfectividad.Size = New System.Drawing.Size(128, 21)
+        Me.txtEfectividad.Size = New System.Drawing.Size(206, 21)
         Me.txtEfectividad.TabIndex = 7
         '
         'txtCantidad
@@ -170,9 +180,9 @@ Partial Class frmTornero
         Me.txtCantidad.Appearance = Appearance3
         Me.txtCantidad.AutoSize = True
         Me.txtCantidad.Enabled = False
-        Me.txtCantidad.Location = New System.Drawing.Point(432, 91)
+        Me.txtCantidad.Location = New System.Drawing.Point(461, 89)
         Me.txtCantidad.Name = "txtCantidad"
-        Me.txtCantidad.Size = New System.Drawing.Size(128, 21)
+        Me.txtCantidad.Size = New System.Drawing.Size(206, 21)
         Me.txtCantidad.TabIndex = 5
         '
         'txtDireccion
@@ -182,9 +192,9 @@ Partial Class frmTornero
         Me.txtDireccion.Appearance = Appearance4
         Me.txtDireccion.AutoSize = True
         Me.txtDireccion.Enabled = False
-        Me.txtDireccion.Location = New System.Drawing.Point(432, 64)
+        Me.txtDireccion.Location = New System.Drawing.Point(461, 64)
         Me.txtDireccion.Name = "txtDireccion"
-        Me.txtDireccion.Size = New System.Drawing.Size(184, 21)
+        Me.txtDireccion.Size = New System.Drawing.Size(206, 21)
         Me.txtDireccion.TabIndex = 3
         '
         'txtApellido
@@ -194,9 +204,9 @@ Partial Class frmTornero
         Me.txtApellido.Appearance = Appearance5
         Me.txtApellido.AutoSize = True
         Me.txtApellido.Enabled = False
-        Me.txtApellido.Location = New System.Drawing.Point(432, 40)
+        Me.txtApellido.Location = New System.Drawing.Point(461, 40)
         Me.txtApellido.Name = "txtApellido"
-        Me.txtApellido.Size = New System.Drawing.Size(184, 21)
+        Me.txtApellido.Size = New System.Drawing.Size(206, 21)
         Me.txtApellido.TabIndex = 1
         '
         'txtCelular
@@ -206,9 +216,9 @@ Partial Class frmTornero
         Me.txtCelular.Appearance = Appearance6
         Me.txtCelular.AutoSize = True
         Me.txtCelular.Enabled = False
-        Me.txtCelular.Location = New System.Drawing.Point(74, 91)
+        Me.txtCelular.Location = New System.Drawing.Point(93, 89)
         Me.txtCelular.Name = "txtCelular"
-        Me.txtCelular.Size = New System.Drawing.Size(128, 21)
+        Me.txtCelular.Size = New System.Drawing.Size(241, 21)
         Me.txtCelular.TabIndex = 4
         '
         'txtTelefono
@@ -218,9 +228,9 @@ Partial Class frmTornero
         Me.txtTelefono.Appearance = Appearance7
         Me.txtTelefono.AutoSize = True
         Me.txtTelefono.Enabled = False
-        Me.txtTelefono.Location = New System.Drawing.Point(74, 64)
+        Me.txtTelefono.Location = New System.Drawing.Point(93, 64)
         Me.txtTelefono.Name = "txtTelefono"
-        Me.txtTelefono.Size = New System.Drawing.Size(128, 21)
+        Me.txtTelefono.Size = New System.Drawing.Size(241, 21)
         Me.txtTelefono.TabIndex = 2
         '
         'txtNombre
@@ -230,16 +240,16 @@ Partial Class frmTornero
         Me.txtNombre.Appearance = Appearance8
         Me.txtNombre.AutoSize = True
         Me.txtNombre.Enabled = False
-        Me.txtNombre.Location = New System.Drawing.Point(74, 40)
+        Me.txtNombre.Location = New System.Drawing.Point(93, 40)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(190, 21)
+        Me.txtNombre.Size = New System.Drawing.Size(241, 21)
         Me.txtNombre.TabIndex = 0
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(389, 44)
+        Me.Label10.Location = New System.Drawing.Point(417, 44)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(44, 13)
         Me.Label10.TabIndex = 38
@@ -253,7 +263,7 @@ Partial Class frmTornero
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton9)
         Me.UltraGroupBox1.Controls.Add(Me.Label9)
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(72, 174)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(93, 170)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(240, 56)
         Me.UltraGroupBox1.SupportThemes = False
@@ -263,58 +273,66 @@ Partial Class frmTornero
         '
         'UltraButton7
         '
+        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
+        Appearance9.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton7.Appearance = Appearance9
         Me.UltraButton7.Location = New System.Drawing.Point(192, 24)
         Me.UltraButton7.Name = "UltraButton7"
         Me.UltraButton7.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton7.TabIndex = 8
-        Me.UltraButton7.Text = ">"
         '
         'UltraButton6
         '
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Appearance10.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton6.Appearance = Appearance10
         Me.UltraButton6.Location = New System.Drawing.Point(152, 24)
         Me.UltraButton6.Name = "UltraButton6"
         Me.UltraButton6.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton6.TabIndex = 7
-        Me.UltraButton6.Text = ">>"
         '
         'UltraButton8
         '
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Appearance11.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton8.Appearance = Appearance11
         Me.UltraButton8.Location = New System.Drawing.Point(48, 24)
         Me.UltraButton8.Name = "UltraButton8"
         Me.UltraButton8.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton8.TabIndex = 6
-        Me.UltraButton8.Text = "<<"
         '
         'UltraButton9
         '
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Appearance12.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton9.Appearance = Appearance12
         Me.UltraButton9.Location = New System.Drawing.Point(8, 24)
         Me.UltraButton9.Name = "UltraButton9"
         Me.UltraButton9.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton9.TabIndex = 5
-        Me.UltraButton9.Text = "<"
         '
         'Label9
         '
-        Me.Label9.Location = New System.Drawing.Point(104, 24)
+        Me.Label9.Location = New System.Drawing.Point(94, 24)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(39, 24)
+        Me.Label9.Size = New System.Drawing.Size(52, 24)
         Me.Label9.TabIndex = 2
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(329, 91)
+        Me.Label8.Location = New System.Drawing.Point(368, 96)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(97, 13)
+        Me.Label8.Size = New System.Drawing.Size(94, 13)
         Me.Label8.TabIndex = 33
-        Me.Label8.Text = "Cantidad torneado:"
+        Me.Label8.Text = "Cantidad torneado"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(30, 91)
+        Me.Label7.Location = New System.Drawing.Point(56, 94)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(39, 13)
         Me.Label7.TabIndex = 32
@@ -324,7 +342,7 @@ Partial Class frmTornero
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(26, 69)
+        Me.Label5.Location = New System.Drawing.Point(46, 69)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(49, 13)
         Me.Label5.TabIndex = 30
@@ -334,7 +352,7 @@ Partial Class frmTornero
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(382, 67)
+        Me.Label4.Location = New System.Drawing.Point(409, 68)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 13)
         Me.Label4.TabIndex = 29
@@ -344,7 +362,7 @@ Partial Class frmTornero
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(30, 45)
+        Me.Label3.Location = New System.Drawing.Point(50, 46)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(44, 13)
         Me.Label3.TabIndex = 28
@@ -352,52 +370,63 @@ Partial Class frmTornero
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(552, 160)
+        Appearance13.Image = CType(resources.GetObject("Appearance13.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance13
+        Me.UltraButton2.Location = New System.Drawing.Point(420, 165)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton2.Size = New System.Drawing.Size(80, 29)
         Me.UltraButton2.TabIndex = 12
         Me.UltraButton2.Text = "&Modificar"
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(464, 160)
+        Appearance14.Image = CType(resources.GetObject("Appearance14.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance14
+        Me.UltraButton1.Location = New System.Drawing.Point(339, 165)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(80, 29)
         Me.UltraButton1.TabIndex = 11
         Me.UltraButton1.Text = "&Nuevo"
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(552, 192)
+        Appearance15.Image = CType(resources.GetObject("Appearance15.Image"), Object)
+        Me.UltraButton5.Appearance = Appearance15
+        Me.UltraButton5.Location = New System.Drawing.Point(501, 195)
         Me.UltraButton5.Name = "UltraButton5"
-        Me.UltraButton5.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton5.Size = New System.Drawing.Size(80, 31)
         Me.UltraButton5.TabIndex = 9
         Me.UltraButton5.Text = "&Cancelar"
         '
         'UltraButton4
         '
-        Appearance9.BackColor = System.Drawing.Color.White
-        Appearance9.ForeColor = System.Drawing.Color.Black
-        Me.UltraButton4.Appearance = Appearance9
-        Me.UltraButton4.Location = New System.Drawing.Point(464, 192)
+        Appearance16.BackColor = System.Drawing.Color.White
+        Appearance16.ForeColor = System.Drawing.Color.Black
+        Appearance16.Image = CType(resources.GetObject("Appearance16.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance16
+        Me.UltraButton4.Location = New System.Drawing.Point(420, 195)
         Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton4.Size = New System.Drawing.Size(80, 31)
         Me.UltraButton4.TabIndex = 8
         Me.UltraButton4.Text = "&Grabar"
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(640, 160)
+        Appearance17.Image = CType(resources.GetObject("Appearance17.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance17
+        Me.UltraButton3.Location = New System.Drawing.Point(339, 195)
         Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton3.Size = New System.Drawing.Size(80, 31)
         Me.UltraButton3.TabIndex = 13
         Me.UltraButton3.Text = "&Eliminar"
         '
         'UltraButton10
         '
-        Me.UltraButton10.Location = New System.Drawing.Point(640, 192)
+        Appearance18.Image = CType(resources.GetObject("Appearance18.Image"), Object)
+        Me.UltraButton10.Appearance = Appearance18
+        Me.UltraButton10.Location = New System.Drawing.Point(587, 194)
         Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton10.Size = New System.Drawing.Size(80, 32)
         Me.UltraButton10.TabIndex = 10
         Me.UltraButton10.Text = "Salir"
         '
@@ -408,13 +437,13 @@ Partial Class frmTornero
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
         Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
-        Me.UltraTabPageControl2.Size = New System.Drawing.Size(740, 233)
+        Me.UltraTabPageControl2.Size = New System.Drawing.Size(679, 236)
         '
         'txtNombreBuscar
         '
-        Appearance10.BackColorDisabled = System.Drawing.Color.White
-        Appearance10.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtNombreBuscar.Appearance = Appearance10
+        Appearance19.BackColorDisabled = System.Drawing.Color.White
+        Appearance19.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtNombreBuscar.Appearance = Appearance19
         Me.txtNombreBuscar.AutoSize = True
         Me.txtNombreBuscar.Location = New System.Drawing.Point(58, 9)
         Me.txtNombreBuscar.Name = "txtNombreBuscar"
@@ -439,7 +468,7 @@ Partial Class frmTornero
         Me.DataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGrid1.CaptionBackColor = System.Drawing.Color.LightSteelBlue
         Me.DataGrid1.CaptionForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGrid1.CaptionText = "Empleados"
+        Me.DataGrid1.CaptionText = "Tornero"
         Me.DataGrid1.DataMember = ""
         Me.DataGrid1.FlatMode = True
         Me.DataGrid1.Font = New System.Drawing.Font("Tahoma", 8.0!)
@@ -458,17 +487,17 @@ Partial Class frmTornero
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(704, 150)
+        Me.DataGrid1.Size = New System.Drawing.Size(651, 150)
         Me.DataGrid1.TabIndex = 20
         '
         'UltraTabControl1
         '
-        Appearance11.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance11.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance11
-        Appearance12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance12.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance12
+        Appearance20.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance20.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance20
+        Appearance21.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance21.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance21
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage2)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage3)
@@ -476,12 +505,12 @@ Partial Class frmTornero
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(1, 0)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance13.BackColor = System.Drawing.Color.Silver
-        Appearance13.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance13
+        Appearance22.BackColor = System.Drawing.Color.Silver
+        Appearance22.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance22
         Me.UltraTabControl1.SharedControls.AddRange(New System.Windows.Forms.Control() {Me.UltraButton10})
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
-        Me.UltraTabControl1.Size = New System.Drawing.Size(744, 256)
+        Me.UltraTabControl1.Size = New System.Drawing.Size(683, 259)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
         Me.UltraTabControl1.TabIndex = 2
         UltraTab1.TabPage = Me.UltraTabPageControl1
@@ -496,7 +525,7 @@ Partial Class frmTornero
         Me.UltraTabSharedControlsPage1.Controls.Add(Me.UltraButton10)
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
-        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(740, 233)
+        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(679, 236)
         '
         'UltraTabSharedControlsPage2
         '
@@ -514,13 +543,13 @@ Partial Class frmTornero
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(748, 259)
+        Me.ClientSize = New System.Drawing.Size(683, 259)
         Me.Controls.Add(Me.UltraTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmTornero"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "frmTornero"
+        Me.Text = "Gestión Tornero"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()
         CType(Me.txtObservaciones, System.ComponentModel.ISupportInitialize).EndInit()

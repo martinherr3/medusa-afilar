@@ -7,6 +7,7 @@ Public Class frmControlCalidad
     Dim consultaC As String = "select controlcalidad.idcontrol, controlcalidad.medidas, controlcalidad.pintura, controlcalidad.soldadura, controlcalidad.torneado, controlcalidad.idfresa, tipofresa.nombre, estado.nombre,fechahoracontrol from controlcalidad,fresa,estado,tipofresa where controlcalidad.idfresa=fresa.nroserie and fresa.idtipo=tipofresa.idtipo and fresa.idmodelo=tipofresa.idmodelo and fresa.estado=estado.idestado"
     Dim adaptadorCont As SqlClient.SqlDataAdapter = New SqlClient.SqlDataAdapter(consultaC, cnn)
     Dim consultaCC As String = "select * from controlcalidad"
+    Friend WithEvents btnSalir As Infragistics.Win.Misc.UltraButton
     Dim adaptadorCC As SqlClient.SqlDataAdapter = New SqlClient.SqlDataAdapter(consultaCC, cnn)
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -57,6 +58,8 @@ Public Class frmControlCalidad
     Friend WithEvents DataGrid2 As System.Windows.Forms.DataGrid
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmControlCalidad))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -65,11 +68,12 @@ Public Class frmControlCalidad
         Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
@@ -88,6 +92,7 @@ Public Class frmControlCalidad
         Me.DataGrid2 = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.btnSalir = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
@@ -114,16 +119,18 @@ Public Class frmControlCalidad
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(592, 288)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance1
+        Me.UltraButton1.Location = New System.Drawing.Point(592, 284)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(88, 34)
         Me.UltraButton1.TabIndex = 23
         Me.UltraButton1.Text = "&Registrar"
         '
         'UltraGroupBox2
         '
-        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox2.ContentAreaAppearance = Appearance1
+        Appearance2.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox2.ContentAreaAppearance = Appearance2
         Me.UltraGroupBox2.Controls.Add(Me.Label1)
         Me.UltraGroupBox2.Controls.Add(Me.UltraTextEditor1)
         Me.UltraGroupBox2.Controls.Add(Me.Label9)
@@ -146,27 +153,27 @@ Public Class frmControlCalidad
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(56, 128)
+        Me.Label1.Location = New System.Drawing.Point(3, 129)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(81, 13)
+        Me.Label1.Size = New System.Drawing.Size(78, 13)
         Me.Label1.TabIndex = 27
-        Me.Label1.Text = "Observaciones:"
+        Me.Label1.Text = "Observaciones"
         '
         'UltraTextEditor1
         '
         Me.UltraTextEditor1.AutoSize = True
-        Me.UltraTextEditor1.Location = New System.Drawing.Point(64, 144)
+        Me.UltraTextEditor1.Location = New System.Drawing.Point(5, 144)
         Me.UltraTextEditor1.MaxLength = 240
         Me.UltraTextEditor1.Multiline = True
         Me.UltraTextEditor1.Name = "UltraTextEditor1"
-        Me.UltraTextEditor1.Size = New System.Drawing.Size(224, 88)
+        Me.UltraTextEditor1.Size = New System.Drawing.Size(283, 88)
         Me.UltraTextEditor1.TabIndex = 26
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(56, 104)
+        Me.Label9.Location = New System.Drawing.Point(11, 108)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(56, 13)
         Me.Label9.TabIndex = 25
@@ -179,16 +186,16 @@ Public Class frmControlCalidad
         ValueListItem2.DataValue = "Reprobado"
         Me.ComboTorneado.Items.Add(ValueListItem1)
         Me.ComboTorneado.Items.Add(ValueListItem2)
-        Me.ComboTorneado.Location = New System.Drawing.Point(120, 104)
+        Me.ComboTorneado.Location = New System.Drawing.Point(67, 104)
         Me.ComboTorneado.Name = "ComboTorneado"
-        Me.ComboTorneado.Size = New System.Drawing.Size(168, 21)
+        Me.ComboTorneado.Size = New System.Drawing.Size(221, 21)
         Me.ComboTorneado.TabIndex = 5
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Location = New System.Drawing.Point(56, 80)
+        Me.Label8.Location = New System.Drawing.Point(9, 84)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(58, 13)
         Me.Label8.TabIndex = 23
@@ -198,7 +205,7 @@ Public Class frmControlCalidad
         '
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(72, 56)
+        Me.Label7.Location = New System.Drawing.Point(24, 59)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(43, 13)
         Me.Label7.TabIndex = 22
@@ -208,7 +215,7 @@ Public Class frmControlCalidad
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(64, 36)
+        Me.Label6.Location = New System.Drawing.Point(17, 36)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(50, 13)
         Me.Label6.TabIndex = 21
@@ -222,9 +229,9 @@ Public Class frmControlCalidad
         ValueListItem4.DataValue = "Reprobado"
         Me.comboSoldadura.Items.Add(ValueListItem3)
         Me.comboSoldadura.Items.Add(ValueListItem4)
-        Me.comboSoldadura.Location = New System.Drawing.Point(120, 80)
+        Me.comboSoldadura.Location = New System.Drawing.Point(67, 80)
         Me.comboSoldadura.Name = "comboSoldadura"
-        Me.comboSoldadura.Size = New System.Drawing.Size(168, 21)
+        Me.comboSoldadura.Size = New System.Drawing.Size(221, 21)
         Me.comboSoldadura.TabIndex = 4
         '
         'comboPintura
@@ -235,9 +242,9 @@ Public Class frmControlCalidad
         ValueListItem6.DataValue = "Reprobado"
         Me.comboPintura.Items.Add(ValueListItem5)
         Me.comboPintura.Items.Add(ValueListItem6)
-        Me.comboPintura.Location = New System.Drawing.Point(120, 56)
+        Me.comboPintura.Location = New System.Drawing.Point(67, 56)
         Me.comboPintura.Name = "comboPintura"
-        Me.comboPintura.Size = New System.Drawing.Size(168, 21)
+        Me.comboPintura.Size = New System.Drawing.Size(221, 21)
         Me.comboPintura.TabIndex = 3
         '
         'comboMedidas
@@ -248,9 +255,9 @@ Public Class frmControlCalidad
         ValueListItem8.DataValue = "Reprobado"
         Me.comboMedidas.Items.Add(ValueListItem7)
         Me.comboMedidas.Items.Add(ValueListItem8)
-        Me.comboMedidas.Location = New System.Drawing.Point(120, 32)
+        Me.comboMedidas.Location = New System.Drawing.Point(67, 32)
         Me.comboMedidas.Name = "comboMedidas"
-        Me.comboMedidas.Size = New System.Drawing.Size(168, 21)
+        Me.comboMedidas.Size = New System.Drawing.Size(221, 21)
         Me.comboMedidas.TabIndex = 2
         '
         'DataGrid1
@@ -267,6 +274,7 @@ Public Class frmControlCalidad
         '
         'UltraTabPageControl2
         '
+        Me.UltraTabPageControl2.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid2)
         Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
@@ -277,24 +285,24 @@ Public Class frmControlCalidad
         Me.DataGrid2.CaptionText = "Controles Registrados"
         Me.DataGrid2.DataMember = ""
         Me.DataGrid2.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.DataGrid2.Location = New System.Drawing.Point(16, 16)
+        Me.DataGrid2.Location = New System.Drawing.Point(10, 15)
         Me.DataGrid2.Name = "DataGrid2"
         Me.DataGrid2.PreferredColumnWidth = 100
         Me.DataGrid2.ReadOnly = True
-        Me.DataGrid2.Size = New System.Drawing.Size(668, 240)
+        Me.DataGrid2.Size = New System.Drawing.Size(674, 260)
         Me.DataGrid2.TabIndex = 22
         '
         'UltraTabControl1
         '
-        Appearance2.BackColor = System.Drawing.Color.Silver
-        Appearance2.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ActiveTabAppearance = Appearance2
-        Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance3.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance3
-        Appearance4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance4.BackColor = System.Drawing.Color.Silver
         Appearance4.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance4
+        Me.UltraTabControl1.ActiveTabAppearance = Appearance4
+        Appearance5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance5.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance5
+        Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance6.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance6
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
@@ -316,6 +324,16 @@ Public Class frmControlCalidad
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(700, 321)
+        '
+        'btnSalir
+        '
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.btnSalir.Appearance = Appearance3
+        Me.btnSalir.Location = New System.Drawing.Point(596, 281)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(88, 34)
+        Me.btnSalir.TabIndex = 24
+        Me.btnSalir.Text = "&Salir"
         '
         'frmControlCalidad
         '
@@ -467,5 +485,9 @@ Public Class frmControlCalidad
                 Exit Sub      ' registrar me tira error, bien no se porque
             End If
         Next
+    End Sub
+
+    Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
+        Me.Close()
     End Sub
 End Class

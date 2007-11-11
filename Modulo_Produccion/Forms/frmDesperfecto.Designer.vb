@@ -33,6 +33,12 @@ Partial Class frmDesperfecto
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
@@ -110,16 +116,17 @@ Partial Class frmDesperfecto
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton5)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton4)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton10)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
-        Me.UltraTabPageControl1.Size = New System.Drawing.Size(740, 258)
+        Me.UltraTabPageControl1.Size = New System.Drawing.Size(727, 258)
         '
         'BtnReparacion
         '
         Me.BtnReparacion.Enabled = False
-        Me.BtnReparacion.Location = New System.Drawing.Point(638, 104)
+        Me.BtnReparacion.Location = New System.Drawing.Point(360, 180)
         Me.BtnReparacion.Name = "BtnReparacion"
-        Me.BtnReparacion.Size = New System.Drawing.Size(80, 42)
+        Me.BtnReparacion.Size = New System.Drawing.Size(80, 69)
         Me.BtnReparacion.TabIndex = 41
         Me.BtnReparacion.Text = "&Registrar Reparacion"
         '
@@ -129,10 +136,10 @@ Partial Class frmDesperfecto
         DateButton1.Caption = "Today"
         Me.CalendarReparacion.DateButtons.Add(DateButton1)
         Me.CalendarReparacion.Enabled = False
-        Me.CalendarReparacion.Location = New System.Drawing.Point(280, 69)
+        Me.CalendarReparacion.Location = New System.Drawing.Point(96, 158)
         Me.CalendarReparacion.Name = "CalendarReparacion"
         Me.CalendarReparacion.NonAutoSizeHeight = 21
-        Me.CalendarReparacion.Size = New System.Drawing.Size(112, 21)
+        Me.CalendarReparacion.Size = New System.Drawing.Size(128, 21)
         Me.CalendarReparacion.TabIndex = 40
         '
         'CalendarRotura
@@ -141,10 +148,10 @@ Partial Class frmDesperfecto
         DateButton2.Caption = "Today"
         Me.CalendarRotura.DateButtons.Add(DateButton2)
         Me.CalendarRotura.Enabled = False
-        Me.CalendarRotura.Location = New System.Drawing.Point(280, 40)
+        Me.CalendarRotura.Location = New System.Drawing.Point(96, 131)
         Me.CalendarRotura.Name = "CalendarRotura"
         Me.CalendarRotura.NonAutoSizeHeight = 21
-        Me.CalendarRotura.Size = New System.Drawing.Size(112, 21)
+        Me.CalendarRotura.Size = New System.Drawing.Size(128, 21)
         Me.CalendarRotura.TabIndex = 39
         '
         'txtNumDesperfecto
@@ -154,9 +161,9 @@ Partial Class frmDesperfecto
         Me.txtNumDesperfecto.Appearance = Appearance1
         Me.txtNumDesperfecto.AutoSize = True
         Me.txtNumDesperfecto.Enabled = False
-        Me.txtNumDesperfecto.Location = New System.Drawing.Point(432, 16)
+        Me.txtNumDesperfecto.Location = New System.Drawing.Point(96, 23)
         Me.txtNumDesperfecto.Name = "txtNumDesperfecto"
-        Me.txtNumDesperfecto.Size = New System.Drawing.Size(128, 21)
+        Me.txtNumDesperfecto.Size = New System.Drawing.Size(97, 21)
         Me.txtNumDesperfecto.TabIndex = 1
         '
         'txtCosto
@@ -166,9 +173,9 @@ Partial Class frmDesperfecto
         Me.txtCosto.Appearance = Appearance2
         Me.txtCosto.AutoSize = True
         Me.txtCosto.Enabled = False
-        Me.txtCosto.Location = New System.Drawing.Point(74, 64)
+        Me.txtCosto.Location = New System.Drawing.Point(96, 77)
         Me.txtCosto.Name = "txtCosto"
-        Me.txtCosto.Size = New System.Drawing.Size(128, 21)
+        Me.txtCosto.Size = New System.Drawing.Size(190, 21)
         Me.txtCosto.TabIndex = 4
         '
         'txtCausa
@@ -178,9 +185,10 @@ Partial Class frmDesperfecto
         Me.txtCausa.Appearance = Appearance3
         Me.txtCausa.AutoSize = True
         Me.txtCausa.Enabled = False
-        Me.txtCausa.Location = New System.Drawing.Point(74, 40)
+        Me.txtCausa.Location = New System.Drawing.Point(360, 50)
+        Me.txtCausa.Multiline = True
         Me.txtCausa.Name = "txtCausa"
-        Me.txtCausa.Size = New System.Drawing.Size(190, 21)
+        Me.txtCausa.Size = New System.Drawing.Size(342, 109)
         Me.txtCausa.TabIndex = 2
         '
         'UltraGroupBox1
@@ -191,7 +199,7 @@ Partial Class frmDesperfecto
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
         Me.UltraGroupBox1.Controls.Add(Me.UltraButton9)
         Me.UltraGroupBox1.Controls.Add(Me.Label9)
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(72, 160)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(54, 193)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(240, 56)
         Me.UltraGroupBox1.SupportThemes = False
@@ -201,39 +209,47 @@ Partial Class frmDesperfecto
         '
         'UltraButton7
         '
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Appearance4.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton7.Appearance = Appearance4
         Me.UltraButton7.Location = New System.Drawing.Point(192, 24)
         Me.UltraButton7.Name = "UltraButton7"
         Me.UltraButton7.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton7.TabIndex = 8
-        Me.UltraButton7.Text = ">"
         '
         'UltraButton6
         '
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Appearance5.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton6.Appearance = Appearance5
         Me.UltraButton6.Location = New System.Drawing.Point(152, 24)
         Me.UltraButton6.Name = "UltraButton6"
         Me.UltraButton6.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton6.TabIndex = 7
-        Me.UltraButton6.Text = ">>"
         '
         'UltraButton8
         '
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Appearance6.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton8.Appearance = Appearance6
         Me.UltraButton8.Location = New System.Drawing.Point(48, 24)
         Me.UltraButton8.Name = "UltraButton8"
         Me.UltraButton8.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton8.TabIndex = 6
-        Me.UltraButton8.Text = "<<"
         '
         'UltraButton9
         '
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Appearance7.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton9.Appearance = Appearance7
         Me.UltraButton9.Location = New System.Drawing.Point(8, 24)
         Me.UltraButton9.Name = "UltraButton9"
         Me.UltraButton9.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton9.TabIndex = 5
-        Me.UltraButton9.Text = "<"
         '
         'Label9
         '
-        Me.Label9.Location = New System.Drawing.Point(104, 24)
+        Me.Label9.Location = New System.Drawing.Point(100, 24)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(39, 24)
         Me.Label9.TabIndex = 2
@@ -242,16 +258,16 @@ Partial Class frmDesperfecto
         '
         Me.cmbMaquina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbMaquina.Enabled = False
-        Me.cmbMaquina.Location = New System.Drawing.Point(432, 88)
+        Me.cmbMaquina.Location = New System.Drawing.Point(96, 104)
         Me.cmbMaquina.Name = "cmbMaquina"
-        Me.cmbMaquina.Size = New System.Drawing.Size(128, 21)
+        Me.cmbMaquina.Size = New System.Drawing.Size(190, 21)
         Me.cmbMaquina.TabIndex = 7
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(380, 92)
+        Me.Label6.Location = New System.Drawing.Point(47, 108)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(48, 13)
         Me.Label6.TabIndex = 31
@@ -261,7 +277,7 @@ Partial Class frmDesperfecto
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(26, 69)
+        Me.Label5.Location = New System.Drawing.Point(60, 80)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(34, 13)
         Me.Label5.TabIndex = 30
@@ -271,7 +287,7 @@ Partial Class frmDesperfecto
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(390, 19)
+        Me.Label2.Location = New System.Drawing.Point(52, 26)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 13)
         Me.Label2.TabIndex = 23
@@ -281,26 +297,26 @@ Partial Class frmDesperfecto
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(16, 16)
+        Me.Label1.Location = New System.Drawing.Point(7, 55)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(92, 13)
+        Me.Label1.Size = New System.Drawing.Size(89, 13)
         Me.Label1.TabIndex = 21
-        Me.Label1.Text = "Tipo Desperfecto."
+        Me.Label1.Text = "Tipo Desperfecto"
         '
         'cmbTipoDesperfecto
         '
         Me.cmbTipoDesperfecto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbTipoDesperfecto.Enabled = False
-        Me.cmbTipoDesperfecto.Location = New System.Drawing.Point(114, 13)
+        Me.cmbTipoDesperfecto.Location = New System.Drawing.Point(96, 50)
         Me.cmbTipoDesperfecto.Name = "cmbTipoDesperfecto"
-        Me.cmbTipoDesperfecto.Size = New System.Drawing.Size(72, 21)
+        Me.cmbTipoDesperfecto.Size = New System.Drawing.Size(190, 21)
         Me.cmbTipoDesperfecto.TabIndex = 0
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(30, 45)
+        Me.Label3.Location = New System.Drawing.Point(357, 34)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 28
@@ -308,7 +324,9 @@ Partial Class frmDesperfecto
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(552, 152)
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance8
+        Me.UltraButton2.Location = New System.Drawing.Point(534, 180)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(80, 32)
         Me.UltraButton2.TabIndex = 12
@@ -316,9 +334,9 @@ Partial Class frmDesperfecto
         '
         'UltraButton1
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.UltraButton1.Appearance = Appearance4
-        Me.UltraButton1.Location = New System.Drawing.Point(464, 152)
+        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance9
+        Me.UltraButton1.Location = New System.Drawing.Point(448, 180)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(80, 32)
         Me.UltraButton1.TabIndex = 11
@@ -326,9 +344,9 @@ Partial Class frmDesperfecto
         '
         'UltraButton5
         '
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.UltraButton5.Appearance = Appearance5
-        Me.UltraButton5.Location = New System.Drawing.Point(552, 192)
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Me.UltraButton5.Appearance = Appearance10
+        Me.UltraButton5.Location = New System.Drawing.Point(534, 218)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(80, 31)
         Me.UltraButton5.TabIndex = 10
@@ -336,11 +354,11 @@ Partial Class frmDesperfecto
         '
         'UltraButton4
         '
-        Appearance6.BackColor = System.Drawing.Color.White
-        Appearance6.ForeColor = System.Drawing.Color.Black
-        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
-        Me.UltraButton4.Appearance = Appearance6
-        Me.UltraButton4.Location = New System.Drawing.Point(464, 192)
+        Appearance11.BackColor = System.Drawing.Color.White
+        Appearance11.ForeColor = System.Drawing.Color.Black
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance11
+        Me.UltraButton4.Location = New System.Drawing.Point(448, 218)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(80, 31)
         Me.UltraButton4.TabIndex = 9
@@ -348,9 +366,9 @@ Partial Class frmDesperfecto
         '
         'UltraButton3
         '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance7
-        Me.UltraButton3.Location = New System.Drawing.Point(638, 152)
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance12
+        Me.UltraButton3.Location = New System.Drawing.Point(620, 180)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(82, 32)
         Me.UltraButton3.TabIndex = 13
@@ -358,11 +376,13 @@ Partial Class frmDesperfecto
         '
         'UltraButton10
         '
-        Me.UltraButton10.Location = New System.Drawing.Point(640, 224)
+        Appearance13.Image = CType(resources.GetObject("Appearance13.Image"), Object)
+        Me.UltraButton10.Appearance = Appearance13
+        Me.UltraButton10.Location = New System.Drawing.Point(620, 218)
         Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(80, 31)
+        Me.UltraButton10.Size = New System.Drawing.Size(82, 31)
         Me.UltraButton10.TabIndex = 14
-        Me.UltraButton10.Text = "Salir"
+        Me.UltraButton10.Text = "&Salir"
         '
         'UltraTabPageControl2
         '
@@ -374,25 +394,25 @@ Partial Class frmDesperfecto
         Me.UltraTabPageControl2.Controls.Add(Me.Label4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraTextEditor1)
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
-        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton10)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
-        Me.UltraTabPageControl2.Size = New System.Drawing.Size(740, 258)
+        Me.UltraTabPageControl2.Size = New System.Drawing.Size(727, 258)
         '
         'checkMaqina
         '
         Me.checkMaqina.AutoSize = True
-        Me.checkMaqina.Location = New System.Drawing.Point(16, 40)
+        Me.checkMaqina.BackColor = System.Drawing.Color.Transparent
+        Me.checkMaqina.Location = New System.Drawing.Point(10, 40)
         Me.checkMaqina.Name = "checkMaqina"
         Me.checkMaqina.Size = New System.Drawing.Size(112, 17)
         Me.checkMaqina.TabIndex = 26
         Me.checkMaqina.Text = "Filtrar por maquina"
-        Me.checkMaqina.UseVisualStyleBackColor = True
+        Me.checkMaqina.UseVisualStyleBackColor = False
         '
         'cmbMaquinaSearch
         '
         Me.cmbMaquinaSearch.Enabled = False
-        Me.cmbMaquinaSearch.Location = New System.Drawing.Point(43, 15)
+        Me.cmbMaquinaSearch.Location = New System.Drawing.Point(10, 15)
         Me.cmbMaquinaSearch.Name = "cmbMaquinaSearch"
         Me.cmbMaquinaSearch.Size = New System.Drawing.Size(128, 21)
         Me.cmbMaquinaSearch.TabIndex = 25
@@ -400,39 +420,43 @@ Partial Class frmDesperfecto
         'OpcTodo
         '
         Me.OpcTodo.AutoSize = True
+        Me.OpcTodo.BackColor = System.Drawing.Color.Transparent
         Me.OpcTodo.Checked = True
-        Me.OpcTodo.Location = New System.Drawing.Point(473, 40)
+        Me.OpcTodo.Location = New System.Drawing.Point(467, 40)
         Me.OpcTodo.Name = "OpcTodo"
         Me.OpcTodo.Size = New System.Drawing.Size(55, 17)
         Me.OpcTodo.TabIndex = 24
         Me.OpcTodo.TabStop = True
         Me.OpcTodo.Text = "Todos"
-        Me.OpcTodo.UseVisualStyleBackColor = True
+        Me.OpcTodo.UseVisualStyleBackColor = False
         '
         'opcNoReparado
         '
         Me.opcNoReparado.AutoSize = True
-        Me.opcNoReparado.Location = New System.Drawing.Point(473, 23)
+        Me.opcNoReparado.BackColor = System.Drawing.Color.Transparent
+        Me.opcNoReparado.Location = New System.Drawing.Point(467, 23)
         Me.opcNoReparado.Name = "opcNoReparado"
         Me.opcNoReparado.Size = New System.Drawing.Size(94, 17)
         Me.opcNoReparado.TabIndex = 23
         Me.opcNoReparado.Text = "No Reparados"
-        Me.opcNoReparado.UseVisualStyleBackColor = True
+        Me.opcNoReparado.UseVisualStyleBackColor = False
         '
         'OpcReparado
         '
         Me.OpcReparado.AutoSize = True
-        Me.OpcReparado.Location = New System.Drawing.Point(473, 7)
+        Me.OpcReparado.BackColor = System.Drawing.Color.Transparent
+        Me.OpcReparado.Location = New System.Drawing.Point(467, 7)
         Me.OpcReparado.Name = "OpcReparado"
         Me.OpcReparado.Size = New System.Drawing.Size(77, 17)
         Me.OpcReparado.TabIndex = 22
         Me.OpcReparado.Text = "Reparados"
-        Me.OpcReparado.UseVisualStyleBackColor = True
+        Me.OpcReparado.UseVisualStyleBackColor = False
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(214, 23)
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Location = New System.Drawing.Point(208, 21)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 13)
         Me.Label4.TabIndex = 21
@@ -441,7 +465,7 @@ Partial Class frmDesperfecto
         'UltraTextEditor1
         '
         Me.UltraTextEditor1.AutoSize = True
-        Me.UltraTextEditor1.Location = New System.Drawing.Point(260, 15)
+        Me.UltraTextEditor1.Location = New System.Drawing.Point(251, 17)
         Me.UltraTextEditor1.Name = "UltraTextEditor1"
         Me.UltraTextEditor1.Size = New System.Drawing.Size(182, 21)
         Me.UltraTextEditor1.TabIndex = 2
@@ -465,7 +489,7 @@ Partial Class frmDesperfecto
         Me.DataGrid1.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGrid1.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGrid1.LinkColor = System.Drawing.Color.Teal
-        Me.DataGrid1.Location = New System.Drawing.Point(16, 63)
+        Me.DataGrid1.Location = New System.Drawing.Point(9, 63)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGrid1.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
@@ -473,35 +497,35 @@ Partial Class frmDesperfecto
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(704, 155)
+        Me.DataGrid1.Size = New System.Drawing.Size(693, 149)
         Me.DataGrid1.TabIndex = 20
         '
         'UltraTabControl1
         '
-        Appearance8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance8.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance8
-        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance9
+        Appearance14.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance14.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance14
+        Appearance15.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance15.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance15
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage2)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(1, 0)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance10.BackColor = System.Drawing.Color.Silver
-        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance10
+        Appearance16.BackColor = System.Drawing.Color.Silver
+        Appearance16.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance16
         Me.UltraTabControl1.SharedControls.AddRange(New System.Windows.Forms.Control() {Me.UltraButton10})
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
-        Me.UltraTabControl1.Size = New System.Drawing.Size(744, 281)
+        Me.UltraTabControl1.Size = New System.Drawing.Size(731, 281)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
         Me.UltraTabControl1.TabIndex = 1
-        UltraTab1.TabPage = Me.UltraTabPageControl2
-        UltraTab1.Text = "Consultar"
-        UltraTab2.TabPage = Me.UltraTabPageControl1
-        UltraTab2.Text = "Gestionar"
+        UltraTab1.TabPage = Me.UltraTabPageControl1
+        UltraTab1.Text = "Gestionar"
+        UltraTab2.TabPage = Me.UltraTabPageControl2
+        UltraTab2.Text = "Consultar"
         Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
         Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
         '
@@ -510,7 +534,7 @@ Partial Class frmDesperfecto
         Me.UltraTabSharedControlsPage1.Controls.Add(Me.UltraButton10)
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
-        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(740, 258)
+        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(727, 258)
         '
         'UltraTabSharedControlsPage2
         '
@@ -522,13 +546,13 @@ Partial Class frmDesperfecto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(747, 282)
+        Me.ClientSize = New System.Drawing.Size(716, 279)
         Me.Controls.Add(Me.UltraTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmDesperfecto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "frmDesperfecto"
+        Me.Text = "Desperfecto"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()
         CType(Me.CalendarReparacion, System.ComponentModel.ISupportInitialize).EndInit()

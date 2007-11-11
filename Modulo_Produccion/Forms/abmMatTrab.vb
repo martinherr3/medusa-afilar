@@ -54,8 +54,17 @@ Public Class abmMatTrab
     Friend WithEvents UltraButton2 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmMatTrab))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.Label1 = New System.Windows.Forms.Label
@@ -79,19 +88,23 @@ Public Class abmMatTrab
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(304, 220)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance1
+        Me.UltraButton1.Location = New System.Drawing.Point(299, 240)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(72, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(78, 26)
         Me.UltraButton1.TabIndex = 7
-        Me.UltraButton1.Text = "Salir"
+        Me.UltraButton1.Text = "&Salir"
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(232, 220)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance2
+        Me.UltraButton3.Location = New System.Drawing.Point(101, 213)
         Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(72, 24)
+        Me.UltraButton3.Size = New System.Drawing.Size(78, 26)
         Me.UltraButton3.TabIndex = 6
-        Me.UltraButton3.Text = "Guardar"
+        Me.UltraButton3.Text = "&Guardar"
         '
         'Label1
         '
@@ -113,8 +126,8 @@ Public Class abmMatTrab
         '
         'UltraTextEditor2
         '
-        Appearance1.BackColor = System.Drawing.Color.White
-        Me.UltraTextEditor2.Appearance = Appearance1
+        Appearance3.BackColor = System.Drawing.Color.White
+        Me.UltraTextEditor2.Appearance = Appearance3
         Me.UltraTextEditor2.AutoSize = True
         Me.UltraTextEditor2.Location = New System.Drawing.Point(80, 48)
         Me.UltraTextEditor2.Multiline = True
@@ -125,35 +138,43 @@ Public Class abmMatTrab
         '
         'UltraButton4
         '
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Appearance4.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton4.Appearance = Appearance4
         Me.UltraButton4.Location = New System.Drawing.Point(48, 24)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton4.TabIndex = 1
-        Me.UltraButton4.Text = "<<"
         '
         'UltraButton5
         '
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Appearance5.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton5.Appearance = Appearance5
         Me.UltraButton5.Location = New System.Drawing.Point(8, 24)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton5.TabIndex = 0
-        Me.UltraButton5.Text = "<"
         '
         'UltraButton6
         '
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Appearance6.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton6.Appearance = Appearance6
         Me.UltraButton6.Location = New System.Drawing.Point(136, 24)
         Me.UltraButton6.Name = "UltraButton6"
         Me.UltraButton6.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton6.TabIndex = 2
-        Me.UltraButton6.Text = ">>"
         '
         'UltraButton7
         '
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Appearance7.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton7.Appearance = Appearance7
         Me.UltraButton7.Location = New System.Drawing.Point(176, 24)
         Me.UltraButton7.Name = "UltraButton7"
         Me.UltraButton7.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton7.TabIndex = 3
-        Me.UltraButton7.Text = ">"
         '
         'UltraGroupBox1
         '
@@ -172,23 +193,25 @@ Public Class abmMatTrab
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(95, 25)
+        Me.Label3.Location = New System.Drawing.Point(93, 25)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 24)
         Me.Label3.TabIndex = 2
         '
         'UltraButton8
         '
-        Me.UltraButton8.Location = New System.Drawing.Point(160, 220)
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.UltraButton8.Appearance = Appearance8
+        Me.UltraButton8.Location = New System.Drawing.Point(101, 240)
         Me.UltraButton8.Name = "UltraButton8"
-        Me.UltraButton8.Size = New System.Drawing.Size(72, 24)
+        Me.UltraButton8.Size = New System.Drawing.Size(78, 26)
         Me.UltraButton8.TabIndex = 5
-        Me.UltraButton8.Text = "Modificar"
+        Me.UltraButton8.Text = "&Modificar"
         '
         'UltraTextEditor1
         '
-        Appearance2.BackColor = System.Drawing.Color.White
-        Me.UltraTextEditor1.Appearance = Appearance2
+        Appearance9.BackColor = System.Drawing.Color.White
+        Me.UltraTextEditor1.Appearance = Appearance9
         Me.UltraTextEditor1.AutoSize = True
         Me.UltraTextEditor1.Location = New System.Drawing.Point(80, 16)
         Me.UltraTextEditor1.Name = "UltraTextEditor1"
@@ -198,24 +221,28 @@ Public Class abmMatTrab
         '
         'UltraButton9
         '
-        Me.UltraButton9.Location = New System.Drawing.Point(88, 220)
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Me.UltraButton9.Appearance = Appearance10
+        Me.UltraButton9.Location = New System.Drawing.Point(19, 213)
         Me.UltraButton9.Name = "UltraButton9"
-        Me.UltraButton9.Size = New System.Drawing.Size(72, 24)
+        Me.UltraButton9.Size = New System.Drawing.Size(80, 26)
         Me.UltraButton9.TabIndex = 4
-        Me.UltraButton9.Text = "Nuevo"
+        Me.UltraButton9.Text = "&Nuevo"
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(16, 220)
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance11
+        Me.UltraButton2.Location = New System.Drawing.Point(19, 240)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(72, 24)
+        Me.UltraButton2.Size = New System.Drawing.Size(80, 26)
         Me.UltraButton2.TabIndex = 3
-        Me.UltraButton2.Text = "Eliminar"
+        Me.UltraButton2.Text = "&Eliminar"
         '
         'abmMatTrab
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(389, 256)
+        Me.ClientSize = New System.Drawing.Size(389, 278)
         Me.Controls.Add(Me.UltraButton2)
         Me.Controls.Add(Me.UltraButton9)
         Me.Controls.Add(Me.UltraTextEditor1)

@@ -36,9 +36,11 @@ Public Class registrarModeloFresa
     Private modificar As Boolean = False
     Private modificarTipoFresa As Boolean = False
     Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents UltraButton13 As Infragistics.Win.Misc.UltraButton
+    Private WithEvents UltraButton13 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Private modificarParteAdicional As Boolean = False
 #End Region
 
@@ -246,8 +248,14 @@ Public Class registrarModeloFresa
     Friend WithEvents botonFresa As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(registrarModeloFresa))
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -258,31 +266,53 @@ Public Class registrarModeloFresa
         Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem9 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem10 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ValueListItem11 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem12 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem13 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem14 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem11 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem12 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem13 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem14 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance23 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance24 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance26 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance27 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance28 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance31 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance32 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance33 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance34 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance35 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance36 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance37 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance38 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance39 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance40 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance41 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance42 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem15 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem16 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem17 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance44 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance45 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab3 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(registrarModeloFresa))
         Me.tab1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.UltraButton10 = New Infragistics.Win.Misc.UltraButton
         Me.BotonParte = New Infragistics.Win.Misc.UltraButton
@@ -454,6 +484,8 @@ Public Class registrarModeloFresa
         Me.Label16 = New System.Windows.Forms.Label
         Me.tab = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.tab1.SuspendLayout()
         CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox3.SuspendLayout()
@@ -533,6 +565,8 @@ Public Class registrarModeloFresa
         CType(Me.textCostoAdicional, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tab, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tab.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tab1
@@ -541,40 +575,46 @@ Public Class registrarModeloFresa
         Me.tab1.Controls.Add(Me.BotonParte)
         Me.tab1.Controls.Add(Me.UltraButton4)
         Me.tab1.Controls.Add(Me.UltraGroupBox3)
-        Me.tab1.Controls.Add(Me.UltraGroupBox1)
         Me.tab1.Controls.Add(Me.botonFresa)
+        Me.tab1.Controls.Add(Me.UltraGroupBox1)
         Me.tab1.Location = New System.Drawing.Point(-10000, -10000)
         Me.tab1.Name = "tab1"
         Me.tab1.Size = New System.Drawing.Size(812, 425)
         '
         'UltraButton10
         '
-        Me.UltraButton10.Location = New System.Drawing.Point(584, 384)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton10.Appearance = Appearance1
+        Me.UltraButton10.Location = New System.Drawing.Point(268, 383)
         Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(96, 24)
+        Me.UltraButton10.Size = New System.Drawing.Size(120, 39)
         Me.UltraButton10.TabIndex = 5
-        Me.UltraButton10.Text = "Guardar Modelo"
+        Me.UltraButton10.Text = "&Guardar Modelo"
         '
         'BotonParte
         '
-        Me.BotonParte.Location = New System.Drawing.Point(482, 384)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.BotonParte.Appearance = Appearance2
+        Me.BotonParte.Location = New System.Drawing.Point(142, 383)
         Me.BotonParte.Name = "BotonParte"
-        Me.BotonParte.Size = New System.Drawing.Size(96, 24)
+        Me.BotonParte.Size = New System.Drawing.Size(120, 39)
         Me.BotonParte.TabIndex = 2
-        Me.BotonParte.Text = "Parte adicional"
+        Me.BotonParte.Text = "&Parte adicional"
         '
         'UltraButton4
         '
-        Me.UltraButton4.Location = New System.Drawing.Point(720, 384)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance3
+        Me.UltraButton4.Location = New System.Drawing.Point(720, 383)
         Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton4.Size = New System.Drawing.Size(80, 39)
         Me.UltraButton4.TabIndex = 4
-        Me.UltraButton4.Text = "Salir"
+        Me.UltraButton4.Text = "&Salir"
         '
         'UltraGroupBox3
         '
-        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox3.ContentAreaAppearance = Appearance1
+        Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox3.ContentAreaAppearance = Appearance4
         Me.UltraGroupBox3.Controls.Add(Me.UltraButton3)
         Me.UltraGroupBox3.Controls.Add(Me.UltraButton2)
         Me.UltraGroupBox3.Controls.Add(Me.lista2)
@@ -589,19 +629,23 @@ Public Class registrarModeloFresa
         '
         'UltraButton3
         '
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Appearance5.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton3.Appearance = Appearance5
         Me.UltraButton3.Location = New System.Drawing.Point(368, 104)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton3.TabIndex = 2
-        Me.UltraButton3.Text = "<<"
         '
         'UltraButton2
         '
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Appearance6.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton2.Appearance = Appearance6
         Me.UltraButton2.Location = New System.Drawing.Point(368, 56)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(72, 24)
         Me.UltraButton2.TabIndex = 1
-        Me.UltraButton2.Text = ">>"
         '
         'lista2
         '
@@ -681,8 +725,9 @@ Public Class registrarModeloFresa
         '
         'UltraGroupBox1
         '
-        Appearance2.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox1.ContentAreaAppearance = Appearance2
+        Appearance8.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox1.ContentAreaAppearance = Appearance8
+        Me.UltraGroupBox1.Controls.Add(Me.PictureBox1)
         Me.UltraGroupBox1.Controls.Add(Me.Label11)
         Me.UltraGroupBox1.Controls.Add(Me.Label10)
         Me.UltraGroupBox1.Controls.Add(Me.textPrecioModelo)
@@ -735,8 +780,8 @@ Public Class registrarModeloFresa
         '
         'textPrecioModelo
         '
-        Appearance3.ForeColor = System.Drawing.Color.Red
-        Me.textPrecioModelo.Appearance = Appearance3
+        Appearance9.ForeColor = System.Drawing.Color.Red
+        Me.textPrecioModelo.Appearance = Appearance9
         Me.textPrecioModelo.AutoSize = True
         Me.textPrecioModelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.textPrecioModelo.Location = New System.Drawing.Point(520, 152)
@@ -933,17 +978,19 @@ Public Class registrarModeloFresa
         '
         'botonFresa
         '
-        Me.botonFresa.Location = New System.Drawing.Point(380, 384)
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.botonFresa.Appearance = Appearance7
+        Me.botonFresa.Location = New System.Drawing.Point(16, 383)
         Me.botonFresa.Name = "botonFresa"
-        Me.botonFresa.Size = New System.Drawing.Size(96, 24)
+        Me.botonFresa.Size = New System.Drawing.Size(120, 39)
         Me.botonFresa.TabIndex = 3
-        Me.botonFresa.Text = "Fresa"
+        Me.botonFresa.Text = "&Tipo Fresa"
         '
         'UltraTabPageControl1
         '
         Me.UltraTabPageControl1.Controls.Add(Me.TabControl1)
         Me.UltraTabPageControl1.Enabled = False
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 425)
         '
@@ -957,7 +1004,7 @@ Public Class registrarModeloFresa
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(816, 416)
+        Me.TabControl1.Size = New System.Drawing.Size(816, 422)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage2
@@ -977,7 +1024,7 @@ Public Class registrarModeloFresa
         Me.TabPage2.Controls.Add(Me.Label14)
         Me.TabPage2.Location = New System.Drawing.Point(4, 4)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Size = New System.Drawing.Size(808, 390)
+        Me.TabPage2.Size = New System.Drawing.Size(808, 396)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Caracteristicas"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1003,32 +1050,38 @@ Public Class registrarModeloFresa
         '
         'UltraButton13
         '
-        Me.UltraButton13.Location = New System.Drawing.Point(110, 360)
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Me.UltraButton13.Appearance = Appearance10
+        Me.UltraButton13.Location = New System.Drawing.Point(150, 355)
         Me.UltraButton13.Name = "UltraButton13"
-        Me.UltraButton13.Size = New System.Drawing.Size(63, 22)
+        Me.UltraButton13.Size = New System.Drawing.Size(80, 26)
         Me.UltraButton13.TabIndex = 31
         Me.UltraButton13.Text = "Cancelar"
         '
         'btnModificarFresa
         '
-        Me.btnModificarFresa.Location = New System.Drawing.Point(175, 360)
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.btnModificarFresa.Appearance = Appearance11
+        Me.btnModificarFresa.Location = New System.Drawing.Point(64, 355)
         Me.btnModificarFresa.Name = "btnModificarFresa"
-        Me.btnModificarFresa.Size = New System.Drawing.Size(63, 22)
+        Me.btnModificarFresa.Size = New System.Drawing.Size(80, 26)
         Me.btnModificarFresa.TabIndex = 30
         Me.btnModificarFresa.Text = "Modificar"
         '
         'btnNuevaFresa
         '
-        Me.btnNuevaFresa.Location = New System.Drawing.Point(240, 360)
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.btnNuevaFresa.Appearance = Appearance12
+        Me.btnNuevaFresa.Location = New System.Drawing.Point(64, 323)
         Me.btnNuevaFresa.Name = "btnNuevaFresa"
-        Me.btnNuevaFresa.Size = New System.Drawing.Size(63, 22)
+        Me.btnNuevaFresa.Size = New System.Drawing.Size(80, 26)
         Me.btnNuevaFresa.TabIndex = 29
         Me.btnNuevaFresa.Text = "Nuevo"
         '
         'textPlanoTF
         '
         Me.textPlanoTF.AutoSize = True
-        Me.textPlanoTF.Location = New System.Drawing.Point(75, 263)
+        Me.textPlanoTF.Location = New System.Drawing.Point(64, 263)
         Me.textPlanoTF.Name = "textPlanoTF"
         Me.textPlanoTF.ReadOnly = True
         Me.textPlanoTF.Size = New System.Drawing.Size(228, 21)
@@ -1036,32 +1089,39 @@ Public Class registrarModeloFresa
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(313, 263)
+        Appearance13.Image = CType(resources.GetObject("Appearance13.Image"), Object)
+        Me.UltraButton5.Appearance = Appearance13
+        Me.UltraButton5.Location = New System.Drawing.Point(298, 259)
         Me.UltraButton5.Name = "UltraButton5"
-        Me.UltraButton5.Size = New System.Drawing.Size(92, 22)
+        Me.UltraButton5.Size = New System.Drawing.Size(107, 26)
         Me.UltraButton5.TabIndex = 4
         Me.UltraButton5.Text = "Buscar plano"
         '
         'UltraButton24
         '
-        Me.UltraButton24.Location = New System.Drawing.Point(312, 360)
+        Appearance14.Image = CType(resources.GetObject("Appearance14.Image"), Object)
+        Appearance14.ImageHAlign = Infragistics.Win.HAlign.Right
+        Me.UltraButton24.Appearance = Appearance14
+        Me.UltraButton24.Location = New System.Drawing.Point(298, 355)
         Me.UltraButton24.Name = "UltraButton24"
-        Me.UltraButton24.Size = New System.Drawing.Size(93, 22)
+        Me.UltraButton24.Size = New System.Drawing.Size(107, 27)
         Me.UltraButton24.TabIndex = 6
-        Me.UltraButton24.Text = "Siguiente >>"
+        Me.UltraButton24.Text = "Siguiente"
         '
         'UltraButton23
         '
-        Me.UltraButton23.Location = New System.Drawing.Point(313, 235)
+        Appearance15.Image = CType(resources.GetObject("Appearance15.Image"), Object)
+        Me.UltraButton23.Appearance = Appearance15
+        Me.UltraButton23.Location = New System.Drawing.Point(298, 234)
         Me.UltraButton23.Name = "UltraButton23"
-        Me.UltraButton23.Size = New System.Drawing.Size(92, 22)
+        Me.UltraButton23.Size = New System.Drawing.Size(107, 26)
         Me.UltraButton23.TabIndex = 3
         Me.UltraButton23.Text = "Buscar imagen"
         '
         'textImagenTF
         '
         Me.textImagenTF.AutoSize = True
-        Me.textImagenTF.Location = New System.Drawing.Point(75, 235)
+        Me.textImagenTF.Location = New System.Drawing.Point(64, 235)
         Me.textImagenTF.Name = "textImagenTF"
         Me.textImagenTF.ReadOnly = True
         Me.textImagenTF.Size = New System.Drawing.Size(228, 21)
@@ -1069,8 +1129,8 @@ Public Class registrarModeloFresa
         '
         'UltraGroupBox9
         '
-        Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox9.ContentAreaAppearance = Appearance4
+        Appearance16.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox9.ContentAreaAppearance = Appearance16
         Me.UltraGroupBox9.Controls.Add(Me.comboIDFresa)
         Me.UltraGroupBox9.Controls.Add(Me.cantidad)
         Me.UltraGroupBox9.Controls.Add(Me.comboPT)
@@ -1129,7 +1189,7 @@ Public Class registrarModeloFresa
         Me.comboPT.Items.Add(ValueListItem14)
         Me.comboPT.Location = New System.Drawing.Point(512, 32)
         Me.comboPT.Name = "comboPT"
-        Me.comboPT.Size = New System.Drawing.Size(185, 21)
+        Me.comboPT.Size = New System.Drawing.Size(214, 21)
         Me.comboPT.TabIndex = 7
         '
         'textCarFresa
@@ -1296,7 +1356,7 @@ Public Class registrarModeloFresa
         '
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Location = New System.Drawing.Point(34, 238)
+        Me.Label13.Location = New System.Drawing.Point(23, 238)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(42, 13)
         Me.Label13.TabIndex = 22
@@ -1306,7 +1366,7 @@ Public Class registrarModeloFresa
         '
         Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.Color.Transparent
-        Me.Label14.Location = New System.Drawing.Point(41, 266)
+        Me.Label14.Location = New System.Drawing.Point(30, 266)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(34, 13)
         Me.Label14.TabIndex = 28
@@ -1329,37 +1389,45 @@ Public Class registrarModeloFresa
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(52, 362)
+        Appearance17.Image = CType(resources.GetObject("Appearance17.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance17
+        Me.UltraButton1.Location = New System.Drawing.Point(52, 359)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(88, 26)
         Me.UltraButton1.TabIndex = 16
         Me.UltraButton1.Text = "Cancelar"
         '
         'UltraButton19
         '
-        Me.UltraButton19.Location = New System.Drawing.Point(571, 362)
+        Appearance18.Image = CType(resources.GetObject("Appearance18.Image"), Object)
+        Appearance18.ImageHAlign = Infragistics.Win.HAlign.Left
+        Me.UltraButton19.Appearance = Appearance18
+        Me.UltraButton19.Location = New System.Drawing.Point(572, 359)
         Me.UltraButton19.Name = "UltraButton19"
-        Me.UltraButton19.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton19.Size = New System.Drawing.Size(88, 26)
         Me.UltraButton19.TabIndex = 5
-        Me.UltraButton19.Text = "<< Atras"
+        Me.UltraButton19.Text = "Atras"
         '
         'UltraButton20
         '
-        Me.UltraButton20.Location = New System.Drawing.Point(668, 362)
+        Appearance19.Image = CType(resources.GetObject("Appearance19.Image"), Object)
+        Appearance19.ImageHAlign = Infragistics.Win.HAlign.Right
+        Me.UltraButton20.Appearance = Appearance19
+        Me.UltraButton20.Location = New System.Drawing.Point(668, 359)
         Me.UltraButton20.Name = "UltraButton20"
-        Me.UltraButton20.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton20.Size = New System.Drawing.Size(88, 26)
         Me.UltraButton20.TabIndex = 4
-        Me.UltraButton20.Text = "Siguiente >>"
+        Me.UltraButton20.Text = "Siguiente"
         '
         'UltraGroupBox11
         '
-        Appearance5.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox11.ContentAreaAppearance = Appearance5
+        Appearance20.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox11.ContentAreaAppearance = Appearance20
         Me.UltraGroupBox11.Controls.Add(Me.UltraButton15)
         Me.UltraGroupBox11.Controls.Add(Me.lista3)
         Me.UltraGroupBox11.Location = New System.Drawing.Point(52, 208)
         Me.UltraGroupBox11.Name = "UltraGroupBox11"
-        Me.UltraGroupBox11.Size = New System.Drawing.Size(704, 152)
+        Me.UltraGroupBox11.Size = New System.Drawing.Size(704, 148)
         Me.UltraGroupBox11.SupportThemes = False
         Me.UltraGroupBox11.TabIndex = 2
         Me.UltraGroupBox11.Text = "Partes agregadas"
@@ -1367,6 +1435,8 @@ Public Class registrarModeloFresa
         '
         'UltraButton15
         '
+        Appearance21.Image = CType(resources.GetObject("Appearance21.Image"), Object)
+        Me.UltraButton15.Appearance = Appearance21
         Me.UltraButton15.Location = New System.Drawing.Point(536, 104)
         Me.UltraButton15.Name = "UltraButton15"
         Me.UltraButton15.Size = New System.Drawing.Size(72, 32)
@@ -1413,8 +1483,8 @@ Public Class registrarModeloFresa
         '
         'UltraGroupBox10
         '
-        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox10.ContentAreaAppearance = Appearance6
+        Appearance22.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox10.ContentAreaAppearance = Appearance22
         Me.UltraGroupBox10.Controls.Add(Me.UltraButton14)
         Me.UltraGroupBox10.Controls.Add(Me.textCantidad)
         Me.UltraGroupBox10.Controls.Add(Me.textIDParte)
@@ -1437,6 +1507,8 @@ Public Class registrarModeloFresa
         '
         'UltraButton14
         '
+        Appearance23.Image = CType(resources.GetObject("Appearance23.Image"), Object)
+        Me.UltraButton14.Appearance = Appearance23
         Me.UltraButton14.Location = New System.Drawing.Point(408, 144)
         Me.UltraButton14.Name = "UltraButton14"
         Me.UltraButton14.Size = New System.Drawing.Size(72, 32)
@@ -1558,39 +1630,46 @@ Public Class registrarModeloFresa
         Me.TabPage3.Controls.Add(Me.UltraGroupBox12)
         Me.TabPage3.Location = New System.Drawing.Point(4, 4)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(808, 390)
+        Me.TabPage3.Size = New System.Drawing.Size(808, 396)
         Me.TabPage3.TabIndex = 3
         Me.TabPage3.Text = "Fabricacion y precio final"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
         'UltraButton11
         '
-        Me.UltraButton11.Location = New System.Drawing.Point(592, 363)
+        Appearance24.Image = CType(resources.GetObject("Appearance24.Image"), Object)
+        Me.UltraButton11.Appearance = Appearance24
+        Me.UltraButton11.Location = New System.Drawing.Point(592, 361)
         Me.UltraButton11.Name = "UltraButton11"
-        Me.UltraButton11.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton11.Size = New System.Drawing.Size(88, 26)
         Me.UltraButton11.TabIndex = 15
         Me.UltraButton11.Text = "Cancelar"
         '
         'UltraButton21
         '
-        Me.UltraButton21.Location = New System.Drawing.Point(500, 363)
+        Appearance25.Image = CType(resources.GetObject("Appearance25.Image"), Object)
+        Me.UltraButton21.Appearance = Appearance25
+        Me.UltraButton21.Location = New System.Drawing.Point(500, 361)
         Me.UltraButton21.Name = "UltraButton21"
-        Me.UltraButton21.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton21.Size = New System.Drawing.Size(88, 26)
         Me.UltraButton21.TabIndex = 14
-        Me.UltraButton21.Text = "<< Atras"
+        Me.UltraButton21.Text = "Atras"
         '
         'UltraButton22
         '
-        Me.UltraButton22.Location = New System.Drawing.Point(684, 363)
+        Appearance26.Image = CType(resources.GetObject("Appearance26.Image"), Object)
+        Me.UltraButton22.Appearance = Appearance26
+        Me.UltraButton22.Location = New System.Drawing.Point(684, 361)
         Me.UltraButton22.Name = "UltraButton22"
-        Me.UltraButton22.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton22.Size = New System.Drawing.Size(88, 26)
         Me.UltraButton22.TabIndex = 13
         Me.UltraButton22.Text = "Guardar"
         '
         'UltraGroupBox14
         '
-        Appearance7.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox14.ContentAreaAppearance = Appearance7
+        Appearance27.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox14.ContentAreaAppearance = Appearance27
+        Me.UltraGroupBox14.Controls.Add(Me.PictureBox2)
         Me.UltraGroupBox14.Controls.Add(Me.textPrecioTF)
         Me.UltraGroupBox14.Controls.Add(Me.Label51)
         Me.UltraGroupBox14.Controls.Add(Me.btnCalcularCosto)
@@ -1599,7 +1678,7 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox14.Controls.Add(Me.Label53)
         Me.UltraGroupBox14.Location = New System.Drawing.Point(556, 192)
         Me.UltraGroupBox14.Name = "UltraGroupBox14"
-        Me.UltraGroupBox14.Size = New System.Drawing.Size(216, 168)
+        Me.UltraGroupBox14.Size = New System.Drawing.Size(216, 165)
         Me.UltraGroupBox14.SupportThemes = False
         Me.UltraGroupBox14.TabIndex = 12
         Me.UltraGroupBox14.Text = "Precio final"
@@ -1607,8 +1686,8 @@ Public Class registrarModeloFresa
         '
         'textPrecioTF
         '
-        Appearance8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.textPrecioTF.Appearance = Appearance8
+        Appearance28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.textPrecioTF.Appearance = Appearance28
         Me.textPrecioTF.AutoSize = True
         Me.textPrecioTF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.textPrecioTF.Location = New System.Drawing.Point(40, 136)
@@ -1646,8 +1725,8 @@ Public Class registrarModeloFresa
         '
         'textCostoTF
         '
-        Appearance9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.textCostoTF.Appearance = Appearance9
+        Appearance29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.textCostoTF.Appearance = Appearance29
         Me.textCostoTF.AutoSize = True
         Me.textCostoTF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.textCostoTF.Location = New System.Drawing.Point(52, 83)
@@ -1668,13 +1747,13 @@ Public Class registrarModeloFresa
         '
         'UltraGroupBox13
         '
-        Appearance10.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox13.ContentAreaAppearance = Appearance10
+        Appearance30.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox13.ContentAreaAppearance = Appearance30
         Me.UltraGroupBox13.Controls.Add(Me.UltraButton17)
         Me.UltraGroupBox13.Controls.Add(Me.lista4)
         Me.UltraGroupBox13.Location = New System.Drawing.Point(36, 192)
         Me.UltraGroupBox13.Name = "UltraGroupBox13"
-        Me.UltraGroupBox13.Size = New System.Drawing.Size(504, 168)
+        Me.UltraGroupBox13.Size = New System.Drawing.Size(504, 165)
         Me.UltraGroupBox13.SupportThemes = False
         Me.UltraGroupBox13.TabIndex = 4
         Me.UltraGroupBox13.Text = "Etapas agregadas"
@@ -1682,6 +1761,8 @@ Public Class registrarModeloFresa
         '
         'UltraButton17
         '
+        Appearance31.Image = CType(resources.GetObject("Appearance31.Image"), Object)
+        Me.UltraButton17.Appearance = Appearance31
         Me.UltraButton17.Location = New System.Drawing.Point(424, 120)
         Me.UltraButton17.Name = "UltraButton17"
         Me.UltraButton17.Size = New System.Drawing.Size(72, 32)
@@ -1726,8 +1807,8 @@ Public Class registrarModeloFresa
         '
         'UltraGroupBox12
         '
-        Appearance11.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox12.ContentAreaAppearance = Appearance11
+        Appearance32.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox12.ContentAreaAppearance = Appearance32
         Me.UltraGroupBox12.Controls.Add(Me.Label45)
         Me.UltraGroupBox12.Controls.Add(Me.UltraButton16)
         Me.UltraGroupBox12.Controls.Add(Me.orden)
@@ -1760,6 +1841,8 @@ Public Class registrarModeloFresa
         '
         'UltraButton16
         '
+        Appearance33.Image = CType(resources.GetObject("Appearance33.Image"), Object)
+        Me.UltraButton16.Appearance = Appearance33
         Me.UltraButton16.Location = New System.Drawing.Point(528, 128)
         Me.UltraButton16.Name = "UltraButton16"
         Me.UltraButton16.Size = New System.Drawing.Size(72, 32)
@@ -1871,7 +1954,7 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl2.Enabled = False
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 425)
         '
@@ -1897,40 +1980,48 @@ Public Class registrarModeloFresa
         '
         'btnModParteAdicional
         '
-        Me.btnModParteAdicional.Location = New System.Drawing.Point(298, 391)
+        Appearance34.Image = CType(resources.GetObject("Appearance34.Image"), Object)
+        Me.btnModParteAdicional.Appearance = Appearance34
+        Me.btnModParteAdicional.Location = New System.Drawing.Point(118, 389)
         Me.btnModParteAdicional.Name = "btnModParteAdicional"
-        Me.btnModParteAdicional.Size = New System.Drawing.Size(68, 24)
+        Me.btnModParteAdicional.Size = New System.Drawing.Size(80, 26)
         Me.btnModParteAdicional.TabIndex = 18
         Me.btnModParteAdicional.Text = "Modificar"
         '
         'btnNuevaParteAdicional
         '
-        Me.btnNuevaParteAdicional.Location = New System.Drawing.Point(224, 391)
+        Appearance35.Image = CType(resources.GetObject("Appearance35.Image"), Object)
+        Me.btnNuevaParteAdicional.Appearance = Appearance35
+        Me.btnNuevaParteAdicional.Location = New System.Drawing.Point(34, 389)
         Me.btnNuevaParteAdicional.Name = "btnNuevaParteAdicional"
-        Me.btnNuevaParteAdicional.Size = New System.Drawing.Size(68, 24)
+        Me.btnNuevaParteAdicional.Size = New System.Drawing.Size(80, 26)
         Me.btnNuevaParteAdicional.TabIndex = 17
         Me.btnNuevaParteAdicional.Text = "Nuevo"
         '
         'UltraButton12
         '
-        Me.UltraButton12.Location = New System.Drawing.Point(690, 391)
+        Appearance36.Image = CType(resources.GetObject("Appearance36.Image"), Object)
+        Me.UltraButton12.Appearance = Appearance36
+        Me.UltraButton12.Location = New System.Drawing.Point(690, 389)
         Me.UltraButton12.Name = "UltraButton12"
-        Me.UltraButton12.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton12.Size = New System.Drawing.Size(88, 26)
         Me.UltraButton12.TabIndex = 16
         Me.UltraButton12.Text = "Cancelar"
         '
         'UltraButton9
         '
-        Me.UltraButton9.Location = New System.Drawing.Point(372, 391)
+        Appearance37.Image = CType(resources.GetObject("Appearance37.Image"), Object)
+        Me.UltraButton9.Appearance = Appearance37
+        Me.UltraButton9.Location = New System.Drawing.Point(202, 389)
         Me.UltraButton9.Name = "UltraButton9"
-        Me.UltraButton9.Size = New System.Drawing.Size(68, 24)
+        Me.UltraButton9.Size = New System.Drawing.Size(80, 26)
         Me.UltraButton9.TabIndex = 3
         Me.UltraButton9.Text = "Guardar"
         '
         'UltraGroupBox5
         '
-        Appearance12.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox5.ContentAreaAppearance = Appearance12
+        Appearance38.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox5.ContentAreaAppearance = Appearance38
         Me.UltraGroupBox5.Controls.Add(Me.UltraButton8)
         Me.UltraGroupBox5.Controls.Add(Me.UltraButton7)
         Me.UltraGroupBox5.Controls.Add(Me.textImagenA)
@@ -1949,17 +2040,21 @@ Public Class registrarModeloFresa
         '
         'UltraButton8
         '
-        Me.UltraButton8.Location = New System.Drawing.Point(328, 79)
+        Appearance39.Image = CType(resources.GetObject("Appearance39.Image"), Object)
+        Me.UltraButton8.Appearance = Appearance39
+        Me.UltraButton8.Location = New System.Drawing.Point(324, 78)
         Me.UltraButton8.Name = "UltraButton8"
-        Me.UltraButton8.Size = New System.Drawing.Size(56, 24)
+        Me.UltraButton8.Size = New System.Drawing.Size(73, 26)
         Me.UltraButton8.TabIndex = 6
         Me.UltraButton8.Text = "Buscar"
         '
         'UltraButton7
         '
-        Me.UltraButton7.Location = New System.Drawing.Point(328, 54)
+        Appearance40.Image = CType(resources.GetObject("Appearance40.Image"), Object)
+        Me.UltraButton7.Appearance = Appearance40
+        Me.UltraButton7.Location = New System.Drawing.Point(324, 53)
         Me.UltraButton7.Name = "UltraButton7"
-        Me.UltraButton7.Size = New System.Drawing.Size(56, 24)
+        Me.UltraButton7.Size = New System.Drawing.Size(73, 26)
         Me.UltraButton7.TabIndex = 5
         Me.UltraButton7.Text = "Buscar"
         '
@@ -2021,8 +2116,8 @@ Public Class registrarModeloFresa
         '
         'UltraGroupBox4
         '
-        Appearance13.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox4.ContentAreaAppearance = Appearance13
+        Appearance41.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox4.ContentAreaAppearance = Appearance41
         Me.UltraGroupBox4.Controls.Add(Me.comboMPAdicional)
         Me.UltraGroupBox4.Controls.Add(Me.lblUmParteAdicional)
         Me.UltraGroupBox4.Controls.Add(Me.textCantMPAdicional)
@@ -2084,8 +2179,8 @@ Public Class registrarModeloFresa
         '
         'UltraGroupBox2
         '
-        Appearance14.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox2.ContentAreaAppearance = Appearance14
+        Appearance42.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox2.ContentAreaAppearance = Appearance42
         Me.UltraGroupBox2.Controls.Add(Me.comboIDAdicional)
         Me.UltraGroupBox2.Controls.Add(Me.textPrecioAdicional)
         Me.UltraGroupBox2.Controls.Add(Me.comboNombre)
@@ -2214,22 +2309,22 @@ Public Class registrarModeloFresa
         '
         'tab
         '
-        Appearance15.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance15.BackColor2 = System.Drawing.Color.Silver
-        Me.tab.Appearance = Appearance15
-        Appearance16.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance16.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance16.BackHatchStyle = Infragistics.Win.BackHatchStyle.None
-        Me.tab.ClientAreaAppearance = Appearance16
+        Appearance43.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance43.BackColor2 = System.Drawing.Color.Silver
+        Me.tab.Appearance = Appearance43
+        Appearance44.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance44.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance44.BackHatchStyle = Infragistics.Win.BackHatchStyle.None
+        Me.tab.ClientAreaAppearance = Appearance44
         Me.tab.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.tab.Controls.Add(Me.tab1)
         Me.tab.Controls.Add(Me.UltraTabPageControl1)
         Me.tab.Controls.Add(Me.UltraTabPageControl2)
-        Me.tab.Location = New System.Drawing.Point(0, 8)
+        Me.tab.Location = New System.Drawing.Point(0, 3)
         Me.tab.Name = "tab"
-        Appearance17.BackColor = System.Drawing.Color.Silver
-        Appearance17.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.tab.SelectedTabAppearance = Appearance17
+        Appearance45.BackColor = System.Drawing.Color.Silver
+        Appearance45.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.tab.SelectedTabAppearance = Appearance45
         Me.tab.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.tab.Size = New System.Drawing.Size(816, 448)
         Me.tab.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
@@ -2248,6 +2343,28 @@ Public Class registrarModeloFresa
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(812, 425)
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(505, 153)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(17, 25)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 45
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(27, 136)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(17, 23)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox2.TabIndex = 46
+        Me.PictureBox2.TabStop = False
         '
         'registrarModeloFresa
         '
@@ -2349,6 +2466,8 @@ Public Class registrarModeloFresa
         CType(Me.textCostoAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tab, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tab.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

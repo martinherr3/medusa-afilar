@@ -122,8 +122,9 @@ Partial Class frmSegProd
         Me.Controls.Add(Me.barra)
         Me.Controls.Add(Me.UltraButton2)
         Me.Controls.Add(Me.UltraButton1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.Name = "frmSegProd"
-        Me.Text = "frmSegProd"
+        Me.Text = "Seguimiento de produccion"
         CType(Me.barra, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imagen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
