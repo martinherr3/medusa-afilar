@@ -49,8 +49,12 @@ Public Class informeCompras
     Friend WithEvents checkMP As Infragistics.Win.UltraWinEditors.UltraCheckEditor
     Friend WithEvents Label4 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
         Dim DateButton2 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(informeCompras))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.checkProveedor = New Infragistics.Win.UltraWinEditors.UltraCheckEditor
         Me.checkPeriodo = New Infragistics.Win.UltraWinEditors.UltraCheckEditor
@@ -81,11 +85,13 @@ Public Class informeCompras
         'crv
         '
         Me.crv.ActiveViewIndex = -1
+        Me.crv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.crv.Location = New System.Drawing.Point(16, 80)
         Me.crv.Name = "crv"
-        Me.crv.ReportSource = Nothing
+        Me.crv.SelectionFormula = ""
         Me.crv.Size = New System.Drawing.Size(784, 440)
         Me.crv.TabIndex = 0
+        Me.crv.ViewTimeSelectionFormula = ""
         '
         'checkProveedor
         '
@@ -105,6 +111,7 @@ Public Class informeCompras
         '
         'comboProveedor
         '
+        Me.comboProveedor.AutoSize = True
         Me.comboProveedor.Location = New System.Drawing.Point(96, 16)
         Me.comboProveedor.Name = "comboProveedor"
         Me.comboProveedor.Size = New System.Drawing.Size(184, 21)
@@ -147,7 +154,7 @@ Public Class informeCompras
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(308, 20)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(70, 16)
+        Me.Label2.Size = New System.Drawing.Size(69, 13)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Fecha desde"
         '
@@ -156,12 +163,14 @@ Public Class informeCompras
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(311, 43)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(66, 16)
+        Me.Label3.Size = New System.Drawing.Size(66, 13)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Fecha hasta"
         '
         'UltraButton1
         '
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance1
         Me.UltraButton1.Location = New System.Drawing.Point(720, 528)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(80, 24)
@@ -170,21 +179,25 @@ Public Class informeCompras
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(688, 40)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance2
+        Me.UltraButton2.Location = New System.Drawing.Point(686, 32)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(112, 24)
+        Me.UltraButton2.Size = New System.Drawing.Size(114, 32)
         Me.UltraButton2.TabIndex = 12
         Me.UltraButton2.Text = "Generar informe"
         '
         'cnn
         '
         Me.cnn.ConnectionString = "workstation id=OCTAVO;packet size=4096;integrated security=SSPI;initial catalog=A" & _
-        "filar;persist security info=False"
+            "filar;persist security info=False"
+        Me.cnn.FireInfoMessageEventOnUserErrors = False
         '
         'DsCompras1
         '
         Me.DsCompras1.DataSetName = "DSCompras"
         Me.DsCompras1.Locale = New System.Globalization.CultureInfo("es-AR")
+        Me.DsCompras1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'adaptadorCompra2
         '
@@ -193,26 +206,18 @@ Public Class informeCompras
         '
         'SqlSelectCommand2
         '
-        Me.SqlSelectCommand2.CommandText = "SELECT ordencompramp.fecharealizacion, ordencompramp.idordencompra, ordencompramp" & _
-        ".idestado, ordencompramp.idproveedor, proveedor.idproveedor AS Expr1, proveedor." & _
-        "nombre, detalleordencompra.idordencompra AS Expr2, detalleordencompra.idtipomate" & _
-        "riaprima, detalleordencompra.cantidad, detalleordencompra.precio, tipomateriapri" & _
-        "ma.idtipomateriaprima AS Expr3, tipomateriaprima.nombre AS Expr4, detalleordenco" & _
-        "mpra.idestado AS Expr5, estado.idestado AS Expr6, estado.nombre AS Expr7 FROM or" & _
-        "dencompramp INNER JOIN proveedor ON ordencompramp.idproveedor = proveedor.idprov" & _
-        "eedor INNER JOIN detalleordencompra ON ordencompramp.idordencompra = detalleorde" & _
-        "ncompra.idordencompra INNER JOIN tipomateriaprima ON detalleordencompra.idtipoma" & _
-        "teriaprima = tipomateriaprima.idtipomateriaprima INNER JOIN estado ON detalleord" & _
-        "encompra.idestado = estado.idestado"
+        Me.SqlSelectCommand2.CommandText = resources.GetString("SqlSelectCommand2.CommandText")
         Me.SqlSelectCommand2.Connection = Me.cnn
         '
         'DsComprasDos1
         '
         Me.DsComprasDos1.DataSetName = "dsComprasDos"
         Me.DsComprasDos1.Locale = New System.Globalization.CultureInfo("es-AR")
+        Me.DsComprasDos1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'comboMP
         '
+        Me.comboMP.AutoSize = True
         Me.comboMP.Location = New System.Drawing.Point(96, 40)
         Me.comboMP.Name = "comboMP"
         Me.comboMP.Size = New System.Drawing.Size(184, 21)
@@ -264,6 +269,7 @@ Public Class informeCompras
         CType(Me.DsComprasDos1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboMP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

@@ -38,6 +38,9 @@ Public Class FrmRecibirMP
     Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRecibirMP))
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
         Me.GrdDOC = New System.Windows.Forms.DataGrid
         Me.GrdOC = New System.Windows.Forms.DataGrid
@@ -121,6 +124,8 @@ Public Class FrmRecibirMP
         '
         'BtnAceptar
         '
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.BtnAceptar.Appearance = Appearance2
         Me.BtnAceptar.Location = New System.Drawing.Point(280, 416)
         Me.BtnAceptar.Name = "BtnAceptar"
         Me.BtnAceptar.Size = New System.Drawing.Size(80, 24)
@@ -129,6 +134,8 @@ Public Class FrmRecibirMP
         '
         'UltraButton1
         '
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance3
         Me.UltraButton1.Location = New System.Drawing.Point(368, 416)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(80, 24)

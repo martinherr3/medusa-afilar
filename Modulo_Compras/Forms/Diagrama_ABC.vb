@@ -35,6 +35,8 @@ Public Class Diagrama_ABC
     Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim ShadowEffect1 As Infragistics.UltraChart.Resources.Appearance.ShadowEffect = New Infragistics.UltraChart.Resources.Appearance.ShadowEffect
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Diagrama_ABC))
         Me.UltraChart1 = New Infragistics.Win.UltraWinChart.UltraChart
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         CType(Me.UltraChart1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -147,9 +149,11 @@ Public Class Diagrama_ABC
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(632, 414)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance1
+        Me.UltraButton1.Location = New System.Drawing.Point(663, 414)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(112, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(81, 31)
         Me.UltraButton1.TabIndex = 1
         Me.UltraButton1.Text = "Salir"
         '
