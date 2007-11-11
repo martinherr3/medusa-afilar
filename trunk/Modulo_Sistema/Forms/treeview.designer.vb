@@ -21,6 +21,8 @@ Partial Class treeview
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(treeview))
         Dim Override1 As Infragistics.Win.UltraWinTree.Override = New Infragistics.Win.UltraWinTree.Override
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTree1 = New Infragistics.Win.UltraWinTree.UltraTree
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.UltraComboEditor1 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -49,6 +51,8 @@ Partial Class treeview
         '
         'UltraButton1
         '
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance1
         resources.ApplyResources(Me.UltraButton1, "UltraButton1")
         Me.UltraButton1.Name = "UltraButton1"
         '
@@ -108,6 +112,8 @@ Partial Class treeview
         '
         'UltraButton2
         '
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance2
         resources.ApplyResources(Me.UltraButton2, "UltraButton2")
         Me.UltraButton2.Name = "UltraButton2"
         '

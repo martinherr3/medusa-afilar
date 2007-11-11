@@ -76,6 +76,8 @@ Partial Class LoginForm
         'OK
         '
         Me.OK.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.OK.Image = CType(resources.GetObject("OK.Image"), System.Drawing.Image)
+        Me.OK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.OK.Location = New System.Drawing.Point(197, 161)
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(94, 23)
@@ -85,6 +87,8 @@ Partial Class LoginForm
         'Cancel
         '
         Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Cancel.Image = CType(resources.GetObject("Cancel.Image"), System.Drawing.Image)
+        Me.Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Cancel.Location = New System.Drawing.Point(300, 161)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(94, 23)

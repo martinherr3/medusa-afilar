@@ -19,6 +19,11 @@ Partial Class frmMensajes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMensajes))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraExplorerBarContainerControl1 = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarContainerControl
         Me.ListView1 = New System.Windows.Forms.ListView
         Me.TextBox1 = New System.Windows.Forms.TextBox
@@ -55,31 +60,33 @@ Partial Class frmMensajes
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 238)
+        Me.TextBox1.Location = New System.Drawing.Point(12, 274)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(492, 133)
+        Me.TextBox1.Size = New System.Drawing.Size(492, 118)
         Me.TextBox1.TabIndex = 25
         '
         'btnNuevo
         '
-        Me.btnNuevo.Location = New System.Drawing.Point(14, 140)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnNuevo.Appearance = Appearance1
+        Me.btnNuevo.Location = New System.Drawing.Point(12, 142)
         Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(75, 23)
+        Me.btnNuevo.Size = New System.Drawing.Size(78, 35)
         Me.btnNuevo.TabIndex = 26
         Me.btnNuevo.Text = "Nuevo"
         '
         'txtAsunto
         '
-        Me.txtAsunto.Location = New System.Drawing.Point(57, 199)
+        Me.txtAsunto.Location = New System.Drawing.Point(59, 217)
         Me.txtAsunto.Name = "txtAsunto"
-        Me.txtAsunto.Size = New System.Drawing.Size(168, 20)
+        Me.txtAsunto.Size = New System.Drawing.Size(445, 20)
         Me.txtAsunto.TabIndex = 29
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(19, 177)
+        Me.Label1.Location = New System.Drawing.Point(28, 192)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 31
@@ -88,7 +95,7 @@ Partial Class frmMensajes
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 205)
+        Me.Label2.Location = New System.Drawing.Point(19, 220)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 13)
         Me.Label2.TabIndex = 32
@@ -97,7 +104,7 @@ Partial Class frmMensajes
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(271, 205)
+        Me.Label3.Location = New System.Drawing.Point(12, 247)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(48, 13)
         Me.Label3.TabIndex = 33
@@ -105,41 +112,47 @@ Partial Class frmMensajes
         '
         'btnEnviar
         '
-        Me.btnEnviar.Location = New System.Drawing.Point(413, 377)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.btnEnviar.Appearance = Appearance2
+        Me.btnEnviar.Location = New System.Drawing.Point(429, 398)
         Me.btnEnviar.Name = "btnEnviar"
-        Me.btnEnviar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEnviar.Size = New System.Drawing.Size(75, 33)
         Me.btnEnviar.TabIndex = 34
         Me.btnEnviar.Text = "Enviar"
         '
         'cmbempleado
         '
         Me.cmbempleado.FormattingEnabled = True
-        Me.cmbempleado.Location = New System.Drawing.Point(57, 170)
+        Me.cmbempleado.Location = New System.Drawing.Point(59, 190)
         Me.cmbempleado.Name = "cmbempleado"
-        Me.cmbempleado.Size = New System.Drawing.Size(168, 21)
+        Me.cmbempleado.Size = New System.Drawing.Size(183, 21)
         Me.cmbempleado.TabIndex = 35
         '
         'cmbPrioridad
         '
         Me.cmbPrioridad.FormattingEnabled = True
-        Me.cmbPrioridad.Location = New System.Drawing.Point(325, 198)
+        Me.cmbPrioridad.Location = New System.Drawing.Point(59, 243)
         Me.cmbPrioridad.Name = "cmbPrioridad"
-        Me.cmbPrioridad.Size = New System.Drawing.Size(120, 21)
+        Me.cmbPrioridad.Size = New System.Drawing.Size(183, 21)
         Me.cmbPrioridad.TabIndex = 36
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(323, 377)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.btnEliminar.Appearance = Appearance3
+        Me.btnEliminar.Location = New System.Drawing.Point(348, 398)
         Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
+        Me.btnEliminar.Size = New System.Drawing.Size(75, 33)
         Me.btnEliminar.TabIndex = 37
         Me.btnEliminar.Text = "Eliminar"
         '
         'btnCancelar
         '
-        Me.btnCancelar.Location = New System.Drawing.Point(95, 141)
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.btnCancelar.Appearance = Appearance4
+        Me.btnCancelar.Location = New System.Drawing.Point(93, 142)
         Me.btnCancelar.Name = "btnCancelar"
-        Me.btnCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancelar.Size = New System.Drawing.Size(78, 35)
         Me.btnCancelar.TabIndex = 38
         Me.btnCancelar.Text = "Cancelar"
         '
@@ -147,7 +160,7 @@ Partial Class frmMensajes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(520, 418)
+        Me.ClientSize = New System.Drawing.Size(520, 440)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnEliminar)
         Me.Controls.Add(Me.cmbPrioridad)
