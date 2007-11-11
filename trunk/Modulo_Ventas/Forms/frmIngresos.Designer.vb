@@ -132,7 +132,7 @@ Partial Class frmIngresos
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(16, 422)
+        Me.Label6.Location = New System.Drawing.Point(22, 419)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(90, 13)
         Me.Label6.TabIndex = 51
@@ -142,7 +142,7 @@ Partial Class frmIngresos
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(32, 387)
+        Me.Label5.Location = New System.Drawing.Point(38, 384)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(74, 13)
         Me.Label5.TabIndex = 50
@@ -230,16 +230,16 @@ Partial Class frmIngresos
         Me.txtApellido.Appearance = Appearance5
         Me.txtApellido.AutoSize = True
         Me.txtApellido.Enabled = False
-        Me.txtApellido.Location = New System.Drawing.Point(382, 85)
+        Me.txtApellido.Location = New System.Drawing.Point(79, 103)
         Me.txtApellido.Name = "txtApellido"
-        Me.txtApellido.Size = New System.Drawing.Size(203, 21)
+        Me.txtApellido.Size = New System.Drawing.Size(209, 21)
         Me.txtApellido.TabIndex = 49
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(329, 90)
+        Me.Label4.Location = New System.Drawing.Point(33, 106)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(47, 13)
         Me.Label4.TabIndex = 50
@@ -252,7 +252,7 @@ Partial Class frmIngresos
         Me.txtNombre.Appearance = Appearance6
         Me.txtNombre.AutoSize = True
         Me.txtNombre.Enabled = False
-        Me.txtNombre.Location = New System.Drawing.Point(79, 85)
+        Me.txtNombre.Location = New System.Drawing.Point(79, 77)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(209, 21)
         Me.txtNombre.TabIndex = 47
@@ -261,7 +261,7 @@ Partial Class frmIngresos
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(26, 90)
+        Me.Label2.Location = New System.Drawing.Point(33, 80)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 48
@@ -282,7 +282,7 @@ Partial Class frmIngresos
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(21, 26)
+        Me.Label1.Location = New System.Drawing.Point(27, 26)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 13)
         Me.Label1.TabIndex = 45
@@ -300,7 +300,7 @@ Partial Class frmIngresos
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(26, 55)
+        Me.Label3.Location = New System.Drawing.Point(33, 53)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 46
@@ -308,9 +308,9 @@ Partial Class frmIngresos
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(308, 50)
+        Me.UltraButton1.Location = New System.Drawing.Point(306, 77)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(68, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(68, 21)
         Me.UltraButton1.TabIndex = 44
         Me.UltraButton1.Text = "&Buscar"
         '

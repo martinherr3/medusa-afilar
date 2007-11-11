@@ -193,7 +193,7 @@ Public Class frmEntrega
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(320, 239)
+        Me.UltraButton5.Location = New System.Drawing.Point(320, 247)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(88, 25)
         Me.UltraButton5.TabIndex = 18
@@ -202,7 +202,7 @@ Public Class frmEntrega
         'UltraButton4
         '
         Me.UltraButton4.Enabled = False
-        Me.UltraButton4.Location = New System.Drawing.Point(320, 208)
+        Me.UltraButton4.Location = New System.Drawing.Point(320, 215)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(88, 26)
         Me.UltraButton4.TabIndex = 17
