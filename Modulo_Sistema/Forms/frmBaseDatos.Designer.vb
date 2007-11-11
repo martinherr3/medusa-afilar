@@ -22,6 +22,7 @@ Partial Class frmBaseDatos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBaseDatos))
         Me.btnBackup = New System.Windows.Forms.Button
         Me.btnRestore = New System.Windows.Forms.Button
         Me.txtInstancia = New System.Windows.Forms.TextBox
@@ -40,6 +41,8 @@ Partial Class frmBaseDatos
         '
         'btnBackup
         '
+        Me.btnBackup.Image = CType(resources.GetObject("btnBackup.Image"), System.Drawing.Image)
+        Me.btnBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBackup.Location = New System.Drawing.Point(383, 24)
         Me.btnBackup.Name = "btnBackup"
         Me.btnBackup.Size = New System.Drawing.Size(171, 41)
@@ -49,6 +52,8 @@ Partial Class frmBaseDatos
         '
         'btnRestore
         '
+        Me.btnRestore.Image = CType(resources.GetObject("btnRestore.Image"), System.Drawing.Image)
+        Me.btnRestore.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnRestore.Location = New System.Drawing.Point(383, 120)
         Me.btnRestore.Name = "btnRestore"
         Me.btnRestore.Size = New System.Drawing.Size(171, 41)
