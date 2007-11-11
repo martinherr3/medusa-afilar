@@ -91,12 +91,18 @@ Public Class FrmGenerarOC
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGenerarOC))
+        Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
@@ -212,7 +218,9 @@ Public Class FrmGenerarOC
         '
         'BtnAgregar
         '
-        Me.BtnAgregar.Location = New System.Drawing.Point(280, 154)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.BtnAgregar.Appearance = Appearance2
+        Me.BtnAgregar.Location = New System.Drawing.Point(280, 155)
         Me.BtnAgregar.Name = "BtnAgregar"
         Me.BtnAgregar.Size = New System.Drawing.Size(80, 24)
         Me.BtnAgregar.TabIndex = 6
@@ -323,8 +331,8 @@ Public Class FrmGenerarOC
         '
         'UltraGroupBox2
         '
-        Appearance2.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox2.ContentAreaAppearance = Appearance2
+        Appearance3.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox2.ContentAreaAppearance = Appearance3
         Me.UltraGroupBox2.Controls.Add(Me.UltraButton2)
         Me.UltraGroupBox2.Controls.Add(Me.UltraButton1)
         Me.UltraGroupBox2.Controls.Add(Me.grdOC)
@@ -339,17 +347,21 @@ Public Class FrmGenerarOC
         '
         'UltraButton2
         '
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance4
         Me.UltraButton2.Location = New System.Drawing.Point(520, 200)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(96, 24)
+        Me.UltraButton2.Size = New System.Drawing.Size(112, 24)
         Me.UltraButton2.TabIndex = 9
         Me.UltraButton2.Text = "&Eliminar pedido"
         '
         'UltraButton1
         '
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance5
         Me.UltraButton1.Location = New System.Drawing.Point(520, 232)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(96, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(112, 24)
         Me.UltraButton1.TabIndex = 8
         Me.UltraButton1.Text = "&Eliminar item"
         '
@@ -399,6 +411,8 @@ Public Class FrmGenerarOC
         '
         'BtnAceptar
         '
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.BtnAceptar.Appearance = Appearance6
         Me.BtnAceptar.Location = New System.Drawing.Point(432, 528)
         Me.BtnAceptar.Name = "BtnAceptar"
         Me.BtnAceptar.Size = New System.Drawing.Size(80, 24)
@@ -407,15 +421,19 @@ Public Class FrmGenerarOC
         '
         'BtnPrevisualizar
         '
-        Me.BtnPrevisualizar.Location = New System.Drawing.Point(512, 528)
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.BtnPrevisualizar.Appearance = Appearance7
+        Me.BtnPrevisualizar.Location = New System.Drawing.Point(513, 528)
         Me.BtnPrevisualizar.Name = "BtnPrevisualizar"
         Me.BtnPrevisualizar.Size = New System.Drawing.Size(80, 24)
         Me.BtnPrevisualizar.TabIndex = 12
-        Me.BtnPrevisualizar.Text = "&Previsualizar"
+        Me.BtnPrevisualizar.Text = "&Previa"
         '
         'BtnSalir
         '
-        Me.BtnSalir.Location = New System.Drawing.Point(592, 528)
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.BtnSalir.Appearance = Appearance8
+        Me.BtnSalir.Location = New System.Drawing.Point(594, 528)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(80, 24)
         Me.BtnSalir.TabIndex = 13
@@ -447,15 +465,15 @@ Public Class FrmGenerarOC
         '
         'UltraTabControl1
         '
-        Appearance3.BackColor = System.Drawing.Color.Silver
-        Appearance3.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ActiveTabAppearance = Appearance3
-        Appearance4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance4.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance4
-        Appearance5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance5.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance5
+        Appearance9.BackColor = System.Drawing.Color.Silver
+        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ActiveTabAppearance = Appearance9
+        Appearance10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance10.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance10
+        Appearance11.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance11.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance11
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)

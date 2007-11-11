@@ -39,9 +39,13 @@ Public Class FrmPagoProveedor
     Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents Label1 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPagoProveedor))
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.Cmbproveedor = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.Grdocp = New System.Windows.Forms.DataGrid
         Me.btnAceptar = New Infragistics.Win.Misc.UltraButton
@@ -59,8 +63,9 @@ Public Class FrmPagoProveedor
         '
         'Cmbproveedor
         '
+        Me.Cmbproveedor.AutoSize = True
         Me.Cmbproveedor.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.Cmbproveedor.Location = New System.Drawing.Point(224, 17)
+        Me.Cmbproveedor.Location = New System.Drawing.Point(96, 12)
         Me.Cmbproveedor.Name = "Cmbproveedor"
         Me.Cmbproveedor.Size = New System.Drawing.Size(160, 21)
         Me.Cmbproveedor.TabIndex = 1
@@ -95,17 +100,21 @@ Public Class FrmPagoProveedor
         '
         'btnAceptar
         '
-        Me.btnAceptar.Location = New System.Drawing.Point(288, 224)
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.btnAceptar.Appearance = Appearance5
+        Me.btnAceptar.Location = New System.Drawing.Point(296, 224)
         Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(96, 24)
+        Me.btnAceptar.Size = New System.Drawing.Size(88, 24)
         Me.btnAceptar.TabIndex = 3
         Me.btnAceptar.Text = "&Aceptar"
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(288, 256)
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.btnSalir.Appearance = Appearance6
+        Me.btnSalir.Location = New System.Drawing.Point(296, 256)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(96, 24)
+        Me.btnSalir.Size = New System.Drawing.Size(88, 24)
         Me.btnSalir.TabIndex = 4
         Me.btnSalir.Text = "&Salir"
         '
@@ -124,15 +133,15 @@ Public Class FrmPagoProveedor
         '
         Me.optionPago.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
         Me.optionPago.CheckedIndex = 0
-        Me.optionPago.ItemAppearance = Appearance1
-        ValueListItem1.DataValue = False
-        ValueListItem1.DisplayText = "Efectivo"
-        ValueListItem1.Tag = False
-        ValueListItem2.DataValue = False
-        ValueListItem2.DisplayText = "Cheque"
-        ValueListItem2.Tag = False
-        Me.optionPago.Items.Add(ValueListItem1)
-        Me.optionPago.Items.Add(ValueListItem2)
+        Me.optionPago.ItemAppearance = Appearance7
+        ValueListItem3.DataValue = False
+        ValueListItem3.DisplayText = "Efectivo"
+        ValueListItem3.Tag = False
+        ValueListItem4.DataValue = False
+        ValueListItem4.DisplayText = "Cheque"
+        ValueListItem4.Tag = False
+        Me.optionPago.Items.Add(ValueListItem3)
+        Me.optionPago.Items.Add(ValueListItem4)
         Me.optionPago.Location = New System.Drawing.Point(24, 24)
         Me.optionPago.Name = "optionPago"
         Me.optionPago.Size = New System.Drawing.Size(128, 16)
@@ -141,19 +150,22 @@ Public Class FrmPagoProveedor
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(24, 15)
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance8
+        Me.UltraButton1.Location = New System.Drawing.Point(296, 12)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(88, 38)
         Me.UltraButton1.TabIndex = 6
         Me.UltraButton1.Text = "&Busqueda"
         '
         'Label1
         '
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(160, 21)
+        Me.Label1.Location = New System.Drawing.Point(24, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 18)
+        Me.Label1.Size = New System.Drawing.Size(72, 18)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Proveedor:"
         '

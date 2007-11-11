@@ -45,9 +45,11 @@ Public Class informeCompras2
     Friend WithEvents cnn As System.Data.SqlClient.SqlConnection
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(informeCompras2))
         Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
         Dim DateButton2 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(informeCompras2))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.comboHasta = New Infragistics.Win.UltraWinSchedule.UltraCalendarCombo
         Me.comboDesde = New Infragistics.Win.UltraWinSchedule.UltraCalendarCombo
@@ -69,9 +71,11 @@ Public Class informeCompras2
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(688, 40)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance1
+        Me.UltraButton2.Location = New System.Drawing.Point(685, 31)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(112, 24)
+        Me.UltraButton2.Size = New System.Drawing.Size(115, 33)
         Me.UltraButton2.TabIndex = 25
         Me.UltraButton2.Text = "Generar informe"
         '
@@ -102,14 +106,14 @@ Public Class informeCompras2
         'comboProveedor
         '
         Me.comboProveedor.AutoSize = True
-        Me.comboProveedor.Location = New System.Drawing.Point(96, 40)
+        Me.comboProveedor.Location = New System.Drawing.Point(80, 16)
         Me.comboProveedor.Name = "comboProveedor"
         Me.comboProveedor.Size = New System.Drawing.Size(184, 21)
         Me.comboProveedor.TabIndex = 19
         '
         'checkPeriodo
         '
-        Me.checkPeriodo.Location = New System.Drawing.Point(512, 46)
+        Me.checkPeriodo.Location = New System.Drawing.Point(507, 31)
         Me.checkPeriodo.Name = "checkPeriodo"
         Me.checkPeriodo.Size = New System.Drawing.Size(144, 16)
         Me.checkPeriodo.TabIndex = 18
@@ -117,7 +121,7 @@ Public Class informeCompras2
         '
         'checkProveedor
         '
-        Me.checkProveedor.Location = New System.Drawing.Point(512, 30)
+        Me.checkProveedor.Location = New System.Drawing.Point(507, 15)
         Me.checkProveedor.Name = "checkProveedor"
         Me.checkProveedor.Size = New System.Drawing.Size(144, 16)
         Me.checkProveedor.TabIndex = 17
@@ -137,7 +141,7 @@ Public Class informeCompras2
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(311, 43)
+        Me.Label3.Location = New System.Drawing.Point(309, 44)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(66, 13)
         Me.Label3.TabIndex = 24
@@ -154,7 +158,7 @@ Public Class informeCompras2
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(41, 44)
+        Me.Label1.Location = New System.Drawing.Point(25, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(56, 16)
         Me.Label1.TabIndex = 22
@@ -162,6 +166,8 @@ Public Class informeCompras2
         '
         'UltraButton1
         '
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance2
         Me.UltraButton1.Location = New System.Drawing.Point(720, 520)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(80, 24)

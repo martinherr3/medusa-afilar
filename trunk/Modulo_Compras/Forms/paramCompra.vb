@@ -57,6 +57,10 @@ Public Class paramCompra
     Friend WithEvents lblCostoAlmacenamiento As System.Windows.Forms.Label
     Friend WithEvents UltraButton3 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(paramCompra))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.grd1 = New System.Windows.Forms.DataGrid
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
@@ -76,12 +80,12 @@ Public Class paramCompra
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.grbValores = New System.Windows.Forms.GroupBox
-        Me.txtCostoGestion = New System.Windows.Forms.TextBox
-        Me.txtCostoEnvio = New System.Windows.Forms.TextBox
-        Me.txtCostoAlmacenamiento = New System.Windows.Forms.TextBox
-        Me.lblCostoGestion = New System.Windows.Forms.Label
-        Me.lblCostoEnvio = New System.Windows.Forms.Label
         Me.lblCostoAlmacenamiento = New System.Windows.Forms.Label
+        Me.lblCostoEnvio = New System.Windows.Forms.Label
+        Me.lblCostoGestion = New System.Windows.Forms.Label
+        Me.txtCostoAlmacenamiento = New System.Windows.Forms.TextBox
+        Me.txtCostoEnvio = New System.Windows.Forms.TextBox
+        Me.txtCostoGestion = New System.Windows.Forms.TextBox
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -211,7 +215,7 @@ Public Class paramCompra
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(232, 208)
+        Me.Label6.Location = New System.Drawing.Point(230, 215)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 13)
         Me.Label6.TabIndex = 17
@@ -220,7 +224,7 @@ Public Class paramCompra
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(232, 242)
+        Me.Label9.Location = New System.Drawing.Point(230, 250)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(31, 13)
         Me.Label9.TabIndex = 18
@@ -229,7 +233,7 @@ Public Class paramCompra
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(232, 277)
+        Me.Label10.Location = New System.Drawing.Point(230, 285)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(28, 13)
         Me.Label10.TabIndex = 19
@@ -237,27 +241,33 @@ Public Class paramCompra
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(400, 64)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance1
+        Me.UltraButton1.Location = New System.Drawing.Point(400, 62)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(136, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(136, 26)
         Me.UltraButton1.TabIndex = 20
-        Me.UltraButton1.Text = "Calcular parámetros"
+        Me.UltraButton1.Text = "&Calcular parámetros"
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(400, 313)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance2
+        Me.UltraButton2.Location = New System.Drawing.Point(400, 304)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(108, 24)
+        Me.UltraButton2.Size = New System.Drawing.Size(108, 33)
         Me.UltraButton2.TabIndex = 21
-        Me.UltraButton2.Text = "Grabar datos"
+        Me.UltraButton2.Text = "&Grabar datos"
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(532, 313)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance3
+        Me.UltraButton3.Location = New System.Drawing.Point(532, 304)
         Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(104, 24)
+        Me.UltraButton3.Size = New System.Drawing.Size(104, 33)
         Me.UltraButton3.TabIndex = 22
-        Me.UltraButton3.Text = "Salir"
+        Me.UltraButton3.Text = "&Salir"
         '
         'grbValores
         '
@@ -274,53 +284,53 @@ Public Class paramCompra
         Me.grbValores.TabStop = False
         Me.grbValores.Text = "Valores"
         '
+        'lblCostoAlmacenamiento
+        '
+        Me.lblCostoAlmacenamiento.AutoSize = True
+        Me.lblCostoAlmacenamiento.Location = New System.Drawing.Point(6, 75)
+        Me.lblCostoAlmacenamiento.Name = "lblCostoAlmacenamiento"
+        Me.lblCostoAlmacenamiento.Size = New System.Drawing.Size(130, 13)
+        Me.lblCostoAlmacenamiento.TabIndex = 5
+        Me.lblCostoAlmacenamiento.Text = "Costo de Almacenamiento"
+        '
+        'lblCostoEnvio
+        '
+        Me.lblCostoEnvio.AutoSize = True
+        Me.lblCostoEnvio.Location = New System.Drawing.Point(57, 50)
+        Me.lblCostoEnvio.Name = "lblCostoEnvio"
+        Me.lblCostoEnvio.Size = New System.Drawing.Size(79, 13)
+        Me.lblCostoEnvio.TabIndex = 4
+        Me.lblCostoEnvio.Text = "Costo de Envio"
+        '
+        'lblCostoGestion
+        '
+        Me.lblCostoGestion.AutoSize = True
+        Me.lblCostoGestion.Location = New System.Drawing.Point(48, 24)
+        Me.lblCostoGestion.Name = "lblCostoGestion"
+        Me.lblCostoGestion.Size = New System.Drawing.Size(88, 13)
+        Me.lblCostoGestion.TabIndex = 3
+        Me.lblCostoGestion.Text = "Costo de Gestion"
+        '
+        'txtCostoAlmacenamiento
+        '
+        Me.txtCostoAlmacenamiento.Location = New System.Drawing.Point(137, 68)
+        Me.txtCostoAlmacenamiento.Name = "txtCostoAlmacenamiento"
+        Me.txtCostoAlmacenamiento.Size = New System.Drawing.Size(93, 20)
+        Me.txtCostoAlmacenamiento.TabIndex = 2
+        '
+        'txtCostoEnvio
+        '
+        Me.txtCostoEnvio.Location = New System.Drawing.Point(137, 43)
+        Me.txtCostoEnvio.Name = "txtCostoEnvio"
+        Me.txtCostoEnvio.Size = New System.Drawing.Size(93, 20)
+        Me.txtCostoEnvio.TabIndex = 1
+        '
         'txtCostoGestion
         '
         Me.txtCostoGestion.Location = New System.Drawing.Point(137, 17)
         Me.txtCostoGestion.Name = "txtCostoGestion"
         Me.txtCostoGestion.Size = New System.Drawing.Size(93, 20)
         Me.txtCostoGestion.TabIndex = 0
-        '
-        'txtCostoEnvio
-        '
-        Me.txtCostoEnvio.Location = New System.Drawing.Point(137, 42)
-        Me.txtCostoEnvio.Name = "txtCostoEnvio"
-        Me.txtCostoEnvio.Size = New System.Drawing.Size(93, 20)
-        Me.txtCostoEnvio.TabIndex = 1
-        '
-        'txtCostoAlmacenamiento
-        '
-        Me.txtCostoAlmacenamiento.Location = New System.Drawing.Point(137, 74)
-        Me.txtCostoAlmacenamiento.Name = "txtCostoAlmacenamiento"
-        Me.txtCostoAlmacenamiento.Size = New System.Drawing.Size(93, 20)
-        Me.txtCostoAlmacenamiento.TabIndex = 2
-        '
-        'lblCostoGestion
-        '
-        Me.lblCostoGestion.AutoSize = True
-        Me.lblCostoGestion.Location = New System.Drawing.Point(40, 24)
-        Me.lblCostoGestion.Name = "lblCostoGestion"
-        Me.lblCostoGestion.Size = New System.Drawing.Size(88, 13)
-        Me.lblCostoGestion.TabIndex = 3
-        Me.lblCostoGestion.Text = "Costo de Gestion"
-        '
-        'lblCostoEnvio
-        '
-        Me.lblCostoEnvio.AutoSize = True
-        Me.lblCostoEnvio.Location = New System.Drawing.Point(50, 47)
-        Me.lblCostoEnvio.Name = "lblCostoEnvio"
-        Me.lblCostoEnvio.Size = New System.Drawing.Size(79, 13)
-        Me.lblCostoEnvio.TabIndex = 4
-        Me.lblCostoEnvio.Text = "Costo de Envio"
-        '
-        'lblCostoAlmacenamiento
-        '
-        Me.lblCostoAlmacenamiento.AutoSize = True
-        Me.lblCostoAlmacenamiento.Location = New System.Drawing.Point(1, 77)
-        Me.lblCostoAlmacenamiento.Name = "lblCostoAlmacenamiento"
-        Me.lblCostoAlmacenamiento.Size = New System.Drawing.Size(130, 13)
-        Me.lblCostoAlmacenamiento.TabIndex = 5
-        Me.lblCostoAlmacenamiento.Text = "Costo de Almacenamiento"
         '
         'paramCompra
         '

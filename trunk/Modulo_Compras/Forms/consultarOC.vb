@@ -7,6 +7,7 @@ Public Class consultarOC
     'Private connect As New coneccion
     Private conn As SqlConnection
     Private DS As DataSet
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Private NOrden As Integer
 
 
@@ -47,6 +48,8 @@ Public Class consultarOC
     Friend WithEvents ComboBox1 As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents TextBox1 As Infragistics.Win.UltraWinEditors.UltraTextEditor
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(consultarOC))
         Me.grd1 = New System.Windows.Forms.DataGrid
         Me.DataGridTableStyle1 = New System.Windows.Forms.DataGridTableStyle
         Me.DataGridTextBoxColumn4 = New System.Windows.Forms.DataGridTextBoxColumn
@@ -55,10 +58,12 @@ Public Class consultarOC
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.ComboBox1 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.TextBox1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grd1
@@ -94,7 +99,7 @@ Public Class consultarOC
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 19)
+        Me.Label1.Location = New System.Drawing.Point(15, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(50, 13)
         Me.Label1.TabIndex = 3
@@ -117,7 +122,9 @@ Public Class consultarOC
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(496, 530)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance3
+        Me.UltraButton1.Location = New System.Drawing.Point(496, 529)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(80, 24)
         Me.UltraButton1.TabIndex = 6
@@ -139,10 +146,20 @@ Public Class consultarOC
         Me.TextBox1.Size = New System.Drawing.Size(168, 21)
         Me.TextBox1.TabIndex = 8
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(222, 16)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(23, 21)
+        Me.PictureBox1.TabIndex = 9
+        Me.PictureBox1.TabStop = False
+        '
         'consultarOC
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(592, 565)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.UltraButton1)
@@ -158,6 +175,7 @@ Public Class consultarOC
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -259,8 +277,8 @@ Public Class consultarOC
         Me.Close()
     End Sub
 
-  
-   
+
+
     Private Sub TextBox3_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.ValueChanged
 
         If TextBox1.Text.Trim.Length = 0 Then
