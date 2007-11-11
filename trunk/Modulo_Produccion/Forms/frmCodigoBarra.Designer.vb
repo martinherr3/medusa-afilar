@@ -134,7 +134,7 @@ Partial Class frmCodigoBarra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(887, 586)
+        Me.ClientSize = New System.Drawing.Size(543, 273)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Location = New System.Drawing.Point(200, 105)

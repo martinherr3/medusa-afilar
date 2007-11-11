@@ -19,6 +19,11 @@ Partial Class consultarModeloFresa
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(consultarModeloFresa))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -27,7 +32,7 @@ Partial Class consultarModeloFresa
         Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.dataGridMF = New System.Windows.Forms.DataGrid
         Me.btnSalir = New Infragistics.Win.Misc.UltraButton
         Me.txtFiltrar = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -76,11 +81,13 @@ Partial Class consultarModeloFresa
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(716, 419)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnSalir.Appearance = Appearance1
+        Me.btnSalir.Location = New System.Drawing.Point(716, 414)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(80, 24)
+        Me.btnSalir.Size = New System.Drawing.Size(80, 29)
         Me.btnSalir.TabIndex = 13
-        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.Text = "&Salir"
         '
         'txtFiltrar
         '
@@ -101,25 +108,31 @@ Partial Class consultarModeloFresa
         '
         'btnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(220, 419)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.btnModificar.Appearance = Appearance2
+        Me.btnModificar.Location = New System.Drawing.Point(220, 414)
         Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(80, 24)
+        Me.btnModificar.Size = New System.Drawing.Size(80, 29)
         Me.btnModificar.TabIndex = 17
-        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.Text = "&Modificar"
         '
         'btnBaja
         '
-        Me.btnBaja.Location = New System.Drawing.Point(134, 419)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.btnBaja.Appearance = Appearance3
+        Me.btnBaja.Location = New System.Drawing.Point(134, 414)
         Me.btnBaja.Name = "btnBaja"
-        Me.btnBaja.Size = New System.Drawing.Size(80, 24)
+        Me.btnBaja.Size = New System.Drawing.Size(80, 29)
         Me.btnBaja.TabIndex = 18
-        Me.btnBaja.Text = "Baja"
+        Me.btnBaja.Text = "&Baja"
         '
         'btnFiltrar
         '
-        Me.btnFiltrar.Location = New System.Drawing.Point(563, 31)
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.btnFiltrar.Appearance = Appearance4
+        Me.btnFiltrar.Location = New System.Drawing.Point(563, 23)
         Me.btnFiltrar.Name = "btnFiltrar"
-        Me.btnFiltrar.Size = New System.Drawing.Size(80, 21)
+        Me.btnFiltrar.Size = New System.Drawing.Size(80, 37)
         Me.btnFiltrar.TabIndex = 19
         Me.btnFiltrar.Text = "Filtrar"
         '
@@ -147,8 +160,8 @@ Partial Class consultarModeloFresa
         ValueListItem7.DataValue = "ValueListItem6"
         ValueListItem7.DisplayText = "Precio"
         ValueListItem7.Tag = "precio"
-        Appearance1.FontData.BoldAsString = "True"
-        ValueListItem8.Appearance = Appearance1
+        Appearance5.FontData.BoldAsString = "True"
+        ValueListItem8.Appearance = Appearance5
         ValueListItem8.DataValue = "ValueListItem7"
         ValueListItem8.DisplayText = "Ninguno"
         ValueListItem8.Tag = "ninguno"

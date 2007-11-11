@@ -368,7 +368,7 @@ Public Class frmDesperfecto
     End Sub
 
     Private Sub BtnReparacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReparacion.Click
-        If MsgBox("Seguro que desea registrar la reparacoin de esta maquina", MsgBoxStyle.OkCancel, "Confirmacion") = MsgBoxResult.Ok Then
+        If MsgBox("Seguro que desea registrar la reparacion de esta maquina", MsgBoxStyle.OkCancel, "Confirmacion") = MsgBoxResult.Ok Then
             CalendarReparacion.Visible = True
             CalendarReparacion.Enabled = True
 
@@ -379,10 +379,7 @@ Public Class frmDesperfecto
             UltraButton5.Enabled = True
             BtnReparacion.Enabled = True
             bandGrabar = 3
-
-
         End If
-
 
     End Sub
 
@@ -401,7 +398,4 @@ Public Class frmDesperfecto
         DataGrid1.DataSource = buscarDesperfecto(dsDesperfecto)
     End Sub
 
-    Private Sub UltraTabPageControl1_Paint_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl1.Paint
-
-    End Sub
 End Class
