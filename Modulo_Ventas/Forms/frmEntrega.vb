@@ -9,6 +9,9 @@ Public Class frmEntrega
     Dim adaptador As SqlDataAdapter = New SqlDataAdapter(consulta, cnn)
     Dim bandCmb2 As Integer = 0
     Dim dvpedidos As New DataView
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Dim dttpedidos As New DataTable
 
 
@@ -57,12 +60,15 @@ Public Class frmEntrega
     Friend WithEvents Label3 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEntrega))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
@@ -77,10 +83,16 @@ Public Class frmEntrega
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.ComboBox2 = New System.Windows.Forms.ComboBox
         Me.Label3 = New System.Windows.Forms.Label
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGrid2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGrid1
@@ -91,33 +103,35 @@ Public Class frmEntrega
         Me.DataGrid1.Location = New System.Drawing.Point(10, 40)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.ReadOnly = True
-        Me.DataGrid1.Size = New System.Drawing.Size(392, 144)
+        Me.DataGrid1.Size = New System.Drawing.Size(409, 144)
         Me.DataGrid1.TabIndex = 0
         '
         'UltraButton1
         '
-        Appearance1.ImageHAlign = Infragistics.Win.HAlign.Left
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Appearance1.ImageHAlign = Infragistics.Win.HAlign.Right
         Me.UltraButton1.Appearance = Appearance1
         Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
         Appearance2.ImageHAlign = Infragistics.Win.HAlign.Right
         Me.UltraButton1.HotTrackAppearance = Appearance2
-        Me.UltraButton1.Location = New System.Drawing.Point(408, 72)
+        Me.UltraButton1.Location = New System.Drawing.Point(425, 79)
         Me.UltraButton1.Name = "UltraButton1"
         Appearance3.ImageHAlign = Infragistics.Win.HAlign.Left
         Me.UltraButton1.PressedAppearance = Appearance3
-        Me.UltraButton1.Size = New System.Drawing.Size(72, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(72, 27)
         Me.UltraButton1.TabIndex = 1
         Me.UltraButton1.Text = "&Agregar"
         '
         'UltraButton2
         '
-        Appearance4.ImageHAlign = Infragistics.Win.HAlign.Right
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Appearance4.ImageHAlign = Infragistics.Win.HAlign.Left
         Me.UltraButton2.Appearance = Appearance4
         Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
         Me.UltraButton2.HotTrackAppearance = Appearance5
-        Me.UltraButton2.Location = New System.Drawing.Point(408, 112)
+        Me.UltraButton2.Location = New System.Drawing.Point(425, 112)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(72, 24)
+        Me.UltraButton2.Size = New System.Drawing.Size(72, 27)
         Me.UltraButton2.TabIndex = 2
         Me.UltraButton2.Text = "&Quitar"
         '
@@ -126,24 +140,28 @@ Public Class frmEntrega
         Me.DataGrid2.CaptionText = "Pedidos a Entregar"
         Me.DataGrid2.DataMember = ""
         Me.DataGrid2.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.DataGrid2.Location = New System.Drawing.Point(488, 40)
+        Me.DataGrid2.Location = New System.Drawing.Point(503, 40)
         Me.DataGrid2.Name = "DataGrid2"
         Me.DataGrid2.ReadOnly = True
-        Me.DataGrid2.Size = New System.Drawing.Size(288, 144)
+        Me.DataGrid2.Size = New System.Drawing.Size(273, 144)
         Me.DataGrid2.TabIndex = 3
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(696, 200)
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance6
+        Me.UltraButton3.Location = New System.Drawing.Point(694, 190)
         Me.UltraButton3.Name = "UltraButton3"
-        Appearance6.TextHAlign = Infragistics.Win.HAlign.Left
-        Me.UltraButton3.PressedAppearance = Appearance6
-        Me.UltraButton3.Size = New System.Drawing.Size(80, 24)
+        Appearance7.TextHAlign = Infragistics.Win.HAlign.Left
+        Me.UltraButton3.PressedAppearance = Appearance7
+        Me.UltraButton3.Size = New System.Drawing.Size(80, 32)
         Me.UltraButton3.TabIndex = 10
         Me.UltraButton3.Text = "&Limpiar "
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.PictureBox2)
+        Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.UltraDateTimeEditor1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
@@ -158,16 +176,16 @@ Public Class frmEntrega
         '
         Me.UltraDateTimeEditor1.DateTime = New Date(2005, 10, 1, 0, 0, 0, 0)
         Me.UltraDateTimeEditor1.Enabled = False
-        Me.UltraDateTimeEditor1.Location = New System.Drawing.Point(136, 48)
+        Me.UltraDateTimeEditor1.Location = New System.Drawing.Point(125, 52)
         Me.UltraDateTimeEditor1.Name = "UltraDateTimeEditor1"
-        Me.UltraDateTimeEditor1.Size = New System.Drawing.Size(144, 21)
+        Me.UltraDateTimeEditor1.Size = New System.Drawing.Size(145, 21)
         Me.UltraDateTimeEditor1.TabIndex = 16
         Me.UltraDateTimeEditor1.Value = New Date(2005, 10, 1, 0, 0, 0, 0)
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(20, 52)
+        Me.Label2.Location = New System.Drawing.Point(6, 56)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(117, 13)
         Me.Label2.TabIndex = 15
@@ -177,7 +195,7 @@ Public Class frmEntrega
         '
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.Enabled = False
-        Me.ComboBox1.Location = New System.Drawing.Point(105, 22)
+        Me.ComboBox1.Location = New System.Drawing.Point(94, 19)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(176, 21)
         Me.ComboBox1.TabIndex = 13
@@ -185,7 +203,7 @@ Public Class frmEntrega
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 25)
+        Me.Label1.Location = New System.Drawing.Point(7, 24)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(81, 13)
         Me.Label1.TabIndex = 14
@@ -193,43 +211,78 @@ Public Class frmEntrega
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(320, 247)
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.UltraButton5.Appearance = Appearance8
+        Me.UltraButton5.Location = New System.Drawing.Point(331, 240)
         Me.UltraButton5.Name = "UltraButton5"
-        Me.UltraButton5.Size = New System.Drawing.Size(88, 25)
+        Me.UltraButton5.Size = New System.Drawing.Size(88, 32)
         Me.UltraButton5.TabIndex = 18
         Me.UltraButton5.Text = "&Salir"
         '
         'UltraButton4
         '
+        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance9
         Me.UltraButton4.Enabled = False
-        Me.UltraButton4.Location = New System.Drawing.Point(320, 215)
+        Me.UltraButton4.Location = New System.Drawing.Point(331, 189)
         Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(88, 26)
+        Me.UltraButton4.Size = New System.Drawing.Size(88, 32)
         Me.UltraButton4.TabIndex = 17
         Me.UltraButton4.Text = "&Confirmar"
         '
         'ComboBox2
         '
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.Location = New System.Drawing.Point(104, 8)
+        Me.ComboBox2.Location = New System.Drawing.Point(99, 12)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(192, 21)
         Me.ComboBox2.TabIndex = 19
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(8, 8)
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Location = New System.Drawing.Point(12, 16)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(88, 24)
+        Me.Label3.Size = New System.Drawing.Size(88, 21)
         Me.Label3.TabIndex = 20
         Me.Label3.Text = "Filtrar por forma de entrega"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(270, 19)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(28, 21)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 17
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(270, 52)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(28, 21)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox2.TabIndex = 18
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(297, 12)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(28, 21)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox3.TabIndex = 21
+        Me.PictureBox3.TabStop = False
         '
         'frmEntrega
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.ClientSize = New System.Drawing.Size(786, 280)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.UltraButton3)
@@ -239,6 +292,7 @@ Public Class frmEntrega
         Me.Controls.Add(Me.DataGrid1)
         Me.Controls.Add(Me.UltraButton5)
         Me.Controls.Add(Me.UltraButton4)
+        Me.Controls.Add(Me.Label3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmEntrega"
@@ -249,6 +303,9 @@ Public Class frmEntrega
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

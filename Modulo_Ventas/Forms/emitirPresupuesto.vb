@@ -13,6 +13,7 @@ Public Class emitirPresupuesto
     Friend WithEvents txtFiltrar As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Dim dp As New detallePresupuesto
     Const FILTRO_NINGUNO As String = "ninguno"
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Dim filtrar As Boolean
 #End Region
 
@@ -80,9 +81,12 @@ Public Class emitirPresupuesto
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(emitirPresupuesto))
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.cmbFiltrar = New Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -110,6 +114,7 @@ Public Class emitirPresupuesto
         Me.cnn = New System.Data.SqlClient.SqlConnection
         Me.aAdicional = New System.Data.SqlClient.SqlDataAdapter
         Me.SqlSelectCommand2 = New System.Data.SqlClient.SqlCommand
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,10 +127,12 @@ Public Class emitirPresupuesto
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
         Me.UltraTabSharedControlsPage1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.PictureBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.cmbFiltrar)
         Me.UltraTabPageControl1.Controls.Add(Me.btnFiltrar)
         Me.UltraTabPageControl1.Controls.Add(Me.Label5)
@@ -189,6 +196,8 @@ Public Class emitirPresupuesto
         '
         'btnFiltrar
         '
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.btnFiltrar.Appearance = Appearance2
         Me.btnFiltrar.Location = New System.Drawing.Point(552, 32)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(80, 45)
@@ -215,9 +224,11 @@ Public Class emitirPresupuesto
         '
         'UltraButton4
         '
-        Me.UltraButton4.Location = New System.Drawing.Point(504, 496)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance3
+        Me.UltraButton4.Location = New System.Drawing.Point(483, 489)
         Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(128, 24)
+        Me.UltraButton4.Size = New System.Drawing.Size(149, 31)
         Me.UltraButton4.TabIndex = 20
         Me.UltraButton4.Text = "Generar presupuesto"
         '
@@ -326,9 +337,11 @@ Public Class emitirPresupuesto
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(720, 496)
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance4
+        Me.UltraButton3.Location = New System.Drawing.Point(720, 489)
         Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton3.Size = New System.Drawing.Size(80, 31)
         Me.UltraButton3.TabIndex = 12
         Me.UltraButton3.Text = "Salir"
         '
@@ -357,20 +370,20 @@ Public Class emitirPresupuesto
         '
         'UltraTabControl1
         '
-        Appearance2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance2.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance2
-        Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance3.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance3
+        Appearance5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance5.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance5
+        Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance6.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance6
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 8)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance4.BackColor = System.Drawing.Color.Silver
-        Appearance4.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance4
+        Appearance7.BackColor = System.Drawing.Color.Silver
+        Appearance7.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance7
         Me.UltraTabControl1.SharedControls.AddRange(New System.Windows.Forms.Control() {Me.UltraButton3})
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(816, 560)
@@ -378,9 +391,9 @@ Public Class emitirPresupuesto
         Me.UltraTabControl1.TabIndex = 11
         UltraTab1.TabPage = Me.UltraTabPageControl1
         UltraTab1.Text = "Datos presupuesto"
-        Appearance5.BackColor = System.Drawing.Color.Silver
-        Appearance5.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        UltraTab2.SelectedAppearance = Appearance5
+        Appearance8.BackColor = System.Drawing.Color.Silver
+        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        UltraTab2.SelectedAppearance = Appearance8
         UltraTab2.TabPage = Me.UltraTabPageControl2
         UltraTab2.Text = "Generar presupuesto"
         Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
@@ -419,6 +432,17 @@ Public Class emitirPresupuesto
         Me.SqlSelectCommand2.CommandText = resources.GetString("SqlSelectCommand2.CommandText")
         Me.SqlSelectCommand2.Connection = Me.cnn
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(201, 56)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(20, 21)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 25
+        Me.PictureBox1.TabStop = False
+        '
         'emitirPresupuesto
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -442,6 +466,7 @@ Public Class emitirPresupuesto
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
         Me.UltraTabSharedControlsPage1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

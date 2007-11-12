@@ -22,7 +22,6 @@ Partial Class frmIngresos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -33,8 +32,14 @@ Partial Class frmIngresos
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmIngresos))
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.Label7 = New System.Windows.Forms.Label
@@ -65,6 +70,7 @@ Partial Class frmIngresos
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage2 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.btnSalir = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.txtDevolucion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtMonto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,6 +91,7 @@ Partial Class frmIngresos
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton2)
         Me.UltraTabPageControl1.Controls.Add(Me.Label7)
         Me.UltraTabPageControl1.Controls.Add(Me.txtDevolucion)
@@ -100,9 +107,11 @@ Partial Class frmIngresos
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(504, 414)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance2
+        Me.UltraButton2.Location = New System.Drawing.Point(320, 403)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(117, 24)
+        Me.UltraButton2.Size = New System.Drawing.Size(117, 32)
         Me.UltraButton2.TabIndex = 54
         Me.UltraButton2.Text = "&Registrar Pago"
         '
@@ -110,7 +119,7 @@ Partial Class frmIngresos
         '
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(434, 387)
+        Me.Label7.Location = New System.Drawing.Point(255, 384)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(64, 13)
         Me.Label7.TabIndex = 53
@@ -118,12 +127,12 @@ Partial Class frmIngresos
         '
         'txtDevolucion
         '
-        Appearance1.BackColorDisabled = System.Drawing.Color.White
-        Appearance1.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtDevolucion.Appearance = Appearance1
+        Appearance3.BackColorDisabled = System.Drawing.Color.White
+        Appearance3.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtDevolucion.Appearance = Appearance3
         Me.txtDevolucion.AutoSize = True
         Me.txtDevolucion.Enabled = False
-        Me.txtDevolucion.Location = New System.Drawing.Point(504, 379)
+        Me.txtDevolucion.Location = New System.Drawing.Point(320, 379)
         Me.txtDevolucion.Name = "txtDevolucion"
         Me.txtDevolucion.Size = New System.Drawing.Size(117, 21)
         Me.txtDevolucion.TabIndex = 52
@@ -150,9 +159,9 @@ Partial Class frmIngresos
         '
         'txtMonto
         '
-        Appearance2.BackColorDisabled = System.Drawing.Color.White
-        Appearance2.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtMonto.Appearance = Appearance2
+        Appearance4.BackColorDisabled = System.Drawing.Color.White
+        Appearance4.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtMonto.Appearance = Appearance4
         Me.txtMonto.AutoSize = True
         Me.txtMonto.Location = New System.Drawing.Point(112, 414)
         Me.txtMonto.Name = "txtMonto"
@@ -161,9 +170,9 @@ Partial Class frmIngresos
         '
         'txtTotalPagar
         '
-        Appearance3.BackColorDisabled = System.Drawing.Color.White
-        Appearance3.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtTotalPagar.Appearance = Appearance3
+        Appearance5.BackColorDisabled = System.Drawing.Color.White
+        Appearance5.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtTotalPagar.Appearance = Appearance5
         Me.txtTotalPagar.AutoSize = True
         Me.txtTotalPagar.Enabled = False
         Me.txtTotalPagar.Location = New System.Drawing.Point(112, 379)
@@ -204,8 +213,8 @@ Partial Class frmIngresos
         'UltraGroupBox2
         '
         Me.UltraGroupBox2.BackColor = System.Drawing.Color.Transparent
-        Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox2.ContentAreaAppearance = Appearance4
+        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox2.ContentAreaAppearance = Appearance6
         Me.UltraGroupBox2.Controls.Add(Me.txtApellido)
         Me.UltraGroupBox2.Controls.Add(Me.Label4)
         Me.UltraGroupBox2.Controls.Add(Me.txtNombre)
@@ -225,9 +234,9 @@ Partial Class frmIngresos
         '
         'txtApellido
         '
-        Appearance5.BackColorDisabled = System.Drawing.Color.White
-        Appearance5.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtApellido.Appearance = Appearance5
+        Appearance7.BackColorDisabled = System.Drawing.Color.White
+        Appearance7.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtApellido.Appearance = Appearance7
         Me.txtApellido.AutoSize = True
         Me.txtApellido.Enabled = False
         Me.txtApellido.Location = New System.Drawing.Point(79, 103)
@@ -247,9 +256,9 @@ Partial Class frmIngresos
         '
         'txtNombre
         '
-        Appearance6.BackColorDisabled = System.Drawing.Color.White
-        Appearance6.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtNombre.Appearance = Appearance6
+        Appearance8.BackColorDisabled = System.Drawing.Color.White
+        Appearance8.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtNombre.Appearance = Appearance8
         Me.txtNombre.AutoSize = True
         Me.txtNombre.Enabled = False
         Me.txtNombre.Location = New System.Drawing.Point(79, 77)
@@ -269,9 +278,9 @@ Partial Class frmIngresos
         '
         'txtNumero
         '
-        Appearance7.BackColorDisabled = System.Drawing.Color.White
-        Appearance7.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtNumero.Appearance = Appearance7
+        Appearance9.BackColorDisabled = System.Drawing.Color.White
+        Appearance9.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtNumero.Appearance = Appearance9
         Me.txtNumero.AutoSize = True
         Me.txtNumero.Location = New System.Drawing.Point(79, 50)
         Me.txtNumero.Name = "txtNumero"
@@ -286,7 +295,7 @@ Partial Class frmIngresos
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(52, 13)
         Me.Label1.TabIndex = 45
-        Me.Label1.Text = "Tipo doc."
+        Me.Label1.Text = "Tipo doc:"
         '
         'cboTipoDoc
         '
@@ -308,9 +317,11 @@ Partial Class frmIngresos
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(306, 77)
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance10
+        Me.UltraButton1.Location = New System.Drawing.Point(294, 77)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(68, 21)
+        Me.UltraButton1.Size = New System.Drawing.Size(82, 47)
         Me.UltraButton1.TabIndex = 44
         Me.UltraButton1.Text = "&Buscar"
         '
@@ -339,9 +350,9 @@ Partial Class frmIngresos
         '
         'txtNumero2
         '
-        Appearance8.BackColorDisabled = System.Drawing.Color.White
-        Appearance8.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtNumero2.Appearance = Appearance8
+        Appearance11.BackColorDisabled = System.Drawing.Color.White
+        Appearance11.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtNumero2.Appearance = Appearance11
         Me.txtNumero2.AutoSize = True
         Me.txtNumero2.Location = New System.Drawing.Point(79, 52)
         Me.txtNumero2.Name = "txtNumero2"
@@ -352,11 +363,11 @@ Partial Class frmIngresos
         '
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Location = New System.Drawing.Point(21, 28)
+        Me.Label8.Location = New System.Drawing.Point(26, 28)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(52, 13)
         Me.Label8.TabIndex = 50
-        Me.Label8.Text = "Tipo doc."
+        Me.Label8.Text = "Tipo doc:"
         '
         'cboTipoDoc2
         '
@@ -370,7 +381,7 @@ Partial Class frmIngresos
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(26, 57)
+        Me.Label9.Location = New System.Drawing.Point(31, 56)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(47, 13)
         Me.Label9.TabIndex = 51
@@ -378,9 +389,11 @@ Partial Class frmIngresos
         '
         'UltraButton4
         '
-        Me.UltraButton4.Location = New System.Drawing.Point(308, 52)
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance12
+        Me.UltraButton4.Location = New System.Drawing.Point(308, 28)
         Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(86, 24)
+        Me.UltraButton4.Size = New System.Drawing.Size(86, 48)
         Me.UltraButton4.TabIndex = 49
         Me.UltraButton4.Text = "&Buscar"
         '
@@ -416,21 +429,21 @@ Partial Class frmIngresos
         '
         'UltraTabControl1
         '
-        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance9.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance9
-        Appearance10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance10
+        Appearance13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance13.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance13
+        Appearance14.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance14.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance14
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage2)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(-5, 2)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance11.BackColor = System.Drawing.Color.Silver
-        Appearance11.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance11
+        Appearance15.BackColor = System.Drawing.Color.Silver
+        Appearance15.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance15
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(645, 488)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
@@ -454,12 +467,23 @@ Partial Class frmIngresos
         Me.UltraTabSharedControlsPage2.Name = "UltraTabSharedControlsPage2"
         Me.UltraTabSharedControlsPage2.Size = New System.Drawing.Size(740, 233)
         '
+        'btnSalir
+        '
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnSalir.Appearance = Appearance1
+        Me.btnSalir.Location = New System.Drawing.Point(526, 403)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(95, 32)
+        Me.btnSalir.TabIndex = 55
+        Me.btnSalir.Text = "&Salir"
+        '
         'frmIngresos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(640, 485)
         Me.Controls.Add(Me.UltraTabControl1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmIngresos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
@@ -516,4 +540,5 @@ Partial Class frmIngresos
     Friend WithEvents cboTipoDoc2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnSalir As Infragistics.Win.Misc.UltraButton
 End Class

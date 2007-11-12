@@ -22,9 +22,15 @@ Partial Class frmFormaEntrega
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFormaEntrega))
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
@@ -60,7 +66,7 @@ Partial Class frmFormaEntrega
         Me.DataGrid1.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.DataGrid1.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGrid1.LinkColor = System.Drawing.Color.Teal
-        Me.DataGrid1.Location = New System.Drawing.Point(28, 86)
+        Me.DataGrid1.Location = New System.Drawing.Point(12, 160)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGrid1.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
@@ -68,80 +74,92 @@ Partial Class frmFormaEntrega
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(257, 173)
+        Me.DataGrid1.Size = New System.Drawing.Size(284, 147)
         Me.DataGrid1.TabIndex = 52
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(112, 276)
+        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance9
+        Me.UltraButton2.Location = New System.Drawing.Point(93, 98)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(86, 25)
+        Me.UltraButton2.Size = New System.Drawing.Size(78, 27)
         Me.UltraButton2.TabIndex = 49
         Me.UltraButton2.Text = "&Modificar"
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(28, 276)
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance10
+        Me.UltraButton1.Location = New System.Drawing.Point(12, 98)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(78, 25)
+        Me.UltraButton1.Size = New System.Drawing.Size(78, 27)
         Me.UltraButton1.TabIndex = 48
         Me.UltraButton1.Text = "&Nuevo"
         '
         'UltraButton5
         '
-        Me.UltraButton5.Location = New System.Drawing.Point(112, 308)
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.UltraButton5.Appearance = Appearance11
+        Me.UltraButton5.Location = New System.Drawing.Point(93, 127)
         Me.UltraButton5.Name = "UltraButton5"
-        Me.UltraButton5.Size = New System.Drawing.Size(86, 25)
+        Me.UltraButton5.Size = New System.Drawing.Size(78, 27)
         Me.UltraButton5.TabIndex = 47
         Me.UltraButton5.Text = "&Cancelar"
         '
         'UltraButton4
         '
-        Appearance1.BackColor = System.Drawing.Color.White
-        Appearance1.ForeColor = System.Drawing.Color.Black
-        Me.UltraButton4.Appearance = Appearance1
-        Me.UltraButton4.Location = New System.Drawing.Point(28, 308)
+        Appearance12.BackColor = System.Drawing.Color.White
+        Appearance12.ForeColor = System.Drawing.Color.Black
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance12
+        Me.UltraButton4.Location = New System.Drawing.Point(174, 127)
         Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(78, 25)
+        Me.UltraButton4.Size = New System.Drawing.Size(78, 27)
         Me.UltraButton4.TabIndex = 46
         Me.UltraButton4.Text = "&Grabar"
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(204, 276)
+        Appearance13.Image = CType(resources.GetObject("Appearance13.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance13
+        Me.UltraButton3.Location = New System.Drawing.Point(12, 127)
         Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(81, 25)
+        Me.UltraButton3.Size = New System.Drawing.Size(78, 27)
         Me.UltraButton3.TabIndex = 50
         Me.UltraButton3.Text = "&Eliminar"
         '
         'UltraButton10
         '
-        Me.UltraButton10.Location = New System.Drawing.Point(204, 308)
+        Appearance14.Image = CType(resources.GetObject("Appearance14.Image"), Object)
+        Me.UltraButton10.Appearance = Appearance14
+        Me.UltraButton10.Location = New System.Drawing.Point(218, 313)
         Me.UltraButton10.Name = "UltraButton10"
-        Me.UltraButton10.Size = New System.Drawing.Size(81, 25)
+        Me.UltraButton10.Size = New System.Drawing.Size(78, 27)
         Me.UltraButton10.TabIndex = 51
         Me.UltraButton10.Text = "Salir"
         '
         'txtDescripcion
         '
-        Appearance2.BackColorDisabled = System.Drawing.Color.White
-        Appearance2.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtDescripcion.Appearance = Appearance2
+        Appearance15.BackColorDisabled = System.Drawing.Color.White
+        Appearance15.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtDescripcion.Appearance = Appearance15
         Me.txtDescripcion.AutoSize = True
         Me.txtDescripcion.Enabled = False
-        Me.txtDescripcion.Location = New System.Drawing.Point(73, 48)
+        Me.txtDescripcion.Location = New System.Drawing.Point(73, 39)
+        Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(212, 21)
+        Me.txtDescripcion.Size = New System.Drawing.Size(212, 50)
         Me.txtDescripcion.TabIndex = 43
         '
         'txtNombre
         '
-        Appearance3.BackColorDisabled = System.Drawing.Color.White
-        Appearance3.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtNombre.Appearance = Appearance3
+        Appearance16.BackColorDisabled = System.Drawing.Color.White
+        Appearance16.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtNombre.Appearance = Appearance16
         Me.txtNombre.AutoSize = True
         Me.txtNombre.Enabled = False
-        Me.txtNombre.Location = New System.Drawing.Point(73, 24)
+        Me.txtNombre.Location = New System.Drawing.Point(73, 12)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(212, 21)
         Me.txtNombre.TabIndex = 42
@@ -150,7 +168,7 @@ Partial Class frmFormaEntrega
         '
         Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Location = New System.Drawing.Point(11, 53)
+        Me.Label12.Location = New System.Drawing.Point(11, 39)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(63, 13)
         Me.Label12.TabIndex = 45
@@ -160,7 +178,7 @@ Partial Class frmFormaEntrega
         '
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Location = New System.Drawing.Point(29, 30)
+        Me.Label13.Location = New System.Drawing.Point(30, 16)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(44, 13)
         Me.Label13.TabIndex = 44
@@ -182,6 +200,7 @@ Partial Class frmFormaEntrega
         Me.Controls.Add(Me.txtNombre)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label13)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmFormaEntrega"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual

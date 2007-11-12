@@ -25,6 +25,9 @@ Partial Class consultarPresupuesto
         Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(consultarPresupuesto))
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.dataGridPresupuesto = New System.Windows.Forms.DataGrid
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label14 = New System.Windows.Forms.Label
@@ -38,10 +41,14 @@ Partial Class consultarPresupuesto
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.checkFecha = New System.Windows.Forms.CheckBox
         Me.btnRealizarPedido = New Infragistics.Win.Misc.UltraButton
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox
         CType(Me.dataGridPresupuesto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dataGridPresupuesto
@@ -134,7 +141,7 @@ Partial Class consultarPresupuesto
         '
         'btnFiltrar
         '
-        Appearance2.ImageHAlign = Infragistics.Win.HAlign.Center
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
         Me.btnFiltrar.Appearance = Appearance2
         Me.btnFiltrar.Location = New System.Drawing.Point(299, 29)
         Me.btnFiltrar.Name = "btnFiltrar"
@@ -162,9 +169,11 @@ Partial Class consultarPresupuesto
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(711, 396)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.btnSalir.Appearance = Appearance3
+        Me.btnSalir.Location = New System.Drawing.Point(711, 392)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(88, 24)
+        Me.btnSalir.Size = New System.Drawing.Size(88, 28)
         Me.btnSalir.TabIndex = 39
         Me.btnSalir.Text = "Salir"
         '
@@ -174,7 +183,7 @@ Partial Class consultarPresupuesto
         Me.GroupBox1.Controls.Add(Me.checkFecha)
         Me.GroupBox1.Location = New System.Drawing.Point(682, 25)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(117, 51)
+        Me.GroupBox1.Size = New System.Drawing.Size(117, 52)
         Me.GroupBox1.TabIndex = 40
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fecha:"
@@ -193,17 +202,41 @@ Partial Class consultarPresupuesto
         '
         'btnRealizarPedido
         '
-        Me.btnRealizarPedido.Location = New System.Drawing.Point(15, 396)
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.btnRealizarPedido.Appearance = Appearance4
+        Me.btnRealizarPedido.Location = New System.Drawing.Point(15, 392)
         Me.btnRealizarPedido.Name = "btnRealizarPedido"
-        Me.btnRealizarPedido.Size = New System.Drawing.Size(103, 24)
+        Me.btnRealizarPedido.Size = New System.Drawing.Size(113, 28)
         Me.btnRealizarPedido.TabIndex = 41
         Me.btnRealizarPedido.Text = "Realizar pedido"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(656, 30)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 42
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(656, 57)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(20, 20)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox2.TabIndex = 43
+        Me.PictureBox2.TabStop = False
         '
         'consultarPresupuesto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(811, 428)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnRealizarPedido)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSalir)
@@ -226,6 +259,8 @@ Partial Class consultarPresupuesto
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -243,4 +278,6 @@ Partial Class consultarPresupuesto
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents checkFecha As System.Windows.Forms.CheckBox
     Friend WithEvents btnRealizarPedido As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
 End Class
