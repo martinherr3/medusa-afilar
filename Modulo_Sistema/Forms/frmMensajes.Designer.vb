@@ -174,7 +174,9 @@ Partial Class frmMensajes
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.ListView1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmMensajes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Correo"
         Me.ResumeLayout(False)
         Me.PerformLayout()

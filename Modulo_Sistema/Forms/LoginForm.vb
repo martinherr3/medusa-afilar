@@ -36,8 +36,8 @@ Public Class LoginForm
     End Sub
 
     Private Sub LoginForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        PasswordTextBox.Text = "test"
-        UsernameTextBox.Text = "jperez"
-        OK.PerformClick()
+        'PasswordTextBox.Text = "test"
+        'UsernameTextBox.Text = "jperez"
+        'OK.PerformClick()
     End Sub
 End Class
