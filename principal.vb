@@ -12,6 +12,7 @@ Public Class principal
     Private logeo As New LoginForm
 
 
+
 #Region " Código generado por el Diseñador de Windows Forms "
 
     Public Sub New()
@@ -95,10 +96,10 @@ Public Class principal
         Appearance21.Cursor = System.Windows.Forms.Cursors.Hand
         Appearance21.ForeColor = System.Drawing.Color.White
         Me.UltraExplorerBar1.ItemSettings.AppearancesSmall.HotTrackAppearance = Appearance21
-        Me.UltraExplorerBar1.Location = New System.Drawing.Point(0, 108)
+        Me.UltraExplorerBar1.Location = New System.Drawing.Point(0, 110)
         Me.UltraExplorerBar1.Name = "UltraExplorerBar1"
         Me.UltraExplorerBar1.ShowDefaultContextMenu = False
-        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 588)
+        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 595)
         Me.UltraExplorerBar1.StateButtonCheckStyle = Infragistics.Win.UltraWinExplorerBar.StateButtonCheckStyle.ExclusiveWithinGroup
         Me.UltraExplorerBar1.Style = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.Listbar
         Me.UltraExplorerBar1.TabIndex = 2
@@ -253,13 +254,14 @@ Public Class principal
 #End Region
 
     Private Sub principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         bloquearPantalla(True)
         logeo.ShowDialog()
         bloquearPantalla(False)
-        Dim form As New frmSegProd
-        form.MdiParent = Me
-        form.Show()
-        form.Location = New Point(500, 200)
+        'Dim form As New frmSegProd
+        'form.MdiParent = Me
+        'form.Show()
+        'form.Location = New Point(500, 200)
         barra = New BarraDeEstado(UltraStatusBar1)
         Actualizar()
         'GestorFrm.InitMenu(Me.UltraExplorerBar1, mMenu, Me)
@@ -313,98 +315,6 @@ Public Class principal
 
     Private Sub UltraExplorerBar1_ItemClick(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinExplorerBar.ItemEventArgs) Handles UltraExplorerBar1.ItemClick
         GestorFrm.OpenForm(Me.UltraExplorerBar1.ActiveItem.Key, Me)
-
-        'If Me.UltraExplorerBar1.Groups(0).Items(0).Active Then
-        '    Dim programarProduccion As New registrarModeloFresa
-        '    programarProduccion.MdiParent = Me
-        '    programarProduccion.Show()
-        '    'etiPrin.Text = "Registrar modelo de fresa"
-        'End If
-
-        'If Me.UltraExplorerBar1.Groups(0).Items(1).Active Then
-        '    Dim form8 As New programarProduccion
-        '    form8.MdiParent = Me
-        '    form8.Show()
-
-        'End If
-
-
-
-        'If Me.UltraExplorerBar1.Groups(1).Items(0).Active Then
-        '    Dim FrmGenerarOC As New FrmGenerarOC
-        '    FrmGenerarOC.MdiParent = Me
-        '    FrmGenerarOC.Show()
-        '    etiPrin.Text = "Generar orden de compra de MP"
-        'End If
-
-        'If Me.UltraExplorerBar1.Groups(1).Items(1).Active Then
-        '    Dim FrmRecibirMP As New frmRecibirMPII
-        '    FrmRecibirMP.MdiParent = Me
-        '    FrmRecibirMP.Show()
-        '    etiPrin.Text = "Recibir materia prima"
-        'End If
-
-        'If Me.UltraExplorerBar1.Groups(1).Items(2).Active Then
-        '    Dim frmp As New FrmPagoProveedor
-        '    frmp.MdiParent = Me
-        '    frmp.Show()
-        '    etiPrin.Text = "Pago a proveedores"
-        'End If
-
-        'If Me.UltraExplorerBar1.Groups(1).Items(3).Active Then
-        '    Dim ABC As New Diagrama_ABC
-        '    ABC.MdiParent = Me
-        '    ABC.Show()
-        '    'etiPrin.Text = "Pago a proveedores"
-        'End If
-
-
-        'If Me.UltraExplorerBar1.Groups(2).Items(0).Active Then
-        '    Dim frmC As New frmCliente
-        '    frmC.MdiParent = Me
-        '    frmC.Show()
-        '    etiPrin.Text = "Gestionar cliente"
-        'End If
-
-        'If Me.UltraExplorerBar1.Groups(3).Items(3).Active Then
-        '    Dim frmE As New frmEntrega
-        '    frmE.MdiParent = Me
-        '    frmE.Show()
-        '    etiPrin.Text = "Gestionar entrega de pedidos"
-        'End If
-        'If Me.UltraExplorerBar1.Groups(3).Items(0).Active Then
-        '    Dim frmPedidocliente As New frmpedidocliente
-        '    frmPedidocliente.MdiParent = Me
-        '    frmPedidocliente.Show()
-        '    etiPrin.Text = "Pedido del Cliente"
-        'End If
-        'If Me.UltraExplorerBar1.Groups(3).Items(1).Active Then
-        '    Dim frmPres As New emitirPresupuesto
-        '    frmPres.MdiParent = Me
-        '    frmPres.Show()
-        '    etiPrin.Text = "Emitir presupuesto"
-        'End If
-
-        'If Me.UltraExplorerBar1.Groups(1).Items(4).Active Then
-        '    Dim frmParam As New paramCompra
-        '    frmParam.MdiParent = Me
-        '    frmParam.Show()
-        '    etiPrin.Text = "Calcular parametros de compra"
-        'End If
-
-        'If Me.UltraExplorerBar1.Groups(1).Items(5).Active Then
-        '    Dim frmConsOC As New consultarOC
-        '    frmConsOC.MdiParent = Me
-        '    frmConsOC.Show()
-        '    etiPrin.Text = "Consultar ordenes de compra"
-        'End If
-
-        'If Me.UltraExplorerBar1.Groups(1).Items(6).Active Then
-        '    Dim prov As New abmProveedores
-        '    prov.MdiParent = Me
-        '    prov.Show()
-        '    'etiPrin.Text = "Generar orden de compra de MP"
-        'End If
     End Sub
 
 
@@ -480,10 +390,6 @@ Public Class principal
         f.Show()
     End Sub
 
-    Private Sub MenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
     Private Sub MenuItem22_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim f As New frmEmpresaTransp
         f.MdiParent = Me
@@ -544,7 +450,7 @@ Public Class principal
 
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        Label1.Text = Now '.Hour & ":" & Now.Minute & ":" & Now.Second
+        Label1.Text = Now.Hour & ":" & Now.Minute
         Mensajeria.getMensajes(seguridad.id, LinkLabel1)
     End Sub
 
