@@ -384,6 +384,18 @@
     <Compile Include="Modulo_Reportes\Forms\GestorReportesForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo_Reportes\Forms\GestorReportesProdForm.Designer.vb">
+      <DependentUpon>GestorReportesProdForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Forms\GestorReportesProdForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Forms\GestorReportesVentaForm.Designer.vb">
+      <DependentUpon>GestorReportesVentaForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Forms\GestorReportesVentaForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulo_Reportes\Reports\RptCliente.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -768,6 +780,14 @@
     <EmbeddedResource Include="Modulo_Reportes\Forms\GestorReportesForm.resx">
       <DependentUpon>GestorReportesForm.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Forms\GestorReportesProdForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GestorReportesProdForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Forms\GestorReportesVentaForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GestorReportesVentaForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Reportes\Reports\RptCliente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
