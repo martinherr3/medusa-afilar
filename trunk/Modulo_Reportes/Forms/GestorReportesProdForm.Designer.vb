@@ -19,8 +19,17 @@ Partial Class GestorReportesProdForm
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.SuspendLayout()
+        '
+        'GestorReportesProdForm
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Text = "GestorReportesProdForm"
+        Me.ClientSize = New System.Drawing.Size(292, 270)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Name = "GestorReportesProdForm"
+        Me.Text = "Gestor Reportes Producción"
+        Me.ResumeLayout(False)
+
     End Sub
 End Class
