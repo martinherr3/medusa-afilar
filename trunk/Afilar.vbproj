@@ -300,12 +300,6 @@
     <Compile Include="Modulo_Produccion\Forms\consultarModeloFresa.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modulo_Produccion\Forms\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modulo_Produccion\Forms\Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Modulo_Produccion\Forms\frmCodigoBarra.Designer.vb">
       <DependentUpon>frmCodigoBarra.vb</DependentUpon>
     </Compile>
@@ -748,10 +742,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>consultarModeloFresa.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Produccion\Forms\Form1.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Produccion\Forms\frmCodigoBarra.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmCodigoBarra.vb</DependentUpon>
@@ -814,6 +804,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Sistema\Forms\PantallaInicio.resx">
       <DependentUpon>PantallaInicio.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Ventas\Forms\consultarPresupuesto.resx">
+      <DependentUpon>consultarPresupuesto.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Ventas\Forms\emitirPresupuesto.resx">
