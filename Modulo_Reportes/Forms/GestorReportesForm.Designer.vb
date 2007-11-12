@@ -19,16 +19,15 @@ Partial Class GestorReportesForm
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GestorReportesForm))
         Me.btnPedido = New Infragistics.Win.Misc.UltraButton
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.checkPedidoEstado = New System.Windows.Forms.CheckBox
-        Me.checkPedidoPrioridad = New System.Windows.Forms.CheckBox
         Me.checkPedidoCliente = New System.Windows.Forms.CheckBox
         Me.Label4 = New System.Windows.Forms.Label
-        Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.comboPedidoCliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.comboPedidoPrioridad = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.comboPedidoEstado = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.tabReportes = New System.Windows.Forms.TabControl
         Me.tabPedidos = New System.Windows.Forms.TabPage
@@ -57,15 +56,14 @@ Partial Class GestorReportesForm
         Me.Label7 = New System.Windows.Forms.Label
         Me.btnCliente = New Infragistics.Win.Misc.UltraButton
         Me.tabServicios = New System.Windows.Forms.TabPage
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
+        Me.btnServicio = New Infragistics.Win.Misc.UltraButton
         Me.Label8 = New System.Windows.Forms.Label
         Me.comboServicioCliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.checkServicioCliente = New System.Windows.Forms.CheckBox
-        Me.btnServicio = New Infragistics.Win.Misc.UltraButton
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
         CType(Me.comboPedidoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.comboPedidoPrioridad, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboPedidoEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabReportes.SuspendLayout()
         Me.tabPedidos.SuspendLayout()
@@ -85,11 +83,13 @@ Partial Class GestorReportesForm
         '
         'btnPedido
         '
-        Me.btnPedido.Location = New System.Drawing.Point(424, 102)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnPedido.Appearance = Appearance1
+        Me.btnPedido.Location = New System.Drawing.Point(424, 85)
         Me.btnPedido.Name = "btnPedido"
-        Me.btnPedido.Size = New System.Drawing.Size(72, 21)
+        Me.btnPedido.Size = New System.Drawing.Size(96, 31)
         Me.btnPedido.TabIndex = 39
-        Me.btnPedido.Text = "Ejecutar"
+        Me.btnPedido.Text = "Actualizar"
         '
         'crv
         '
@@ -107,23 +107,12 @@ Partial Class GestorReportesForm
         '
         Me.checkPedidoEstado.AutoSize = True
         Me.checkPedidoEstado.BackColor = System.Drawing.SystemColors.Control
-        Me.checkPedidoEstado.Location = New System.Drawing.Point(643, 78)
+        Me.checkPedidoEstado.Location = New System.Drawing.Point(643, 62)
         Me.checkPedidoEstado.Name = "checkPedidoEstado"
         Me.checkPedidoEstado.Size = New System.Drawing.Size(59, 17)
         Me.checkPedidoEstado.TabIndex = 52
         Me.checkPedidoEstado.Text = "Activar"
         Me.checkPedidoEstado.UseVisualStyleBackColor = False
-        '
-        'checkPedidoPrioridad
-        '
-        Me.checkPedidoPrioridad.AutoSize = True
-        Me.checkPedidoPrioridad.BackColor = System.Drawing.SystemColors.Control
-        Me.checkPedidoPrioridad.Location = New System.Drawing.Point(643, 56)
-        Me.checkPedidoPrioridad.Name = "checkPedidoPrioridad"
-        Me.checkPedidoPrioridad.Size = New System.Drawing.Size(59, 17)
-        Me.checkPedidoPrioridad.TabIndex = 51
-        Me.checkPedidoPrioridad.Text = "Activar"
-        Me.checkPedidoPrioridad.UseVisualStyleBackColor = False
         '
         'checkPedidoCliente
         '
@@ -140,27 +129,17 @@ Partial Class GestorReportesForm
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(378, 78)
+        Me.Label4.Location = New System.Drawing.Point(383, 63)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 13)
         Me.Label4.TabIndex = 49
         Me.Label4.Text = "Estado"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(370, 57)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(48, 13)
-        Me.Label3.TabIndex = 47
-        Me.Label3.Text = "Prioridad"
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(379, 34)
+        Me.Label2.Location = New System.Drawing.Point(383, 35)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(39, 13)
         Me.Label2.TabIndex = 45
@@ -175,20 +154,11 @@ Partial Class GestorReportesForm
         Me.comboPedidoCliente.Size = New System.Drawing.Size(205, 21)
         Me.comboPedidoCliente.TabIndex = 53
         '
-        'comboPedidoPrioridad
-        '
-        Me.comboPedidoPrioridad.AutoSize = True
-        Me.comboPedidoPrioridad.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboPedidoPrioridad.Location = New System.Drawing.Point(424, 53)
-        Me.comboPedidoPrioridad.Name = "comboPedidoPrioridad"
-        Me.comboPedidoPrioridad.Size = New System.Drawing.Size(205, 21)
-        Me.comboPedidoPrioridad.TabIndex = 54
-        '
         'comboPedidoEstado
         '
         Me.comboPedidoEstado.AutoSize = True
         Me.comboPedidoEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboPedidoEstado.Location = New System.Drawing.Point(424, 75)
+        Me.comboPedidoEstado.Location = New System.Drawing.Point(424, 58)
         Me.comboPedidoEstado.Name = "comboPedidoEstado"
         Me.comboPedidoEstado.Size = New System.Drawing.Size(205, 21)
         Me.comboPedidoEstado.TabIndex = 55
@@ -209,13 +179,10 @@ Partial Class GestorReportesForm
         '
         Me.tabPedidos.Controls.Add(Me.comboPedidoEstado)
         Me.tabPedidos.Controls.Add(Me.UltraGroupBox1)
-        Me.tabPedidos.Controls.Add(Me.comboPedidoPrioridad)
         Me.tabPedidos.Controls.Add(Me.Label2)
         Me.tabPedidos.Controls.Add(Me.comboPedidoCliente)
-        Me.tabPedidos.Controls.Add(Me.Label3)
         Me.tabPedidos.Controls.Add(Me.checkPedidoEstado)
         Me.tabPedidos.Controls.Add(Me.btnPedido)
-        Me.tabPedidos.Controls.Add(Me.checkPedidoPrioridad)
         Me.tabPedidos.Controls.Add(Me.Label4)
         Me.tabPedidos.Controls.Add(Me.checkPedidoCliente)
         Me.tabPedidos.Location = New System.Drawing.Point(4, 22)
@@ -485,30 +452,13 @@ Partial Class GestorReportesForm
         Me.tabServicios.Text = "Servicios"
         Me.tabServicios.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'btnServicio
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.CheckBox1.Location = New System.Drawing.Point(6, 70)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(59, 17)
-        Me.CheckBox1.TabIndex = 43
-        Me.CheckBox1.Text = "Activar"
-        Me.CheckBox1.UseVisualStyleBackColor = False
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(6, 42)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(203, 20)
-        Me.DateTimePicker1.TabIndex = 42
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(6, 20)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(203, 20)
-        Me.DateTimePicker2.TabIndex = 41
+        Me.btnServicio.Location = New System.Drawing.Point(85, 74)
+        Me.btnServicio.Name = "btnServicio"
+        Me.btnServicio.Size = New System.Drawing.Size(72, 21)
+        Me.btnServicio.TabIndex = 57
+        Me.btnServicio.Text = "Ejecutar"
         '
         'Label8
         '
@@ -540,13 +490,30 @@ Partial Class GestorReportesForm
         Me.checkServicioCliente.Text = "Activar"
         Me.checkServicioCliente.UseVisualStyleBackColor = False
         '
-        'btnServicio
+        'CheckBox1
         '
-        Me.btnServicio.Location = New System.Drawing.Point(85, 74)
-        Me.btnServicio.Name = "btnServicio"
-        Me.btnServicio.Size = New System.Drawing.Size(72, 21)
-        Me.btnServicio.TabIndex = 57
-        Me.btnServicio.Text = "Ejecutar"
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 70)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(59, 17)
+        Me.CheckBox1.TabIndex = 43
+        Me.CheckBox1.Text = "Activar"
+        Me.CheckBox1.UseVisualStyleBackColor = False
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(6, 42)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(203, 20)
+        Me.DateTimePicker1.TabIndex = 42
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(6, 20)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(203, 20)
+        Me.DateTimePicker2.TabIndex = 41
         '
         'GestorReportesForm
         '
@@ -561,7 +528,6 @@ Partial Class GestorReportesForm
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Gestor de Reportes"
         CType(Me.comboPedidoCliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.comboPedidoPrioridad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboPedidoEstado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabReportes.ResumeLayout(False)
         Me.tabPedidos.ResumeLayout(False)
@@ -589,13 +555,10 @@ Partial Class GestorReportesForm
     Friend WithEvents btnPedido As Infragistics.Win.Misc.UltraButton
     Friend WithEvents crv As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents checkPedidoEstado As System.Windows.Forms.CheckBox
-    Friend WithEvents checkPedidoPrioridad As System.Windows.Forms.CheckBox
     Friend WithEvents checkPedidoCliente As System.Windows.Forms.CheckBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents comboPedidoEstado As Infragistics.Win.UltraWinEditors.UltraComboEditor
-    Friend WithEvents comboPedidoPrioridad As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents comboPedidoCliente As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents tabReportes As System.Windows.Forms.TabControl
     Friend WithEvents tabPedidos As System.Windows.Forms.TabPage
