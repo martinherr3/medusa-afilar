@@ -1,0 +1,2 @@
+- Emitir presupuesto: cargar el empleado automaticamente y agregar buscar cliente (ver formulario de gestion de ingresos).
+- Pedido: agregar buscar cliente.
