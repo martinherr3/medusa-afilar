@@ -6,7 +6,10 @@ Public Class Permiso
     Dim Sqldataadapter1 As New SqlDataAdapter("select * from modulo ", cnn)
     Dim Sqldataadapter2 As New SqlDataAdapter("select * from formulario ", cnn)
     Public Function cargarDSPermisos() As DataSet
-        cnn.Open()
+
+        If Not cnn.State = ConnectionState.Open Then
+            cnn.Open()
+        End If
         Sqldataadapter1.Fill(DS, "modulo")
         Sqldataadapter2.Fill(DS, "formulario")
         cnn.Close()
@@ -67,6 +70,30 @@ Public Class Permiso
             End If
         Next
         
+
+
+
+
+    End Sub
+
+
+    Public Sub actualizarArbolPerfil(ByVal tree As UltraTree, ByVal perfil As Integer)
+        Dim nodo As UltraTreeNode
+        For Each nodo In tree.Nodes
+            nodo.CheckedState = CheckState.Unchecked
+        Next
+        DS.Clear()
+        Dim sqlDA As New SqlDataAdapter("select cast(idmodulo as varchar) + '-' + cast(idformulario as varchar) as code from Formulario where idformulario in (select idformulario from formxperfil where idperfil = " & perfil & " )", cnn)
+        sqlDA.Fill(DS, "formspermitidos")
+
+        Dim dr As DataRow
+        For Each dr In DS.Tables("formspermitidos").Rows
+            nodo = tree.GetNodeByKey(dr.Item("code"))
+            If Not nodo Is Nothing Then
+                nodo.CheckedState = CheckState.Checked
+            End If
+        Next
+
 
 
 

@@ -36,8 +36,9 @@ Public Class treeview
         Me.UltraTree1.NodeLevelOverrides(1).NodeStyle = NodeStyle.CheckBox
         Me.UltraTree1.ExpandAll()
         cargarUltraCombo("select nombre, idlegajo from empleado", UltraComboEditor1, "nombre", "idlegajo")
-
-
+        cargarUltraCombo("select descripcion, idperfil from perfil", UltraComboEditor2, "descripcion", "idperfil")
+        UltraComboEditor2.Visible = False
+        CheckBox1.Checked = False
     End Sub
     Private Sub VerifyParentNodeCheckState(ByVal descendantNode As UltraTreeNode)
 
@@ -118,6 +119,22 @@ Public Class treeview
         If MsgBox("Seguro desea asignar estos permisos?", MsgBoxStyle.Question, "Confirmacion") = MsgBoxResult.Ok Then
             permisos.asignarPermiso(UltraTree1, UltraComboEditor1.SelectedItem.DataValue())
         End If
+        If CheckBox1.Checked Then
+            Dim conn As SqlConnection
+            conn = cnn
+
+            conn.Open()
+
+            Dim sql As String = "UPDATE empleado SET idperfil = " & UltraComboEditor2.SelectedItem.DataValue() & " WHERE idlegajo = " & UltraComboEditor1.SelectedItem.DataValue()
+            Dim comm As New SqlCommand(sql, conn)
+
+            comm.ExecuteReader()
+
+            conn.Close()
+        End If
+        UltraComboEditor2.Visible = False
+        CheckBox1.Checked = False
+
 
     End Sub
 
@@ -138,11 +155,26 @@ Public Class treeview
                 permisos.actualizarArbol(UltraTree1, UltraComboEditor1.SelectedItem.DataValue())
             End If
         End If
-        
+        UltraComboEditor2.Visible = False
+        CheckBox1.Checked = False
+
 
     End Sub
 
     Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton2.Click
         Me.Close()
+    End Sub
+
+    
+    Private Sub UltraComboEditor2_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraComboEditor2.ValueChanged
+        permisos.actualizarArbolPerfil(UltraTree1, 1)
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            UltraComboEditor2.Visible = True
+        Else
+            UltraComboEditor2.Visible = False
+        End If
     End Sub
 End Class

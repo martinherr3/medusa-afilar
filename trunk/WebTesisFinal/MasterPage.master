@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Sistema Web</title>
+	<link rel="stylesheet" href="Styles\style.css" type="text/css" charset="utf-8" />
+	
+</head>
+<body>
+    <form id="form1" runat="server">
+      <div id="wrapper" style="width: auto">
+        <div id="body">
+          <div id="categories" style="height: 365px">
+            <ul>
+              <li><a href="Default.aspx">Pedidos</a></li>
+              <li><a href="Clientes.aspx">Clientes</a></li>
+              <li><a href="Fresas.aspx">Fresas</a></li>
+              <br />
+              <br />
+              
+              
+            </ul>
+            <asp:Image ID="Image1" runat="server" Height="130px" Width="148px" ImageUrl="images/afilar.jpg" BackColor="White" />
+          </div>
+          <div id="seasonal" style="height: auto; width: auto">
+           <div>
+                
+                &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                <table>
+                    <tr>
+                        <td style="width: 10%">
+                            &nbsp;<br>
+                            </td>
+                        <td style="width: 245%">
+                            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                            </asp:contentplaceholder>
+                        </td>
+                    </tr>
+                </table> 
+            </div>
+          </div>
+          <div class="clear"> </div>
+          <div id="seas">
+            <div class="clear"> </div>
+          </div>
+        </div>
+        <div id="copyright">
+          <p>Copyright &copy; 2007. Medusa Company name all rights reserved</p>
+        </div>
+      </div>
+        
+        <div id="header" style="width:5%">
+          <div id="logo">
+            <h1>Afilar</h1>
+            <p>Sistema Web</p>
+          </div>
+        </div>
+    </form>  
+</body>
+</html>
+
