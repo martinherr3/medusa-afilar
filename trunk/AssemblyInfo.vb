@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("")> 
+<Assembly: AssemblyTitle("Sistema Medusa")> 
 <Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("")> 
-<Assembly: AssemblyCopyright("")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyCompany("MeDuSA Corporation")> 
+<Assembly: AssemblyProduct("Sistema Medusa")> 
+<Assembly: AssemblyCopyright("2005-2007")> 
+<Assembly: AssemblyTrademark("All right reserved - MeDuSa Corporation 2007")> 
 <Assembly: CLSCompliant(True)> 
 
 'El siguiente GUID sirve como identificador de la biblioteca de tipos si este proyecto se expone a COM
