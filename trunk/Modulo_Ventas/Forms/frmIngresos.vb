@@ -158,4 +158,8 @@ Public Class frmIngresos
 
         grd2.DataSource = dsIngresos.Tables(0)
     End Sub
+
+    Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
+        Me.Close()
+    End Sub
 End Class

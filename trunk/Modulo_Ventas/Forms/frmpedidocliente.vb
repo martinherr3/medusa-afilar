@@ -39,6 +39,14 @@ Public Class frmpedidocliente
     Friend WithEvents radioNinguno As System.Windows.Forms.RadioButton
     Friend WithEvents radioRealizacion As System.Windows.Forms.RadioButton
     Friend WithEvents radioEntrega As System.Windows.Forms.RadioButton
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
     Dim bpedido As Boolean
 #End Region
 
@@ -131,22 +139,32 @@ Public Class frmpedidocliente
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmpedidocliente))
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.txtimportetotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label11 = New System.Windows.Forms.Label
@@ -206,6 +224,14 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -238,19 +264,28 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.PictureBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.txtimportetotal)
         Me.UltraTabPageControl1.Controls.Add(Me.Label11)
         Me.UltraTabPageControl1.Controls.Add(Me.btnmodificar)
         Me.UltraTabPageControl1.Controls.Add(Me.btngrabar)
         Me.UltraTabPageControl1.Controls.Add(Me.btnnuevo)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
         '
@@ -269,39 +304,49 @@ Public Class frmpedidocliente
         Me.Label11.BackColor = System.Drawing.Color.Transparent
         Me.Label11.Location = New System.Drawing.Point(585, 520)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(77, 13)
+        Me.Label11.Size = New System.Drawing.Size(68, 13)
         Me.Label11.TabIndex = 6
-        Me.Label11.Text = "Importe total: $"
+        Me.Label11.Text = "Importe total:"
         '
         'btnmodificar
         '
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnmodificar.Appearance = Appearance1
         Me.btnmodificar.Location = New System.Drawing.Point(200, 509)
         Me.btnmodificar.Name = "btnmodificar"
-        Me.btnmodificar.Size = New System.Drawing.Size(88, 24)
+        Me.btnmodificar.Size = New System.Drawing.Size(88, 30)
         Me.btnmodificar.TabIndex = 4
         Me.btnmodificar.Text = "Modificar"
         '
         'btngrabar
         '
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.btngrabar.Appearance = Appearance2
         Me.btngrabar.Location = New System.Drawing.Point(106, 509)
         Me.btngrabar.Name = "btngrabar"
-        Me.btngrabar.Size = New System.Drawing.Size(88, 24)
+        Me.btngrabar.Size = New System.Drawing.Size(88, 30)
         Me.btngrabar.TabIndex = 3
         Me.btngrabar.Text = "Grabar"
         '
         'btnnuevo
         '
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.btnnuevo.Appearance = Appearance3
         Me.btnnuevo.Location = New System.Drawing.Point(12, 509)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(88, 24)
+        Me.btnnuevo.Size = New System.Drawing.Size(88, 30)
         Me.btnnuevo.TabIndex = 2
         Me.btnnuevo.Text = "Nuevo"
         '
         'UltraGroupBox2
         '
         Me.UltraGroupBox2.BackColor = System.Drawing.Color.Transparent
-        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox2.ContentAreaAppearance = Appearance1
+        Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox2.ContentAreaAppearance = Appearance4
+        Me.UltraGroupBox2.Controls.Add(Me.PictureBox6)
+        Me.UltraGroupBox2.Controls.Add(Me.PictureBox4)
+        Me.UltraGroupBox2.Controls.Add(Me.PictureBox3)
+        Me.UltraGroupBox2.Controls.Add(Me.PictureBox2)
         Me.UltraGroupBox2.Controls.Add(Me.Label12)
         Me.UltraGroupBox2.Controls.Add(Me.combocliente)
         Me.UltraGroupBox2.Controls.Add(Me.fechaentrega)
@@ -338,7 +383,7 @@ Public Class frmpedidocliente
         Me.combocliente.AutoSize = True
         Me.combocliente.Location = New System.Drawing.Point(53, 69)
         Me.combocliente.Name = "combocliente"
-        Me.combocliente.Size = New System.Drawing.Size(176, 21)
+        Me.combocliente.Size = New System.Drawing.Size(182, 21)
         Me.combocliente.TabIndex = 18
         '
         'fechaentrega
@@ -374,7 +419,7 @@ Public Class frmpedidocliente
         'UltraOptionSet1
         '
         Me.UltraOptionSet1.BorderStyle = Infragistics.Win.UIElementBorderStyle.Etched
-        Me.UltraOptionSet1.ItemAppearance = Appearance2
+        Me.UltraOptionSet1.ItemAppearance = Appearance5
         ValueListItem1.DataValue = "Default Item"
         ValueListItem1.DisplayText = "Fabricación"
         ValueListItem2.DataValue = "ValueListItem1"
@@ -461,8 +506,9 @@ Public Class frmpedidocliente
         'UltraGroupBox1
         '
         Me.UltraGroupBox1.BackColor = System.Drawing.Color.Transparent
-        Appearance3.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox1.ContentAreaAppearance = Appearance3
+        Appearance10.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox1.ContentAreaAppearance = Appearance10
+        Me.UltraGroupBox1.Controls.Add(Me.PictureBox5)
         Me.UltraGroupBox1.Controls.Add(Me.txtsubtotal)
         Me.UltraGroupBox1.Controls.Add(Me.Label7)
         Me.UltraGroupBox1.Controls.Add(Me.btnquiter)
@@ -495,23 +541,27 @@ Public Class frmpedidocliente
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.Label7.Location = New System.Drawing.Point(589, 370)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(61, 13)
+        Me.Label7.Size = New System.Drawing.Size(49, 13)
         Me.Label7.TabIndex = 5
-        Me.Label7.Text = "Subtotal:  $"
+        Me.Label7.Text = "Subtotal:"
         '
         'btnquiter
         '
-        Me.btnquiter.Location = New System.Drawing.Point(112, 171)
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.btnquiter.Appearance = Appearance11
+        Me.btnquiter.Location = New System.Drawing.Point(132, 171)
         Me.btnquiter.Name = "btnquiter"
-        Me.btnquiter.Size = New System.Drawing.Size(80, 24)
+        Me.btnquiter.Size = New System.Drawing.Size(102, 24)
         Me.btnquiter.TabIndex = 4
         Me.btnquiter.Text = "Quitar Item"
         '
         'btnagregar
         '
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.btnagregar.Appearance = Appearance12
         Me.btnagregar.Location = New System.Drawing.Point(24, 171)
         Me.btnagregar.Name = "btnagregar"
-        Me.btnagregar.Size = New System.Drawing.Size(82, 24)
+        Me.btnagregar.Size = New System.Drawing.Size(102, 24)
         Me.btnagregar.TabIndex = 3
         Me.btnagregar.Text = "Agregar Item"
         '
@@ -603,8 +653,9 @@ Public Class frmpedidocliente
         'UltraGroupBox3
         '
         Me.UltraGroupBox3.BackColor = System.Drawing.Color.Transparent
-        Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox3.ContentAreaAppearance = Appearance4
+        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox3.ContentAreaAppearance = Appearance6
+        Me.UltraGroupBox3.Controls.Add(Me.PictureBox7)
         Me.UltraGroupBox3.Controls.Add(Me.botquitar)
         Me.UltraGroupBox3.Controls.Add(Me.UltraGroupBox4)
         Me.UltraGroupBox3.Controls.Add(Me.txtsubtot)
@@ -623,17 +674,19 @@ Public Class frmpedidocliente
         '
         'botquitar
         '
-        Me.botquitar.Location = New System.Drawing.Point(118, 171)
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.botquitar.Appearance = Appearance7
+        Me.botquitar.Location = New System.Drawing.Point(132, 171)
         Me.botquitar.Name = "botquitar"
-        Me.botquitar.Size = New System.Drawing.Size(96, 24)
+        Me.botquitar.Size = New System.Drawing.Size(102, 24)
         Me.botquitar.TabIndex = 12
         Me.botquitar.Text = "Quiter Item"
         '
         'UltraGroupBox4
         '
         Me.UltraGroupBox4.BackColor = System.Drawing.Color.LightSteelBlue
-        Appearance5.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox4.ContentAreaAppearance = Appearance5
+        Appearance8.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox4.ContentAreaAppearance = Appearance8
         Me.UltraGroupBox4.Controls.Add(Me.txtcantidad)
         Me.UltraGroupBox4.Controls.Add(Me.Label9)
         Me.UltraGroupBox4.Controls.Add(Me.txtitem)
@@ -695,15 +748,17 @@ Public Class frmpedidocliente
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Location = New System.Drawing.Point(592, 369)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(58, 13)
+        Me.Label10.Size = New System.Drawing.Size(49, 13)
         Me.Label10.TabIndex = 8
-        Me.Label10.Text = "Subtotal: $"
+        Me.Label10.Text = "Subtotal:"
         '
         'botagregar
         '
+        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
+        Me.botagregar.Appearance = Appearance9
         Me.botagregar.Location = New System.Drawing.Point(24, 171)
         Me.botagregar.Name = "botagregar"
-        Me.botagregar.Size = New System.Drawing.Size(88, 24)
+        Me.botagregar.Size = New System.Drawing.Size(102, 24)
         Me.botagregar.TabIndex = 3
         Me.botagregar.Text = "Agregar Item"
         '
@@ -806,13 +861,14 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl2.Controls.Add(Me.txtFiltrar)
         Me.UltraTabPageControl2.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl2.Controls.Add(Me.dgpedidos)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(813, 545)
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.PictureBox8)
         Me.GroupBox1.Controls.Add(Me.radioNinguno)
         Me.GroupBox1.Controls.Add(Me.radioRealizacion)
         Me.GroupBox1.Controls.Add(Me.radioEntrega)
@@ -859,7 +915,7 @@ Public Class frmpedidocliente
         '
         Me.Label15.AutoSize = True
         Me.Label15.BackColor = System.Drawing.Color.Transparent
-        Me.Label15.Location = New System.Drawing.Point(410, 36)
+        Me.Label15.Location = New System.Drawing.Point(417, 36)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(38, 13)
         Me.Label15.TabIndex = 28
@@ -869,7 +925,7 @@ Public Class frmpedidocliente
         '
         Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.Color.Transparent
-        Me.Label14.Location = New System.Drawing.Point(412, 61)
+        Me.Label14.Location = New System.Drawing.Point(419, 61)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(35, 13)
         Me.Label14.TabIndex = 27
@@ -877,14 +933,14 @@ Public Class frmpedidocliente
         '
         'dateHasta
         '
-        Me.dateHasta.Location = New System.Drawing.Point(449, 57)
+        Me.dateHasta.Location = New System.Drawing.Point(456, 57)
         Me.dateHasta.Name = "dateHasta"
         Me.dateHasta.Size = New System.Drawing.Size(201, 20)
         Me.dateHasta.TabIndex = 26
         '
         'dateDesde
         '
-        Me.dateDesde.Location = New System.Drawing.Point(449, 31)
+        Me.dateDesde.Location = New System.Drawing.Point(456, 31)
         Me.dateDesde.Name = "dateDesde"
         Me.dateDesde.Size = New System.Drawing.Size(201, 20)
         Me.dateDesde.TabIndex = 25
@@ -898,8 +954,8 @@ Public Class frmpedidocliente
         ValueListItem4.DataValue = "ValueListItem1"
         ValueListItem4.DisplayText = "Numero Pedido"
         ValueListItem4.Tag = "NroPedido"
-        Appearance6.FontData.BoldAsString = "True"
-        ValueListItem5.Appearance = Appearance6
+        Appearance13.FontData.BoldAsString = "True"
+        ValueListItem5.Appearance = Appearance13
         ValueListItem5.DataValue = "ValueListItem7"
         ValueListItem5.DisplayText = "Ninguno"
         ValueListItem5.Tag = "ninguno"
@@ -913,6 +969,8 @@ Public Class frmpedidocliente
         '
         'btnFiltrar
         '
+        Appearance14.Image = CType(resources.GetObject("Appearance14.Image"), Object)
+        Me.btnFiltrar.Appearance = Appearance14
         Me.btnFiltrar.Location = New System.Drawing.Point(295, 30)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(80, 48)
@@ -939,9 +997,11 @@ Public Class frmpedidocliente
         '
         'btnSalir
         '
+        Appearance15.Image = CType(resources.GetObject("Appearance15.Image"), Object)
+        Me.btnSalir.Appearance = Appearance15
         Me.btnSalir.Location = New System.Drawing.Point(708, 509)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(88, 24)
+        Me.btnSalir.Size = New System.Drawing.Size(88, 33)
         Me.btnSalir.TabIndex = 3
         Me.btnSalir.Text = "Salir"
         '
@@ -975,20 +1035,20 @@ Public Class frmpedidocliente
         '
         'UltraTabControl1
         '
-        Appearance7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance7.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance7
-        Appearance8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance8
+        Appearance16.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance16.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance16
+        Appearance17.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance17.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance17
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance9.BackColor = System.Drawing.Color.Silver
-        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance9
+        Appearance18.BackColor = System.Drawing.Color.Silver
+        Appearance18.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance18
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(817, 568)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
@@ -1005,6 +1065,94 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(729, 512)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(641, 21)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox2.TabIndex = 20
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(641, 45)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox3.TabIndex = 21
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(641, 69)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox4.TabIndex = 22
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
+        Me.PictureBox5.Location = New System.Drawing.Point(717, 361)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox5.TabIndex = 9
+        Me.PictureBox5.TabStop = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
+        Me.PictureBox6.Location = New System.Drawing.Point(236, 69)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox6.TabIndex = 23
+        Me.PictureBox6.TabStop = False
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
+        Me.PictureBox7.Location = New System.Drawing.Point(717, 361)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox7.TabIndex = 9
+        Me.PictureBox7.TabStop = False
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
+        Me.PictureBox8.Location = New System.Drawing.Point(93, 48)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(18, 20)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox8.TabIndex = 30
+        Me.PictureBox8.TabStop = False
         '
         'frmpedidocliente
         '
@@ -1055,6 +1203,14 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

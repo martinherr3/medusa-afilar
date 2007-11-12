@@ -40,6 +40,9 @@ Public Class frmAsignar
     Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents UltraButton2 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAsignar))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.Label1 = New System.Windows.Forms.Label
         Me.DataGrid2 = New System.Windows.Forms.DataGrid
@@ -116,17 +119,21 @@ Public Class frmAsignar
         '
         'UltraButton2
         '
-        Me.UltraButton2.Location = New System.Drawing.Point(488, 216)
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance1
+        Me.UltraButton2.Location = New System.Drawing.Point(488, 206)
         Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton2.Size = New System.Drawing.Size(80, 34)
         Me.UltraButton2.TabIndex = 6
         Me.UltraButton2.Text = "&Cancelar"
         '
         'UltraButton1
         '
-        Me.UltraButton1.Location = New System.Drawing.Point(400, 216)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance2
+        Me.UltraButton1.Location = New System.Drawing.Point(376, 206)
         Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(80, 24)
+        Me.UltraButton1.Size = New System.Drawing.Size(80, 34)
         Me.UltraButton1.TabIndex = 5
         Me.UltraButton1.Text = "&Confirmar"
         '
