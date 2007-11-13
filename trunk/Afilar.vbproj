@@ -372,6 +372,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSPedidoServicio.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modulo_Reportes\DataSets\DSPedidoServicio.vb">
+      <DependentUpon>DSPedidoServicio.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Reportes\Forms\DashboardForm.Designer.vb">
       <DependentUpon>DashboardForm.vb</DependentUpon>
     </Compile>
