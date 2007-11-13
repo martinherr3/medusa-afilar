@@ -1285,10 +1285,10 @@ Public Class frmpedidocliente
         DataGriddos.SetDataBinding(ds, "DOS")
         ' cargo los combos de empleados y clientes
 
-        cargarComboTag("select nombre,idestado from estado", comboestado, 1, 1)
+        cargarComboTag("select * from estado where estado.idestado between 1 and 10", comboestado, 0, 2)
         cargarComboTag("select nombre,idformadeentrega from formadeentrega", comboformaentrega, 1, 1)
         cargarComboTag("select * from cliente", combocliente, 0, 23)
-        'comboestado.Text = comboestado.Items(7).DisplayText
+        comboestado.Text = comboestado.Items(0).DisplayText
         comboformaentrega.Text = comboformaentrega.Items(0).DisplayText
 
         princ.barra.agregarBoton(Me)
@@ -1585,6 +1585,7 @@ Public Class frmpedidocliente
             dr("fechaentrega") = fechaentrega.Value
             'dr("idformadeentrega") = CInt(comboformaentrega.Items(comboformaentrega.SelectedIndex).Tag)
             dr("idformadeentrega") = comboformaentrega.SelectedItem.Tag
+            dr("idvendedor") = seguridad.id
             ds.Tables("pedidocliente").Rows.Add(dr)
         Else
             'ds.Tables("pedido").Rows(0).Item("prioridad") = CInt(txtprioridad.Text)
