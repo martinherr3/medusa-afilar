@@ -6,6 +6,7 @@ Public Class GestorReportesForm
 
         query = "select * from cliente"
         cargarComboTag(query, comboPedidoCliente, 0, 23)
+        cargarComboTag(query, comboServicioCliente, 0, 23)       
 
         query = "select * from estado where estado.idestado between 1 and 10"
         cargarComboTag(query, comboPedidoEstado, 0, 2)
@@ -22,8 +23,11 @@ Public Class GestorReportesForm
         query = "select idprovincia, nombre from provincia"
         cargarComboTag(query, comboClienteProvincia, 0, 2)
 
-        query = "select * from cliente"
-        cargarComboTag(query, comboServicioCliente, 0, 23)
+        query = "select idoperacion, nombre from operacion"
+        cargarComboTag(query, comboServicioOperacion, 0, 2)
+
+        query = "select * from estado where estado.idestado between 41 and 50"
+        cargarComboTag(query, comboServicioEstado, 0, 2)
 
 
     End Sub
@@ -119,7 +123,7 @@ Public Class GestorReportesForm
     Dim selectCliente As New SqlClient.SqlCommand
     Dim dataSetCliente As New DataSet
     Dim queryCliente As String
-    Dim reporteCliente As New RptCliente
+    Dim reporteCliente As RptCliente
 
     Private Sub btnCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCliente.Click
         queryCliente = "SELECT cliente.idcliente, cliente.nombre, cliente.apellido, cliente.idtipodocumento, cliente.direccion, cliente.localidad, cliente.mail, cliente.telefono, " & _
@@ -169,6 +173,7 @@ Public Class GestorReportesForm
         Try
             adaptadorCliente.Fill(dataSetCliente, "cliente")
 
+            reporteCliente = New RptCliente
             reporteCliente.SetDataSource(dataSetCliente)
 
             If criterio = "" Then
@@ -193,7 +198,7 @@ Public Class GestorReportesForm
     Dim selectFresas As New SqlClient.SqlCommand
     Dim dataSetFresas As New DataSet
     Dim queryFresas As String
-    Dim reporteFresas As New RptFresa
+    Dim reporteFresas As RptFresa
 
     Private Sub btnFresas_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFresas.Click
         queryFresas = "SELECT fresa.nroserie, fresa.fechafinfabricacion, fresa.costofabricacion, fresa.estado, fresa.nropedido, fresa.controlcalidad, fresa.idhojaderuta, fresa.precio, " & _
@@ -251,6 +256,7 @@ Public Class GestorReportesForm
         Try
             adaptadorFresas.Fill(dataSetFresas, "fresa")
 
+            reporteFresas = New RptFresa
             reporteFresas.SetDataSource(dataSetFresas)
 
             If criterio = "" Then
@@ -275,7 +281,7 @@ Public Class GestorReportesForm
     Dim selectServicio As New SqlClient.SqlCommand
     Dim dataSetServicio As New DataSet
     Dim queryServicio As String
-    Dim reporteServicio As New RptServicio
+    Dim reporteServicio As RptServicio
 
     Private Sub btnServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnServicio.Click
         queryServicio = "SELECT detalleordenservicio.idpedido, detalleordenservicio.idoperacion, detalleordenservicio.idobjetodelservicio, detalleordenservicio.preciodeservicio," & _
@@ -305,6 +311,36 @@ Public Class GestorReportesForm
 
         End If
 
+        If checkServicioOperacion.Checked Then
+
+            If comboServicioOperacion.SelectedIndex = -1 Then
+                MsgBox("Debe seleccionar Operacion", MsgBoxStyle.Information, "Afilar")
+                Exit Sub
+            End If
+
+            If criterio <> "" Then
+                criterio = criterio & " AND "
+            End If
+
+            criterio = criterio & "{detalleordenservicio.idoperacion} = " & comboServicioOperacion.SelectedItem.Tag
+
+        End If
+
+        If checkServicioEstado.Checked Then
+
+            If comboServicioEstado.SelectedIndex = -1 Then
+                MsgBox("Debe seleccionar Estado", MsgBoxStyle.Information, "Afilar")
+                Exit Sub
+            End If
+
+            If criterio <> "" Then
+                criterio = criterio & " AND "
+            End If
+
+            criterio = criterio & "{detalleordenservicio.idestado} = " & comboServicioEstado.SelectedItem.Tag
+
+        End If
+
         selectServicio.CommandType = CommandType.Text
         selectServicio.CommandText = queryServicio
         selectServicio.Connection = cnn
@@ -315,6 +351,7 @@ Public Class GestorReportesForm
         Try
             adaptadorServicio.Fill(dataSetServicio, "detalleordenservicio")
 
+            reporteServicio = New RptServicio
             reporteServicio.SetDataSource(dataSetServicio)
 
             If criterio = "" Then
