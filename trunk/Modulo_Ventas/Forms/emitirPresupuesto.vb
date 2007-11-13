@@ -69,6 +69,7 @@ Public Class emitirPresupuesto
     Friend WithEvents SqlSelectCommand2 As System.Data.SqlClient.SqlCommand
     Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(emitirPresupuesto))
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -87,8 +88,8 @@ Public Class emitirPresupuesto
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(emitirPresupuesto))
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.cmbFiltrar = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.btnFiltrar = New Infragistics.Win.Misc.UltraButton
         Me.Label5 = New System.Windows.Forms.Label
@@ -114,8 +115,8 @@ Public Class emitirPresupuesto
         Me.cnn = New System.Data.SqlClient.SqlConnection
         Me.aAdicional = New System.Data.SqlClient.SqlDataAdapter
         Me.SqlSelectCommand2 = New System.Data.SqlClient.SqlCommand
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.UltraTabPageControl1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboCliente, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -127,7 +128,6 @@ Public Class emitirPresupuesto
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
         Me.UltraTabSharedControlsPage1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -151,6 +151,17 @@ Public Class emitirPresupuesto
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 537)
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(201, 56)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(20, 21)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 25
+        Me.PictureBox1.TabStop = False
         '
         'cmbFiltrar
         '
@@ -432,17 +443,6 @@ Public Class emitirPresupuesto
         Me.SqlSelectCommand2.CommandText = resources.GetString("SqlSelectCommand2.CommandText")
         Me.SqlSelectCommand2.Connection = Me.cnn
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(201, 56)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(20, 21)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox1.TabIndex = 25
-        Me.PictureBox1.TabStop = False
-        '
         'emitirPresupuesto
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -455,6 +455,7 @@ Public Class emitirPresupuesto
         Me.Text = "Emitir presupuesto"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboCliente, System.ComponentModel.ISupportInitialize).EndInit()
@@ -466,7 +467,6 @@ Public Class emitirPresupuesto
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
         Me.UltraTabSharedControlsPage1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -536,6 +536,15 @@ Public Class emitirPresupuesto
         ' cargo los combos de empleados y clientes
         cargarComboTag("select * from cliente", comboCliente, 0, 23)
         cargarComboTag("select * from empleado", comboEmpleado, 0, 23)
+
+        'seteo combo empleado
+        Dim legajo As Integer = seguridad.id
+        Dim item As Infragistics.Win.ValueListItem
+        For Each item In comboEmpleado.Items
+            If item.Tag = legajo Then
+                comboEmpleado.SelectedItem = item
+            End If
+        Next
 
         princ.barra.agregarBoton(Me)
 
