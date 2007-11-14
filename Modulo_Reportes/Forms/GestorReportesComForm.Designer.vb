@@ -1,5 +1,5 @@
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class GestorReportesForm
+Partial Class GestorReportesComForm
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -19,29 +19,29 @@ Partial Class GestorReportesForm
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GestorReportesForm))
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Me.btnPedido = New Infragistics.Win.Misc.UltraButton
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GestorReportesComForm))
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
-        Me.checkPedidoEstado = New System.Windows.Forms.CheckBox
-        Me.checkPedidoCliente = New System.Windows.Forms.CheckBox
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.comboPedidoCliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.comboPedidoEstado = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.tabReportes = New System.Windows.Forms.TabControl
-        Me.tabPedidos = New System.Windows.Forms.TabPage
+        Me.tabCompra = New System.Windows.Forms.TabControl
+        Me.tabOrdenDeCompra = New System.Windows.Forms.TabPage
         Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.comboPedidoEstado = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
         Me.checkPedidoFecha = New System.Windows.Forms.CheckBox
         Me.pedidoHasta = New System.Windows.Forms.DateTimePicker
         Me.pedidoDesde = New System.Windows.Forms.DateTimePicker
-        Me.tabFresas = New System.Windows.Forms.TabPage
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.comboPedidoCliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
+        Me.checkPedidoEstado = New System.Windows.Forms.CheckBox
+        Me.btnPedido = New Infragistics.Win.Misc.UltraButton
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.checkPedidoCliente = New System.Windows.Forms.CheckBox
+        Me.tabDetalle = New System.Windows.Forms.TabPage
         Me.PictureBox6 = New System.Windows.Forms.PictureBox
         Me.PictureBox5 = New System.Windows.Forms.PictureBox
         Me.Label5 = New System.Windows.Forms.Label
@@ -56,7 +56,7 @@ Partial Class GestorReportesForm
         Me.fresaHasta = New System.Windows.Forms.DateTimePicker
         Me.fresaDesde = New System.Windows.Forms.DateTimePicker
         Me.btnFresas = New Infragistics.Win.Misc.UltraButton
-        Me.tabCliente = New System.Windows.Forms.TabPage
+        Me.tabOCDetalle = New System.Windows.Forms.TabPage
         Me.PictureBox8 = New System.Windows.Forms.PictureBox
         Me.PictureBox7 = New System.Windows.Forms.PictureBox
         Me.Label6 = New System.Windows.Forms.Label
@@ -80,19 +80,16 @@ Partial Class GestorReportesForm
         Me.Label8 = New System.Windows.Forms.Label
         Me.comboServicioCliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.checkServicioCliente = New System.Windows.Forms.CheckBox
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
-        CType(Me.comboPedidoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.comboPedidoEstado, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabReportes.SuspendLayout()
-        Me.tabPedidos.SuspendLayout()
+        Me.tabCompra.SuspendLayout()
+        Me.tabOrdenDeCompra.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comboPedidoEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabFresas.SuspendLayout()
+        CType(Me.comboPedidoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabDetalle.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboFresaModelo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,7 +97,7 @@ Partial Class GestorReportesForm
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tabCliente.SuspendLayout()
+        Me.tabOCDetalle.SuspendLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboClienteProvincia, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,119 +111,49 @@ Partial Class GestorReportesForm
         CType(Me.comboServicioCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'btnPedido
-        '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Me.btnPedido.Appearance = Appearance1
-        Me.btnPedido.Location = New System.Drawing.Point(416, 85)
-        Me.btnPedido.Name = "btnPedido"
-        Me.btnPedido.Size = New System.Drawing.Size(96, 31)
-        Me.btnPedido.TabIndex = 39
-        Me.btnPedido.Text = "Actualizar"
-        '
         'crv
         '
         Me.crv.ActiveViewIndex = -1
         Me.crv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.crv.DisplayGroupTree = False
-        Me.crv.Location = New System.Drawing.Point(12, 175)
+        Me.crv.Location = New System.Drawing.Point(12, 173)
         Me.crv.Name = "crv"
         Me.crv.SelectionFormula = ""
-        Me.crv.Size = New System.Drawing.Size(790, 373)
-        Me.crv.TabIndex = 40
+        Me.crv.Size = New System.Drawing.Size(790, 377)
+        Me.crv.TabIndex = 41
         Me.crv.ViewTimeSelectionFormula = ""
         '
-        'checkPedidoEstado
+        'tabCompra
         '
-        Me.checkPedidoEstado.AutoSize = True
-        Me.checkPedidoEstado.BackColor = System.Drawing.SystemColors.Control
-        Me.checkPedidoEstado.Location = New System.Drawing.Point(649, 62)
-        Me.checkPedidoEstado.Name = "checkPedidoEstado"
-        Me.checkPedidoEstado.Size = New System.Drawing.Size(59, 17)
-        Me.checkPedidoEstado.TabIndex = 52
-        Me.checkPedidoEstado.Text = "Activar"
-        Me.checkPedidoEstado.UseVisualStyleBackColor = False
+        Me.tabCompra.Controls.Add(Me.tabOrdenDeCompra)
+        Me.tabCompra.Controls.Add(Me.tabDetalle)
+        Me.tabCompra.Controls.Add(Me.tabOCDetalle)
+        Me.tabCompra.Controls.Add(Me.tabServicios)
+        Me.tabCompra.Location = New System.Drawing.Point(12, 10)
+        Me.tabCompra.Name = "tabCompra"
+        Me.tabCompra.SelectedIndex = 0
+        Me.tabCompra.Size = New System.Drawing.Size(790, 157)
+        Me.tabCompra.TabIndex = 57
         '
-        'checkPedidoCliente
+        'tabOrdenDeCompra
         '
-        Me.checkPedidoCliente.AutoSize = True
-        Me.checkPedidoCliente.BackColor = System.Drawing.SystemColors.Control
-        Me.checkPedidoCliente.Location = New System.Drawing.Point(649, 34)
-        Me.checkPedidoCliente.Name = "checkPedidoCliente"
-        Me.checkPedidoCliente.Size = New System.Drawing.Size(59, 17)
-        Me.checkPedidoCliente.TabIndex = 50
-        Me.checkPedidoCliente.Text = "Activar"
-        Me.checkPedidoCliente.UseVisualStyleBackColor = False
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(375, 63)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(40, 13)
-        Me.Label4.TabIndex = 49
-        Me.Label4.Text = "Estado"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(375, 35)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
-        Me.Label2.TabIndex = 45
-        Me.Label2.Text = "Cliente"
-        '
-        'comboPedidoCliente
-        '
-        Me.comboPedidoCliente.AutoSize = True
-        Me.comboPedidoCliente.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboPedidoCliente.Location = New System.Drawing.Point(416, 31)
-        Me.comboPedidoCliente.Name = "comboPedidoCliente"
-        Me.comboPedidoCliente.Size = New System.Drawing.Size(205, 21)
-        Me.comboPedidoCliente.TabIndex = 53
-        '
-        'comboPedidoEstado
-        '
-        Me.comboPedidoEstado.AutoSize = True
-        Me.comboPedidoEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboPedidoEstado.Location = New System.Drawing.Point(416, 58)
-        Me.comboPedidoEstado.Name = "comboPedidoEstado"
-        Me.comboPedidoEstado.Size = New System.Drawing.Size(205, 21)
-        Me.comboPedidoEstado.TabIndex = 55
-        '
-        'tabReportes
-        '
-        Me.tabReportes.Controls.Add(Me.tabPedidos)
-        Me.tabReportes.Controls.Add(Me.tabFresas)
-        Me.tabReportes.Controls.Add(Me.tabCliente)
-        Me.tabReportes.Controls.Add(Me.tabServicios)
-        Me.tabReportes.Location = New System.Drawing.Point(12, 12)
-        Me.tabReportes.Name = "tabReportes"
-        Me.tabReportes.SelectedIndex = 0
-        Me.tabReportes.Size = New System.Drawing.Size(790, 157)
-        Me.tabReportes.TabIndex = 56
-        '
-        'tabPedidos
-        '
-        Me.tabPedidos.Controls.Add(Me.PictureBox2)
-        Me.tabPedidos.Controls.Add(Me.PictureBox1)
-        Me.tabPedidos.Controls.Add(Me.comboPedidoEstado)
-        Me.tabPedidos.Controls.Add(Me.UltraGroupBox1)
-        Me.tabPedidos.Controls.Add(Me.Label2)
-        Me.tabPedidos.Controls.Add(Me.comboPedidoCliente)
-        Me.tabPedidos.Controls.Add(Me.checkPedidoEstado)
-        Me.tabPedidos.Controls.Add(Me.btnPedido)
-        Me.tabPedidos.Controls.Add(Me.Label4)
-        Me.tabPedidos.Controls.Add(Me.checkPedidoCliente)
-        Me.tabPedidos.Location = New System.Drawing.Point(4, 22)
-        Me.tabPedidos.Name = "tabPedidos"
-        Me.tabPedidos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPedidos.Size = New System.Drawing.Size(782, 131)
-        Me.tabPedidos.TabIndex = 0
-        Me.tabPedidos.Text = "Pedidos"
-        Me.tabPedidos.UseVisualStyleBackColor = True
+        Me.tabOrdenDeCompra.Controls.Add(Me.PictureBox2)
+        Me.tabOrdenDeCompra.Controls.Add(Me.PictureBox1)
+        Me.tabOrdenDeCompra.Controls.Add(Me.comboPedidoEstado)
+        Me.tabOrdenDeCompra.Controls.Add(Me.UltraGroupBox1)
+        Me.tabOrdenDeCompra.Controls.Add(Me.Label2)
+        Me.tabOrdenDeCompra.Controls.Add(Me.comboPedidoCliente)
+        Me.tabOrdenDeCompra.Controls.Add(Me.checkPedidoEstado)
+        Me.tabOrdenDeCompra.Controls.Add(Me.btnPedido)
+        Me.tabOrdenDeCompra.Controls.Add(Me.Label4)
+        Me.tabOrdenDeCompra.Controls.Add(Me.checkPedidoCliente)
+        Me.tabOrdenDeCompra.Location = New System.Drawing.Point(4, 22)
+        Me.tabOrdenDeCompra.Name = "tabOrdenDeCompra"
+        Me.tabOrdenDeCompra.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabOrdenDeCompra.Size = New System.Drawing.Size(782, 131)
+        Me.tabOrdenDeCompra.TabIndex = 0
+        Me.tabOrdenDeCompra.Text = "Orden de compra"
+        Me.tabOrdenDeCompra.UseVisualStyleBackColor = True
         '
         'PictureBox2
         '
@@ -247,6 +174,15 @@ Partial Class GestorReportesForm
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox1.TabIndex = 56
         Me.PictureBox1.TabStop = False
+        '
+        'comboPedidoEstado
+        '
+        Me.comboPedidoEstado.AutoSize = True
+        Me.comboPedidoEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
+        Me.comboPedidoEstado.Location = New System.Drawing.Point(416, 58)
+        Me.comboPedidoEstado.Name = "comboPedidoEstado"
+        Me.comboPedidoEstado.Size = New System.Drawing.Size(205, 21)
+        Me.comboPedidoEstado.TabIndex = 55
         '
         'UltraGroupBox1
         '
@@ -297,25 +233,87 @@ Partial Class GestorReportesForm
         Me.pedidoDesde.Size = New System.Drawing.Size(211, 20)
         Me.pedidoDesde.TabIndex = 41
         '
-        'tabFresas
+        'Label2
         '
-        Me.tabFresas.Controls.Add(Me.PictureBox6)
-        Me.tabFresas.Controls.Add(Me.PictureBox5)
-        Me.tabFresas.Controls.Add(Me.Label5)
-        Me.tabFresas.Controls.Add(Me.comboFresaModelo)
-        Me.tabFresas.Controls.Add(Me.checkFresaModelo)
-        Me.tabFresas.Controls.Add(Me.comboFresaEstado)
-        Me.tabFresas.Controls.Add(Me.checkFresaEstado)
-        Me.tabFresas.Controls.Add(Me.Label1)
-        Me.tabFresas.Controls.Add(Me.UltraGroupBox2)
-        Me.tabFresas.Controls.Add(Me.btnFresas)
-        Me.tabFresas.Location = New System.Drawing.Point(4, 22)
-        Me.tabFresas.Name = "tabFresas"
-        Me.tabFresas.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabFresas.Size = New System.Drawing.Size(782, 131)
-        Me.tabFresas.TabIndex = 1
-        Me.tabFresas.Text = "Pedidos Fresa"
-        Me.tabFresas.UseVisualStyleBackColor = True
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Location = New System.Drawing.Point(375, 35)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 45
+        Me.Label2.Text = "Cliente"
+        '
+        'comboPedidoCliente
+        '
+        Me.comboPedidoCliente.AutoSize = True
+        Me.comboPedidoCliente.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
+        Me.comboPedidoCliente.Location = New System.Drawing.Point(416, 31)
+        Me.comboPedidoCliente.Name = "comboPedidoCliente"
+        Me.comboPedidoCliente.Size = New System.Drawing.Size(205, 21)
+        Me.comboPedidoCliente.TabIndex = 53
+        '
+        'checkPedidoEstado
+        '
+        Me.checkPedidoEstado.AutoSize = True
+        Me.checkPedidoEstado.BackColor = System.Drawing.SystemColors.Control
+        Me.checkPedidoEstado.Location = New System.Drawing.Point(649, 62)
+        Me.checkPedidoEstado.Name = "checkPedidoEstado"
+        Me.checkPedidoEstado.Size = New System.Drawing.Size(59, 17)
+        Me.checkPedidoEstado.TabIndex = 52
+        Me.checkPedidoEstado.Text = "Activar"
+        Me.checkPedidoEstado.UseVisualStyleBackColor = False
+        '
+        'btnPedido
+        '
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.btnPedido.Appearance = Appearance6
+        Me.btnPedido.Location = New System.Drawing.Point(416, 85)
+        Me.btnPedido.Name = "btnPedido"
+        Me.btnPedido.Size = New System.Drawing.Size(96, 31)
+        Me.btnPedido.TabIndex = 39
+        Me.btnPedido.Text = "Actualizar"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Location = New System.Drawing.Point(375, 63)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(40, 13)
+        Me.Label4.TabIndex = 49
+        Me.Label4.Text = "Estado"
+        '
+        'checkPedidoCliente
+        '
+        Me.checkPedidoCliente.AutoSize = True
+        Me.checkPedidoCliente.BackColor = System.Drawing.SystemColors.Control
+        Me.checkPedidoCliente.Location = New System.Drawing.Point(649, 34)
+        Me.checkPedidoCliente.Name = "checkPedidoCliente"
+        Me.checkPedidoCliente.Size = New System.Drawing.Size(59, 17)
+        Me.checkPedidoCliente.TabIndex = 50
+        Me.checkPedidoCliente.Text = "Activar"
+        Me.checkPedidoCliente.UseVisualStyleBackColor = False
+        '
+        'tabDetalle
+        '
+        Me.tabDetalle.AutoScroll = True
+        Me.tabDetalle.Controls.Add(Me.PictureBox6)
+        Me.tabDetalle.Controls.Add(Me.PictureBox5)
+        Me.tabDetalle.Controls.Add(Me.Label5)
+        Me.tabDetalle.Controls.Add(Me.comboFresaModelo)
+        Me.tabDetalle.Controls.Add(Me.checkFresaModelo)
+        Me.tabDetalle.Controls.Add(Me.comboFresaEstado)
+        Me.tabDetalle.Controls.Add(Me.checkFresaEstado)
+        Me.tabDetalle.Controls.Add(Me.Label1)
+        Me.tabDetalle.Controls.Add(Me.UltraGroupBox2)
+        Me.tabDetalle.Controls.Add(Me.btnFresas)
+        Me.tabDetalle.Location = New System.Drawing.Point(4, 22)
+        Me.tabDetalle.Name = "tabDetalle"
+        Me.tabDetalle.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabDetalle.Size = New System.Drawing.Size(782, 131)
+        Me.tabDetalle.TabIndex = 1
+        Me.tabDetalle.Text = "Detalle OC"
+        Me.tabDetalle.UseVisualStyleBackColor = True
         '
         'PictureBox6
         '
@@ -448,32 +446,32 @@ Partial Class GestorReportesForm
         '
         'btnFresas
         '
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Me.btnFresas.Appearance = Appearance2
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.btnFresas.Appearance = Appearance7
         Me.btnFresas.Location = New System.Drawing.Point(418, 85)
         Me.btnFresas.Name = "btnFresas"
         Me.btnFresas.Size = New System.Drawing.Size(96, 31)
         Me.btnFresas.TabIndex = 41
         Me.btnFresas.Text = "Actualizar"
         '
-        'tabCliente
+        'tabOCDetalle
         '
-        Me.tabCliente.Controls.Add(Me.PictureBox8)
-        Me.tabCliente.Controls.Add(Me.PictureBox7)
-        Me.tabCliente.Controls.Add(Me.Label6)
-        Me.tabCliente.Controls.Add(Me.comboClienteProvincia)
-        Me.tabCliente.Controls.Add(Me.checkClienteProvincia)
-        Me.tabCliente.Controls.Add(Me.comboClienteLocalidad)
-        Me.tabCliente.Controls.Add(Me.checkClienteLocalidad)
-        Me.tabCliente.Controls.Add(Me.Label7)
-        Me.tabCliente.Controls.Add(Me.btnCliente)
-        Me.tabCliente.Location = New System.Drawing.Point(4, 22)
-        Me.tabCliente.Name = "tabCliente"
-        Me.tabCliente.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabCliente.Size = New System.Drawing.Size(782, 131)
-        Me.tabCliente.TabIndex = 2
-        Me.tabCliente.Text = "Clientes"
-        Me.tabCliente.UseVisualStyleBackColor = True
+        Me.tabOCDetalle.Controls.Add(Me.PictureBox8)
+        Me.tabOCDetalle.Controls.Add(Me.PictureBox7)
+        Me.tabOCDetalle.Controls.Add(Me.Label6)
+        Me.tabOCDetalle.Controls.Add(Me.comboClienteProvincia)
+        Me.tabOCDetalle.Controls.Add(Me.checkClienteProvincia)
+        Me.tabOCDetalle.Controls.Add(Me.comboClienteLocalidad)
+        Me.tabOCDetalle.Controls.Add(Me.checkClienteLocalidad)
+        Me.tabOCDetalle.Controls.Add(Me.Label7)
+        Me.tabOCDetalle.Controls.Add(Me.btnCliente)
+        Me.tabOCDetalle.Location = New System.Drawing.Point(4, 22)
+        Me.tabOCDetalle.Name = "tabOCDetalle"
+        Me.tabOCDetalle.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabOCDetalle.Size = New System.Drawing.Size(782, 131)
+        Me.tabOCDetalle.TabIndex = 2
+        Me.tabOCDetalle.Text = "OC y detalle"
+        Me.tabOCDetalle.UseVisualStyleBackColor = True
         '
         'PictureBox8
         '
@@ -559,8 +557,8 @@ Partial Class GestorReportesForm
         '
         'btnCliente
         '
-        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
-        Me.btnCliente.Appearance = Appearance3
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.btnCliente.Appearance = Appearance5
         Me.btnCliente.Location = New System.Drawing.Point(192, 80)
         Me.btnCliente.Name = "btnCliente"
         Me.btnCliente.Size = New System.Drawing.Size(90, 34)
@@ -685,8 +683,8 @@ Partial Class GestorReportesForm
         '
         'btnServicio
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.btnServicio.Appearance = Appearance4
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.btnServicio.Appearance = Appearance8
         Me.btnServicio.Location = New System.Drawing.Point(416, 71)
         Me.btnServicio.Name = "btnServicio"
         Me.btnServicio.Size = New System.Drawing.Size(90, 34)
@@ -723,56 +721,30 @@ Partial Class GestorReportesForm
         Me.checkServicioCliente.Text = "Activar"
         Me.checkServicioCliente.UseVisualStyleBackColor = False
         '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.CheckBox1.Location = New System.Drawing.Point(6, 70)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(59, 17)
-        Me.CheckBox1.TabIndex = 43
-        Me.CheckBox1.Text = "Activar"
-        Me.CheckBox1.UseVisualStyleBackColor = False
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(6, 42)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(203, 20)
-        Me.DateTimePicker1.TabIndex = 42
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Location = New System.Drawing.Point(6, 20)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(203, 20)
-        Me.DateTimePicker2.TabIndex = 41
-        '
-        'GestorReportesForm
+        'GestorReportesComForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(814, 560)
-        Me.Controls.Add(Me.tabReportes)
+        Me.ClientSize = New System.Drawing.Size(816, 562)
+        Me.Controls.Add(Me.tabCompra)
         Me.Controls.Add(Me.crv)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
-        Me.Location = New System.Drawing.Point(196, 105)
-        Me.Name = "GestorReportesForm"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Gestor Reportes Generales"
-        CType(Me.comboPedidoCliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.comboPedidoEstado, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tabReportes.ResumeLayout(False)
-        Me.tabPedidos.ResumeLayout(False)
-        Me.tabPedidos.PerformLayout()
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Name = "GestorReportesComForm"
+        Me.RightToLeftLayout = True
+        Me.Text = "Gestor Reportes Compra"
+        Me.tabCompra.ResumeLayout(False)
+        Me.tabOrdenDeCompra.ResumeLayout(False)
+        Me.tabOrdenDeCompra.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comboPedidoEstado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
         Me.UltraGroupBox1.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tabFresas.ResumeLayout(False)
-        Me.tabFresas.PerformLayout()
+        CType(Me.comboPedidoCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabDetalle.ResumeLayout(False)
+        Me.tabDetalle.PerformLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboFresaModelo, System.ComponentModel.ISupportInitialize).EndInit()
@@ -781,8 +753,8 @@ Partial Class GestorReportesForm
         Me.UltraGroupBox2.ResumeLayout(False)
         Me.UltraGroupBox2.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tabCliente.ResumeLayout(False)
-        Me.tabCliente.PerformLayout()
+        Me.tabOCDetalle.ResumeLayout(False)
+        Me.tabOCDetalle.PerformLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboClienteProvincia, System.ComponentModel.ISupportInitialize).EndInit()
@@ -798,63 +770,60 @@ Partial Class GestorReportesForm
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents btnPedido As Infragistics.Win.Misc.UltraButton
     Friend WithEvents crv As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Friend WithEvents checkPedidoEstado As System.Windows.Forms.CheckBox
-    Friend WithEvents checkPedidoCliente As System.Windows.Forms.CheckBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents tabCompra As System.Windows.Forms.TabControl
+    Friend WithEvents tabOrdenDeCompra As System.Windows.Forms.TabPage
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents comboPedidoEstado As Infragistics.Win.UltraWinEditors.UltraComboEditor
-    Friend WithEvents comboPedidoCliente As Infragistics.Win.UltraWinEditors.UltraComboEditor
-    Friend WithEvents tabReportes As System.Windows.Forms.TabControl
-    Friend WithEvents tabPedidos As System.Windows.Forms.TabPage
-    Friend WithEvents tabFresas As System.Windows.Forms.TabPage
-    Friend WithEvents tabCliente As System.Windows.Forms.TabPage
-    Friend WithEvents btnCliente As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents btnFresas As Infragistics.Win.Misc.UltraButton
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents checkPedidoFecha As System.Windows.Forms.CheckBox
     Friend WithEvents pedidoHasta As System.Windows.Forms.DateTimePicker
     Friend WithEvents pedidoDesde As System.Windows.Forms.DateTimePicker
-    Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
-    Friend WithEvents checkFechaFresa As System.Windows.Forms.CheckBox
-    Friend WithEvents fresaHasta As System.Windows.Forms.DateTimePicker
-    Friend WithEvents fresaDesde As System.Windows.Forms.DateTimePicker
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents comboPedidoCliente As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents checkPedidoEstado As System.Windows.Forms.CheckBox
+    Friend WithEvents btnPedido As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents checkPedidoCliente As System.Windows.Forms.CheckBox
+    Friend WithEvents tabDetalle As System.Windows.Forms.TabPage
+    Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents comboFresaModelo As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents checkFresaModelo As System.Windows.Forms.CheckBox
     Friend WithEvents comboFresaEstado As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents checkFresaEstado As System.Windows.Forms.CheckBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents checkFechaFresa As System.Windows.Forms.CheckBox
+    Friend WithEvents fresaHasta As System.Windows.Forms.DateTimePicker
+    Friend WithEvents fresaDesde As System.Windows.Forms.DateTimePicker
+    Friend WithEvents btnFresas As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents tabOCDetalle As System.Windows.Forms.TabPage
+    Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents comboClienteProvincia As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents checkClienteProvincia As System.Windows.Forms.CheckBox
     Friend WithEvents comboClienteLocalidad As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents checkClienteLocalidad As System.Windows.Forms.CheckBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents btnCliente As Infragistics.Win.Misc.UltraButton
     Friend WithEvents tabServicios As System.Windows.Forms.TabPage
-    Friend WithEvents btnServicio As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents comboServicioCliente As Infragistics.Win.UltraWinEditors.UltraComboEditor
-    Friend WithEvents checkServicioCliente As System.Windows.Forms.CheckBox
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox11 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox10 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
     Friend WithEvents checkServicioEstado As System.Windows.Forms.CheckBox
     Friend WithEvents checkServicioOperacion As System.Windows.Forms.CheckBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents comboServicioEstado As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents comboServicioOperacion As Infragistics.Win.UltraWinEditors.UltraComboEditor
-    Friend WithEvents PictureBox11 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox10 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
+    Friend WithEvents btnServicio As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents comboServicioCliente As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents checkServicioCliente As System.Windows.Forms.CheckBox
 End Class

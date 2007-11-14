@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSOrdenCompra" targetNamespace="http://tempuri.org/DSOrdenCompra.xsd" xmlns:mstns="http://tempuri.org/DSOrdenCompra.xsd" xmlns="http://tempuri.org/DSOrdenCompra.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="AfilarConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="AfilarConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Afilar.My.MySettings.GlobalReference.Default.AfilarConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ordencomprampTableAdapter" GeneratorDataComponentClassName="ordencomprampTableAdapter" Name="ordencompramp" UserDataComponentName="ordencomprampTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT     ordencompramp.fecharealizacion, ordencompramp.plazodeentrega, ordencompramp.idordencompra, ordencompramp.nroorden, 
+                      ordencompramp.condicionesdepago, ordencompramp.causa, ordencompramp.idestado, ordencompramp.idproveedor, proveedor.nombre
+FROM         ordencompramp INNER JOIN
+                      proveedor ON ordencompramp.idproveedor = proveedor.idproveedor</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="fecharealizacion" DataSetColumn="fecharealizacion" />
+              <Mapping SourceColumn="plazodeentrega" DataSetColumn="plazodeentrega" />
+              <Mapping SourceColumn="idordencompra" DataSetColumn="idordencompra" />
+              <Mapping SourceColumn="nroorden" DataSetColumn="nroorden" />
+              <Mapping SourceColumn="condicionesdepago" DataSetColumn="condicionesdepago" />
+              <Mapping SourceColumn="causa" DataSetColumn="causa" />
+              <Mapping SourceColumn="idestado" DataSetColumn="idestado" />
+              <Mapping SourceColumn="idproveedor" DataSetColumn="idproveedor" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSOrdenCompra" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSOrdenCompra" msprop:Generator_DataSetName="DSOrdenCompra">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ordencompramp" msprop:Generator_UserTableName="ordencompramp" msprop:Generator_RowDeletedName="ordencomprampRowDeleted" msprop:Generator_TableClassName="ordencomprampDataTable" msprop:Generator_RowChangedName="ordencomprampRowChanged" msprop:Generator_RowClassName="ordencomprampRow" msprop:Generator_RowChangingName="ordencomprampRowChanging" msprop:Generator_RowEvArgName="ordencomprampRowChangeEvent" msprop:Generator_RowEvHandlerName="ordencomprampRowChangeEventHandler" msprop:Generator_TablePropName="ordencompramp" msprop:Generator_TableVarName="tableordencompramp" msprop:Generator_RowDeletingName="ordencomprampRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fecharealizacion" msprop:Generator_UserColumnName="fecharealizacion" msprop:Generator_ColumnPropNameInRow="fecharealizacion" msprop:Generator_ColumnVarNameInTable="columnfecharealizacion" msprop:Generator_ColumnPropNameInTable="fecharealizacionColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="plazodeentrega" msprop:Generator_UserColumnName="plazodeentrega" msprop:Generator_ColumnPropNameInRow="plazodeentrega" msprop:Generator_ColumnVarNameInTable="columnplazodeentrega" msprop:Generator_ColumnPropNameInTable="plazodeentregaColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="idordencompra" msprop:Generator_UserColumnName="idordencompra" msprop:Generator_ColumnPropNameInRow="idordencompra" msprop:Generator_ColumnVarNameInTable="columnidordencompra" msprop:Generator_ColumnPropNameInTable="idordencompraColumn" type="xs:int" />
+              <xs:element name="nroorden" msprop:Generator_UserColumnName="nroorden" msprop:Generator_ColumnPropNameInRow="nroorden" msprop:Generator_ColumnVarNameInTable="columnnroorden" msprop:Generator_ColumnPropNameInTable="nroordenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="condicionesdepago" msprop:Generator_UserColumnName="condicionesdepago" msprop:Generator_ColumnPropNameInRow="condicionesdepago" msprop:Generator_ColumnVarNameInTable="columncondicionesdepago" msprop:Generator_ColumnPropNameInTable="condicionesdepagoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="causa" msprop:Generator_UserColumnName="causa" msprop:Generator_ColumnPropNameInRow="causa" msprop:Generator_ColumnVarNameInTable="columncausa" msprop:Generator_ColumnPropNameInTable="causaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idestado" msprop:Generator_UserColumnName="idestado" msprop:Generator_ColumnPropNameInRow="idestado" msprop:Generator_ColumnVarNameInTable="columnidestado" msprop:Generator_ColumnPropNameInTable="idestadoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idproveedor" msprop:Generator_UserColumnName="idproveedor" msprop:Generator_ColumnPropNameInRow="idproveedor" msprop:Generator_ColumnVarNameInTable="columnidproveedor" msprop:Generator_ColumnPropNameInTable="idproveedorColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ordencompramp" />
+      <xs:field xpath="mstns:idordencompra" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
