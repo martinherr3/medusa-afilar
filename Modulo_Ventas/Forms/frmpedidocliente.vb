@@ -138,6 +138,7 @@ Public Class frmpedidocliente
     Friend WithEvents combocliente As Infragistics.Win.UltraWinEditors.UltraComboEditor
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmpedidocliente))
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -146,13 +147,13 @@ Public Class frmpedidocliente
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -164,14 +165,18 @@ Public Class frmpedidocliente
         Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmpedidocliente))
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.txtimportetotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label11 = New System.Windows.Forms.Label
         Me.btnmodificar = New Infragistics.Win.Misc.UltraButton
         Me.btngrabar = New Infragistics.Win.Misc.UltraButton
         Me.btnnuevo = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.Label12 = New System.Windows.Forms.Label
         Me.combocliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.fechaentrega = New Infragistics.Win.UltraWinSchedule.UltraCalendarCombo
@@ -186,15 +191,8 @@ Public Class frmpedidocliente
         Me.Label2 = New System.Windows.Forms.Label
         Me.lblnropedido = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
-        Me.txtsubtotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.btnquiter = New Infragistics.Win.Misc.UltraButton
-        Me.btnagregar = New Infragistics.Win.Misc.UltraButton
-        Me.DataGridpp = New System.Windows.Forms.DataGrid
-        Me.DataGridF = New System.Windows.Forms.DataGrid
-        Me.DataGridMf = New System.Windows.Forms.DataGrid
         Me.UltraGroupBox3 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox
         Me.botquitar = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox4 = New Infragistics.Win.Misc.UltraGroupBox
         Me.txtcantidad = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -207,8 +205,18 @@ Public Class frmpedidocliente
         Me.DataGriddos = New System.Windows.Forms.DataGrid
         Me.DataGridservicios = New System.Windows.Forms.DataGrid
         Me.DataGridfresasfab = New System.Windows.Forms.DataGrid
+        Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox
+        Me.txtsubtotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.btnquiter = New Infragistics.Win.Misc.UltraButton
+        Me.btnagregar = New Infragistics.Win.Misc.UltraButton
+        Me.DataGridpp = New System.Windows.Forms.DataGrid
+        Me.DataGridF = New System.Windows.Forms.DataGrid
+        Me.DataGridMf = New System.Windows.Forms.DataGrid
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox
         Me.radioNinguno = New System.Windows.Forms.RadioButton
         Me.radioRealizacion = New System.Windows.Forms.RadioButton
         Me.radioEntrega = New System.Windows.Forms.RadioButton
@@ -224,31 +232,23 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox
-        Me.PictureBox8 = New System.Windows.Forms.PictureBox
         Me.UltraTabPageControl1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.combocliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.fechaentrega, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboformaentrega, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboestado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraOptionSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox1.SuspendLayout()
-        CType(Me.txtsubtotal, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridpp, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridF, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridMf, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox3.SuspendLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox4.SuspendLayout()
         CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -257,21 +257,21 @@ Public Class frmpedidocliente
         CType(Me.DataGriddos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridservicios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox1.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtsubtotal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridpp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridF, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridMf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -288,6 +288,17 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(729, 512)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
         '
         'txtimportetotal
         '
@@ -368,6 +379,50 @@ Public Class frmpedidocliente
         Me.UltraGroupBox2.TabIndex = 1
         Me.UltraGroupBox2.Text = "Datos del cliente"
         Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
+        Me.PictureBox6.Location = New System.Drawing.Point(236, 69)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox6.TabIndex = 23
+        Me.PictureBox6.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
+        Me.PictureBox4.Location = New System.Drawing.Point(641, 69)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox4.TabIndex = 22
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
+        Me.PictureBox3.Location = New System.Drawing.Point(641, 45)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox3.TabIndex = 21
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(641, 21)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox2.TabIndex = 20
+        Me.PictureBox2.TabStop = False
         '
         'Label12
         '
@@ -503,153 +558,6 @@ Public Class frmpedidocliente
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nº Pedido"
         '
-        'UltraGroupBox1
-        '
-        Me.UltraGroupBox1.BackColor = System.Drawing.Color.Transparent
-        Appearance10.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox1.ContentAreaAppearance = Appearance10
-        Me.UltraGroupBox1.Controls.Add(Me.PictureBox5)
-        Me.UltraGroupBox1.Controls.Add(Me.txtsubtotal)
-        Me.UltraGroupBox1.Controls.Add(Me.Label7)
-        Me.UltraGroupBox1.Controls.Add(Me.btnquiter)
-        Me.UltraGroupBox1.Controls.Add(Me.btnagregar)
-        Me.UltraGroupBox1.Controls.Add(Me.DataGridpp)
-        Me.UltraGroupBox1.Controls.Add(Me.DataGridF)
-        Me.UltraGroupBox1.Controls.Add(Me.DataGridMf)
-        Me.UltraGroupBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(12, 112)
-        Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(790, 391)
-        Me.UltraGroupBox1.SupportThemes = False
-        Me.UltraGroupBox1.TabIndex = 0
-        Me.UltraGroupBox1.Text = "Productos a Fabricar"
-        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
-        '
-        'txtsubtotal
-        '
-        Me.txtsubtotal.AutoSize = True
-        Me.txtsubtotal.Location = New System.Drawing.Point(652, 361)
-        Me.txtsubtotal.Name = "txtsubtotal"
-        Me.txtsubtotal.ReadOnly = True
-        Me.txtsubtotal.Size = New System.Drawing.Size(65, 22)
-        Me.txtsubtotal.TabIndex = 6
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label7.Location = New System.Drawing.Point(589, 370)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(49, 13)
-        Me.Label7.TabIndex = 5
-        Me.Label7.Text = "Subtotal:"
-        '
-        'btnquiter
-        '
-        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
-        Me.btnquiter.Appearance = Appearance11
-        Me.btnquiter.Location = New System.Drawing.Point(132, 171)
-        Me.btnquiter.Name = "btnquiter"
-        Me.btnquiter.Size = New System.Drawing.Size(102, 24)
-        Me.btnquiter.TabIndex = 4
-        Me.btnquiter.Text = "Quitar Item"
-        '
-        'btnagregar
-        '
-        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
-        Me.btnagregar.Appearance = Appearance12
-        Me.btnagregar.Location = New System.Drawing.Point(24, 171)
-        Me.btnagregar.Name = "btnagregar"
-        Me.btnagregar.Size = New System.Drawing.Size(102, 24)
-        Me.btnagregar.TabIndex = 3
-        Me.btnagregar.Text = "Agregar Item"
-        '
-        'DataGridpp
-        '
-        Me.DataGridpp.AlternatingBackColor = System.Drawing.Color.Lavender
-        Me.DataGridpp.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridpp.BackgroundColor = System.Drawing.Color.LightGray
-        Me.DataGridpp.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DataGridpp.CaptionBackColor = System.Drawing.Color.LightSteelBlue
-        Me.DataGridpp.CaptionForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridpp.CaptionText = "Partes Solicitadas"
-        Me.DataGridpp.DataMember = ""
-        Me.DataGridpp.FlatMode = True
-        Me.DataGridpp.Font = New System.Drawing.Font("Tahoma", 8.0!)
-        Me.DataGridpp.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridpp.GridLineColor = System.Drawing.Color.Gainsboro
-        Me.DataGridpp.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
-        Me.DataGridpp.HeaderBackColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridpp.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.DataGridpp.HeaderForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridpp.LinkColor = System.Drawing.Color.Teal
-        Me.DataGridpp.Location = New System.Drawing.Point(440, 196)
-        Me.DataGridpp.Name = "DataGridpp"
-        Me.DataGridpp.ParentRowsBackColor = System.Drawing.Color.Gainsboro
-        Me.DataGridpp.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridpp.ReadOnly = True
-        Me.DataGridpp.SelectionBackColor = System.Drawing.Color.CadetBlue
-        Me.DataGridpp.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridpp.Size = New System.Drawing.Size(328, 148)
-        Me.DataGridpp.TabIndex = 2
-        '
-        'DataGridF
-        '
-        Me.DataGridF.AlternatingBackColor = System.Drawing.Color.Lavender
-        Me.DataGridF.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridF.BackgroundColor = System.Drawing.Color.LightGray
-        Me.DataGridF.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DataGridF.CaptionBackColor = System.Drawing.Color.LightSteelBlue
-        Me.DataGridF.CaptionForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridF.CaptionText = "Produtos Solicitados"
-        Me.DataGridF.DataMember = ""
-        Me.DataGridF.FlatMode = True
-        Me.DataGridF.Font = New System.Drawing.Font("Tahoma", 8.0!)
-        Me.DataGridF.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridF.GridLineColor = System.Drawing.Color.Gainsboro
-        Me.DataGridF.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
-        Me.DataGridF.HeaderBackColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridF.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.DataGridF.HeaderForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridF.LinkColor = System.Drawing.Color.Teal
-        Me.DataGridF.Location = New System.Drawing.Point(24, 196)
-        Me.DataGridF.Name = "DataGridF"
-        Me.DataGridF.ParentRowsBackColor = System.Drawing.Color.Gainsboro
-        Me.DataGridF.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridF.SelectionBackColor = System.Drawing.Color.CadetBlue
-        Me.DataGridF.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridF.Size = New System.Drawing.Size(376, 148)
-        Me.DataGridF.TabIndex = 1
-        '
-        'DataGridMf
-        '
-        Me.DataGridMf.AlternatingBackColor = System.Drawing.Color.Lavender
-        Me.DataGridMf.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridMf.BackgroundColor = System.Drawing.Color.LightGray
-        Me.DataGridMf.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.DataGridMf.CaptionBackColor = System.Drawing.Color.LightSteelBlue
-        Me.DataGridMf.CaptionForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridMf.CaptionText = "Produtos"
-        Me.DataGridMf.DataMember = ""
-        Me.DataGridMf.FlatMode = True
-        Me.DataGridMf.Font = New System.Drawing.Font("Tahoma", 8.0!)
-        Me.DataGridMf.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridMf.GridLineColor = System.Drawing.Color.Gainsboro
-        Me.DataGridMf.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
-        Me.DataGridMf.HeaderBackColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridMf.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.DataGridMf.HeaderForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridMf.LinkColor = System.Drawing.Color.Teal
-        Me.DataGridMf.Location = New System.Drawing.Point(24, 23)
-        Me.DataGridMf.Name = "DataGridMf"
-        Me.DataGridMf.ParentRowsBackColor = System.Drawing.Color.Gainsboro
-        Me.DataGridMf.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridMf.SelectionBackColor = System.Drawing.Color.CadetBlue
-        Me.DataGridMf.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGridMf.Size = New System.Drawing.Size(744, 144)
-        Me.DataGridMf.TabIndex = 0
-        '
         'UltraGroupBox3
         '
         Me.UltraGroupBox3.BackColor = System.Drawing.Color.Transparent
@@ -671,6 +579,17 @@ Public Class frmpedidocliente
         Me.UltraGroupBox3.TabIndex = 5
         Me.UltraGroupBox3.Text = "Servicios a Realizar"
         Me.UltraGroupBox3.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
+        Me.PictureBox7.Location = New System.Drawing.Point(717, 361)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox7.TabIndex = 9
+        Me.PictureBox7.TabStop = False
         '
         'botquitar
         '
@@ -848,6 +767,164 @@ Public Class frmpedidocliente
         Me.DataGridfresasfab.Size = New System.Drawing.Size(280, 144)
         Me.DataGridfresasfab.TabIndex = 0
         '
+        'UltraGroupBox1
+        '
+        Me.UltraGroupBox1.BackColor = System.Drawing.Color.Transparent
+        Appearance10.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox1.ContentAreaAppearance = Appearance10
+        Me.UltraGroupBox1.Controls.Add(Me.PictureBox5)
+        Me.UltraGroupBox1.Controls.Add(Me.txtsubtotal)
+        Me.UltraGroupBox1.Controls.Add(Me.Label7)
+        Me.UltraGroupBox1.Controls.Add(Me.btnquiter)
+        Me.UltraGroupBox1.Controls.Add(Me.btnagregar)
+        Me.UltraGroupBox1.Controls.Add(Me.DataGridpp)
+        Me.UltraGroupBox1.Controls.Add(Me.DataGridF)
+        Me.UltraGroupBox1.Controls.Add(Me.DataGridMf)
+        Me.UltraGroupBox1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(12, 112)
+        Me.UltraGroupBox1.Name = "UltraGroupBox1"
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(790, 391)
+        Me.UltraGroupBox1.SupportThemes = False
+        Me.UltraGroupBox1.TabIndex = 0
+        Me.UltraGroupBox1.Text = "Productos a Fabricar"
+        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
+        Me.PictureBox5.Location = New System.Drawing.Point(717, 361)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox5.TabIndex = 9
+        Me.PictureBox5.TabStop = False
+        '
+        'txtsubtotal
+        '
+        Me.txtsubtotal.AutoSize = True
+        Me.txtsubtotal.Location = New System.Drawing.Point(652, 361)
+        Me.txtsubtotal.Name = "txtsubtotal"
+        Me.txtsubtotal.ReadOnly = True
+        Me.txtsubtotal.Size = New System.Drawing.Size(65, 22)
+        Me.txtsubtotal.TabIndex = 6
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Label7.Location = New System.Drawing.Point(589, 370)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(49, 13)
+        Me.Label7.TabIndex = 5
+        Me.Label7.Text = "Subtotal:"
+        '
+        'btnquiter
+        '
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.btnquiter.Appearance = Appearance11
+        Me.btnquiter.Location = New System.Drawing.Point(132, 171)
+        Me.btnquiter.Name = "btnquiter"
+        Me.btnquiter.Size = New System.Drawing.Size(102, 24)
+        Me.btnquiter.TabIndex = 4
+        Me.btnquiter.Text = "Quitar Item"
+        '
+        'btnagregar
+        '
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.btnagregar.Appearance = Appearance12
+        Me.btnagregar.Location = New System.Drawing.Point(24, 171)
+        Me.btnagregar.Name = "btnagregar"
+        Me.btnagregar.Size = New System.Drawing.Size(102, 24)
+        Me.btnagregar.TabIndex = 3
+        Me.btnagregar.Text = "Agregar Item"
+        '
+        'DataGridpp
+        '
+        Me.DataGridpp.AlternatingBackColor = System.Drawing.Color.Lavender
+        Me.DataGridpp.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridpp.BackgroundColor = System.Drawing.Color.LightGray
+        Me.DataGridpp.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridpp.CaptionBackColor = System.Drawing.Color.LightSteelBlue
+        Me.DataGridpp.CaptionForeColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridpp.CaptionText = "Partes Solicitadas"
+        Me.DataGridpp.DataMember = ""
+        Me.DataGridpp.FlatMode = True
+        Me.DataGridpp.Font = New System.Drawing.Font("Tahoma", 8.0!)
+        Me.DataGridpp.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridpp.GridLineColor = System.Drawing.Color.Gainsboro
+        Me.DataGridpp.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
+        Me.DataGridpp.HeaderBackColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridpp.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.DataGridpp.HeaderForeColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridpp.LinkColor = System.Drawing.Color.Teal
+        Me.DataGridpp.Location = New System.Drawing.Point(440, 196)
+        Me.DataGridpp.Name = "DataGridpp"
+        Me.DataGridpp.ParentRowsBackColor = System.Drawing.Color.Gainsboro
+        Me.DataGridpp.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridpp.ReadOnly = True
+        Me.DataGridpp.SelectionBackColor = System.Drawing.Color.CadetBlue
+        Me.DataGridpp.SelectionForeColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridpp.Size = New System.Drawing.Size(328, 148)
+        Me.DataGridpp.TabIndex = 2
+        '
+        'DataGridF
+        '
+        Me.DataGridF.AlternatingBackColor = System.Drawing.Color.Lavender
+        Me.DataGridF.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridF.BackgroundColor = System.Drawing.Color.LightGray
+        Me.DataGridF.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridF.CaptionBackColor = System.Drawing.Color.LightSteelBlue
+        Me.DataGridF.CaptionForeColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridF.CaptionText = "Produtos Solicitados"
+        Me.DataGridF.DataMember = ""
+        Me.DataGridF.FlatMode = True
+        Me.DataGridF.Font = New System.Drawing.Font("Tahoma", 8.0!)
+        Me.DataGridF.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridF.GridLineColor = System.Drawing.Color.Gainsboro
+        Me.DataGridF.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
+        Me.DataGridF.HeaderBackColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridF.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.DataGridF.HeaderForeColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridF.LinkColor = System.Drawing.Color.Teal
+        Me.DataGridF.Location = New System.Drawing.Point(24, 196)
+        Me.DataGridF.Name = "DataGridF"
+        Me.DataGridF.ParentRowsBackColor = System.Drawing.Color.Gainsboro
+        Me.DataGridF.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridF.SelectionBackColor = System.Drawing.Color.CadetBlue
+        Me.DataGridF.SelectionForeColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridF.Size = New System.Drawing.Size(376, 148)
+        Me.DataGridF.TabIndex = 1
+        '
+        'DataGridMf
+        '
+        Me.DataGridMf.AlternatingBackColor = System.Drawing.Color.Lavender
+        Me.DataGridMf.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridMf.BackgroundColor = System.Drawing.Color.LightGray
+        Me.DataGridMf.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.DataGridMf.CaptionBackColor = System.Drawing.Color.LightSteelBlue
+        Me.DataGridMf.CaptionForeColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridMf.CaptionText = "Produtos"
+        Me.DataGridMf.DataMember = ""
+        Me.DataGridMf.FlatMode = True
+        Me.DataGridMf.Font = New System.Drawing.Font("Tahoma", 8.0!)
+        Me.DataGridMf.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridMf.GridLineColor = System.Drawing.Color.Gainsboro
+        Me.DataGridMf.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
+        Me.DataGridMf.HeaderBackColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridMf.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.DataGridMf.HeaderForeColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridMf.LinkColor = System.Drawing.Color.Teal
+        Me.DataGridMf.Location = New System.Drawing.Point(24, 23)
+        Me.DataGridMf.Name = "DataGridMf"
+        Me.DataGridMf.ParentRowsBackColor = System.Drawing.Color.Gainsboro
+        Me.DataGridMf.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
+        Me.DataGridMf.SelectionBackColor = System.Drawing.Color.CadetBlue
+        Me.DataGridMf.SelectionForeColor = System.Drawing.Color.WhiteSmoke
+        Me.DataGridMf.Size = New System.Drawing.Size(744, 144)
+        Me.DataGridMf.TabIndex = 0
+        '
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.GroupBox1)
@@ -878,6 +955,17 @@ Public Class frmpedidocliente
         Me.GroupBox1.TabIndex = 29
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtrar fecha por:"
+        '
+        'PictureBox8
+        '
+        Me.PictureBox8.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
+        Me.PictureBox8.Location = New System.Drawing.Point(93, 48)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(18, 20)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox8.TabIndex = 30
+        Me.PictureBox8.TabStop = False
         '
         'radioNinguno
         '
@@ -1066,94 +1154,6 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(729, 512)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(18, 21)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox1.TabIndex = 8
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(641, 21)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(18, 21)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox2.TabIndex = 20
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(641, 45)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(18, 21)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox3.TabIndex = 21
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(641, 69)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(18, 21)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox4.TabIndex = 22
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(717, 361)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(18, 21)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox5.TabIndex = 9
-        Me.PictureBox5.TabStop = False
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(236, 69)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(18, 21)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox6.TabIndex = 23
-        Me.PictureBox6.TabStop = False
-        '
-        'PictureBox7
-        '
-        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(717, 361)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(18, 21)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox7.TabIndex = 9
-        Me.PictureBox7.TabStop = False
-        '
-        'PictureBox8
-        '
-        Me.PictureBox8.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
-        Me.PictureBox8.Location = New System.Drawing.Point(93, 48)
-        Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(18, 20)
-        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox8.TabIndex = 30
-        Me.PictureBox8.TabStop = False
-        '
         'frmpedidocliente
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -1166,25 +1166,24 @@ Public Class frmpedidocliente
         Me.Text = "Registrar pedido"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
         Me.UltraGroupBox2.PerformLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.combocliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.fechaentrega, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboformaentrega, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboestado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraOptionSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox1.ResumeLayout(False)
-        Me.UltraGroupBox1.PerformLayout()
-        CType(Me.txtsubtotal, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridpp, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridF, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridMf, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox3.ResumeLayout(False)
         Me.UltraGroupBox3.PerformLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox4.ResumeLayout(False)
         Me.UltraGroupBox4.PerformLayout()
@@ -1194,23 +1193,24 @@ Public Class frmpedidocliente
         CType(Me.DataGriddos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridservicios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox1.ResumeLayout(False)
+        Me.UltraGroupBox1.PerformLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtsubtotal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridpp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridF, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridMf, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabPageControl2.ResumeLayout(False)
         Me.UltraTabPageControl2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFiltrar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1797,10 +1797,10 @@ Public Class frmpedidocliente
         Me.botquitar.Enabled = False
 
         bandeabm = True
-        If Not (comboformaentrega.Items(comboformaentrega.SelectedIndex).Tag = 8) Then
-            btnmodificar.Enabled = True
-        Else
+        If ds.Tables("pedidocliente").Rows(0).Item("idestado") = 5 Or ds.Tables("pedidocliente").Rows(0).Item("idestado") = 7 Then
             btnmodificar.Enabled = False
+        Else
+            btnmodificar.Enabled = True
         End If
 
         nroserie = calcularnroserie()
@@ -2448,4 +2448,7 @@ Public Class frmpedidocliente
 
 #End Region
 
+    Private Sub dgpedidos_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles dgpedidos.Navigate
+
+    End Sub
 End Class
