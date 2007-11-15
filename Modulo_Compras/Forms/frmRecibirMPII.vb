@@ -52,12 +52,9 @@ Public Class frmRecibirMPII
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRecibirMPII))
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.Resources.ResourceManager = New System.Resources.ResourceManager(GetType(frmRecibirMPII))
         Me.gpbox1 = New Infragistics.Win.Misc.UltraGroupBox
         Me.DgOc = New System.Windows.Forms.DataGrid
         Me.Label2 = New System.Windows.Forms.Label
@@ -143,29 +140,22 @@ Public Class frmRecibirMPII
         '
         'BtnSiguiente
         '
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Appearance2.ImageHAlign = Infragistics.Win.HAlign.Right
-        Me.BtnSiguiente.Appearance = Appearance2
         Me.BtnSiguiente.Location = New System.Drawing.Point(416, 304)
         Me.BtnSiguiente.Name = "BtnSiguiente"
         Me.BtnSiguiente.Size = New System.Drawing.Size(96, 24)
         Me.BtnSiguiente.TabIndex = 1
-        Me.BtnSiguiente.Text = "&Siguiente"
+        Me.BtnSiguiente.Text = "&Siguiente>>"
         '
         'BtnAtras
         '
-        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
-        Me.BtnAtras.Appearance = Appearance3
         Me.BtnAtras.Location = New System.Drawing.Point(320, 304)
         Me.BtnAtras.Name = "BtnAtras"
         Me.BtnAtras.Size = New System.Drawing.Size(96, 24)
         Me.BtnAtras.TabIndex = 2
-        Me.BtnAtras.Text = "&Atras"
+        Me.BtnAtras.Text = "<<&Atras"
         '
         'BtnSalir
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.BtnSalir.Appearance = Appearance4
         Me.BtnSalir.Location = New System.Drawing.Point(552, 304)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(88, 24)
@@ -174,11 +164,11 @@ Public Class frmRecibirMPII
         '
         'gpbox2
         '
-        Appearance5.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.gpbox2.ContentAreaAppearance = Appearance5
+        Appearance2.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gpbox2.ContentAreaAppearance = Appearance2
         Me.gpbox2.Controls.Add(Me.DgDoc)
         Me.gpbox2.Controls.Add(Me.Label1)
-        Me.gpbox2.Location = New System.Drawing.Point(0, 0)
+        Me.gpbox2.Location = New System.Drawing.Point(16, 8)
         Me.gpbox2.Name = "gpbox2"
         Me.gpbox2.Size = New System.Drawing.Size(624, 288)
         Me.gpbox2.SupportThemes = False
@@ -227,9 +217,8 @@ Public Class frmRecibirMPII
         '
         'gpbox3
         '
-        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.gpbox3.ContentAreaAppearance = Appearance6
-        Me.gpbox3.Controls.Add(Me.gpbox2)
+        Appearance3.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gpbox3.ContentAreaAppearance = Appearance3
         Me.gpbox3.Controls.Add(Me.UltraLabel2)
         Me.gpbox3.Controls.Add(Me.textRemito)
         Me.gpbox3.Controls.Add(Me.LstDoc)
@@ -255,7 +244,6 @@ Public Class frmRecibirMPII
         '
         'textRemito
         '
-        Me.textRemito.AutoSize = True
         Me.textRemito.Location = New System.Drawing.Point(280, 208)
         Me.textRemito.Name = "textRemito"
         Me.textRemito.Size = New System.Drawing.Size(96, 21)
@@ -271,7 +259,6 @@ Public Class frmRecibirMPII
         Me.LstDoc.Name = "LstDoc"
         Me.LstDoc.Size = New System.Drawing.Size(224, 88)
         Me.LstDoc.TabIndex = 3
-        Me.LstDoc.UseCompatibleStateImageBehavior = False
         Me.LstDoc.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader1
@@ -318,12 +305,12 @@ Public Class frmRecibirMPII
         '
         'UltraLabel1
         '
-        Appearance7.BackColor = System.Drawing.Color.Transparent
-        Appearance7.BackColor2 = System.Drawing.Color.Transparent
-        Appearance7.BackColorAlpha = Infragistics.Win.Alpha.Transparent
-        Appearance7.BackColorDisabled = System.Drawing.Color.Transparent
-        Appearance7.BackColorDisabled2 = System.Drawing.Color.Transparent
-        Me.UltraLabel1.Appearance = Appearance7
+        Appearance4.BackColor = System.Drawing.Color.Transparent
+        Appearance4.BackColor2 = System.Drawing.Color.Transparent
+        Appearance4.BackColorAlpha = Infragistics.Win.Alpha.Transparent
+        Appearance4.BackColorDisabled = System.Drawing.Color.Transparent
+        Appearance4.BackColorDisabled2 = System.Drawing.Color.Transparent
+        Me.UltraLabel1.Appearance = Appearance4
         Me.UltraLabel1.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel1.Location = New System.Drawing.Point(280, 192)
         Me.UltraLabel1.Name = "UltraLabel1"
@@ -338,8 +325,9 @@ Public Class frmRecibirMPII
         Me.Controls.Add(Me.BtnAtras)
         Me.Controls.Add(Me.BtnSalir)
         Me.Controls.Add(Me.BtnSiguiente)
-        Me.Controls.Add(Me.gpbox3)
         Me.Controls.Add(Me.gpbox1)
+        Me.Controls.Add(Me.gpbox2)
+        Me.Controls.Add(Me.gpbox3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Location = New System.Drawing.Point(196, 105)
