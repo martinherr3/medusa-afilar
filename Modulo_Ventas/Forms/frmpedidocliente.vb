@@ -1797,10 +1797,10 @@ Public Class frmpedidocliente
         Me.botquitar.Enabled = False
 
         bandeabm = True
-        If ds.Tables("pedidocliente").Rows(0).Item("idestado") = 5 Or ds.Tables("pedidocliente").Rows(0).Item("idestado") = 7 Then
-            btnmodificar.Enabled = False
-        Else
+        If ds.Tables("pedidocliente").Rows(0).Item("idestado") = 1 Then
             btnmodificar.Enabled = True
+        Else
+            btnmodificar.Enabled = False
         End If
 
         nroserie = calcularnroserie()
@@ -2450,6 +2450,18 @@ Public Class frmpedidocliente
 
     Private Sub dgpedidos_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles dgpedidos.Navigate
 
+    End Sub
+
+    Private Sub comboestado_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles comboestado.TextChanged
+
+    End Sub
+
+    Private Sub comboestado_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles comboestado.Validated
+
+    End Sub
+
+    Private Sub comboestado_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles comboestado.Validating
+        
     End Sub
 
     Private Sub comboestado_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboestado.ValueChanged
