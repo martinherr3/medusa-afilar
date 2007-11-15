@@ -474,6 +474,19 @@
     <Compile Include="Modulo_Compras\Forms\Diagrama_ABC.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo_Ventas\DSAdicional.Designer.vb">
+      <DependentUpon>DSAdicional.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Modulo_Ventas\DSAdicional.vb">
+      <DependentUpon>DSAdicional.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Ventas\DSFresa.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSFresa.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Ventas\Forms\consultarPresupuesto.Designer.vb">
       <DependentUpon>consultarPresupuesto.vb</DependentUpon>
     </Compile>
@@ -1109,6 +1122,28 @@
     </None>
     <None Include="Modulo_Reportes\DataSets\DSPedidoServicio.xss">
       <DependentUpon>DSPedidoServicio.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Ventas\DSAdicional.xsc">
+      <DependentUpon>DSAdicional.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Ventas\DSAdicional.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSAdicional.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulo_Ventas\DSAdicional.xss">
+      <DependentUpon>DSAdicional.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Ventas\DSFresa.xsc">
+      <DependentUpon>DSFresa.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Ventas\DSFresa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSFresa.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulo_Ventas\DSFresa.xss">
+      <DependentUpon>DSFresa.xsd</DependentUpon>
     </None>
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
