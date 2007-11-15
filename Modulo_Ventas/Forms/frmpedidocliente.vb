@@ -285,7 +285,7 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
         '
@@ -938,7 +938,7 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl2.Controls.Add(Me.txtFiltrar)
         Me.UltraTabPageControl2.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl2.Controls.Add(Me.dgpedidos)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(813, 545)
         '
@@ -2450,5 +2450,15 @@ Public Class frmpedidocliente
 
     Private Sub dgpedidos_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles dgpedidos.Navigate
 
+    End Sub
+
+    Private Sub comboestado_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboestado.ValueChanged
+        If ds.Tables("pedidocliente").Rows.Count > 0 Then
+            If Me.comboestado.SelectedItem.Tag = 5 And Not ds.Tables("pedidocliente").Rows(0).Item("idestado") = 1 Then
+                MsgBox("Solo puede cancelar pedidos con estado pendiente")
+                Me.comboestado.Text = comboestado.Items(ds.Tables("pedidocliente").Rows(0).Item("idestado") - 1).DisplayText
+                Exit Sub
+            End If
+        End If
     End Sub
 End Class
