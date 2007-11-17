@@ -162,6 +162,14 @@ Public Class consultarPresupuesto
                     'nada
                 End Try
             End If
+        Else
+            Try
+                pedido.IdPesupuesto = dataGridPresupuesto.Item(dataGridPresupuesto.CurrentRowIndex, 0)
+                pedido.Location = New System.Drawing.Point(196, 150)
+                pedido.Show(princ)
+            Catch
+                'nada
+            End Try
         End If
 
     End Sub
