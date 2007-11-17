@@ -15,6 +15,7 @@ Public Class emitirPresupuesto
     Const FILTRO_NINGUNO As String = "ninguno"
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Dim filtrar As Boolean
+    Dim aPresupuesto As New SqlClient.SqlDataAdapter
 #End Region
 
 
@@ -62,32 +63,27 @@ Public Class emitirPresupuesto
     Friend WithEvents comboEmpleado As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents dataGridMF As System.Windows.Forms.DataGrid
     Friend WithEvents textPresupuesto As Infragistics.Win.UltraWinEditors.UltraTextEditor
-    Friend WithEvents afresa As System.Data.SqlClient.SqlDataAdapter
-    Friend WithEvents SqlSelectCommand1 As System.Data.SqlClient.SqlCommand
-    Friend WithEvents cnn As System.Data.SqlClient.SqlConnection
-    Friend WithEvents aAdicional As System.Data.SqlClient.SqlDataAdapter
-    Friend WithEvents SqlSelectCommand2 As System.Data.SqlClient.SqlCommand
     Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(emitirPresupuesto))
-        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem9 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem10 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem11 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem12 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem13 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem14 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem15 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem16 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim UltraTab3 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim UltraTab4 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.cmbFiltrar = New Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -110,11 +106,6 @@ Public Class emitirPresupuesto
         Me.DataGridBoolColumn1 = New System.Windows.Forms.DataGridBoolColumn
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.afresa = New System.Data.SqlClient.SqlDataAdapter
-        Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand
-        Me.cnn = New System.Data.SqlClient.SqlConnection
-        Me.aAdicional = New System.Data.SqlClient.SqlDataAdapter
-        Me.SqlSelectCommand2 = New System.Data.SqlClient.SqlCommand
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -166,40 +157,40 @@ Public Class emitirPresupuesto
         'cmbFiltrar
         '
         Me.cmbFiltrar.AutoSize = True
-        ValueListItem1.DataValue = "ValueListItem0"
-        ValueListItem1.DisplayText = "Nombre"
-        ValueListItem1.Tag = "nombre"
-        ValueListItem2.DataValue = "ValueListItem1"
-        ValueListItem2.DisplayText = "ID"
-        ValueListItem2.Tag = "idmodelo"
-        ValueListItem3.DataValue = "ValueListItem2"
-        ValueListItem3.DisplayText = "Grupo modelo"
-        ValueListItem3.Tag = "grupomodelo"
-        ValueListItem4.DataValue = "ValueListItem3"
-        ValueListItem4.DisplayText = "Material a trabajar"
-        ValueListItem4.Tag = "materialatrabajar"
-        ValueListItem5.DataValue = "ValueListItem4"
-        ValueListItem5.DisplayText = "Tipo acabado"
-        ValueListItem5.Tag = "tipoacabado"
-        ValueListItem6.DataValue = "ValueListItem5"
-        ValueListItem6.DisplayText = "Tipo modelo"
-        ValueListItem6.Tag = "tipomodelo"
-        ValueListItem7.DataValue = "ValueListItem6"
-        ValueListItem7.DisplayText = "Precio"
-        ValueListItem7.Tag = "precio"
-        Appearance1.FontData.BoldAsString = "True"
-        ValueListItem8.Appearance = Appearance1
-        ValueListItem8.DataValue = "ValueListItem7"
-        ValueListItem8.DisplayText = "Ninguno"
-        ValueListItem8.Tag = "ninguno"
-        Me.cmbFiltrar.Items.Add(ValueListItem1)
-        Me.cmbFiltrar.Items.Add(ValueListItem2)
-        Me.cmbFiltrar.Items.Add(ValueListItem3)
-        Me.cmbFiltrar.Items.Add(ValueListItem4)
-        Me.cmbFiltrar.Items.Add(ValueListItem5)
-        Me.cmbFiltrar.Items.Add(ValueListItem6)
-        Me.cmbFiltrar.Items.Add(ValueListItem7)
-        Me.cmbFiltrar.Items.Add(ValueListItem8)
+        ValueListItem9.DataValue = "ValueListItem0"
+        ValueListItem9.DisplayText = "Nombre"
+        ValueListItem9.Tag = "nombre"
+        ValueListItem10.DataValue = "ValueListItem1"
+        ValueListItem10.DisplayText = "ID"
+        ValueListItem10.Tag = "idmodelo"
+        ValueListItem11.DataValue = "ValueListItem2"
+        ValueListItem11.DisplayText = "Grupo modelo"
+        ValueListItem11.Tag = "grupomodelo"
+        ValueListItem12.DataValue = "ValueListItem3"
+        ValueListItem12.DisplayText = "Material a trabajar"
+        ValueListItem12.Tag = "materialatrabajar"
+        ValueListItem13.DataValue = "ValueListItem4"
+        ValueListItem13.DisplayText = "Tipo acabado"
+        ValueListItem13.Tag = "tipoacabado"
+        ValueListItem14.DataValue = "ValueListItem5"
+        ValueListItem14.DisplayText = "Tipo modelo"
+        ValueListItem14.Tag = "tipomodelo"
+        ValueListItem15.DataValue = "ValueListItem6"
+        ValueListItem15.DisplayText = "Precio"
+        ValueListItem15.Tag = "precio"
+        Appearance9.FontData.BoldAsString = "True"
+        ValueListItem16.Appearance = Appearance9
+        ValueListItem16.DataValue = "ValueListItem7"
+        ValueListItem16.DisplayText = "Ninguno"
+        ValueListItem16.Tag = "ninguno"
+        Me.cmbFiltrar.Items.Add(ValueListItem9)
+        Me.cmbFiltrar.Items.Add(ValueListItem10)
+        Me.cmbFiltrar.Items.Add(ValueListItem11)
+        Me.cmbFiltrar.Items.Add(ValueListItem12)
+        Me.cmbFiltrar.Items.Add(ValueListItem13)
+        Me.cmbFiltrar.Items.Add(ValueListItem14)
+        Me.cmbFiltrar.Items.Add(ValueListItem15)
+        Me.cmbFiltrar.Items.Add(ValueListItem16)
         Me.cmbFiltrar.Location = New System.Drawing.Point(322, 32)
         Me.cmbFiltrar.Name = "cmbFiltrar"
         Me.cmbFiltrar.Size = New System.Drawing.Size(224, 21)
@@ -207,8 +198,8 @@ Public Class emitirPresupuesto
         '
         'btnFiltrar
         '
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Me.btnFiltrar.Appearance = Appearance2
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Me.btnFiltrar.Appearance = Appearance10
         Me.btnFiltrar.Location = New System.Drawing.Point(552, 32)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(80, 45)
@@ -235,8 +226,8 @@ Public Class emitirPresupuesto
         '
         'UltraButton4
         '
-        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
-        Me.UltraButton4.Appearance = Appearance3
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance11
         Me.UltraButton4.Location = New System.Drawing.Point(483, 489)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(149, 31)
@@ -348,8 +339,8 @@ Public Class emitirPresupuesto
         '
         'UltraButton3
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance4
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance12
         Me.UltraButton3.Location = New System.Drawing.Point(720, 489)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(80, 31)
@@ -381,33 +372,33 @@ Public Class emitirPresupuesto
         '
         'UltraTabControl1
         '
-        Appearance5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance5.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance5
-        Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance6.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance6
+        Appearance13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance13.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance13
+        Appearance14.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance14.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance14
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 8)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance7.BackColor = System.Drawing.Color.Silver
-        Appearance7.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance7
+        Appearance15.BackColor = System.Drawing.Color.Silver
+        Appearance15.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance15
         Me.UltraTabControl1.SharedControls.AddRange(New System.Windows.Forms.Control() {Me.UltraButton3})
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(816, 560)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
         Me.UltraTabControl1.TabIndex = 11
-        UltraTab1.TabPage = Me.UltraTabPageControl1
-        UltraTab1.Text = "Datos presupuesto"
-        Appearance8.BackColor = System.Drawing.Color.Silver
-        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        UltraTab2.SelectedAppearance = Appearance8
-        UltraTab2.TabPage = Me.UltraTabPageControl2
-        UltraTab2.Text = "Generar presupuesto"
-        Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
+        UltraTab3.TabPage = Me.UltraTabPageControl1
+        UltraTab3.Text = "Datos presupuesto"
+        Appearance16.BackColor = System.Drawing.Color.Silver
+        Appearance16.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        UltraTab4.SelectedAppearance = Appearance16
+        UltraTab4.TabPage = Me.UltraTabPageControl2
+        UltraTab4.Text = "Generar presupuesto"
+        Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab3, UltraTab4})
         Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
         '
         'UltraTabSharedControlsPage1
@@ -416,32 +407,6 @@ Public Class emitirPresupuesto
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(812, 537)
-        '
-        'afresa
-        '
-        Me.afresa.SelectCommand = Me.SqlSelectCommand1
-        Me.afresa.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "detallepresupuesto", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("Expr1", "Expr1"), New System.Data.Common.DataColumnMapping("iddetpre", "iddetpre"), New System.Data.Common.DataColumnMapping("idpresupuesto", "idpresupuesto"), New System.Data.Common.DataColumnMapping("idmodelo", "idmodelo"), New System.Data.Common.DataColumnMapping("idproducto", "idproducto"), New System.Data.Common.DataColumnMapping("tipo", "tipo"), New System.Data.Common.DataColumnMapping("cantidad", "cantidad"), New System.Data.Common.DataColumnMapping("precio", "precio")})})
-        '
-        'SqlSelectCommand1
-        '
-        Me.SqlSelectCommand1.CommandText = resources.GetString("SqlSelectCommand1.CommandText")
-        Me.SqlSelectCommand1.Connection = Me.cnn
-        '
-        'cnn
-        '
-        Me.cnn.ConnectionString = "workstation id=OCTAVO;packet size=4096;integrated security=SSPI;initial catalog=A" & _
-            "filar;persist security info=False"
-        Me.cnn.FireInfoMessageEventOnUserErrors = False
-        '
-        'aAdicional
-        '
-        Me.aAdicional.SelectCommand = Me.SqlSelectCommand2
-        Me.aAdicional.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "detallepresupuesto", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("nombre", "nombre"), New System.Data.Common.DataColumnMapping("Expr1", "Expr1"), New System.Data.Common.DataColumnMapping("iddetpre", "iddetpre"), New System.Data.Common.DataColumnMapping("idpresupuesto", "idpresupuesto"), New System.Data.Common.DataColumnMapping("idmodelo", "idmodelo"), New System.Data.Common.DataColumnMapping("idproducto", "idproducto"), New System.Data.Common.DataColumnMapping("tipo", "tipo"), New System.Data.Common.DataColumnMapping("cantidad", "cantidad"), New System.Data.Common.DataColumnMapping("precio", "precio")})})
-        '
-        'SqlSelectCommand2
-        '
-        Me.SqlSelectCommand2.CommandText = resources.GetString("SqlSelectCommand2.CommandText")
-        Me.SqlSelectCommand2.Connection = Me.cnn
         '
         'emitirPresupuesto
         '
@@ -546,6 +511,16 @@ Public Class emitirPresupuesto
             End If
         Next
 
+        'seteo los DataAdapter para el reporte
+        Dim queryReporte As String
+        queryReporte = "SELECT iddetpre, idpresupuesto, idmodelo, idproducto, tipo, cantidad, precio, nombreProducto FROM dbo.detallepresupuesto"
+        Dim selectFresa As New SqlClient.SqlCommand
+        selectFresa.CommandType = CommandType.Text
+        selectFresa.Connection = cnn
+        selectFresa.CommandText = queryReporte
+        aPresupuesto.SelectCommand = selectFresa
+
+
         princ.barra.agregarBoton(Me)
 
     End Sub
@@ -575,9 +550,7 @@ Public Class emitirPresupuesto
 
                 Case False
 
-                    ds.Tables("modelofresa").Rows(i).Item("seleccionarMF") = True
-                    'MsgBox("paso a TRUE")
-
+                    ds.Tables("modelofresa").Rows(i).Item("seleccionarMF") = True                   
 
                     Dim elemento As DataRow
                     Dim hijos As Array
@@ -594,17 +567,9 @@ Public Class emitirPresupuesto
                     Next
 
 
-                    'Dim element As DataRow
-
-                    'For Each element In ds.Tables("modelofresa").Rows.Item(i).GetChildRows("Fresas individuales")
-                    '    element.Item("seleccionarTF") = True
-                    'Next
-
-
                 Case True
 
                     ds.Tables("modelofresa").Rows(i).Item("seleccionarMF") = False
-                    'MsgBox("paso a FALSE")
 
                     Dim elemento As DataRow
                     Dim hijos As Array
@@ -628,45 +593,8 @@ Public Class emitirPresupuesto
 
         dataGridMF.Refresh()
 
-
     End Sub
 
-
-
-    Private Sub dataGridMF_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles dataGridMF.MouseDown
-        'Dim myGrid As DataGrid = CType(sender, DataGrid)
-        'Dim hti As System.Windows.Forms.DataGrid.HitTestInfo
-        'hti = myGrid.HitTest(e.X, e.Y)
-        'Dim message As String = "You clicked "
-
-        'Select Case hti.Type
-        '    Case System.Windows.Forms.DataGrid.HitTestType.None
-        '        message &= "the background."
-
-        '    Case System.Windows.Forms.DataGrid.HitTestType.Cell
-        '        message &= "cell at row " & hti.Row & ", col " & hti.Column
-
-        '    Case System.Windows.Forms.DataGrid.HitTestType.ColumnHeader
-        '        message &= "the column header for column " & hti.Column
-
-        '    Case System.Windows.Forms.DataGrid.HitTestType.RowHeader
-        '        message &= "the row header for row " & hti.Row
-
-        '    Case System.Windows.Forms.DataGrid.HitTestType.ColumnResize
-        '        message &= "the column resizer for column " & hti.Column
-
-        '    Case System.Windows.Forms.DataGrid.HitTestType.RowResize
-        '        message &= "the row resizer for row " & hti.Row
-
-        '    Case System.Windows.Forms.DataGrid.HitTestType.Caption
-        '        message &= "the caption"
-
-        '    Case System.Windows.Forms.DataGrid.HitTestType.ParentRows
-        '        message &= "the parent row"
-        'End Select
-
-        'MsgBox(message)
-    End Sub
 
     Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
         Me.Close()
@@ -725,6 +653,7 @@ Public Class emitirPresupuesto
                     nueva("tipo") = Constantes.PRESUPUESTO_TIPO_FRESA
                     nueva("cantidad") = 1
                     nueva("precio") = fila("precio")
+                    nueva("nombreProducto") = fila("nombre")
 
                     ds.Tables("detallepresupuesto").Rows.Add(nueva)
 
@@ -747,6 +676,7 @@ Public Class emitirPresupuesto
                     nueva("idproducto") = fila("idadicional")
                     nueva("cantidad") = 1
                     nueva("precio") = fila("precio")
+                    nueva("nombreProducto") = fila("nombre")
 
                     ds.Tables("detallepresupuesto").Rows.Add(nueva)
 
@@ -759,17 +689,15 @@ Public Class emitirPresupuesto
 
 
             If band = True Then
+
                 pres.actualizarDatos(ds, "presupuesto")
                 dp.actualizarDatos(ds, "detallepresupuesto")
 
+                Dim ds2 As New DSPresupuesto
 
+                aPresupuesto.Fill(ds2, "detallepresupuesto")
 
-                Dim ds2 As New DataSet
-
-                aAdicional.Fill(ds2)
-                afresa.Fill(ds2)
-
-                Dim p As New repPres
+                Dim p As New RptPresupuesto
 
                 p.SetDataSource(ds2)
                 crv.ReportSource = p
