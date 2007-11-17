@@ -51,6 +51,7 @@ Public Class BarraDeEstado
 
 
     Sub eliminarBoton() 'elimina el boton que corresponde al form activo (eso espero!!!)
+        'Try
         Dim lst As New lista
         If frmActivo <> -1 Then
             x.Panels.Remove(panel(frmActivo))       ' elimina el boton del form activo
@@ -63,7 +64,9 @@ Public Class BarraDeEstado
             x.Panels(frmActivo).Checked = True
             formulario(x.Panels.Count() - 1).Visible = True
         End If
+        'Catch
 
+        'End Try
         'System.Diagnostics.Debug.WriteLine("frmActivo: " & frmActivo & " | Paneles: " & x.Panels.Count() - 1)
 
     End Sub

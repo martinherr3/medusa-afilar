@@ -37,9 +37,9 @@ Module ModuloPrincipal
 
         'Try
         System.Windows.Forms.Application.Run(princ)
-        ' Catch
+        'Catch
 
-        ' End Try
+        'End Try
 
     End Sub
 

@@ -15,6 +15,8 @@ Public Class Constantes
     Private _InicioY As Integer = 105
     'Este es el id de la operacion torneado para lo que se nescesite
     Private _OperacionTorneado As Integer = 699
+    'este es el id del cargo de los operarios para el filtro de empleados del frmsegprod
+    Private _CargoOperario As Integer = 1
 
 
     Public ReadOnly Property InicioX() As Integer
@@ -33,6 +35,12 @@ Public Class Constantes
     Public ReadOnly Property OperacionTorneado() As Integer
         Get
             OperacionTorneado = _OperacionTorneado
+        End Get
+    End Property
+
+    Public ReadOnly Property CargoOperario() As Integer
+        Get
+            CargoOperario = _CargoOperario
         End Get
     End Property
 End Class
