@@ -8,6 +8,10 @@ Public Class treeview
     Dim DS As New DataSet
     Dim permisos As Permiso
 
+    Private Sub treeview_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub treeview_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         permisos = New Permiso
@@ -39,6 +43,7 @@ Public Class treeview
         cargarUltraCombo("select descripcion, idperfil from perfil", UltraComboEditor2, "descripcion", "idperfil")
         UltraComboEditor2.Visible = False
         CheckBox1.Checked = False
+        princ.barra.agregarBoton(Me)
     End Sub
     Private Sub VerifyParentNodeCheckState(ByVal descendantNode As UltraTreeNode)
 
