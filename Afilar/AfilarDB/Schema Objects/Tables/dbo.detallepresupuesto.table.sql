@@ -6,7 +6,8 @@
 [idproducto] [int] NULL,
 [tipo] [int] NULL,
 [cantidad] [int] NULL,
-[precio] [float] NULL
+[precio] [float] NULL,
+[nombreProducto] [varchar] (100) COLLATE Traditional_Spanish_CI_AS NULL
 ) ON [PRIMARY]
 
 
