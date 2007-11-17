@@ -147,13 +147,13 @@ Public Class frmpedidocliente
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -283,8 +283,8 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Controls.Add(Me.btngrabar)
         Me.UltraTabPageControl1.Controls.Add(Me.btnnuevo)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
@@ -561,8 +561,8 @@ Public Class frmpedidocliente
         'UltraGroupBox3
         '
         Me.UltraGroupBox3.BackColor = System.Drawing.Color.Transparent
-        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox3.ContentAreaAppearance = Appearance6
+        Appearance9.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox3.ContentAreaAppearance = Appearance9
         Me.UltraGroupBox3.Controls.Add(Me.PictureBox7)
         Me.UltraGroupBox3.Controls.Add(Me.botquitar)
         Me.UltraGroupBox3.Controls.Add(Me.UltraGroupBox4)
@@ -593,8 +593,8 @@ Public Class frmpedidocliente
         '
         'botquitar
         '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.botquitar.Appearance = Appearance7
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Me.botquitar.Appearance = Appearance10
         Me.botquitar.Location = New System.Drawing.Point(132, 171)
         Me.botquitar.Name = "botquitar"
         Me.botquitar.Size = New System.Drawing.Size(102, 24)
@@ -604,8 +604,8 @@ Public Class frmpedidocliente
         'UltraGroupBox4
         '
         Me.UltraGroupBox4.BackColor = System.Drawing.Color.LightSteelBlue
-        Appearance8.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox4.ContentAreaAppearance = Appearance8
+        Appearance11.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox4.ContentAreaAppearance = Appearance11
         Me.UltraGroupBox4.Controls.Add(Me.txtcantidad)
         Me.UltraGroupBox4.Controls.Add(Me.Label9)
         Me.UltraGroupBox4.Controls.Add(Me.txtitem)
@@ -673,8 +673,8 @@ Public Class frmpedidocliente
         '
         'botagregar
         '
-        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
-        Me.botagregar.Appearance = Appearance9
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.botagregar.Appearance = Appearance12
         Me.botagregar.Location = New System.Drawing.Point(24, 171)
         Me.botagregar.Name = "botagregar"
         Me.botagregar.Size = New System.Drawing.Size(102, 24)
@@ -770,8 +770,8 @@ Public Class frmpedidocliente
         'UltraGroupBox1
         '
         Me.UltraGroupBox1.BackColor = System.Drawing.Color.Transparent
-        Appearance10.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox1.ContentAreaAppearance = Appearance10
+        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox1.ContentAreaAppearance = Appearance6
         Me.UltraGroupBox1.Controls.Add(Me.PictureBox5)
         Me.UltraGroupBox1.Controls.Add(Me.txtsubtotal)
         Me.UltraGroupBox1.Controls.Add(Me.Label7)
@@ -822,8 +822,8 @@ Public Class frmpedidocliente
         '
         'btnquiter
         '
-        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
-        Me.btnquiter.Appearance = Appearance11
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.btnquiter.Appearance = Appearance7
         Me.btnquiter.Location = New System.Drawing.Point(132, 171)
         Me.btnquiter.Name = "btnquiter"
         Me.btnquiter.Size = New System.Drawing.Size(102, 24)
@@ -832,8 +832,8 @@ Public Class frmpedidocliente
         '
         'btnagregar
         '
-        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
-        Me.btnagregar.Appearance = Appearance12
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.btnagregar.Appearance = Appearance8
         Me.btnagregar.Location = New System.Drawing.Point(24, 171)
         Me.btnagregar.Name = "btnagregar"
         Me.btnagregar.Size = New System.Drawing.Size(102, 24)
@@ -1483,16 +1483,23 @@ Public Class frmpedidocliente
                 End If
             Next
             For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
-                idpartepedida += 1
-                Dim dr As DataRow = ds.Tables("partepedida").NewRow
-                dr("idpartepedida") = CInt(idpartepedida)
-                dr("idmodelo") = ds.Tables("parteadicional").Rows(i).Item("idmodelo")
-                dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
-                dr("idpedido") = CLng(lblnropedido.Text)
-                dr("nombre") = ds.Tables("parteadicional").Rows(i).Item("nombre")
-                dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
-                ds.Tables("partepedida").Rows.Add(dr)
-                ds.Tables("parteadicional").Rows(i).Item("seleccionarpa") = False
+                If ds.Tables("parteadicional").Rows(i).Item("seleccionarPA") = True Then
+                    idpartepedida += 1
+                    Dim dr As DataRow = ds.Tables("partepedida").NewRow
+                    dr("idpartepedida") = CInt(idpartepedida)
+                    dr("idmodelo") = ds.Tables("parteadicional").Rows(i).Item("idmodelo")
+                    dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
+                    dr("idpedido") = CLng(lblnropedido.Text)
+                    dr("nombre") = ds.Tables("parteadicional").Rows(i).Item("nombre")
+                    dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
+                    ds.Tables("partepedida").Rows.Add(dr)
+                    ds.Tables("parteadicional").Rows(i).Item("seleccionarPA") = False
+                End If
+                For j = 0 To ds.Tables("modelofresa").Rows.Count - 1
+                    If ds.Tables("parteadicional").Rows(i).Item("idmodelo") = ds.Tables("modelofresa").Rows(j).Item("idmodelo") Then
+                        ds.Tables("modelofresa").Rows(j).Item("seleccionarmf") = False
+                    End If
+                Next
             Next
             Dim subtotal As Decimal = 0
             For i = 0 To ds.Tables("fresa").Rows.Count - 1
