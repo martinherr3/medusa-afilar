@@ -2,7 +2,7 @@
 (
 [idtipo] [int] NOT NULL,
 [idmodelo] [int] NOT NULL,
-[nombre] [char] (20) COLLATE Traditional_Spanish_CI_AS NULL,
+[nombre] [char] (100) COLLATE Traditional_Spanish_CI_AS NULL,
 [diametroexterior] [decimal] (18, 0) NULL,
 [diametroagujero] [decimal] (18, 0) NULL,
 [cantidaddientes] [int] NULL,

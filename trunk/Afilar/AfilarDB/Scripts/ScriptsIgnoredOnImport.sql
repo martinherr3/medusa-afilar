@@ -379,3 +379,26 @@ GO
 ALTER TABLE [dbo].[etapadefabricacion] DROP CONSTRAINT [PK_etapadefabricacion]
 
 GO
+
+/*
+Este script se creó con Visual Studio el 18/11/2007 a las 19:17.
+Ejecute el script en AfilarDB para que sea igual que desktop.Afilar.dbo.
+Realice una copia de seguridad de la base de datos de destino antes de ejecutar el script.
+*/
+
+GO
+SET NUMERIC_ROUNDABORT OFF
+GO
+SET ANSI_PADDING ON
+GO
+SET ANSI_WARNINGS ON
+GO
+SET CONCAT_NULL_YIELDS_NULL ON
+GO
+SET ARITHABORT ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+
+GO
