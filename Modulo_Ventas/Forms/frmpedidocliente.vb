@@ -151,13 +151,13 @@ Public Class frmpedidocliente
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -296,9 +296,9 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Controls.Add(Me.btngrabar)
         Me.UltraTabPageControl1.Controls.Add(Me.btnnuevo)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
         '
@@ -595,8 +595,8 @@ Public Class frmpedidocliente
         'UltraGroupBox1
         '
         Me.UltraGroupBox1.BackColor = System.Drawing.Color.Transparent
-        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox1.ContentAreaAppearance = Appearance6
+        Appearance10.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox1.ContentAreaAppearance = Appearance10
         Me.UltraGroupBox1.Controls.Add(Me.PictureBox5)
         Me.UltraGroupBox1.Controls.Add(Me.txtsubtotal)
         Me.UltraGroupBox1.Controls.Add(Me.Label7)
@@ -647,8 +647,8 @@ Public Class frmpedidocliente
         '
         'btnquiter
         '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.btnquiter.Appearance = Appearance7
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.btnquiter.Appearance = Appearance11
         Me.btnquiter.Location = New System.Drawing.Point(132, 171)
         Me.btnquiter.Name = "btnquiter"
         Me.btnquiter.Size = New System.Drawing.Size(102, 24)
@@ -657,8 +657,8 @@ Public Class frmpedidocliente
         '
         'btnagregar
         '
-        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
-        Me.btnagregar.Appearance = Appearance8
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.btnagregar.Appearance = Appearance12
         Me.btnagregar.Location = New System.Drawing.Point(24, 171)
         Me.btnagregar.Name = "btnagregar"
         Me.btnagregar.Size = New System.Drawing.Size(102, 24)
@@ -752,8 +752,8 @@ Public Class frmpedidocliente
         'UltraGroupBox3
         '
         Me.UltraGroupBox3.BackColor = System.Drawing.Color.Transparent
-        Appearance9.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox3.ContentAreaAppearance = Appearance9
+        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox3.ContentAreaAppearance = Appearance6
         Me.UltraGroupBox3.Controls.Add(Me.PictureBox7)
         Me.UltraGroupBox3.Controls.Add(Me.botquitar)
         Me.UltraGroupBox3.Controls.Add(Me.UltraGroupBox4)
@@ -784,8 +784,8 @@ Public Class frmpedidocliente
         '
         'botquitar
         '
-        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
-        Me.botquitar.Appearance = Appearance10
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.botquitar.Appearance = Appearance7
         Me.botquitar.Location = New System.Drawing.Point(132, 171)
         Me.botquitar.Name = "botquitar"
         Me.botquitar.Size = New System.Drawing.Size(102, 24)
@@ -795,8 +795,8 @@ Public Class frmpedidocliente
         'UltraGroupBox4
         '
         Me.UltraGroupBox4.BackColor = System.Drawing.Color.LightSteelBlue
-        Appearance11.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox4.ContentAreaAppearance = Appearance11
+        Appearance8.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox4.ContentAreaAppearance = Appearance8
         Me.UltraGroupBox4.Controls.Add(Me.txtcantidad)
         Me.UltraGroupBox4.Controls.Add(Me.Label9)
         Me.UltraGroupBox4.Controls.Add(Me.txtitem)
@@ -864,8 +864,8 @@ Public Class frmpedidocliente
         '
         'botagregar
         '
-        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
-        Me.botagregar.Appearance = Appearance12
+        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
+        Me.botagregar.Appearance = Appearance9
         Me.botagregar.Location = New System.Drawing.Point(24, 171)
         Me.botagregar.Name = "botagregar"
         Me.botagregar.Size = New System.Drawing.Size(102, 24)
@@ -973,7 +973,7 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl2.Controls.Add(Me.txtFiltrar)
         Me.UltraTabPageControl2.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl2.Controls.Add(Me.dgpedidos)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(813, 545)
         '
@@ -1992,21 +1992,9 @@ Public Class frmpedidocliente
 
     Private Sub btnmodificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnmodificar.Click
         If ds.Tables("pedidocliente").Rows(0).Item("idestado") <> 1 Then
-            'Me.combocliente.ReadOnly = True
-            'Me.fechaentrega.ReadOnly = True
-            'Me.comboestado.ReadOnly = True
+            ' si no esta cancelado o finalizado y el estado no es pendiente
+            ' solo puedo modificar la forma de entrega
             Me.comboformaentrega.ReadOnly = False
-            'Me.DataGridMf.Enabled = True
-            'Me.txtcantidad.ReadOnly = True
-            'Me.txtimportetotal.ReadOnly = True
-            'Me.txtsubtot.ReadOnly = True
-            'Me.txtsubtotal.ReadOnly = True
-            'Me.txtitem.ReadOnly = True
-            'Me.DataGridservicios.ReadOnly = True
-            'Me.btnagregar.Enabled = False
-            'Me.btnquiter.Enabled = False
-            'Me.botagregar.Enabled = False
-            'Me.botquitar.Enabled = False
         Else
             Me.combocliente.ReadOnly = False
             Me.fechaentrega.ReadOnly = False
@@ -2176,6 +2164,7 @@ Public Class frmpedidocliente
             Dim i As Integer
             Dim b As Boolean
             b = False
+
             For i = 0 To ds.Tables("servicios").Rows.Count - 1
                 If ds.Tables("servicios").Rows(i).Item("seleccionarserv") = True Then
                     b = True
@@ -2189,6 +2178,10 @@ Public Class frmpedidocliente
             Dim dr2 As DataRow = ds.Tables("OBJ").NewRow
             idobj = CInt(idobj) + 1
             If txtitem.Text = String.Empty Then
+                If ds.Tables("FF").Rows.Count = 0 Then
+                    MsgBox("Debe ingresar una herramienta", MsgBoxStyle.Information, "Afilar")
+                    Exit Sub
+                End If
                 dr2("idobjetodelservicio") = idobj
                 dr2("nombre") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nombre")
                 dr2("cantidad") = 1
@@ -2217,6 +2210,10 @@ Public Class frmpedidocliente
             If Not (txtitem.Text = String.Empty) Then
                 dr2("idobjetodelservicio") = idobj
                 dr2("nombre") = txtitem.Text
+                If txtcantidad.Text = String.Empty Then
+                    MsgBox("Ingrese cantidad de herramientas", MsgBoxStyle.Information, "Afilar")
+                    Exit Sub
+                End If
                 dr2("cantidad") = CInt(txtcantidad.Text)
                 ds.Tables("OBJ").Rows.Add(dr2)
                 For i = 0 To ds.Tables("servicios").Rows.Count - 1
