@@ -49,6 +49,8 @@ Public Class frmpedidocliente
     Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
     Friend WithEvents txtFiltroCliente As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents comboFiltroEstado As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Dim bpedido As Boolean
 #End Region
 
@@ -156,17 +158,19 @@ Public Class frmpedidocliente
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.txtimportetotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -236,6 +240,8 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.comboFiltroEstado = New Infragistics.Win.UltraWinEditors.UltraComboEditor
+        Me.Label16 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -278,6 +284,8 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
+        CType(Me.comboFiltroEstado, System.ComponentModel.ISupportInitialize).BeginInit()
+
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -953,6 +961,8 @@ Public Class frmpedidocliente
         '
         'UltraTabPageControl2
         '
+        Me.UltraTabPageControl2.Controls.Add(Me.Label16)
+        Me.UltraTabPageControl2.Controls.Add(Me.comboFiltroEstado)
         Me.UltraTabPageControl2.Controls.Add(Me.GroupBox1)
         Me.UltraTabPageControl2.Controls.Add(Me.Label15)
         Me.UltraTabPageControl2.Controls.Add(Me.Label14)
@@ -1062,20 +1072,20 @@ Public Class frmpedidocliente
         'cmbFiltrar
         '
         Me.cmbFiltrar.AutoSize = True
-        ValueListItem3.DataValue = "ValueListItem0"
-        ValueListItem3.DisplayText = "Nombre cliente"
-        ValueListItem3.Tag = "nombreCliente"
-        ValueListItem4.DataValue = "ValueListItem1"
-        ValueListItem4.DisplayText = "Numero Pedido"
-        ValueListItem4.Tag = "NroPedido"
-        Appearance13.FontData.BoldAsString = "True"
-        ValueListItem5.Appearance = Appearance13
-        ValueListItem5.DataValue = "ValueListItem7"
-        ValueListItem5.DisplayText = "Ninguno"
-        ValueListItem5.Tag = "ninguno"
-        Me.cmbFiltrar.Items.Add(ValueListItem3)
+        ValueListItem4.DataValue = "ValueListItem0"
+        ValueListItem4.DisplayText = "Nombre cliente"
+        ValueListItem4.Tag = "nombreCliente"
+        ValueListItem5.DataValue = "ValueListItem1"
+        ValueListItem5.DisplayText = "Numero Pedido"
+        ValueListItem5.Tag = "NroPedido"
+        Appearance14.FontData.BoldAsString = "True"
+        ValueListItem6.Appearance = Appearance14
+        ValueListItem6.DataValue = "ValueListItem7"
+        ValueListItem6.DisplayText = "Ninguno"
+        ValueListItem6.Tag = "ninguno"
         Me.cmbFiltrar.Items.Add(ValueListItem4)
         Me.cmbFiltrar.Items.Add(ValueListItem5)
+        Me.cmbFiltrar.Items.Add(ValueListItem6)
         Me.cmbFiltrar.Location = New System.Drawing.Point(65, 30)
         Me.cmbFiltrar.Name = "cmbFiltrar"
         Me.cmbFiltrar.Size = New System.Drawing.Size(224, 21)
@@ -1083,8 +1093,8 @@ Public Class frmpedidocliente
         '
         'btnFiltrar
         '
-        Appearance14.Image = CType(resources.GetObject("Appearance14.Image"), Object)
-        Me.btnFiltrar.Appearance = Appearance14
+        Appearance15.Image = CType(resources.GetObject("Appearance15.Image"), Object)
+        Me.btnFiltrar.Appearance = Appearance15
         Me.btnFiltrar.Location = New System.Drawing.Point(295, 30)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(80, 48)
@@ -1111,8 +1121,8 @@ Public Class frmpedidocliente
         '
         'btnSalir
         '
-        Appearance15.Image = CType(resources.GetObject("Appearance15.Image"), Object)
-        Me.btnSalir.Appearance = Appearance15
+        Appearance16.Image = CType(resources.GetObject("Appearance16.Image"), Object)
+        Me.btnSalir.Appearance = Appearance16
         Me.btnSalir.Location = New System.Drawing.Point(708, 509)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(88, 33)
@@ -1138,31 +1148,31 @@ Public Class frmpedidocliente
         Me.dgpedidos.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
         Me.dgpedidos.HeaderForeColor = System.Drawing.Color.WhiteSmoke
         Me.dgpedidos.LinkColor = System.Drawing.Color.Teal
-        Me.dgpedidos.Location = New System.Drawing.Point(10, 100)
+        Me.dgpedidos.Location = New System.Drawing.Point(10, 114)
         Me.dgpedidos.Name = "dgpedidos"
         Me.dgpedidos.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.dgpedidos.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
         Me.dgpedidos.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.dgpedidos.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.dgpedidos.Size = New System.Drawing.Size(786, 403)
+        Me.dgpedidos.Size = New System.Drawing.Size(786, 389)
         Me.dgpedidos.TabIndex = 0
         '
         'UltraTabControl1
         '
-        Appearance16.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance16.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance16
         Appearance17.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance17.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance17
+        Appearance17.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance17
+        Appearance18.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance18.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance18
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance18.BackColor = System.Drawing.Color.Silver
-        Appearance18.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance18
+        Appearance19.BackColor = System.Drawing.Color.Silver
+        Appearance19.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance19
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(817, 568)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
@@ -1179,6 +1189,32 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
+        '
+        'comboFiltroEstado
+        '
+        Me.comboFiltroEstado.AutoSize = True
+        Me.comboFiltroEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
+        Appearance13.FontData.BoldAsString = "True"
+        ValueListItem3.Appearance = Appearance13
+        ValueListItem3.DataValue = "ValueListItem7"
+        ValueListItem3.DisplayText = "Ninguno"
+        ValueListItem3.Tag = -1
+        Me.comboFiltroEstado.Items.Add(ValueListItem3)
+        Me.comboFiltroEstado.Location = New System.Drawing.Point(65, 84)
+        Me.comboFiltroEstado.Name = "comboFiltroEstado"
+        Me.comboFiltroEstado.Nullable = False
+        Me.comboFiltroEstado.Size = New System.Drawing.Size(224, 21)
+        Me.comboFiltroEstado.TabIndex = 30
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.Color.Transparent
+        Me.Label16.Location = New System.Drawing.Point(21, 88)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(43, 13)
+        Me.Label16.TabIndex = 31
+        Me.Label16.Text = "Estado:"
         '
         'frmpedidocliente
         '
@@ -1239,6 +1275,7 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
+        CType(Me.comboFiltroEstado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1382,6 +1419,12 @@ Public Class frmpedidocliente
 
         'seteo fechaentrega
         fechaentrega.Value = Date.Today
+
+        'seteo combo filtro estado
+        Dim query As String
+        query = "select * from estado where estado.idestado between 1 and 10"
+        cargarComboTag(query, comboFiltroEstado, 0, 2)
+        comboFiltroEstado.SelectedIndex = 0
 
         If Me.IdPesupuesto <> Nothing Then
             cargarPresupuesto()
@@ -2428,24 +2471,43 @@ Public Class frmpedidocliente
         End If
 
         'Por si hace falta filtrar por estado mas adelante
-        'Dim estado As String
-        'If radioAlta.Checked Then
-        '    estado = Constantes.MODELO_FRESA_ESTADO_ALTA
-        'Else
-        '    estado = Constantes.MODELO_FRESA_ESTADO_BAJA
-        'End If
+        If comboFiltroEstado.SelectedItem.Tag = -1 Then
+            Select Case cmbFiltrar.SelectedItem.Tag.ToString
+                Case "NroPedido"
+                    dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " = " & txtFiltrar.Text
+                Case "nombreCliente"
+                    dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'"
+                Case FILTRO_NINGUNO
+                    'nothing to do
+                Case Else
+                    dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'"
+            End Select
+        Else
+            Dim estado As String
+            estado = comboFiltroEstado.SelectedItem.DataValue.ToString
+            Select Case cmbFiltrar.SelectedItem.Tag.ToString
+                Case "NroPedido"
+                    dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " = " & txtFiltrar.Text & " And estado = '" & estado & "'"
+                Case "nombreCliente"
+                    dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'" & " And estado = '" & estado & "'"
+                Case FILTRO_NINGUNO
+                    dataView.RowFilter = "estado = '" & estado & "'"
+                Case Else
+                    dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'" & " And estado = '" & estado & "'"
+            End Select
+        End If
 
 
-        Select Case cmbFiltrar.SelectedItem.Tag.ToString
-            Case "NroPedido"
-                dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " = " & txtFiltrar.Text '& " And estado = '" & estado & "'"
-            Case "nombreCliente"
-                dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'" '& " And estado = '" & estado & "'"
-            Case FILTRO_NINGUNO
-                'nothing to do
-            Case Else
-                dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'" '& " And estado = '" & estado & "'"
-        End Select
+        'Select Case cmbFiltrar.SelectedItem.Tag.ToString
+        '    Case "NroPedido"
+        '        dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " = " & txtFiltrar.Text '& " And estado = '" & estado & "'"
+        '    Case "nombreCliente"
+        '        dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'" '& " And estado = '" & estado & "'"
+        '    Case FILTRO_NINGUNO
+        '        'nothing to do
+        '    Case Else
+        '        dataView.RowFilter = cmbFiltrar.SelectedItem.Tag.ToString & " LIKE '%" & txtFiltrar.Text.Trim & "%'" '& " And estado = '" & estado & "'"
+        'End Select
 
         dgpedidos.DataSource = dataView
 
@@ -2542,9 +2604,6 @@ Public Class frmpedidocliente
     End Sub
 
 
-#End Region
-
-
     Private Sub comboestado_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboestado.ValueChanged
         ' If ds.Tables("pedidocliente").Rows.Count > 0 Then
         'If Me.comboestado.SelectedItem.Tag = 5 And Not ds.Tables("pedidocliente").Rows(0).Item("idestado") = 1 And bton Then
@@ -2554,6 +2613,7 @@ Public Class frmpedidocliente
         'End If
         'End If
     End Sub
+
 
     Private Sub txtFiltroCliente_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtFiltroCliente.ValueChanged
         Dim query As String
@@ -2570,4 +2630,9 @@ Public Class frmpedidocliente
         combocliente.SelectedIndex = 0
 
     End Sub
+
+#End Region
+
+
+
 End Class
