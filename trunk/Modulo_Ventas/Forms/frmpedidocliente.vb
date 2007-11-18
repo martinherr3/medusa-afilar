@@ -47,6 +47,8 @@ Public Class frmpedidocliente
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox7 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
+    Friend WithEvents txtFiltroCliente As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Dim bpedido As Boolean
 #End Region
 
@@ -232,6 +234,8 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.txtFiltroCliente = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -272,6 +276,8 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
+        CType(Me.txtFiltroCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -354,6 +360,8 @@ Public Class frmpedidocliente
         Me.UltraGroupBox2.BackColor = System.Drawing.Color.Transparent
         Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
         Me.UltraGroupBox2.ContentAreaAppearance = Appearance4
+        Me.UltraGroupBox2.Controls.Add(Me.PictureBox9)
+        Me.UltraGroupBox2.Controls.Add(Me.txtFiltroCliente)
         Me.UltraGroupBox2.Controls.Add(Me.PictureBox6)
         Me.UltraGroupBox2.Controls.Add(Me.PictureBox4)
         Me.UltraGroupBox2.Controls.Add(Me.PictureBox3)
@@ -384,7 +392,7 @@ Public Class frmpedidocliente
         '
         Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(236, 69)
+        Me.PictureBox6.Location = New System.Drawing.Point(230, 69)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(18, 21)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -436,7 +444,7 @@ Public Class frmpedidocliente
         'combocliente
         '
         Me.combocliente.AutoSize = True
-        Me.combocliente.Location = New System.Drawing.Point(53, 69)
+        Me.combocliente.Location = New System.Drawing.Point(47, 69)
         Me.combocliente.Name = "combocliente"
         Me.combocliente.Size = New System.Drawing.Size(182, 21)
         Me.combocliente.TabIndex = 18
@@ -1154,6 +1162,25 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
         '
+        'txtFiltroCliente
+        '
+        Me.txtFiltroCliente.AutoSize = True
+        Me.txtFiltroCliente.Location = New System.Drawing.Point(249, 69)
+        Me.txtFiltroCliente.Name = "txtFiltroCliente"
+        Me.txtFiltroCliente.Size = New System.Drawing.Size(94, 21)
+        Me.txtFiltroCliente.TabIndex = 28
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
+        Me.PictureBox9.Location = New System.Drawing.Point(344, 69)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox9.TabIndex = 29
+        Me.PictureBox9.TabStop = False
+        '
         'frmpedidocliente
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -1211,6 +1238,8 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
+        CType(Me.txtFiltroCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1341,6 +1370,9 @@ Public Class frmpedidocliente
         idobj = 0
         nroserie = 0
 
+        'seteo fechaentrega
+        fechaentrega.Value = Date.Today
+
         If Me.IdPesupuesto <> Nothing Then
             cargarPresupuesto()
         End If
@@ -1372,7 +1404,7 @@ Public Class frmpedidocliente
         End If
         Dim id As Object
         Dim cmd As New SqlClient.SqlCommand
-        Dim strsql = "select max(idobjetodelservicio) from objetodelservicio"
+        Dim strsql As String = "select max(idobjetodelservicio) from objetodelservicio"
         cmd.Connection = cnn
         cmd.CommandText = strsql
         id = cmd.ExecuteScalar
@@ -1514,7 +1546,7 @@ Public Class frmpedidocliente
         Catch ex As Exception
             MessageBox.Show("Problemas de Red, consulte a su Admnistrador")
         End Try
-        
+
     End Sub
 
 
@@ -1542,7 +1574,7 @@ Public Class frmpedidocliente
         idpartepedida = 0
         Me.combocliente.ReadOnly = False
         Me.fechaentrega.ReadOnly = False
-        Me.comboestado.ReadOnly = False
+        'Me.comboestado.ReadOnly = False
         Me.comboformaentrega.ReadOnly = False
         'Me.DataGriddos.ReadOnly = False
         Me.DataGridMf.ReadOnly = False
@@ -1562,6 +1594,15 @@ Public Class frmpedidocliente
 
         Me.btngrabar.Enabled = True
         combocliente.Text = String.Empty
+
+        'seteo combo estado en PENDIENTE - ese combo quedo de antes, no se si estaria bien (GABI)
+        Dim item As Infragistics.Win.ValueListItem
+        For Each item In comboestado.Items
+            If item.Tag = Estado.PEDIDO_PENDIENTE Then
+                comboestado.SelectedItem = item
+            End If
+        Next
+
     End Sub
 
 
@@ -1572,11 +1613,11 @@ Public Class frmpedidocliente
         b1 = False
         b2 = False
         If combocliente.Text = String.Empty Then
-            MsgBox("selecccione un cliente")
+            MsgBox("Debe seleccionar un cliente", MsgBoxStyle.Information, "Afilar")
             Exit Sub
         End If
-        If CDate(lblfecharealizacion.Text) > CDate(fechaentrega.Value) Then
-            MsgBox("fecha entrega no válida")
+        If CDate(lblfecharealizacion.Text) >= CDate(fechaentrega.Value) Then
+            MsgBox("Fecha entrega no válida", MsgBoxStyle.Information, "Afilar")
             Exit Sub
         End If
 
@@ -2069,7 +2110,7 @@ Public Class frmpedidocliente
 
             Next
             If b = False Then
-                MsgBox("seleccione un servicio")
+                MsgBox("Seleccione un servicio", MsgBoxStyle.Information, "Afilar")
                 Exit Sub
             End If
             Dim dr2 As DataRow = ds.Tables("OBJ").NewRow
@@ -2091,7 +2132,7 @@ Public Class frmpedidocliente
                         dr1("cantidad") = 1
                         dr1("nroserie") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nroserie")
                         If ds.Tables("servicios").Rows(i).Item("precio") = 0 Then
-                            MsgBox("Falta Precio de Servicio")
+                            MsgBox("Falta Precio de Servicio", MsgBoxStyle.Information, "Afilar")
                             Exit Sub
                         Else
                             dr1("precio") = CDec(ds.Tables("servicios").Rows(i).Item("precio"))
@@ -2115,12 +2156,12 @@ Public Class frmpedidocliente
                         dr1("item") = txtitem.Text
                         dr1("operacion") = ds.Tables("servicios").Rows(i).Item("nombre")
                         If txtcantidad.Text = "" Then
-                            MsgBox("Ingrese cantidad")
+                            MsgBox("Ingrese cantidad", MsgBoxStyle.Information, "Afilar")
                             Exit Sub
                         End If
                         dr1("cantidad") = CInt(txtcantidad.Text)
                         If ds.Tables("servicios").Rows(i).Item("precio") = 0 Then
-                            MsgBox("Falta Precio de Servicio")
+                            MsgBox("Falta Precio de Servicio", MsgBoxStyle.Information, "Afilar")
                             Exit Sub
                         Else
                             dr1("precio") = CDec(ds.Tables("servicios").Rows(i).Item("precio"))
@@ -2161,7 +2202,7 @@ Public Class frmpedidocliente
             MessageBox.Show("Problemas de red, consulte a su Administrador")
         End Try
 
-        
+
     End Sub
 
 
@@ -2474,7 +2515,7 @@ Public Class frmpedidocliente
         'habitilo y dehabitilo controles
         btngrabar.Enabled = True
         Me.fechaentrega.ReadOnly = False
-        Me.comboestado.ReadOnly = False
+        'Me.comboestado.ReadOnly = False
         Me.comboformaentrega.ReadOnly = False
 
     End Sub
@@ -2482,21 +2523,6 @@ Public Class frmpedidocliente
 
 #End Region
 
-    Private Sub dgpedidos_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles dgpedidos.Navigate
-
-    End Sub
-
-    Private Sub comboestado_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles comboestado.TextChanged
-
-    End Sub
-
-    Private Sub comboestado_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles comboestado.Validated
-
-    End Sub
-
-    Private Sub comboestado_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles comboestado.Validating
-        
-    End Sub
 
     Private Sub comboestado_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboestado.ValueChanged
         ' If ds.Tables("pedidocliente").Rows.Count > 0 Then
@@ -2508,7 +2534,19 @@ Public Class frmpedidocliente
         'End If
     End Sub
 
-    Private Sub UltraTabControl1_SelectedTabChanged(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinTabControl.SelectedTabChangedEventArgs) Handles UltraTabControl1.SelectedTabChanged
+    Private Sub txtFiltroCliente_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtFiltroCliente.ValueChanged
+        Dim query As String
+
+        If txtFiltroCliente.Text.Trim = "" Then
+            query = "select idcliente, nombre, apellido from cliente"
+        Else
+            query = "select idcliente, nombre, apellido from cliente " & _
+                    "where apellido like '%" & txtFiltroCliente.Text.Trim & "%'"
+        End If
+
+        combocliente.Items.Clear()
+        cargarComboTag(query, combocliente, 0, 23)
+        combocliente.SelectedIndex = 0
 
     End Sub
 End Class
