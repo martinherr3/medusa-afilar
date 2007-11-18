@@ -487,6 +487,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSPresupuesto.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modulo_Ventas\DSPresupuesto.vb">
+      <DependentUpon>DSPresupuesto.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Ventas\Forms\consultarPresupuesto.Designer.vb">
       <DependentUpon>consultarPresupuesto.vb</DependentUpon>
     </Compile>
