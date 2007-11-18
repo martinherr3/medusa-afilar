@@ -92,6 +92,7 @@ Public Class emitirPresupuesto
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.Label6 = New System.Windows.Forms.Label
         Me.btnFiltroCliente = New Infragistics.Win.Misc.UltraButton
         Me.filtroCliente = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.listaCliente = New System.Windows.Forms.ListView
@@ -109,13 +110,12 @@ Public Class emitirPresupuesto
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
-        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
+        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.DataGridBoolColumn1 = New System.Windows.Forms.DataGridBoolColumn
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.Label6 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.filtroCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,9 +151,20 @@ Public Class emitirPresupuesto
         Me.UltraTabPageControl1.Controls.Add(Me.Label3)
         Me.UltraTabPageControl1.Controls.Add(Me.Label2)
         Me.UltraTabPageControl1.Controls.Add(Me.Label4)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(812, 537)
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Location = New System.Drawing.Point(342, 449)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(126, 13)
+        Me.Label6.TabIndex = 29
+        Me.Label6.Text = "Filtrar cliente por apellido:"
         '
         'btnFiltroCliente
         '
@@ -176,7 +187,6 @@ Public Class emitirPresupuesto
         'listaCliente
         '
         Me.listaCliente.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid
-        Me.listaCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.listaCliente.FullRowSelect = True
         Me.listaCliente.Location = New System.Drawing.Point(80, 430)
         Me.listaCliente.MultiSelect = False
@@ -234,7 +244,7 @@ Public Class emitirPresupuesto
         Me.cmbFiltrar.Items.Add(ValueListItem6)
         Me.cmbFiltrar.Items.Add(ValueListItem7)
         Me.cmbFiltrar.Items.Add(ValueListItem8)
-        Me.cmbFiltrar.Location = New System.Drawing.Point(401, 32)
+        Me.cmbFiltrar.Location = New System.Drawing.Point(391, 32)
         Me.cmbFiltrar.Name = "cmbFiltrar"
         Me.cmbFiltrar.Size = New System.Drawing.Size(224, 21)
         Me.cmbFiltrar.TabIndex = 24
@@ -243,7 +253,7 @@ Public Class emitirPresupuesto
         '
         Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
         Me.btnFiltrar.Appearance = Appearance3
-        Me.btnFiltrar.Location = New System.Drawing.Point(631, 32)
+        Me.btnFiltrar.Location = New System.Drawing.Point(621, 32)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(80, 45)
         Me.btnFiltrar.TabIndex = 23
@@ -253,7 +263,7 @@ Public Class emitirPresupuesto
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(347, 36)
+        Me.Label5.Location = New System.Drawing.Point(337, 36)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(53, 13)
         Me.Label5.TabIndex = 22
@@ -262,7 +272,7 @@ Public Class emitirPresupuesto
         'txtFiltrar
         '
         Me.txtFiltrar.AutoSize = True
-        Me.txtFiltrar.Location = New System.Drawing.Point(401, 56)
+        Me.txtFiltrar.Location = New System.Drawing.Point(391, 56)
         Me.txtFiltrar.Name = "txtFiltrar"
         Me.txtFiltrar.Size = New System.Drawing.Size(224, 21)
         Me.txtFiltrar.TabIndex = 21
@@ -283,7 +293,7 @@ Public Class emitirPresupuesto
         Me.textPresupuesto.Location = New System.Drawing.Point(80, 32)
         Me.textPresupuesto.Name = "textPresupuesto"
         Me.textPresupuesto.ReadOnly = True
-        Me.textPresupuesto.Size = New System.Drawing.Size(120, 21)
+        Me.textPresupuesto.Size = New System.Drawing.Size(184, 21)
         Me.textPresupuesto.TabIndex = 16
         '
         'comboEmpleado
@@ -371,21 +381,10 @@ Public Class emitirPresupuesto
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Cliente"
         '
-        'UltraButton3
-        '
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance5
-        Me.UltraButton3.Location = New System.Drawing.Point(720, 477)
-        Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(80, 45)
-        Me.UltraButton3.TabIndex = 12
-        Me.UltraButton3.Text = "Salir"
-        '
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.crv)
-        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 537)
         '
@@ -400,6 +399,16 @@ Public Class emitirPresupuesto
         Me.crv.Size = New System.Drawing.Size(784, 439)
         Me.crv.TabIndex = 5
         Me.crv.ViewTimeSelectionFormula = ""
+        '
+        'UltraButton3
+        '
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance5
+        Me.UltraButton3.Location = New System.Drawing.Point(720, 477)
+        Me.UltraButton3.Name = "UltraButton3"
+        Me.UltraButton3.Size = New System.Drawing.Size(80, 45)
+        Me.UltraButton3.TabIndex = 12
+        Me.UltraButton3.Text = "Salir"
         '
         'DataGridBoolColumn1
         '
@@ -442,16 +451,6 @@ Public Class emitirPresupuesto
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(812, 537)
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(342, 449)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(126, 13)
-        Me.Label6.TabIndex = 29
-        Me.Label6.Text = "Filtrar cliente por apellido:"
         '
         'emitirPresupuesto
         '
