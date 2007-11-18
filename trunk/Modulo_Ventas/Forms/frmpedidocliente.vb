@@ -1387,6 +1387,7 @@ Public Class frmpedidocliente
         Me.txtsubtot.ReadOnly = True
         Me.txtsubtotal.ReadOnly = True
         Me.txtitem.ReadOnly = True
+        Me.txtFiltroCliente.ReadOnly = True
         Me.btnagregar.Enabled = False
         Me.btnquiter.Enabled = False
         Me.botagregar.Enabled = False
@@ -1639,6 +1640,7 @@ Public Class frmpedidocliente
         'Me.DataGridfresasfab.ReadOnly = False
         'Me.DataGridF.ReadOnly = False
         'Me.DataGridpp.ReadOnly = False
+        Me.txtFiltroCliente.ReadOnly = False
         Me.txtcantidad.ReadOnly = False
         Me.txtimportetotal.ReadOnly = False
         Me.txtsubtot.ReadOnly = False
@@ -1912,6 +1914,7 @@ Public Class frmpedidocliente
         Me.txtsubtot.ReadOnly = True
         Me.txtsubtotal.ReadOnly = True
         Me.txtitem.ReadOnly = True
+        Me.txtFiltroCliente.ReadOnly = True
         Me.DataGridservicios.ReadOnly = True
         Me.btnagregar.Enabled = False
         Me.btnquiter.Enabled = False
@@ -1996,7 +1999,7 @@ Public Class frmpedidocliente
             ' solo puedo modificar la forma de entrega
             Me.comboformaentrega.ReadOnly = False
         Else
-            Me.combocliente.ReadOnly = False
+            'Me.combocliente.ReadOnly = False
             Me.fechaentrega.ReadOnly = False
             Me.comboestado.ReadOnly = False
             Me.comboformaentrega.ReadOnly = False
