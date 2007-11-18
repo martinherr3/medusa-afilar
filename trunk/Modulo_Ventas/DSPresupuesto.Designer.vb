@@ -24,7 +24,7 @@ Imports System
 Partial Public Class DSPresupuesto
     Inherits System.Data.DataSet
     
-    Private tabledetallepresupuesto As detallepresupuestoDataTable
+    Private tabledetallepresupuesto_reporte As detallepresupuesto_reporteDataTable
     
     Private _schemaSerializationMode As System.Data.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -53,8 +53,8 @@ Partial Public Class DSPresupuesto
         If (Me.DetermineSchemaSerializationMode(info, context) = System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As System.Data.DataSet = New System.Data.DataSet
             ds.ReadXmlSchema(New System.Xml.XmlTextReader(New System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("detallepresupuesto")) Is Nothing) Then
-                MyBase.Tables.Add(New detallepresupuestoDataTable(ds.Tables("detallepresupuesto")))
+            If (Not (ds.Tables("detallepresupuesto_reporte")) Is Nothing) Then
+                MyBase.Tables.Add(New detallepresupuesto_reporteDataTable(ds.Tables("detallepresupuesto_reporte")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -76,9 +76,9 @@ Partial Public Class DSPresupuesto
     <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      System.ComponentModel.Browsable(false),  _
      System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property detallepresupuesto() As detallepresupuestoDataTable
+    Public ReadOnly Property detallepresupuesto_reporte() As detallepresupuesto_reporteDataTable
         Get
-            Return Me.tabledetallepresupuesto
+            Return Me.tabledetallepresupuesto_reporte
         End Get
     End Property
     
@@ -141,8 +141,8 @@ Partial Public Class DSPresupuesto
             Me.Reset
             Dim ds As System.Data.DataSet = New System.Data.DataSet
             ds.ReadXml(reader)
-            If (Not (ds.Tables("detallepresupuesto")) Is Nothing) Then
-                MyBase.Tables.Add(New detallepresupuestoDataTable(ds.Tables("detallepresupuesto")))
+            If (Not (ds.Tables("detallepresupuesto_reporte")) Is Nothing) Then
+                MyBase.Tables.Add(New detallepresupuesto_reporteDataTable(ds.Tables("detallepresupuesto_reporte")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -173,10 +173,10 @@ Partial Public Class DSPresupuesto
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tabledetallepresupuesto = CType(MyBase.Tables("detallepresupuesto"),detallepresupuestoDataTable)
+        Me.tabledetallepresupuesto_reporte = CType(MyBase.Tables("detallepresupuesto_reporte"),detallepresupuesto_reporteDataTable)
         If (initTable = true) Then
-            If (Not (Me.tabledetallepresupuesto) Is Nothing) Then
-                Me.tabledetallepresupuesto.InitVars
+            If (Not (Me.tabledetallepresupuesto_reporte) Is Nothing) Then
+                Me.tabledetallepresupuesto_reporte.InitVars
             End If
         End If
     End Sub
@@ -188,12 +188,12 @@ Partial Public Class DSPresupuesto
         Me.Namespace = "http://tempuri.org/DSPresupuesto.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tabledetallepresupuesto = New detallepresupuestoDataTable
-        MyBase.Tables.Add(Me.tabledetallepresupuesto)
+        Me.tabledetallepresupuesto_reporte = New detallepresupuesto_reporteDataTable
+        MyBase.Tables.Add(Me.tabledetallepresupuesto_reporte)
     End Sub
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerializedetallepresupuesto() As Boolean
+    Private Function ShouldSerializedetallepresupuesto_reporte() As Boolean
         Return false
     End Function
     
@@ -217,12 +217,12 @@ Partial Public Class DSPresupuesto
         Return type
     End Function
     
-    Public Delegate Sub detallepresupuestoRowChangeEventHandler(ByVal sender As Object, ByVal e As detallepresupuestoRowChangeEvent)
+    Public Delegate Sub detallepresupuesto_reporteRowChangeEventHandler(ByVal sender As Object, ByVal e As detallepresupuesto_reporteRowChangeEvent)
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
      System.Serializable(),  _
      System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class detallepresupuestoDataTable
+    Partial Public Class detallepresupuesto_reporteDataTable
         Inherits System.Data.DataTable
         Implements System.Collections.IEnumerable
         
@@ -245,7 +245,7 @@ Partial Public Class DSPresupuesto
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "detallepresupuesto"
+            Me.TableName = "detallepresupuesto_reporte"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -339,36 +339,36 @@ Partial Public Class DSPresupuesto
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As detallepresupuestoRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As detallepresupuesto_reporteRow
             Get
-                Return CType(Me.Rows(index),detallepresupuestoRow)
+                Return CType(Me.Rows(index),detallepresupuesto_reporteRow)
             End Get
         End Property
         
-        Public Event detallepresupuestoRowChanging As detallepresupuestoRowChangeEventHandler
+        Public Event detallepresupuesto_reporteRowChanging As detallepresupuesto_reporteRowChangeEventHandler
         
-        Public Event detallepresupuestoRowChanged As detallepresupuestoRowChangeEventHandler
+        Public Event detallepresupuesto_reporteRowChanged As detallepresupuesto_reporteRowChangeEventHandler
         
-        Public Event detallepresupuestoRowDeleting As detallepresupuestoRowChangeEventHandler
+        Public Event detallepresupuesto_reporteRowDeleting As detallepresupuesto_reporteRowChangeEventHandler
         
-        Public Event detallepresupuestoRowDeleted As detallepresupuestoRowChangeEventHandler
+        Public Event detallepresupuesto_reporteRowDeleted As detallepresupuesto_reporteRowChangeEventHandler
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Sub AdddetallepresupuestoRow(ByVal row As detallepresupuestoRow)
+        Public Overloads Sub Adddetallepresupuesto_reporteRow(ByVal row As detallepresupuesto_reporteRow)
             Me.Rows.Add(row)
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AdddetallepresupuestoRow(ByVal iddetpre As Integer, ByVal idpresupuesto As Integer, ByVal idmodelo As Integer, ByVal idproducto As Integer, ByVal tipo As Integer, ByVal cantidad As Integer, ByVal precio As Double, ByVal nombreProducto As String) As detallepresupuestoRow
-            Dim rowdetallepresupuestoRow As detallepresupuestoRow = CType(Me.NewRow,detallepresupuestoRow)
-            rowdetallepresupuestoRow.ItemArray = New Object() {iddetpre, idpresupuesto, idmodelo, idproducto, tipo, cantidad, precio, nombreProducto}
-            Me.Rows.Add(rowdetallepresupuestoRow)
-            Return rowdetallepresupuestoRow
+        Public Overloads Function Adddetallepresupuesto_reporteRow(ByVal iddetpre As Integer, ByVal idpresupuesto As Integer, ByVal idmodelo As Integer, ByVal idproducto As Integer, ByVal tipo As Integer, ByVal cantidad As Integer, ByVal precio As Double, ByVal nombreProducto As String) As detallepresupuesto_reporteRow
+            Dim rowdetallepresupuesto_reporteRow As detallepresupuesto_reporteRow = CType(Me.NewRow,detallepresupuesto_reporteRow)
+            rowdetallepresupuesto_reporteRow.ItemArray = New Object() {iddetpre, idpresupuesto, idmodelo, idproducto, tipo, cantidad, precio, nombreProducto}
+            Me.Rows.Add(rowdetallepresupuesto_reporteRow)
+            Return rowdetallepresupuesto_reporteRow
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByiddetpreidpresupuesto(ByVal iddetpre As Integer, ByVal idpresupuesto As Integer) As detallepresupuestoRow
-            Return CType(Me.Rows.Find(New Object() {iddetpre, idpresupuesto}),detallepresupuestoRow)
+        Public Function FindByiddetpreidpresupuesto(ByVal iddetpre As Integer, ByVal idpresupuesto As Integer) As detallepresupuesto_reporteRow
+            Return CType(Me.Rows.Find(New Object() {iddetpre, idpresupuesto}),detallepresupuesto_reporteRow)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -378,14 +378,14 @@ Partial Public Class DSPresupuesto
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Overrides Function Clone() As System.Data.DataTable
-            Dim cln As detallepresupuestoDataTable = CType(MyBase.Clone,detallepresupuestoDataTable)
+            Dim cln As detallepresupuesto_reporteDataTable = CType(MyBase.Clone,detallepresupuesto_reporteDataTable)
             cln.InitVars
             Return cln
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function CreateInstance() As System.Data.DataTable
-            Return New detallepresupuestoDataTable
+            Return New detallepresupuesto_reporteDataTable
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -425,54 +425,54 @@ Partial Public Class DSPresupuesto
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function NewdetallepresupuestoRow() As detallepresupuestoRow
-            Return CType(Me.NewRow,detallepresupuestoRow)
+        Public Function Newdetallepresupuesto_reporteRow() As detallepresupuesto_reporteRow
+            Return CType(Me.NewRow,detallepresupuesto_reporteRow)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As System.Data.DataRowBuilder) As System.Data.DataRow
-            Return New detallepresupuestoRow(builder)
+            Return New detallepresupuesto_reporteRow(builder)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Function GetRowType() As System.Type
-            Return GetType(detallepresupuestoRow)
+            Return GetType(detallepresupuesto_reporteRow)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanged(ByVal e As System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.detallepresupuestoRowChangedEvent) Is Nothing) Then
-                RaiseEvent detallepresupuestoRowChanged(Me, New detallepresupuestoRowChangeEvent(CType(e.Row,detallepresupuestoRow), e.Action))
+            If (Not (Me.detallepresupuesto_reporteRowChangedEvent) Is Nothing) Then
+                RaiseEvent detallepresupuesto_reporteRowChanged(Me, New detallepresupuesto_reporteRowChangeEvent(CType(e.Row,detallepresupuesto_reporteRow), e.Action))
             End If
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowChanging(ByVal e As System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.detallepresupuestoRowChangingEvent) Is Nothing) Then
-                RaiseEvent detallepresupuestoRowChanging(Me, New detallepresupuestoRowChangeEvent(CType(e.Row,detallepresupuestoRow), e.Action))
+            If (Not (Me.detallepresupuesto_reporteRowChangingEvent) Is Nothing) Then
+                RaiseEvent detallepresupuesto_reporteRowChanging(Me, New detallepresupuesto_reporteRowChangeEvent(CType(e.Row,detallepresupuesto_reporteRow), e.Action))
             End If
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.detallepresupuestoRowDeletedEvent) Is Nothing) Then
-                RaiseEvent detallepresupuestoRowDeleted(Me, New detallepresupuestoRowChangeEvent(CType(e.Row,detallepresupuestoRow), e.Action))
+            If (Not (Me.detallepresupuesto_reporteRowDeletedEvent) Is Nothing) Then
+                RaiseEvent detallepresupuesto_reporteRowDeleted(Me, New detallepresupuesto_reporteRowChangeEvent(CType(e.Row,detallepresupuesto_reporteRow), e.Action))
             End If
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.detallepresupuestoRowDeletingEvent) Is Nothing) Then
-                RaiseEvent detallepresupuestoRowDeleting(Me, New detallepresupuestoRowChangeEvent(CType(e.Row,detallepresupuestoRow), e.Action))
+            If (Not (Me.detallepresupuesto_reporteRowDeletingEvent) Is Nothing) Then
+                RaiseEvent detallepresupuesto_reporteRowDeleting(Me, New detallepresupuesto_reporteRowChangeEvent(CType(e.Row,detallepresupuesto_reporteRow), e.Action))
             End If
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub RemovedetallepresupuestoRow(ByVal row As detallepresupuestoRow)
+        Public Sub Removedetallepresupuesto_reporteRow(ByVal row As detallepresupuesto_reporteRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -499,7 +499,7 @@ Partial Public Class DSPresupuesto
             type.Attributes.Add(attribute1)
             Dim attribute2 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "detallepresupuestoDataTable"
+            attribute2.FixedValue = "detallepresupuesto_reporteDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Return type
@@ -507,34 +507,34 @@ Partial Public Class DSPresupuesto
     End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Partial Public Class detallepresupuestoRow
+    Partial Public Class detallepresupuesto_reporteRow
         Inherits System.Data.DataRow
         
-        Private tabledetallepresupuesto As detallepresupuestoDataTable
+        Private tabledetallepresupuesto_reporte As detallepresupuesto_reporteDataTable
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub New(ByVal rb As System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tabledetallepresupuesto = CType(Me.Table,detallepresupuestoDataTable)
+            Me.tabledetallepresupuesto_reporte = CType(Me.Table,detallepresupuesto_reporteDataTable)
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property iddetpre() As Integer
             Get
-                Return CType(Me(Me.tabledetallepresupuesto.iddetpreColumn),Integer)
+                Return CType(Me(Me.tabledetallepresupuesto_reporte.iddetpreColumn),Integer)
             End Get
             Set
-                Me(Me.tabledetallepresupuesto.iddetpreColumn) = value
+                Me(Me.tabledetallepresupuesto_reporte.iddetpreColumn) = value
             End Set
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property idpresupuesto() As Integer
             Get
-                Return CType(Me(Me.tabledetallepresupuesto.idpresupuestoColumn),Integer)
+                Return CType(Me(Me.tabledetallepresupuesto_reporte.idpresupuestoColumn),Integer)
             End Get
             Set
-                Me(Me.tabledetallepresupuesto.idpresupuestoColumn) = value
+                Me(Me.tabledetallepresupuesto_reporte.idpresupuestoColumn) = value
             End Set
         End Property
         
@@ -542,13 +542,14 @@ Partial Public Class DSPresupuesto
         Public Property idmodelo() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tabledetallepresupuesto.idmodeloColumn),Integer)
+                    Return CType(Me(Me.tabledetallepresupuesto_reporte.idmodeloColumn),Integer)
                 Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("El valor de la columna 'idmodelo' de la tabla 'detallepresupuesto' es DBNull.", e)
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'idmodelo' de la tabla 'detallepresupuesto_reporte' es DBN"& _ 
+                            "ull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledetallepresupuesto.idmodeloColumn) = value
+                Me(Me.tabledetallepresupuesto_reporte.idmodeloColumn) = value
             End Set
         End Property
         
@@ -556,13 +557,14 @@ Partial Public Class DSPresupuesto
         Public Property idproducto() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tabledetallepresupuesto.idproductoColumn),Integer)
+                    Return CType(Me(Me.tabledetallepresupuesto_reporte.idproductoColumn),Integer)
                 Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("El valor de la columna 'idproducto' de la tabla 'detallepresupuesto' es DBNull.", e)
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'idproducto' de la tabla 'detallepresupuesto_reporte' es D"& _ 
+                            "BNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledetallepresupuesto.idproductoColumn) = value
+                Me(Me.tabledetallepresupuesto_reporte.idproductoColumn) = value
             End Set
         End Property
         
@@ -570,13 +572,14 @@ Partial Public Class DSPresupuesto
         Public Property tipo() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tabledetallepresupuesto.tipoColumn),Integer)
+                    Return CType(Me(Me.tabledetallepresupuesto_reporte.tipoColumn),Integer)
                 Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("El valor de la columna 'tipo' de la tabla 'detallepresupuesto' es DBNull.", e)
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'tipo' de la tabla 'detallepresupuesto_reporte' es DBNull."& _ 
+                            "", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledetallepresupuesto.tipoColumn) = value
+                Me(Me.tabledetallepresupuesto_reporte.tipoColumn) = value
             End Set
         End Property
         
@@ -584,13 +587,14 @@ Partial Public Class DSPresupuesto
         Public Property cantidad() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tabledetallepresupuesto.cantidadColumn),Integer)
+                    Return CType(Me(Me.tabledetallepresupuesto_reporte.cantidadColumn),Integer)
                 Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("El valor de la columna 'cantidad' de la tabla 'detallepresupuesto' es DBNull.", e)
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'cantidad' de la tabla 'detallepresupuesto_reporte' es DBN"& _ 
+                            "ull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledetallepresupuesto.cantidadColumn) = value
+                Me(Me.tabledetallepresupuesto_reporte.cantidadColumn) = value
             End Set
         End Property
         
@@ -598,13 +602,14 @@ Partial Public Class DSPresupuesto
         Public Property precio() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tabledetallepresupuesto.precioColumn),Double)
+                    Return CType(Me(Me.tabledetallepresupuesto_reporte.precioColumn),Double)
                 Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("El valor de la columna 'precio' de la tabla 'detallepresupuesto' es DBNull.", e)
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'precio' de la tabla 'detallepresupuesto_reporte' es DBNul"& _ 
+                            "l.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledetallepresupuesto.precioColumn) = value
+                Me(Me.tabledetallepresupuesto_reporte.precioColumn) = value
             End Set
         End Property
         
@@ -612,95 +617,95 @@ Partial Public Class DSPresupuesto
         Public Property nombreProducto() As String
             Get
                 Try 
-                    Return CType(Me(Me.tabledetallepresupuesto.nombreProductoColumn),String)
+                    Return CType(Me(Me.tabledetallepresupuesto_reporte.nombreProductoColumn),String)
                 Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombreProducto' de la tabla 'detallepresupuesto' es DBNul"& _ 
-                            "l.", e)
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombreProducto' de la tabla 'detallepresupuesto_reporte' "& _ 
+                            "es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabledetallepresupuesto.nombreProductoColumn) = value
+                Me(Me.tabledetallepresupuesto_reporte.nombreProductoColumn) = value
             End Set
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsidmodeloNull() As Boolean
-            Return Me.IsNull(Me.tabledetallepresupuesto.idmodeloColumn)
+            Return Me.IsNull(Me.tabledetallepresupuesto_reporte.idmodeloColumn)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetidmodeloNull()
-            Me(Me.tabledetallepresupuesto.idmodeloColumn) = System.Convert.DBNull
+            Me(Me.tabledetallepresupuesto_reporte.idmodeloColumn) = System.Convert.DBNull
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsidproductoNull() As Boolean
-            Return Me.IsNull(Me.tabledetallepresupuesto.idproductoColumn)
+            Return Me.IsNull(Me.tabledetallepresupuesto_reporte.idproductoColumn)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetidproductoNull()
-            Me(Me.tabledetallepresupuesto.idproductoColumn) = System.Convert.DBNull
+            Me(Me.tabledetallepresupuesto_reporte.idproductoColumn) = System.Convert.DBNull
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IstipoNull() As Boolean
-            Return Me.IsNull(Me.tabledetallepresupuesto.tipoColumn)
+            Return Me.IsNull(Me.tabledetallepresupuesto_reporte.tipoColumn)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SettipoNull()
-            Me(Me.tabledetallepresupuesto.tipoColumn) = System.Convert.DBNull
+            Me(Me.tabledetallepresupuesto_reporte.tipoColumn) = System.Convert.DBNull
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IscantidadNull() As Boolean
-            Return Me.IsNull(Me.tabledetallepresupuesto.cantidadColumn)
+            Return Me.IsNull(Me.tabledetallepresupuesto_reporte.cantidadColumn)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetcantidadNull()
-            Me(Me.tabledetallepresupuesto.cantidadColumn) = System.Convert.DBNull
+            Me(Me.tabledetallepresupuesto_reporte.cantidadColumn) = System.Convert.DBNull
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsprecioNull() As Boolean
-            Return Me.IsNull(Me.tabledetallepresupuesto.precioColumn)
+            Return Me.IsNull(Me.tabledetallepresupuesto_reporte.precioColumn)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetprecioNull()
-            Me(Me.tabledetallepresupuesto.precioColumn) = System.Convert.DBNull
+            Me(Me.tabledetallepresupuesto_reporte.precioColumn) = System.Convert.DBNull
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsnombreProductoNull() As Boolean
-            Return Me.IsNull(Me.tabledetallepresupuesto.nombreProductoColumn)
+            Return Me.IsNull(Me.tabledetallepresupuesto_reporte.nombreProductoColumn)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetnombreProductoNull()
-            Me(Me.tabledetallepresupuesto.nombreProductoColumn) = System.Convert.DBNull
+            Me(Me.tabledetallepresupuesto_reporte.nombreProductoColumn) = System.Convert.DBNull
         End Sub
     End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class detallepresupuestoRowChangeEvent
+    Public Class detallepresupuesto_reporteRowChangeEvent
         Inherits System.EventArgs
         
-        Private eventRow As detallepresupuestoRow
+        Private eventRow As detallepresupuesto_reporteRow
         
         Private eventAction As System.Data.DataRowAction
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As detallepresupuestoRow, ByVal action As System.Data.DataRowAction)
+        Public Sub New(ByVal row As detallepresupuesto_reporteRow, ByVal action As System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As detallepresupuestoRow
+        Public ReadOnly Property Row() As detallepresupuesto_reporteRow
             Get
                 Return Me.eventRow
             End Get
@@ -724,7 +729,7 @@ Namespace DSPresupuestoTableAdapters
      System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class detallepresupuestoTableAdapter
+    Partial Public Class detallepresupuesto_reporteTableAdapter
         Inherits System.ComponentModel.Component
         
         Private WithEvents _adapter As System.Data.SqlClient.SqlDataAdapter
@@ -805,7 +810,7 @@ Namespace DSPresupuestoTableAdapters
             Me._adapter = New System.Data.SqlClient.SqlDataAdapter
             Dim tableMapping As System.Data.Common.DataTableMapping = New System.Data.Common.DataTableMapping
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "detallepresupuesto"
+            tableMapping.DataSetTable = "detallepresupuesto_reporte"
             tableMapping.ColumnMappings.Add("iddetpre", "iddetpre")
             tableMapping.ColumnMappings.Add("idpresupuesto", "idpresupuesto")
             tableMapping.ColumnMappings.Add("idmodelo", "idmodelo")
@@ -918,7 +923,7 @@ Namespace DSPresupuestoTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DSPresupuesto.detallepresupuestoDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DSPresupuesto.detallepresupuesto_reporteDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -930,23 +935,23 @@ Namespace DSPresupuestoTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DSPresupuesto.detallepresupuestoDataTable
+        Public Overloads Overridable Function GetData() As DSPresupuesto.detallepresupuesto_reporteDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DSPresupuesto.detallepresupuestoDataTable = New DSPresupuesto.detallepresupuestoDataTable
+            Dim dataTable As DSPresupuesto.detallepresupuesto_reporteDataTable = New DSPresupuesto.detallepresupuesto_reporteDataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DSPresupuesto.detallepresupuestoDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DSPresupuesto.detallepresupuesto_reporteDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As DSPresupuesto) As Integer
-            Return Me.Adapter.Update(dataSet, "detallepresupuesto")
+            Return Me.Adapter.Update(dataSet, "detallepresupuesto_reporte")
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

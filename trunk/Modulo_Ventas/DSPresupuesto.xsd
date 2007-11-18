@@ -8,9 +8,9 @@
           </Connection>
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="detallepresupuestoTableAdapter" GeneratorDataComponentClassName="detallepresupuestoTableAdapter" Name="detallepresupuesto" UserDataComponentName="detallepresupuestoTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="detallepresupuesto_reporteTableAdapter" GeneratorDataComponentClassName="detallepresupuesto_reporteTableAdapter" Name="detallepresupuesto_reporte" UserDataComponentName="detallepresupuesto_reporteTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectName="Afilar.dbo.detallepresupuesto" DbObjectType="Table" GenerateShortCommands="True" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectName="Afilar.dbo.detallepresupuesto" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="False">
                     <CommandText>DELETE FROM [dbo].[detallepresupuesto] WHERE (([iddetpre] = @Original_iddetpre) AND ([idpresupuesto] = @Original_idpresupuesto) AND ((@IsNull_idmodelo = 1 AND [idmodelo] IS NULL) OR ([idmodelo] = @Original_idmodelo)) AND ((@IsNull_idproducto = 1 AND [idproducto] IS NULL) OR ([idproducto] = @Original_idproducto)) AND ((@IsNull_tipo = 1 AND [tipo] IS NULL) OR ([tipo] = @Original_tipo)) AND ((@IsNull_cantidad = 1 AND [cantidad] IS NULL) OR ([cantidad] = @Original_cantidad)) AND ((@IsNull_precio = 1 AND [precio] IS NULL) OR ([precio] = @Original_precio)) AND ((@IsNull_nombreProducto = 1 AND [nombreProducto] IS NULL) OR ([nombreProducto] = @Original_nombreProducto)))</CommandText>
@@ -153,17 +153,17 @@ SELECT iddetpre, idpresupuesto, idmodelo, idproducto, tipo, cantidad, precio, no
   <xs:element name="DSPresupuesto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSPresupuesto" msprop:Generator_DataSetName="DSPresupuesto">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="detallepresupuesto" msprop:Generator_UserTableName="detallepresupuesto" msprop:Generator_RowDeletedName="detallepresupuestoRowDeleted" msprop:Generator_TableClassName="detallepresupuestoDataTable" msprop:Generator_RowChangedName="detallepresupuestoRowChanged" msprop:Generator_RowClassName="detallepresupuestoRow" msprop:Generator_RowChangingName="detallepresupuestoRowChanging" msprop:Generator_RowEvArgName="detallepresupuestoRowChangeEvent" msprop:Generator_RowEvHandlerName="detallepresupuestoRowChangeEventHandler" msprop:Generator_TablePropName="detallepresupuesto" msprop:Generator_TableVarName="tabledetallepresupuesto" msprop:Generator_RowDeletingName="detallepresupuestoRowDeleting">
+        <xs:element name="detallepresupuesto_reporte" msprop:Generator_UserTableName="detallepresupuesto_reporte" msprop:Generator_RowDeletedName="detallepresupuesto_reporteRowDeleted" msprop:Generator_RowChangedName="detallepresupuesto_reporteRowChanged" msprop:Generator_RowClassName="detallepresupuesto_reporteRow" msprop:Generator_RowChangingName="detallepresupuesto_reporteRowChanging" msprop:Generator_RowEvArgName="detallepresupuesto_reporteRowChangeEvent" msprop:Generator_RowEvHandlerName="detallepresupuesto_reporteRowChangeEventHandler" msprop:Generator_TableClassName="detallepresupuesto_reporteDataTable" msprop:Generator_TableVarName="tabledetallepresupuesto_reporte" msprop:Generator_RowDeletingName="detallepresupuesto_reporteRowDeleting" msprop:Generator_TablePropName="detallepresupuesto_reporte">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="iddetpre" msprop:Generator_UserColumnName="iddetpre" msprop:Generator_ColumnPropNameInRow="iddetpre" msprop:Generator_ColumnVarNameInTable="columniddetpre" msprop:Generator_ColumnPropNameInTable="iddetpreColumn" type="xs:int" />
-              <xs:element name="idpresupuesto" msprop:Generator_UserColumnName="idpresupuesto" msprop:Generator_ColumnPropNameInRow="idpresupuesto" msprop:Generator_ColumnVarNameInTable="columnidpresupuesto" msprop:Generator_ColumnPropNameInTable="idpresupuestoColumn" type="xs:int" />
-              <xs:element name="idmodelo" msprop:Generator_UserColumnName="idmodelo" msprop:Generator_ColumnPropNameInRow="idmodelo" msprop:Generator_ColumnVarNameInTable="columnidmodelo" msprop:Generator_ColumnPropNameInTable="idmodeloColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="idproducto" msprop:Generator_UserColumnName="idproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="tipo" msprop:Generator_UserColumnName="tipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="cantidad" msprop:Generator_UserColumnName="cantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="precio" msprop:Generator_UserColumnName="precio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInTable="precioColumn" type="xs:double" minOccurs="0" />
-              <xs:element name="nombreProducto" msprop:Generator_UserColumnName="nombreProducto" msprop:Generator_ColumnPropNameInRow="nombreProducto" msprop:Generator_ColumnVarNameInTable="columnnombreProducto" msprop:Generator_ColumnPropNameInTable="nombreProductoColumn" minOccurs="0">
+              <xs:element name="iddetpre" msprop:Generator_UserColumnName="iddetpre" msprop:Generator_ColumnVarNameInTable="columniddetpre" msprop:Generator_ColumnPropNameInRow="iddetpre" msprop:Generator_ColumnPropNameInTable="iddetpreColumn" type="xs:int" />
+              <xs:element name="idpresupuesto" msprop:Generator_UserColumnName="idpresupuesto" msprop:Generator_ColumnVarNameInTable="columnidpresupuesto" msprop:Generator_ColumnPropNameInRow="idpresupuesto" msprop:Generator_ColumnPropNameInTable="idpresupuestoColumn" type="xs:int" />
+              <xs:element name="idmodelo" msprop:Generator_UserColumnName="idmodelo" msprop:Generator_ColumnVarNameInTable="columnidmodelo" msprop:Generator_ColumnPropNameInRow="idmodelo" msprop:Generator_ColumnPropNameInTable="idmodeloColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idproducto" msprop:Generator_UserColumnName="idproducto" msprop:Generator_ColumnVarNameInTable="columnidproducto" msprop:Generator_ColumnPropNameInRow="idproducto" msprop:Generator_ColumnPropNameInTable="idproductoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="tipo" msprop:Generator_UserColumnName="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="cantidad" msprop:Generator_UserColumnName="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="precio" msprop:Generator_UserColumnName="precio" msprop:Generator_ColumnVarNameInTable="columnprecio" msprop:Generator_ColumnPropNameInRow="precio" msprop:Generator_ColumnPropNameInTable="precioColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="nombreProducto" msprop:Generator_UserColumnName="nombreProducto" msprop:Generator_ColumnVarNameInTable="columnnombreProducto" msprop:Generator_ColumnPropNameInRow="nombreProducto" msprop:Generator_ColumnPropNameInTable="nombreProductoColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -176,7 +176,7 @@ SELECT iddetpre, idpresupuesto, idmodelo, idproducto, tipo, cantidad, precio, no
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:detallepresupuesto" />
+      <xs:selector xpath=".//mstns:detallepresupuesto_reporte" />
       <xs:field xpath="mstns:iddetpre" />
       <xs:field xpath="mstns:idpresupuesto" />
     </xs:unique>
