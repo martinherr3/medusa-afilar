@@ -142,10 +142,14 @@ Public Class frmSegProd
             If proximaOP <> -1 Then
                 ProdTacking.selectGrupo(proximaOP - 1, barra)
             Else
-                MsgBox("La fabricacion de este articulo ya a finalizado", MsgBoxStyle.Information, "Hoja de ruta finalizada")
-                BtnAceptar.Enabled = False
-                cmbEmpleado.Enabled = False
-            End If
+                If obj.HasRecords Then
+                    If obj.registrarFinHR() Then
+                        MsgBox("La fabricacion de este articulo ya a finalizado", MsgBoxStyle.Information, "Hoja de ruta finalizada")
+                    End If
+                    BtnAceptar.Enabled = False
+                    cmbEmpleado.Enabled = False
+                End If
+                End If
             
         End If
     End Sub
@@ -199,8 +203,12 @@ Public Class ProdTacking
         DS = New DataSet
         adapterfresa.Fill(DS, "Fresa")
         Dim TFresa As DataTable = DS.Tables.Item("Fresa")
-        If Not IsDBNull(TFresa.Rows(0).Item("idhojaderuta")) Then
-            IdHojaRuta = TFresa.Rows(0).Item("idhojaderuta")
+        If TFresa.Rows.Count > 0 Then
+            If Not IsDBNull(TFresa.Rows(0).Item("idhojaderuta")) Then
+                IdHojaRuta = TFresa.Rows(0).Item("idhojaderuta")
+            Else
+                MsgBox("Esta fresa no tiene una Hoja de ruta asociada", MsgBoxStyle.Information, "Entidad no planeada")
+            End If
         Else
             MsgBox("Esta fresa no tiene una Hoja de ruta asociada", MsgBoxStyle.Information, "Entidad no planeada")
         End If
@@ -258,17 +266,21 @@ Public Class ProdTacking
     End Function
     Public Function getNombreFresa() As String
         Dim TFresa As DataTable = DS.Tables.Item("Fresa")
-        If Not IsDBNull(TFresa.Rows(0).Item("nombre")) Then
-            Return TFresa.Rows(0).Item("nombre")
-        Else
-            Return "Fresa Generica AFILAR"
+        If TFresa.Rows.Count > 0 Then
+            If Not IsDBNull(TFresa.Rows(0).Item("nombre")) Then
+                Return TFresa.Rows(0).Item("nombre")
+            Else
+                Return "Fresa Generica AFILAR"
+            End If
         End If
     End Function
     Public Function getImagen() As Image
         Dim TFresa As DataTable = DS.Tables.Item("Fresa")
+        If TFresa.Rows.Count > 0 Then
         If Not IsDBNull(TFresa.Rows(0).Item("imagen")) Then
             Return Bytes2Image(TFresa.Rows(0).Item("imagen"))
         Else : Return Nothing ' tener en cuenta esto
+            End If
         End If
     End Function
 
@@ -298,9 +310,15 @@ Public Class ProdTacking
                 'marco el comienzo de la primera operacion
                 Dim sql2 As String = "UPDATE detallehojaderuta set fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
                 Dim comm2 As New SqlCommand(sql2, conn)
-
                 comm2.ExecuteNonQuery()
+                'cambio es estado de la fresa a en produccion
+                sql2 = "update fresa set estado = " & Estado.FRESA_FABRICANDO & " where nroserie = " & PidFresa
+                comm2 = New SqlCommand(sql2, conn)
+                comm2.ExecuteNonQuery()
+
             Else
+
+
                 'Aca registro la fecha de fin de la operacion actual
                 Dim sql1 As String = "UPDATE detallehojaderuta set fechahorafinreal = getdate(), idlegajo = " & empleado & " where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
                 Dim comm1 As New SqlCommand(sql1, conn)
@@ -426,5 +444,28 @@ Public Class ProdTacking
             Return TEmpleado.Rows(0).Item("nombre")
         End If
 
+    End Function
+
+    Public Function registrarFinHR() As Boolean
+        Dim conn As SqlConnection
+        conn = cnn
+        conn.Open()
+        Dim sql2 As String = "update fresa set estado = " & Estado.FRESA_FINALIZADO & " where nroserie = " & PidFresa
+        Dim comm2 As New SqlCommand(sql2, conn)
+
+        comm2.ExecuteNonQuery()
+        conn.Close()
+        Return True
+        
+
+    End Function
+
+    Public Function HasRecords() As Boolean
+        If DS.Tables.Item("fresa").Rows.Count > 0 Then
+            Return True
+
+        Else
+            Return False
+        End If
     End Function
 End Class
