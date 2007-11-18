@@ -158,6 +158,8 @@ Public Class frmpedidocliente
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -169,8 +171,6 @@ Public Class frmpedidocliente
         Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.txtimportetotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -223,6 +223,8 @@ Public Class frmpedidocliente
         Me.DataGridservicios = New System.Windows.Forms.DataGrid
         Me.DataGridfresasfab = New System.Windows.Forms.DataGrid
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.Label16 = New System.Windows.Forms.Label
+        Me.comboFiltroEstado = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.PictureBox8 = New System.Windows.Forms.PictureBox
         Me.radioNinguno = New System.Windows.Forms.RadioButton
@@ -240,8 +242,6 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.comboFiltroEstado = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.Label16 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -277,6 +277,7 @@ Public Class frmpedidocliente
         CType(Me.DataGridservicios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
+        CType(Me.comboFiltroEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbFiltrar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -284,8 +285,6 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
-        CType(Me.comboFiltroEstado, System.ComponentModel.ISupportInitialize).BeginInit()
-
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -299,7 +298,7 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
         '
@@ -974,9 +973,35 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl2.Controls.Add(Me.txtFiltrar)
         Me.UltraTabPageControl2.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl2.Controls.Add(Me.dgpedidos)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(813, 545)
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.Color.Transparent
+        Me.Label16.Location = New System.Drawing.Point(21, 88)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(43, 13)
+        Me.Label16.TabIndex = 31
+        Me.Label16.Text = "Estado:"
+        '
+        'comboFiltroEstado
+        '
+        Me.comboFiltroEstado.AutoSize = True
+        Me.comboFiltroEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
+        Appearance13.FontData.BoldAsString = "True"
+        ValueListItem3.Appearance = Appearance13
+        ValueListItem3.DataValue = "ValueListItem7"
+        ValueListItem3.DisplayText = "Ninguno"
+        ValueListItem3.Tag = -1
+        Me.comboFiltroEstado.Items.Add(ValueListItem3)
+        Me.comboFiltroEstado.Location = New System.Drawing.Point(65, 84)
+        Me.comboFiltroEstado.Name = "comboFiltroEstado"
+        Me.comboFiltroEstado.Nullable = False
+        Me.comboFiltroEstado.Size = New System.Drawing.Size(224, 21)
+        Me.comboFiltroEstado.TabIndex = 30
         '
         'GroupBox1
         '
@@ -1190,32 +1215,6 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
         '
-        'comboFiltroEstado
-        '
-        Me.comboFiltroEstado.AutoSize = True
-        Me.comboFiltroEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Appearance13.FontData.BoldAsString = "True"
-        ValueListItem3.Appearance = Appearance13
-        ValueListItem3.DataValue = "ValueListItem7"
-        ValueListItem3.DisplayText = "Ninguno"
-        ValueListItem3.Tag = -1
-        Me.comboFiltroEstado.Items.Add(ValueListItem3)
-        Me.comboFiltroEstado.Location = New System.Drawing.Point(65, 84)
-        Me.comboFiltroEstado.Name = "comboFiltroEstado"
-        Me.comboFiltroEstado.Nullable = False
-        Me.comboFiltroEstado.Size = New System.Drawing.Size(224, 21)
-        Me.comboFiltroEstado.TabIndex = 30
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.Color.Transparent
-        Me.Label16.Location = New System.Drawing.Point(21, 88)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(43, 13)
-        Me.Label16.TabIndex = 31
-        Me.Label16.Text = "Estado:"
-        '
         'frmpedidocliente
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -1267,6 +1266,7 @@ Public Class frmpedidocliente
         CType(Me.DataGridfresasfab, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabPageControl2.ResumeLayout(False)
         Me.UltraTabPageControl2.PerformLayout()
+        CType(Me.comboFiltroEstado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1275,7 +1275,6 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
-        CType(Me.comboFiltroEstado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1898,11 +1897,16 @@ Public Class frmpedidocliente
         Me.fechaentrega.ReadOnly = True
         Me.comboestado.ReadOnly = True
         Me.comboformaentrega.ReadOnly = True
-        Me.DataGriddos.ReadOnly = True
-        Me.DataGridMf.ReadOnly = True
-        Me.DataGridfresasfab.ReadOnly = True
-        Me.DataGridF.ReadOnly = True
-        Me.DataGridpp.ReadOnly = True
+        'Me.DataGriddos.ReadOnly = True
+        'Me.DataGridMf.ReadOnly = True
+        'Me.DataGridfresasfab.ReadOnly = True
+        'Me.DataGridF.ReadOnly = True
+        'Me.DataGridpp.ReadOnly = True
+        Me.DataGridF.Enabled = False
+        Me.DataGridpp.Enabled = False
+        Me.DataGridfresasfab.Enabled = False
+        Me.DataGridMf.Enabled = False
+        Me.DataGriddos.Enabled = False
         Me.txtcantidad.ReadOnly = True
         Me.txtimportetotal.ReadOnly = True
         Me.txtsubtot.ReadOnly = True
@@ -1987,36 +1991,40 @@ Public Class frmpedidocliente
 
 
     Private Sub btnmodificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnmodificar.Click
-        If ds.Tables("pedidocliente").Rows(0).Item("idestado") = 5 Or ds.Tables("pedidocliente").Rows(0).Item("idestado") <> 1 Then
-            Me.combocliente.ReadOnly = True
-            Me.fechaentrega.ReadOnly = True
-            Me.comboestado.ReadOnly = True
+        If ds.Tables("pedidocliente").Rows(0).Item("idestado") <> 1 Then
+            'Me.combocliente.ReadOnly = True
+            'Me.fechaentrega.ReadOnly = True
+            'Me.comboestado.ReadOnly = True
             Me.comboformaentrega.ReadOnly = False
-            'Me.DataGridMf.ReadOnly = False
-            Me.DataGridMf.Enabled = True
-            Me.txtcantidad.ReadOnly = True
-            Me.txtimportetotal.ReadOnly = True
-            Me.txtsubtot.ReadOnly = True
-            Me.txtsubtotal.ReadOnly = True
-            Me.txtitem.ReadOnly = True
-            Me.DataGridservicios.ReadOnly = True
-            Me.btnagregar.Enabled = False
-            Me.btnquiter.Enabled = False
-            Me.botagregar.Enabled = False
-            Me.botquitar.Enabled = False
+            'Me.DataGridMf.Enabled = True
+            'Me.txtcantidad.ReadOnly = True
+            'Me.txtimportetotal.ReadOnly = True
+            'Me.txtsubtot.ReadOnly = True
+            'Me.txtsubtotal.ReadOnly = True
+            'Me.txtitem.ReadOnly = True
+            'Me.DataGridservicios.ReadOnly = True
+            'Me.btnagregar.Enabled = False
+            'Me.btnquiter.Enabled = False
+            'Me.botagregar.Enabled = False
+            'Me.botquitar.Enabled = False
         Else
             Me.combocliente.ReadOnly = False
             Me.fechaentrega.ReadOnly = False
             Me.comboestado.ReadOnly = False
             Me.comboformaentrega.ReadOnly = False
-            'Me.DataGridMf.ReadOnly = False
-            Me.DataGridMf.Enabled = False
+            'habilito las grilas
+            Me.DataGridMf.Enabled = True
+            Me.DataGridservicios.Enabled = True
+            Me.DataGridpp.Enabled = True
+            Me.DataGridfresasfab.Enabled = True
+            Me.DataGridF.Enabled = True
+            Me.DataGriddos.Enabled = True
+
             Me.txtcantidad.ReadOnly = False
             Me.txtimportetotal.ReadOnly = False
             Me.txtsubtot.ReadOnly = False
             Me.txtsubtotal.ReadOnly = False
             Me.txtitem.ReadOnly = False
-            Me.DataGridservicios.ReadOnly = False
             Me.btnagregar.Enabled = True
             Me.btnquiter.Enabled = True
             Me.botagregar.Enabled = True
@@ -2105,8 +2113,9 @@ Public Class frmpedidocliente
         If sel_check_col(DataGridMf, 0, e) And DataGridMf.DataMember = "modelofresa" Then
 
             Dim i As Integer
-            i = DataGridMf.Item(DataGridMf.CurrentRowIndex, 1) - 1
             Try
+                i = DataGridMf.Item(DataGridMf.CurrentRowIndex, 1) - 1
+
                 Select Case ds.Tables("modelofresa").Rows(DataGridMf.CurrentRowIndex).Item("seleccionarMF")
 
                     Case False
@@ -2635,4 +2644,7 @@ Public Class frmpedidocliente
 
 
 
+    Private Sub dgpedidos_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles dgpedidos.Navigate
+
+    End Sub
 End Class
