@@ -447,4 +447,15 @@ Module ModuloPrincipal
         Redondear = ParteEntera & "," & ParteDecimal
     End Function
 
+    '''<summary>
+    ''' Retorna la Fecha enviada como parametro en formato ANSI como String
+    ''' </summary>
+    ''' <param name="pFecha">Fecha a convertir, del tipo DATE</param>
+    ''' <returns>Fceha en ANSI, del tipo String</returns>
+    Public Function FormatoANSI(ByVal pFecha As Date) As String
+
+        Return String.Format("{0:D2}", pFecha.Year) + String.Format("{0:D2}", pFecha.Month) + String.Format("{0:D2}", pFecha.Day) + " " + String.Format("{0:D2}", pFecha.Hour) + ":" + String.Format("{0:D2}", pFecha.Minute) + ":" + String.Format("{0:D2}", pFecha.Second)
+
+    End Function
+
 End Module
