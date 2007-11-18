@@ -192,7 +192,46 @@ Module ModuloPrincipal
 
     End Sub
 
+    Public Sub cargarLista(ByVal lista As ListView, ByVal consulta As String, ByVal tag As Integer, ByVal col() As Integer, ByVal colName() As String)
 
+        lista.Clear()
+        Dim dr As SqlClient.SqlDataReader
+        Dim sel As New SqlClient.SqlCommand
+        Dim i As Integer
+        Dim item As ListViewItem
+
+        Dim column As String
+        lista.Columns.Add("", 10, HorizontalAlignment.Left)
+        For Each column In colName
+            lista.Columns.Add(column, 110, HorizontalAlignment.Left)
+        Next
+
+        cnn.Open()
+        sel.CommandText = consulta
+        sel.CommandType = CommandType.Text
+        sel.Connection = cnn
+
+        dr = sel.ExecuteReader
+
+        lista.BeginUpdate()
+
+        While dr.Read
+            item = New ListViewItem()
+            item.Tag = dr.Item(tag)
+
+            For i = 0 To col.GetUpperBound(0)
+                item.SubItems.Add(dr.Item(col(i)).ToString.Trim)
+            Next i
+
+            lista.Items.Add(item)
+
+        End While
+
+        lista.EndUpdate()
+
+        cnn.Close()
+
+    End Sub
 
     Public Sub cargarComboTag(ByVal consulta As String, ByVal combo As Infragistics.Win.UltraWinEditors.UltraComboEditor, ByVal tag As Integer, ByVal items As Integer)
         Dim sel As New SqlClient.SqlCommand
