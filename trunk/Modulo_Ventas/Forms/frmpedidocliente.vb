@@ -175,6 +175,8 @@ Public Class frmpedidocliente
         Me.btngrabar = New Infragistics.Win.Misc.UltraButton
         Me.btnnuevo = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox9 = New System.Windows.Forms.PictureBox
+        Me.txtFiltroCliente = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.PictureBox6 = New System.Windows.Forms.PictureBox
         Me.PictureBox4 = New System.Windows.Forms.PictureBox
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
@@ -234,13 +236,13 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.txtFiltroCliente = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.PictureBox9 = New System.Windows.Forms.PictureBox
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtFiltroCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -276,8 +278,6 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
-        CType(Me.txtFiltroCliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -291,7 +291,7 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
         '
@@ -387,6 +387,25 @@ Public Class frmpedidocliente
         Me.UltraGroupBox2.TabIndex = 1
         Me.UltraGroupBox2.Text = "Datos del cliente"
         Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'PictureBox9
+        '
+        Me.PictureBox9.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
+        Me.PictureBox9.Location = New System.Drawing.Point(344, 69)
+        Me.PictureBox9.Name = "PictureBox9"
+        Me.PictureBox9.Size = New System.Drawing.Size(18, 21)
+        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox9.TabIndex = 29
+        Me.PictureBox9.TabStop = False
+        '
+        'txtFiltroCliente
+        '
+        Me.txtFiltroCliente.AutoSize = True
+        Me.txtFiltroCliente.Location = New System.Drawing.Point(249, 69)
+        Me.txtFiltroCliente.Name = "txtFiltroCliente"
+        Me.txtFiltroCliente.Size = New System.Drawing.Size(94, 21)
+        Me.txtFiltroCliente.TabIndex = 28
         '
         'PictureBox6
         '
@@ -662,7 +681,6 @@ Public Class frmpedidocliente
         Me.DataGridpp.Name = "DataGridpp"
         Me.DataGridpp.ParentRowsBackColor = System.Drawing.Color.Gainsboro
         Me.DataGridpp.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
-        Me.DataGridpp.ReadOnly = True
         Me.DataGridpp.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGridpp.SelectionForeColor = System.Drawing.Color.WhiteSmoke
         Me.DataGridpp.Size = New System.Drawing.Size(328, 148)
@@ -946,7 +964,7 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl2.Controls.Add(Me.txtFiltrar)
         Me.UltraTabPageControl2.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl2.Controls.Add(Me.dgpedidos)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(813, 545)
         '
@@ -1162,25 +1180,6 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
         '
-        'txtFiltroCliente
-        '
-        Me.txtFiltroCliente.AutoSize = True
-        Me.txtFiltroCliente.Location = New System.Drawing.Point(249, 69)
-        Me.txtFiltroCliente.Name = "txtFiltroCliente"
-        Me.txtFiltroCliente.Size = New System.Drawing.Size(94, 21)
-        Me.txtFiltroCliente.TabIndex = 28
-        '
-        'PictureBox9
-        '
-        Me.PictureBox9.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
-        Me.PictureBox9.Location = New System.Drawing.Point(344, 69)
-        Me.PictureBox9.Name = "PictureBox9"
-        Me.PictureBox9.Size = New System.Drawing.Size(18, 21)
-        Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox9.TabIndex = 29
-        Me.PictureBox9.TabStop = False
-        '
         'frmpedidocliente
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -1198,6 +1197,8 @@ Public Class frmpedidocliente
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
         Me.UltraGroupBox2.PerformLayout()
+        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtFiltroCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1238,8 +1239,6 @@ Public Class frmpedidocliente
         CType(Me.dgpedidos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
-        CType(Me.txtFiltroCliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1327,25 +1326,36 @@ Public Class frmpedidocliente
         UltraGroupBox1.Visible = True
         UltraGroupBox3.Visible = False
 
+        ' Deshabilito las grillas
+        Me.DataGridF.Enabled = False
+        Me.DataGriddos.Enabled = False
+        Me.DataGridMf.Enabled = False
+        Me.DataGridfresasfab.Enabled = False
+        Me.DataGridservicios.Enabled = False
+        Me.DataGridpp.Enabled = False
+        ' Propieddad de solo lectura para las grillas
+        'hace que no me agregue una linea en blanco
+        Me.DataGridF.ReadOnly = True
+        Me.DataGriddos.ReadOnly = True
+        Me.DataGridMf.ReadOnly = True
+        Me.DataGridfresasfab.ReadOnly = True
+        Me.DataGridservicios.ReadOnly = True
+        Me.DataGridpp.ReadOnly = True
+        'deshabilito los demas campos
         Me.combocliente.ReadOnly = True
         Me.fechaentrega.ReadOnly = True
         Me.comboestado.ReadOnly = True
         Me.comboformaentrega.ReadOnly = True
-        Me.DataGriddos.ReadOnly = True
-        Me.DataGridMf.ReadOnly = True
-        Me.DataGridfresasfab.ReadOnly = True
-        Me.DataGridF.ReadOnly = True
         Me.txtcantidad.ReadOnly = True
         Me.txtimportetotal.ReadOnly = True
         Me.txtsubtot.ReadOnly = True
         Me.txtsubtotal.ReadOnly = True
         Me.txtitem.ReadOnly = True
-        Me.DataGridservicios.ReadOnly = True
         Me.btnagregar.Enabled = False
         Me.btnquiter.Enabled = False
         Me.botagregar.Enabled = False
         Me.botquitar.Enabled = False
-
+        ' Manejo que botnones se pueden elegir al inicio
         Me.btngrabar.Enabled = False
         Me.btnmodificar.Enabled = False
         UltraOptionSet1.CheckedIndex = 0
@@ -1576,8 +1586,14 @@ Public Class frmpedidocliente
         Me.fechaentrega.ReadOnly = False
         'Me.comboestado.ReadOnly = False
         Me.comboformaentrega.ReadOnly = False
+        Me.DataGriddos.Enabled = True
+        Me.DataGridMf.Enabled = True
+        Me.DataGridfresasfab.Enabled = True
+        Me.DataGridF.Enabled = True
+        Me.DataGridpp.Enabled = True
+        Me.DataGridservicios.Enabled = True
         'Me.DataGriddos.ReadOnly = False
-        Me.DataGridMf.ReadOnly = False
+        'Me.DataGridMf.ReadOnly = False
         'Me.DataGridfresasfab.ReadOnly = False
         'Me.DataGridF.ReadOnly = False
         'Me.DataGridpp.ReadOnly = False
@@ -1616,8 +1632,13 @@ Public Class frmpedidocliente
             MsgBox("Debe seleccionar un cliente", MsgBoxStyle.Information, "Afilar")
             Exit Sub
         End If
-        If CDate(lblfecharealizacion.Text) >= CDate(fechaentrega.Value) Then
+        If CDate(lblfecharealizacion.Text) > CDate(fechaentrega.Value) Then
             MsgBox("Fecha entrega no válida", MsgBoxStyle.Information, "Afilar")
+            Exit Sub
+        End If
+
+        If ds.Tables("partepedida").Rows.Count = 0 And ds.Tables("fresa").Rows.Count = 0 And ds.Tables("DOS").Rows.Count = 0 Then
+            MsgBox("Debe agregar un item al pedido", MsgBoxStyle.Information, "Afilar")
             Exit Sub
         End If
 
