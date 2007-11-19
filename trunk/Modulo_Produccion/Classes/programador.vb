@@ -7,7 +7,7 @@ Public Class programador
   'coleccion de maquinas, a medida q se programan tareas se van asignando a las maquinas correspondientes
   Private _horarioCierre(6, 1) As Integer
 
-  Private _horaInicioGeneral As DateTime
+  Private _horaInicioGeneral As DateTime = Date.Now
   'es la hora a partir de la cual van a comenzar a programarse las tareas
   Private _fresas As Collection
   'array de fresas a programar
@@ -233,7 +233,7 @@ Public Class programador
 
     Dim proxDisponible As DateTime
 
-    _horaInicioGeneral = Date.Now
+    '_horaInicioGeneral = Date.Now
 
     'recorrer las tareas hasta q no queden mas
     'For Each tarea As tareasProd In _tareas
@@ -385,8 +385,85 @@ Public Class programador
 
   End Function
 
+  Public Function guardarProgramacion() As Boolean
 
+    Dim commd As New SqlClient.SqlCommand
+    Dim orden As Integer = 1
+    Dim i As Boolean
+    Dim allTasksCollection As New Collection
+    Dim idHR As Integer
+    Dim DS As DataSet
 
+    For Each maq As MaquinaProd In _maquinas
+      For Each tar As tareasProd In maq.tareas
+        tar.idMaquina = maq.idMaquina
+        allTasksCollection.Add(tar)
+      Next
+    Next
+    cnn.Open()
+
+    commd.Connection = cnn
+
+    For Each fre As fresaProd In _fresas
+
+      commd.CommandText = "SELECT max(idhojaderuta) FROM hojaderuta"
+      If IsDBNull(commd.ExecuteScalar()) Then
+        idHR = 1
+      Else
+        idHR = commd.ExecuteScalar() + 1
+      End If
+
+      ''traer el ds con las materiasa primas a usar por fresa
+      DS = getDSMateriaPartes(fre.id_fresa)
+      For Each row As DataRow In DS.Tables.Item(0).Rows
+
+        'idtipomateriaprima, cantidad, nroserie
+        commd.CommandText = "UPDATE tipomateriaprima SET stockactual = stockactual - " & row.Item(1) & " WHERE idtipomateriaprima = " & row.Item(0)
+        commd.ExecuteNonQuery()
+
+      Next
+      commd.CommandText = "INSERT INTO hojaderuta (idhojaderuta) VALUES (" & idHR & ")"
+      commd.ExecuteNonQuery()
+
+      commd.CommandText = "SELECT max(idhojaderuta) FROM hojaderuta"
+      idHR = commd.ExecuteScalar()
+
+      commd.CommandText = "UPDATE fresa SET idhojaderuta = " & idHR & ", estado = 2 WHERE nroserie = " & fre.id_fresa
+      commd.ExecuteNonQuery()
+      orden = 1
+      Do
+        i = False
+        For Each tar As tareasProd In allTasksCollection
+          If tar.idFresa = fre.id_fresa And tar.orden = orden Then
+
+            commd.CommandText = "INSERT INTO detallehojaderuta (idhojaderuta, idetapadefabricacion, fechahorainicioplanificada, fechahorafinplanificada, idmaquina) VALUES (" & idHR & ", " & tar.idEtapa & ", '" & tar.inicio.ToString("s") & "', '" & tar.fin.ToString("s") & "', " & tar.idMaquina & " )"
+            commd.ExecuteNonQuery()
+
+            orden += 1
+            i = True
+          End If
+        Next
+      Loop While (i)
+    Next
+    cnn.Close()
+
+  End Function
+
+  Public Function getDSMateriaPartes(ByVal nroSerie As Integer) As DataSet
+
+    Dim Sql As String
+    'Sql = "SELECT * FROM parte WHERE idmodelo = ** AND idtipofresa = "
+    Sql = "SELECT p.idtipomateriaprima, p.cantidad, f.nroserie FROM parte p, fresa f WHERE f.idtipo = p.idtipofresa AND f.idmodelo = p.idmodelo " & _
+      "AND f.nroserie = " & nroSerie
+
+    Dim comm As New SqlClient.SqlCommand(Sql, cnn)
+    Dim DA As New SqlClient.SqlDataAdapter(comm)
+
+    Dim DS As New DataSet
+    DA.Fill(DS, "partes")
+
+    Return DS
+  End Function
 End Class
 
 
