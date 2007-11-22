@@ -146,7 +146,9 @@ Public Class Usuario
         If Not cnn.State = ConnectionState.Open Then
             cnn.Open()
         End If
-        Return comando.ExecuteScalar()
+        Dim resultado As String
+        resultado = comando.ExecuteScalar()
         cnn.Close()
+        Return resultado
     End Function
 End Class

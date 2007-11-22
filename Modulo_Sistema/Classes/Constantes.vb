@@ -1,6 +1,10 @@
 Public Class Constantes
 
-    Public Const HORA_HOMBRE_OPERARIO As String = "Hora/Hombre Operario"
+    'Contantes para buscar valores de la tabla app_param
+    Public Const APP_PARAM_HORA_HOMBRE_OPERARIO As String = "Hora/Hombre Operario"
+    Public Const APP_PARAM_GANANCIA As String = "Ganancia"
+
+    'String que se guarda en modelo de fresa
     Public Const MODELO_FRESA_ESTADO_BAJA As String = "Baja"
     Public Const MODELO_FRESA_ESTADO_ALTA As String = "Alta"
 
@@ -13,8 +17,10 @@ Public Class Constantes
     'de frmBase
     Private _InicioX As Integer = 200
     Private _InicioY As Integer = 105
+
     'Este es el id de la operacion torneado para lo que se nescesite
     Private _OperacionTorneado As Integer = 699
+
     'este es el id del cargo de los operarios para el filtro de empleados del frmsegprod
     Private _CargoOperario As Integer = 1
 

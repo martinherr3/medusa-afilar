@@ -11,7 +11,9 @@ Public Class ClsSeg
     Private idusuario As Integer
     'Private pass As String
     'Private WS As Int32
+
 #Region "Propertys"
+
     Public Property id() As Integer
         Get
             Return idusuario
@@ -20,13 +22,9 @@ Public Class ClsSeg
             idusuario = Value
         End Set
     End Property
-
     
 #End Region
 
-    'Public Sub New(ByVal usuario As String, ByVal pass As String)
-
-    'End Sub
     Public Function Validar(ByVal usuario As String, ByVal contraseña As String) As Boolean
         Dim da As New SqlDataAdapter("select idlegajo from cuentausuario where usuario = '" & Trim(usuario) & "' and contraseña = '" & Trim(contraseña) & "'", cnn)
         Dim ds As New DataSet
@@ -40,6 +38,7 @@ Public Class ClsSeg
     End Function
 
 #Region "HasPrivilege"
+
     Public Function HasPrivilege(ByVal idform As Integer) As Boolean
         Dim da As New SqlDataAdapter("select * from formxempleado where idformulario = " & idform & " and idlegajo = " & idusuario, cnn)
         Dim ds As New DataSet
@@ -50,9 +49,7 @@ Public Class ClsSeg
             Return True
         End If
     End Function
+
 #End Region
-
-
-    
 
 End Class
