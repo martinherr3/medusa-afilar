@@ -254,6 +254,7 @@ Public Class registrarModeloFresa
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -266,7 +267,6 @@ Public Class registrarModeloFresa
         Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem9 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem10 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -332,7 +332,9 @@ Public Class registrarModeloFresa
         Me.ColumnHeader3 = New System.Windows.Forms.ColumnHeader
         Me.ColumnHeader4 = New System.Windows.Forms.ColumnHeader
         Me.ColumnHeader9 = New System.Windows.Forms.ColumnHeader
+        Me.botonFresa = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Label11 = New System.Windows.Forms.Label
         Me.Label10 = New System.Windows.Forms.Label
         Me.textPrecioModelo = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -354,7 +356,6 @@ Public Class registrarModeloFresa
         Me.Label9 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
-        Me.botonFresa = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPage2 = New System.Windows.Forms.TabPage
@@ -421,6 +422,7 @@ Public Class registrarModeloFresa
         Me.UltraButton21 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton22 = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox14 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.textPrecioTF = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label51 = New System.Windows.Forms.Label
         Me.btnCalcularCosto = New Infragistics.Win.Misc.UltraButton
@@ -484,13 +486,12 @@ Public Class registrarModeloFresa
         Me.Label16 = New System.Windows.Forms.Label
         Me.tab = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.tab1.SuspendLayout()
         CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox3.SuspendLayout()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textPrecioModelo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textDescripcion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboGrupoModelo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -532,6 +533,7 @@ Public Class registrarModeloFresa
         Me.TabPage3.SuspendLayout()
         CType(Me.UltraGroupBox14, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox14.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textPrecioTF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.textCostoTF, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox13, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -565,8 +567,6 @@ Public Class registrarModeloFresa
         CType(Me.textCostoAdicional, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tab, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tab.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tab1
@@ -577,7 +577,7 @@ Public Class registrarModeloFresa
         Me.tab1.Controls.Add(Me.UltraGroupBox3)
         Me.tab1.Controls.Add(Me.botonFresa)
         Me.tab1.Controls.Add(Me.UltraGroupBox1)
-        Me.tab1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.tab1.Location = New System.Drawing.Point(2, 21)
         Me.tab1.Name = "tab1"
         Me.tab1.Size = New System.Drawing.Size(812, 425)
         '
@@ -649,7 +649,6 @@ Public Class registrarModeloFresa
         '
         'lista2
         '
-        Me.lista2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lista2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8})
         Me.lista2.FullRowSelect = True
         Me.lista2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
@@ -687,7 +686,6 @@ Public Class registrarModeloFresa
         '
         'lista1
         '
-        Me.lista1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lista1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader9})
         Me.lista1.FullRowSelect = True
         Me.lista1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
@@ -723,6 +721,16 @@ Public Class registrarModeloFresa
         Me.ColumnHeader9.Text = "Sentido de giro"
         Me.ColumnHeader9.Width = 100
         '
+        'botonFresa
+        '
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.botonFresa.Appearance = Appearance7
+        Me.botonFresa.Location = New System.Drawing.Point(16, 383)
+        Me.botonFresa.Name = "botonFresa"
+        Me.botonFresa.Size = New System.Drawing.Size(120, 39)
+        Me.botonFresa.TabIndex = 3
+        Me.botonFresa.Text = "&Tipo Fresa"
+        '
         'UltraGroupBox1
         '
         Appearance8.BackColor = System.Drawing.Color.LightSteelBlue
@@ -756,6 +764,17 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox1.TabIndex = 0
         Me.UltraGroupBox1.Text = "Modelo de fresa"
         Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(505, 153)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(17, 25)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 45
+        Me.PictureBox1.TabStop = False
         '
         'Label11
         '
@@ -975,16 +994,6 @@ Public Class registrarModeloFresa
         Me.Label4.Size = New System.Drawing.Size(88, 13)
         Me.Label4.TabIndex = 34
         Me.Label4.Text = "Tipo de acabado"
-        '
-        'botonFresa
-        '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.botonFresa.Appearance = Appearance7
-        Me.botonFresa.Location = New System.Drawing.Point(16, 383)
-        Me.botonFresa.Name = "botonFresa"
-        Me.botonFresa.Size = New System.Drawing.Size(120, 39)
-        Me.botonFresa.TabIndex = 3
-        Me.botonFresa.Text = "&Tipo Fresa"
         '
         'UltraTabPageControl1
         '
@@ -1382,7 +1391,7 @@ Public Class registrarModeloFresa
         Me.TabPage1.Controls.Add(Me.UltraGroupBox10)
         Me.TabPage1.Location = New System.Drawing.Point(4, 4)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(808, 390)
+        Me.TabPage1.Size = New System.Drawing.Size(808, 396)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "Partes"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1445,7 +1454,6 @@ Public Class registrarModeloFresa
         '
         'lista3
         '
-        Me.lista3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lista3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader21, Me.ColumnHeader22, Me.ColumnHeader23, Me.ColumnHeader24, Me.ColumnHeader25})
         Me.lista3.FullRowSelect = True
         Me.lista3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
@@ -1683,6 +1691,17 @@ Public Class registrarModeloFresa
         Me.UltraGroupBox14.TabIndex = 12
         Me.UltraGroupBox14.Text = "Precio final"
         Me.UltraGroupBox14.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(27, 136)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(17, 23)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox2.TabIndex = 46
+        Me.PictureBox2.TabStop = False
         '
         'textPrecioTF
         '
@@ -1954,7 +1973,7 @@ Public Class registrarModeloFresa
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl2.Enabled = False
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(812, 425)
         '
@@ -2344,28 +2363,6 @@ Public Class registrarModeloFresa
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(812, 425)
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(505, 153)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(17, 25)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox1.TabIndex = 45
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(27, 136)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(17, 23)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox2.TabIndex = 46
-        Me.PictureBox2.TabStop = False
-        '
         'registrarModeloFresa
         '
         Me.ClientSize = New System.Drawing.Size(818, 448)
@@ -2382,6 +2379,7 @@ Public Class registrarModeloFresa
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
         Me.UltraGroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textPrecioModelo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textDescripcion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboGrupoModelo, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2428,6 +2426,7 @@ Public Class registrarModeloFresa
         CType(Me.UltraGroupBox14, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox14.ResumeLayout(False)
         Me.UltraGroupBox14.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textPrecioTF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.textCostoTF, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox13, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2466,8 +2465,6 @@ Public Class registrarModeloFresa
         CType(Me.textCostoAdicional, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tab, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tab.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -3138,6 +3135,11 @@ Public Class registrarModeloFresa
                         ds.Tables("tipofresa").Rows.Add(nuevaFresa)
                         j = j + 1
 
+                        Dim item As ListViewItem
+                        For Each item In lista4.Items
+
+                        Next
+
                     Next
                 End If
 
@@ -3721,8 +3723,7 @@ Public Class registrarModeloFresa
         Next
 
         'Costo Hora/Hombre utilizado en el calculo de Costo de operaciones /etapas de fabricacion
-        Dim parametro As New Parametro
-        Dim hora_hombre As Double = parametro.obtenerParametro(Constantes.HORA_HOMBRE_OPERARIO)
+        Dim hora_hombre As Double = Parametro.obtenerParametro(Constantes.APP_PARAM_HORA_HOMBRE_OPERARIO)
 
         'Costo Etapas de fabricacion 
         filas = ds.Tables("etapadefabricacion").Select("idtipofresa = " + textIDFresa.Text + " And idmodelo = " + textID.Text)
@@ -3736,6 +3737,10 @@ Public Class registrarModeloFresa
         Dim resultado As New Double
         resultado = costo_etapas + costo_partes
         textCostoTF.Text = Math.Round(resultado, 3, MidpointRounding.AwayFromZero)
+
+        'precio sujerido: 20% de ganancia
+        Dim ganancia As Double = Parametro.obtenerParametro(Constantes.APP_PARAM_GANANCIA)
+        textPrecioTF.Text = resultado + (resultado * (ganancia / 100))
 
     End Sub
 
