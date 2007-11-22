@@ -248,9 +248,9 @@ Partial Public Class DSCliente
         
         Private columnnombreLocalidad As System.Data.DataColumn
         
-        Private columnExpr1 As System.Data.DataColumn
-        
         Private columnidprovincia As System.Data.DataColumn
+        
+        Private columnnombreProvincia As System.Data.DataColumn
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -362,16 +362,16 @@ Partial Public Class DSCliente
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Expr1Column() As System.Data.DataColumn
+        Public ReadOnly Property idprovinciaColumn() As System.Data.DataColumn
             Get
-                Return Me.columnExpr1
+                Return Me.columnidprovincia
             End Get
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property idprovinciaColumn() As System.Data.DataColumn
+        Public ReadOnly Property nombreProvinciaColumn() As System.Data.DataColumn
             Get
-                Return Me.columnidprovincia
+                Return Me.columnnombreProvincia
             End Get
         End Property
         
@@ -404,9 +404,9 @@ Partial Public Class DSCliente
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddclienteRow(ByVal idcliente As Integer, ByVal nombre As String, ByVal apellido As String, ByVal idtipodocumento As Integer, ByVal direccion As String, ByVal localidad As Integer, ByVal mail As String, ByVal telefono As String, ByVal documento As Decimal, ByVal celular As String, ByVal nombreLocalidad As String, ByVal Expr1 As String, ByVal idprovincia As Integer) As clienteRow
+        Public Overloads Function AddclienteRow(ByVal idcliente As Integer, ByVal nombre As String, ByVal apellido As String, ByVal idtipodocumento As Integer, ByVal direccion As String, ByVal localidad As Integer, ByVal mail As String, ByVal telefono As String, ByVal documento As Decimal, ByVal celular As String, ByVal nombreLocalidad As String, ByVal idprovincia As Integer, ByVal nombreProvincia As String) As clienteRow
             Dim rowclienteRow As clienteRow = CType(Me.NewRow,clienteRow)
-            rowclienteRow.ItemArray = New Object() {idcliente, nombre, apellido, idtipodocumento, direccion, localidad, mail, telefono, documento, celular, nombreLocalidad, Expr1, idprovincia}
+            rowclienteRow.ItemArray = New Object() {idcliente, nombre, apellido, idtipodocumento, direccion, localidad, mail, telefono, documento, celular, nombreLocalidad, idprovincia, nombreProvincia}
             Me.Rows.Add(rowclienteRow)
             Return rowclienteRow
         End Function
@@ -446,8 +446,8 @@ Partial Public Class DSCliente
             Me.columndocumento = MyBase.Columns("documento")
             Me.columncelular = MyBase.Columns("celular")
             Me.columnnombreLocalidad = MyBase.Columns("nombreLocalidad")
-            Me.columnExpr1 = MyBase.Columns("Expr1")
             Me.columnidprovincia = MyBase.Columns("idprovincia")
+            Me.columnnombreProvincia = MyBase.Columns("nombreProvincia")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -474,10 +474,10 @@ Partial Public Class DSCliente
             MyBase.Columns.Add(Me.columncelular)
             Me.columnnombreLocalidad = New System.Data.DataColumn("nombreLocalidad", GetType(String), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnombreLocalidad)
-            Me.columnExpr1 = New System.Data.DataColumn("Expr1", GetType(String), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnExpr1)
             Me.columnidprovincia = New System.Data.DataColumn("idprovincia", GetType(Integer), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidprovincia)
+            Me.columnnombreProvincia = New System.Data.DataColumn("nombreProvincia", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombreProvincia)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnidcliente}, true))
             Me.columnidcliente.AllowDBNull = false
             Me.columnidcliente.Unique = true
@@ -489,8 +489,8 @@ Partial Public Class DSCliente
             Me.columntelefono.MaxLength = 20
             Me.columncelular.MaxLength = 20
             Me.columnnombreLocalidad.MaxLength = 20
-            Me.columnExpr1.MaxLength = 20
             Me.columnidprovincia.AllowDBNull = false
+            Me.columnnombreProvincia.MaxLength = 20
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -734,26 +734,26 @@ Partial Public Class DSCliente
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Expr1() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablecliente.Expr1Column),String)
-                Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("El valor de la columna 'Expr1' de la tabla 'cliente' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablecliente.Expr1Column) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property idprovincia() As Integer
             Get
                 Return CType(Me(Me.tablecliente.idprovinciaColumn),Integer)
             End Get
             Set
                 Me(Me.tablecliente.idprovinciaColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nombreProvincia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablecliente.nombreProvinciaColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombreProvincia' de la tabla 'cliente' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablecliente.nombreProvinciaColumn) = value
             End Set
         End Property
         
@@ -848,13 +848,13 @@ Partial Public Class DSCliente
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsExpr1Null() As Boolean
-            Return Me.IsNull(Me.tablecliente.Expr1Column)
+        Public Function IsnombreProvinciaNull() As Boolean
+            Return Me.IsNull(Me.tablecliente.nombreProvinciaColumn)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetExpr1Null()
-            Me(Me.tablecliente.Expr1Column) = System.Convert.DBNull
+        Public Sub SetnombreProvinciaNull()
+            Me(Me.tablecliente.nombreProvinciaColumn) = System.Convert.DBNull
         End Sub
     End Class
     
@@ -991,8 +991,8 @@ Namespace DSClienteTableAdapters
             tableMapping.ColumnMappings.Add("documento", "documento")
             tableMapping.ColumnMappings.Add("celular", "celular")
             tableMapping.ColumnMappings.Add("nombreLocalidad", "nombreLocalidad")
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1")
             tableMapping.ColumnMappings.Add("idprovincia", "idprovincia")
+            tableMapping.ColumnMappings.Add("nombreProvincia", "nombreProvincia")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1010,10 +1010,10 @@ Namespace DSClienteTableAdapters
             Me._commandCollection(0).CommandText = "SELECT     cliente.idcliente, cliente.nombre, cliente.apellido, cliente.idtipodoc"& _ 
                 "umento, cliente.direccion, cliente.localidad, cliente.mail, cliente.telefono, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
                 "                      cliente.documento, cliente.celular, localidad.nombre AS no"& _ 
-                "mbreLocalidad, provincia.nombre AS Expr1, provincia.idprovincia"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         cl"& _ 
-                "iente INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      localidad ON cliente.localidad = localid"& _ 
-                "ad.idlocalidad INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      provincia ON localidad.idprovin"& _ 
-                "cia = provincia.idprovincia"
+                "mbreLocalidad, provincia.nombre AS nombreProvincia, provincia.idprovincia"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "& _ 
+                "        cliente INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      localidad ON cliente.localidad"& _ 
+                " = localidad.idlocalidad INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      provincia ON localida"& _ 
+                "d.idprovincia = provincia.idprovincia"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         

@@ -10,11 +10,11 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="clienteTableAdapter" GeneratorDataComponentClassName="clienteTableAdapter" Name="cliente" UserDataComponentName="clienteTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="True">
                     <CommandText>SELECT     cliente.idcliente, cliente.nombre, cliente.apellido, cliente.idtipodocumento, cliente.direccion, cliente.localidad, cliente.mail, cliente.telefono, 
-                      cliente.documento, cliente.celular, localidad.nombre AS nombreLocalidad, provincia.nombre AS Expr1, provincia.idprovincia
+                      cliente.documento, cliente.celular, localidad.nombre AS nombreLocalidad, provincia.nombre AS nombreProvincia, provincia.idprovincia
 FROM         cliente INNER JOIN
                       localidad ON cliente.localidad = localidad.idlocalidad INNER JOIN
                       provincia ON localidad.idprovincia = provincia.idprovincia</CommandText>
@@ -36,8 +36,8 @@ FROM         cliente INNER JOIN
               <Mapping SourceColumn="documento" DataSetColumn="documento" />
               <Mapping SourceColumn="celular" DataSetColumn="celular" />
               <Mapping SourceColumn="nombreLocalidad" DataSetColumn="nombreLocalidad" />
-              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
               <Mapping SourceColumn="idprovincia" DataSetColumn="idprovincia" />
+              <Mapping SourceColumn="nombreProvincia" DataSetColumn="nombreProvincia" />
             </Mappings>
             <Sources>
             </Sources>
@@ -54,67 +54,67 @@ FROM         cliente INNER JOIN
         <xs:element name="cliente" msprop:Generator_UserTableName="cliente" msprop:Generator_RowDeletedName="clienteRowDeleted" msprop:Generator_RowChangedName="clienteRowChanged" msprop:Generator_RowClassName="clienteRow" msprop:Generator_RowChangingName="clienteRowChanging" msprop:Generator_RowEvArgName="clienteRowChangeEvent" msprop:Generator_RowEvHandlerName="clienteRowChangeEventHandler" msprop:Generator_TableClassName="clienteDataTable" msprop:Generator_TableVarName="tablecliente" msprop:Generator_RowDeletingName="clienteRowDeleting" msprop:Generator_TablePropName="cliente">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="idcliente" msprop:Generator_UserColumnName="idcliente" msprop:Generator_ColumnVarNameInTable="columnidcliente" msprop:Generator_ColumnPropNameInRow="idcliente" msprop:Generator_ColumnPropNameInTable="idclienteColumn" type="xs:int" />
-              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn">
+              <xs:element name="idcliente" msprop:Generator_UserColumnName="idcliente" msprop:Generator_ColumnPropNameInRow="idcliente" msprop:Generator_ColumnVarNameInTable="columnidcliente" msprop:Generator_ColumnPropNameInTable="idclienteColumn" type="xs:int" />
+              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInTable="nombreColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="apellido" msprop:Generator_UserColumnName="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" minOccurs="0">
+              <xs:element name="apellido" msprop:Generator_UserColumnName="apellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="idtipodocumento" msprop:Generator_UserColumnName="idtipodocumento" msprop:Generator_ColumnVarNameInTable="columnidtipodocumento" msprop:Generator_ColumnPropNameInRow="idtipodocumento" msprop:Generator_ColumnPropNameInTable="idtipodocumentoColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="direccion" msprop:Generator_UserColumnName="direccion" msprop:Generator_ColumnVarNameInTable="columndireccion" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" minOccurs="0">
+              <xs:element name="idtipodocumento" msprop:Generator_UserColumnName="idtipodocumento" msprop:Generator_ColumnPropNameInRow="idtipodocumento" msprop:Generator_ColumnVarNameInTable="columnidtipodocumento" msprop:Generator_ColumnPropNameInTable="idtipodocumentoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="direccion" msprop:Generator_UserColumnName="direccion" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_ColumnVarNameInTable="columndireccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="localidad" msprop:Generator_UserColumnName="localidad" msprop:Generator_ColumnVarNameInTable="columnlocalidad" msprop:Generator_ColumnPropNameInRow="localidad" msprop:Generator_ColumnPropNameInTable="localidadColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="mail" msprop:Generator_UserColumnName="mail" msprop:Generator_ColumnVarNameInTable="columnmail" msprop:Generator_ColumnPropNameInRow="mail" msprop:Generator_ColumnPropNameInTable="mailColumn" minOccurs="0">
+              <xs:element name="localidad" msprop:Generator_UserColumnName="localidad" msprop:Generator_ColumnPropNameInRow="localidad" msprop:Generator_ColumnVarNameInTable="columnlocalidad" msprop:Generator_ColumnPropNameInTable="localidadColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="mail" msprop:Generator_UserColumnName="mail" msprop:Generator_ColumnPropNameInRow="mail" msprop:Generator_ColumnVarNameInTable="columnmail" msprop:Generator_ColumnPropNameInTable="mailColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="telefono" msprop:Generator_UserColumnName="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" minOccurs="0">
+              <xs:element name="telefono" msprop:Generator_UserColumnName="telefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="documento" msprop:Generator_UserColumnName="documento" msprop:Generator_ColumnVarNameInTable="columndocumento" msprop:Generator_ColumnPropNameInRow="documento" msprop:Generator_ColumnPropNameInTable="documentoColumn" type="xs:decimal" minOccurs="0" />
-              <xs:element name="celular" msprop:Generator_UserColumnName="celular" msprop:Generator_ColumnVarNameInTable="columncelular" msprop:Generator_ColumnPropNameInRow="celular" msprop:Generator_ColumnPropNameInTable="celularColumn" minOccurs="0">
+              <xs:element name="documento" msprop:Generator_UserColumnName="documento" msprop:Generator_ColumnPropNameInRow="documento" msprop:Generator_ColumnVarNameInTable="columndocumento" msprop:Generator_ColumnPropNameInTable="documentoColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="celular" msprop:Generator_UserColumnName="celular" msprop:Generator_ColumnPropNameInRow="celular" msprop:Generator_ColumnVarNameInTable="columncelular" msprop:Generator_ColumnPropNameInTable="celularColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="nombreLocalidad" msprop:Generator_UserColumnName="nombreLocalidad" msprop:Generator_ColumnVarNameInTable="columnnombreLocalidad" msprop:Generator_ColumnPropNameInRow="nombreLocalidad" msprop:Generator_ColumnPropNameInTable="nombreLocalidadColumn" minOccurs="0">
+              <xs:element name="nombreLocalidad" msprop:Generator_UserColumnName="nombreLocalidad" msprop:Generator_ColumnPropNameInRow="nombreLocalidad" msprop:Generator_ColumnVarNameInTable="columnnombreLocalidad" msprop:Generator_ColumnPropNameInTable="nombreLocalidadColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Expr1" msprop:Generator_UserColumnName="Expr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" minOccurs="0">
+              <xs:element name="idprovincia" msprop:Generator_UserColumnName="idprovincia" msprop:Generator_ColumnVarNameInTable="columnidprovincia" msprop:Generator_ColumnPropNameInRow="idprovincia" msprop:Generator_ColumnPropNameInTable="idprovinciaColumn" type="xs:int" />
+              <xs:element name="nombreProvincia" msprop:Generator_UserColumnName="nombreProvincia" msprop:Generator_ColumnPropNameInRow="nombreProvincia" msprop:Generator_ColumnVarNameInTable="columnnombreProvincia" msprop:Generator_ColumnPropNameInTable="nombreProvinciaColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="idprovincia" msprop:Generator_UserColumnName="idprovincia" msprop:Generator_ColumnPropNameInRow="idprovincia" msprop:Generator_ColumnVarNameInTable="columnidprovincia" msprop:Generator_ColumnPropNameInTable="idprovinciaColumn" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
