@@ -19,36 +19,36 @@ Partial Class DashboardForm
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CircularGauge1 As Dundas.Gauges.WinControl.CircularGauge = New Dundas.Gauges.WinControl.CircularGauge
-        Dim CircularPointer1 As Dundas.Gauges.WinControl.CircularPointer = New Dundas.Gauges.WinControl.CircularPointer
-        Dim CircularRange1 As Dundas.Gauges.WinControl.CircularRange = New Dundas.Gauges.WinControl.CircularRange
-        Dim CircularScale1 As Dundas.Gauges.WinControl.CircularScale = New Dundas.Gauges.WinControl.CircularScale
-        Dim InputValue1 As Dundas.Gauges.WinControl.InputValue = New Dundas.Gauges.WinControl.InputValue
-        Dim ChartArea1 As Dundas.Charting.WinControl.ChartArea = New Dundas.Charting.WinControl.ChartArea
-        Dim Legend1 As Dundas.Charting.WinControl.Legend = New Dundas.Charting.WinControl.Legend
-        Dim Series1 As Dundas.Charting.WinControl.Series = New Dundas.Charting.WinControl.Series
-        Dim Series2 As Dundas.Charting.WinControl.Series = New Dundas.Charting.WinControl.Series
-        Dim Title1 As Dundas.Charting.WinControl.Title = New Dundas.Charting.WinControl.Title
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim CircularGauge7 As Dundas.Gauges.WinControl.CircularGauge = New Dundas.Gauges.WinControl.CircularGauge
+        Dim CircularPointer7 As Dundas.Gauges.WinControl.CircularPointer = New Dundas.Gauges.WinControl.CircularPointer
+        Dim CircularRange7 As Dundas.Gauges.WinControl.CircularRange = New Dundas.Gauges.WinControl.CircularRange
+        Dim CircularScale7 As Dundas.Gauges.WinControl.CircularScale = New Dundas.Gauges.WinControl.CircularScale
+        Dim InputValue7 As Dundas.Gauges.WinControl.InputValue = New Dundas.Gauges.WinControl.InputValue
+        Dim ChartArea7 As Dundas.Charting.WinControl.ChartArea = New Dundas.Charting.WinControl.ChartArea
+        Dim Legend7 As Dundas.Charting.WinControl.Legend = New Dundas.Charting.WinControl.Legend
+        Dim Series9 As Dundas.Charting.WinControl.Series = New Dundas.Charting.WinControl.Series
+        Dim Series10 As Dundas.Charting.WinControl.Series = New Dundas.Charting.WinControl.Series
+        Dim Title3 As Dundas.Charting.WinControl.Title = New Dundas.Charting.WinControl.Title
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DashboardForm))
-        Dim CircularGauge2 As Dundas.Gauges.WinControl.CircularGauge = New Dundas.Gauges.WinControl.CircularGauge
-        Dim CircularPointer2 As Dundas.Gauges.WinControl.CircularPointer = New Dundas.Gauges.WinControl.CircularPointer
-        Dim CircularRange2 As Dundas.Gauges.WinControl.CircularRange = New Dundas.Gauges.WinControl.CircularRange
-        Dim CircularScale2 As Dundas.Gauges.WinControl.CircularScale = New Dundas.Gauges.WinControl.CircularScale
-        Dim NumericIndicator1 As Dundas.Gauges.WinControl.NumericIndicator = New Dundas.Gauges.WinControl.NumericIndicator
-        Dim InputValue2 As Dundas.Gauges.WinControl.InputValue = New Dundas.Gauges.WinControl.InputValue
-        Dim CircularGauge3 As Dundas.Gauges.WinControl.CircularGauge = New Dundas.Gauges.WinControl.CircularGauge
-        Dim CircularPointer3 As Dundas.Gauges.WinControl.CircularPointer = New Dundas.Gauges.WinControl.CircularPointer
-        Dim CircularRange3 As Dundas.Gauges.WinControl.CircularRange = New Dundas.Gauges.WinControl.CircularRange
-        Dim CircularScale3 As Dundas.Gauges.WinControl.CircularScale = New Dundas.Gauges.WinControl.CircularScale
-        Dim NumericIndicator2 As Dundas.Gauges.WinControl.NumericIndicator = New Dundas.Gauges.WinControl.NumericIndicator
-        Dim InputValue3 As Dundas.Gauges.WinControl.InputValue = New Dundas.Gauges.WinControl.InputValue
-        Dim ChartArea2 As Dundas.Charting.WinControl.ChartArea = New Dundas.Charting.WinControl.ChartArea
-        Dim Legend2 As Dundas.Charting.WinControl.Legend = New Dundas.Charting.WinControl.Legend
-        Dim Series3 As Dundas.Charting.WinControl.Series = New Dundas.Charting.WinControl.Series
-        Dim ChartArea3 As Dundas.Charting.WinControl.ChartArea = New Dundas.Charting.WinControl.ChartArea
-        Dim Legend3 As Dundas.Charting.WinControl.Legend = New Dundas.Charting.WinControl.Legend
-        Dim Series4 As Dundas.Charting.WinControl.Series = New Dundas.Charting.WinControl.Series
+        Dim CircularGauge8 As Dundas.Gauges.WinControl.CircularGauge = New Dundas.Gauges.WinControl.CircularGauge
+        Dim CircularPointer8 As Dundas.Gauges.WinControl.CircularPointer = New Dundas.Gauges.WinControl.CircularPointer
+        Dim CircularRange8 As Dundas.Gauges.WinControl.CircularRange = New Dundas.Gauges.WinControl.CircularRange
+        Dim CircularScale8 As Dundas.Gauges.WinControl.CircularScale = New Dundas.Gauges.WinControl.CircularScale
+        Dim NumericIndicator5 As Dundas.Gauges.WinControl.NumericIndicator = New Dundas.Gauges.WinControl.NumericIndicator
+        Dim InputValue8 As Dundas.Gauges.WinControl.InputValue = New Dundas.Gauges.WinControl.InputValue
+        Dim CircularGauge9 As Dundas.Gauges.WinControl.CircularGauge = New Dundas.Gauges.WinControl.CircularGauge
+        Dim CircularPointer9 As Dundas.Gauges.WinControl.CircularPointer = New Dundas.Gauges.WinControl.CircularPointer
+        Dim CircularRange9 As Dundas.Gauges.WinControl.CircularRange = New Dundas.Gauges.WinControl.CircularRange
+        Dim CircularScale9 As Dundas.Gauges.WinControl.CircularScale = New Dundas.Gauges.WinControl.CircularScale
+        Dim NumericIndicator6 As Dundas.Gauges.WinControl.NumericIndicator = New Dundas.Gauges.WinControl.NumericIndicator
+        Dim InputValue9 As Dundas.Gauges.WinControl.InputValue = New Dundas.Gauges.WinControl.InputValue
+        Dim ChartArea8 As Dundas.Charting.WinControl.ChartArea = New Dundas.Charting.WinControl.ChartArea
+        Dim Legend8 As Dundas.Charting.WinControl.Legend = New Dundas.Charting.WinControl.Legend
+        Dim Series11 As Dundas.Charting.WinControl.Series = New Dundas.Charting.WinControl.Series
+        Dim ChartArea9 As Dundas.Charting.WinControl.ChartArea = New Dundas.Charting.WinControl.ChartArea
+        Dim Legend9 As Dundas.Charting.WinControl.Legend = New Dundas.Charting.WinControl.Legend
+        Dim Series12 As Dundas.Charting.WinControl.Series = New Dundas.Charting.WinControl.Series
         Me.gaugeCosto = New Dundas.Gauges.WinControl.GaugeContainer
         Me.gfxProdBarras = New Dundas.Charting.WinControl.Chart
         Me.dateDesde = New System.Windows.Forms.DateTimePicker
@@ -70,6 +70,7 @@ Partial Class DashboardForm
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.ProgressBar = New System.Windows.Forms.ProgressBar
         CType(Me.gaugeCosto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gfxProdBarras, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.gaugePlanificacionFin, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,49 +88,49 @@ Partial Class DashboardForm
         Me.gaugeCosto.BackFrame.FrameShape = Dundas.Gauges.WinControl.BackFrameShape.Rectangular
         Me.gaugeCosto.BackFrame.FrameStyle = Dundas.Gauges.WinControl.BackFrameStyle.None
         Me.gaugeCosto.BackFrame.FrameWidth = 5.0!
-        CircularGauge1.BackFrame.BackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(146, Byte), Integer))
-        CircularGauge1.BackFrame.BackGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        CircularGauge1.BackFrame.FrameShape = Dundas.Gauges.WinControl.BackFrameShape.CustomCircular3
-        CircularGauge1.BackFrame.FrameStyle = Dundas.Gauges.WinControl.BackFrameStyle.Edged
-        CircularGauge1.BackFrame.FrameWidth = 5.0!
-        CircularGauge1.Location.X = 0.0!
-        CircularGauge1.Location.Y = 0.0!
-        CircularGauge1.Name = "Default"
-        CircularGauge1.PivotPoint.X = 50.0!
-        CircularGauge1.PivotPoint.Y = 50.0!
-        CircularPointer1.CapWidth = 30.0!
-        CircularPointer1.FillGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        CircularPointer1.FillGradientType = Dundas.Gauges.WinControl.GradientType.None
-        CircularPointer1.Name = "Default"
-        CircularPointer1.NeedleStyle = Dundas.Gauges.WinControl.NeedleStyle.NeedleStyle4
-        CircularGauge1.Pointers.Add(CircularPointer1)
-        CircularRange1.BorderWidth = 0
-        CircularRange1.EndValue = 80
-        CircularRange1.FillColor = System.Drawing.Color.Yellow
-        CircularRange1.Name = "Range1"
-        CircularRange1.StartValue = 50
-        CircularGauge1.Ranges.Add(CircularRange1)
-        CircularScale1.BorderColor = System.Drawing.Color.White
-        CircularScale1.BorderWidth = 1
-        CircularScale1.FillColor = System.Drawing.Color.White
-        CircularScale1.LabelStyle.TextColor = System.Drawing.Color.White
-        CircularScale1.MajorTickMark.FillColor = System.Drawing.Color.White
-        CircularScale1.MajorTickMark.Shape = Dundas.Gauges.WinControl.MarkerStyle.Rectangle
-        CircularScale1.MajorTickMark.Width = 4.0!
-        CircularScale1.MinorTickMark.FillColor = System.Drawing.Color.White
-        CircularScale1.MinorTickMark.Width = 2.0!
-        CircularScale1.Name = "Default"
-        CircularGauge1.Scales.Add(CircularScale1)
-        CircularGauge1.Size.Height = 100.0!
-        CircularGauge1.Size.Width = 100.0!
-        Me.gaugeCosto.CircularGauges.Add(CircularGauge1)
+        CircularGauge7.BackFrame.BackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(146, Byte), Integer))
+        CircularGauge7.BackFrame.BackGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        CircularGauge7.BackFrame.FrameShape = Dundas.Gauges.WinControl.BackFrameShape.CustomCircular3
+        CircularGauge7.BackFrame.FrameStyle = Dundas.Gauges.WinControl.BackFrameStyle.Edged
+        CircularGauge7.BackFrame.FrameWidth = 5.0!
+        CircularGauge7.Location.X = 0.0!
+        CircularGauge7.Location.Y = 0.0!
+        CircularGauge7.Name = "Default"
+        CircularGauge7.PivotPoint.X = 50.0!
+        CircularGauge7.PivotPoint.Y = 50.0!
+        CircularPointer7.CapWidth = 30.0!
+        CircularPointer7.FillGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        CircularPointer7.FillGradientType = Dundas.Gauges.WinControl.GradientType.None
+        CircularPointer7.Name = "Default"
+        CircularPointer7.NeedleStyle = Dundas.Gauges.WinControl.NeedleStyle.NeedleStyle4
+        CircularGauge7.Pointers.Add(CircularPointer7)
+        CircularRange7.BorderWidth = 0
+        CircularRange7.EndValue = 80
+        CircularRange7.FillColor = System.Drawing.Color.Yellow
+        CircularRange7.Name = "Range1"
+        CircularRange7.StartValue = 50
+        CircularGauge7.Ranges.Add(CircularRange7)
+        CircularScale7.BorderColor = System.Drawing.Color.White
+        CircularScale7.BorderWidth = 1
+        CircularScale7.FillColor = System.Drawing.Color.White
+        CircularScale7.LabelStyle.TextColor = System.Drawing.Color.White
+        CircularScale7.MajorTickMark.FillColor = System.Drawing.Color.White
+        CircularScale7.MajorTickMark.Shape = Dundas.Gauges.WinControl.MarkerStyle.Rectangle
+        CircularScale7.MajorTickMark.Width = 4.0!
+        CircularScale7.MinorTickMark.FillColor = System.Drawing.Color.White
+        CircularScale7.MinorTickMark.Width = 2.0!
+        CircularScale7.Name = "Default"
+        CircularGauge7.Scales.Add(CircularScale7)
+        CircularGauge7.Size.Height = 100.0!
+        CircularGauge7.Size.Width = 100.0!
+        Me.gaugeCosto.CircularGauges.Add(CircularGauge7)
         Me.gaugeCosto.InternalBackgroundPaint = False
         Me.gaugeCosto.Location = New System.Drawing.Point(626, 397)
         Me.gaugeCosto.Name = "gaugeCosto"
         Me.gaugeCosto.Size = New System.Drawing.Size(168, 173)
         Me.gaugeCosto.TabIndex = 1
-        InputValue1.Name = "Default"
-        Me.gaugeCosto.Values.Add(InputValue1)
+        InputValue7.Name = "Default"
+        Me.gaugeCosto.Values.Add(InputValue7)
         '
         'gfxProdBarras
         '
@@ -139,39 +140,39 @@ Partial Class DashboardForm
         Me.gfxProdBarras.BorderLineColor = System.Drawing.Color.LightGray
         Me.gfxProdBarras.BorderSkin.FrameBackColor = System.Drawing.Color.LightSkyBlue
         Me.gfxProdBarras.BorderSkin.FrameBackGradientEndColor = System.Drawing.Color.DodgerBlue
-        ChartArea1.AxisX.LabelStyle.Format = "Y"
-        ChartArea1.AxisX.LineColor = System.Drawing.Color.DimGray
-        ChartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray
-        ChartArea1.AxisX.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
-        ChartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray
-        ChartArea1.AxisX2.LineColor = System.Drawing.Color.DimGray
-        ChartArea1.AxisY.LineColor = System.Drawing.Color.DimGray
-        ChartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray
-        ChartArea1.AxisY.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
-        ChartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray
-        ChartArea1.AxisY2.LineColor = System.Drawing.Color.DimGray
-        ChartArea1.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.BorderColor = System.Drawing.Color.DimGray
-        ChartArea1.Name = "Default"
-        Me.gfxProdBarras.ChartAreas.Add(ChartArea1)
-        Legend1.BackColor = System.Drawing.Color.Transparent
-        Legend1.BorderColor = System.Drawing.Color.Transparent
-        Legend1.Docking = Dundas.Charting.WinControl.LegendDocking.Top
-        Legend1.Name = "Default"
-        Me.gfxProdBarras.Legends.Add(Legend1)
+        ChartArea7.AxisX.LabelStyle.Format = "Y"
+        ChartArea7.AxisX.LineColor = System.Drawing.Color.DimGray
+        ChartArea7.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray
+        ChartArea7.AxisX.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
+        ChartArea7.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray
+        ChartArea7.AxisX2.LineColor = System.Drawing.Color.DimGray
+        ChartArea7.AxisY.LineColor = System.Drawing.Color.DimGray
+        ChartArea7.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray
+        ChartArea7.AxisY.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
+        ChartArea7.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray
+        ChartArea7.AxisY2.LineColor = System.Drawing.Color.DimGray
+        ChartArea7.BackColor = System.Drawing.Color.Transparent
+        ChartArea7.BorderColor = System.Drawing.Color.DimGray
+        ChartArea7.Name = "Default"
+        Me.gfxProdBarras.ChartAreas.Add(ChartArea7)
+        Legend7.BackColor = System.Drawing.Color.Transparent
+        Legend7.BorderColor = System.Drawing.Color.Transparent
+        Legend7.Docking = Dundas.Charting.WinControl.LegendDocking.Top
+        Legend7.Name = "Default"
+        Me.gfxProdBarras.Legends.Add(Legend7)
         Me.gfxProdBarras.Location = New System.Drawing.Point(12, 193)
         Me.gfxProdBarras.Name = "gfxProdBarras"
         Me.gfxProdBarras.Palette = Dundas.Charting.WinControl.ChartColorPalette.SemiTransparent
-        Series1.Name = "fresas"
-        Series2.Name = "servicios"
-        Me.gfxProdBarras.Series.Add(Series1)
-        Me.gfxProdBarras.Series.Add(Series2)
+        Series9.Name = "fresas"
+        Series10.Name = "servicios"
+        Me.gfxProdBarras.Series.Add(Series9)
+        Me.gfxProdBarras.Series.Add(Series10)
         Me.gfxProdBarras.Size = New System.Drawing.Size(792, 188)
         Me.gfxProdBarras.TabIndex = 2
         Me.gfxProdBarras.Text = "Chart1"
-        Title1.Docking = Dundas.Charting.WinControl.Docking.Right
-        Title1.Name = "Title1"
-        Me.gfxProdBarras.Titles.Add(Title1)
+        Title3.Docking = Dundas.Charting.WinControl.Docking.Right
+        Title3.Name = "Title1"
+        Me.gfxProdBarras.Titles.Add(Title3)
         '
         'dateDesde
         '
@@ -207,8 +208,8 @@ Partial Class DashboardForm
         '
         'btnActualizar
         '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Me.btnActualizar.Appearance = Appearance1
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.btnActualizar.Appearance = Appearance3
         Me.btnActualizar.Location = New System.Drawing.Point(39, 88)
         Me.btnActualizar.Name = "btnActualizar"
         Me.btnActualizar.Size = New System.Drawing.Size(98, 38)
@@ -222,77 +223,77 @@ Partial Class DashboardForm
         Me.gaugePlanificacionFin.BackFrame.FrameShape = Dundas.Gauges.WinControl.BackFrameShape.Rectangular
         Me.gaugePlanificacionFin.BackFrame.FrameStyle = Dundas.Gauges.WinControl.BackFrameStyle.None
         Me.gaugePlanificacionFin.BackFrame.FrameWidth = 5.0!
-        CircularGauge2.BackFrame.BackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(146, Byte), Integer))
-        CircularGauge2.BackFrame.BackGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        CircularGauge2.BackFrame.FrameShape = Dundas.Gauges.WinControl.BackFrameShape.CustomCircular3
-        CircularGauge2.BackFrame.FrameStyle = Dundas.Gauges.WinControl.BackFrameStyle.Edged
-        CircularGauge2.BackFrame.FrameWidth = 5.0!
-        CircularGauge2.Location.X = 0.0!
-        CircularGauge2.Location.Y = 0.0!
-        CircularGauge2.Name = "Default"
-        CircularGauge2.PivotPoint.X = 50.0!
-        CircularGauge2.PivotPoint.Y = 50.0!
-        CircularPointer2.CapWidth = 30.0!
-        CircularPointer2.FillGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        CircularPointer2.FillGradientType = Dundas.Gauges.WinControl.GradientType.None
-        CircularPointer2.Name = "Default"
-        CircularPointer2.NeedleStyle = Dundas.Gauges.WinControl.NeedleStyle.NeedleStyle4
-        CircularGauge2.Pointers.Add(CircularPointer2)
-        CircularRange2.BorderWidth = 0
-        CircularRange2.EndValue = 30
-        CircularRange2.EndWidth = 10.0!
-        CircularRange2.FillColor = System.Drawing.Color.SpringGreen
-        CircularRange2.FillGradientType = Dundas.Gauges.WinControl.RangeGradientType.TopBottom
-        CircularRange2.Name = "MaxLimit"
-        CircularRange2.StartValue = -30
-        CircularRange2.StartWidth = 10.0!
-        CircularGauge2.Ranges.Add(CircularRange2)
-        CircularScale2.BorderColor = System.Drawing.Color.White
-        CircularScale2.BorderWidth = 1
-        CircularScale2.FillColor = System.Drawing.Color.White
-        CircularScale2.LabelStyle.TextColor = System.Drawing.Color.White
-        CircularScale2.MajorTickMark.FillColor = System.Drawing.Color.White
-        CircularScale2.MajorTickMark.Shape = Dundas.Gauges.WinControl.MarkerStyle.Rectangle
-        CircularScale2.MajorTickMark.Width = 4.0!
-        CircularScale2.Maximum = 50
-        CircularScale2.Minimum = -50
-        CircularScale2.MinorTickMark.FillColor = System.Drawing.Color.White
-        CircularScale2.MinorTickMark.Width = 2.0!
-        CircularScale2.Name = "Default"
-        CircularScale2.Radius = 36.0!
-        CircularScale2.StartAngle = 60.0!
-        CircularScale2.SweepAngle = 240.0!
-        CircularGauge2.Scales.Add(CircularScale2)
-        CircularGauge2.Size.Height = 100.0!
-        CircularGauge2.Size.Width = 100.0!
-        Me.gaugePlanificacionFin.CircularGauges.Add(CircularGauge2)
+        CircularGauge8.BackFrame.BackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(146, Byte), Integer))
+        CircularGauge8.BackFrame.BackGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        CircularGauge8.BackFrame.FrameShape = Dundas.Gauges.WinControl.BackFrameShape.CustomCircular3
+        CircularGauge8.BackFrame.FrameStyle = Dundas.Gauges.WinControl.BackFrameStyle.Edged
+        CircularGauge8.BackFrame.FrameWidth = 5.0!
+        CircularGauge8.Location.X = 0.0!
+        CircularGauge8.Location.Y = 0.0!
+        CircularGauge8.Name = "Default"
+        CircularGauge8.PivotPoint.X = 50.0!
+        CircularGauge8.PivotPoint.Y = 50.0!
+        CircularPointer8.CapWidth = 30.0!
+        CircularPointer8.FillGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        CircularPointer8.FillGradientType = Dundas.Gauges.WinControl.GradientType.None
+        CircularPointer8.Name = "Default"
+        CircularPointer8.NeedleStyle = Dundas.Gauges.WinControl.NeedleStyle.NeedleStyle4
+        CircularGauge8.Pointers.Add(CircularPointer8)
+        CircularRange8.BorderWidth = 0
+        CircularRange8.EndValue = 30
+        CircularRange8.EndWidth = 10.0!
+        CircularRange8.FillColor = System.Drawing.Color.SpringGreen
+        CircularRange8.FillGradientType = Dundas.Gauges.WinControl.RangeGradientType.TopBottom
+        CircularRange8.Name = "MaxLimit"
+        CircularRange8.StartValue = -30
+        CircularRange8.StartWidth = 10.0!
+        CircularGauge8.Ranges.Add(CircularRange8)
+        CircularScale8.BorderColor = System.Drawing.Color.White
+        CircularScale8.BorderWidth = 1
+        CircularScale8.FillColor = System.Drawing.Color.White
+        CircularScale8.LabelStyle.TextColor = System.Drawing.Color.White
+        CircularScale8.MajorTickMark.FillColor = System.Drawing.Color.White
+        CircularScale8.MajorTickMark.Shape = Dundas.Gauges.WinControl.MarkerStyle.Rectangle
+        CircularScale8.MajorTickMark.Width = 4.0!
+        CircularScale8.Maximum = 50
+        CircularScale8.Minimum = -50
+        CircularScale8.MinorTickMark.FillColor = System.Drawing.Color.White
+        CircularScale8.MinorTickMark.Width = 2.0!
+        CircularScale8.Name = "Default"
+        CircularScale8.Radius = 36.0!
+        CircularScale8.StartAngle = 60.0!
+        CircularScale8.SweepAngle = 240.0!
+        CircularGauge8.Scales.Add(CircularScale8)
+        CircularGauge8.Size.Height = 100.0!
+        CircularGauge8.Size.Width = 100.0!
+        Me.gaugePlanificacionFin.CircularGauges.Add(CircularGauge8)
         Me.gaugePlanificacionFin.InternalBackgroundPaint = False
         Me.gaugePlanificacionFin.Location = New System.Drawing.Point(397, 397)
         Me.gaugePlanificacionFin.Name = "gaugePlanificacionFin"
-        NumericIndicator1.BackColor = System.Drawing.Color.Silver
-        NumericIndicator1.BackGradientEndColor = System.Drawing.Color.Gainsboro
-        NumericIndicator1.BorderColor = System.Drawing.Color.Black
-        NumericIndicator1.DecimalColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        NumericIndicator1.Decimals = 0
-        NumericIndicator1.DigitColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        NumericIndicator1.Digits = 3
-        NumericIndicator1.IndicatorStyle = Dundas.Gauges.WinControl.NumericIndicatorStyle.Digital7Segment
-        NumericIndicator1.LedDimColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        NumericIndicator1.Location.X = 30.0!
-        NumericIndicator1.Location.Y = 72.0!
-        NumericIndicator1.Name = "NumericIndicator1"
-        NumericIndicator1.Parent = "CircularGauges.Default"
-        NumericIndicator1.ShadowOffset = 2.0!
-        NumericIndicator1.ShowDecimalPoint = True
-        NumericIndicator1.Size.Height = 10.0!
-        NumericIndicator1.Size.Width = 40.0!
-        NumericIndicator1.Style = Dundas.Gauges.WinControl.NumericIndicatorStyle.Digital7Segment
-        NumericIndicator1.Value = 46.28
-        Me.gaugePlanificacionFin.NumericIndicators.Add(NumericIndicator1)
+        NumericIndicator5.BackColor = System.Drawing.Color.Silver
+        NumericIndicator5.BackGradientEndColor = System.Drawing.Color.Gainsboro
+        NumericIndicator5.BorderColor = System.Drawing.Color.Black
+        NumericIndicator5.DecimalColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        NumericIndicator5.Decimals = 0
+        NumericIndicator5.DigitColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        NumericIndicator5.Digits = 3
+        NumericIndicator5.IndicatorStyle = Dundas.Gauges.WinControl.NumericIndicatorStyle.Digital7Segment
+        NumericIndicator5.LedDimColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        NumericIndicator5.Location.X = 30.0!
+        NumericIndicator5.Location.Y = 72.0!
+        NumericIndicator5.Name = "NumericIndicator1"
+        NumericIndicator5.Parent = "CircularGauges.Default"
+        NumericIndicator5.ShadowOffset = 2.0!
+        NumericIndicator5.ShowDecimalPoint = True
+        NumericIndicator5.Size.Height = 10.0!
+        NumericIndicator5.Size.Width = 40.0!
+        NumericIndicator5.Style = Dundas.Gauges.WinControl.NumericIndicatorStyle.Digital7Segment
+        NumericIndicator5.Value = 46.28
+        Me.gaugePlanificacionFin.NumericIndicators.Add(NumericIndicator5)
         Me.gaugePlanificacionFin.Size = New System.Drawing.Size(168, 173)
         Me.gaugePlanificacionFin.TabIndex = 39
-        InputValue2.Name = "Default"
-        Me.gaugePlanificacionFin.Values.Add(InputValue2)
+        InputValue8.Name = "Default"
+        Me.gaugePlanificacionFin.Values.Add(InputValue8)
         '
         'gaugePlanificacionInicio
         '
@@ -301,77 +302,77 @@ Partial Class DashboardForm
         Me.gaugePlanificacionInicio.BackFrame.FrameShape = Dundas.Gauges.WinControl.BackFrameShape.Rectangular
         Me.gaugePlanificacionInicio.BackFrame.FrameStyle = Dundas.Gauges.WinControl.BackFrameStyle.None
         Me.gaugePlanificacionInicio.BackFrame.FrameWidth = 5.0!
-        CircularGauge3.BackFrame.BackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(146, Byte), Integer))
-        CircularGauge3.BackFrame.BackGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        CircularGauge3.BackFrame.FrameShape = Dundas.Gauges.WinControl.BackFrameShape.CustomCircular3
-        CircularGauge3.BackFrame.FrameStyle = Dundas.Gauges.WinControl.BackFrameStyle.Edged
-        CircularGauge3.BackFrame.FrameWidth = 5.0!
-        CircularGauge3.Location.X = 0.0!
-        CircularGauge3.Location.Y = 0.0!
-        CircularGauge3.Name = "Default"
-        CircularGauge3.PivotPoint.X = 50.0!
-        CircularGauge3.PivotPoint.Y = 50.0!
-        CircularPointer3.CapWidth = 30.0!
-        CircularPointer3.FillGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        CircularPointer3.FillGradientType = Dundas.Gauges.WinControl.GradientType.None
-        CircularPointer3.Name = "Default"
-        CircularPointer3.NeedleStyle = Dundas.Gauges.WinControl.NeedleStyle.NeedleStyle4
-        CircularGauge3.Pointers.Add(CircularPointer3)
-        CircularRange3.BorderWidth = 0
-        CircularRange3.EndValue = 30
-        CircularRange3.EndWidth = 10.0!
-        CircularRange3.FillColor = System.Drawing.Color.SpringGreen
-        CircularRange3.FillGradientType = Dundas.Gauges.WinControl.RangeGradientType.TopBottom
-        CircularRange3.Name = "MaxLimit"
-        CircularRange3.StartValue = -30
-        CircularRange3.StartWidth = 10.0!
-        CircularGauge3.Ranges.Add(CircularRange3)
-        CircularScale3.BorderColor = System.Drawing.Color.White
-        CircularScale3.BorderWidth = 1
-        CircularScale3.FillColor = System.Drawing.Color.White
-        CircularScale3.LabelStyle.TextColor = System.Drawing.Color.White
-        CircularScale3.MajorTickMark.FillColor = System.Drawing.Color.White
-        CircularScale3.MajorTickMark.Shape = Dundas.Gauges.WinControl.MarkerStyle.Rectangle
-        CircularScale3.MajorTickMark.Width = 4.0!
-        CircularScale3.Maximum = 50
-        CircularScale3.Minimum = -50
-        CircularScale3.MinorTickMark.FillColor = System.Drawing.Color.White
-        CircularScale3.MinorTickMark.Width = 2.0!
-        CircularScale3.Name = "Default"
-        CircularScale3.Radius = 36.0!
-        CircularScale3.StartAngle = 60.0!
-        CircularScale3.SweepAngle = 240.0!
-        CircularGauge3.Scales.Add(CircularScale3)
-        CircularGauge3.Size.Height = 100.0!
-        CircularGauge3.Size.Width = 100.0!
-        Me.gaugePlanificacionInicio.CircularGauges.Add(CircularGauge3)
+        CircularGauge9.BackFrame.BackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(146, Byte), Integer))
+        CircularGauge9.BackFrame.BackGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        CircularGauge9.BackFrame.FrameShape = Dundas.Gauges.WinControl.BackFrameShape.CustomCircular3
+        CircularGauge9.BackFrame.FrameStyle = Dundas.Gauges.WinControl.BackFrameStyle.Edged
+        CircularGauge9.BackFrame.FrameWidth = 5.0!
+        CircularGauge9.Location.X = 0.0!
+        CircularGauge9.Location.Y = 0.0!
+        CircularGauge9.Name = "Default"
+        CircularGauge9.PivotPoint.X = 50.0!
+        CircularGauge9.PivotPoint.Y = 50.0!
+        CircularPointer9.CapWidth = 30.0!
+        CircularPointer9.FillGradientEndColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        CircularPointer9.FillGradientType = Dundas.Gauges.WinControl.GradientType.None
+        CircularPointer9.Name = "Default"
+        CircularPointer9.NeedleStyle = Dundas.Gauges.WinControl.NeedleStyle.NeedleStyle4
+        CircularGauge9.Pointers.Add(CircularPointer9)
+        CircularRange9.BorderWidth = 0
+        CircularRange9.EndValue = 30
+        CircularRange9.EndWidth = 10.0!
+        CircularRange9.FillColor = System.Drawing.Color.SpringGreen
+        CircularRange9.FillGradientType = Dundas.Gauges.WinControl.RangeGradientType.TopBottom
+        CircularRange9.Name = "MaxLimit"
+        CircularRange9.StartValue = -30
+        CircularRange9.StartWidth = 10.0!
+        CircularGauge9.Ranges.Add(CircularRange9)
+        CircularScale9.BorderColor = System.Drawing.Color.White
+        CircularScale9.BorderWidth = 1
+        CircularScale9.FillColor = System.Drawing.Color.White
+        CircularScale9.LabelStyle.TextColor = System.Drawing.Color.White
+        CircularScale9.MajorTickMark.FillColor = System.Drawing.Color.White
+        CircularScale9.MajorTickMark.Shape = Dundas.Gauges.WinControl.MarkerStyle.Rectangle
+        CircularScale9.MajorTickMark.Width = 4.0!
+        CircularScale9.Maximum = 50
+        CircularScale9.Minimum = -50
+        CircularScale9.MinorTickMark.FillColor = System.Drawing.Color.White
+        CircularScale9.MinorTickMark.Width = 2.0!
+        CircularScale9.Name = "Default"
+        CircularScale9.Radius = 36.0!
+        CircularScale9.StartAngle = 60.0!
+        CircularScale9.SweepAngle = 240.0!
+        CircularGauge9.Scales.Add(CircularScale9)
+        CircularGauge9.Size.Height = 100.0!
+        CircularGauge9.Size.Width = 100.0!
+        Me.gaugePlanificacionInicio.CircularGauges.Add(CircularGauge9)
         Me.gaugePlanificacionInicio.InternalBackgroundPaint = False
         Me.gaugePlanificacionInicio.Location = New System.Drawing.Point(223, 397)
         Me.gaugePlanificacionInicio.Name = "gaugePlanificacionInicio"
-        NumericIndicator2.BackColor = System.Drawing.Color.Silver
-        NumericIndicator2.BackGradientEndColor = System.Drawing.Color.Gainsboro
-        NumericIndicator2.BorderColor = System.Drawing.Color.Black
-        NumericIndicator2.DecimalColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        NumericIndicator2.Decimals = 0
-        NumericIndicator2.DigitColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
-        NumericIndicator2.Digits = 3
-        NumericIndicator2.IndicatorStyle = Dundas.Gauges.WinControl.NumericIndicatorStyle.Digital7Segment
-        NumericIndicator2.LedDimColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        NumericIndicator2.Location.X = 30.0!
-        NumericIndicator2.Location.Y = 72.0!
-        NumericIndicator2.Name = "NumericIndicator1"
-        NumericIndicator2.Parent = "CircularGauges.Default"
-        NumericIndicator2.ShadowOffset = 2.0!
-        NumericIndicator2.ShowDecimalPoint = True
-        NumericIndicator2.Size.Height = 10.0!
-        NumericIndicator2.Size.Width = 40.0!
-        NumericIndicator2.Style = Dundas.Gauges.WinControl.NumericIndicatorStyle.Digital7Segment
-        NumericIndicator2.Value = 46.28
-        Me.gaugePlanificacionInicio.NumericIndicators.Add(NumericIndicator2)
+        NumericIndicator6.BackColor = System.Drawing.Color.Silver
+        NumericIndicator6.BackGradientEndColor = System.Drawing.Color.Gainsboro
+        NumericIndicator6.BorderColor = System.Drawing.Color.Black
+        NumericIndicator6.DecimalColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        NumericIndicator6.Decimals = 0
+        NumericIndicator6.DigitColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(105, Byte), Integer))
+        NumericIndicator6.Digits = 3
+        NumericIndicator6.IndicatorStyle = Dundas.Gauges.WinControl.NumericIndicatorStyle.Digital7Segment
+        NumericIndicator6.LedDimColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        NumericIndicator6.Location.X = 30.0!
+        NumericIndicator6.Location.Y = 72.0!
+        NumericIndicator6.Name = "NumericIndicator1"
+        NumericIndicator6.Parent = "CircularGauges.Default"
+        NumericIndicator6.ShadowOffset = 2.0!
+        NumericIndicator6.ShowDecimalPoint = True
+        NumericIndicator6.Size.Height = 10.0!
+        NumericIndicator6.Size.Width = 40.0!
+        NumericIndicator6.Style = Dundas.Gauges.WinControl.NumericIndicatorStyle.Digital7Segment
+        NumericIndicator6.Value = 46.28
+        Me.gaugePlanificacionInicio.NumericIndicators.Add(NumericIndicator6)
         Me.gaugePlanificacionInicio.Size = New System.Drawing.Size(168, 173)
         Me.gaugePlanificacionInicio.TabIndex = 40
-        InputValue3.Name = "Default"
-        Me.gaugePlanificacionInicio.Values.Add(InputValue3)
+        InputValue9.Name = "Default"
+        Me.gaugePlanificacionInicio.Values.Add(InputValue9)
         '
         'gfxServicios
         '
@@ -381,32 +382,32 @@ Partial Class DashboardForm
         Me.gfxServicios.BorderLineColor = System.Drawing.Color.LightGray
         Me.gfxServicios.BorderSkin.FrameBackColor = System.Drawing.Color.LightSkyBlue
         Me.gfxServicios.BorderSkin.FrameBackGradientEndColor = System.Drawing.Color.DodgerBlue
-        ChartArea2.AxisX.LineColor = System.Drawing.Color.DimGray
-        ChartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray
-        ChartArea2.AxisX.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
-        ChartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray
-        ChartArea2.AxisX2.LineColor = System.Drawing.Color.DimGray
-        ChartArea2.AxisY.LineColor = System.Drawing.Color.DimGray
-        ChartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray
-        ChartArea2.AxisY.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
-        ChartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray
-        ChartArea2.AxisY2.LineColor = System.Drawing.Color.DimGray
-        ChartArea2.BackColor = System.Drawing.Color.Transparent
-        ChartArea2.BorderColor = System.Drawing.Color.Empty
-        ChartArea2.Name = "Default"
-        Me.gfxServicios.ChartAreas.Add(ChartArea2)
-        Legend2.BackColor = System.Drawing.Color.Transparent
-        Legend2.BorderColor = System.Drawing.Color.Transparent
-        Legend2.Name = "Default"
-        Me.gfxServicios.Legends.Add(Legend2)
+        ChartArea8.AxisX.LineColor = System.Drawing.Color.DimGray
+        ChartArea8.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray
+        ChartArea8.AxisX.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
+        ChartArea8.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray
+        ChartArea8.AxisX2.LineColor = System.Drawing.Color.DimGray
+        ChartArea8.AxisY.LineColor = System.Drawing.Color.DimGray
+        ChartArea8.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray
+        ChartArea8.AxisY.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
+        ChartArea8.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray
+        ChartArea8.AxisY2.LineColor = System.Drawing.Color.DimGray
+        ChartArea8.BackColor = System.Drawing.Color.Transparent
+        ChartArea8.BorderColor = System.Drawing.Color.Empty
+        ChartArea8.Name = "Default"
+        Me.gfxServicios.ChartAreas.Add(ChartArea8)
+        Legend8.BackColor = System.Drawing.Color.Transparent
+        Legend8.BorderColor = System.Drawing.Color.Transparent
+        Legend8.Name = "Default"
+        Me.gfxServicios.Legends.Add(Legend8)
         Me.gfxServicios.Location = New System.Drawing.Point(12, 25)
         Me.gfxServicios.Name = "gfxServicios"
         Me.gfxServicios.Palette = Dundas.Charting.WinControl.ChartColorPalette.SemiTransparent
-        Series3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Series3.ChartType = "Pie"
-        Series3.Name = "Servicios"
-        Series3.ShadowOffset = 1
-        Me.gfxServicios.Series.Add(Series3)
+        Series11.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Series11.ChartType = "Pie"
+        Series11.Name = "Servicios"
+        Series11.ShadowOffset = 1
+        Me.gfxServicios.Series.Add(Series11)
         Me.gfxServicios.Size = New System.Drawing.Size(271, 143)
         Me.gfxServicios.TabIndex = 41
         Me.gfxServicios.Text = "porcentajeServicios"
@@ -419,31 +420,31 @@ Partial Class DashboardForm
         Me.gfxFresas.BorderLineColor = System.Drawing.Color.LightGray
         Me.gfxFresas.BorderSkin.FrameBackColor = System.Drawing.Color.LightSkyBlue
         Me.gfxFresas.BorderSkin.FrameBackGradientEndColor = System.Drawing.Color.DodgerBlue
-        ChartArea3.AxisX.LineColor = System.Drawing.Color.DimGray
-        ChartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray
-        ChartArea3.AxisX.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
-        ChartArea3.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray
-        ChartArea3.AxisX2.LineColor = System.Drawing.Color.DimGray
-        ChartArea3.AxisY.LineColor = System.Drawing.Color.DimGray
-        ChartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray
-        ChartArea3.AxisY.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
-        ChartArea3.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray
-        ChartArea3.AxisY2.LineColor = System.Drawing.Color.DimGray
-        ChartArea3.BackColor = System.Drawing.Color.Transparent
-        ChartArea3.BorderColor = System.Drawing.Color.Transparent
-        ChartArea3.Name = "Default"
-        Me.gfxFresas.ChartAreas.Add(ChartArea3)
-        Legend3.BackColor = System.Drawing.Color.Transparent
-        Legend3.BorderColor = System.Drawing.Color.Transparent
-        Legend3.Name = "Default"
-        Me.gfxFresas.Legends.Add(Legend3)
+        ChartArea9.AxisX.LineColor = System.Drawing.Color.DimGray
+        ChartArea9.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray
+        ChartArea9.AxisX.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
+        ChartArea9.AxisX.MajorTickMark.LineColor = System.Drawing.Color.DimGray
+        ChartArea9.AxisX2.LineColor = System.Drawing.Color.DimGray
+        ChartArea9.AxisY.LineColor = System.Drawing.Color.DimGray
+        ChartArea9.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray
+        ChartArea9.AxisY.MajorGrid.LineStyle = Dundas.Charting.WinControl.ChartDashStyle.Dot
+        ChartArea9.AxisY.MajorTickMark.LineColor = System.Drawing.Color.DimGray
+        ChartArea9.AxisY2.LineColor = System.Drawing.Color.DimGray
+        ChartArea9.BackColor = System.Drawing.Color.Transparent
+        ChartArea9.BorderColor = System.Drawing.Color.Transparent
+        ChartArea9.Name = "Default"
+        Me.gfxFresas.ChartAreas.Add(ChartArea9)
+        Legend9.BackColor = System.Drawing.Color.Transparent
+        Legend9.BorderColor = System.Drawing.Color.Transparent
+        Legend9.Name = "Default"
+        Me.gfxFresas.Legends.Add(Legend9)
         Me.gfxFresas.Location = New System.Drawing.Point(533, 25)
         Me.gfxFresas.Name = "gfxFresas"
         Me.gfxFresas.Palette = Dundas.Charting.WinControl.ChartColorPalette.SemiTransparent
-        Series4.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Series4.ChartType = "Pie"
-        Series4.Name = "Fresas"
-        Me.gfxFresas.Series.Add(Series4)
+        Series12.BorderColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Series12.ChartType = "Pie"
+        Series12.Name = "Fresas"
+        Me.gfxFresas.Series.Add(Series12)
         Me.gfxFresas.Size = New System.Drawing.Size(271, 143)
         Me.gfxFresas.TabIndex = 42
         Me.gfxFresas.Text = "Chart2"
@@ -554,11 +555,21 @@ Partial Class DashboardForm
         Me.GroupBox3.TabIndex = 52
         Me.GroupBox3.TabStop = False
         '
+        'ProgressBar
+        '
+        Me.ProgressBar.Location = New System.Drawing.Point(289, 170)
+        Me.ProgressBar.Maximum = 80
+        Me.ProgressBar.Name = "ProgressBar"
+        Me.ProgressBar.Size = New System.Drawing.Size(237, 23)
+        Me.ProgressBar.TabIndex = 53
+        Me.ProgressBar.Visible = False
+        '
         'DashboardForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(816, 566)
+        Me.Controls.Add(Me.ProgressBar)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -613,4 +624,5 @@ Partial Class DashboardForm
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents ProgressBar As System.Windows.Forms.ProgressBar
 End Class

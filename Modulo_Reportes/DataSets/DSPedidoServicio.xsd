@@ -16,12 +16,14 @@
                     <CommandText>SELECT     detalleordenservicio.idpedido, detalleordenservicio.idoperacion, detalleordenservicio.idobjetodelservicio, detalleordenservicio.preciodeservicio, 
                       detalleordenservicio.observacion, detalleordenservicio.idhojaderuta, detalleordenservicio.precio, 
                       objetodelservicio.nombre AS nombreObjetodelServicio, objetodelservicio.cantidad, operacion.nombre AS nombreOperacion, operacion.maquina, 
-                      Pedido.idpedido AS Expr1, Pedido.idestado, Pedido.prioridad, Pedido.idcliente, cliente.nombre, cliente.apellido
+                      Pedido.idestado, Pedido.prioridad, Pedido.idcliente, cliente.nombre, cliente.apellido, estado.nombre AS nombreEstado, Pedido.fecharealizacion, 
+                      Pedido.fechaentrega, Pedido.fecharealentrega
 FROM         detalleordenservicio INNER JOIN
                       objetodelservicio ON detalleordenservicio.idobjetodelservicio = objetodelservicio.idobjetodelservicio INNER JOIN
                       operacion ON detalleordenservicio.idoperacion = operacion.idoperacion INNER JOIN
                       Pedido ON detalleordenservicio.idpedido = Pedido.idpedido INNER JOIN
-                      cliente ON Pedido.idcliente = cliente.idcliente</CommandText>
+                      cliente ON Pedido.idcliente = cliente.idcliente INNER JOIN
+                      estado ON Pedido.idestado = estado.idestado</CommandText>
                     <Parameters>
                     </Parameters>
                   </DbCommand>
@@ -40,12 +42,15 @@ FROM         detalleordenservicio INNER JOIN
               <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
               <Mapping SourceColumn="nombreOperacion" DataSetColumn="nombreOperacion" />
               <Mapping SourceColumn="maquina" DataSetColumn="maquina" />
-              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
               <Mapping SourceColumn="idestado" DataSetColumn="idestado" />
               <Mapping SourceColumn="prioridad" DataSetColumn="prioridad" />
               <Mapping SourceColumn="idcliente" DataSetColumn="idcliente" />
               <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
               <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
+              <Mapping SourceColumn="nombreEstado" DataSetColumn="nombreEstado" />
+              <Mapping SourceColumn="fecharealizacion" DataSetColumn="fecharealizacion" />
+              <Mapping SourceColumn="fechaentrega" DataSetColumn="fechaentrega" />
+              <Mapping SourceColumn="fecharealentrega" DataSetColumn="fecharealentrega" />
             </Mappings>
             <Sources>
             </Sources>
@@ -97,7 +102,6 @@ FROM         detalleordenservicio INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Expr1" msprop:Generator_UserColumnName="Expr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" type="xs:decimal" />
               <xs:element name="idestado" msprop:Generator_UserColumnName="idestado" msprop:Generator_ColumnPropNameInRow="idestado" msprop:Generator_ColumnVarNameInTable="columnidestado" msprop:Generator_ColumnPropNameInTable="idestadoColumn" type="xs:int" minOccurs="0" />
               <xs:element name="prioridad" msprop:Generator_UserColumnName="prioridad" msprop:Generator_ColumnPropNameInRow="prioridad" msprop:Generator_ColumnVarNameInTable="columnprioridad" msprop:Generator_ColumnPropNameInTable="prioridadColumn" type="xs:int" minOccurs="0" />
               <xs:element name="idcliente" msprop:Generator_UserColumnName="idcliente" msprop:Generator_ColumnPropNameInRow="idcliente" msprop:Generator_ColumnVarNameInTable="columnidcliente" msprop:Generator_ColumnPropNameInTable="idclienteColumn" type="xs:int" minOccurs="0" />
@@ -115,6 +119,16 @@ FROM         detalleordenservicio INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="nombreEstado" msprop:Generator_UserColumnName="nombreEstado" msprop:Generator_ColumnVarNameInTable="columnnombreEstado" msprop:Generator_ColumnPropNameInRow="nombreEstado" msprop:Generator_ColumnPropNameInTable="nombreEstadoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fecharealizacion" msprop:Generator_UserColumnName="fecharealizacion" msprop:Generator_ColumnPropNameInRow="fecharealizacion" msprop:Generator_ColumnVarNameInTable="columnfecharealizacion" msprop:Generator_ColumnPropNameInTable="fecharealizacionColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechaentrega" msprop:Generator_UserColumnName="fechaentrega" msprop:Generator_ColumnPropNameInRow="fechaentrega" msprop:Generator_ColumnVarNameInTable="columnfechaentrega" msprop:Generator_ColumnPropNameInTable="fechaentregaColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecharealentrega" msprop:Generator_UserColumnName="fecharealentrega" msprop:Generator_ColumnPropNameInRow="fecharealentrega" msprop:Generator_ColumnVarNameInTable="columnfecharealentrega" msprop:Generator_ColumnPropNameInTable="fecharealentregaColumn" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

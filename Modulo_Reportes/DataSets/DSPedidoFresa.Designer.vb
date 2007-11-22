@@ -248,6 +248,8 @@ Partial Public Class DSPedidoFresa
         
         Private columnnombre As System.Data.DataColumn
         
+        Private columnnombreEstado As System.Data.DataColumn
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -357,6 +359,13 @@ Partial Public Class DSPedidoFresa
             End Get
         End Property
         
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nombreEstadoColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnnombreEstado
+            End Get
+        End Property
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -386,9 +395,9 @@ Partial Public Class DSPedidoFresa
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddfresaRow(ByVal nroserie As Integer, ByVal fechafinfabricacion As Date, ByVal costofabricacion As Decimal, ByVal estado As Integer, ByVal nropedido As Decimal, ByVal controlcalidad As Integer, ByVal idhojaderuta As Integer, ByVal precio As Decimal, ByVal idtipo As Integer, ByVal idmodelo As Integer, ByVal nombre As String) As fresaRow
+        Public Overloads Function AddfresaRow(ByVal nroserie As Integer, ByVal fechafinfabricacion As Date, ByVal costofabricacion As Decimal, ByVal estado As Integer, ByVal nropedido As Decimal, ByVal controlcalidad As Integer, ByVal idhojaderuta As Integer, ByVal precio As Decimal, ByVal idtipo As Integer, ByVal idmodelo As Integer, ByVal nombre As String, ByVal nombreEstado As String) As fresaRow
             Dim rowfresaRow As fresaRow = CType(Me.NewRow,fresaRow)
-            rowfresaRow.ItemArray = New Object() {nroserie, fechafinfabricacion, costofabricacion, estado, nropedido, controlcalidad, idhojaderuta, precio, idtipo, idmodelo, nombre}
+            rowfresaRow.ItemArray = New Object() {nroserie, fechafinfabricacion, costofabricacion, estado, nropedido, controlcalidad, idhojaderuta, precio, idtipo, idmodelo, nombre, nombreEstado}
             Me.Rows.Add(rowfresaRow)
             Return rowfresaRow
         End Function
@@ -428,6 +437,7 @@ Partial Public Class DSPedidoFresa
             Me.columnidtipo = MyBase.Columns("idtipo")
             Me.columnidmodelo = MyBase.Columns("idmodelo")
             Me.columnnombre = MyBase.Columns("nombre")
+            Me.columnnombreEstado = MyBase.Columns("nombreEstado")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -454,11 +464,14 @@ Partial Public Class DSPedidoFresa
             MyBase.Columns.Add(Me.columnidmodelo)
             Me.columnnombre = New System.Data.DataColumn("nombre", GetType(String), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnnombre)
+            Me.columnnombreEstado = New System.Data.DataColumn("nombreEstado", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombreEstado)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnnroserie}, true))
             Me.columnnroserie.AllowDBNull = false
             Me.columnnroserie.Unique = true
             Me.columnnropedido.AllowDBNull = false
             Me.columnnombre.MaxLength = 20
+            Me.columnnombreEstado.MaxLength = 40
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -702,6 +715,20 @@ Partial Public Class DSPedidoFresa
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nombreEstado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablefresa.nombreEstadoColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombreEstado' de la tabla 'fresa' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablefresa.nombreEstadoColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsfechafinfabricacionNull() As Boolean
             Return Me.IsNull(Me.tablefresa.fechafinfabricacionColumn)
         End Function
@@ -789,6 +816,16 @@ Partial Public Class DSPedidoFresa
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetnombreNull()
             Me(Me.tablefresa.nombreColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnombreEstadoNull() As Boolean
+            Return Me.IsNull(Me.tablefresa.nombreEstadoColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnombreEstadoNull()
+            Me(Me.tablefresa.nombreEstadoColumn) = System.Convert.DBNull
         End Sub
     End Class
     
@@ -925,6 +962,7 @@ Namespace DSPedidoFresaTableAdapters
             tableMapping.ColumnMappings.Add("idtipo", "idtipo")
             tableMapping.ColumnMappings.Add("idmodelo", "idmodelo")
             tableMapping.ColumnMappings.Add("nombre", "nombre")
+            tableMapping.ColumnMappings.Add("nombreEstado", "nombreEstado")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -941,9 +979,10 @@ Namespace DSPedidoFresaTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT     fresa.nroserie, fresa.fechafinfabricacion, fresa.costofabricacion, fre"& _ 
                 "sa.estado, fresa.nropedido, fresa.controlcalidad, fresa.idhojaderuta, fresa.prec"& _ 
-                "io, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      fresa.idtipo, fresa.idmodelo, tipofresa.nombre"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM"& _ 
-                "         fresa INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipofresa ON fresa.idtipo = tip"& _ 
-                "ofresa.idtipo AND fresa.idmodelo = tipofresa.idmodelo"
+                "io, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      fresa.idtipo, fresa.idmodelo, tipofresa.nombre, esta"& _ 
+                "do.nombre AS nombreEstado"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         fresa INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "tipofresa ON fresa.idtipo = tipofresa.idtipo AND fresa.idmodelo = tipofresa.idmo"& _ 
+                "delo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      estado ON fresa.estado = estado.idestado"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         

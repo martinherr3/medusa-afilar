@@ -248,8 +248,6 @@ Partial Public Class DSPedidoServicio
         
         Private columnmaquina As System.Data.DataColumn
         
-        Private columnExpr1 As System.Data.DataColumn
-        
         Private columnidestado As System.Data.DataColumn
         
         Private columnprioridad As System.Data.DataColumn
@@ -259,6 +257,14 @@ Partial Public Class DSPedidoServicio
         Private columnnombre As System.Data.DataColumn
         
         Private columnapellido As System.Data.DataColumn
+        
+        Private columnnombreEstado As System.Data.DataColumn
+        
+        Private columnfecharealizacion As System.Data.DataColumn
+        
+        Private columnfechaentrega As System.Data.DataColumn
+        
+        Private columnfecharealentrega As System.Data.DataColumn
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -370,13 +376,6 @@ Partial Public Class DSPedidoServicio
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Expr1Column() As System.Data.DataColumn
-            Get
-                Return Me.columnExpr1
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property idestadoColumn() As System.Data.DataColumn
             Get
                 Return Me.columnidestado
@@ -408,6 +407,34 @@ Partial Public Class DSPedidoServicio
         Public ReadOnly Property apellidoColumn() As System.Data.DataColumn
             Get
                 Return Me.columnapellido
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nombreEstadoColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnnombreEstado
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property fecharealizacionColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnfecharealizacion
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property fechaentregaColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnfechaentrega
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property fecharealentregaColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnfecharealentrega
             End Get
         End Property
         
@@ -452,14 +479,17 @@ Partial Public Class DSPedidoServicio
                     ByVal cantidad As Integer,  _
                     ByVal nombreOperacion As String,  _
                     ByVal maquina As String,  _
-                    ByVal Expr1 As Decimal,  _
                     ByVal idestado As Integer,  _
                     ByVal prioridad As Integer,  _
                     ByVal idcliente As Integer,  _
                     ByVal nombre As String,  _
-                    ByVal apellido As String) As detalleordenservicioRow
+                    ByVal apellido As String,  _
+                    ByVal nombreEstado As String,  _
+                    ByVal fecharealizacion As Date,  _
+                    ByVal fechaentrega As Date,  _
+                    ByVal fecharealentrega As Date) As detalleordenservicioRow
             Dim rowdetalleordenservicioRow As detalleordenservicioRow = CType(Me.NewRow,detalleordenservicioRow)
-            rowdetalleordenservicioRow.ItemArray = New Object() {idpedido, idoperacion, idobjetodelservicio, preciodeservicio, observacion, idhojaderuta, precio, nombreObjetodelServicio, cantidad, nombreOperacion, maquina, Expr1, idestado, prioridad, idcliente, nombre, apellido}
+            rowdetalleordenservicioRow.ItemArray = New Object() {idpedido, idoperacion, idobjetodelservicio, preciodeservicio, observacion, idhojaderuta, precio, nombreObjetodelServicio, cantidad, nombreOperacion, maquina, idestado, prioridad, idcliente, nombre, apellido, nombreEstado, fecharealizacion, fechaentrega, fecharealentrega}
             Me.Rows.Add(rowdetalleordenservicioRow)
             Return rowdetalleordenservicioRow
         End Function
@@ -499,12 +529,15 @@ Partial Public Class DSPedidoServicio
             Me.columncantidad = MyBase.Columns("cantidad")
             Me.columnnombreOperacion = MyBase.Columns("nombreOperacion")
             Me.columnmaquina = MyBase.Columns("maquina")
-            Me.columnExpr1 = MyBase.Columns("Expr1")
             Me.columnidestado = MyBase.Columns("idestado")
             Me.columnprioridad = MyBase.Columns("prioridad")
             Me.columnidcliente = MyBase.Columns("idcliente")
             Me.columnnombre = MyBase.Columns("nombre")
             Me.columnapellido = MyBase.Columns("apellido")
+            Me.columnnombreEstado = MyBase.Columns("nombreEstado")
+            Me.columnfecharealizacion = MyBase.Columns("fecharealizacion")
+            Me.columnfechaentrega = MyBase.Columns("fechaentrega")
+            Me.columnfecharealentrega = MyBase.Columns("fecharealentrega")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -531,8 +564,6 @@ Partial Public Class DSPedidoServicio
             MyBase.Columns.Add(Me.columnnombreOperacion)
             Me.columnmaquina = New System.Data.DataColumn("maquina", GetType(String), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnmaquina)
-            Me.columnExpr1 = New System.Data.DataColumn("Expr1", GetType(Decimal), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnExpr1)
             Me.columnidestado = New System.Data.DataColumn("idestado", GetType(Integer), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidestado)
             Me.columnprioridad = New System.Data.DataColumn("prioridad", GetType(Integer), Nothing, System.Data.MappingType.Element)
@@ -543,6 +574,14 @@ Partial Public Class DSPedidoServicio
             MyBase.Columns.Add(Me.columnnombre)
             Me.columnapellido = New System.Data.DataColumn("apellido", GetType(String), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnapellido)
+            Me.columnnombreEstado = New System.Data.DataColumn("nombreEstado", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombreEstado)
+            Me.columnfecharealizacion = New System.Data.DataColumn("fecharealizacion", GetType(Date), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfecharealizacion)
+            Me.columnfechaentrega = New System.Data.DataColumn("fechaentrega", GetType(Date), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfechaentrega)
+            Me.columnfecharealentrega = New System.Data.DataColumn("fecharealentrega", GetType(Date), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfecharealentrega)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnidpedido, Me.columnidoperacion, Me.columnidobjetodelservicio}, true))
             Me.columnidpedido.AllowDBNull = false
             Me.columnidoperacion.AllowDBNull = false
@@ -551,10 +590,10 @@ Partial Public Class DSPedidoServicio
             Me.columnnombreObjetodelServicio.MaxLength = 20
             Me.columnnombreOperacion.MaxLength = 40
             Me.columnmaquina.MaxLength = 40
-            Me.columnExpr1.AllowDBNull = false
             Me.columnnombre.AllowDBNull = false
             Me.columnnombre.MaxLength = 50
             Me.columnapellido.MaxLength = 50
+            Me.columnnombreEstado.MaxLength = 40
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -799,16 +838,6 @@ Partial Public Class DSPedidoServicio
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Expr1() As Decimal
-            Get
-                Return CType(Me(Me.tabledetalleordenservicio.Expr1Column),Decimal)
-            End Get
-            Set
-                Me(Me.tabledetalleordenservicio.Expr1Column) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property idestado() As Integer
             Get
                 Try 
@@ -871,6 +900,66 @@ Partial Public Class DSPedidoServicio
             End Get
             Set
                 Me(Me.tabledetalleordenservicio.apellidoColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nombreEstado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledetalleordenservicio.nombreEstadoColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombreEstado' de la tabla 'detalleordenservicio' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.nombreEstadoColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property fecharealizacion() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tabledetalleordenservicio.fecharealizacionColumn),Date)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'fecharealizacion' de la tabla 'detalleordenservicio' es D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.fecharealizacionColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property fechaentrega() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tabledetalleordenservicio.fechaentregaColumn),Date)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'fechaentrega' de la tabla 'detalleordenservicio' es DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.fechaentregaColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property fecharealentrega() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tabledetalleordenservicio.fecharealentregaColumn),Date)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'fecharealentrega' de la tabla 'detalleordenservicio' es D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledetalleordenservicio.fecharealentregaColumn) = value
             End Set
         End Property
         
@@ -992,6 +1081,46 @@ Partial Public Class DSPedidoServicio
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetapellidoNull()
             Me(Me.tabledetalleordenservicio.apellidoColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnombreEstadoNull() As Boolean
+            Return Me.IsNull(Me.tabledetalleordenservicio.nombreEstadoColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnombreEstadoNull()
+            Me(Me.tabledetalleordenservicio.nombreEstadoColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsfecharealizacionNull() As Boolean
+            Return Me.IsNull(Me.tabledetalleordenservicio.fecharealizacionColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetfecharealizacionNull()
+            Me(Me.tabledetalleordenservicio.fecharealizacionColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsfechaentregaNull() As Boolean
+            Return Me.IsNull(Me.tabledetalleordenservicio.fechaentregaColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetfechaentregaNull()
+            Me(Me.tabledetalleordenservicio.fechaentregaColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsfecharealentregaNull() As Boolean
+            Return Me.IsNull(Me.tabledetalleordenservicio.fecharealentregaColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetfecharealentregaNull()
+            Me(Me.tabledetalleordenservicio.fecharealentregaColumn) = System.Convert.DBNull
         End Sub
     End Class
     
@@ -1128,12 +1257,15 @@ Namespace DSPedidoServicioTableAdapters
             tableMapping.ColumnMappings.Add("cantidad", "cantidad")
             tableMapping.ColumnMappings.Add("nombreOperacion", "nombreOperacion")
             tableMapping.ColumnMappings.Add("maquina", "maquina")
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1")
             tableMapping.ColumnMappings.Add("idestado", "idestado")
             tableMapping.ColumnMappings.Add("prioridad", "prioridad")
             tableMapping.ColumnMappings.Add("idcliente", "idcliente")
             tableMapping.ColumnMappings.Add("nombre", "nombre")
             tableMapping.ColumnMappings.Add("apellido", "apellido")
+            tableMapping.ColumnMappings.Add("nombreEstado", "nombreEstado")
+            tableMapping.ColumnMappings.Add("fecharealizacion", "fecharealizacion")
+            tableMapping.ColumnMappings.Add("fechaentrega", "fechaentrega")
+            tableMapping.ColumnMappings.Add("fecharealentrega", "fecharealentrega")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1153,14 +1285,17 @@ Namespace DSPedidoServicioTableAdapters
                 "                    detalleordenservicio.observacion, detalleordenservicio.idhoj"& _ 
                 "aderuta, detalleordenservicio.precio, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      objetodelservicio."& _ 
                 "nombre AS nombreObjetodelServicio, objetodelservicio.cantidad, operacion.nombre "& _ 
-                "AS nombreOperacion, operacion.maquina, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Pedido.idpedido A"& _ 
-                "S Expr1, Pedido.idestado, Pedido.prioridad, Pedido.idcliente, cliente.nombre, cl"& _ 
-                "iente.apellido"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         detalleordenservicio INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "    objetodelservicio ON detalleordenservicio.idobjetodelservicio = objetodelser"& _ 
-                "vicio.idobjetodelservicio INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      operacion ON detalle"& _ 
-                "ordenservicio.idoperacion = operacion.idoperacion INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "    Pedido ON detalleordenservicio.idpedido = Pedido.idpedido INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                cliente ON Pedido.idcliente = cliente.idcliente"
+                "AS nombreOperacion, operacion.maquina, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Pedido.idestado, "& _ 
+                "Pedido.prioridad, Pedido.idcliente, cliente.nombre, cliente.apellido, estado.nom"& _ 
+                "bre AS nombreEstado, Pedido.fecharealizacion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Pedido.fec"& _ 
+                "haentrega, Pedido.fecharealentrega"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         detalleordenservicio INNER JOIN"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      objetodelservicio ON detalleordenservicio.idobjetodelser"& _ 
+                "vicio = objetodelservicio.idobjetodelservicio INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "operacion ON detalleordenservicio.idoperacion = operacion.idoperacion INNER JOIN"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Pedido ON detalleordenservicio.idpedido = Pedido.idpedid"& _ 
+                "o INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      cliente ON Pedido.idcliente = cliente.idclie"& _ 
+                "nte INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      estado ON Pedido.idestado = estado.idestad"& _ 
+                "o"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         
