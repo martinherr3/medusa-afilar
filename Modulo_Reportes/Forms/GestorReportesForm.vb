@@ -113,6 +113,7 @@ Public Class GestorReportesForm
             reportePedido = New RptPedidos
             reportePedido.SetDataSource(dataSetPedido)
             reportePedido.SummaryInfo.ReportComments = criterioParaMostrar
+            reportePedido.SummaryInfo.ReportAuthor = nombreEmpleado
 
             If criterio = "" Then
                 crv.SelectionFormula = Nothing
@@ -178,7 +179,7 @@ Public Class GestorReportesForm
             End If
 
             criterio = criterio & "{cliente.idprovincia} = " & comboClienteProvincia.SelectedItem.Tag
-            criterioParaMostrar = criterioParaMostrar & "--- Provincia: " & comboClienteProvincia.SelectedItem.DataValue
+            criterioParaMostrar = criterioParaMostrar & " --- Provincia: " & comboClienteProvincia.SelectedItem.DataValue
 
         End If
 
@@ -287,6 +288,7 @@ Public Class GestorReportesForm
             reporteFresas = New RptFresa
             reporteFresas.SetDataSource(dataSetFresas)
             reporteFresas.SummaryInfo.ReportComments = criterioParaMostrar
+            reporteFresas.SummaryInfo.ReportAuthor = nombreEmpleado
 
             If criterio = "" Then
                 crv.SelectionFormula = Nothing
@@ -357,7 +359,7 @@ Public Class GestorReportesForm
             End If
 
             criterio = criterio & "{detalleordenservicio.idoperacion} = " & comboServicioOperacion.SelectedItem.Tag
-            criterioParaMostrar = criterioParaMostrar & "--- Operación: " & comboServicioOperacion.SelectedItem.DataValue
+            criterioParaMostrar = criterioParaMostrar & " --- Operación: " & comboServicioOperacion.SelectedItem.DataValue
 
         End If
 
@@ -373,7 +375,7 @@ Public Class GestorReportesForm
             End If
 
             criterio = criterio & "{detalleordenservicio.idestado} = " & comboServicioEstado.SelectedItem.Tag
-            criterioParaMostrar = criterioParaMostrar & "--- Estado: " & comboServicioEstado.SelectedItem.DataValue
+            criterioParaMostrar = criterioParaMostrar & " --- Estado: " & comboServicioEstado.SelectedItem.DataValue
 
         End If
 
@@ -390,6 +392,7 @@ Public Class GestorReportesForm
             reporteServicio = New RptServicio
             reporteServicio.SetDataSource(dataSetServicio)
             reporteServicio.SummaryInfo.ReportComments = criterioParaMostrar
+            reporteServicio.SummaryInfo.ReportAuthor = nombreEmpleado
 
             If criterio = "" Then
                 crv.SelectionFormula = Nothing
