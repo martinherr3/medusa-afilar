@@ -1,9 +1,12 @@
 Public Class Parametro
-    Private selectParametro As New SqlClient.SqlCommand
-    Private adaptadorParametro As New SqlClient.SqlDataAdapter
-    Private resultado As SqlClient.SqlDataReader
 
-    Public Function obtenerParametro(ByVal label As String) As Object
+
+    Public Shared Function obtenerParametro(ByVal label As String) As Object
+
+        Dim selectParametro As New SqlClient.SqlCommand
+        Dim adaptadorParametro As New SqlClient.SqlDataAdapter
+        Dim resultado As SqlClient.SqlDataReader
+
         selectParametro.Connection = cnn
         selectParametro.CommandType = CommandType.Text
         selectParametro.Connection.Open()
