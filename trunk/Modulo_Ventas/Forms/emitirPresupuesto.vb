@@ -23,6 +23,8 @@ Public Class emitirPresupuesto
     Dim columnas() As Integer = {2, 1}
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Dim colNombre() As String = {"Apellido", "Nombre"}
+    Dim nombreEmpleado As String
+    Dim usuario As New Usuario
 #End Region
 
 
@@ -110,9 +112,9 @@ Public Class emitirPresupuesto
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
+        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
-        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.DataGridBoolColumn1 = New System.Windows.Forms.DataGridBoolColumn
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
@@ -320,6 +322,7 @@ Public Class emitirPresupuesto
         Me.textFecha.AutoSize = True
         Me.textFecha.Location = New System.Drawing.Point(80, 56)
         Me.textFecha.Name = "textFecha"
+        Me.textFecha.ReadOnly = True
         Me.textFecha.Size = New System.Drawing.Size(184, 21)
         Me.textFecha.TabIndex = 4
         '
@@ -381,6 +384,16 @@ Public Class emitirPresupuesto
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Cliente"
         '
+        'UltraButton3
+        '
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance5
+        Me.UltraButton3.Location = New System.Drawing.Point(720, 477)
+        Me.UltraButton3.Name = "UltraButton3"
+        Me.UltraButton3.Size = New System.Drawing.Size(80, 45)
+        Me.UltraButton3.TabIndex = 12
+        Me.UltraButton3.Text = "Salir"
+        '
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.crv)
@@ -399,16 +412,6 @@ Public Class emitirPresupuesto
         Me.crv.Size = New System.Drawing.Size(784, 439)
         Me.crv.TabIndex = 5
         Me.crv.ViewTimeSelectionFormula = ""
-        '
-        'UltraButton3
-        '
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance5
-        Me.UltraButton3.Location = New System.Drawing.Point(720, 477)
-        Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(80, 45)
-        Me.UltraButton3.TabIndex = 12
-        Me.UltraButton3.Text = "Salir"
         '
         'DataGridBoolColumn1
         '
@@ -564,6 +567,8 @@ Public Class emitirPresupuesto
         selectFresa.CommandText = queryReporte
         aPresupuesto.SelectCommand = selectFresa
 
+        'nombre empleado logueado
+        nombreEmpleado = usuario.getCliente(seguridad.id)
 
         princ.barra.agregarBoton(Me)
 
@@ -667,9 +672,11 @@ Public Class emitirPresupuesto
 
         If band = False Then
 
+            'Dim detallePresupuesto As New detallePresupuesto()
             dp.cargarAdaptador()
             dp.cargarDatos(ds, "dp")
 
+            Dim nombreCliente As String = ""
             Dim i As Integer = 1
             Dim fila As DataRow
             Dim nueva As DataRow
@@ -681,6 +688,7 @@ Public Class emitirPresupuesto
             nueva("fecha") = Date.Today
             For Each seleccionado As ListViewItem In CType(listaCliente, ListView).SelectedItems
                 nueva("idcliente") = seleccionado.Tag
+                nombreCliente = seleccionado.SubItems(1).Text & " " & seleccionado.SubItems(2).Text
             Next
             nueva("idempleado") = comboEmpleado.SelectedItem.Tag
 
@@ -740,11 +748,22 @@ Public Class emitirPresupuesto
                 dp.actualizarDatos(ds, "dp")
 
                 Dim ds2 As New DSPresupuesto
-
+                'Dim selectDetalle As New SqlClient.SqlCommand
+                'Dim adapterDetalle As New SqlClient.SqlDataAdapter
+                'selectDetalle.CommandType = CommandType.Text
+                'selectDetalle.Connection = cnn
+                'selectDetalle.CommandText = "SELECT iddetpre, idpresupuesto, idmodelo, idproducto, tipo, cantidad, precio, nombreProducto FROM dbo.detallepresupuesto"
+                'selectDetalle.Connection.Open()
+                'adapterDetalle.SelectCommand = selectDetalle
+                'adapterDetalle.Fill(ds2, "detallepresupuesto")
+                'selectDetalle.Connection.Close()
                 aPresupuesto.Fill(ds2, "detallepresupuesto")
 
                 Dim p As New RptPresupuesto
 
+                p.SummaryInfo.ReportAuthor = nombreEmpleado
+                p.SummaryInfo.ReportComments = "Presupuesto preparado para el cliente: " & nombreCliente & _
+                ". El presupuesto tiene validez por el período de un mes a partir del dia: " & textFecha.Text
                 p.SetDataSource(ds2)
                 crv.ReportSource = p
 
