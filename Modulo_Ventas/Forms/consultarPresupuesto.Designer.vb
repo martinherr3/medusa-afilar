@@ -76,7 +76,7 @@ Partial Class consultarPresupuesto
         Me.dataGridPresupuesto.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
         Me.dataGridPresupuesto.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.dataGridPresupuesto.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.dataGridPresupuesto.Size = New System.Drawing.Size(784, 293)
+        Me.dataGridPresupuesto.Size = New System.Drawing.Size(791, 424)
         Me.dataGridPresupuesto.TabIndex = 4
         '
         'Label15
@@ -171,7 +171,7 @@ Partial Class consultarPresupuesto
         '
         Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
         Me.btnSalir.Appearance = Appearance3
-        Me.btnSalir.Location = New System.Drawing.Point(711, 392)
+        Me.btnSalir.Location = New System.Drawing.Point(718, 523)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(88, 28)
         Me.btnSalir.TabIndex = 39
@@ -181,7 +181,7 @@ Partial Class consultarPresupuesto
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.checkFecha)
-        Me.GroupBox1.Location = New System.Drawing.Point(682, 25)
+        Me.GroupBox1.Location = New System.Drawing.Point(689, 25)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(117, 52)
         Me.GroupBox1.TabIndex = 40
@@ -204,7 +204,7 @@ Partial Class consultarPresupuesto
         '
         Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
         Me.btnRealizarPedido.Appearance = Appearance4
-        Me.btnRealizarPedido.Location = New System.Drawing.Point(15, 392)
+        Me.btnRealizarPedido.Location = New System.Drawing.Point(15, 523)
         Me.btnRealizarPedido.Name = "btnRealizarPedido"
         Me.btnRealizarPedido.Size = New System.Drawing.Size(113, 28)
         Me.btnRealizarPedido.TabIndex = 41
@@ -234,7 +234,7 @@ Partial Class consultarPresupuesto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(811, 428)
+        Me.ClientSize = New System.Drawing.Size(818, 563)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnRealizarPedido)

@@ -17,6 +17,11 @@ Public Class consultarPresupuesto
 
 
 #Region "Eventos y otros metodos"
+
+    Private Sub consultarPresupuesto_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub consultarPresupuesto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         princ.barra.agregarBoton(Me)

@@ -2551,7 +2551,9 @@ Public Class frmpedidocliente
         'Cargo los tipos de fresas
         For i = 0 To ds.Tables("tipofresa").Rows.Count - 1
             For j = 0 To dsDetalle.Tables("detallepresupuesto").Rows.Count - 1
-                If ds.Tables("tipofresa").Rows(i).Item("idtipo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idproducto") And ds.Tables("tipofresa").Rows(i).Item("idmodelo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idmodelo") And dsDetalle.Tables("detallepresupuesto").Rows(j).Item("tipo") = Constantes.PRESUPUESTO_TIPO_FRESA Then
+                If ds.Tables("tipofresa").Rows(i).Item("idtipo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idproducto") _
+                    And ds.Tables("tipofresa").Rows(i).Item("idmodelo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idmodelo") _
+                    And dsDetalle.Tables("detallepresupuesto").Rows(j).Item("tipo") = Constantes.PRESUPUESTO_TIPO_FRESA Then
                     nroserie += 1
                     Dim dr As DataRow = ds.Tables("fresa").NewRow
                     dr("nroserie") = CInt(nroserie)
@@ -2561,7 +2563,8 @@ Public Class frmpedidocliente
                     dr("estado") = Estado.PEDIDO_PENDIENTE
                     dr("nombre") = ds.Tables("tipofresa").Rows(i).Item("nombre")
                     ds.Tables("fresa").Rows.Add(dr)
-                    dr("precio") = CDec(ds.Tables("tipofresa").Rows(i).Item("precio"))
+                    'dr("precio") = CDec(ds.Tables("tipofresa").Rows(i).Item("precio"))
+                    dr("precio") = CDec(dsDetalle.Tables("detallepresupuesto").Rows(j).Item("precio"))
                     ds.Tables("tipofresa").Rows(i).Item("seleccionarTF") = False
                 End If
             Next
@@ -2569,7 +2572,9 @@ Public Class frmpedidocliente
 
         For i = 0 To ds.Tables("parteadicional").Rows.Count - 1
             For j = 0 To dsDetalle.Tables("detallepresupuesto").Rows.Count - 1
-                If ds.Tables("tipofresa").Rows(i).Item("idtipo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idproducto") And ds.Tables("tipofresa").Rows(i).Item("idmodelo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idmodelo") And dsDetalle.Tables("detallepresupuesto").Rows(j).Item("tipo") = Constantes.PRESUPUESTO_PARTE_ADICIONAL Then
+                If ds.Tables("tipofresa").Rows(i).Item("idtipo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idproducto") _
+                And ds.Tables("tipofresa").Rows(i).Item("idmodelo") = dsDetalle.Tables("detallepresupuesto").Rows(j).Item("idmodelo") _
+                And dsDetalle.Tables("detallepresupuesto").Rows(j).Item("tipo") = Constantes.PRESUPUESTO_PARTE_ADICIONAL Then
                     idpartepedida += 1
                     Dim dr As DataRow = ds.Tables("partepedida").NewRow
                     dr("idpartepedida") = CInt(idpartepedida)
@@ -2577,7 +2582,8 @@ Public Class frmpedidocliente
                     dr("idadicional") = ds.Tables("parteadicional").Rows(i).Item("idadicional")
                     dr("idpedido") = CLng(lblnropedido.Text)
                     dr("nombre") = ds.Tables("parteadicional").Rows(i).Item("nombre")
-                    dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
+                    'dr("precio") = ds.Tables("parteadicional").Rows(i).Item("precio")
+                    dr("precio") = CDec(dsDetalle.Tables("detallepresupuesto").Rows(j).Item("precio"))
                     ds.Tables("partepedida").Rows.Add(dr)
                     ds.Tables("parteadicional").Rows(i).Item("seleccionarpa") = False
                 End If
@@ -2618,7 +2624,7 @@ Public Class frmpedidocliente
 
 
     Private Sub comboestado_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboestado.ValueChanged
-        ' If ds.Tables("pedidocliente").Rows.Count > 0 Then
+        'If ds.Tables("pedidocliente").Rows.Count > 0 Then
         'If Me.comboestado.SelectedItem.Tag = 5 And Not ds.Tables("pedidocliente").Rows(0).Item("idestado") = 1 And bton Then
         'MsgBox("Solo puede cancelar pedidos con estado pendiente")
         'Me.comboestado.Text = comboestado.Items(ds.Tables("pedidocliente").Rows(0).Item("idestado") - 1).DisplayText
@@ -2646,9 +2652,4 @@ Public Class frmpedidocliente
 
 #End Region
 
-
-
-    Private Sub dgpedidos_Navigate(ByVal sender As System.Object, ByVal ne As System.Windows.Forms.NavigateEventArgs) Handles dgpedidos.Navigate
-
-    End Sub
 End Class

@@ -148,7 +148,7 @@ Public Class frmAsignar
         Me.Controls.Add(Me.UltraButton1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Location = New System.Drawing.Point(230, 150)
+        Me.Location = New System.Drawing.Point(200, 106)
         Me.Name = "frmAsignar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Asignacion para Entrega"

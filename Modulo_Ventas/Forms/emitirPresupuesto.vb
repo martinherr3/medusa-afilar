@@ -24,6 +24,7 @@ Public Class emitirPresupuesto
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Dim colNombre() As String = {"Apellido", "Nombre"}
     Dim nombreEmpleado As String
+    Friend WithEvents btnNuevoCliente As Infragistics.Win.Misc.UltraButton
     Dim usuario As New Usuario
 #End Region
 
@@ -73,8 +74,7 @@ Public Class emitirPresupuesto
     Friend WithEvents textPresupuesto As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(emitirPresupuesto))
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
@@ -83,16 +83,18 @@ Public Class emitirPresupuesto
         Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(emitirPresupuesto))
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.Label6 = New System.Windows.Forms.Label
         Me.btnFiltroCliente = New Infragistics.Win.Misc.UltraButton
@@ -118,6 +120,7 @@ Public Class emitirPresupuesto
         Me.DataGridBoolColumn1 = New System.Windows.Forms.DataGridBoolColumn
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.btnNuevoCliente = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.filtroCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -135,6 +138,7 @@ Public Class emitirPresupuesto
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.btnNuevoCliente)
         Me.UltraTabPageControl1.Controls.Add(Me.Label6)
         Me.UltraTabPageControl1.Controls.Add(Me.btnFiltroCliente)
         Me.UltraTabPageControl1.Controls.Add(Me.filtroCliente)
@@ -162,7 +166,7 @@ Public Class emitirPresupuesto
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(342, 449)
+        Me.Label6.Location = New System.Drawing.Point(342, 430)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(126, 13)
         Me.Label6.TabIndex = 29
@@ -170,18 +174,18 @@ Public Class emitirPresupuesto
         '
         'btnFiltroCliente
         '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Me.btnFiltroCliente.Appearance = Appearance1
-        Me.btnFiltroCliente.Location = New System.Drawing.Point(342, 494)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.btnFiltroCliente.Appearance = Appearance2
+        Me.btnFiltroCliente.Location = New System.Drawing.Point(342, 477)
         Me.btnFiltroCliente.Name = "btnFiltroCliente"
-        Me.btnFiltroCliente.Size = New System.Drawing.Size(154, 28)
+        Me.btnFiltroCliente.Size = New System.Drawing.Size(76, 45)
         Me.btnFiltroCliente.TabIndex = 28
         Me.btnFiltroCliente.Text = "Filtrar"
         '
         'filtroCliente
         '
         Me.filtroCliente.AutoSize = True
-        Me.filtroCliente.Location = New System.Drawing.Point(342, 467)
+        Me.filtroCliente.Location = New System.Drawing.Point(342, 448)
         Me.filtroCliente.Name = "filtroCliente"
         Me.filtroCliente.Size = New System.Drawing.Size(154, 21)
         Me.filtroCliente.TabIndex = 27
@@ -233,8 +237,8 @@ Public Class emitirPresupuesto
         ValueListItem7.DataValue = "ValueListItem6"
         ValueListItem7.DisplayText = "Precio"
         ValueListItem7.Tag = "precio"
-        Appearance2.FontData.BoldAsString = "True"
-        ValueListItem8.Appearance = Appearance2
+        Appearance3.FontData.BoldAsString = "True"
+        ValueListItem8.Appearance = Appearance3
         ValueListItem8.DataValue = "ValueListItem7"
         ValueListItem8.DisplayText = "Ninguno"
         ValueListItem8.Tag = "ninguno"
@@ -253,8 +257,8 @@ Public Class emitirPresupuesto
         '
         'btnFiltrar
         '
-        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
-        Me.btnFiltrar.Appearance = Appearance3
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.btnFiltrar.Appearance = Appearance4
         Me.btnFiltrar.Location = New System.Drawing.Point(621, 32)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(80, 45)
@@ -281,8 +285,8 @@ Public Class emitirPresupuesto
         '
         'UltraButton4
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.UltraButton4.Appearance = Appearance4
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance5
         Me.UltraButton4.Location = New System.Drawing.Point(552, 477)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(149, 45)
@@ -386,8 +390,8 @@ Public Class emitirPresupuesto
         '
         'UltraButton3
         '
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance5
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance6
         Me.UltraButton3.Location = New System.Drawing.Point(720, 477)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(80, 45)
@@ -419,20 +423,20 @@ Public Class emitirPresupuesto
         '
         'UltraTabControl1
         '
-        Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance6.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance6
         Appearance7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance7.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance7
+        Appearance7.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance7
+        Appearance8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance8
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 8)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance8.BackColor = System.Drawing.Color.Silver
-        Appearance8.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance8
+        Appearance9.BackColor = System.Drawing.Color.Silver
+        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance9
         Me.UltraTabControl1.SharedControls.AddRange(New System.Windows.Forms.Control() {Me.UltraButton3})
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(816, 560)
@@ -440,9 +444,9 @@ Public Class emitirPresupuesto
         Me.UltraTabControl1.TabIndex = 11
         UltraTab1.TabPage = Me.UltraTabPageControl1
         UltraTab1.Text = "Datos presupuesto"
-        Appearance9.BackColor = System.Drawing.Color.Silver
-        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        UltraTab2.SelectedAppearance = Appearance9
+        Appearance10.BackColor = System.Drawing.Color.Silver
+        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        UltraTab2.SelectedAppearance = Appearance10
         UltraTab2.TabPage = Me.UltraTabPageControl2
         UltraTab2.Text = "Generar presupuesto"
         Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
@@ -454,6 +458,16 @@ Public Class emitirPresupuesto
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(812, 537)
+        '
+        'btnNuevoCliente
+        '
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnNuevoCliente.Appearance = Appearance1
+        Me.btnNuevoCliente.Location = New System.Drawing.Point(420, 477)
+        Me.btnNuevoCliente.Name = "btnNuevoCliente"
+        Me.btnNuevoCliente.Size = New System.Drawing.Size(76, 45)
+        Me.btnNuevoCliente.TabIndex = 30
+        Me.btnNuevoCliente.Text = "Nuevo cliente"
         '
         'emitirPresupuesto
         '
@@ -826,6 +840,16 @@ Public Class emitirPresupuesto
 
         cargarLista(listaCliente, query, 0, columnas, colNombre)
 
+
+    End Sub
+
+    Private Sub btnNuevoCliente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevoCliente.Click
+        Dim formCliente As New frmCliente()
+
+        Dim posicion As New Point(196, 105)
+        formCliente.Location = posicion
+
+        formCliente.Show(principal)
 
     End Sub
 End Class
