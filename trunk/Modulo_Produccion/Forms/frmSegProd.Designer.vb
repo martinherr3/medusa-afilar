@@ -20,12 +20,12 @@ Partial Class frmSegProd
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraExplorerBarGroup3 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup
-        Dim UltraExplorerBarItem5 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem6 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim UltraExplorerBarGroup1 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup
+        Dim UltraExplorerBarItem1 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
+        Dim UltraExplorerBarItem2 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSegProd))
         Me.barra = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBar
         Me.lblFresa = New System.Windows.Forms.Label
@@ -63,26 +63,26 @@ Partial Class frmSegProd
         '
         'barra
         '
-        Appearance7.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Appearance7.BackColor2 = System.Drawing.SystemColors.AppWorkspace
-        Appearance7.FontData.BoldAsString = "True"
-        Appearance7.FontData.ItalicAsString = "False"
-        Appearance7.FontData.Name = "Arial"
-        Appearance7.FontData.UnderlineAsString = "False"
-        Appearance7.ForeColor = System.Drawing.Color.Blue
-        Me.barra.Appearance = Appearance7
+        Appearance1.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Appearance1.BackColor2 = System.Drawing.SystemColors.AppWorkspace
+        Appearance1.FontData.BoldAsString = "True"
+        Appearance1.FontData.ItalicAsString = "False"
+        Appearance1.FontData.Name = "Arial"
+        Appearance1.FontData.UnderlineAsString = "False"
+        Appearance1.ForeColor = System.Drawing.Color.Blue
+        Me.barra.Appearance = Appearance1
         Me.barra.BorderStyle = Infragistics.Win.UIElementBorderStyle.InsetSoft
-        UltraExplorerBarGroup3.Items.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem() {UltraExplorerBarItem5, UltraExplorerBarItem6})
-        Me.barra.Groups.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup() {UltraExplorerBarGroup3})
+        UltraExplorerBarGroup1.Items.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem() {UltraExplorerBarItem1, UltraExplorerBarItem2})
+        Me.barra.Groups.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup() {UltraExplorerBarGroup1})
         Me.barra.GroupSettings.Style = Infragistics.Win.UltraWinExplorerBar.GroupStyle.SmallImagesWithText
-        Appearance8.FontData.Name = "Arial"
-        Appearance8.FontData.SizeInPoints = 7.8!
-        Appearance8.ImageAlpha = Infragistics.Win.Alpha.Transparent
-        Me.barra.ItemSettings.AppearancesSmall.Appearance = Appearance8
-        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(214, Byte), Integer))
-        Appearance9.Cursor = System.Windows.Forms.Cursors.Hand
-        Appearance9.ForeColor = System.Drawing.Color.White
-        Me.barra.ItemSettings.AppearancesSmall.HotTrackAppearance = Appearance9
+        Appearance2.FontData.Name = "Arial"
+        Appearance2.FontData.SizeInPoints = 7.8!
+        Appearance2.ImageAlpha = Infragistics.Win.Alpha.Transparent
+        Me.barra.ItemSettings.AppearancesSmall.Appearance = Appearance2
+        Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(214, Byte), Integer))
+        Appearance3.Cursor = System.Windows.Forms.Cursors.Hand
+        Appearance3.ForeColor = System.Drawing.Color.White
+        Me.barra.ItemSettings.AppearancesSmall.HotTrackAppearance = Appearance3
         Me.barra.Location = New System.Drawing.Point(12, 13)
         Me.barra.Name = "barra"
         Me.barra.ShowDefaultContextMenu = False
@@ -346,7 +346,7 @@ Partial Class frmSegProd
         Me.Controls.Add(Me.lblFresa)
         Me.Controls.Add(Me.barra)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
-        Me.Location = New System.Drawing.Point(195, 200)
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "frmSegProd"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Seguimiento de produccion"

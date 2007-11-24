@@ -528,7 +528,7 @@ Public Class abmMaquinaFresa
         Me.ClientSize = New System.Drawing.Size(646, 288)
         Me.Controls.Add(Me.UltraTabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Location = New System.Drawing.Point(200, 106)
+        Me.Location = New System.Drawing.Point(200, 105)
         Me.Name = "abmMaquinaFresa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Gestión Máquina para fresa"

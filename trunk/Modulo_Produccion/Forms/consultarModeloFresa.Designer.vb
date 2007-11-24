@@ -228,7 +228,7 @@ Partial Class consultarModeloFresa
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.dataGridMF)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Location = New System.Drawing.Point(196, 105)
+        Me.Location = New System.Drawing.Point(198, 105)
         Me.Name = "consultarModeloFresa"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Consultar Modelo Fresa"
