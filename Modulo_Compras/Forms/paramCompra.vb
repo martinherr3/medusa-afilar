@@ -375,7 +375,7 @@ Public Class paramCompra
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Dim connect As New coneccion
         Try
-            'princ.barra.agregarBoton(Me)
+            princ.barra.agregarBoton(Me)
 
             Dim conn As SqlConnection
             conn = cnn
@@ -414,15 +414,15 @@ Public Class paramCompra
     End Sub
 
 
-
     Private Sub paramCompra_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
         princ.barra.eliminarBoton()
-
     End Sub
+
 
     Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
         Me.Close()
     End Sub
+
 
     Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton2.Click
 
