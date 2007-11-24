@@ -7,10 +7,11 @@ Public Class frmIngresos
     Dim objPedidos As pedido
 
     Private Sub frmIngresos_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        'princ.barra.eliminarBoton()
+        princ.barra.eliminarBoton()
     End Sub
+
     Private Sub frmIngresos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
         cargarCombo("select idtipodocumento,nombre from tipodocumento", cboTipoDoc, "nombre", "idtipodocumento")
         cargarCombo("select idtipodocumento,nombre from tipodocumento", cboTipoDoc2, "nombre", "idtipodocumento")
     End Sub
