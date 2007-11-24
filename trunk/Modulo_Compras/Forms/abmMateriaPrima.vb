@@ -42,7 +42,7 @@ Public Class abmMateriaPrima
     Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents UltraButton3 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents UltraButton2 As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnSalir As Infragistics.Win.Misc.UltraButton
     Friend WithEvents text4 As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents text3 As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents text2 As Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -98,7 +98,7 @@ Public Class abmMateriaPrima
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
+        Me.btnSalir = New Infragistics.Win.Misc.UltraButton
         Me.text4 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.text3 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.text2 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -143,7 +143,7 @@ Public Class abmMateriaPrima
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton4)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton2)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton1)
+        Me.UltraTabPageControl1.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl1.Controls.Add(Me.text4)
         Me.UltraTabPageControl1.Controls.Add(Me.text3)
         Me.UltraTabPageControl1.Controls.Add(Me.text2)
@@ -304,15 +304,15 @@ Public Class abmMateriaPrima
         Me.UltraButton2.TabIndex = 38
         Me.UltraButton2.Text = "Editar"
         '
-        'UltraButton1
+        'btnSalir
         '
         Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
-        Me.UltraButton1.Appearance = Appearance10
-        Me.UltraButton1.Location = New System.Drawing.Point(560, 216)
-        Me.UltraButton1.Name = "UltraButton1"
-        Me.UltraButton1.Size = New System.Drawing.Size(72, 32)
-        Me.UltraButton1.TabIndex = 37
-        Me.UltraButton1.Text = "Salir"
+        Me.btnSalir.Appearance = Appearance10
+        Me.btnSalir.Location = New System.Drawing.Point(560, 216)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(72, 32)
+        Me.btnSalir.TabIndex = 37
+        Me.btnSalir.Text = "Salir"
         '
         'text4
         '
@@ -540,7 +540,17 @@ Public Class abmMateriaPrima
 
 #End Region
 
-    Private Sub UltraButton10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton10.Click
+
+    Private Sub abmMateriaPrima_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
+    Private Sub abmMateriaPrima_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        princ.barra.agregarBoton(Me)
+    End Sub
+
+    Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
         Me.Close()
     End Sub
+
 End Class

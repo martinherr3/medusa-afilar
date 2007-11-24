@@ -50,14 +50,14 @@ Public Class frmRecibirMPII
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRecibirMPII))
-        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.gpbox1 = New Infragistics.Win.Misc.UltraGroupBox
         Me.DgOc = New System.Windows.Forms.DataGrid
         Me.Label2 = New System.Windows.Forms.Label
@@ -90,8 +90,8 @@ Public Class frmRecibirMPII
         '
         'gpbox1
         '
-        Appearance8.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.gpbox1.ContentAreaAppearance = Appearance8
+        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gpbox1.ContentAreaAppearance = Appearance1
         Me.gpbox1.Controls.Add(Me.DgOc)
         Me.gpbox1.Controls.Add(Me.Label2)
         Me.gpbox1.Location = New System.Drawing.Point(16, 8)
@@ -143,9 +143,9 @@ Public Class frmRecibirMPII
         '
         'BtnSiguiente
         '
-        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
-        Appearance9.ImageHAlign = Infragistics.Win.HAlign.Right
-        Me.BtnSiguiente.Appearance = Appearance9
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Appearance2.ImageHAlign = Infragistics.Win.HAlign.Right
+        Me.BtnSiguiente.Appearance = Appearance2
         Me.BtnSiguiente.Location = New System.Drawing.Point(416, 304)
         Me.BtnSiguiente.Name = "BtnSiguiente"
         Me.BtnSiguiente.Size = New System.Drawing.Size(96, 28)
@@ -154,8 +154,8 @@ Public Class frmRecibirMPII
         '
         'BtnAtras
         '
-        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
-        Me.BtnAtras.Appearance = Appearance10
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.BtnAtras.Appearance = Appearance3
         Me.BtnAtras.Location = New System.Drawing.Point(320, 304)
         Me.BtnAtras.Name = "BtnAtras"
         Me.BtnAtras.Size = New System.Drawing.Size(96, 28)
@@ -164,8 +164,8 @@ Public Class frmRecibirMPII
         '
         'BtnSalir
         '
-        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
-        Me.BtnSalir.Appearance = Appearance11
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.BtnSalir.Appearance = Appearance4
         Me.BtnSalir.Location = New System.Drawing.Point(552, 304)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(88, 28)
@@ -174,8 +174,8 @@ Public Class frmRecibirMPII
         '
         'gpbox2
         '
-        Appearance12.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.gpbox2.ContentAreaAppearance = Appearance12
+        Appearance5.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gpbox2.ContentAreaAppearance = Appearance5
         Me.gpbox2.Controls.Add(Me.DgDoc)
         Me.gpbox2.Controls.Add(Me.Label1)
         Me.gpbox2.Location = New System.Drawing.Point(16, 8)
@@ -227,8 +227,8 @@ Public Class frmRecibirMPII
         '
         'gpbox3
         '
-        Appearance13.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.gpbox3.ContentAreaAppearance = Appearance13
+        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gpbox3.ContentAreaAppearance = Appearance6
         Me.gpbox3.Controls.Add(Me.UltraLabel2)
         Me.gpbox3.Controls.Add(Me.textRemito)
         Me.gpbox3.Controls.Add(Me.LstDoc)
@@ -317,12 +317,12 @@ Public Class frmRecibirMPII
         '
         'UltraLabel1
         '
-        Appearance14.BackColor = System.Drawing.Color.Transparent
-        Appearance14.BackColor2 = System.Drawing.Color.Transparent
-        Appearance14.BackColorAlpha = Infragistics.Win.Alpha.Transparent
-        Appearance14.BackColorDisabled = System.Drawing.Color.Transparent
-        Appearance14.BackColorDisabled2 = System.Drawing.Color.Transparent
-        Me.UltraLabel1.Appearance = Appearance14
+        Appearance7.BackColor = System.Drawing.Color.Transparent
+        Appearance7.BackColor2 = System.Drawing.Color.Transparent
+        Appearance7.BackColorAlpha = Infragistics.Win.Alpha.Transparent
+        Appearance7.BackColorDisabled = System.Drawing.Color.Transparent
+        Appearance7.BackColorDisabled2 = System.Drawing.Color.Transparent
+        Me.UltraLabel1.Appearance = Appearance7
         Me.UltraLabel1.BackColor = System.Drawing.Color.Transparent
         Me.UltraLabel1.Location = New System.Drawing.Point(280, 192)
         Me.UltraLabel1.Name = "UltraLabel1"
@@ -342,7 +342,7 @@ Public Class frmRecibirMPII
         Me.Controls.Add(Me.gpbox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Location = New System.Drawing.Point(196, 105)
+        Me.Location = New System.Drawing.Point(198, 105)
         Me.Name = "frmRecibirMPII"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Recepcion materia prima"
@@ -370,7 +370,7 @@ Public Class frmRecibirMPII
 
 
     Private Sub frmRecibirMPII_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
 
         cnn.Open()
         Sqldataadapter1.Fill(DS, "ordencompramp")

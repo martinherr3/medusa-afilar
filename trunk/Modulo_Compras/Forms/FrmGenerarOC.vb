@@ -540,7 +540,8 @@ Public Class FrmGenerarOC
 #End Region
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
+
         cnn.Open()
         SQLdataadapter1.Fill(DS, "tipomateriaprima")
         Sqldataadapter2.Fill(DS, "ordencompramp")
@@ -931,9 +932,6 @@ Public Class FrmGenerarOC
     End Sub
 
 
-
-
-
     Private Sub FrmGenerarOC_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
         princ.barra.eliminarBoton()
     End Sub
@@ -943,9 +941,6 @@ Public Class FrmGenerarOC
         Me.Close()
     End Sub
 
-
-
-    
 
     Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
         Dim frm As New consultarOC
