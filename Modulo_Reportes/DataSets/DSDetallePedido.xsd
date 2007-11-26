@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSDetallePedido" targetNamespace="http://tempuri.org/DSDetallePedido.xsd" xmlns:mstns="http://tempuri.org/DSDetallePedido.xsd" xmlns="http://tempuri.org/DSDetallePedido.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="AfilarConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="AfilarConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Afilar.My.MySettings.GlobalReference.Default.AfilarConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PedidoTableAdapter" GeneratorDataComponentClassName="PedidoTableAdapter" Name="Pedido" UserDataComponentName="PedidoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT     Pedido.idpedido, Pedido.fechaentrega, Pedido.fecharealizacion, Pedido.idestado, Pedido.prioridad, Pedido.idcliente, Pedido.idvendedor, 
+                      Pedido.idformadeentrega, Pedido.idempresa, Pedido.idviajante, Pedido.fecharealentrega, estado_1.nombre AS estadoPedido, 
+                      estado.nombre AS estadoFresa, fresa.nroserie, fresa.fechafinfabricacion, fresa.estado, tipofresa.nombre AS nombreFresa, 
+                      cliente.nombre AS nombreCliente, cliente.apellido AS apellidoCliente, fresa.idtipo, fresa.idmodelo
+FROM         Pedido INNER JOIN
+                      fresa ON Pedido.idpedido = fresa.nropedido INNER JOIN
+                      estado ON fresa.estado = estado.idestado INNER JOIN
+                      cliente ON Pedido.idcliente = cliente.idcliente INNER JOIN
+                      estado AS estado_1 ON Pedido.idestado = estado_1.idestado INNER JOIN
+                      tipofresa ON fresa.idtipo = tipofresa.idtipo AND fresa.idmodelo = tipofresa.idmodelo</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idpedido" DataSetColumn="idpedido" />
+              <Mapping SourceColumn="fechaentrega" DataSetColumn="fechaentrega" />
+              <Mapping SourceColumn="fecharealizacion" DataSetColumn="fecharealizacion" />
+              <Mapping SourceColumn="idestado" DataSetColumn="idestado" />
+              <Mapping SourceColumn="prioridad" DataSetColumn="prioridad" />
+              <Mapping SourceColumn="idcliente" DataSetColumn="idcliente" />
+              <Mapping SourceColumn="idvendedor" DataSetColumn="idvendedor" />
+              <Mapping SourceColumn="idformadeentrega" DataSetColumn="idformadeentrega" />
+              <Mapping SourceColumn="idempresa" DataSetColumn="idempresa" />
+              <Mapping SourceColumn="idviajante" DataSetColumn="idviajante" />
+              <Mapping SourceColumn="fecharealentrega" DataSetColumn="fecharealentrega" />
+              <Mapping SourceColumn="estadoPedido" DataSetColumn="estadoPedido" />
+              <Mapping SourceColumn="estadoFresa" DataSetColumn="estadoFresa" />
+              <Mapping SourceColumn="nroserie" DataSetColumn="nroserie" />
+              <Mapping SourceColumn="fechafinfabricacion" DataSetColumn="fechafinfabricacion" />
+              <Mapping SourceColumn="estado" DataSetColumn="estado" />
+              <Mapping SourceColumn="nombreFresa" DataSetColumn="nombreFresa" />
+              <Mapping SourceColumn="nombreCliente" DataSetColumn="nombreCliente" />
+              <Mapping SourceColumn="apellidoCliente" DataSetColumn="apellidoCliente" />
+              <Mapping SourceColumn="idtipo" DataSetColumn="idtipo" />
+              <Mapping SourceColumn="idmodelo" DataSetColumn="idmodelo" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSDetallePedido" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSDetallePedido" msprop:Generator_DataSetName="DSDetallePedido">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Pedido" msprop:Generator_UserTableName="Pedido" msprop:Generator_RowDeletedName="PedidoRowDeleted" msprop:Generator_TableClassName="PedidoDataTable" msprop:Generator_RowChangedName="PedidoRowChanged" msprop:Generator_RowClassName="PedidoRow" msprop:Generator_RowChangingName="PedidoRowChanging" msprop:Generator_RowEvArgName="PedidoRowChangeEvent" msprop:Generator_RowEvHandlerName="PedidoRowChangeEventHandler" msprop:Generator_TablePropName="Pedido" msprop:Generator_TableVarName="tablePedido" msprop:Generator_RowDeletingName="PedidoRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idpedido" msprop:Generator_UserColumnName="idpedido" msprop:Generator_ColumnPropNameInRow="idpedido" msprop:Generator_ColumnVarNameInTable="columnidpedido" msprop:Generator_ColumnPropNameInTable="idpedidoColumn" type="xs:decimal" />
+              <xs:element name="fechaentrega" msprop:Generator_UserColumnName="fechaentrega" msprop:Generator_ColumnPropNameInRow="fechaentrega" msprop:Generator_ColumnVarNameInTable="columnfechaentrega" msprop:Generator_ColumnPropNameInTable="fechaentregaColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecharealizacion" msprop:Generator_UserColumnName="fecharealizacion" msprop:Generator_ColumnPropNameInRow="fecharealizacion" msprop:Generator_ColumnVarNameInTable="columnfecharealizacion" msprop:Generator_ColumnPropNameInTable="fecharealizacionColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="idestado" msprop:Generator_UserColumnName="idestado" msprop:Generator_ColumnPropNameInRow="idestado" msprop:Generator_ColumnVarNameInTable="columnidestado" msprop:Generator_ColumnPropNameInTable="idestadoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="prioridad" msprop:Generator_UserColumnName="prioridad" msprop:Generator_ColumnPropNameInRow="prioridad" msprop:Generator_ColumnVarNameInTable="columnprioridad" msprop:Generator_ColumnPropNameInTable="prioridadColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idcliente" msprop:Generator_UserColumnName="idcliente" msprop:Generator_ColumnPropNameInRow="idcliente" msprop:Generator_ColumnVarNameInTable="columnidcliente" msprop:Generator_ColumnPropNameInTable="idclienteColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idvendedor" msprop:Generator_UserColumnName="idvendedor" msprop:Generator_ColumnPropNameInRow="idvendedor" msprop:Generator_ColumnVarNameInTable="columnidvendedor" msprop:Generator_ColumnPropNameInTable="idvendedorColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idformadeentrega" msprop:Generator_UserColumnName="idformadeentrega" msprop:Generator_ColumnPropNameInRow="idformadeentrega" msprop:Generator_ColumnVarNameInTable="columnidformadeentrega" msprop:Generator_ColumnPropNameInTable="idformadeentregaColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idempresa" msprop:Generator_UserColumnName="idempresa" msprop:Generator_ColumnPropNameInRow="idempresa" msprop:Generator_ColumnVarNameInTable="columnidempresa" msprop:Generator_ColumnPropNameInTable="idempresaColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idviajante" msprop:Generator_UserColumnName="idviajante" msprop:Generator_ColumnPropNameInRow="idviajante" msprop:Generator_ColumnVarNameInTable="columnidviajante" msprop:Generator_ColumnPropNameInTable="idviajanteColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="fecharealentrega" msprop:Generator_UserColumnName="fecharealentrega" msprop:Generator_ColumnPropNameInRow="fecharealentrega" msprop:Generator_ColumnVarNameInTable="columnfecharealentrega" msprop:Generator_ColumnPropNameInTable="fecharealentregaColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="estadoPedido" msprop:Generator_UserColumnName="estadoPedido" msprop:Generator_ColumnPropNameInRow="estadoPedido" msprop:Generator_ColumnVarNameInTable="columnestadoPedido" msprop:Generator_ColumnPropNameInTable="estadoPedidoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="estadoFresa" msprop:Generator_UserColumnName="estadoFresa" msprop:Generator_ColumnPropNameInRow="estadoFresa" msprop:Generator_ColumnVarNameInTable="columnestadoFresa" msprop:Generator_ColumnPropNameInTable="estadoFresaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nroserie" msprop:Generator_UserColumnName="nroserie" msprop:Generator_ColumnPropNameInRow="nroserie" msprop:Generator_ColumnVarNameInTable="columnnroserie" msprop:Generator_ColumnPropNameInTable="nroserieColumn" type="xs:int" />
+              <xs:element name="fechafinfabricacion" msprop:Generator_UserColumnName="fechafinfabricacion" msprop:Generator_ColumnPropNameInRow="fechafinfabricacion" msprop:Generator_ColumnVarNameInTable="columnfechafinfabricacion" msprop:Generator_ColumnPropNameInTable="fechafinfabricacionColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_UserColumnName="estado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInTable="estadoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="nombreFresa" msprop:Generator_UserColumnName="nombreFresa" msprop:Generator_ColumnPropNameInRow="nombreFresa" msprop:Generator_ColumnVarNameInTable="columnnombreFresa" msprop:Generator_ColumnPropNameInTable="nombreFresaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombreCliente" msprop:Generator_UserColumnName="nombreCliente" msprop:Generator_ColumnPropNameInRow="nombreCliente" msprop:Generator_ColumnVarNameInTable="columnnombreCliente" msprop:Generator_ColumnPropNameInTable="nombreClienteColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellidoCliente" msprop:Generator_UserColumnName="apellidoCliente" msprop:Generator_ColumnPropNameInRow="apellidoCliente" msprop:Generator_ColumnVarNameInTable="columnapellidoCliente" msprop:Generator_ColumnPropNameInTable="apellidoClienteColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idtipo" msprop:Generator_UserColumnName="idtipo" msprop:Generator_ColumnPropNameInRow="idtipo" msprop:Generator_ColumnVarNameInTable="columnidtipo" msprop:Generator_ColumnPropNameInTable="idtipoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idmodelo" msprop:Generator_UserColumnName="idmodelo" msprop:Generator_ColumnPropNameInRow="idmodelo" msprop:Generator_ColumnVarNameInTable="columnidmodelo" msprop:Generator_ColumnPropNameInTable="idmodeloColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Pedido" />
+      <xs:field xpath="mstns:idpedido" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

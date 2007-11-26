@@ -7,6 +7,10 @@ Public Class DashboardForm
     Private row As DataRow
     Private reader As SqlClient.SqlDataReader
 
+    Private Sub DashboardForm_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub DashboardForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         'periodo inicial (ultimos seis meses)
@@ -14,6 +18,10 @@ Public Class DashboardForm
         dateDesde.Value = desde
         dateHasta.Value = Now
 
+        'Agrego boton de barra
+        princ.barra.agregarBoton(Me)
+
+        'Comentado para que no tarde al iniciar
         'realizarCalculos(dateDesde.Value, dateHasta.Value)
 
     End Sub

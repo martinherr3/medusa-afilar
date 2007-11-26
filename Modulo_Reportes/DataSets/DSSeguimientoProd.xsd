@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSSeguimientoProd" targetNamespace="http://tempuri.org/DSSeguimientoProd.xsd" xmlns:mstns="http://tempuri.org/DSSeguimientoProd.xsd" xmlns="http://tempuri.org/DSSeguimientoProd.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="AfilarConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="AfilarConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Afilar.My.MySettings.GlobalReference.Default.AfilarConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="hojaderutaTableAdapter" GeneratorDataComponentClassName="hojaderutaTableAdapter" Name="hojaderuta" UserDataComponentName="hojaderutaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT     hojaderuta.idhojaderuta, hojaderuta.fechainicioproduccion, empleado.nombre AS nombreEmpleado, empleado.apellido AS apellidoEmpleado, 
+                      tipofresa.nombre AS nombreFresa, fresa.idmodelo, fresa.idtipo, fresa.estado, operacion.nombre AS nombreOperacion, operacion.maquina, 
+                      operacion.duracionpromedio, etapadefabricacion.orden, detallehojaderuta.idlegajo, detallehojaderuta.fechahorainicioreal, 
+                      detallehojaderuta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detallehojaderuta.fechahorafinplanificada, 
+                      detallehojaderuta.observaciones
+FROM         fresa INNER JOIN
+                      hojaderuta INNER JOIN
+                      detallehojaderuta ON hojaderuta.idhojaderuta = detallehojaderuta.idhojaderuta ON fresa.idhojaderuta = hojaderuta.idhojaderuta INNER JOIN
+                      tipofresa ON fresa.idtipo = tipofresa.idtipo AND fresa.idmodelo = tipofresa.idmodelo INNER JOIN
+                      operacion INNER JOIN
+                      etapadefabricacion ON operacion.idoperacion = etapadefabricacion.idoperacion ON 
+                      detallehojaderuta.idetapadefabricacion = etapadefabricacion.idetapafabricacion INNER JOIN
+                      empleado ON detallehojaderuta.idlegajo = empleado.idlegajo</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idhojaderuta" DataSetColumn="idhojaderuta" />
+              <Mapping SourceColumn="fechainicioproduccion" DataSetColumn="fechainicioproduccion" />
+              <Mapping SourceColumn="nombreEmpleado" DataSetColumn="nombreEmpleado" />
+              <Mapping SourceColumn="apellidoEmpleado" DataSetColumn="apellidoEmpleado" />
+              <Mapping SourceColumn="nombreFresa" DataSetColumn="nombreFresa" />
+              <Mapping SourceColumn="idmodelo" DataSetColumn="idmodelo" />
+              <Mapping SourceColumn="idtipo" DataSetColumn="idtipo" />
+              <Mapping SourceColumn="estado" DataSetColumn="estado" />
+              <Mapping SourceColumn="nombreOperacion" DataSetColumn="nombreOperacion" />
+              <Mapping SourceColumn="maquina" DataSetColumn="maquina" />
+              <Mapping SourceColumn="duracionpromedio" DataSetColumn="duracionpromedio" />
+              <Mapping SourceColumn="orden" DataSetColumn="orden" />
+              <Mapping SourceColumn="idlegajo" DataSetColumn="idlegajo" />
+              <Mapping SourceColumn="fechahorainicioreal" DataSetColumn="fechahorainicioreal" />
+              <Mapping SourceColumn="fechahorainicioplanificada" DataSetColumn="fechahorainicioplanificada" />
+              <Mapping SourceColumn="fechahorafinreal" DataSetColumn="fechahorafinreal" />
+              <Mapping SourceColumn="fechahorafinplanificada" DataSetColumn="fechahorafinplanificada" />
+              <Mapping SourceColumn="observaciones" DataSetColumn="observaciones" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSSeguimientoProd" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSSeguimientoProd" msprop:Generator_DataSetName="DSSeguimientoProd">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="hojaderuta" msprop:Generator_UserTableName="hojaderuta" msprop:Generator_RowDeletedName="hojaderutaRowDeleted" msprop:Generator_TableClassName="hojaderutaDataTable" msprop:Generator_RowChangedName="hojaderutaRowChanged" msprop:Generator_RowClassName="hojaderutaRow" msprop:Generator_RowChangingName="hojaderutaRowChanging" msprop:Generator_RowEvArgName="hojaderutaRowChangeEvent" msprop:Generator_RowEvHandlerName="hojaderutaRowChangeEventHandler" msprop:Generator_TablePropName="hojaderuta" msprop:Generator_TableVarName="tablehojaderuta" msprop:Generator_RowDeletingName="hojaderutaRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idhojaderuta" msprop:Generator_UserColumnName="idhojaderuta" msprop:Generator_ColumnPropNameInRow="idhojaderuta" msprop:Generator_ColumnVarNameInTable="columnidhojaderuta" msprop:Generator_ColumnPropNameInTable="idhojaderutaColumn" type="xs:int" />
+              <xs:element name="fechainicioproduccion" msprop:Generator_UserColumnName="fechainicioproduccion" msprop:Generator_ColumnPropNameInRow="fechainicioproduccion" msprop:Generator_ColumnVarNameInTable="columnfechainicioproduccion" msprop:Generator_ColumnPropNameInTable="fechainicioproduccionColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="nombreEmpleado" msprop:Generator_UserColumnName="nombreEmpleado" msprop:Generator_ColumnPropNameInRow="nombreEmpleado" msprop:Generator_ColumnVarNameInTable="columnnombreEmpleado" msprop:Generator_ColumnPropNameInTable="nombreEmpleadoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellidoEmpleado" msprop:Generator_UserColumnName="apellidoEmpleado" msprop:Generator_ColumnPropNameInRow="apellidoEmpleado" msprop:Generator_ColumnVarNameInTable="columnapellidoEmpleado" msprop:Generator_ColumnPropNameInTable="apellidoEmpleadoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombreFresa" msprop:Generator_UserColumnName="nombreFresa" msprop:Generator_ColumnPropNameInRow="nombreFresa" msprop:Generator_ColumnVarNameInTable="columnnombreFresa" msprop:Generator_ColumnPropNameInTable="nombreFresaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idmodelo" msprop:Generator_UserColumnName="idmodelo" msprop:Generator_ColumnPropNameInRow="idmodelo" msprop:Generator_ColumnVarNameInTable="columnidmodelo" msprop:Generator_ColumnPropNameInTable="idmodeloColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idtipo" msprop:Generator_UserColumnName="idtipo" msprop:Generator_ColumnPropNameInRow="idtipo" msprop:Generator_ColumnVarNameInTable="columnidtipo" msprop:Generator_ColumnPropNameInTable="idtipoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="estado" msprop:Generator_UserColumnName="estado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInTable="estadoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="nombreOperacion" msprop:Generator_UserColumnName="nombreOperacion" msprop:Generator_ColumnPropNameInRow="nombreOperacion" msprop:Generator_ColumnVarNameInTable="columnnombreOperacion" msprop:Generator_ColumnPropNameInTable="nombreOperacionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="maquina" msprop:Generator_UserColumnName="maquina" msprop:Generator_ColumnPropNameInRow="maquina" msprop:Generator_ColumnVarNameInTable="columnmaquina" msprop:Generator_ColumnPropNameInTable="maquinaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="duracionpromedio" msprop:Generator_UserColumnName="duracionpromedio" msprop:Generator_ColumnPropNameInRow="duracionpromedio" msprop:Generator_ColumnVarNameInTable="columnduracionpromedio" msprop:Generator_ColumnPropNameInTable="duracionpromedioColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="orden" msprop:Generator_UserColumnName="orden" msprop:Generator_ColumnPropNameInRow="orden" msprop:Generator_ColumnVarNameInTable="columnorden" msprop:Generator_ColumnPropNameInTable="ordenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idlegajo" msprop:Generator_UserColumnName="idlegajo" msprop:Generator_ColumnPropNameInRow="idlegajo" msprop:Generator_ColumnVarNameInTable="columnidlegajo" msprop:Generator_ColumnPropNameInTable="idlegajoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="fechahorainicioreal" msprop:Generator_UserColumnName="fechahorainicioreal" msprop:Generator_ColumnPropNameInRow="fechahorainicioreal" msprop:Generator_ColumnVarNameInTable="columnfechahorainicioreal" msprop:Generator_ColumnPropNameInTable="fechahorainiciorealColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechahorainicioplanificada" msprop:Generator_UserColumnName="fechahorainicioplanificada" msprop:Generator_ColumnPropNameInRow="fechahorainicioplanificada" msprop:Generator_ColumnVarNameInTable="columnfechahorainicioplanificada" msprop:Generator_ColumnPropNameInTable="fechahorainicioplanificadaColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechahorafinreal" msprop:Generator_UserColumnName="fechahorafinreal" msprop:Generator_ColumnPropNameInRow="fechahorafinreal" msprop:Generator_ColumnVarNameInTable="columnfechahorafinreal" msprop:Generator_ColumnPropNameInTable="fechahorafinrealColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fechahorafinplanificada" msprop:Generator_UserColumnName="fechahorafinplanificada" msprop:Generator_ColumnPropNameInRow="fechahorafinplanificada" msprop:Generator_ColumnVarNameInTable="columnfechahorafinplanificada" msprop:Generator_ColumnPropNameInTable="fechahorafinplanificadaColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="observaciones" msprop:Generator_UserColumnName="observaciones" msprop:Generator_ColumnPropNameInRow="observaciones" msprop:Generator_ColumnVarNameInTable="columnobservaciones" msprop:Generator_ColumnPropNameInTable="observacionesColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:hojaderuta" />
+      <xs:field xpath="mstns:idhojaderuta" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

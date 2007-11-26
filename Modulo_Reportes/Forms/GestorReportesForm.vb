@@ -100,6 +100,7 @@ Public Class GestorReportesForm
 
         End If
 
+        imageLoading.Visible = True
         selectPedido.CommandType = CommandType.Text
         selectPedido.CommandText = queryPedido
         selectPedido.Connection = cnn
@@ -128,6 +129,8 @@ Public Class GestorReportesForm
         Catch ex As Exception
             selectPedido.Connection.Close()
         End Try
+
+        imageLoading.Visible = False
 
     End Sub
 #End Region
@@ -183,6 +186,7 @@ Public Class GestorReportesForm
 
         End If
 
+        imageLoading.Visible = True
         selectCliente.CommandType = CommandType.Text
         selectCliente.CommandText = queryCliente
         selectCliente.Connection = cnn
@@ -211,6 +215,9 @@ Public Class GestorReportesForm
         Catch ex As Exception
             selectCliente.Connection.Close()
         End Try
+
+        imageLoading.Visible = False
+
     End Sub
 #End Region
 
@@ -275,6 +282,7 @@ Public Class GestorReportesForm
 
         End If
 
+        imageLoading.Visible = True
         selectFresas.CommandType = CommandType.Text
         selectFresas.CommandText = queryFresas
         selectFresas.Connection = cnn
@@ -303,6 +311,9 @@ Public Class GestorReportesForm
         Catch ex As Exception
             selectFresas.Connection.Close()
         End Try
+
+        imageLoading.Visible = False
+
     End Sub
 #End Region
 
@@ -379,6 +390,7 @@ Public Class GestorReportesForm
 
         End If
 
+        imageLoading.Visible = True
         selectServicio.CommandType = CommandType.Text
         selectServicio.CommandText = queryServicio
         selectServicio.Connection = cnn
@@ -407,6 +419,8 @@ Public Class GestorReportesForm
         Catch ex As Exception
             selectServicio.Connection.Close()
         End Try
+
+        imageLoading.Visible = False
 
     End Sub
 

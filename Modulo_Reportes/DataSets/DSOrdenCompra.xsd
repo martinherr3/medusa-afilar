@@ -10,13 +10,15 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ordencomprampTableAdapter" GeneratorDataComponentClassName="ordencomprampTableAdapter" Name="ordencompramp" UserDataComponentName="ordencomprampTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="True">
                     <CommandText>SELECT     ordencompramp.fecharealizacion, ordencompramp.plazodeentrega, ordencompramp.idordencompra, ordencompramp.nroorden, 
-                      ordencompramp.condicionesdepago, ordencompramp.causa, ordencompramp.idestado, ordencompramp.idproveedor, proveedor.nombre
+                      ordencompramp.condicionesdepago, ordencompramp.causa, ordencompramp.idestado, ordencompramp.idproveedor, proveedor.nombre, 
+                      estado.nombre AS nombreEstado
 FROM         ordencompramp INNER JOIN
-                      proveedor ON ordencompramp.idproveedor = proveedor.idproveedor</CommandText>
+                      proveedor ON ordencompramp.idproveedor = proveedor.idproveedor INNER JOIN
+                      estado ON ordencompramp.idestado = estado.idestado</CommandText>
                     <Parameters>
                     </Parameters>
                   </DbCommand>
@@ -33,6 +35,7 @@ FROM         ordencompramp INNER JOIN
               <Mapping SourceColumn="idestado" DataSetColumn="idestado" />
               <Mapping SourceColumn="idproveedor" DataSetColumn="idproveedor" />
               <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="nombreEstado" DataSetColumn="nombreEstado" />
             </Mappings>
             <Sources>
             </Sources>
@@ -46,33 +49,40 @@ FROM         ordencompramp INNER JOIN
   <xs:element name="DSOrdenCompra" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSOrdenCompra" msprop:Generator_DataSetName="DSOrdenCompra">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ordencompramp" msprop:Generator_UserTableName="ordencompramp" msprop:Generator_RowDeletedName="ordencomprampRowDeleted" msprop:Generator_TableClassName="ordencomprampDataTable" msprop:Generator_RowChangedName="ordencomprampRowChanged" msprop:Generator_RowClassName="ordencomprampRow" msprop:Generator_RowChangingName="ordencomprampRowChanging" msprop:Generator_RowEvArgName="ordencomprampRowChangeEvent" msprop:Generator_RowEvHandlerName="ordencomprampRowChangeEventHandler" msprop:Generator_TablePropName="ordencompramp" msprop:Generator_TableVarName="tableordencompramp" msprop:Generator_RowDeletingName="ordencomprampRowDeleting">
+        <xs:element name="ordencompramp" msprop:Generator_UserTableName="ordencompramp" msprop:Generator_RowDeletedName="ordencomprampRowDeleted" msprop:Generator_RowChangedName="ordencomprampRowChanged" msprop:Generator_RowClassName="ordencomprampRow" msprop:Generator_RowChangingName="ordencomprampRowChanging" msprop:Generator_RowEvArgName="ordencomprampRowChangeEvent" msprop:Generator_RowEvHandlerName="ordencomprampRowChangeEventHandler" msprop:Generator_TableClassName="ordencomprampDataTable" msprop:Generator_TableVarName="tableordencompramp" msprop:Generator_RowDeletingName="ordencomprampRowDeleting" msprop:Generator_TablePropName="ordencompramp">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="fecharealizacion" msprop:Generator_UserColumnName="fecharealizacion" msprop:Generator_ColumnPropNameInRow="fecharealizacion" msprop:Generator_ColumnVarNameInTable="columnfecharealizacion" msprop:Generator_ColumnPropNameInTable="fecharealizacionColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="plazodeentrega" msprop:Generator_UserColumnName="plazodeentrega" msprop:Generator_ColumnPropNameInRow="plazodeentrega" msprop:Generator_ColumnVarNameInTable="columnplazodeentrega" msprop:Generator_ColumnPropNameInTable="plazodeentregaColumn" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="idordencompra" msprop:Generator_UserColumnName="idordencompra" msprop:Generator_ColumnPropNameInRow="idordencompra" msprop:Generator_ColumnVarNameInTable="columnidordencompra" msprop:Generator_ColumnPropNameInTable="idordencompraColumn" type="xs:int" />
-              <xs:element name="nroorden" msprop:Generator_UserColumnName="nroorden" msprop:Generator_ColumnPropNameInRow="nroorden" msprop:Generator_ColumnVarNameInTable="columnnroorden" msprop:Generator_ColumnPropNameInTable="nroordenColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="condicionesdepago" msprop:Generator_UserColumnName="condicionesdepago" msprop:Generator_ColumnPropNameInRow="condicionesdepago" msprop:Generator_ColumnVarNameInTable="columncondicionesdepago" msprop:Generator_ColumnPropNameInTable="condicionesdepagoColumn" minOccurs="0">
+              <xs:element name="fecharealizacion" msprop:Generator_UserColumnName="fecharealizacion" msprop:Generator_ColumnVarNameInTable="columnfecharealizacion" msprop:Generator_ColumnPropNameInRow="fecharealizacion" msprop:Generator_ColumnPropNameInTable="fecharealizacionColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="plazodeentrega" msprop:Generator_UserColumnName="plazodeentrega" msprop:Generator_ColumnVarNameInTable="columnplazodeentrega" msprop:Generator_ColumnPropNameInRow="plazodeentrega" msprop:Generator_ColumnPropNameInTable="plazodeentregaColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="idordencompra" msprop:Generator_UserColumnName="idordencompra" msprop:Generator_ColumnVarNameInTable="columnidordencompra" msprop:Generator_ColumnPropNameInRow="idordencompra" msprop:Generator_ColumnPropNameInTable="idordencompraColumn" type="xs:int" />
+              <xs:element name="nroorden" msprop:Generator_UserColumnName="nroorden" msprop:Generator_ColumnVarNameInTable="columnnroorden" msprop:Generator_ColumnPropNameInRow="nroorden" msprop:Generator_ColumnPropNameInTable="nroordenColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="condicionesdepago" msprop:Generator_UserColumnName="condicionesdepago" msprop:Generator_ColumnVarNameInTable="columncondicionesdepago" msprop:Generator_ColumnPropNameInRow="condicionesdepago" msprop:Generator_ColumnPropNameInTable="condicionesdepagoColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="causa" msprop:Generator_UserColumnName="causa" msprop:Generator_ColumnPropNameInRow="causa" msprop:Generator_ColumnVarNameInTable="columncausa" msprop:Generator_ColumnPropNameInTable="causaColumn" minOccurs="0">
+              <xs:element name="causa" msprop:Generator_UserColumnName="causa" msprop:Generator_ColumnVarNameInTable="columncausa" msprop:Generator_ColumnPropNameInRow="causa" msprop:Generator_ColumnPropNameInTable="causaColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="idestado" msprop:Generator_UserColumnName="idestado" msprop:Generator_ColumnPropNameInRow="idestado" msprop:Generator_ColumnVarNameInTable="columnidestado" msprop:Generator_ColumnPropNameInTable="idestadoColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="idproveedor" msprop:Generator_UserColumnName="idproveedor" msprop:Generator_ColumnPropNameInRow="idproveedor" msprop:Generator_ColumnVarNameInTable="columnidproveedor" msprop:Generator_ColumnPropNameInTable="idproveedorColumn" type="xs:int" minOccurs="0" />
-              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" minOccurs="0">
+              <xs:element name="idestado" msprop:Generator_UserColumnName="idestado" msprop:Generator_ColumnVarNameInTable="columnidestado" msprop:Generator_ColumnPropNameInRow="idestado" msprop:Generator_ColumnPropNameInTable="idestadoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idproveedor" msprop:Generator_UserColumnName="idproveedor" msprop:Generator_ColumnVarNameInTable="columnidproveedor" msprop:Generator_ColumnPropNameInRow="idproveedor" msprop:Generator_ColumnPropNameInTable="idproveedorColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="80" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombreEstado" msprop:Generator_UserColumnName="nombreEstado" msprop:Generator_ColumnPropNameInRow="nombreEstado" msprop:Generator_ColumnVarNameInTable="columnnombreEstado" msprop:Generator_ColumnPropNameInTable="nombreEstadoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
