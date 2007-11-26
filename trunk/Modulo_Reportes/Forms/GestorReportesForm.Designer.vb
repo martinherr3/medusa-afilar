@@ -19,11 +19,11 @@ Partial Class GestorReportesForm
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GestorReportesForm))
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.btnPedido = New Infragistics.Win.Misc.UltraButton
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.checkPedidoEstado = New System.Windows.Forms.CheckBox
@@ -83,6 +83,7 @@ Partial Class GestorReportesForm
         Me.CheckBox1 = New System.Windows.Forms.CheckBox
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
+        Me.imageLoading = New System.Windows.Forms.PictureBox
         CType(Me.comboPedidoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboPedidoEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabReportes.SuspendLayout()
@@ -112,12 +113,13 @@ Partial Class GestorReportesForm
         CType(Me.comboServicioEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboServicioOperacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboServicioCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imageLoading, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnPedido
         '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Me.btnPedido.Appearance = Appearance1
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.btnPedido.Appearance = Appearance5
         Me.btnPedido.Location = New System.Drawing.Point(416, 85)
         Me.btnPedido.Name = "btnPedido"
         Me.btnPedido.Size = New System.Drawing.Size(96, 31)
@@ -448,8 +450,8 @@ Partial Class GestorReportesForm
         '
         'btnFresas
         '
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Me.btnFresas.Appearance = Appearance2
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.btnFresas.Appearance = Appearance6
         Me.btnFresas.Location = New System.Drawing.Point(418, 85)
         Me.btnFresas.Name = "btnFresas"
         Me.btnFresas.Size = New System.Drawing.Size(96, 31)
@@ -559,8 +561,8 @@ Partial Class GestorReportesForm
         '
         'btnCliente
         '
-        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
-        Me.btnCliente.Appearance = Appearance3
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.btnCliente.Appearance = Appearance7
         Me.btnCliente.Location = New System.Drawing.Point(192, 80)
         Me.btnCliente.Name = "btnCliente"
         Me.btnCliente.Size = New System.Drawing.Size(90, 34)
@@ -685,8 +687,8 @@ Partial Class GestorReportesForm
         '
         'btnServicio
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.btnServicio.Appearance = Appearance4
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.btnServicio.Appearance = Appearance8
         Me.btnServicio.Location = New System.Drawing.Point(416, 71)
         Me.btnServicio.Name = "btnServicio"
         Me.btnServicio.Size = New System.Drawing.Size(90, 34)
@@ -748,11 +750,23 @@ Partial Class GestorReportesForm
         Me.DateTimePicker2.Size = New System.Drawing.Size(203, 20)
         Me.DateTimePicker2.TabIndex = 41
         '
+        'imageLoading
+        '
+        Me.imageLoading.Image = CType(resources.GetObject("imageLoading.Image"), System.Drawing.Image)
+        Me.imageLoading.Location = New System.Drawing.Point(371, 330)
+        Me.imageLoading.Name = "imageLoading"
+        Me.imageLoading.Size = New System.Drawing.Size(32, 32)
+        Me.imageLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.imageLoading.TabIndex = 59
+        Me.imageLoading.TabStop = False
+        Me.imageLoading.Visible = False
+        '
         'GestorReportesForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(814, 560)
+        Me.Controls.Add(Me.imageLoading)
         Me.Controls.Add(Me.tabReportes)
         Me.Controls.Add(Me.crv)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
@@ -795,7 +809,9 @@ Partial Class GestorReportesForm
         CType(Me.comboServicioEstado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboServicioOperacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboServicioCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imageLoading, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents btnPedido As Infragistics.Win.Misc.UltraButton
@@ -857,4 +873,5 @@ Partial Class GestorReportesForm
     Friend WithEvents PictureBox11 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox10 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox9 As System.Windows.Forms.PictureBox
+    Friend WithEvents imageLoading As System.Windows.Forms.PictureBox
 End Class
