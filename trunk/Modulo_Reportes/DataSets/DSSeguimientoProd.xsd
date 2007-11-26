@@ -10,14 +10,15 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="hojaderutaTableAdapter" GeneratorDataComponentClassName="hojaderutaTableAdapter" Name="hojaderuta" UserDataComponentName="hojaderutaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="True">
                     <CommandText>SELECT     hojaderuta.idhojaderuta, hojaderuta.fechainicioproduccion, empleado.nombre AS nombreEmpleado, empleado.apellido AS apellidoEmpleado, 
                       tipofresa.nombre AS nombreFresa, fresa.idmodelo, fresa.idtipo, fresa.estado, operacion.nombre AS nombreOperacion, operacion.maquina, 
                       operacion.duracionpromedio, etapadefabricacion.orden, detallehojaderuta.idlegajo, detallehojaderuta.fechahorainicioreal, 
                       detallehojaderuta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detallehojaderuta.fechahorafinplanificada, 
-                      detallehojaderuta.observaciones
+                      detallehojaderuta.observaciones, tornero.nombre AS nombreTornero, tornero.apellido AS apellidoTornero, torneado.fechasalidad, 
+                      torneado.fecharecepcion, etapadefabricacion.tiempoadicional
 FROM         fresa INNER JOIN
                       hojaderuta INNER JOIN
                       detallehojaderuta ON hojaderuta.idhojaderuta = detallehojaderuta.idhojaderuta ON fresa.idhojaderuta = hojaderuta.idhojaderuta INNER JOIN
@@ -25,7 +26,9 @@ FROM         fresa INNER JOIN
                       operacion INNER JOIN
                       etapadefabricacion ON operacion.idoperacion = etapadefabricacion.idoperacion ON 
                       detallehojaderuta.idetapadefabricacion = etapadefabricacion.idetapafabricacion INNER JOIN
-                      empleado ON detallehojaderuta.idlegajo = empleado.idlegajo</CommandText>
+                      empleado ON detallehojaderuta.idlegajo = empleado.idlegajo INNER JOIN
+                      torneado ON detallehojaderuta.idtorneado = torneado.idtorneado INNER JOIN
+                      tornero ON torneado.idtornero = tornero.idtornero</CommandText>
                     <Parameters>
                     </Parameters>
                   </DbCommand>
@@ -51,6 +54,11 @@ FROM         fresa INNER JOIN
               <Mapping SourceColumn="fechahorafinreal" DataSetColumn="fechahorafinreal" />
               <Mapping SourceColumn="fechahorafinplanificada" DataSetColumn="fechahorafinplanificada" />
               <Mapping SourceColumn="observaciones" DataSetColumn="observaciones" />
+              <Mapping SourceColumn="nombreTornero" DataSetColumn="nombreTornero" />
+              <Mapping SourceColumn="apellidoTornero" DataSetColumn="apellidoTornero" />
+              <Mapping SourceColumn="fechasalidad" DataSetColumn="fechasalidad" />
+              <Mapping SourceColumn="fecharecepcion" DataSetColumn="fecharecepcion" />
+              <Mapping SourceColumn="tiempoadicional" DataSetColumn="tiempoadicional" />
             </Mappings>
             <Sources>
             </Sources>
@@ -121,6 +129,23 @@ FROM         fresa INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="nombreTornero" msprop:Generator_UserColumnName="nombreTornero" msprop:Generator_ColumnPropNameInRow="nombreTornero" msprop:Generator_ColumnVarNameInTable="columnnombreTornero" msprop:Generator_ColumnPropNameInTable="nombreTorneroColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellidoTornero" msprop:Generator_UserColumnName="apellidoTornero" msprop:Generator_ColumnPropNameInRow="apellidoTornero" msprop:Generator_ColumnVarNameInTable="columnapellidoTornero" msprop:Generator_ColumnPropNameInTable="apellidoTorneroColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fechasalidad" msprop:Generator_UserColumnName="fechasalidad" msprop:Generator_ColumnPropNameInRow="fechasalidad" msprop:Generator_ColumnVarNameInTable="columnfechasalidad" msprop:Generator_ColumnPropNameInTable="fechasalidadColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fecharecepcion" msprop:Generator_UserColumnName="fecharecepcion" msprop:Generator_ColumnPropNameInRow="fecharecepcion" msprop:Generator_ColumnVarNameInTable="columnfecharecepcion" msprop:Generator_ColumnPropNameInTable="fecharecepcionColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="tiempoadicional" msprop:Generator_UserColumnName="tiempoadicional" msprop:Generator_ColumnPropNameInRow="tiempoadicional" msprop:Generator_ColumnVarNameInTable="columntiempoadicional" msprop:Generator_ColumnPropNameInTable="tiempoadicionalColumn" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
