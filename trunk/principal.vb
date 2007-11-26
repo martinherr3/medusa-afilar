@@ -98,7 +98,7 @@ Public Class principal
         Me.UltraExplorerBar1.Location = New System.Drawing.Point(0, 108)
         Me.UltraExplorerBar1.Name = "UltraExplorerBar1"
         Me.UltraExplorerBar1.ShowDefaultContextMenu = False
-        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 588)
+        Me.UltraExplorerBar1.Size = New System.Drawing.Size(200, 585)
         Me.UltraExplorerBar1.StateButtonCheckStyle = Infragistics.Win.UltraWinExplorerBar.StateButtonCheckStyle.ExclusiveWithinGroup
         Me.UltraExplorerBar1.Style = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.Listbar
         Me.UltraExplorerBar1.TabIndex = 2
@@ -268,7 +268,7 @@ Public Class principal
 
     Public Sub acomodarImagenes()
         PictureBox1.Width = Me.Width
-        UltraExplorerBar1.Height = Me.Height - 192
+        UltraExplorerBar1.Height = Me.Height - 185
 
     End Sub
 
