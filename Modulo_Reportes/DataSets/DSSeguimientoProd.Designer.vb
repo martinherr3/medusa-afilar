@@ -262,6 +262,16 @@ Partial Public Class DSSeguimientoProd
         
         Private columnobservaciones As System.Data.DataColumn
         
+        Private columnnombreTornero As System.Data.DataColumn
+        
+        Private columnapellidoTornero As System.Data.DataColumn
+        
+        Private columnfechasalidad As System.Data.DataColumn
+        
+        Private columnfecharecepcion As System.Data.DataColumn
+        
+        Private columntiempoadicional As System.Data.DataColumn
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -420,6 +430,41 @@ Partial Public Class DSSeguimientoProd
             End Get
         End Property
         
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nombreTorneroColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnnombreTornero
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property apellidoTorneroColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnapellidoTornero
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property fechasalidadColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnfechasalidad
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property fecharecepcionColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnfecharecepcion
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property tiempoadicionalColumn() As System.Data.DataColumn
+            Get
+                Return Me.columntiempoadicional
+            End Get
+        End Property
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -467,9 +512,14 @@ Partial Public Class DSSeguimientoProd
                     ByVal fechahorainicioplanificada As Date,  _
                     ByVal fechahorafinreal As Date,  _
                     ByVal fechahorafinplanificada As Date,  _
-                    ByVal observaciones As String) As hojaderutaRow
+                    ByVal observaciones As String,  _
+                    ByVal nombreTornero As String,  _
+                    ByVal apellidoTornero As String,  _
+                    ByVal fechasalidad As Date,  _
+                    ByVal fecharecepcion As Date,  _
+                    ByVal tiempoadicional As Double) As hojaderutaRow
             Dim rowhojaderutaRow As hojaderutaRow = CType(Me.NewRow,hojaderutaRow)
-            rowhojaderutaRow.ItemArray = New Object() {idhojaderuta, fechainicioproduccion, nombreEmpleado, apellidoEmpleado, nombreFresa, idmodelo, idtipo, estado, nombreOperacion, maquina, duracionpromedio, orden, idlegajo, fechahorainicioreal, fechahorainicioplanificada, fechahorafinreal, fechahorafinplanificada, observaciones}
+            rowhojaderutaRow.ItemArray = New Object() {idhojaderuta, fechainicioproduccion, nombreEmpleado, apellidoEmpleado, nombreFresa, idmodelo, idtipo, estado, nombreOperacion, maquina, duracionpromedio, orden, idlegajo, fechahorainicioreal, fechahorainicioplanificada, fechahorafinreal, fechahorafinplanificada, observaciones, nombreTornero, apellidoTornero, fechasalidad, fecharecepcion, tiempoadicional}
             Me.Rows.Add(rowhojaderutaRow)
             Return rowhojaderutaRow
         End Function
@@ -516,6 +566,11 @@ Partial Public Class DSSeguimientoProd
             Me.columnfechahorafinreal = MyBase.Columns("fechahorafinreal")
             Me.columnfechahorafinplanificada = MyBase.Columns("fechahorafinplanificada")
             Me.columnobservaciones = MyBase.Columns("observaciones")
+            Me.columnnombreTornero = MyBase.Columns("nombreTornero")
+            Me.columnapellidoTornero = MyBase.Columns("apellidoTornero")
+            Me.columnfechasalidad = MyBase.Columns("fechasalidad")
+            Me.columnfecharecepcion = MyBase.Columns("fecharecepcion")
+            Me.columntiempoadicional = MyBase.Columns("tiempoadicional")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -556,6 +611,16 @@ Partial Public Class DSSeguimientoProd
             MyBase.Columns.Add(Me.columnfechahorafinplanificada)
             Me.columnobservaciones = New System.Data.DataColumn("observaciones", GetType(String), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnobservaciones)
+            Me.columnnombreTornero = New System.Data.DataColumn("nombreTornero", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombreTornero)
+            Me.columnapellidoTornero = New System.Data.DataColumn("apellidoTornero", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnapellidoTornero)
+            Me.columnfechasalidad = New System.Data.DataColumn("fechasalidad", GetType(Date), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfechasalidad)
+            Me.columnfecharecepcion = New System.Data.DataColumn("fecharecepcion", GetType(Date), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfecharecepcion)
+            Me.columntiempoadicional = New System.Data.DataColumn("tiempoadicional", GetType(Double), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntiempoadicional)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnidhojaderuta}, true))
             Me.columnidhojaderuta.AllowDBNull = false
             Me.columnidhojaderuta.Unique = true
@@ -565,6 +630,8 @@ Partial Public Class DSSeguimientoProd
             Me.columnnombreOperacion.MaxLength = 40
             Me.columnmaquina.MaxLength = 40
             Me.columnobservaciones.MaxLength = 30
+            Me.columnnombreTornero.MaxLength = 50
+            Me.columnapellidoTornero.MaxLength = 50
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -913,6 +980,76 @@ Partial Public Class DSSeguimientoProd
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nombreTornero() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablehojaderuta.nombreTorneroColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombreTornero' de la tabla 'hojaderuta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablehojaderuta.nombreTorneroColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property apellidoTornero() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablehojaderuta.apellidoTorneroColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'apellidoTornero' de la tabla 'hojaderuta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablehojaderuta.apellidoTorneroColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property fechasalidad() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablehojaderuta.fechasalidadColumn),Date)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'fechasalidad' de la tabla 'hojaderuta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablehojaderuta.fechasalidadColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property fecharecepcion() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tablehojaderuta.fecharecepcionColumn),Date)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'fecharecepcion' de la tabla 'hojaderuta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablehojaderuta.fecharecepcionColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property tiempoadicional() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tablehojaderuta.tiempoadicionalColumn),Double)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'tiempoadicional' de la tabla 'hojaderuta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablehojaderuta.tiempoadicionalColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsfechainicioproduccionNull() As Boolean
             Return Me.IsNull(Me.tablehojaderuta.fechainicioproduccionColumn)
         End Function
@@ -1081,6 +1218,56 @@ Partial Public Class DSSeguimientoProd
         Public Sub SetobservacionesNull()
             Me(Me.tablehojaderuta.observacionesColumn) = System.Convert.DBNull
         End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnombreTorneroNull() As Boolean
+            Return Me.IsNull(Me.tablehojaderuta.nombreTorneroColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnombreTorneroNull()
+            Me(Me.tablehojaderuta.nombreTorneroColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsapellidoTorneroNull() As Boolean
+            Return Me.IsNull(Me.tablehojaderuta.apellidoTorneroColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetapellidoTorneroNull()
+            Me(Me.tablehojaderuta.apellidoTorneroColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsfechasalidadNull() As Boolean
+            Return Me.IsNull(Me.tablehojaderuta.fechasalidadColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetfechasalidadNull()
+            Me(Me.tablehojaderuta.fechasalidadColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsfecharecepcionNull() As Boolean
+            Return Me.IsNull(Me.tablehojaderuta.fecharecepcionColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetfecharecepcionNull()
+            Me(Me.tablehojaderuta.fecharecepcionColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IstiempoadicionalNull() As Boolean
+            Return Me.IsNull(Me.tablehojaderuta.tiempoadicionalColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SettiempoadicionalNull()
+            Me(Me.tablehojaderuta.tiempoadicionalColumn) = System.Convert.DBNull
+        End Sub
     End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -1223,6 +1410,11 @@ Namespace DSSeguimientoProdTableAdapters
             tableMapping.ColumnMappings.Add("fechahorafinreal", "fechahorafinreal")
             tableMapping.ColumnMappings.Add("fechahorafinplanificada", "fechahorafinplanificada")
             tableMapping.ColumnMappings.Add("observaciones", "observaciones")
+            tableMapping.ColumnMappings.Add("nombreTornero", "nombreTornero")
+            tableMapping.ColumnMappings.Add("apellidoTornero", "apellidoTornero")
+            tableMapping.ColumnMappings.Add("fechasalidad", "fechasalidad")
+            tableMapping.ColumnMappings.Add("fecharecepcion", "fecharecepcion")
+            tableMapping.ColumnMappings.Add("tiempoadicional", "tiempoadicional")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1245,15 +1437,20 @@ Namespace DSSeguimientoProdTableAdapters
                 "gajo, detallehojaderuta.fechahorainicioreal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detallehoja"& _ 
                 "deruta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detalleho"& _ 
                 "jaderuta.fechahorafinplanificada, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detallehojaderuta.obse"& _ 
-                "rvaciones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         fresa INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      hojaderuta INNER"& _ 
-                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detallehojaderuta ON hojaderuta.idhojaderuta = deta"& _ 
-                "llehojaderuta.idhojaderuta ON fresa.idhojaderuta = hojaderuta.idhojaderuta INNER"& _ 
-                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipofresa ON fresa.idtipo = tipofresa.idtipo AND fr"& _ 
-                "esa.idmodelo = tipofresa.idmodelo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      operacion IN"& _ 
-                "NER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      etapadefabricacion ON operacion.idoperacion = et"& _ 
-                "apadefabricacion.idoperacion ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detallehojaderuta.idetap"& _ 
-                "adefabricacion = etapadefabricacion.idetapafabricacion INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
-                "         empleado ON detallehojaderuta.idlegajo = empleado.idlegajo"
+                "rvaciones, tornero.nombre AS nombreTornero, tornero.apellido AS apellidoTornero,"& _ 
+                " torneado.fechasalidad, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      torneado.fecharecepcion, etapade"& _ 
+                "fabricacion.tiempoadicional"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         fresa INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "  hojaderuta INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detallehojaderuta ON hojaderuta.i"& _ 
+                "dhojaderuta = detallehojaderuta.idhojaderuta ON fresa.idhojaderuta = hojaderuta."& _ 
+                "idhojaderuta INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipofresa ON fresa.idtipo = tipof"& _ 
+                "resa.idtipo AND fresa.idmodelo = tipofresa.idmodelo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "      operacion INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      etapadefabricacion ON operacio"& _ 
+                "n.idoperacion = etapadefabricacion.idoperacion ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detall"& _ 
+                "ehojaderuta.idetapadefabricacion = etapadefabricacion.idetapafabricacion INNER J"& _ 
+                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      empleado ON detallehojaderuta.idlegajo = empleado.idl"& _ 
+                "egajo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      torneado ON detallehojaderuta.idtorneado"& _ 
+                " = torneado.idtorneado INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tornero ON torneado.idt"& _ 
+                "ornero = tornero.idtornero"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         
