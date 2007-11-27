@@ -22,6 +22,7 @@ Public Enum Estado
     FRESA_FABRICANDO = 24
     FRESA_FINALIZADO = 25
     FRESA_RECHAZADA = 26
+    FRESA_HRASIGNADA = 27
 
     'Estados para clase MAQUINA
     MAQUINA_OPERANDO = 31

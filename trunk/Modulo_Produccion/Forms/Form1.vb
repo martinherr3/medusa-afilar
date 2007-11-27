@@ -7,10 +7,11 @@ Public Class Form1
     Dim query As String
     Dim reporteHR As RptHojaRuta
 
+    Public pNrofresa As Integer
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        query = "SELECT fresa.nroserie, fresa.fechafinfabricacion, fresa.costofabricacion, fresa.estado, fresa.nropedido, fresa.controlcalidad, fresa.idhojaderuta, fresa.precio," & _
+        query = "SELECT '*' + ltrim(str(fresa.nroserie)) + '*' as nroseriebarra, fresa.nroserie,  fresa.fechafinfabricacion, fresa.costofabricacion, fresa.estado, fresa.nropedido, fresa.controlcalidad, fresa.idhojaderuta, fresa.precio," & _
                 " fresa.idtipo, fresa.idmodelo, tipofresa.nombre, tipofresa.diametroexterior, tipofresa.diametroagujero, tipofresa.cantidaddientes, tipofresa.plano," & _
                 " TipoFresa.caracteristicas, TipoFresa.imagen" & _
                 " FROM fresa INNER JOIN" & _
@@ -27,7 +28,7 @@ Public Class Form1
                 " etapadefabricacion.detalle, etapadefabricacion.orden, etapadefabricacion.tiempoadicional" & _
                 " FROM operacion INNER JOIN" & _
                 " etapadefabricacion ON operacion.idoperacion = etapadefabricacion.idoperacion INNER JOIN" & _
-                " detallehojaderuta ON etapadefabricacion.idetapafabricacion = detallehojaderuta.idetapadefabricacion"
+                " detallehojaderuta ON etapadefabricacion.idetapafabricacion = detallehojaderuta.idetapadefabricacion  inner join fresa on fresa.idhojaderuta = detallehojaderuta.idhojaderuta where fresa.idmodelo = etapadefabricacion.idmodelo and fresa.idtipo = etapadefabricacion.idtipofresa" ' and fresa.idmodelo = etapadefabricacion.idmodelo and fresa.idtipo = etapadefabricacion.idtipofresa"
 
         selectDetalle.CommandType = CommandType.Text
         selectDetalle.CommandText = query
@@ -43,8 +44,9 @@ Public Class Form1
 
         CrystalReportViewer1.ReportSource = reporteHR
 
-        CrystalReportViewer1.SelectionFormula = "{maestro_hr.nroserie} = 100"
-
+        'CrystalReportViewer1.SelectionFormula = "{maestro_hr.nroserie} = 19"
+        CrystalReportViewer1.SelectionFormula = "{maestro_hr.nroserie} = " & pNrofresa
+        cnn.Close()
 
         'adaptadorCompra2.Fill(DsHojaRuta1)
         'Dim p As New rptHojaRuta

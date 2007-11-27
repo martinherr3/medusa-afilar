@@ -86,7 +86,7 @@
     <Reference Include="DundasWinChart, Version=5.5.1.1711, Culture=neutral, PublicKeyToken=a4c03dce5db22406, processorArchitecture=MSIL" />
     <Reference Include="DundasWinGauge, Version=2.0.2.201, Culture=neutral, PublicKeyToken=ed845c6a255edda6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Dundas Software\Gauges\WinControlVS2005\Bin\DundasWinGauge.dll</HintPath>
+      <HintPath>..\..\..\..\Archivos de programa\Dundas Software\Gauges\WinControlVS2005\Bin\DundasWinGauge.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics.Shared.v5.1">
       <Name>Infragistics.Shared.v5.1</Name>
@@ -217,6 +217,21 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfilarDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AfilarDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AfilarDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AfilarDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BorrarHR.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BorrarHR.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Produccion\Classes\BarInformation.vb" />
     <Compile Include="Modulo_Produccion\Classes\cierre.vb" />
     <Compile Include="Modulo_Produccion\Classes\gantt.Designer.vb">
@@ -267,6 +282,9 @@
     <Compile Include="Modulo_Produccion\Classes\Maquina.vb" />
     <Compile Include="Modulo_Produccion\Classes\TipoAcabado.vb" />
     <Compile Include="Modulo_Produccion\Classes\tipoMaquina.vb" />
+    <Compile Include="Modulo_Produccion\DSHojaDeRuta.vb">
+      <DependentUpon>DSHojaDeRuta.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Produccion\Forms\abmMaquinaFresa.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +334,12 @@
       <DependentUpon>frmDesperfecto.vb</DependentUpon>
     </Compile>
     <Compile Include="Modulo_Produccion\Forms\frmDesperfecto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmHojaDeRuta.Designer.vb">
+      <DependentUpon>frmHojaDeRuta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmHojaDeRuta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Produccion\Forms\frmMaquina.Designer.vb">
@@ -537,6 +561,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Modulo_Compras\Forms\Diagrama_ABC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modulo_Ventas\Forms\TaskBarNotifier.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modulo_Ventas\DSPresupuesto.Designer.vb">
@@ -840,6 +867,10 @@
       <DependentUpon>frmDesperfecto.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmHojaDeRuta.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmHojaDeRuta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Produccion\Forms\frmMaquina.resx">
       <DependentUpon>frmMaquina.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -1132,7 +1163,40 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="AfilarDataSet.xsc">
+      <DependentUpon>AfilarDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AfilarDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AfilarDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AfilarDataSet.xss">
+      <DependentUpon>AfilarDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AfilarDataSet1.xsc">
+      <DependentUpon>AfilarDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AfilarDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AfilarDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AfilarDataSet1.xss">
+      <DependentUpon>AfilarDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="app.config" />
+    <None Include="BorrarHR.xsc">
+      <DependentUpon>BorrarHR.xsd</DependentUpon>
+    </None>
+    <None Include="BorrarHR.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BorrarHR.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BorrarHR.xss">
+      <DependentUpon>BorrarHR.xsd</DependentUpon>
+    </None>
     <None Include="Modulo_Produccion\DSHojaDeRuta.xsc">
       <DependentUpon>DSHojaDeRuta.xsd</DependentUpon>
     </None>

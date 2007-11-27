@@ -2,9 +2,14 @@ Imports System
 Imports System.Data
 Imports System.Data.SqlClient
 Imports System.Configuration.ConfigurationSettings
+Imports System.Drawing
+Imports System.Collections
+Imports System.ComponentModel
+Imports System.Windows.Forms
 Public Class frmMensajes
 
-
+    'Private WithEvents taskbarNotifier3 As TaskBarNotifier
+    
 
     'Sub CargarGrdMensajes()
 
@@ -283,6 +288,8 @@ ByVal e As System.Windows.Forms.ColumnClickEventArgs) Handles ListView1.ColumnCl
         btnEliminar.Enabled = True
         btnCancelar.Enabled = False
     End Sub
+
+    
 End Class
 
 Class ListViewItemComparer

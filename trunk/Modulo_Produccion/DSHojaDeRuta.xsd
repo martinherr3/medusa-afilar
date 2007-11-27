@@ -10,12 +10,12 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="maestro_hrTableAdapter" GeneratorDataComponentClassName="maestro_hrTableAdapter" Name="maestro_hr" UserDataComponentName="maestro_hrTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="True">
-                    <CommandText>SELECT     fresa.nroserie, fresa.fechafinfabricacion, fresa.costofabricacion, fresa.estado, fresa.nropedido, fresa.controlcalidad, fresa.idhojaderuta, fresa.precio, 
-                      fresa.idtipo, fresa.idmodelo, tipofresa.nombre, tipofresa.diametroexterior, tipofresa.diametroagujero, tipofresa.cantidaddientes, tipofresa.plano, 
-                      tipofresa.caracteristicas, tipofresa.imagen
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT     '*' + LTRIM(STR(fresa.nroserie)) + '*' AS nroseriebarra, fresa.nroserie, fresa.fechafinfabricacion, fresa.costofabricacion, fresa.estado, fresa.nropedido, 
+                      fresa.controlcalidad, fresa.idhojaderuta, fresa.precio, fresa.idtipo, fresa.idmodelo, tipofresa.nombre, tipofresa.diametroexterior, 
+                      tipofresa.diametroagujero, tipofresa.cantidaddientes, tipofresa.plano, tipofresa.caracteristicas, tipofresa.imagen
 FROM         fresa INNER JOIN
                       tipofresa ON fresa.idtipo = tipofresa.idtipo AND fresa.idmodelo = tipofresa.idmodelo</CommandText>
                     <Parameters>
@@ -42,13 +42,14 @@ FROM         fresa INNER JOIN
               <Mapping SourceColumn="plano" DataSetColumn="plano" />
               <Mapping SourceColumn="caracteristicas" DataSetColumn="caracteristicas" />
               <Mapping SourceColumn="imagen" DataSetColumn="imagen" />
+              <Mapping SourceColumn="nroseriebarra" DataSetColumn="nroseriebarra" />
             </Mappings>
             <Sources>
             </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="detalle_hrTableAdapter" GeneratorDataComponentClassName="detalle_hrTableAdapter" Name="detalle_hr" UserDataComponentName="detalle_hrTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="True">
                     <CommandText>SELECT     detallehojaderuta.idhojaderuta, detallehojaderuta.idetapadefabricacion, detallehojaderuta.idlegajo, detallehojaderuta.idtorneado, 
@@ -93,7 +94,7 @@ FROM         operacion INNER JOIN
   <xs:element name="DSHojaDeRuta" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSHojaDeRuta" msprop:Generator_DataSetName="DSHojaDeRuta">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="maestro_hr" msprop:Generator_UserTableName="maestro_hr" msprop:Generator_RowDeletedName="maestro_hrRowDeleted" msprop:Generator_TableClassName="maestro_hrDataTable" msprop:Generator_RowChangedName="maestro_hrRowChanged" msprop:Generator_RowClassName="maestro_hrRow" msprop:Generator_RowChangingName="maestro_hrRowChanging" msprop:Generator_RowEvArgName="maestro_hrRowChangeEvent" msprop:Generator_RowEvHandlerName="maestro_hrRowChangeEventHandler" msprop:Generator_TablePropName="maestro_hr" msprop:Generator_TableVarName="tablemaestro_hr" msprop:Generator_RowDeletingName="maestro_hrRowDeleting">
+        <xs:element name="maestro_hr" msprop:Generator_UserTableName="maestro_hr" msprop:Generator_RowDeletedName="maestro_hrRowDeleted" msprop:Generator_RowChangedName="maestro_hrRowChanged" msprop:Generator_RowClassName="maestro_hrRow" msprop:Generator_RowChangingName="maestro_hrRowChanging" msprop:Generator_RowEvArgName="maestro_hrRowChangeEvent" msprop:Generator_RowEvHandlerName="maestro_hrRowChangeEventHandler" msprop:Generator_TableClassName="maestro_hrDataTable" msprop:Generator_TableVarName="tablemaestro_hr" msprop:Generator_RowDeletingName="maestro_hrRowDeleting" msprop:Generator_TablePropName="maestro_hr">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nroserie" msprop:Generator_UserColumnName="nroserie" msprop:Generator_ColumnPropNameInRow="nroserie" msprop:Generator_ColumnVarNameInTable="columnnroserie" msprop:Generator_ColumnPropNameInTable="nroserieColumn" type="xs:int" />
@@ -131,10 +132,17 @@ FROM         operacion INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="imagen" msprop:Generator_UserColumnName="imagen" msprop:Generator_ColumnPropNameInRow="imagen" msprop:Generator_ColumnVarNameInTable="columnimagen" msprop:Generator_ColumnPropNameInTable="imagenColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="nroseriebarra" msdata:ReadOnly="true" msprop:Generator_UserColumnName="nroseriebarra" msprop:Generator_ColumnPropNameInRow="nroseriebarra" msprop:Generator_ColumnVarNameInTable="columnnroseriebarra" msprop:Generator_ColumnPropNameInTable="nroseriebarraColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="detalle_hr" msprop:Generator_UserTableName="detalle_hr" msprop:Generator_RowDeletedName="detalle_hrRowDeleted" msprop:Generator_TableClassName="detalle_hrDataTable" msprop:Generator_RowChangedName="detalle_hrRowChanged" msprop:Generator_RowClassName="detalle_hrRow" msprop:Generator_RowChangingName="detalle_hrRowChanging" msprop:Generator_RowEvArgName="detalle_hrRowChangeEvent" msprop:Generator_RowEvHandlerName="detalle_hrRowChangeEventHandler" msprop:Generator_TablePropName="detalle_hr" msprop:Generator_TableVarName="tabledetalle_hr" msprop:Generator_RowDeletingName="detalle_hrRowDeleting">
+        <xs:element name="detalle_hr" msprop:Generator_UserTableName="detalle_hr" msprop:Generator_RowDeletedName="detalle_hrRowDeleted" msprop:Generator_RowChangedName="detalle_hrRowChanged" msprop:Generator_RowClassName="detalle_hrRow" msprop:Generator_RowChangingName="detalle_hrRowChanging" msprop:Generator_RowEvArgName="detalle_hrRowChangeEvent" msprop:Generator_RowEvHandlerName="detalle_hrRowChangeEventHandler" msprop:Generator_TableClassName="detalle_hrDataTable" msprop:Generator_TableVarName="tabledetalle_hr" msprop:Generator_RowDeletingName="detalle_hrRowDeleting" msprop:Generator_TablePropName="detalle_hr">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idhojaderuta" msprop:Generator_UserColumnName="idhojaderuta" msprop:Generator_ColumnPropNameInRow="idhojaderuta" msprop:Generator_ColumnVarNameInTable="columnidhojaderuta" msprop:Generator_ColumnPropNameInTable="idhojaderutaColumn" type="xs:int" />

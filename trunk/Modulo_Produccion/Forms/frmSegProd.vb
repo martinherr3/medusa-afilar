@@ -3,15 +3,16 @@ Imports System.Reflection
 Imports System.Data.SqlClient
 Imports System.Configuration.ConfigurationSettings
 Public Class frmSegProd
+    Public borrar As String ' prometo borrar
     Public obj As ProdTacking
 
     Private Sub frmSegProd_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
         txtIDHR.Focus()
     End Sub
 
-   
+
     Private Sub frmSegProd_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        
+
         Dim constante As New Constantes
         cargarUltraCombo("select rtrim(apellido) + ', ' + rtrim(nombre) as empleado, idlegajo  from empleado where idcargo = " & constante.CargoOperario & " order by apellido", cmbEmpleado, "empleado", "idlegajo")
         BtnAceptar.Enabled = False
@@ -44,7 +45,7 @@ Public Class frmSegProd
     End Sub
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        obj = New ProdTacking(1)
+        obj = New ProdTacking(borrar)
         obj.getDatos(barra)
         lblFresa.Text = obj.getNombreFresa()
         imagen.Image = obj.getImagen()
@@ -74,7 +75,7 @@ Public Class frmSegProd
 
     End Sub
 
-    
+
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         'obj.dataDeOperacion(obj.getProximaOp())
         'LblOperacion.Text = obj.Poperacion
@@ -95,7 +96,7 @@ Public Class frmSegProd
         If obj.registrarAvance(cmbEmpleado.Value) Then
             'MsgBox("se registro con exito")
             'PictureBox3.Visible = True
-            obj = New ProdTacking(1)
+            obj = New ProdTacking(borrar)
             obj.getDatos(barra)
             lblFresa.Text = obj.getNombreFresa()
             imagen.Image = obj.getImagen()
@@ -115,42 +116,46 @@ Public Class frmSegProd
     End Sub
 
     Private Sub txtIDHR_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtIDHR.KeyPress
+        soloNumeros(e)
         If e.KeyChar = Microsoft.VisualBasic.ChrW(Keys.Return) Then
             'cargala imagen y los datos de las operaciones de la Hoja de ruta
-            obj = New ProdTacking(txtIDHR.Text)
-            obj.getDatos(barra)
-            lblFresa.Text = obj.getNombreFresa()
-            imagen.Image = obj.getImagen()
-            'Actualiza la infode la operacion actual
-            obj.dataDeOperacion(obj.getProximaOp())
-            LblOperacion.Text = obj.Poperacion
-            lblInicioPlan.Text = obj.PinicioPlanificado
-            lblInicioReal.Text = obj.PinicioReal
-            lblFinPlan.Text = obj.PfinPlanificado
-            lblfinReal.Text = obj.PfinReal
-            lblDuracion.Text = obj.Pduracion
-            lblMaquina.Text = obj.Pmaquina
-            lblOperario.Text = obj.Poperario
-            'Limpio el codigo
-            txtIDHR.Text = ""
-            'habilito los botones
-            BtnAceptar.Enabled = True
-            cmbEmpleado.Enabled = True
-            'selecciono la operacion de la barra
-            Dim proximaOP As Integer
-            proximaOP = obj.getProximaOp()
-            If proximaOP <> -1 Then
-                ProdTacking.selectGrupo(proximaOP - 1, barra)
-            Else
-                If obj.HasRecords Then
-                    If obj.registrarFinHR() Then
-                        MsgBox("La fabricacion de este articulo ya a finalizado", MsgBoxStyle.Information, "Hoja de ruta finalizada")
+
+            If txtIDHR.Text <> "" Then
+                borrar = txtIDHR.Text
+                obj = New ProdTacking(txtIDHR.Text)
+                obj.getDatos(barra)
+                lblFresa.Text = obj.getNombreFresa()
+                imagen.Image = obj.getImagen()
+                'Actualiza la infode la operacion actual
+                obj.dataDeOperacion(obj.getProximaOp())
+                LblOperacion.Text = obj.Poperacion
+                lblInicioPlan.Text = obj.PinicioPlanificado
+                lblInicioReal.Text = obj.PinicioReal
+                lblFinPlan.Text = obj.PfinPlanificado
+                lblfinReal.Text = obj.PfinReal
+                lblDuracion.Text = obj.Pduracion
+                lblMaquina.Text = obj.Pmaquina
+                lblOperario.Text = obj.Poperario
+                'Limpio el codigo
+                txtIDHR.Text = ""
+                'habilito los botones
+                BtnAceptar.Enabled = True
+                cmbEmpleado.Enabled = True
+                'selecciono la operacion de la barra
+                Dim proximaOP As Integer
+                proximaOP = obj.getProximaOp()
+                If proximaOP <> -1 Then
+                    ProdTacking.selectGrupo(proximaOP - 1, barra)
+                Else
+                    If obj.HasRecords Then
+                        If obj.registrarFinHR() Then
+                            MsgBox("La fabricacion de este articulo ya a finalizado", MsgBoxStyle.Information, "Hoja de ruta finalizada")
+                        End If
+                        BtnAceptar.Enabled = False
+                        cmbEmpleado.Enabled = False
                     End If
-                    BtnAceptar.Enabled = False
-                    cmbEmpleado.Enabled = False
                 End If
-                End If
-            
+            End If
         End If
     End Sub
 
@@ -199,7 +204,7 @@ Public Class ProdTacking
 
     Public Sub New(ByVal idfresa As Integer)
         PidFresa = idfresa
-        adapterfresa = New SqlDataAdapter("select detallehojaderuta.idlegajo, detallehojaderuta.idhojaderuta, detallehojaderuta.idetapadefabricacion, operacion.duracionpromedio, tipofresa.imagen, etapadefabricacion.idetapafabricacion, fresa.nroserie, etapadefabricacion.orden, operacion.nombre as nombreoperacion, detallehojaderuta.fechahorainicioreal, detallehojaderuta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detallehojaderuta.fechahorafinplanificada, hojaderuta.fechainicioproduccion, operacion.maquina, tipofresa.nombre, operacion.idoperacion, detallehojaderuta.idtorneado from fresa inner join hojaderuta on hojaderuta.idhojaderuta = fresa.idhojaderuta inner join tipofresa on fresa.idtipo = tipofresa.idtipo and fresa.idmodelo = tipofresa.idmodelo inner join detallehojaderuta on detallehojaderuta.idhojaderuta = fresa.idhojaderuta inner join etapadefabricacion on etapadefabricacion.idetapafabricacion = detallehojaderuta.idetapadefabricacion inner join operacion on etapadefabricacion.idoperacion = operacion.idoperacion where Fresa.nroserie = " & idfresa & " order by etapadefabricacion.orden", cnn)
+        adapterfresa = New SqlDataAdapter("select detallehojaderuta.idlegajo, detallehojaderuta.idhojaderuta, detallehojaderuta.idetapadefabricacion, operacion.duracionpromedio, tipofresa.imagen, etapadefabricacion.idetapafabricacion, fresa.nroserie, etapadefabricacion.orden, operacion.nombre as nombreoperacion, detallehojaderuta.fechahorainicioreal, detallehojaderuta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detallehojaderuta.fechahorafinplanificada, hojaderuta.fechainicioproduccion, operacion.maquina, tipofresa.nombre, operacion.idoperacion, detallehojaderuta.idtorneado from fresa inner join hojaderuta on hojaderuta.idhojaderuta = fresa.idhojaderuta inner join tipofresa on fresa.idtipo = tipofresa.idtipo and fresa.idmodelo = tipofresa.idmodelo inner join detallehojaderuta on detallehojaderuta.idhojaderuta = fresa.idhojaderuta inner join etapadefabricacion on etapadefabricacion.idetapafabricacion = detallehojaderuta.idetapadefabricacion and fresa.idmodelo = etapadefabricacion.idmodelo and fresa.idtipo = etapadefabricacion.idtipofresa inner join operacion on etapadefabricacion.idoperacion = operacion.idoperacion where Fresa.nroserie = " & idfresa & " order by etapadefabricacion.orden", cnn)
         DS = New DataSet
         adapterfresa.Fill(DS, "Fresa")
         Dim TFresa As DataTable = DS.Tables.Item("Fresa")
@@ -306,32 +311,51 @@ Public Class ProdTacking
             conn = cnn
             conn.Open()
             'Try
-            If nextOp = 1 And PinicioReal = "" Then
-                'marco el comienzo de la primera operacion
-                Dim sql2 As String = "UPDATE detallehojaderuta set fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
-                Dim comm2 As New SqlCommand(sql2, conn)
-                comm2.ExecuteNonQuery()
+            Dim sql2 As String
+            Dim comm2 As SqlCommand
+            If nextOp = 1 Then
                 'cambio es estado de la fresa a en produccion
                 sql2 = "update fresa set estado = " & Estado.FRESA_FABRICANDO & " where nroserie = " & PidFresa
                 comm2 = New SqlCommand(sql2, conn)
                 comm2.ExecuteNonQuery()
+            End If
 
-            Else
-
-
-                'Aca registro la fecha de fin de la operacion actual
-                Dim sql1 As String = "UPDATE detallehojaderuta set fechahorafinreal = getdate(), idlegajo = " & empleado & " where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
-                Dim comm1 As New SqlCommand(sql1, conn)
-
-                comm1.ExecuteNonQuery()
-
-
-                'Aca registro el comienzo de la proxima operacion
-                Dim sql2 As String = "UPDATE detallehojaderuta set fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp + 1 & ")"
-                Dim comm2 As New SqlCommand(sql2, conn)
-
+            If PinicioReal = "" Then
+                sql2 = "UPDATE detallehojaderuta set fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
+                comm2 = New SqlCommand(sql2, conn)
+                comm2.ExecuteNonQuery()
+            ElseIf PfinReal = "" Then
+                sql2 = "UPDATE detallehojaderuta set fechahorafinreal = getdate(), idlegajo = " & empleado & " where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
+                comm2 = New SqlCommand(sql2, conn)
                 comm2.ExecuteNonQuery()
             End If
+
+            'If nextOp = 1 And PinicioReal = "" Then
+            '    'marco el comienzo de la primera operacion
+            '    Dim sql2 As String = "UPDATE detallehojaderuta set fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
+            '    Dim comm2 As New SqlCommand(sql2, conn)
+            '    comm2.ExecuteNonQuery()
+            '    'cambio es estado de la fresa a en produccion
+            '    sql2 = "update fresa set estado = " & Estado.FRESA_FABRICANDO & " where nroserie = " & PidFresa
+            '    comm2 = New SqlCommand(sql2, conn)
+            '    comm2.ExecuteNonQuery()
+
+            'Else
+
+
+            '    'Aca registro la fecha de fin de la operacion actual
+            '    Dim sql1 As String = "UPDATE detallehojaderuta set fechahorafinreal = getdate(), idlegajo = " & empleado & " where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
+            '    Dim comm1 As New SqlCommand(sql1, conn)
+
+            '    comm1.ExecuteNonQuery()
+
+
+            '    'Aca registro el comienzo de la proxima operacion
+            '    Dim sql2 As String = "UPDATE detallehojaderuta set fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp + 1 & ")"
+            '    Dim comm2 As New SqlCommand(sql2, conn)
+
+            '    comm2.ExecuteNonQuery()
+            'End If
 
 
             conn.Close()

@@ -19,14 +19,14 @@
               <li><a href="Default.aspx">Pedidos</a></li>
               <li><a href="Clientes.aspx">Clientes</a></li>
               <li><a href="Fresas.aspx">Fresas</a></li>
-              <br />
-              <br />
+              <br/>
+              <br/>
               
               
             </ul>
             <asp:Image ID="Image1" runat="server" Height="130px" Width="148px" ImageUrl="images/afilar.jpg" BackColor="White" />
           </div>
-          <div id="seasonal" style="height: auto; width: auto">
+          <div id="seasonal" style="height: auto; width: 1200px">
            <div>
                 
                 &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
@@ -53,7 +53,7 @@
         </div>
       </div>
         
-        <div id="header" style="width:5%">
+        <div id="header">
           <div id="logo">
             <h1>Afilar</h1>
             <p>Sistema Web</p>

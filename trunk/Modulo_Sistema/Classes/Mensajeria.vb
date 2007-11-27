@@ -1,4 +1,5 @@
 Imports System.Data.SqlClient
+Imports System.Configuration.ConfigurationSettings
 Public Class Mensajeria
 
     Private intIdMensaje As Integer
@@ -12,7 +13,7 @@ Public Class Mensajeria
     Private dateFechaLectura As Date
     Public varCancelar As Integer
     Private adaptadorMensaje As SqlClient.SqlDataAdapter
-
+    Private WithEvents taskbarNotifier3 As TaskBarNotifier
     Public Property IdMensaje() As Integer
         Get
             Return intIdMensaje
@@ -113,6 +114,8 @@ Public Class Mensajeria
         DA.Fill(DS)
         If DS.Tables(0).Rows(0).Item(0) <> 0 Then
             link.Text = "Usted tiene " & DS.Tables(0).Rows(0).Item(0) & " mensajes sin leer"
+            Dim obj As New Mensajeria
+            obj.showAlert()
         Else
             link.Text = "0 Mensajes Nuevos"
         End If
@@ -289,6 +292,79 @@ Public Class Mensajeria
 
         conn.Close()
     End Sub
+
+
+    ''''''''''''''''''
+
+    Public Sub showAlert()
+        taskbarNotifier3 = New TaskBarNotifier()
+        Dim projectPath As String
+        projectPath = getAppPath()
+        taskbarNotifier3.SetCloseBitmap(Image.FromFile(projectPath + AppSettings.Get("ImagesPath") & "\close.bmp"), Color.FromArgb(255, 0, 255), New Point(280, 57))
+        taskbarNotifier3.SetBackgroundBitmap(Image.FromFile(projectPath + AppSettings.Get("ImagesPath") & "\skin3.bmp"), Color.FromArgb(255, 0, 255))
+        'taskbarNotifier3.SetCloseBitmap(New Bitmap(MyClass.GetType(), "close.bmp"), Color.FromArgb(255, 0, 255), New Point(280, 57))
+
+        taskbarNotifier3.TitleRectangle = New Rectangle(150, 57, 125, 28)
+        taskbarNotifier3.TextRectangle = New Rectangle(75, 92, 215, 55)
+
+        With taskbarNotifier3
+            .NormalTitleColor = Color.Black
+            .HoverTitleColor = Color.Black
+            .NormalContentColor = Color.Yellow
+            .HoverContentColor = Color.White
+            .CloseButtonClickEnabled = True
+            .TitleClickEnabled = True
+            .TextClickEnabled = True
+            .DrawTextFocusRect = True
+            .KeepVisibleOnMouseOver = True
+            .ReShowOnMouseOver = True
+            .Show("Mensajeria", "Tiene nuevos mensajes en la bandeja de entrada", 500, 3000, 500)
+        End With
+
+    End Sub
+
+    Private Sub Notifier_CloseButtonClick(ByVal sender As Object, ByVal e As System.EventArgs) _
+                                                            Handles taskbarNotifier3.CloseButtonClick
+
+        Dim taskbarSender As TaskBarNotifier = DirectCast(sender, TaskBarNotifier)
+
+
+        'If taskbarSender.Equals(taskbarNotifier3) Then
+        '    MsgBox("TaskBarNotifier 3: CloseButton was clicked")
+        'End If
+
+    End Sub
+
+    Private Sub Notifier_TitleClick(ByVal sender As Object, ByVal e As System.EventArgs) _
+                                                            Handles taskbarNotifier3.TitleClick
+
+        Dim taskbarSender As TaskBarNotifier = DirectCast(sender, TaskBarNotifier)
+
+
+
+        If taskbarSender.Equals(taskbarNotifier3) Then
+            Dim form As New frmMensajes
+            form.MdiParent = princ
+            form.Show()
+            form.Location = New Point(200, 105)
+
+        End If
+
+    End Sub
+
+    Private Sub Notifier_TextClick(ByVal sender As Object, ByVal e As System.EventArgs) _
+                                                            Handles taskbarNotifier3.TextClick
+
+        Dim taskbarSender As TaskBarNotifier = DirectCast(sender, TaskBarNotifier)
+
+
+        If taskbarSender.Equals(taskbarNotifier3) Then
+            MsgBox("TaskBarNotifier 3: TextZone was clicked")
+        End If
+
+    End Sub
+
+    '''''''''''''
 
     'Public Sub mostrarDatos(ByRef txtAsunto As String, ByRef txtfecharotura As Date, ByRef txtcausa As String, ByRef txtfechareparacion As Date, _
     'ByRef txtcosto As String, ByRef cmbidmaquina As Integer, ByRef txtnumerodesperfectop As String)

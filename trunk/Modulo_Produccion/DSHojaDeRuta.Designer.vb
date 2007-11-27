@@ -297,6 +297,8 @@ Partial Public Class DSHojaDeRuta
         
         Private columnimagen As System.Data.DataColumn
         
+        Private columnnroseriebarra As System.Data.DataColumn
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -448,6 +450,13 @@ Partial Public Class DSHojaDeRuta
             End Get
         End Property
         
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nroseriebarraColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnnroseriebarra
+            End Get
+        End Property
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -494,9 +503,10 @@ Partial Public Class DSHojaDeRuta
                     ByVal cantidaddientes As Integer,  _
                     ByVal plano As String,  _
                     ByVal caracteristicas As String,  _
-                    ByVal imagen() As Byte) As maestro_hrRow
+                    ByVal imagen() As Byte,  _
+                    ByVal nroseriebarra As String) As maestro_hrRow
             Dim rowmaestro_hrRow As maestro_hrRow = CType(Me.NewRow,maestro_hrRow)
-            rowmaestro_hrRow.ItemArray = New Object() {nroserie, fechafinfabricacion, costofabricacion, estado, nropedido, controlcalidad, idhojaderuta, precio, idtipo, idmodelo, nombre, diametroexterior, diametroagujero, cantidaddientes, plano, caracteristicas, imagen}
+            rowmaestro_hrRow.ItemArray = New Object() {nroserie, fechafinfabricacion, costofabricacion, estado, nropedido, controlcalidad, idhojaderuta, precio, idtipo, idmodelo, nombre, diametroexterior, diametroagujero, cantidaddientes, plano, caracteristicas, imagen, nroseriebarra}
             Me.Rows.Add(rowmaestro_hrRow)
             Return rowmaestro_hrRow
         End Function
@@ -542,6 +552,7 @@ Partial Public Class DSHojaDeRuta
             Me.columnplano = MyBase.Columns("plano")
             Me.columncaracteristicas = MyBase.Columns("caracteristicas")
             Me.columnimagen = MyBase.Columns("imagen")
+            Me.columnnroseriebarra = MyBase.Columns("nroseriebarra")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -580,6 +591,8 @@ Partial Public Class DSHojaDeRuta
             MyBase.Columns.Add(Me.columncaracteristicas)
             Me.columnimagen = New System.Data.DataColumn("imagen", GetType(Byte()), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnimagen)
+            Me.columnnroseriebarra = New System.Data.DataColumn("nroseriebarra", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnroseriebarra)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnnroserie}, true))
             Me.columnnroserie.AllowDBNull = false
             Me.columnnroserie.Unique = true
@@ -587,6 +600,8 @@ Partial Public Class DSHojaDeRuta
             Me.columnnombre.MaxLength = 100
             Me.columnplano.MaxLength = 80
             Me.columncaracteristicas.MaxLength = 2147483647
+            Me.columnnroseriebarra.ReadOnly = true
+            Me.columnnroseriebarra.MaxLength = 12
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1288,6 +1303,20 @@ Partial Public Class DSHojaDeRuta
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nroseriebarra() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablemaestro_hr.nroseriebarraColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'nroseriebarra' de la tabla 'maestro_hr' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablemaestro_hr.nroseriebarraColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsfechafinfabricacionNull() As Boolean
             Return Me.IsNull(Me.tablemaestro_hr.fechafinfabricacionColumn)
         End Function
@@ -1435,6 +1464,16 @@ Partial Public Class DSHojaDeRuta
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetimagenNull()
             Me(Me.tablemaestro_hr.imagenColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnroseriebarraNull() As Boolean
+            Return Me.IsNull(Me.tablemaestro_hr.nroseriebarraColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnroseriebarraNull()
+            Me(Me.tablemaestro_hr.nroseriebarraColumn) = System.Convert.DBNull
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1969,6 +2008,7 @@ Namespace DSHojaDeRutaTableAdapters
             tableMapping.ColumnMappings.Add("plano", "plano")
             tableMapping.ColumnMappings.Add("caracteristicas", "caracteristicas")
             tableMapping.ColumnMappings.Add("imagen", "imagen")
+            tableMapping.ColumnMappings.Add("nroseriebarra", "nroseriebarra")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1983,13 +2023,14 @@ Namespace DSHojaDeRutaTableAdapters
             Me._commandCollection = New System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     fresa.nroserie, fresa.fechafinfabricacion, fresa.costofabricacion, fre"& _ 
-                "sa.estado, fresa.nropedido, fresa.controlcalidad, fresa.idhojaderuta, fresa.prec"& _ 
-                "io, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      fresa.idtipo, fresa.idmodelo, tipofresa.nombre, tipo"& _ 
-                "fresa.diametroexterior, tipofresa.diametroagujero, tipofresa.cantidaddientes, ti"& _ 
-                "pofresa.plano, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipofresa.caracteristicas, tipofresa.imag"& _ 
-                "en"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         fresa INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipofresa ON fresa.idti"& _ 
-                "po = tipofresa.idtipo AND fresa.idmodelo = tipofresa.idmodelo"
+            Me._commandCollection(0).CommandText = "SELECT     '*' + LTRIM(STR(fresa.nroserie)) + '*' AS nroseriebarra, fresa.nroseri"& _ 
+                "e, fresa.fechafinfabricacion, fresa.costofabricacion, fresa.estado, fresa.nroped"& _ 
+                "ido, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      fresa.controlcalidad, fresa.idhojaderuta, fresa.pre"& _ 
+                "cio, fresa.idtipo, fresa.idmodelo, tipofresa.nombre, tipofresa.diametroexterior,"& _ 
+                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipofresa.diametroagujero, tipofresa.cantidaddientes, t"& _ 
+                "ipofresa.plano, tipofresa.caracteristicas, tipofresa.imagen"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         fresa "& _ 
+                "INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipofresa ON fresa.idtipo = tipofresa.idtipo A"& _ 
+                "ND fresa.idmodelo = tipofresa.idmodelo"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         
