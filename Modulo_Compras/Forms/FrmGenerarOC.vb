@@ -881,7 +881,7 @@ Public Class FrmGenerarOC
         dv.Table = DS.Tables("detalleordencompra")
         dv.RowFilter = "idtipomateriaprima = " & idmp & "and idordencompra=" & idoc
         If dv.Count <> 0 Then
-            dv.Item(GrdDOC.CurrentRowIndex).Item(2) = CType(InputBox("La MP tal ya ha sido comprada para este proveedor puede modificar la cant si lo decea", "YA TA", dv.Item(GrdDOC.CurrentRowIndex).Item(2)), Integer)
+            dv.Item(GrdDOC.CurrentRowIndex).Item(2) = CType(InputBox("La MP tal ya ha sido comprada para este proveedor puede modificar la cant si lo decea", "Compra recurrente", dv.Item(GrdDOC.CurrentRowIndex).Item(2)), Integer)
             Me.GrdDOC.Refresh()
             Return True
         Else

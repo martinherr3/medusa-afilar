@@ -584,7 +584,7 @@ Public Class emitirPresupuesto
         'nombre empleado logueado
         nombreEmpleado = usuario.getCliente(seguridad.id)
 
-        princ.barra.agregarBoton(Me)
+        ' princ.barra.agregarBoton(Me)
 
     End Sub
 #End Region
@@ -593,7 +593,7 @@ Public Class emitirPresupuesto
 #Region "Demas eventos"
 
     Private Sub emitirPresupuesto_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
+        'princ.barra.eliminarBoton()
     End Sub
 
 

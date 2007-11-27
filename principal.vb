@@ -543,6 +543,7 @@ Public Class principal
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         Label1.Text = Now '.Hour & ":" & Now.Minute & ":" & Now.Second
         Mensajeria.getMensajes(seguridad.id, LinkLabel1)
+
     End Sub
 
     'Private Sub MenuItem7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -652,10 +653,10 @@ Public Class principal
         bloquearPantalla(True)
         logeo.ShowDialog()
         bloquearPantalla(False)
-        Dim form As New frmSegProd
-        form.MdiParent = Me
-        form.Show()
-        form.Location = New Point(500, 200)
+        'Dim form As New frmSegProd
+        ' form.MdiParent = Me
+        ' form.Show()
+        ' form.Location = New Point(500, 200)
 
         barra = New BarraDeEstado(UltraStatusBar1)
         Actualizar()

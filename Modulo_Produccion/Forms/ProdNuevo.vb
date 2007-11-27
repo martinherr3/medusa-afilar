@@ -354,7 +354,7 @@ Public Class ProdNuevo
 
   Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-    princ.barra.agregarBoton(Me)
+        'princ.barra.agregarBoton(Me)
 
     'conn.Open()
 
