@@ -440,6 +440,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSSeguimientoProd.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modulo_Reportes\DataSets\DSTorneado.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSTorneado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\DataSets\DSTorneado.vb">
+      <DependentUpon>DSTorneado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Reports\RptDetalleServicio.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptDetalleServicio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Modulo_Reportes\Forms\DashboardForm.Designer.vb">
       <DependentUpon>DashboardForm.vb</DependentUpon>
     </Compile>
@@ -521,6 +535,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptServicio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Reports\RptTorneado.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptTorneado.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Modulo_Sistema\Classes\barraTareas.vb">
@@ -903,6 +923,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptHojaRuta.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Reports\RptDetalleServicio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptDetalleServicio.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Reportes\Forms\DashboardForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DashboardForm.vb</DependentUpon>
@@ -954,6 +978,10 @@
     <EmbeddedResource Include="Modulo_Reportes\Reports\RptServicio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptServicio.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Reports\RptTorneado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptTorneado.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Sistema\Forms\frmMensajes.resx">
       <DependentUpon>frmMensajes.vb</DependentUpon>
@@ -1318,6 +1346,17 @@
     </None>
     <None Include="Modulo_Reportes\DataSets\DSSeguimientoProd.xss">
       <DependentUpon>DSSeguimientoProd.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSTorneado.xsc">
+      <DependentUpon>DSTorneado.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSTorneado.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSTorneado.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSTorneado.xss">
+      <DependentUpon>DSTorneado.xsd</DependentUpon>
     </None>
     <None Include="Modulo_Ventas\DSPresupuesto.xsc">
       <DependentUpon>DSPresupuesto.xsd</DependentUpon>
