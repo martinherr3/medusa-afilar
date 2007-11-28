@@ -23,6 +23,7 @@ Partial Class GestorReportesProdForm
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.tabProduccion = New System.Windows.Forms.TabControl
         Me.tabOrdenDeCompra = New System.Windows.Forms.TabPage
@@ -64,6 +65,16 @@ Partial Class GestorReportesProdForm
         Me.detalleOCDesde = New System.Windows.Forms.DateTimePicker
         Me.btnDetalleOC = New Infragistics.Win.Misc.UltraButton
         Me.tabServicios = New System.Windows.Forms.TabPage
+        Me.UltraGroupBox5 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox17 = New System.Windows.Forms.PictureBox
+        Me.checkFechaEntrega = New System.Windows.Forms.CheckBox
+        Me.fechaEntregaHasta = New System.Windows.Forms.DateTimePicker
+        Me.fechaEntregaDesde = New System.Windows.Forms.DateTimePicker
+        Me.UltraGroupBox6 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox18 = New System.Windows.Forms.PictureBox
+        Me.checkFechaRealizacion = New System.Windows.Forms.CheckBox
+        Me.fechaRealizacionHasta = New System.Windows.Forms.DateTimePicker
+        Me.fechaRealizacionDesde = New System.Windows.Forms.DateTimePicker
         Me.PictureBox11 = New System.Windows.Forms.PictureBox
         Me.PictureBox10 = New System.Windows.Forms.PictureBox
         Me.PictureBox9 = New System.Windows.Forms.PictureBox
@@ -77,8 +88,31 @@ Partial Class GestorReportesProdForm
         Me.Label8 = New System.Windows.Forms.Label
         Me.comboServicioCliente = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.checkServicioCliente = New System.Windows.Forms.CheckBox
-        Me.imageLoading = New System.Windows.Forms.PictureBox
         Me.TabPage1 = New System.Windows.Forms.TabPage
+        Me.UltraGroupBox4 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox16 = New System.Windows.Forms.PictureBox
+        Me.checkFechaRecepcion = New System.Windows.Forms.CheckBox
+        Me.fechaRecepcionHasta = New System.Windows.Forms.DateTimePicker
+        Me.fechaRecepcionDesde = New System.Windows.Forms.DateTimePicker
+        Me.UltraGroupBox3 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.PictureBox15 = New System.Windows.Forms.PictureBox
+        Me.checkFechaSalida = New System.Windows.Forms.CheckBox
+        Me.fechaSalidaHasta = New System.Windows.Forms.DateTimePicker
+        Me.fechaSalidaDesde = New System.Windows.Forms.DateTimePicker
+        Me.PictureBox13 = New System.Windows.Forms.PictureBox
+        Me.PictureBox14 = New System.Windows.Forms.PictureBox
+        Me.checkTorneadoNroserie = New System.Windows.Forms.CheckBox
+        Me.Label11 = New System.Windows.Forms.Label
+        Me.comboTorneadoNroserie = New Infragistics.Win.UltraWinEditors.UltraComboEditor
+        Me.btnTorneado = New Infragistics.Win.Misc.UltraButton
+        Me.Label12 = New System.Windows.Forms.Label
+        Me.comboTornero = New Infragistics.Win.UltraWinEditors.UltraComboEditor
+        Me.checkTornero = New System.Windows.Forms.CheckBox
+        Me.imageLoading = New System.Windows.Forms.PictureBox
+        Me.PictureBox8 = New System.Windows.Forms.PictureBox
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
         Me.tabProduccion.SuspendLayout()
         Me.tabOrdenDeCompra.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,13 +135,31 @@ Partial Class GestorReportesProdForm
         Me.UltraGroupBox2.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabServicios.SuspendLayout()
+        CType(Me.UltraGroupBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox5.SuspendLayout()
+        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UltraGroupBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox6.SuspendLayout()
+        CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboServicioEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboServicioOperacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboServicioCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage1.SuspendLayout()
+        CType(Me.UltraGroupBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox4.SuspendLayout()
+        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox3.SuspendLayout()
+        CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comboTorneadoNroserie, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comboTornero, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imageLoading, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'crv
@@ -543,6 +595,8 @@ Partial Class GestorReportesProdForm
         '
         'tabServicios
         '
+        Me.tabServicios.Controls.Add(Me.UltraGroupBox5)
+        Me.tabServicios.Controls.Add(Me.UltraGroupBox6)
         Me.tabServicios.Controls.Add(Me.PictureBox11)
         Me.tabServicios.Controls.Add(Me.PictureBox10)
         Me.tabServicios.Controls.Add(Me.PictureBox9)
@@ -564,11 +618,109 @@ Partial Class GestorReportesProdForm
         Me.tabServicios.Text = "Servicios detallados"
         Me.tabServicios.UseVisualStyleBackColor = True
         '
+        'UltraGroupBox5
+        '
+        Me.UltraGroupBox5.Controls.Add(Me.PictureBox17)
+        Me.UltraGroupBox5.Controls.Add(Me.checkFechaEntrega)
+        Me.UltraGroupBox5.Controls.Add(Me.fechaEntregaHasta)
+        Me.UltraGroupBox5.Controls.Add(Me.fechaEntregaDesde)
+        Me.UltraGroupBox5.Location = New System.Drawing.Point(174, 6)
+        Me.UltraGroupBox5.Name = "UltraGroupBox5"
+        Me.UltraGroupBox5.Size = New System.Drawing.Size(162, 107)
+        Me.UltraGroupBox5.SupportThemes = False
+        Me.UltraGroupBox5.TabIndex = 100
+        Me.UltraGroupBox5.Text = "Fecha entrega"
+        '
+        'PictureBox17
+        '
+        Me.PictureBox17.BackColor = System.Drawing.SystemColors.Control
+        Me.PictureBox17.Image = CType(resources.GetObject("PictureBox17.Image"), System.Drawing.Image)
+        Me.PictureBox17.Location = New System.Drawing.Point(6, 73)
+        Me.PictureBox17.Name = "PictureBox17"
+        Me.PictureBox17.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox17.TabIndex = 58
+        Me.PictureBox17.TabStop = False
+        '
+        'checkFechaEntrega
+        '
+        Me.checkFechaEntrega.AutoSize = True
+        Me.checkFechaEntrega.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.checkFechaEntrega.Location = New System.Drawing.Point(33, 76)
+        Me.checkFechaEntrega.Name = "checkFechaEntrega"
+        Me.checkFechaEntrega.Size = New System.Drawing.Size(59, 17)
+        Me.checkFechaEntrega.TabIndex = 43
+        Me.checkFechaEntrega.Text = "Activar"
+        Me.checkFechaEntrega.UseVisualStyleBackColor = False
+        '
+        'fechaEntregaHasta
+        '
+        Me.fechaEntregaHasta.Location = New System.Drawing.Point(6, 49)
+        Me.fechaEntregaHasta.Name = "fechaEntregaHasta"
+        Me.fechaEntregaHasta.Size = New System.Drawing.Size(148, 20)
+        Me.fechaEntregaHasta.TabIndex = 42
+        '
+        'fechaEntregaDesde
+        '
+        Me.fechaEntregaDesde.Location = New System.Drawing.Point(6, 23)
+        Me.fechaEntregaDesde.Name = "fechaEntregaDesde"
+        Me.fechaEntregaDesde.Size = New System.Drawing.Size(148, 20)
+        Me.fechaEntregaDesde.TabIndex = 41
+        '
+        'UltraGroupBox6
+        '
+        Me.UltraGroupBox6.Controls.Add(Me.PictureBox18)
+        Me.UltraGroupBox6.Controls.Add(Me.checkFechaRealizacion)
+        Me.UltraGroupBox6.Controls.Add(Me.fechaRealizacionHasta)
+        Me.UltraGroupBox6.Controls.Add(Me.fechaRealizacionDesde)
+        Me.UltraGroupBox6.Location = New System.Drawing.Point(6, 6)
+        Me.UltraGroupBox6.Name = "UltraGroupBox6"
+        Me.UltraGroupBox6.Size = New System.Drawing.Size(162, 107)
+        Me.UltraGroupBox6.SupportThemes = False
+        Me.UltraGroupBox6.TabIndex = 99
+        Me.UltraGroupBox6.Text = "Fecha realizacion"
+        '
+        'PictureBox18
+        '
+        Me.PictureBox18.BackColor = System.Drawing.SystemColors.Control
+        Me.PictureBox18.Image = CType(resources.GetObject("PictureBox18.Image"), System.Drawing.Image)
+        Me.PictureBox18.Location = New System.Drawing.Point(6, 73)
+        Me.PictureBox18.Name = "PictureBox18"
+        Me.PictureBox18.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox18.TabIndex = 58
+        Me.PictureBox18.TabStop = False
+        '
+        'checkFechaRealizacion
+        '
+        Me.checkFechaRealizacion.AutoSize = True
+        Me.checkFechaRealizacion.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.checkFechaRealizacion.Location = New System.Drawing.Point(33, 76)
+        Me.checkFechaRealizacion.Name = "checkFechaRealizacion"
+        Me.checkFechaRealizacion.Size = New System.Drawing.Size(59, 17)
+        Me.checkFechaRealizacion.TabIndex = 43
+        Me.checkFechaRealizacion.Text = "Activar"
+        Me.checkFechaRealizacion.UseVisualStyleBackColor = False
+        '
+        'fechaRealizacionHasta
+        '
+        Me.fechaRealizacionHasta.Location = New System.Drawing.Point(6, 49)
+        Me.fechaRealizacionHasta.Name = "fechaRealizacionHasta"
+        Me.fechaRealizacionHasta.Size = New System.Drawing.Size(148, 20)
+        Me.fechaRealizacionHasta.TabIndex = 42
+        '
+        'fechaRealizacionDesde
+        '
+        Me.fechaRealizacionDesde.Location = New System.Drawing.Point(6, 23)
+        Me.fechaRealizacionDesde.Name = "fechaRealizacionDesde"
+        Me.fechaRealizacionDesde.Size = New System.Drawing.Size(148, 20)
+        Me.fechaRealizacionDesde.TabIndex = 41
+        '
         'PictureBox11
         '
         Me.PictureBox11.BackColor = System.Drawing.SystemColors.Control
         Me.PictureBox11.Image = CType(resources.GetObject("PictureBox11.Image"), System.Drawing.Image)
-        Me.PictureBox11.Location = New System.Drawing.Point(415, 81)
+        Me.PictureBox11.Location = New System.Drawing.Point(585, 83)
         Me.PictureBox11.Name = "PictureBox11"
         Me.PictureBox11.Size = New System.Drawing.Size(21, 21)
         Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -579,7 +731,7 @@ Partial Class GestorReportesProdForm
         '
         Me.PictureBox10.BackColor = System.Drawing.SystemColors.Control
         Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
-        Me.PictureBox10.Location = New System.Drawing.Point(415, 55)
+        Me.PictureBox10.Location = New System.Drawing.Point(585, 57)
         Me.PictureBox10.Name = "PictureBox10"
         Me.PictureBox10.Size = New System.Drawing.Size(21, 21)
         Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -590,7 +742,7 @@ Partial Class GestorReportesProdForm
         '
         Me.PictureBox9.BackColor = System.Drawing.SystemColors.Control
         Me.PictureBox9.Image = CType(resources.GetObject("PictureBox9.Image"), System.Drawing.Image)
-        Me.PictureBox9.Location = New System.Drawing.Point(415, 28)
+        Me.PictureBox9.Location = New System.Drawing.Point(585, 30)
         Me.PictureBox9.Name = "PictureBox9"
         Me.PictureBox9.Size = New System.Drawing.Size(21, 21)
         Me.PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -601,7 +753,7 @@ Partial Class GestorReportesProdForm
         '
         Me.checkServicioEstado.AutoSize = True
         Me.checkServicioEstado.BackColor = System.Drawing.SystemColors.Control
-        Me.checkServicioEstado.Location = New System.Drawing.Point(450, 85)
+        Me.checkServicioEstado.Location = New System.Drawing.Point(614, 87)
         Me.checkServicioEstado.Name = "checkServicioEstado"
         Me.checkServicioEstado.Size = New System.Drawing.Size(59, 17)
         Me.checkServicioEstado.TabIndex = 81
@@ -612,7 +764,7 @@ Partial Class GestorReportesProdForm
         '
         Me.checkServicioOperacion.AutoSize = True
         Me.checkServicioOperacion.BackColor = System.Drawing.SystemColors.Control
-        Me.checkServicioOperacion.Location = New System.Drawing.Point(450, 59)
+        Me.checkServicioOperacion.Location = New System.Drawing.Point(614, 61)
         Me.checkServicioOperacion.Name = "checkServicioOperacion"
         Me.checkServicioOperacion.Size = New System.Drawing.Size(59, 17)
         Me.checkServicioOperacion.TabIndex = 80
@@ -623,7 +775,7 @@ Partial Class GestorReportesProdForm
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(166, 86)
+        Me.Label9.Location = New System.Drawing.Point(362, 89)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(40, 13)
         Me.Label9.TabIndex = 79
@@ -633,7 +785,7 @@ Partial Class GestorReportesProdForm
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(150, 60)
+        Me.Label3.Location = New System.Drawing.Point(347, 62)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(56, 13)
         Me.Label3.TabIndex = 78
@@ -643,25 +795,25 @@ Partial Class GestorReportesProdForm
         '
         Me.comboServicioEstado.AutoSize = True
         Me.comboServicioEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboServicioEstado.Location = New System.Drawing.Point(207, 82)
+        Me.comboServicioEstado.Location = New System.Drawing.Point(405, 84)
         Me.comboServicioEstado.Name = "comboServicioEstado"
-        Me.comboServicioEstado.Size = New System.Drawing.Size(205, 21)
+        Me.comboServicioEstado.Size = New System.Drawing.Size(177, 21)
         Me.comboServicioEstado.TabIndex = 77
         '
         'comboServicioOperacion
         '
         Me.comboServicioOperacion.AutoSize = True
         Me.comboServicioOperacion.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboServicioOperacion.Location = New System.Drawing.Point(207, 55)
+        Me.comboServicioOperacion.Location = New System.Drawing.Point(405, 57)
         Me.comboServicioOperacion.Name = "comboServicioOperacion"
-        Me.comboServicioOperacion.Size = New System.Drawing.Size(205, 21)
+        Me.comboServicioOperacion.Size = New System.Drawing.Size(177, 21)
         Me.comboServicioOperacion.TabIndex = 76
         '
         'btnServicio
         '
         Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
         Me.btnServicio.Appearance = Appearance3
-        Me.btnServicio.Location = New System.Drawing.Point(538, 69)
+        Me.btnServicio.Location = New System.Drawing.Point(682, 71)
         Me.btnServicio.Name = "btnServicio"
         Me.btnServicio.Size = New System.Drawing.Size(90, 34)
         Me.btnServicio.TabIndex = 75
@@ -671,7 +823,7 @@ Partial Class GestorReportesProdForm
         '
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Location = New System.Drawing.Point(166, 33)
+        Me.Label8.Location = New System.Drawing.Point(364, 34)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(39, 13)
         Me.Label8.TabIndex = 72
@@ -681,21 +833,232 @@ Partial Class GestorReportesProdForm
         '
         Me.comboServicioCliente.AutoSize = True
         Me.comboServicioCliente.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboServicioCliente.Location = New System.Drawing.Point(207, 28)
+        Me.comboServicioCliente.Location = New System.Drawing.Point(405, 30)
         Me.comboServicioCliente.Name = "comboServicioCliente"
-        Me.comboServicioCliente.Size = New System.Drawing.Size(205, 21)
+        Me.comboServicioCliente.Size = New System.Drawing.Size(177, 21)
         Me.comboServicioCliente.TabIndex = 74
         '
         'checkServicioCliente
         '
         Me.checkServicioCliente.AutoSize = True
         Me.checkServicioCliente.BackColor = System.Drawing.SystemColors.Control
-        Me.checkServicioCliente.Location = New System.Drawing.Point(450, 32)
+        Me.checkServicioCliente.Location = New System.Drawing.Point(614, 34)
         Me.checkServicioCliente.Name = "checkServicioCliente"
         Me.checkServicioCliente.Size = New System.Drawing.Size(59, 17)
         Me.checkServicioCliente.TabIndex = 73
         Me.checkServicioCliente.Text = "Activar"
         Me.checkServicioCliente.UseVisualStyleBackColor = False
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.UltraGroupBox4)
+        Me.TabPage1.Controls.Add(Me.UltraGroupBox3)
+        Me.TabPage1.Controls.Add(Me.PictureBox13)
+        Me.TabPage1.Controls.Add(Me.PictureBox14)
+        Me.TabPage1.Controls.Add(Me.checkTorneadoNroserie)
+        Me.TabPage1.Controls.Add(Me.Label11)
+        Me.TabPage1.Controls.Add(Me.comboTorneadoNroserie)
+        Me.TabPage1.Controls.Add(Me.btnTorneado)
+        Me.TabPage1.Controls.Add(Me.Label12)
+        Me.TabPage1.Controls.Add(Me.comboTornero)
+        Me.TabPage1.Controls.Add(Me.checkTornero)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(778, 131)
+        Me.TabPage1.TabIndex = 4
+        Me.TabPage1.Text = "Torneados"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'UltraGroupBox4
+        '
+        Me.UltraGroupBox4.Controls.Add(Me.PictureBox16)
+        Me.UltraGroupBox4.Controls.Add(Me.checkFechaRecepcion)
+        Me.UltraGroupBox4.Controls.Add(Me.fechaRecepcionHasta)
+        Me.UltraGroupBox4.Controls.Add(Me.fechaRecepcionDesde)
+        Me.UltraGroupBox4.Location = New System.Drawing.Point(178, 9)
+        Me.UltraGroupBox4.Name = "UltraGroupBox4"
+        Me.UltraGroupBox4.Size = New System.Drawing.Size(162, 107)
+        Me.UltraGroupBox4.SupportThemes = False
+        Me.UltraGroupBox4.TabIndex = 98
+        Me.UltraGroupBox4.Text = "Fecha recepción"
+        '
+        'PictureBox16
+        '
+        Me.PictureBox16.BackColor = System.Drawing.SystemColors.Control
+        Me.PictureBox16.Image = CType(resources.GetObject("PictureBox16.Image"), System.Drawing.Image)
+        Me.PictureBox16.Location = New System.Drawing.Point(6, 73)
+        Me.PictureBox16.Name = "PictureBox16"
+        Me.PictureBox16.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox16.TabIndex = 58
+        Me.PictureBox16.TabStop = False
+        '
+        'checkFechaRecepcion
+        '
+        Me.checkFechaRecepcion.AutoSize = True
+        Me.checkFechaRecepcion.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.checkFechaRecepcion.Location = New System.Drawing.Point(33, 76)
+        Me.checkFechaRecepcion.Name = "checkFechaRecepcion"
+        Me.checkFechaRecepcion.Size = New System.Drawing.Size(59, 17)
+        Me.checkFechaRecepcion.TabIndex = 43
+        Me.checkFechaRecepcion.Text = "Activar"
+        Me.checkFechaRecepcion.UseVisualStyleBackColor = False
+        '
+        'fechaRecepcionHasta
+        '
+        Me.fechaRecepcionHasta.Location = New System.Drawing.Point(6, 49)
+        Me.fechaRecepcionHasta.Name = "fechaRecepcionHasta"
+        Me.fechaRecepcionHasta.Size = New System.Drawing.Size(148, 20)
+        Me.fechaRecepcionHasta.TabIndex = 42
+        '
+        'fechaRecepcionDesde
+        '
+        Me.fechaRecepcionDesde.Location = New System.Drawing.Point(6, 23)
+        Me.fechaRecepcionDesde.Name = "fechaRecepcionDesde"
+        Me.fechaRecepcionDesde.Size = New System.Drawing.Size(148, 20)
+        Me.fechaRecepcionDesde.TabIndex = 41
+        '
+        'UltraGroupBox3
+        '
+        Me.UltraGroupBox3.Controls.Add(Me.PictureBox15)
+        Me.UltraGroupBox3.Controls.Add(Me.checkFechaSalida)
+        Me.UltraGroupBox3.Controls.Add(Me.fechaSalidaHasta)
+        Me.UltraGroupBox3.Controls.Add(Me.fechaSalidaDesde)
+        Me.UltraGroupBox3.Location = New System.Drawing.Point(10, 9)
+        Me.UltraGroupBox3.Name = "UltraGroupBox3"
+        Me.UltraGroupBox3.Size = New System.Drawing.Size(162, 107)
+        Me.UltraGroupBox3.SupportThemes = False
+        Me.UltraGroupBox3.TabIndex = 97
+        Me.UltraGroupBox3.Text = "Fecha salida"
+        '
+        'PictureBox15
+        '
+        Me.PictureBox15.BackColor = System.Drawing.SystemColors.Control
+        Me.PictureBox15.Image = CType(resources.GetObject("PictureBox15.Image"), System.Drawing.Image)
+        Me.PictureBox15.Location = New System.Drawing.Point(6, 73)
+        Me.PictureBox15.Name = "PictureBox15"
+        Me.PictureBox15.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox15.TabIndex = 58
+        Me.PictureBox15.TabStop = False
+        '
+        'checkFechaSalida
+        '
+        Me.checkFechaSalida.AutoSize = True
+        Me.checkFechaSalida.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.checkFechaSalida.Location = New System.Drawing.Point(33, 76)
+        Me.checkFechaSalida.Name = "checkFechaSalida"
+        Me.checkFechaSalida.Size = New System.Drawing.Size(59, 17)
+        Me.checkFechaSalida.TabIndex = 43
+        Me.checkFechaSalida.Text = "Activar"
+        Me.checkFechaSalida.UseVisualStyleBackColor = False
+        '
+        'fechaSalidaHasta
+        '
+        Me.fechaSalidaHasta.Location = New System.Drawing.Point(6, 49)
+        Me.fechaSalidaHasta.Name = "fechaSalidaHasta"
+        Me.fechaSalidaHasta.Size = New System.Drawing.Size(148, 20)
+        Me.fechaSalidaHasta.TabIndex = 42
+        '
+        'fechaSalidaDesde
+        '
+        Me.fechaSalidaDesde.Location = New System.Drawing.Point(6, 23)
+        Me.fechaSalidaDesde.Name = "fechaSalidaDesde"
+        Me.fechaSalidaDesde.Size = New System.Drawing.Size(148, 20)
+        Me.fechaSalidaDesde.TabIndex = 41
+        '
+        'PictureBox13
+        '
+        Me.PictureBox13.BackColor = System.Drawing.SystemColors.Control
+        Me.PictureBox13.Image = CType(resources.GetObject("PictureBox13.Image"), System.Drawing.Image)
+        Me.PictureBox13.Location = New System.Drawing.Point(668, 55)
+        Me.PictureBox13.Name = "PictureBox13"
+        Me.PictureBox13.Size = New System.Drawing.Size(21, 21)
+        Me.PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox13.TabIndex = 96
+        Me.PictureBox13.TabStop = False
+        '
+        'PictureBox14
+        '
+        Me.PictureBox14.BackColor = System.Drawing.SystemColors.Control
+        Me.PictureBox14.Image = CType(resources.GetObject("PictureBox14.Image"), System.Drawing.Image)
+        Me.PictureBox14.Location = New System.Drawing.Point(668, 28)
+        Me.PictureBox14.Name = "PictureBox14"
+        Me.PictureBox14.Size = New System.Drawing.Size(21, 21)
+        Me.PictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox14.TabIndex = 95
+        Me.PictureBox14.TabStop = False
+        '
+        'checkTorneadoNroserie
+        '
+        Me.checkTorneadoNroserie.AutoSize = True
+        Me.checkTorneadoNroserie.BackColor = System.Drawing.SystemColors.Control
+        Me.checkTorneadoNroserie.Location = New System.Drawing.Point(703, 59)
+        Me.checkTorneadoNroserie.Name = "checkTorneadoNroserie"
+        Me.checkTorneadoNroserie.Size = New System.Drawing.Size(59, 17)
+        Me.checkTorneadoNroserie.TabIndex = 93
+        Me.checkTorneadoNroserie.Text = "Activar"
+        Me.checkTorneadoNroserie.UseVisualStyleBackColor = False
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Location = New System.Drawing.Point(403, 60)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(51, 13)
+        Me.Label11.TabIndex = 91
+        Me.Label11.Text = "Nro Serie"
+        '
+        'comboTorneadoNroserie
+        '
+        Me.comboTorneadoNroserie.AutoSize = True
+        Me.comboTorneadoNroserie.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
+        Me.comboTorneadoNroserie.Location = New System.Drawing.Point(460, 55)
+        Me.comboTorneadoNroserie.Name = "comboTorneadoNroserie"
+        Me.comboTorneadoNroserie.Size = New System.Drawing.Size(205, 21)
+        Me.comboTorneadoNroserie.TabIndex = 89
+        '
+        'btnTorneado
+        '
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.btnTorneado.Appearance = Appearance4
+        Me.btnTorneado.Location = New System.Drawing.Point(575, 82)
+        Me.btnTorneado.Name = "btnTorneado"
+        Me.btnTorneado.Size = New System.Drawing.Size(90, 34)
+        Me.btnTorneado.TabIndex = 88
+        Me.btnTorneado.Text = "Ejecutar"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
+        Me.Label12.Location = New System.Drawing.Point(408, 33)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(44, 13)
+        Me.Label12.TabIndex = 85
+        Me.Label12.Text = "Tornero"
+        '
+        'comboTornero
+        '
+        Me.comboTornero.AutoSize = True
+        Me.comboTornero.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
+        Me.comboTornero.Location = New System.Drawing.Point(460, 28)
+        Me.comboTornero.Name = "comboTornero"
+        Me.comboTornero.Size = New System.Drawing.Size(205, 21)
+        Me.comboTornero.TabIndex = 87
+        '
+        'checkTornero
+        '
+        Me.checkTornero.AutoSize = True
+        Me.checkTornero.BackColor = System.Drawing.SystemColors.Control
+        Me.checkTornero.Location = New System.Drawing.Point(703, 32)
+        Me.checkTornero.Name = "checkTornero"
+        Me.checkTornero.Size = New System.Drawing.Size(59, 17)
+        Me.checkTornero.TabIndex = 86
+        Me.checkTornero.Text = "Activar"
+        Me.checkTornero.UseVisualStyleBackColor = False
         '
         'imageLoading
         '
@@ -708,15 +1071,41 @@ Partial Class GestorReportesProdForm
         Me.imageLoading.TabStop = False
         Me.imageLoading.Visible = False
         '
-        'TabPage1
+        'PictureBox8
         '
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(778, 131)
-        Me.TabPage1.TabIndex = 4
-        Me.TabPage1.Text = "Torneados"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.PictureBox8.BackColor = System.Drawing.SystemColors.Control
+        Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
+        Me.PictureBox8.Location = New System.Drawing.Point(6, 73)
+        Me.PictureBox8.Name = "PictureBox8"
+        Me.PictureBox8.Size = New System.Drawing.Size(21, 20)
+        Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox8.TabIndex = 58
+        Me.PictureBox8.TabStop = False
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.CheckBox1.Location = New System.Drawing.Point(33, 76)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(59, 17)
+        Me.CheckBox1.TabIndex = 43
+        Me.CheckBox1.Text = "Activar"
+        Me.CheckBox1.UseVisualStyleBackColor = False
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(6, 49)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(211, 20)
+        Me.DateTimePicker1.TabIndex = 42
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Location = New System.Drawing.Point(6, 23)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(211, 20)
+        Me.DateTimePicker2.TabIndex = 41
         '
         'GestorReportesProdForm
         '
@@ -758,13 +1147,36 @@ Partial Class GestorReportesProdForm
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabServicios.ResumeLayout(False)
         Me.tabServicios.PerformLayout()
+        CType(Me.UltraGroupBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox5.ResumeLayout(False)
+        Me.UltraGroupBox5.PerformLayout()
+        CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraGroupBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox6.ResumeLayout(False)
+        Me.UltraGroupBox6.PerformLayout()
+        CType(Me.PictureBox18, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboServicioEstado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboServicioOperacion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.comboServicioCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
+        CType(Me.UltraGroupBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox4.ResumeLayout(False)
+        Me.UltraGroupBox4.PerformLayout()
+        CType(Me.PictureBox16, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox3.ResumeLayout(False)
+        Me.UltraGroupBox3.PerformLayout()
+        CType(Me.PictureBox15, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox13, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox14, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comboTorneadoNroserie, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comboTornero, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imageLoading, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -825,4 +1237,37 @@ Partial Class GestorReportesProdForm
     Friend WithEvents checkPedidoModelo As System.Windows.Forms.CheckBox
     Friend WithEvents imageLoading As System.Windows.Forms.PictureBox
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents PictureBox13 As System.Windows.Forms.PictureBox
+    Friend WithEvents PictureBox14 As System.Windows.Forms.PictureBox
+    Friend WithEvents checkTorneadoNroserie As System.Windows.Forms.CheckBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents comboTorneadoNroserie As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents btnTorneado As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents comboTornero As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents checkTornero As System.Windows.Forms.CheckBox
+    Friend WithEvents UltraGroupBox4 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents PictureBox16 As System.Windows.Forms.PictureBox
+    Friend WithEvents checkFechaRecepcion As System.Windows.Forms.CheckBox
+    Friend WithEvents fechaRecepcionHasta As System.Windows.Forms.DateTimePicker
+    Friend WithEvents fechaRecepcionDesde As System.Windows.Forms.DateTimePicker
+    Friend WithEvents UltraGroupBox3 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents PictureBox15 As System.Windows.Forms.PictureBox
+    Friend WithEvents checkFechaSalida As System.Windows.Forms.CheckBox
+    Friend WithEvents fechaSalidaHasta As System.Windows.Forms.DateTimePicker
+    Friend WithEvents fechaSalidaDesde As System.Windows.Forms.DateTimePicker
+    Friend WithEvents PictureBox8 As System.Windows.Forms.PictureBox
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents UltraGroupBox5 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents PictureBox17 As System.Windows.Forms.PictureBox
+    Friend WithEvents checkFechaEntrega As System.Windows.Forms.CheckBox
+    Friend WithEvents fechaEntregaHasta As System.Windows.Forms.DateTimePicker
+    Friend WithEvents fechaEntregaDesde As System.Windows.Forms.DateTimePicker
+    Friend WithEvents UltraGroupBox6 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents PictureBox18 As System.Windows.Forms.PictureBox
+    Friend WithEvents checkFechaRealizacion As System.Windows.Forms.CheckBox
+    Friend WithEvents fechaRealizacionHasta As System.Windows.Forms.DateTimePicker
+    Friend WithEvents fechaRealizacionDesde As System.Windows.Forms.DateTimePicker
 End Class
