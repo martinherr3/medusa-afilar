@@ -9,6 +9,9 @@ Public Class frmHojaDeRuta
         cmbCriterio.Items.Add("Pedido")
         cmbCriterio.Items.Add("Estado")
         cmbCriterio.Items.Add("Tipo de fresa")
+        cmbCriterio.SelectedIndex = 1
+        txtBusqueda.Text = "Programado"
+        dgHoja.DataSource = buscar(ds)
 
     End Sub
 
@@ -73,5 +76,9 @@ Public Class frmHojaDeRuta
 
     Private Sub txtBusqueda_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtBusqueda.TextChanged
         dgHoja.DataSource = buscar(ds)
+    End Sub
+
+    Private Sub cmbCriterio_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbCriterio.SelectedIndexChanged
+        txtBusqueda.Text = ""
     End Sub
 End Class

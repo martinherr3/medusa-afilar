@@ -15,6 +15,7 @@ Public Class frmSegProd
 
         Dim constante As New Constantes
         cargarUltraCombo("select rtrim(apellido) + ', ' + rtrim(nombre) as empleado, idlegajo  from empleado where idcargo = " & constante.CargoOperario & " order by apellido", cmbEmpleado, "empleado", "idlegajo")
+        cargarUltraCombo("select rtrim(apellido) + ', '+ rtrim(nombre) as nombre, idtornero from tornero ", cmbTornero, "nombre", "idtornero")
         BtnAceptar.Enabled = False
         cmbEmpleado.Enabled = False
         txtIDHR.Focus()
@@ -93,7 +94,8 @@ Public Class frmSegProd
 
     Private Sub BtnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAceptar.Click
         Application.DoEvents()
-        If obj.registrarAvance(cmbEmpleado.Value) Then
+
+        If obj.registrarAvance(cmbEmpleado.Value, cmbTornero.Value) Then
             'MsgBox("se registro con exito")
             'PictureBox3.Visible = True
             obj = New ProdTacking(borrar)
@@ -108,6 +110,8 @@ Public Class frmSegProd
             'MsgBox("no se pudo continuar")
             cmbEmpleado.Focus()
         End If
+        cmbEmpleado.Value = ""
+        cmbTornero.Value = ""
     End Sub
 
     Private Sub PictureBox3_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox3.MouseMove
@@ -127,7 +131,13 @@ Public Class frmSegProd
                 lblFresa.Text = obj.getNombreFresa()
                 imagen.Image = obj.getImagen()
                 'Actualiza la infode la operacion actual
-                obj.dataDeOperacion(obj.getProximaOp())
+                If obj.dataDeOperacion(obj.getProximaOp()) Then
+                    cmbEmpleado.Visible = True
+                    cmbTornero.Visible = False
+                Else
+                    cmbTornero.Visible = True
+                    cmbEmpleado.Visible = False
+                End If
                 LblOperacion.Text = obj.Poperacion
                 lblInicioPlan.Text = obj.PinicioPlanificado
                 lblInicioReal.Text = obj.PinicioReal
@@ -199,10 +209,12 @@ Public Class ProdTacking
     Public Pduracion As String
     Public Pmaquina As String
     Public Poperario As String
+    Private Ptorneado As String
 
 
 
     Public Sub New(ByVal idfresa As Integer)
+        ptorneado = ""
         PidFresa = idfresa
         adapterfresa = New SqlDataAdapter("select detallehojaderuta.idlegajo, detallehojaderuta.idhojaderuta, detallehojaderuta.idetapadefabricacion, operacion.duracionpromedio, tipofresa.imagen, etapadefabricacion.idetapafabricacion, fresa.nroserie, etapadefabricacion.orden, operacion.nombre as nombreoperacion, detallehojaderuta.fechahorainicioreal, detallehojaderuta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detallehojaderuta.fechahorafinplanificada, hojaderuta.fechainicioproduccion, operacion.maquina, tipofresa.nombre, operacion.idoperacion, detallehojaderuta.idtorneado from fresa inner join hojaderuta on hojaderuta.idhojaderuta = fresa.idhojaderuta inner join tipofresa on fresa.idtipo = tipofresa.idtipo and fresa.idmodelo = tipofresa.idmodelo inner join detallehojaderuta on detallehojaderuta.idhojaderuta = fresa.idhojaderuta inner join etapadefabricacion on etapadefabricacion.idetapafabricacion = detallehojaderuta.idetapadefabricacion and fresa.idmodelo = etapadefabricacion.idmodelo and fresa.idtipo = etapadefabricacion.idtipofresa inner join operacion on etapadefabricacion.idoperacion = operacion.idoperacion where Fresa.nroserie = " & idfresa & " order by etapadefabricacion.orden", cnn)
         DS = New DataSet
@@ -241,6 +253,7 @@ Public Class ProdTacking
                 Pduracion = IIf(IsDBNull(fila(0).Item("duracionpromedio")), "", fila(0).Item("duracionpromedio"))
                 Pmaquina = IIf(IsDBNull(fila(0).Item("maquina")), "", Trim(fila(0).Item("maquina")))
                 Poperario = IIf(IsDBNull(fila(0).Item("idlegajo")), "", fila(0).Item("idlegajo"))
+                Ptorneado = ""
                 Return True
             Else
                 Dim dr As DataRow
@@ -254,7 +267,8 @@ Public Class ProdTacking
                 Pduracion = IIf(IsDBNull(fila(0).Item("duracionpromedio")), "", fila(0).Item("duracionpromedio"))
                 Pmaquina = ""
                 Poperario = IIf(IsDBNull(dr.Item("apellido")), "", Trim(dr.Item("apellido")) & ", " & Trim(dr.Item("nombre")))
-                Return True
+                Ptorneado = fila(0).Item("idtorneado")
+                Return False
             End If
 
         Else
@@ -303,8 +317,18 @@ Public Class ProdTacking
 
     End Function
     
-    Public Function registrarAvance(ByVal empleado As Integer) As Boolean
+    Public Function registrarAvance(ByVal empleado As Integer, ByVal tornero As Integer) As Boolean
+        Dim responsable As Integer
+        responsable = 0
         If empleado <> 0 Then
+            responsable = empleado
+        ElseIf tornero <> 0 Then
+            responsable = tornero
+            ' tomar un empleado x ya que no importa quien lo registra solo el tornero importa
+            empleado = 1
+        End If
+
+        If responsable <> 0 Then
             Dim nextOp As Integer
             nextOp = getProximaOp()
             Dim conn As SqlConnection
@@ -329,7 +353,17 @@ Public Class ProdTacking
                 comm2 = New SqlCommand(sql2, conn)
                 comm2.ExecuteNonQuery()
             End If
-
+            If Ptorneado <> "" Then
+                If PinicioReal = "" Then
+                    sql2 = "UPDATE torneado SET fechasalidad = getdate() , idtornero = " & responsable & " where idtorneado = " & Ptorneado
+                    comm2 = New SqlCommand(sql2, conn)
+                    comm2.ExecuteNonQuery()
+                Else
+                    sql2 = "UPDATE torneado SET fecharecepcion = getdate() , idtornero = " & responsable & " where idtorneado = " & Ptorneado
+                    comm2 = New SqlCommand(sql2, conn)
+                    comm2.ExecuteNonQuery()
+                End If
+            End If
             'If nextOp = 1 And PinicioReal = "" Then
             '    'marco el comienzo de la primera operacion
             '    Dim sql2 As String = "UPDATE detallehojaderuta set fechahorainicioreal = getdate() where idhojaderuta = " & IdHojaRuta & " and idetapadefabricacion in (select idetapafabricacion from etapadefabricacion where orden = " & nextOp & ")"
