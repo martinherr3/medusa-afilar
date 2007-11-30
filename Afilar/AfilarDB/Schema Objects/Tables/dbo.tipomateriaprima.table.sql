@@ -7,7 +7,8 @@
 [stockminimo] [int] NULL,
 [stockseguridad] [int] NULL,
 [loteeconomico] [int] NULL,
-[idunidadmedida] [int] NULL
+[idunidadmedida] [int] NULL,
+[clase] [varchar] (1) COLLATE Traditional_Spanish_CI_AS NULL
 ) ON [PRIMARY]
 
 
