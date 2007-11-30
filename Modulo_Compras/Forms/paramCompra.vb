@@ -287,7 +287,7 @@ Public Class paramCompra
         'lblCostoAlmacenamiento
         '
         Me.lblCostoAlmacenamiento.AutoSize = True
-        Me.lblCostoAlmacenamiento.Location = New System.Drawing.Point(6, 75)
+        Me.lblCostoAlmacenamiento.Location = New System.Drawing.Point(5, 75)
         Me.lblCostoAlmacenamiento.Name = "lblCostoAlmacenamiento"
         Me.lblCostoAlmacenamiento.Size = New System.Drawing.Size(130, 13)
         Me.lblCostoAlmacenamiento.TabIndex = 5
@@ -296,7 +296,7 @@ Public Class paramCompra
         'lblCostoEnvio
         '
         Me.lblCostoEnvio.AutoSize = True
-        Me.lblCostoEnvio.Location = New System.Drawing.Point(57, 50)
+        Me.lblCostoEnvio.Location = New System.Drawing.Point(54, 50)
         Me.lblCostoEnvio.Name = "lblCostoEnvio"
         Me.lblCostoEnvio.Size = New System.Drawing.Size(79, 13)
         Me.lblCostoEnvio.TabIndex = 4
@@ -305,7 +305,7 @@ Public Class paramCompra
         'lblCostoGestion
         '
         Me.lblCostoGestion.AutoSize = True
-        Me.lblCostoGestion.Location = New System.Drawing.Point(48, 24)
+        Me.lblCostoGestion.Location = New System.Drawing.Point(45, 23)
         Me.lblCostoGestion.Name = "lblCostoGestion"
         Me.lblCostoGestion.Size = New System.Drawing.Size(88, 13)
         Me.lblCostoGestion.TabIndex = 3
@@ -313,23 +313,23 @@ Public Class paramCompra
         '
         'txtCostoAlmacenamiento
         '
-        Me.txtCostoAlmacenamiento.Location = New System.Drawing.Point(137, 68)
+        Me.txtCostoAlmacenamiento.Location = New System.Drawing.Point(147, 68)
         Me.txtCostoAlmacenamiento.Name = "txtCostoAlmacenamiento"
-        Me.txtCostoAlmacenamiento.Size = New System.Drawing.Size(93, 20)
+        Me.txtCostoAlmacenamiento.Size = New System.Drawing.Size(83, 20)
         Me.txtCostoAlmacenamiento.TabIndex = 2
         '
         'txtCostoEnvio
         '
-        Me.txtCostoEnvio.Location = New System.Drawing.Point(137, 43)
+        Me.txtCostoEnvio.Location = New System.Drawing.Point(147, 43)
         Me.txtCostoEnvio.Name = "txtCostoEnvio"
-        Me.txtCostoEnvio.Size = New System.Drawing.Size(93, 20)
+        Me.txtCostoEnvio.Size = New System.Drawing.Size(83, 20)
         Me.txtCostoEnvio.TabIndex = 1
         '
         'txtCostoGestion
         '
-        Me.txtCostoGestion.Location = New System.Drawing.Point(137, 17)
+        Me.txtCostoGestion.Location = New System.Drawing.Point(147, 17)
         Me.txtCostoGestion.Name = "txtCostoGestion"
-        Me.txtCostoGestion.Size = New System.Drawing.Size(93, 20)
+        Me.txtCostoGestion.Size = New System.Drawing.Size(83, 20)
         Me.txtCostoGestion.TabIndex = 0
         '
         'paramCompra

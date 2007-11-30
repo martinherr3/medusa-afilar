@@ -139,12 +139,18 @@ Public Class ParametrosCompras
         Try
             Dim sqlConsulta As String
 
+            'sqlConsulta = "select sum(PxT.cantidad) as CantidadVendida" & _
+            '              " from fresa F, tipoFresa T, parte PxT, tipoparte P, MPxTP MxT, tipomateriaprima TMP" & _
+            '              " where F.idtipo = T.idtipo and F.idmodelo=T.idmodelo and T.idtipo = PxT.idtipofresa and T.idmodelo = PxT.idmodelo and" & _
+            '              " PxT.nombre = P.nombre And P.nombre = MxT.nombre And MxT.idmp = TMP.idtipomateriaprima And F.fechafinfabricacion" & _
+            '              " between DateAdd(Year, -1, getdate()) And getdate() And TMP.idtipomateriaprima =" & IdTipoMateria & _
+            '              " group by TMP.idtipomateriaprima"
+
             sqlConsulta = "select sum(PxT.cantidad) as CantidadVendida" & _
-                          " from fresa F, tipoFresa T, parte PxT, tipoparte P, MPxTP MxT, tipomateriaprima TMP" & _
-                          " where F.idtipo = T.idtipo and F.idmodelo=T.idmodelo and T.idtipo = PxT.idtipofresa and T.idmodelo = PxT.idmodelo and" & _
-                          " PxT.nombre = P.nombre And P.nombre = MxT.nombre And MxT.idmp = TMP.idtipomateriaprima And F.fechafinfabricacion" & _
-                          " between DateAdd(Year, -1, getdate()) And getdate() And TMP.idtipomateriaprima =" & IdTipoMateria & _
-                          " group by TMP.idtipomateriaprima"
+                        " from fresa F, tipoFresa T, parte PxT, tipomateriaprima TMP" & _
+                        " where(F.idtipo = T.idtipo And F.idmodelo = T.idmodelo)" & _
+                        " and T.idtipo = PxT.idtipofresa and T.idmodelo = PxT.idmodelo and PxT.idtipomateriaprima = TMP.idtipomateriaprima And F.fechafinfabricacion between DateAdd(Year, -1, getdate()) And getdate() And TMP.idtipomateriaprima =" & IdTipoMateria & _
+                        " group by TMP.idtipomateriaprima"
 
             Dim Ad As New SqlClient.SqlDataAdapter(sqlConsulta, cnn)
             Dim Dato As New DataSet

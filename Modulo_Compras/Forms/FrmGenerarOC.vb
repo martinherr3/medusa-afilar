@@ -16,7 +16,7 @@ Public Class FrmGenerarOC
     Dim dvDOC As New DataView
     Dim dvProv As New DataView
     Dim dvproxmp As New DataView
-    Dim SQLdataadapter1 As New SqlDataAdapter("select idtipomateriaprima as ID, nombre as Nombre, stockactual, stockminimo, loteeconomico, idunidadmedida from tipomateriaprima ", cnn)
+    Dim SQLdataadapter1 As New SqlDataAdapter("select idtipomateriaprima as ID, nombre as Nombre, stockactual, stockminimo, loteeconomico, idunidadmedida, clase from tipomateriaprima ", cnn)
     Dim Sqldataadapter2 As New SqlDataAdapter("select * from ordencompramp where  1=2", cnn)
     Dim SQLdataadapter3 As New SqlDataAdapter("select * from detalleordencompra where 1=2", cnn)
     Dim SQLdataadapter4 As New SqlDataAdapter("select * from unidaddemedida", cnn)
@@ -712,12 +712,23 @@ Public Class FrmGenerarOC
             .Width = 80
         End With
         '
+
+        'Dim grdColStyle4 As New DataGridTextBoxColumn
+        Dim grdColStyle4 As New CustomDataGridTextBoxColumn
+        With grdColStyle4
+            .MappingName = "Clase"
+            .HeaderText = "Tipo de materia prima"
+            .Width = 80
+        End With
+        '
+
         AddHandler grdColStyle1.PaintRow, AddressOf EstablecerColores
         AddHandler grdColStyle2.PaintRow, AddressOf EstablecerColores
         AddHandler grdColStyle3.PaintRow, AddressOf EstablecerColores
+        AddHandler grdColStyle4.PaintRow, AddressOf EstablecerColores
 
         '
-        grdTableStyle1.GridColumnStyles.AddRange(New DataGridColumnStyle() {grdColStyle1, grdColStyle2, grdColStyle3})
+        grdTableStyle1.GridColumnStyles.AddRange(New DataGridColumnStyle() {grdColStyle1, grdColStyle2, grdColStyle3, grdColStyle4})
         GrdMP.TableStyles.Add(grdTableStyle1)
         '*********************************************************
 
@@ -725,11 +736,20 @@ Public Class FrmGenerarOC
 
     End Sub
     Private Sub EstablecerColores(ByVal args As PaintRowEventArgs)
+        args.BackColor = Brushes.LightGray
         If Me.GrdMP.Item(args.RowNumber, 1) < Me.GrdMP.Item(args.RowNumber, 2) Then
-            args.ForeColor = Brushes.Red
-            args.BackColor = Brushes.Yellow
+            'args.ForeColor = Brushes.Red
+            args.BackColor = Brushes.Orange
         End If
-        
+        Select Case Me.GrdMP.Item(args.RowNumber, 3)
+            Case "A"
+                args.ForeColor = Brushes.Red
+            Case "B"
+                args.ForeColor = Brushes.Yellow
+            Case "C"
+                args.ForeColor = Brushes.Green
+        End Select
+
 
     End Sub
 

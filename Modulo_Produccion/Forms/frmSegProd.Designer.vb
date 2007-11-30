@@ -54,11 +54,13 @@ Partial Class frmSegProd
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.timerSeg = New System.Windows.Forms.Timer(Me.components)
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
+        Me.cmbTornero = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         CType(Me.barra, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.cmbEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbTornero, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'barra
@@ -114,6 +116,7 @@ Partial Class frmSegProd
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cmbTornero)
         Me.GroupBox1.Controls.Add(Me.cmbEmpleado)
         Me.GroupBox1.Controls.Add(Me.LblOperacion)
         Me.GroupBox1.Controls.Add(Me.lblInicioPlan)
@@ -298,7 +301,7 @@ Partial Class frmSegProd
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
         Me.PictureBox3.Location = New System.Drawing.Point(12, 13)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(937, 590)
+        Me.PictureBox3.Size = New System.Drawing.Size(937, 589)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox3.TabIndex = 15
         Me.PictureBox3.TabStop = False
@@ -331,6 +334,16 @@ Partial Class frmSegProd
         Me.UltraButton2.TabIndex = 18
         Me.UltraButton2.Text = "&Cancelar"
         '
+        'cmbTornero
+        '
+        Me.cmbTornero.AutoComplete = True
+        Me.cmbTornero.AutoSize = True
+        Me.cmbTornero.Location = New System.Drawing.Point(688, 35)
+        Me.cmbTornero.Name = "cmbTornero"
+        Me.cmbTornero.Size = New System.Drawing.Size(226, 27)
+        Me.cmbTornero.TabIndex = 17
+        Me.cmbTornero.Visible = False
+        '
         'frmSegProd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -356,6 +369,7 @@ Partial Class frmSegProd
         Me.GroupBox1.PerformLayout()
         CType(Me.cmbEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbTornero, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -387,4 +401,5 @@ Partial Class frmSegProd
     Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents timerSeg As System.Windows.Forms.Timer
     Friend WithEvents UltraButton2 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents cmbTornero As Infragistics.Win.UltraWinEditors.UltraComboEditor
 End Class
