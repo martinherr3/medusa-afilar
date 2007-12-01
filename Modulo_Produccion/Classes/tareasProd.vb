@@ -147,5 +147,21 @@ Public Class tareasProd
     Return ds
 
   End Function
+  Public Function getDSByTipo(ByVal idTipo As Integer, ByVal idModelo As Integer, ByVal nroSerie As String) As DataSet
+    Dim sqlConn As New SqlConnection(cnn.ConnectionString)
+    Dim sql As String
+    Dim coll As New Collection
 
+    sql = "SELECT " & nroSerie & " as nroserie, e.idetapafabricacion, o.maquina, o.nombre, o.duracionpromedio, e.orden " & _
+          "FROM etapadefabricacion e " & _
+          "  INNER JOIN operacion o ON e.idoperacion = o.idoperacion " & _
+          "WHERE e.idtipofresa = " & idTipo & " AND e.idmodelo = " & idModelo
+
+    Dim adp As New SqlDataAdapter(sql, sqlConn)
+    Dim ds As New DataSet
+    sqlConn.Open()
+    adp.Fill(ds, "operacion")
+    sqlConn.Close()
+    Return ds
+  End Function
 End Class

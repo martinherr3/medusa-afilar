@@ -386,13 +386,15 @@ Public Class programador
   End Function
 
   Public Function guardarProgramacion() As Boolean
-
+    Dim constante As New Constantes
     Dim commd As New SqlClient.SqlCommand
     Dim orden As Integer = 1
     Dim i As Boolean
     Dim allTasksCollection As New Collection
     Dim idHR As Integer
     Dim DS As DataSet
+    Dim idTorneado As Integer
+
 
     For Each maq As MaquinaProd In _maquinas
       For Each tar As tareasProd In maq.tareas
@@ -436,9 +438,23 @@ Public Class programador
         For Each tar As tareasProd In allTasksCollection
           If tar.idFresa = fre.id_fresa And tar.orden = orden Then
 
-            commd.CommandText = "INSERT INTO detallehojaderuta (idhojaderuta, idetapadefabricacion, fechahorainicioplanificada, fechahorafinplanificada, idmaquina) VALUES (" & idHR & ", " & tar.idEtapa & ", '" & tar.inicio.ToString("s") & "', '" & tar.fin.ToString("s") & "', " & tar.idMaquina & " )"
-            commd.ExecuteNonQuery()
+            If tar.idEtapa = constante.OperacionTorneado Then
 
+              commd.CommandText = "SELECT max(idtorneado) FROM torneado"
+              If IsDBNull(commd.ExecuteScalar()) Then
+                idTorneado = 1
+              Else
+                idTorneado = commd.ExecuteScalar() + 1
+              End If
+              commd.CommandText = "INSERT INTO torneado (idtorneado) VALUES (" & idTorneado & ")"
+              commd.ExecuteNonQuery()
+              commd.CommandText = "INSERT INTO detallehojaderuta (idhojaderuta, idetapadefabricacion, idtorneado, fechahorainicioplanificada, fechahorafinplanificada, idmaquina) " & _
+                                  "VALUES (" & idHR & ", " & tar.idEtapa & ", " & idTorneado & ", '" & tar.inicio.ToString("s") & "', '" & tar.fin.ToString("s") & "', " & tar.idMaquina & " )"
+            Else
+              commd.CommandText = "INSERT INTO detallehojaderuta (idhojaderuta, idetapadefabricacion, fechahorainicioplanificada, fechahorafinplanificada, idmaquina) " & _
+                                  "VALUES (" & idHR & ", " & tar.idEtapa & ", '" & tar.inicio.ToString("s") & "', '" & tar.fin.ToString("s") & "', " & tar.idMaquina & " )"
+            End If
+            commd.ExecuteNonQuery()
             orden += 1
             i = True
           End If
@@ -463,6 +479,40 @@ Public Class programador
     DA.Fill(DS, "partes")
 
     Return DS
+  End Function
+
+  '--- cargar programacion guardada ---
+  Public Function cargarProgramacion() As Integer
+    Dim DS As New DataSet
+    Dim sql As String
+
+    sql = "SELECT idhojaderuta, idetapadefabricacion, fechahorainicioplanificada, fechahorafinplanificada, idmaquina " & _
+          "FROM detallehojaderuta " & _
+          "WHERE fechahorafinplanificada > '" & _horaInicioGeneral.ToString("s") & "'"
+
+    Dim comm As New SqlClient.SqlCommand(sql, cnn)
+    Dim DA As New SqlClient.SqlDataAdapter(comm)
+
+    DA.Fill(DS, "planificados")
+
+    Dim tar As tareasProd
+    For Each DR As DataRow In DS.Tables.Item(0).Rows
+      ' por cada row crear el objeto tarea y asignarlo a la maquina correspondiente
+      tar = New tareasProd
+      tar.inicio = DR("fechahorainicioplanificada")
+      tar.fin = DR("fechahorafinplanificada")
+      tar.idEtapa = DR("idetapadefabricacion")
+      tar.idFresa = -2 'idFresa = -2 --> tarea ya programada y guardada (idFresa = -1 --> tarea cierre)
+
+      For Each maq As MaquinaProd In _maquinas
+        If maq.idMaquina = DR("idmaquina") Then
+          maq.programarTarea(tar)
+          Exit For
+        End If
+      Next
+
+    Next
+    ''ver tema de los colores para las tareas cargadas de la BD
   End Function
 End Class
 
