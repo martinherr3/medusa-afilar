@@ -51,6 +51,7 @@ Public Class frmpedidocliente
     Friend WithEvents txtFiltroCliente As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents comboFiltroEstado As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents btnEstimar As Infragistics.Win.Misc.UltraButton
     Dim bpedido As Boolean
 #End Region
 
@@ -151,26 +152,27 @@ Public Class frmpedidocliente
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.txtimportetotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -242,6 +244,7 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.btnEstimar = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -296,8 +299,8 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Controls.Add(Me.btngrabar)
         Me.UltraTabPageControl1.Controls.Add(Me.btnnuevo)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
@@ -598,8 +601,8 @@ Public Class frmpedidocliente
         'UltraGroupBox3
         '
         Me.UltraGroupBox3.BackColor = System.Drawing.Color.Transparent
-        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox3.ContentAreaAppearance = Appearance6
+        Appearance10.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox3.ContentAreaAppearance = Appearance10
         Me.UltraGroupBox3.Controls.Add(Me.PictureBox7)
         Me.UltraGroupBox3.Controls.Add(Me.botquitar)
         Me.UltraGroupBox3.Controls.Add(Me.UltraGroupBox4)
@@ -630,8 +633,8 @@ Public Class frmpedidocliente
         '
         'botquitar
         '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.botquitar.Appearance = Appearance7
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.botquitar.Appearance = Appearance11
         Me.botquitar.Location = New System.Drawing.Point(132, 171)
         Me.botquitar.Name = "botquitar"
         Me.botquitar.Size = New System.Drawing.Size(102, 24)
@@ -641,8 +644,8 @@ Public Class frmpedidocliente
         'UltraGroupBox4
         '
         Me.UltraGroupBox4.BackColor = System.Drawing.Color.LightSteelBlue
-        Appearance8.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox4.ContentAreaAppearance = Appearance8
+        Appearance12.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox4.ContentAreaAppearance = Appearance12
         Me.UltraGroupBox4.Controls.Add(Me.txtcantidad)
         Me.UltraGroupBox4.Controls.Add(Me.Label9)
         Me.UltraGroupBox4.Controls.Add(Me.txtitem)
@@ -711,8 +714,8 @@ Public Class frmpedidocliente
         '
         'botagregar
         '
-        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
-        Me.botagregar.Appearance = Appearance9
+        Appearance13.Image = CType(resources.GetObject("Appearance13.Image"), Object)
+        Me.botagregar.Appearance = Appearance13
         Me.botagregar.Location = New System.Drawing.Point(24, 171)
         Me.botagregar.Name = "botagregar"
         Me.botagregar.Size = New System.Drawing.Size(102, 24)
@@ -808,8 +811,9 @@ Public Class frmpedidocliente
         'UltraGroupBox1
         '
         Me.UltraGroupBox1.BackColor = System.Drawing.Color.Transparent
-        Appearance10.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox1.ContentAreaAppearance = Appearance10
+        Appearance6.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox1.ContentAreaAppearance = Appearance6
+        Me.UltraGroupBox1.Controls.Add(Me.btnEstimar)
         Me.UltraGroupBox1.Controls.Add(Me.PictureBox5)
         Me.UltraGroupBox1.Controls.Add(Me.txtsubtotal)
         Me.UltraGroupBox1.Controls.Add(Me.Label7)
@@ -860,8 +864,8 @@ Public Class frmpedidocliente
         '
         'btnquiter
         '
-        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
-        Me.btnquiter.Appearance = Appearance11
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.btnquiter.Appearance = Appearance8
         Me.btnquiter.Location = New System.Drawing.Point(132, 171)
         Me.btnquiter.Name = "btnquiter"
         Me.btnquiter.Size = New System.Drawing.Size(102, 24)
@@ -870,8 +874,8 @@ Public Class frmpedidocliente
         '
         'btnagregar
         '
-        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
-        Me.btnagregar.Appearance = Appearance12
+        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
+        Me.btnagregar.Appearance = Appearance9
         Me.btnagregar.Location = New System.Drawing.Point(24, 171)
         Me.btnagregar.Name = "btnagregar"
         Me.btnagregar.Size = New System.Drawing.Size(102, 24)
@@ -995,8 +999,8 @@ Public Class frmpedidocliente
         '
         Me.comboFiltroEstado.AutoSize = True
         Me.comboFiltroEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Appearance13.FontData.BoldAsString = "True"
-        ValueListItem3.Appearance = Appearance13
+        Appearance14.FontData.BoldAsString = "True"
+        ValueListItem3.Appearance = Appearance14
         ValueListItem3.DataValue = "ValueListItem7"
         ValueListItem3.DisplayText = "Ninguno"
         ValueListItem3.Tag = -1
@@ -1107,8 +1111,8 @@ Public Class frmpedidocliente
         ValueListItem5.DataValue = "ValueListItem1"
         ValueListItem5.DisplayText = "Numero Pedido"
         ValueListItem5.Tag = "NroPedido"
-        Appearance14.FontData.BoldAsString = "True"
-        ValueListItem6.Appearance = Appearance14
+        Appearance15.FontData.BoldAsString = "True"
+        ValueListItem6.Appearance = Appearance15
         ValueListItem6.DataValue = "ValueListItem7"
         ValueListItem6.DisplayText = "Ninguno"
         ValueListItem6.Tag = "ninguno"
@@ -1122,8 +1126,8 @@ Public Class frmpedidocliente
         '
         'btnFiltrar
         '
-        Appearance15.Image = CType(resources.GetObject("Appearance15.Image"), Object)
-        Me.btnFiltrar.Appearance = Appearance15
+        Appearance16.Image = CType(resources.GetObject("Appearance16.Image"), Object)
+        Me.btnFiltrar.Appearance = Appearance16
         Me.btnFiltrar.Location = New System.Drawing.Point(295, 30)
         Me.btnFiltrar.Name = "btnFiltrar"
         Me.btnFiltrar.Size = New System.Drawing.Size(80, 48)
@@ -1150,8 +1154,8 @@ Public Class frmpedidocliente
         '
         'btnSalir
         '
-        Appearance16.Image = CType(resources.GetObject("Appearance16.Image"), Object)
-        Me.btnSalir.Appearance = Appearance16
+        Appearance17.Image = CType(resources.GetObject("Appearance17.Image"), Object)
+        Me.btnSalir.Appearance = Appearance17
         Me.btnSalir.Location = New System.Drawing.Point(708, 509)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(88, 33)
@@ -1188,20 +1192,20 @@ Public Class frmpedidocliente
         '
         'UltraTabControl1
         '
-        Appearance17.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance17.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance17
         Appearance18.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance18.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance18
+        Appearance18.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance18
+        Appearance19.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance19.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance19
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 0)
         Me.UltraTabControl1.Name = "UltraTabControl1"
-        Appearance19.BackColor = System.Drawing.Color.Silver
-        Appearance19.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.SelectedTabAppearance = Appearance19
+        Appearance20.BackColor = System.Drawing.Color.Silver
+        Appearance20.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance20
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
         Me.UltraTabControl1.Size = New System.Drawing.Size(817, 568)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
@@ -1218,6 +1222,16 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
+        '
+        'btnEstimar
+        '
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.btnEstimar.Appearance = Appearance7
+        Me.btnEstimar.Location = New System.Drawing.Point(283, 347)
+        Me.btnEstimar.Name = "btnEstimar"
+        Me.btnEstimar.Size = New System.Drawing.Size(117, 35)
+        Me.btnEstimar.TabIndex = 9
+        Me.btnEstimar.Text = "Estimar fecha entrega"
         '
         'frmpedidocliente
         '
@@ -2257,14 +2271,15 @@ Public Class frmpedidocliente
                 End If
             Next
             txtsubtot.Text = subtotal
-            Dim total As Decimal
-            If Not (txtimportetotal.Text = String.Empty) Then
-                total = CDec(txtimportetotal.Text)
-            Else
-                total = 0
-            End If
-            total += subtotal
-            txtimportetotal.Text = total
+            '  Dim total As Decimal
+            ' If Not (txtimportetotal.Text = String.Empty) Then
+            '  total = CDec(txtimportetotal.Text)
+            '  Else
+            '  total = 0
+            '  End If
+            ' total += subtotal
+            ' txtimportetotal.Text = total
+            txtimportetotal.Text = CDec(txtsubtot.Text) + CDec(txtsubtotal.Text)
             'Va al ultimo
             txtitem.Text = ""
             'txtdescripcion.Text = ""
@@ -2651,5 +2666,24 @@ Public Class frmpedidocliente
     End Sub
 
 #End Region
+
+    Private Sub btnEstimar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEstimar.Click
+        'TODO: pasar idtipo y idmodelo al form ProdNuevo
+        Dim fresas As New Collection
+        Dim tipoFresa As idTipoFresa
+        For Each row As DataRow In ds.Tables("fresa").Rows
+
+            tipoFresa = New idTipoFresa()
+            tipoFresa.idTipo = row("idtipo")
+            tipoFresa.idModelo = row("idmodelo")
+            fresas.Add(tipoFresa)
+        Next
+
+        Dim formSimulacion As New ProdNuevo(Me)
+        'formSimulacion.simular(fresas)
+        formSimulacion.cargarSimulacion(fresas)
+        formSimulacion.Show(princ)
+
+    End Sub
 
 End Class
