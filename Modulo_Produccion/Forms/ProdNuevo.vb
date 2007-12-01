@@ -12,10 +12,13 @@ Public Class ProdNuevo
   Dim DS As DataSet
 
   Private programador As New programador
-  Private colores(14) As Color
+    Private colores(14) As Color
+
 
   Private simulando As Boolean = False
-  Private tiposSimulacion As New Collection
+    Private tiposSimulacion As New Collection
+    Private fechaFinSimulacion As DateTime
+    Private frmPadre As frmpedidocliente
 
   Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
   Friend WithEvents DTPickerInicioProg As System.Windows.Forms.DateTimePicker
@@ -37,7 +40,12 @@ Public Class ProdNuevo
 
 
 #Region " Código generado por el Diseñador de Windows Forms "
+    Public Sub New(ByRef frmPedido As frmpedidocliente)
+        Me.New()
+        'InitializeComponent()
+        frmPadre = frmPedido
 
+    End Sub
   Public Sub New()
     MyBase.New()
 
@@ -91,344 +99,345 @@ Public Class ProdNuevo
   Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
   Friend WithEvents UltraButton5 As Infragistics.Win.Misc.UltraButton
   <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-    Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-    Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-    Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-    Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-    Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-    Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ProdNuevo))
-    Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
-    Me.GroupBox1 = New System.Windows.Forms.GroupBox
-    Me.Label1 = New System.Windows.Forms.Label
-    Me.TXTHoraInicioProg = New System.Windows.Forms.MaskedTextBox
-    Me.DTPickerInicioProg = New System.Windows.Forms.DateTimePicker
-    Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
-    Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
-    Me.grd2 = New System.Windows.Forms.DataGrid
-    Me.grd1 = New System.Windows.Forms.DataGrid
-    Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
-    Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
-    Me.GroupBox3 = New System.Windows.Forms.GroupBox
-    Me.Label3 = New System.Windows.Forms.Label
-    Me.TXTInicioSim = New System.Windows.Forms.MaskedTextBox
-    Me.DTPickerInicioSim = New System.Windows.Forms.DateTimePicker
-    Me.Label2 = New System.Windows.Forms.Label
-    Me.GroupBox2 = New System.Windows.Forms.GroupBox
-    Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
-    Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
-    Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
-    Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
-    Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-    Me.GanttChart1 = New Afilar.GanttChart
-    Me.UltraTabPageControl1.SuspendLayout()
-    Me.GroupBox1.SuspendLayout()
-    CType(Me.grd2, System.ComponentModel.ISupportInitialize).BeginInit()
-    CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
-    Me.UltraTabPageControl2.SuspendLayout()
-    Me.GroupBox3.SuspendLayout()
-    Me.GroupBox2.SuspendLayout()
-    CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-    Me.UltraTabControl1.SuspendLayout()
-    Me.SuspendLayout()
-    '
-    'UltraTabPageControl1
-    '
-    Me.UltraTabPageControl1.Controls.Add(Me.GroupBox1)
-    Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
-    Me.UltraTabPageControl1.Controls.Add(Me.UltraButton1)
-    Me.UltraTabPageControl1.Controls.Add(Me.grd2)
-    Me.UltraTabPageControl1.Controls.Add(Me.grd1)
-    Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
-    Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
-    Me.UltraTabPageControl1.Size = New System.Drawing.Size(756, 542)
-    '
-    'GroupBox1
-    '
-    Me.GroupBox1.Controls.Add(Me.Label1)
-    Me.GroupBox1.Controls.Add(Me.TXTHoraInicioProg)
-    Me.GroupBox1.Controls.Add(Me.DTPickerInicioProg)
-    Me.GroupBox1.Location = New System.Drawing.Point(16, 494)
-    Me.GroupBox1.Name = "GroupBox1"
-    Me.GroupBox1.Size = New System.Drawing.Size(284, 41)
-    Me.GroupBox1.TabIndex = 5
-    Me.GroupBox1.TabStop = False
-    Me.GroupBox1.Text = "Inicio de programacion"
-    '
-    'Label1
-    '
-    Me.Label1.AutoSize = True
-    Me.Label1.Location = New System.Drawing.Point(209, 21)
-    Me.Label1.Name = "Label1"
-    Me.Label1.Size = New System.Drawing.Size(21, 13)
-    Me.Label1.TabIndex = 8
-    Me.Label1.Text = "hs."
-    '
-    'TXTHoraInicioProg
-    '
-    Me.TXTHoraInicioProg.Location = New System.Drawing.Point(157, 16)
-    Me.TXTHoraInicioProg.Mask = "00:00"
-    Me.TXTHoraInicioProg.Name = "TXTHoraInicioProg"
-    Me.TXTHoraInicioProg.Size = New System.Drawing.Size(51, 20)
-    Me.TXTHoraInicioProg.TabIndex = 7
-    Me.TXTHoraInicioProg.ValidatingType = GetType(Date)
-    '
-    'DTPickerInicioProg
-    '
-    Me.DTPickerInicioProg.Location = New System.Drawing.Point(18, 15)
-    Me.DTPickerInicioProg.MinDate = New Date(2007, 11, 14, 0, 0, 0, 0)
-    Me.DTPickerInicioProg.Name = "DTPickerInicioProg"
-    Me.DTPickerInicioProg.Size = New System.Drawing.Size(120, 20)
-    Me.DTPickerInicioProg.TabIndex = 5
-    '
-    'UltraButton3
-    '
-    Me.UltraButton3.Location = New System.Drawing.Point(648, 507)
-    Me.UltraButton3.Name = "UltraButton3"
-    Me.UltraButton3.Size = New System.Drawing.Size(88, 24)
-    Me.UltraButton3.TabIndex = 3
-    Me.UltraButton3.Text = "Salir"
-    '
-    'UltraButton1
-    '
-    Me.UltraButton1.Location = New System.Drawing.Point(544, 507)
-    Me.UltraButton1.Name = "UltraButton1"
-    Me.UltraButton1.Size = New System.Drawing.Size(88, 24)
-    Me.UltraButton1.TabIndex = 2
-    Me.UltraButton1.Text = "Programar"
-    '
-    'grd2
-    '
-    Me.grd2.AlternatingBackColor = System.Drawing.Color.Lavender
-    Me.grd2.BackColor = System.Drawing.Color.WhiteSmoke
-    Me.grd2.BackgroundColor = System.Drawing.Color.LightGray
-    Me.grd2.BorderStyle = System.Windows.Forms.BorderStyle.None
-    Me.grd2.CaptionBackColor = System.Drawing.Color.LightSteelBlue
-    Me.grd2.CaptionForeColor = System.Drawing.Color.MidnightBlue
-    Me.grd2.CaptionText = "Items a programar"
-    Me.grd2.DataMember = ""
-    Me.grd2.FlatMode = True
-    Me.grd2.Font = New System.Drawing.Font("Tahoma", 8.0!)
-    Me.grd2.ForeColor = System.Drawing.Color.MidnightBlue
-    Me.grd2.GridLineColor = System.Drawing.Color.Gainsboro
-    Me.grd2.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
-    Me.grd2.HeaderBackColor = System.Drawing.Color.MidnightBlue
-    Me.grd2.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-    Me.grd2.HeaderForeColor = System.Drawing.Color.WhiteSmoke
-    Me.grd2.LinkColor = System.Drawing.Color.Teal
-    Me.grd2.Location = New System.Drawing.Point(16, 272)
-    Me.grd2.Name = "grd2"
-    Me.grd2.ParentRowsBackColor = System.Drawing.Color.Gainsboro
-    Me.grd2.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
-    Me.grd2.ReadOnly = True
-    Me.grd2.SelectionBackColor = System.Drawing.Color.CadetBlue
-    Me.grd2.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-    Me.grd2.Size = New System.Drawing.Size(720, 216)
-    Me.grd2.TabIndex = 1
-    '
-    'grd1
-    '
-    Me.grd1.AlternatingBackColor = System.Drawing.Color.Lavender
-    Me.grd1.BackColor = System.Drawing.Color.WhiteSmoke
-    Me.grd1.BackgroundColor = System.Drawing.Color.LightGray
-    Me.grd1.BorderStyle = System.Windows.Forms.BorderStyle.None
-    Me.grd1.CaptionBackColor = System.Drawing.Color.LightSteelBlue
-    Me.grd1.CaptionForeColor = System.Drawing.Color.MidnightBlue
-    Me.grd1.CaptionText = "Pedidos"
-    Me.grd1.DataMember = ""
-    Me.grd1.FlatMode = True
-    Me.grd1.Font = New System.Drawing.Font("Tahoma", 8.0!)
-    Me.grd1.ForeColor = System.Drawing.Color.MidnightBlue
-    Me.grd1.GridLineColor = System.Drawing.Color.Gainsboro
-    Me.grd1.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
-    Me.grd1.HeaderBackColor = System.Drawing.Color.MidnightBlue
-    Me.grd1.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
-    Me.grd1.HeaderForeColor = System.Drawing.Color.WhiteSmoke
-    Me.grd1.LinkColor = System.Drawing.Color.Teal
-    Me.grd1.Location = New System.Drawing.Point(16, 24)
-    Me.grd1.Name = "grd1"
-    Me.grd1.ParentRowsBackColor = System.Drawing.Color.Gainsboro
-    Me.grd1.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
-    Me.grd1.ReadOnly = True
-    Me.grd1.SelectionBackColor = System.Drawing.Color.CadetBlue
-    Me.grd1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-    Me.grd1.Size = New System.Drawing.Size(720, 233)
-    Me.grd1.TabIndex = 0
-    '
-    'UltraTabPageControl2
-    '
-    Me.UltraTabPageControl2.Controls.Add(Me.UltraButton6)
-    Me.UltraTabPageControl2.Controls.Add(Me.GroupBox3)
-    Me.UltraTabPageControl2.Controls.Add(Me.Label2)
-    Me.UltraTabPageControl2.Controls.Add(Me.GroupBox2)
-    Me.UltraTabPageControl2.Controls.Add(Me.UltraButton5)
-    Me.UltraTabPageControl2.Controls.Add(Me.UltraButton4)
-    Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
-    Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
-    Me.UltraTabPageControl2.Size = New System.Drawing.Size(756, 542)
-    '
-    'UltraButton6
-    '
-    Me.UltraButton6.Location = New System.Drawing.Point(275, 436)
-    Me.UltraButton6.Name = "UltraButton6"
-    Me.UltraButton6.Size = New System.Drawing.Size(97, 20)
-    Me.UltraButton6.TabIndex = 13
-    Me.UltraButton6.Text = "UltraButton6"
-    '
-    'GroupBox3
-    '
-    Me.GroupBox3.Controls.Add(Me.Label3)
-    Me.GroupBox3.Controls.Add(Me.TXTInicioSim)
-    Me.GroupBox3.Controls.Add(Me.DTPickerInicioSim)
-    Me.GroupBox3.Location = New System.Drawing.Point(27, 415)
-    Me.GroupBox3.Name = "GroupBox3"
-    Me.GroupBox3.Size = New System.Drawing.Size(232, 53)
-    Me.GroupBox3.TabIndex = 12
-    Me.GroupBox3.TabStop = False
-    Me.GroupBox3.Text = "Hora de Inicio Estimada"
-    '
-    'Label3
-    '
-    Me.Label3.AutoSize = True
-    Me.Label3.Location = New System.Drawing.Point(203, 25)
-    Me.Label3.Name = "Label3"
-    Me.Label3.Size = New System.Drawing.Size(21, 13)
-    Me.Label3.TabIndex = 9
-    Me.Label3.Text = "hs."
-    '
-    'TXTInicioSim
-    '
-    Me.TXTInicioSim.Location = New System.Drawing.Point(150, 21)
-    Me.TXTInicioSim.Mask = "00:00"
-    Me.TXTInicioSim.Name = "TXTInicioSim"
-    Me.TXTInicioSim.Size = New System.Drawing.Size(53, 20)
-    Me.TXTInicioSim.TabIndex = 1
-    '
-    'DTPickerInicioSim
-    '
-    Me.DTPickerInicioSim.Location = New System.Drawing.Point(12, 21)
-    Me.DTPickerInicioSim.Name = "DTPickerInicioSim"
-    Me.DTPickerInicioSim.Size = New System.Drawing.Size(132, 20)
-    Me.DTPickerInicioSim.TabIndex = 0
-    '
-    'Label2
-    '
-    Me.Label2.AutoSize = True
-    Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-    Me.Label2.Location = New System.Drawing.Point(116, 504)
-    Me.Label2.Name = "Label2"
-    Me.Label2.Size = New System.Drawing.Size(0, 13)
-    Me.Label2.TabIndex = 11
-    '
-    'GroupBox2
-    '
-    Me.GroupBox2.Controls.Add(Me.UltraButton2)
-    Me.GroupBox2.Controls.Add(Me.GanttChart1)
-    Me.GroupBox2.Enabled = False
-    Me.GroupBox2.Location = New System.Drawing.Point(2, 10)
-    Me.GroupBox2.Name = "GroupBox2"
-    Me.GroupBox2.Size = New System.Drawing.Size(751, 387)
-    Me.GroupBox2.TabIndex = 10
-    Me.GroupBox2.TabStop = False
-    Me.GroupBox2.Text = "Programacion Tareas"
-    '
-    'UltraButton2
-    '
-    Me.UltraButton2.Location = New System.Drawing.Point(578, 360)
-    Me.UltraButton2.Name = "UltraButton2"
-    Me.UltraButton2.Size = New System.Drawing.Size(156, 21)
-    Me.UltraButton2.TabIndex = 12
-    Me.UltraButton2.Text = "Ver Referencias"
-    '
-    'UltraButton5
-    '
-    Me.UltraButton5.Location = New System.Drawing.Point(480, 504)
-    Me.UltraButton5.Name = "UltraButton5"
-    Me.UltraButton5.Size = New System.Drawing.Size(136, 24)
-    Me.UltraButton5.TabIndex = 6
-    Me.UltraButton5.Text = "Guardar programacion"
-    '
-    'UltraButton4
-    '
-    Me.UltraButton4.Location = New System.Drawing.Point(632, 504)
-    Me.UltraButton4.Name = "UltraButton4"
-    Me.UltraButton4.Size = New System.Drawing.Size(104, 24)
-    Me.UltraButton4.TabIndex = 5
-    Me.UltraButton4.Text = "Salir"
-    '
-    'UltraTabControl1
-    '
-    Appearance1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-    Appearance1.BackColor2 = System.Drawing.Color.Silver
-    Me.UltraTabControl1.Appearance = Appearance1
-    Appearance2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-    Appearance2.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-    Me.UltraTabControl1.ClientAreaAppearance = Appearance2
-    Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
-    Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
-    Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
-    Me.UltraTabControl1.Location = New System.Drawing.Point(0, 3)
-    Me.UltraTabControl1.Name = "UltraTabControl1"
-    Appearance3.BackColor = System.Drawing.Color.Silver
-    Appearance3.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-    Me.UltraTabControl1.SelectedTabAppearance = Appearance3
-    Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
-    Me.UltraTabControl1.Size = New System.Drawing.Size(760, 565)
-    Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
-    Me.UltraTabControl1.TabIndex = 0
-    UltraTab1.TabPage = Me.UltraTabPageControl1
-    UltraTab1.Text = "Pedidos"
-    UltraTab2.TabPage = Me.UltraTabPageControl2
-    UltraTab2.Text = "Programacion"
-    Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
-    Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
-    '
-    'UltraTabSharedControlsPage1
-    '
-    Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
-    Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
-    Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(756, 542)
-    '
-    'GanttChart1
-    '
-    Me.GanttChart1.BackColor = System.Drawing.Color.White
-    Me.GanttChart1.DateFont = New System.Drawing.Font("Verdana", 8.0!)
-    Me.GanttChart1.FromDate = New Date(CType(0, Long))
-    Me.GanttChart1.Location = New System.Drawing.Point(4, 23)
-    Me.GanttChart1.Name = "GanttChart1"
-    Me.GanttChart1.RowFont = New System.Drawing.Font("Verdana", 8.0!)
-    Me.GanttChart1.Size = New System.Drawing.Size(742, 331)
-    Me.GanttChart1.TabIndex = 11
-    Me.GanttChart1.Text = "GanttChart1"
-    Me.GanttChart1.TimeFont = New System.Drawing.Font("Verdana", 8.0!)
-    Me.GanttChart1.ToDate = New Date(CType(0, Long))
-    Me.GanttChart1.ToolTipText = CType(resources.GetObject("GanttChart1.ToolTipText"), System.Collections.Generic.List(Of String))
-    Me.GanttChart1.ToolTipTextTitle = ""
-    '
-    'ProdNuevo
-    '
-    Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-    Me.ClientSize = New System.Drawing.Size(762, 563)
-    Me.Controls.Add(Me.UltraTabControl1)
-    Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-    Me.Location = New System.Drawing.Point(200, 105)
-    Me.Name = "ProdNuevo"
-    Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-    Me.Text = "Programar produccion"
-    Me.UltraTabPageControl1.ResumeLayout(False)
-    Me.GroupBox1.ResumeLayout(False)
-    Me.GroupBox1.PerformLayout()
-    CType(Me.grd2, System.ComponentModel.ISupportInitialize).EndInit()
-    CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
-    Me.UltraTabPageControl2.ResumeLayout(False)
-    Me.UltraTabPageControl2.PerformLayout()
-    Me.GroupBox3.ResumeLayout(False)
-    Me.GroupBox3.PerformLayout()
-    Me.GroupBox2.ResumeLayout(False)
-    CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
-    Me.UltraTabControl1.ResumeLayout(False)
-    Me.ResumeLayout(False)
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ProdNuevo))
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.TXTHoraInicioProg = New System.Windows.Forms.MaskedTextBox
+        Me.DTPickerInicioProg = New System.Windows.Forms.DateTimePicker
+        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
+        Me.grd2 = New System.Windows.Forms.DataGrid
+        Me.grd1 = New System.Windows.Forms.DataGrid
+        Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.TXTInicioSim = New System.Windows.Forms.MaskedTextBox
+        Me.DTPickerInicioSim = New System.Windows.Forms.DateTimePicker
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
+        Me.GanttChart1 = New Afilar.GanttChart
+        Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
+        Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.UltraTabPageControl1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.grd2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grd1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraTabPageControl2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraTabControl1.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'UltraTabPageControl1
+        '
+        Me.UltraTabPageControl1.Controls.Add(Me.GroupBox1)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton1)
+        Me.UltraTabPageControl1.Controls.Add(Me.grd2)
+        Me.UltraTabPageControl1.Controls.Add(Me.grd1)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
+        Me.UltraTabPageControl1.Size = New System.Drawing.Size(756, 542)
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.TXTHoraInicioProg)
+        Me.GroupBox1.Controls.Add(Me.DTPickerInicioProg)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 452)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(284, 41)
+        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Inicio de programacion"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(209, 21)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(21, 13)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "hs."
+        '
+        'TXTHoraInicioProg
+        '
+        Me.TXTHoraInicioProg.Location = New System.Drawing.Point(157, 16)
+        Me.TXTHoraInicioProg.Mask = "00:00"
+        Me.TXTHoraInicioProg.Name = "TXTHoraInicioProg"
+        Me.TXTHoraInicioProg.Size = New System.Drawing.Size(51, 20)
+        Me.TXTHoraInicioProg.TabIndex = 7
+        Me.TXTHoraInicioProg.ValidatingType = GetType(Date)
+        '
+        'DTPickerInicioProg
+        '
+        Me.DTPickerInicioProg.Location = New System.Drawing.Point(18, 15)
+        Me.DTPickerInicioProg.MinDate = New Date(2007, 11, 14, 0, 0, 0, 0)
+        Me.DTPickerInicioProg.Name = "DTPickerInicioProg"
+        Me.DTPickerInicioProg.Size = New System.Drawing.Size(120, 20)
+        Me.DTPickerInicioProg.TabIndex = 5
+        '
+        'UltraButton3
+        '
+        Me.UltraButton3.Location = New System.Drawing.Point(648, 464)
+        Me.UltraButton3.Name = "UltraButton3"
+        Me.UltraButton3.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton3.TabIndex = 3
+        Me.UltraButton3.Text = "Salir"
+        '
+        'UltraButton1
+        '
+        Me.UltraButton1.Location = New System.Drawing.Point(544, 464)
+        Me.UltraButton1.Name = "UltraButton1"
+        Me.UltraButton1.Size = New System.Drawing.Size(88, 24)
+        Me.UltraButton1.TabIndex = 2
+        Me.UltraButton1.Text = "Programar"
+        '
+        'grd2
+        '
+        Me.grd2.AlternatingBackColor = System.Drawing.Color.Lavender
+        Me.grd2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.grd2.BackgroundColor = System.Drawing.Color.LightGray
+        Me.grd2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.grd2.CaptionBackColor = System.Drawing.Color.LightSteelBlue
+        Me.grd2.CaptionForeColor = System.Drawing.Color.MidnightBlue
+        Me.grd2.CaptionText = "Items a programar"
+        Me.grd2.DataMember = ""
+        Me.grd2.FlatMode = True
+        Me.grd2.Font = New System.Drawing.Font("Tahoma", 8.0!)
+        Me.grd2.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.grd2.GridLineColor = System.Drawing.Color.Gainsboro
+        Me.grd2.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
+        Me.grd2.HeaderBackColor = System.Drawing.Color.MidnightBlue
+        Me.grd2.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.grd2.HeaderForeColor = System.Drawing.Color.WhiteSmoke
+        Me.grd2.LinkColor = System.Drawing.Color.Teal
+        Me.grd2.Location = New System.Drawing.Point(16, 234)
+        Me.grd2.Name = "grd2"
+        Me.grd2.ParentRowsBackColor = System.Drawing.Color.Gainsboro
+        Me.grd2.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
+        Me.grd2.ReadOnly = True
+        Me.grd2.SelectionBackColor = System.Drawing.Color.CadetBlue
+        Me.grd2.SelectionForeColor = System.Drawing.Color.WhiteSmoke
+        Me.grd2.Size = New System.Drawing.Size(720, 208)
+        Me.grd2.TabIndex = 1
+        '
+        'grd1
+        '
+        Me.grd1.AlternatingBackColor = System.Drawing.Color.Lavender
+        Me.grd1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.grd1.BackgroundColor = System.Drawing.Color.LightGray
+        Me.grd1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.grd1.CaptionBackColor = System.Drawing.Color.LightSteelBlue
+        Me.grd1.CaptionForeColor = System.Drawing.Color.MidnightBlue
+        Me.grd1.CaptionText = "Pedidos"
+        Me.grd1.DataMember = ""
+        Me.grd1.FlatMode = True
+        Me.grd1.Font = New System.Drawing.Font("Tahoma", 8.0!)
+        Me.grd1.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.grd1.GridLineColor = System.Drawing.Color.Gainsboro
+        Me.grd1.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None
+        Me.grd1.HeaderBackColor = System.Drawing.Color.MidnightBlue
+        Me.grd1.HeaderFont = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.grd1.HeaderForeColor = System.Drawing.Color.WhiteSmoke
+        Me.grd1.LinkColor = System.Drawing.Color.Teal
+        Me.grd1.Location = New System.Drawing.Point(16, 14)
+        Me.grd1.Name = "grd1"
+        Me.grd1.ParentRowsBackColor = System.Drawing.Color.Gainsboro
+        Me.grd1.ParentRowsForeColor = System.Drawing.Color.MidnightBlue
+        Me.grd1.ReadOnly = True
+        Me.grd1.SelectionBackColor = System.Drawing.Color.CadetBlue
+        Me.grd1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
+        Me.grd1.Size = New System.Drawing.Size(720, 211)
+        Me.grd1.TabIndex = 0
+        '
+        'UltraTabPageControl2
+        '
+        Me.UltraTabPageControl2.Controls.Add(Me.GroupBox3)
+        Me.UltraTabPageControl2.Controls.Add(Me.Label2)
+        Me.UltraTabPageControl2.Controls.Add(Me.GroupBox2)
+        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton5)
+        Me.UltraTabPageControl2.Controls.Add(Me.UltraButton4)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
+        Me.UltraTabPageControl2.Size = New System.Drawing.Size(756, 542)
+        '
+        'UltraButton6
+        '
+        Me.UltraButton6.Location = New System.Drawing.Point(12, 47)
+        Me.UltraButton6.Name = "UltraButton6"
+        Me.UltraButton6.Size = New System.Drawing.Size(132, 20)
+        Me.UltraButton6.TabIndex = 13
+        Me.UltraButton6.Text = "Ver programacion"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.UltraButton6)
+        Me.GroupBox3.Controls.Add(Me.Label3)
+        Me.GroupBox3.Controls.Add(Me.TXTInicioSim)
+        Me.GroupBox3.Controls.Add(Me.DTPickerInicioSim)
+        Me.GroupBox3.Location = New System.Drawing.Point(10, 418)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(232, 75)
+        Me.GroupBox3.TabIndex = 12
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Hora de Inicio Estimada"
+        Me.GroupBox3.Visible = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(203, 25)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(21, 13)
+        Me.Label3.TabIndex = 9
+        Me.Label3.Text = "hs."
+        '
+        'TXTInicioSim
+        '
+        Me.TXTInicioSim.Location = New System.Drawing.Point(150, 21)
+        Me.TXTInicioSim.Mask = "00:00"
+        Me.TXTInicioSim.Name = "TXTInicioSim"
+        Me.TXTInicioSim.Size = New System.Drawing.Size(53, 20)
+        Me.TXTInicioSim.TabIndex = 1
+        '
+        'DTPickerInicioSim
+        '
+        Me.DTPickerInicioSim.Location = New System.Drawing.Point(12, 21)
+        Me.DTPickerInicioSim.Name = "DTPickerInicioSim"
+        Me.DTPickerInicioSim.Size = New System.Drawing.Size(132, 20)
+        Me.DTPickerInicioSim.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(116, 504)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(0, 13)
+        Me.Label2.TabIndex = 11
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.UltraButton2)
+        Me.GroupBox2.Controls.Add(Me.GanttChart1)
+        Me.GroupBox2.Enabled = False
+        Me.GroupBox2.Location = New System.Drawing.Point(2, 10)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(751, 387)
+        Me.GroupBox2.TabIndex = 10
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Programacion Tareas"
+        '
+        'UltraButton2
+        '
+        Me.UltraButton2.Location = New System.Drawing.Point(578, 360)
+        Me.UltraButton2.Name = "UltraButton2"
+        Me.UltraButton2.Size = New System.Drawing.Size(156, 21)
+        Me.UltraButton2.TabIndex = 12
+        Me.UltraButton2.Text = "Ver Referencias"
+        '
+        'GanttChart1
+        '
+        Me.GanttChart1.BackColor = System.Drawing.Color.White
+        Me.GanttChart1.DateFont = New System.Drawing.Font("Verdana", 8.0!)
+        Me.GanttChart1.FromDate = New Date(CType(0, Long))
+        Me.GanttChart1.Location = New System.Drawing.Point(4, 23)
+        Me.GanttChart1.Name = "GanttChart1"
+        Me.GanttChart1.RowFont = New System.Drawing.Font("Verdana", 8.0!)
+        Me.GanttChart1.Size = New System.Drawing.Size(742, 331)
+        Me.GanttChart1.TabIndex = 11
+        Me.GanttChart1.Text = "GanttChart1"
+        Me.GanttChart1.TimeFont = New System.Drawing.Font("Verdana", 8.0!)
+        Me.GanttChart1.ToDate = New Date(CType(0, Long))
+        Me.GanttChart1.ToolTipText = CType(resources.GetObject("GanttChart1.ToolTipText"), System.Collections.Generic.List(Of String))
+        Me.GanttChart1.ToolTipTextTitle = ""
+        '
+        'UltraButton5
+        '
+        Me.UltraButton5.Location = New System.Drawing.Point(480, 469)
+        Me.UltraButton5.Name = "UltraButton5"
+        Me.UltraButton5.Size = New System.Drawing.Size(136, 24)
+        Me.UltraButton5.TabIndex = 6
+        Me.UltraButton5.Text = "Guardar programacion"
+        '
+        'UltraButton4
+        '
+        Me.UltraButton4.Location = New System.Drawing.Point(632, 469)
+        Me.UltraButton4.Name = "UltraButton4"
+        Me.UltraButton4.Size = New System.Drawing.Size(104, 24)
+        Me.UltraButton4.TabIndex = 5
+        Me.UltraButton4.Text = "Salir"
+        '
+        'UltraTabControl1
+        '
+        Appearance1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance1.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance1
+        Appearance2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance2.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance2
+        Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
+        Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
+        Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
+        Me.UltraTabControl1.Location = New System.Drawing.Point(0, 3)
+        Me.UltraTabControl1.Name = "UltraTabControl1"
+        Appearance3.BackColor = System.Drawing.Color.Silver
+        Appearance3.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.SelectedTabAppearance = Appearance3
+        Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
+        Me.UltraTabControl1.Size = New System.Drawing.Size(760, 565)
+        Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
+        Me.UltraTabControl1.TabIndex = 0
+        UltraTab1.TabPage = Me.UltraTabPageControl1
+        UltraTab1.Text = "Pedidos"
+        UltraTab2.TabPage = Me.UltraTabPageControl2
+        UltraTab2.Text = "Programacion"
+        Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
+        Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
+        '
+        'UltraTabSharedControlsPage1
+        '
+        Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
+        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(756, 542)
+        '
+        'ProdNuevo
+        '
+        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+        Me.ClientSize = New System.Drawing.Size(762, 533)
+        Me.Controls.Add(Me.UltraTabControl1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Location = New System.Drawing.Point(200, 105)
+        Me.Name = "ProdNuevo"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.Text = "Programar produccion"
+        Me.UltraTabPageControl1.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.grd2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grd1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraTabPageControl2.ResumeLayout(False)
+        Me.UltraTabPageControl2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraTabControl1.ResumeLayout(False)
+        Me.ResumeLayout(False)
 
-  End Sub
+    End Sub
 
 #End Region
 
@@ -669,7 +678,9 @@ Public Class ProdNuevo
         Dim colProgramados As New Collection
         Dim minimo As DateTime
         Dim maximo As DateTime
+        Dim finProduccion As DateTime
         Dim b As Boolean = False
+        Dim c As Boolean = False
 
         Dim maqIndice As Integer = 0
 
@@ -689,6 +700,13 @@ Public Class ProdNuevo
                     minimo = tar.inicio
                 ElseIf tar.inicio.AddMinutes(tar.duracion) > maximo Then
                     maximo = tar.inicio.AddMinutes(tar.duracion)
+                End If
+
+                If Not c And tar.idFresa > 0 Then
+                    fechaFinSimulacion = tar.inicio.AddMinutes(tar.duracion)
+                    c = True
+                ElseIf tar.inicio.AddMinutes(tar.duracion) > fechaFinSimulacion And tar.idFresa > 0 Then
+                    fechaFinSimulacion = tar.inicio.AddMinutes(tar.duracion)
                 End If
 
 
@@ -720,7 +738,7 @@ Public Class ProdNuevo
 
         'System.Diagnostics.Debug.WriteLine("Duracion: " & tar.duracion)
 
-        Return maximo
+        Return fechaFinSimulacion
     End Function
 
 
@@ -766,7 +784,8 @@ Public Class ProdNuevo
     Private Sub UltraButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton5.Click
         If simulando Then
             ''setear la fecha de fin
-
+            frmPadre.fechaentrega.Value = fechaFinSimulacion.Date
+            Me.Close()
         Else
             programador.guardarProgramacion()
 
@@ -816,11 +835,7 @@ Public Class ProdNuevo
         'UltraButton1.Text = "Ver programacion estimada"
         'UltraButton1.Left = 470
         'UltraButton1.Width = 170
-        UltraTabControl1.SelectedTab = UltraTabControl1.Tabs.Item(1)
-        UltraTabControl1.Tabs.Item(0).Enabled = False
-        simulando = True
-        UltraButton5.Text = "Guardar fecha de fin"
-        GroupBox3.Visible = True
+
 
         '---------------------------------------------------------------------
 
@@ -876,30 +891,39 @@ Public Class ProdNuevo
 
     Private Sub UltraButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton6.Click
 
-        Dim tar1 As New idTipoFresa
-        Dim tar2 As New idTipoFresa
-        Dim tar3 As New idTipoFresa
-        tar1.idModelo = 1
-        tar1.idTipo = 1
-        tar2.idModelo = 1
-        tar2.idTipo = 1
-        tar3.idModelo = 1
-        tar3.idTipo = 1
+        'Dim tar1 As New idTipoFresa
+        'Dim tar2 As New idTipoFresa
+        'Dim tar3 As New idTipoFresa
+        'tar1.idModelo = 1
+        'tar1.idTipo = 1
+        'tar2.idModelo = 1
+        'tar2.idTipo = 1
+        'tar3.idModelo = 1
+        'tar3.idTipo = 1
 
-        tiposSimulacion.Add(tar1)
-        tiposSimulacion.Add(tar2)
-        tiposSimulacion.Add(tar3)
+        'tiposSimulacion.Add(tar1)
+        'tiposSimulacion.Add(tar2)
+        'tiposSimulacion.Add(tar3)
 
-
-
-        simular(tiposSimulacion)
-    End Sub
-
-    Private Sub UltraTabPageControl2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl2.Paint
-
+        fechaFinSimulacion = simular(tiposSimulacion)
+        UltraButton5.Enabled = True
     End Sub
 
     'metodo cargar simulacion
+    Public Function cargarSimulacion(ByVal tipos As Collection)
+        tiposSimulacion = tipos
+
+        UltraTabControl1.SelectedTab = UltraTabControl1.Tabs.Item(1)
+        UltraTabControl1.Tabs.Item(0).Enabled = False
+        simulando = True
+        UltraButton5.Text = "Guardar fecha de fin"
+        GroupBox3.Visible = True
+        UltraButton5.Enabled = False
+
+
+    End Function
+
+
 End Class
 
 Public Structure idTipoFresa
