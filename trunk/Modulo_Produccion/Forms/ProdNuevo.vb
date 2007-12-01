@@ -462,6 +462,10 @@ Public Class ProdNuevo
 
 #End Region
 
+    Private Sub ProdNuevo_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         princ.barra.agregarBoton(Me)
@@ -797,6 +801,7 @@ Public Class ProdNuevo
         Dim frmRef As New referenciaProgramacion
         frmRef.fresas = programador.fresas
         frmRef.maquinas = programador.maquinas
+        frmRef.Location = New Point(200, 150)
         frmRef.Show()
 
 
