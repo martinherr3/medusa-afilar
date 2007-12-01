@@ -65,8 +65,8 @@ Public Class abmMateriaPrima
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmMateriaPrima))
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmMateriaPrima))
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -217,7 +217,6 @@ Public Class abmMateriaPrima
         '
         'UltraButton7
         '
-        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
         Appearance3.ImageHAlign = Infragistics.Win.HAlign.Center
         Me.UltraButton7.Appearance = Appearance3
         Me.UltraButton7.Location = New System.Drawing.Point(176, 24)
