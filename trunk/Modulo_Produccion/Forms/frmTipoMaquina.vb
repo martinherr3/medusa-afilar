@@ -86,11 +86,11 @@ Public Class frmTipoMaquina
     End Sub
 
     Private Sub frmTipoMaquina_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        'princ.barra.eliminarBoton()
+        princ.barra.eliminarBoton()
     End Sub
 
     Private Sub frmCargo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
         DataGrid1.DataSource = dsTMaquina
         DataGrid1.DataMember = "TMaquina"
 

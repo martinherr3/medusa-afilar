@@ -2913,9 +2913,7 @@ Public Class registrarModeloFresa
     End Sub
 
 
-    Private Sub registrarModeloFresa_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 
 
     Private Sub UltraButton12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)

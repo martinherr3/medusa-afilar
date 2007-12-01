@@ -539,6 +539,10 @@ Public Class FrmGenerarOC
 
 #End Region
 
+    Private Sub FrmGenerarOC_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         princ.barra.agregarBoton(Me)
 
@@ -952,9 +956,7 @@ Public Class FrmGenerarOC
     End Sub
 
 
-    Private Sub FrmGenerarOC_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+   
 
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click

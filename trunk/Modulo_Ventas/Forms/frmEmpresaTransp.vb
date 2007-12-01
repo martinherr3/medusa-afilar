@@ -568,6 +568,10 @@ Public Class frmEmpresaTransp
         End If
     End Sub
 
+    Private Sub frmEmpresaTransp_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub frmEmpresaTransp_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         princ.barra.agregarBoton(Me)
         adaptadorET.Fill(dsET, "empresatransporte")
@@ -651,9 +655,7 @@ Public Class frmEmpresaTransp
         mostrarPosicion("empresatransporte")
     End Sub
 
-    Private Sub frmEmpresaTransp_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
         bandgrabar = 1

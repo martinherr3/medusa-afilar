@@ -24,7 +24,7 @@ Public Class consultarPresupuesto
 
     Private Sub consultarPresupuesto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
 
         'periodo inicial (ultimo mes)
         Dim desde As New Date(Now.Year, Now.Month - 1, Now.Day)

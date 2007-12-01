@@ -199,6 +199,10 @@ Public Class FrmPagoProveedor
     Dim dvOCP As New DataView
     Dim SQLdataadapter1 As New SqlDataAdapter("select ordencompramp.idordencompra, max(fecharealizacion) as fecharealizacion, sum (detalleordencompra.precio)as total, max(idproveedor)as idproveedor from ordencompramp join detalleordencompra on ordencompramp.idordencompra=detalleordencompra.idordencompra and ordencompramp.idestado= " & Estado.ORDEN_DE_COMPRA_RECIBIDO & " group by ordencompramp.idordencompra", cnn)
 
+    Private Sub FrmPagoProveedor_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub FrmPagoProveedor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         princ.barra.agregarBoton(Me)
         cargarComboTag("select idproveedor, nombre from proveedor", Me.Cmbproveedor, 0, 2)
@@ -269,9 +273,7 @@ Public Class FrmPagoProveedor
         End If
     End Sub
 
-    Private Sub FrmPagoProveedor_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
         Dim frm As New consultarOC

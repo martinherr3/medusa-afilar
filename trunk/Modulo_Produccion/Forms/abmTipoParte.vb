@@ -284,6 +284,10 @@ Public Class abmTipoParte
         End If
     End Sub
 
+    Private Sub abmTipoParte_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
 
     Private Sub abmTipoParte_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '
@@ -421,7 +425,5 @@ Public Class abmTipoParte
         End If
     End Sub
 
-    Private Sub abmTipoParte_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 End Class

@@ -79,7 +79,7 @@ Public Class frmTipoAcabado
     End Sub
 
     Private Sub frmTipoAcabado_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ' princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
         DataGrid1.DataSource = dsTipoAcabado
         DataGrid1.DataMember = "TAcabado"
 

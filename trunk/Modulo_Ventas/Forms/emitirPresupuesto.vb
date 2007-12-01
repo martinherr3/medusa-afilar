@@ -501,6 +501,10 @@ Public Class emitirPresupuesto
 
 
 #Region "Evento load"
+
+    Private Sub emitirPresupuesto_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
     Private Sub emitirPresupuesto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         ' seteo el estilo del datagrid 
@@ -584,7 +588,7 @@ Public Class emitirPresupuesto
         'nombre empleado logueado
         nombreEmpleado = usuario.getCliente(seguridad.id)
 
-        ' princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
 
     End Sub
 #End Region
@@ -592,9 +596,7 @@ Public Class emitirPresupuesto
 
 #Region "Demas eventos"
 
-    Private Sub emitirPresupuesto_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        'princ.barra.eliminarBoton()
-    End Sub
+    
 
 
     Private Sub dataGridMF_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles dataGridMF.MouseUp

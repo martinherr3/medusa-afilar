@@ -8,7 +8,11 @@ Public Class BarraDeEstado
     Private NroPanel As Integer = 0
 
 
+    Public Sub ClearAll()
+        x.Panels.Clear()
+        
 
+    End Sub
     Sub New(ByRef barra As Infragistics.Win.UltraWinStatusBar.UltraStatusBar)
         x = barra
     End Sub
@@ -60,10 +64,13 @@ Public Class BarraDeEstado
             frmActivo = x.Panels.Count() - 1        ' el form activo ahora es el ultimo
         End If
 
-        If x.Panels.Count() > 0 Then
+        If x.Panels.Count() > 0 And frmActivo <> -1 Then
             x.Panels(frmActivo).Checked = True
             formulario(x.Panels.Count() - 1).Visible = True
+        ElseIf x.Panels.Count = 0 Then
+            princ.etiPrin.Text = "Afilar"
         End If
+
         'Catch
 
         'End Try

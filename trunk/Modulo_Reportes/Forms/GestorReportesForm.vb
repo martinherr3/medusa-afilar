@@ -6,8 +6,12 @@ Public Class GestorReportesForm
     Dim nombreEmpleado As String
 #End Region
 
-    Private Sub GestorReportesForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub GestorReportesForm_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
 
+    Private Sub GestorReportesForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        princ.barra.agregarBoton(Me)
         Dim query As String
         nombreEmpleado = usuario.getCliente(seguridad.id)
 

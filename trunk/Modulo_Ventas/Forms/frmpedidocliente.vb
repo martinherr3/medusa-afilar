@@ -2371,9 +2371,7 @@ Public Class frmpedidocliente
     End Sub
 
 
-    Private Sub frmpedidocliente_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+   
 
 
     Private Sub combocliente_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles combocliente.ValueChanged

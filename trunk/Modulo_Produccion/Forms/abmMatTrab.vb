@@ -285,6 +285,10 @@ Public Class abmMatTrab
         End If
     End Sub
 
+    Private Sub abmMatTrab_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
 
 
 
@@ -454,7 +458,5 @@ Public Class abmMatTrab
     End Sub
 
 
-    Private Sub abmMatTrab_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 End Class

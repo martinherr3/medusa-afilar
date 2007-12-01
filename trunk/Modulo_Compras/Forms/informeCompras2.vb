@@ -243,7 +243,11 @@ Public Class informeCompras2
 
     End Sub
 
-    Private Sub informeCompras2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub informeCompras2_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
 
+    Private Sub informeCompras2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        princ.barra.agregarBoton(Me)
     End Sub
 End Class

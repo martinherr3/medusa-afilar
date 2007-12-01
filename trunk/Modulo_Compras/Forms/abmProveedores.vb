@@ -655,6 +655,10 @@ Public Class abmProveedores
         End If
     End Sub
 
+    Private Sub abmProveedores_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
 
 
     Private Sub abmProveedores_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -922,9 +926,7 @@ Public Class abmProveedores
         ComboBox1.Enabled = False
     End Sub
 
-    Private Sub abmProveedores_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 
     Private Sub Salir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Salir.Click
         Me.Close()

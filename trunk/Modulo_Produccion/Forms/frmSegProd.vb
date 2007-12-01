@@ -6,13 +6,17 @@ Public Class frmSegProd
     Public borrar As String ' prometo borrar
     Public obj As ProdTacking
 
+    Private Sub frmSegProd_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub frmSegProd_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.GotFocus
         txtIDHR.Focus()
     End Sub
 
 
     Private Sub frmSegProd_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        princ.barra.agregarBoton(Me)
         Dim constante As New Constantes
         cargarUltraCombo("select rtrim(apellido) + ', ' + rtrim(nombre) as empleado, idlegajo  from empleado where idcargo = " & constante.CargoOperario & " order by apellido", cmbEmpleado, "empleado", "idlegajo")
         cargarUltraCombo("select rtrim(apellido) + ', '+ rtrim(nombre) as nombre, idtornero from tornero ", cmbTornero, "nombre", "idtornero")

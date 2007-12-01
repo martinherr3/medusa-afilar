@@ -1,8 +1,12 @@
 Imports System.Data.SqlClient
 Public Class frmHojaDeRuta
     Public ds As New DataSet
-    Private Sub frmHojaDeRuta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+    Private Sub frmHojaDeRuta_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+    Private Sub frmHojaDeRuta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        princ.barra.agregarBoton(Me)
         Dim da As New SqlClient.SqlDataAdapter("select hojaderuta.idhojaderuta as 'Hoja de ruta', hojaderuta.fechainicioproduccion as 'Fecha de inicio de produccion', nroserie as 'Nro serie',  nropedido as Pedido, rtrim(estado.nombre) as Estado , tipofresa.nombre as NombreFresa  from Fresa inner join  hojaderuta on Fresa.idhojaderuta = hojaderuta.idhojaderuta inner join Estado on Fresa.estado = Estado.idestado inner join tipofresa on fresa.idtipo = tipofresa.idtipo and fresa.idmodelo = tipofresa.idmodelo", cnn)
         da.Fill(ds)
         dgHoja.DataSource = ds.Tables(0)

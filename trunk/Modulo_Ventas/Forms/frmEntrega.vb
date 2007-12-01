@@ -312,6 +312,10 @@ Public Class frmEntrega
 
 #End Region
 
+    Private Sub frmEntrega_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub frmEntrega_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             princ.barra.agregarBoton(Me)
@@ -503,9 +507,7 @@ Public Class frmEntrega
        
     End Sub
 
-    Private Sub frmEntrega_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 
     Private Sub ComboBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox2.SelectedIndexChanged
         Try

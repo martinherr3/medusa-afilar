@@ -120,7 +120,7 @@ Public Class frmUsuarios
         'If Not seguridad.HasPrivilege(10) Then
         '    Me.Close()
         'End If
-        ' princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
 
         DataGrid1.DataSource = dsUsuario
         DataGrid1.DataMember = "Usuario"

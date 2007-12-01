@@ -183,6 +183,10 @@ Public Class consultarOC
 
 #End Region
 
+    Private Sub consultarOC_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         princ.barra.agregarBoton(Me)
 
@@ -269,9 +273,7 @@ Public Class consultarOC
         Me.Close()
     End Sub
 
-    Private Sub consultarOC_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+   
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
         Me.Close()

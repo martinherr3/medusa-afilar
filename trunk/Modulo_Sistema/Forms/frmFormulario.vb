@@ -526,7 +526,7 @@ Public Class frmFormulario
 
     Private Sub frmFormulario_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
         DataGrid1.DataSource = dsformulario
         DataGrid1.DataMember = "formulario"
 
@@ -693,9 +693,7 @@ Public Class frmFormulario
     '    End If
     'End Sub
 
-    Private Sub frmFormulario_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+   
 
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
 
