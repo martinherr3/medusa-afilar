@@ -2685,8 +2685,8 @@ Public Class frmpedidocliente
             fresas.Add(tipoFresa)
         Next
 
-        Dim formSimulacion As New ProdNuevo(Me)
-        'formSimulacion.simular(fresas)
+        Dim formSimulacion As New ProdNuevo()
+        formSimulacion.Location = New Point(200, 150)
         formSimulacion.cargarSimulacion(fresas)
         formSimulacion.Show(princ)
     End Sub
