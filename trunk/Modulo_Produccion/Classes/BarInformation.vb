@@ -5,8 +5,9 @@ Public Class BarInformation
     Private _toTime As Date
     Private _color As Color
     Private _hoverColor As Color
-  Private _index As Integer
-  Private _nroFresa As String
+    Private _index As Integer
+    Private _nroFresa As String
+    Private _operacion As String
 
     Public Property RowText() As String
         Get
@@ -62,23 +63,36 @@ Public Class BarInformation
         End Set
   End Property
 
-  Public Property nroFresa() As String
-    Get
-      Return _nroFresa
-    End Get
-    Set(ByVal value As String)
-      _nroFresa = value
-    End Set
-  End Property
+    Public Property nroFresa() As String
+        Get
+            Return _nroFresa
+        End Get
+        Set(ByVal value As String)
+            _nroFresa = value
+        End Set
+    End Property
+    Public Property operacion() As String
+        Get
+            Return _operacion
+        End Get
+        Set(ByVal value As String)
+            _operacion = value
+        End Set
+    End Property
 
-  Public Sub New(ByVal rowText As String, ByVal fromTime As Date, ByVal totime As Date, ByVal color As Color, ByVal hoverColor As Color, ByVal index As Integer, ByVal nroFresa As String)
-    Me.RowText = rowText
-    Me.FromTime = fromTime
-    Me.ToTime = totime
-    Me.Color = color
-    Me.HoverColor = hoverColor
-    Me.Index = index
-    Me.nroFresa = nroFresa
-  End Sub
+
+
+
+    Public Sub New(ByVal rowText As String, ByVal fromTime As Date, ByVal totime As Date, ByVal color As Color, ByVal hoverColor As Color, ByVal index As Integer, ByVal nroFresa As String, ByVal operacion As String)
+        Me.RowText = rowText
+        Me.FromTime = fromTime
+        Me.ToTime = totime
+        Me.Color = color
+        Me.HoverColor = hoverColor
+        Me.Index = index
+        Me.nroFresa = nroFresa
+        Me.operacion = operacion
+
+    End Sub
 
 End Class

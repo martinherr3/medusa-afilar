@@ -115,8 +115,8 @@ Public Class ProdNuevo
         Me.grd2 = New System.Windows.Forms.DataGrid
         Me.grd1 = New System.Windows.Forms.DataGrid
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
-        Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
         Me.Label3 = New System.Windows.Forms.Label
         Me.TXTInicioSim = New System.Windows.Forms.MaskedTextBox
         Me.DTPickerInicioSim = New System.Windows.Forms.DateTimePicker
@@ -273,14 +273,6 @@ Public Class ProdNuevo
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(756, 542)
         '
-        'UltraButton6
-        '
-        Me.UltraButton6.Location = New System.Drawing.Point(12, 47)
-        Me.UltraButton6.Name = "UltraButton6"
-        Me.UltraButton6.Size = New System.Drawing.Size(132, 20)
-        Me.UltraButton6.TabIndex = 13
-        Me.UltraButton6.Text = "Ver programacion"
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.UltraButton6)
@@ -294,6 +286,14 @@ Public Class ProdNuevo
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Hora de Inicio Estimada"
         Me.GroupBox3.Visible = False
+        '
+        'UltraButton6
+        '
+        Me.UltraButton6.Location = New System.Drawing.Point(12, 47)
+        Me.UltraButton6.Name = "UltraButton6"
+        Me.UltraButton6.Size = New System.Drawing.Size(132, 20)
+        Me.UltraButton6.TabIndex = 13
+        Me.UltraButton6.Text = "Ver programacion"
         '
         'Label3
         '
@@ -721,7 +721,7 @@ Public Class ProdNuevo
                     End If
                 Next
 
-                colProgramados.Add(New BarInformation(maq.nombre, tar.inicio, tar.fin, colorFresa, Color.Bisque, maqIndice, tar.idFresa))
+                colProgramados.Add(New BarInformation(maq.nombre, tar.inicio, tar.fin, colorFresa, Color.Bisque, maqIndice, tar.idFresa, tar.getNombreOperacion()))
 
             Next
             maqIndice += 1
@@ -760,6 +760,7 @@ Public Class ProdNuevo
                 Else
                     toolTipText.Add("[b]Fresa Nro:" & val.nroFresa)
                 End If
+                toolTipText.Add("[b]Operacion:" & val.operacion)
 
             Else
                 toolTipText.Add("")

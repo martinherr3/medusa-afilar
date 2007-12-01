@@ -177,4 +177,15 @@ Public Class tareasProd
     Return ds
     End Function
 
+    Public Function getNombreOperacion() As String
+        Dim commd As New SqlClient.SqlCommand
+        Dim nombre As String
+        cnn.Open()
+        commd.Connection = cnn
+        commd.CommandText = "SELECT nombre FROM operacion WHERE idoperacion = " & _idOperacion
+        nombre = commd.ExecuteScalar()
+        cnn.Close()
+        Return nombre
+    End Function
+
 End Class
