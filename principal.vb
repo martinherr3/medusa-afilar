@@ -637,16 +637,11 @@ Public Class principal
         Dim form As New frmMensajes
         form.MdiParent = Me
         form.Show()
-        form.Location = New Point(500, 200)
+        form.Location = New Point(200, 106)
     End Sub
 
     Private Sub principal_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
         acomodarImagenes()
-    End Sub
-
-    Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs)
-
-
     End Sub
 
     Private Sub LinkLabel3_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel3.LinkClicked
