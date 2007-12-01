@@ -66,7 +66,7 @@ Public Class frmMaquina
         txtNumMaquina.Text = 0
         ' esta funcion da solo formato a la grilla no la carga, de eso se encarga el datasource
 
-        cargarCombo("select * from estado", cmbEstado, "nombre", "idestado")
+        cargarCombo("select * from estado where idestado between 31 and 33", cmbEstado, "nombre", "idestado")
         cargarCombo("select * from tipomaquina", cmbTipoMAquina, "nombre", "idtipo")
 
         cargarGrilla(DataGrid1, dsMaquina.Tables.Item(0), nombrescol, anchosgrid)

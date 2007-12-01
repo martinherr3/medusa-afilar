@@ -222,118 +222,124 @@ Public Class programador
 
   End Function
 
-  Public Function Programar() As Integer
-
-    Dim deb As Boolean = True
-
-    Dim maquinasTipo As Collection
-    'NOTA: para hacer mas facil, los horarios de cierre se setearan antes de aomenzar a programar, 
-    'digamos se setearan para el proximo siglo...
-    Dim tareasProgramables As Collection
-
-    Dim proxDisponible As DateTime
-
-    '_horaInicioGeneral = Date.Now
-
-    'recorrer las tareas hasta q no queden mas
-    'For Each tarea As tareasProd In _tareas
-    While _tareas.Count
-
-      Debug.WriteLine("---------> # tareas: " & _tareas.Count)
-
-      'buscar las programables
-      tareasProgramables = buscarProgramables()
-      If tareasProgramables.Count = 0 Then
-        MsgBox("ERROR: tareas programables")
-        Return 0
-      End If
 
 
-      'For Each tarea As tareasProd In tareasProgramables
-
-      For i As Integer = 1 To tareasProgramables.Count
-
-        'por cada una buscar su hora de inicio posible
-        'para eso:
-        'obtener la/s maquina/s en donde podria realizarse la tarea
-
-        Debug.WriteLine("Tipo maquina necesaria: " & tareasProgramables.Item(i).idMaquina)
-
-        maquinasTipo = Me.getMaquinaByType(tareasProgramables.Item(i).idMaquina)
-        If maquinasTipo.Count = 0 Then
-          MsgBox("ERROR: No hay maquinas del tipo necesario")
-          Exit Function
-        End If
-
-        Dim menor As DateTime
-        Dim b As Boolean = False
-        'Dim maqSelected As MaquinaProd
-
-        Dim horaInicio As DateTime = _horaInicioGeneral
-
-        '
-        'HORA INICIO
-        ' La hora de inicio debe ser igual o mayor a la hora de fin de la tarea de orden anterior
-
-        If tareasProgramables.Item(i).orden > 1 Then
-          tareasProgramables.Item(i).inicio = getUltimoFin(tareasProgramables.Item(i))
-          horaInicio = tareasProgramables.Item(i).inicio '' esto deberia ir solo en el atrib inicio y modificar getproxdiponible...
-          Debug.WriteLine("Ultimo fin: " & tareasProgramables.Item(i).inicio & " - Fresa: " & tareasProgramables.Item(i).idFresa)
-        End If
 
 
-        '
-        'por cada tarea q se programa registrar el idFresa, la hora fin de tarea y el orden
-        'para saber su hora de inicio
-        ' 
-
-        'por cada maquina del tipo buscar la de menor hora de inicio y usar esa maquina
-        For Each maq As MaquinaProd In maquinasTipo
-
-          Do
-            proxDisponible = maq.getProximoDisponible(horaInicio, tareasProgramables.Item(i).duracion)
-            'Loop While (Not Me.checkHorarioCierre(proxDisponible, tareasProgramables.Item(i).duracion))
-          Loop While (checkearCierre(proxDisponible.AddMinutes(tareasProgramables.Item(i).duracion)))
 
 
-          If Not b Or proxDisponible < menor Then
-            ''Debug.WriteLine("Hora Inicio: " & horaInicio)
-            menor = maq.getProximoDisponible(horaInicio, tareasProgramables.Item(i).duracion)
-            tareasProgramables.Item(i).maquinaAUsar = maq.idMaquina
-            tareasProgramables.Item(i).inicio = menor
-            b = True
-          End If
-        Next
+    Public Function Programar() As Boolean
 
-        'ahora tenemos la maquina a donde se programara la tarea
-        'y la hora de inicio
+        Dim deb As Boolean = True
 
-      Next
+        Dim maquinasTipo As Collection
+        'NOTA: para hacer mas facil, los horarios de cierre se setearan antes de aomenzar a programar, 
+        'digamos se setearan para el proximo siglo...
+        Dim tareasProgramables As Collection
 
-      'buscamos la de menor inicio de todas las programables
-      'A HACER --> si hay mas de una con inicio menor, programar la menor
-      Dim aProgramar As tareasProd
-      Dim ba As Boolean = False
-      For Each tarea As tareasProd In tareasProgramables
-        If Not ba Then
-          aProgramar = tarea
-          ba = True
-        ElseIf aProgramar.inicio > tarea.inicio Then
-          aProgramar = tarea
-        End If
-      Next
+        Dim proxDisponible As DateTime
 
-      'ahora programar esa tarea
-      If Not programarTarea(aProgramar) Then
-        'si hubo un error
-        MsgBox("ERROR al programar la tarea")
-      End If
+        '_horaInicioGeneral = Date.Now
 
-      'Next
-    End While
+        'recorrer las tareas hasta q no queden mas
+        'For Each tarea As tareasProd In _tareas
+        While _tareas.Count
+
+            Debug.WriteLine("---------> # tareas: " & _tareas.Count)
+
+            'buscar las programables
+            tareasProgramables = buscarProgramables()
+            If tareasProgramables.Count = 0 Then
+                MsgBox("ERROR: tareas programables")
+                Return False
+            End If
 
 
-  End Function
+            'For Each tarea As tareasProd In tareasProgramables
+
+            For i As Integer = 1 To tareasProgramables.Count
+
+                'por cada una buscar su hora de inicio posible
+                'para eso:
+                'obtener la/s maquina/s en donde podria realizarse la tarea
+
+                Debug.WriteLine("Tipo maquina necesaria: " & tareasProgramables.Item(i).idMaquina)
+
+                maquinasTipo = Me.getMaquinaByType(tareasProgramables.Item(i).idMaquina)
+                If maquinasTipo.Count = 0 Then
+                    MsgBox("ERROR: No hay maquinas del tipo necesario")
+                    Exit Function
+                End If
+
+                Dim menor As DateTime
+                Dim b As Boolean = False
+                'Dim maqSelected As MaquinaProd
+
+                Dim horaInicio As DateTime = _horaInicioGeneral
+
+                '
+                'HORA INICIO
+                ' La hora de inicio debe ser igual o mayor a la hora de fin de la tarea de orden anterior
+
+                If tareasProgramables.Item(i).orden > 1 Then
+                    tareasProgramables.Item(i).inicio = getUltimoFin(tareasProgramables.Item(i))
+                    horaInicio = tareasProgramables.Item(i).inicio '' esto deberia ir solo en el atrib inicio y modificar getproxdiponible...
+                    Debug.WriteLine("Ultimo fin: " & tareasProgramables.Item(i).inicio & " - Fresa: " & tareasProgramables.Item(i).idFresa)
+                End If
+
+
+                '
+                'por cada tarea q se programa registrar el idFresa, la hora fin de tarea y el orden
+                'para saber su hora de inicio
+                ' 
+
+                'por cada maquina del tipo buscar la de menor hora de inicio y usar esa maquina
+                For Each maq As MaquinaProd In maquinasTipo
+
+                    Do
+                        proxDisponible = maq.getProximoDisponible(horaInicio, tareasProgramables.Item(i).duracion)
+                        'Loop While (Not Me.checkHorarioCierre(proxDisponible, tareasProgramables.Item(i).duracion))
+                    Loop While (checkearCierre(proxDisponible.AddMinutes(tareasProgramables.Item(i).duracion)))
+
+
+                    If Not b Or proxDisponible < menor Then
+                        ''Debug.WriteLine("Hora Inicio: " & horaInicio)
+                        menor = maq.getProximoDisponible(horaInicio, tareasProgramables.Item(i).duracion)
+                        tareasProgramables.Item(i).maquinaAUsar = maq.idMaquina
+                        tareasProgramables.Item(i).inicio = menor
+                        b = True
+                    End If
+                Next
+
+                'ahora tenemos la maquina a donde se programara la tarea
+                'y la hora de inicio
+
+            Next
+
+            'buscamos la de menor inicio de todas las programables
+            'A HACER --> si hay mas de una con inicio menor, programar la menor
+            Dim aProgramar As tareasProd
+            Dim ba As Boolean = False
+            For Each tarea As tareasProd In tareasProgramables
+                If Not ba Then
+                    aProgramar = tarea
+                    ba = True
+                ElseIf aProgramar.inicio > tarea.inicio Then
+                    aProgramar = tarea
+                End If
+            Next
+
+            'ahora programar esa tarea
+            If Not programarTarea(aProgramar) Then
+                'si hubo un error
+                MsgBox("ERROR al programar la tarea")
+            End If
+
+            'Next
+        End While
+
+        Return True
+    End Function
 
   '----- Manejo del horario de Cierre -----
 
