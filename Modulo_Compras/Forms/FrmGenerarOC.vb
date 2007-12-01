@@ -739,7 +739,7 @@ Public Class FrmGenerarOC
         args.BackColor = Brushes.LightGray
         If Me.GrdMP.Item(args.RowNumber, 1) < Me.GrdMP.Item(args.RowNumber, 2) Then
             'args.ForeColor = Brushes.Red
-            args.BackColor = Brushes.Orange
+            args.BackColor = Brushes.LightSalmon
         End If
         Select Case Me.GrdMP.Item(args.RowNumber, 3)
             Case "A"

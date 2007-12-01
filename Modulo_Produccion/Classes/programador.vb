@@ -444,22 +444,22 @@ Public Class programador
         For Each tar As tareasProd In allTasksCollection
           If tar.idFresa = fre.id_fresa And tar.orden = orden Then
 
-            If tar.idEtapa = constante.OperacionTorneado Then
+                        If tar.idOperacion = constante.OperacionTorneado Then
 
-              commd.CommandText = "SELECT max(idtorneado) FROM torneado"
-              If IsDBNull(commd.ExecuteScalar()) Then
-                idTorneado = 1
-              Else
-                idTorneado = commd.ExecuteScalar() + 1
-              End If
-              commd.CommandText = "INSERT INTO torneado (idtorneado) VALUES (" & idTorneado & ")"
-              commd.ExecuteNonQuery()
-              commd.CommandText = "INSERT INTO detallehojaderuta (idhojaderuta, idetapadefabricacion, idtorneado, fechahorainicioplanificada, fechahorafinplanificada, idmaquina) " & _
-                                  "VALUES (" & idHR & ", " & tar.idEtapa & ", " & idTorneado & ", '" & tar.inicio.ToString("s") & "', '" & tar.fin.ToString("s") & "', " & tar.idMaquina & " )"
-            Else
-              commd.CommandText = "INSERT INTO detallehojaderuta (idhojaderuta, idetapadefabricacion, fechahorainicioplanificada, fechahorafinplanificada, idmaquina) " & _
-                                  "VALUES (" & idHR & ", " & tar.idEtapa & ", '" & tar.inicio.ToString("s") & "', '" & tar.fin.ToString("s") & "', " & tar.idMaquina & " )"
-            End If
+                            commd.CommandText = "SELECT max(idtorneado) FROM torneado"
+                            If IsDBNull(commd.ExecuteScalar()) Then
+                                idTorneado = 1
+                            Else
+                                idTorneado = commd.ExecuteScalar() + 1
+                            End If
+                            commd.CommandText = "INSERT INTO torneado (idtorneado) VALUES (" & idTorneado & ")"
+                            commd.ExecuteNonQuery()
+                            commd.CommandText = "INSERT INTO detallehojaderuta (idhojaderuta, idetapadefabricacion, idtorneado, fechahorainicioplanificada, fechahorafinplanificada, idmaquina) " & _
+                                                "VALUES (" & idHR & ", " & tar.idEtapa & ", " & idTorneado & ", '" & tar.inicio.ToString("s") & "', '" & tar.fin.ToString("s") & "', " & tar.idMaquina & " )"
+                        Else
+                            commd.CommandText = "INSERT INTO detallehojaderuta (idhojaderuta, idetapadefabricacion, fechahorainicioplanificada, fechahorafinplanificada, idmaquina) " & _
+                                                "VALUES (" & idHR & ", " & tar.idEtapa & ", '" & tar.inicio.ToString("s") & "', '" & tar.fin.ToString("s") & "', " & tar.idMaquina & " )"
+                        End If
             commd.ExecuteNonQuery()
             orden += 1
             i = True
