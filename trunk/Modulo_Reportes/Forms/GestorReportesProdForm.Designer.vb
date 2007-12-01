@@ -27,6 +27,8 @@ Partial Class GestorReportesProdForm
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.tabProduccion = New System.Windows.Forms.TabControl
         Me.tabOrdenDeCompra = New System.Windows.Forms.TabPage
+        Me.Label14 = New System.Windows.Forms.Label
+        Me.txtNroPedido = New System.Windows.Forms.TextBox
         Me.PictureBox7 = New System.Windows.Forms.PictureBox
         Me.Label6 = New System.Windows.Forms.Label
         Me.comboPedidoModelo = New Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -46,25 +48,27 @@ Partial Class GestorReportesProdForm
         Me.Label4 = New System.Windows.Forms.Label
         Me.checkPedidoCliente = New System.Windows.Forms.CheckBox
         Me.tabDetalle = New System.Windows.Forms.TabPage
-        Me.PictureBox12 = New System.Windows.Forms.PictureBox
-        Me.comboDetalleOCMP = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.checkDetalleOCMP = New System.Windows.Forms.CheckBox
         Me.Label10 = New System.Windows.Forms.Label
+        Me.txtNroSerieSeguimiento = New System.Windows.Forms.TextBox
+        Me.Label13 = New System.Windows.Forms.Label
+        Me.txtNroPedidoSeguimiento = New System.Windows.Forms.TextBox
         Me.PictureBox6 = New System.Windows.Forms.PictureBox
         Me.PictureBox5 = New System.Windows.Forms.PictureBox
         Me.Label5 = New System.Windows.Forms.Label
-        Me.comboDetalleOCProveedor = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.checkDetalleOCProveedor = New System.Windows.Forms.CheckBox
-        Me.comboDetalleOCEstado = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.checkDetalleOCEstado = New System.Windows.Forms.CheckBox
+        Me.comboSeguimientoModelo = New Infragistics.Win.UltraWinEditors.UltraComboEditor
+        Me.checkSeguimientoModelo = New System.Windows.Forms.CheckBox
+        Me.comboSeguimientoEstado = New Infragistics.Win.UltraWinEditors.UltraComboEditor
+        Me.checkSeguimientoEstado = New System.Windows.Forms.CheckBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
         Me.PictureBox4 = New System.Windows.Forms.PictureBox
-        Me.checkFechaDetalleOC = New System.Windows.Forms.CheckBox
-        Me.detalleOCHasta = New System.Windows.Forms.DateTimePicker
-        Me.detalleOCDesde = New System.Windows.Forms.DateTimePicker
-        Me.btnDetalleOC = New Infragistics.Win.Misc.UltraButton
+        Me.checkSeguimientoFecha = New System.Windows.Forms.CheckBox
+        Me.fechaSeguimientoHasta = New System.Windows.Forms.DateTimePicker
+        Me.fechaSeguimientoDesde = New System.Windows.Forms.DateTimePicker
+        Me.btnSeguimiento = New Infragistics.Win.Misc.UltraButton
         Me.tabServicios = New System.Windows.Forms.TabPage
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.txtNroPedidoServicio = New System.Windows.Forms.TextBox
         Me.UltraGroupBox5 = New Infragistics.Win.Misc.UltraGroupBox
         Me.PictureBox17 = New System.Windows.Forms.PictureBox
         Me.checkFechaEntrega = New System.Windows.Forms.CheckBox
@@ -125,12 +129,10 @@ Partial Class GestorReportesProdForm
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.comboPedidoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabDetalle.SuspendLayout()
-        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.comboDetalleOCMP, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.comboDetalleOCProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.comboDetalleOCEstado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comboSeguimientoModelo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.comboSeguimientoEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -188,6 +190,8 @@ Partial Class GestorReportesProdForm
         '
         'tabOrdenDeCompra
         '
+        Me.tabOrdenDeCompra.Controls.Add(Me.Label14)
+        Me.tabOrdenDeCompra.Controls.Add(Me.txtNroPedido)
         Me.tabOrdenDeCompra.Controls.Add(Me.PictureBox7)
         Me.tabOrdenDeCompra.Controls.Add(Me.Label6)
         Me.tabOrdenDeCompra.Controls.Add(Me.comboPedidoModelo)
@@ -209,6 +213,22 @@ Partial Class GestorReportesProdForm
         Me.tabOrdenDeCompra.TabIndex = 0
         Me.tabOrdenDeCompra.Text = "Pedidos detallados"
         Me.tabOrdenDeCompra.UseVisualStyleBackColor = True
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(662, 34)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(63, 13)
+        Me.Label14.TabIndex = 104
+        Me.Label14.Text = "Nro. Pedido"
+        '
+        'txtNroPedido
+        '
+        Me.txtNroPedido.Location = New System.Drawing.Point(661, 51)
+        Me.txtNroPedido.Name = "txtNroPedido"
+        Me.txtNroPedido.Size = New System.Drawing.Size(96, 20)
+        Me.txtNroPedido.TabIndex = 103
         '
         'PictureBox7
         '
@@ -392,20 +412,20 @@ Partial Class GestorReportesProdForm
         'tabDetalle
         '
         Me.tabDetalle.AutoScroll = True
-        Me.tabDetalle.Controls.Add(Me.PictureBox12)
-        Me.tabDetalle.Controls.Add(Me.comboDetalleOCMP)
-        Me.tabDetalle.Controls.Add(Me.checkDetalleOCMP)
         Me.tabDetalle.Controls.Add(Me.Label10)
+        Me.tabDetalle.Controls.Add(Me.txtNroSerieSeguimiento)
+        Me.tabDetalle.Controls.Add(Me.Label13)
+        Me.tabDetalle.Controls.Add(Me.txtNroPedidoSeguimiento)
         Me.tabDetalle.Controls.Add(Me.PictureBox6)
         Me.tabDetalle.Controls.Add(Me.PictureBox5)
         Me.tabDetalle.Controls.Add(Me.Label5)
-        Me.tabDetalle.Controls.Add(Me.comboDetalleOCProveedor)
-        Me.tabDetalle.Controls.Add(Me.checkDetalleOCProveedor)
-        Me.tabDetalle.Controls.Add(Me.comboDetalleOCEstado)
-        Me.tabDetalle.Controls.Add(Me.checkDetalleOCEstado)
+        Me.tabDetalle.Controls.Add(Me.comboSeguimientoModelo)
+        Me.tabDetalle.Controls.Add(Me.checkSeguimientoModelo)
+        Me.tabDetalle.Controls.Add(Me.comboSeguimientoEstado)
+        Me.tabDetalle.Controls.Add(Me.checkSeguimientoEstado)
         Me.tabDetalle.Controls.Add(Me.Label1)
         Me.tabDetalle.Controls.Add(Me.UltraGroupBox2)
-        Me.tabDetalle.Controls.Add(Me.btnDetalleOC)
+        Me.tabDetalle.Controls.Add(Me.btnSeguimiento)
         Me.tabDetalle.Location = New System.Drawing.Point(4, 22)
         Me.tabDetalle.Name = "tabDetalle"
         Me.tabDetalle.Padding = New System.Windows.Forms.Padding(3)
@@ -414,50 +434,42 @@ Partial Class GestorReportesProdForm
         Me.tabDetalle.Text = "Seguimiento produccion"
         Me.tabDetalle.UseVisualStyleBackColor = True
         '
-        'PictureBox12
-        '
-        Me.PictureBox12.Image = CType(resources.GetObject("PictureBox12.Image"), System.Drawing.Image)
-        Me.PictureBox12.Location = New System.Drawing.Point(548, 83)
-        Me.PictureBox12.Name = "PictureBox12"
-        Me.PictureBox12.Size = New System.Drawing.Size(21, 21)
-        Me.PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox12.TabIndex = 67
-        Me.PictureBox12.TabStop = False
-        '
-        'comboDetalleOCMP
-        '
-        Me.comboDetalleOCMP.AutoSize = True
-        Me.comboDetalleOCMP.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboDetalleOCMP.Location = New System.Drawing.Point(340, 83)
-        Me.comboDetalleOCMP.Name = "comboDetalleOCMP"
-        Me.comboDetalleOCMP.Size = New System.Drawing.Size(205, 21)
-        Me.comboDetalleOCMP.TabIndex = 66
-        '
-        'checkDetalleOCMP
-        '
-        Me.checkDetalleOCMP.AutoSize = True
-        Me.checkDetalleOCMP.BackColor = System.Drawing.SystemColors.Control
-        Me.checkDetalleOCMP.Location = New System.Drawing.Point(575, 87)
-        Me.checkDetalleOCMP.Name = "checkDetalleOCMP"
-        Me.checkDetalleOCMP.Size = New System.Drawing.Size(59, 17)
-        Me.checkDetalleOCMP.TabIndex = 65
-        Me.checkDetalleOCMP.Text = "Activar"
-        Me.checkDetalleOCMP.UseVisualStyleBackColor = False
-        '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Location = New System.Drawing.Point(270, 88)
+        Me.Label10.Location = New System.Drawing.Point(515, 74)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(70, 13)
-        Me.Label10.TabIndex = 64
-        Me.Label10.Text = "Materia prima"
+        Me.Label10.Size = New System.Drawing.Size(54, 13)
+        Me.Label10.TabIndex = 106
+        Me.Label10.Text = "Nro. Serie"
+        '
+        'txtNroSerieSeguimiento
+        '
+        Me.txtNroSerieSeguimiento.Location = New System.Drawing.Point(514, 91)
+        Me.txtNroSerieSeguimiento.Name = "txtNroSerieSeguimiento"
+        Me.txtNroSerieSeguimiento.Size = New System.Drawing.Size(96, 20)
+        Me.txtNroSerieSeguimiento.TabIndex = 105
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(406, 74)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(63, 13)
+        Me.Label13.TabIndex = 104
+        Me.Label13.Text = "Nro. Pedido"
+        '
+        'txtNroPedidoSeguimiento
+        '
+        Me.txtNroPedidoSeguimiento.Location = New System.Drawing.Point(405, 91)
+        Me.txtNroPedidoSeguimiento.Name = "txtNroPedidoSeguimiento"
+        Me.txtNroPedidoSeguimiento.Size = New System.Drawing.Size(96, 20)
+        Me.txtNroPedidoSeguimiento.TabIndex = 103
         '
         'PictureBox6
         '
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(548, 56)
+        Me.PictureBox6.Location = New System.Drawing.Point(613, 46)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(21, 21)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -467,7 +479,7 @@ Partial Class GestorReportesProdForm
         'PictureBox5
         '
         Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(548, 30)
+        Me.PictureBox5.Location = New System.Drawing.Point(613, 20)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(21, 21)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -478,57 +490,57 @@ Partial Class GestorReportesProdForm
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(281, 61)
+        Me.Label5.Location = New System.Drawing.Point(362, 52)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(56, 13)
+        Me.Label5.Size = New System.Drawing.Size(42, 13)
         Me.Label5.TabIndex = 59
-        Me.Label5.Text = "Proveedor"
+        Me.Label5.Text = "Modelo"
         '
-        'comboDetalleOCProveedor
+        'comboSeguimientoModelo
         '
-        Me.comboDetalleOCProveedor.AutoSize = True
-        Me.comboDetalleOCProveedor.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboDetalleOCProveedor.Location = New System.Drawing.Point(340, 56)
-        Me.comboDetalleOCProveedor.Name = "comboDetalleOCProveedor"
-        Me.comboDetalleOCProveedor.Size = New System.Drawing.Size(205, 21)
-        Me.comboDetalleOCProveedor.TabIndex = 61
+        Me.comboSeguimientoModelo.AutoSize = True
+        Me.comboSeguimientoModelo.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
+        Me.comboSeguimientoModelo.Location = New System.Drawing.Point(405, 46)
+        Me.comboSeguimientoModelo.Name = "comboSeguimientoModelo"
+        Me.comboSeguimientoModelo.Size = New System.Drawing.Size(205, 21)
+        Me.comboSeguimientoModelo.TabIndex = 61
         '
-        'checkDetalleOCProveedor
+        'checkSeguimientoModelo
         '
-        Me.checkDetalleOCProveedor.AutoSize = True
-        Me.checkDetalleOCProveedor.BackColor = System.Drawing.SystemColors.Control
-        Me.checkDetalleOCProveedor.Location = New System.Drawing.Point(575, 58)
-        Me.checkDetalleOCProveedor.Name = "checkDetalleOCProveedor"
-        Me.checkDetalleOCProveedor.Size = New System.Drawing.Size(59, 17)
-        Me.checkDetalleOCProveedor.TabIndex = 60
-        Me.checkDetalleOCProveedor.Text = "Activar"
-        Me.checkDetalleOCProveedor.UseVisualStyleBackColor = False
+        Me.checkSeguimientoModelo.AutoSize = True
+        Me.checkSeguimientoModelo.BackColor = System.Drawing.SystemColors.Control
+        Me.checkSeguimientoModelo.Location = New System.Drawing.Point(640, 48)
+        Me.checkSeguimientoModelo.Name = "checkSeguimientoModelo"
+        Me.checkSeguimientoModelo.Size = New System.Drawing.Size(59, 17)
+        Me.checkSeguimientoModelo.TabIndex = 60
+        Me.checkSeguimientoModelo.Text = "Activar"
+        Me.checkSeguimientoModelo.UseVisualStyleBackColor = False
         '
-        'comboDetalleOCEstado
+        'comboSeguimientoEstado
         '
-        Me.comboDetalleOCEstado.AutoSize = True
-        Me.comboDetalleOCEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        Me.comboDetalleOCEstado.Location = New System.Drawing.Point(340, 30)
-        Me.comboDetalleOCEstado.Name = "comboDetalleOCEstado"
-        Me.comboDetalleOCEstado.Size = New System.Drawing.Size(205, 21)
-        Me.comboDetalleOCEstado.TabIndex = 58
+        Me.comboSeguimientoEstado.AutoSize = True
+        Me.comboSeguimientoEstado.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
+        Me.comboSeguimientoEstado.Location = New System.Drawing.Point(405, 20)
+        Me.comboSeguimientoEstado.Name = "comboSeguimientoEstado"
+        Me.comboSeguimientoEstado.Size = New System.Drawing.Size(205, 21)
+        Me.comboSeguimientoEstado.TabIndex = 58
         '
-        'checkDetalleOCEstado
+        'checkSeguimientoEstado
         '
-        Me.checkDetalleOCEstado.AutoSize = True
-        Me.checkDetalleOCEstado.BackColor = System.Drawing.SystemColors.Control
-        Me.checkDetalleOCEstado.Location = New System.Drawing.Point(575, 32)
-        Me.checkDetalleOCEstado.Name = "checkDetalleOCEstado"
-        Me.checkDetalleOCEstado.Size = New System.Drawing.Size(59, 17)
-        Me.checkDetalleOCEstado.TabIndex = 57
-        Me.checkDetalleOCEstado.Text = "Activar"
-        Me.checkDetalleOCEstado.UseVisualStyleBackColor = False
+        Me.checkSeguimientoEstado.AutoSize = True
+        Me.checkSeguimientoEstado.BackColor = System.Drawing.SystemColors.Control
+        Me.checkSeguimientoEstado.Location = New System.Drawing.Point(640, 22)
+        Me.checkSeguimientoEstado.Name = "checkSeguimientoEstado"
+        Me.checkSeguimientoEstado.Size = New System.Drawing.Size(59, 17)
+        Me.checkSeguimientoEstado.TabIndex = 57
+        Me.checkSeguimientoEstado.Text = "Activar"
+        Me.checkSeguimientoEstado.UseVisualStyleBackColor = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(297, 34)
+        Me.Label1.Location = New System.Drawing.Point(362, 24)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 56
@@ -537,15 +549,15 @@ Partial Class GestorReportesProdForm
         'UltraGroupBox2
         '
         Me.UltraGroupBox2.Controls.Add(Me.PictureBox4)
-        Me.UltraGroupBox2.Controls.Add(Me.checkFechaDetalleOC)
-        Me.UltraGroupBox2.Controls.Add(Me.detalleOCHasta)
-        Me.UltraGroupBox2.Controls.Add(Me.detalleOCDesde)
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(43, 11)
+        Me.UltraGroupBox2.Controls.Add(Me.checkSeguimientoFecha)
+        Me.UltraGroupBox2.Controls.Add(Me.fechaSeguimientoHasta)
+        Me.UltraGroupBox2.Controls.Add(Me.fechaSeguimientoDesde)
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(24, 6)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(223, 105)
+        Me.UltraGroupBox2.Size = New System.Drawing.Size(257, 105)
         Me.UltraGroupBox2.SupportThemes = False
         Me.UltraGroupBox2.TabIndex = 44
-        Me.UltraGroupBox2.Text = "Fecha estimada entrega"
+        Me.UltraGroupBox2.Text = "Fecha inicio producción"
         '
         'PictureBox4
         '
@@ -558,43 +570,45 @@ Partial Class GestorReportesProdForm
         Me.PictureBox4.TabIndex = 59
         Me.PictureBox4.TabStop = False
         '
-        'checkFechaDetalleOC
+        'checkSeguimientoFecha
         '
-        Me.checkFechaDetalleOC.AutoSize = True
-        Me.checkFechaDetalleOC.BackColor = System.Drawing.SystemColors.ButtonFace
-        Me.checkFechaDetalleOC.Location = New System.Drawing.Point(33, 74)
-        Me.checkFechaDetalleOC.Name = "checkFechaDetalleOC"
-        Me.checkFechaDetalleOC.Size = New System.Drawing.Size(59, 17)
-        Me.checkFechaDetalleOC.TabIndex = 43
-        Me.checkFechaDetalleOC.Text = "Activar"
-        Me.checkFechaDetalleOC.UseVisualStyleBackColor = False
+        Me.checkSeguimientoFecha.AutoSize = True
+        Me.checkSeguimientoFecha.BackColor = System.Drawing.SystemColors.ButtonFace
+        Me.checkSeguimientoFecha.Location = New System.Drawing.Point(33, 74)
+        Me.checkSeguimientoFecha.Name = "checkSeguimientoFecha"
+        Me.checkSeguimientoFecha.Size = New System.Drawing.Size(59, 17)
+        Me.checkSeguimientoFecha.TabIndex = 43
+        Me.checkSeguimientoFecha.Text = "Activar"
+        Me.checkSeguimientoFecha.UseVisualStyleBackColor = False
         '
-        'detalleOCHasta
+        'fechaSeguimientoHasta
         '
-        Me.detalleOCHasta.Location = New System.Drawing.Point(6, 46)
-        Me.detalleOCHasta.Name = "detalleOCHasta"
-        Me.detalleOCHasta.Size = New System.Drawing.Size(211, 20)
-        Me.detalleOCHasta.TabIndex = 42
+        Me.fechaSeguimientoHasta.Location = New System.Drawing.Point(6, 46)
+        Me.fechaSeguimientoHasta.Name = "fechaSeguimientoHasta"
+        Me.fechaSeguimientoHasta.Size = New System.Drawing.Size(211, 20)
+        Me.fechaSeguimientoHasta.TabIndex = 42
         '
-        'detalleOCDesde
+        'fechaSeguimientoDesde
         '
-        Me.detalleOCDesde.Location = New System.Drawing.Point(6, 20)
-        Me.detalleOCDesde.Name = "detalleOCDesde"
-        Me.detalleOCDesde.Size = New System.Drawing.Size(211, 20)
-        Me.detalleOCDesde.TabIndex = 41
+        Me.fechaSeguimientoDesde.Location = New System.Drawing.Point(6, 20)
+        Me.fechaSeguimientoDesde.Name = "fechaSeguimientoDesde"
+        Me.fechaSeguimientoDesde.Size = New System.Drawing.Size(211, 20)
+        Me.fechaSeguimientoDesde.TabIndex = 41
         '
-        'btnDetalleOC
+        'btnSeguimiento
         '
         Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Me.btnDetalleOC.Appearance = Appearance2
-        Me.btnDetalleOC.Location = New System.Drawing.Point(640, 73)
-        Me.btnDetalleOC.Name = "btnDetalleOC"
-        Me.btnDetalleOC.Size = New System.Drawing.Size(96, 31)
-        Me.btnDetalleOC.TabIndex = 41
-        Me.btnDetalleOC.Text = "Actualizar"
+        Me.btnSeguimiento.Appearance = Appearance2
+        Me.btnSeguimiento.Location = New System.Drawing.Point(640, 80)
+        Me.btnSeguimiento.Name = "btnSeguimiento"
+        Me.btnSeguimiento.Size = New System.Drawing.Size(96, 31)
+        Me.btnSeguimiento.TabIndex = 41
+        Me.btnSeguimiento.Text = "Actualizar"
         '
         'tabServicios
         '
+        Me.tabServicios.Controls.Add(Me.Label7)
+        Me.tabServicios.Controls.Add(Me.txtNroPedidoServicio)
         Me.tabServicios.Controls.Add(Me.UltraGroupBox5)
         Me.tabServicios.Controls.Add(Me.UltraGroupBox6)
         Me.tabServicios.Controls.Add(Me.PictureBox11)
@@ -617,6 +631,22 @@ Partial Class GestorReportesProdForm
         Me.tabServicios.TabIndex = 3
         Me.tabServicios.Text = "Servicios detallados"
         Me.tabServicios.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(683, 28)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(63, 13)
+        Me.Label7.TabIndex = 102
+        Me.Label7.Text = "Nro. Pedido"
+        '
+        'txtNroPedidoServicio
+        '
+        Me.txtNroPedidoServicio.Location = New System.Drawing.Point(682, 45)
+        Me.txtNroPedidoServicio.Name = "txtNroPedidoServicio"
+        Me.txtNroPedidoServicio.Size = New System.Drawing.Size(90, 20)
+        Me.txtNroPedidoServicio.TabIndex = 101
         '
         'UltraGroupBox5
         '
@@ -1135,12 +1165,10 @@ Partial Class GestorReportesProdForm
         CType(Me.comboPedidoCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabDetalle.ResumeLayout(False)
         Me.tabDetalle.PerformLayout()
-        CType(Me.PictureBox12, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.comboDetalleOCMP, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.comboDetalleOCProveedor, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.comboDetalleOCEstado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comboSeguimientoModelo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.comboSeguimientoEstado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
         Me.UltraGroupBox2.PerformLayout()
@@ -1185,24 +1213,20 @@ Partial Class GestorReportesProdForm
     Friend WithEvents tabProduccion As System.Windows.Forms.TabControl
     Friend WithEvents tabOrdenDeCompra As System.Windows.Forms.TabPage
     Friend WithEvents tabDetalle As System.Windows.Forms.TabPage
-    Friend WithEvents PictureBox12 As System.Windows.Forms.PictureBox
-    Friend WithEvents comboDetalleOCMP As Infragistics.Win.UltraWinEditors.UltraComboEditor
-    Friend WithEvents checkDetalleOCMP As System.Windows.Forms.CheckBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents PictureBox6 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents comboDetalleOCProveedor As Infragistics.Win.UltraWinEditors.UltraComboEditor
-    Friend WithEvents checkDetalleOCProveedor As System.Windows.Forms.CheckBox
-    Friend WithEvents comboDetalleOCEstado As Infragistics.Win.UltraWinEditors.UltraComboEditor
-    Friend WithEvents checkDetalleOCEstado As System.Windows.Forms.CheckBox
+    Friend WithEvents comboSeguimientoModelo As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents checkSeguimientoModelo As System.Windows.Forms.CheckBox
+    Friend WithEvents comboSeguimientoEstado As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents checkSeguimientoEstado As System.Windows.Forms.CheckBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
-    Friend WithEvents checkFechaDetalleOC As System.Windows.Forms.CheckBox
-    Friend WithEvents detalleOCHasta As System.Windows.Forms.DateTimePicker
-    Friend WithEvents detalleOCDesde As System.Windows.Forms.DateTimePicker
-    Friend WithEvents btnDetalleOC As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents checkSeguimientoFecha As System.Windows.Forms.CheckBox
+    Friend WithEvents fechaSeguimientoHasta As System.Windows.Forms.DateTimePicker
+    Friend WithEvents fechaSeguimientoDesde As System.Windows.Forms.DateTimePicker
+    Friend WithEvents btnSeguimiento As Infragistics.Win.Misc.UltraButton
     Friend WithEvents tabServicios As System.Windows.Forms.TabPage
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
@@ -1270,4 +1294,12 @@ Partial Class GestorReportesProdForm
     Friend WithEvents checkFechaRealizacion As System.Windows.Forms.CheckBox
     Friend WithEvents fechaRealizacionHasta As System.Windows.Forms.DateTimePicker
     Friend WithEvents fechaRealizacionDesde As System.Windows.Forms.DateTimePicker
+    Friend WithEvents txtNroPedidoServicio As System.Windows.Forms.TextBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents txtNroPedido As System.Windows.Forms.TextBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents txtNroPedidoSeguimiento As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents txtNroSerieSeguimiento As System.Windows.Forms.TextBox
 End Class

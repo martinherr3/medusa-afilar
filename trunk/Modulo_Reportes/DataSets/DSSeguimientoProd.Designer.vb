@@ -272,6 +272,12 @@ Partial Public Class DSSeguimientoProd
         
         Private columntiempoadicional As System.Data.DataColumn
         
+        Private columnnombreEstado As System.Data.DataColumn
+        
+        Private columnnroserie As System.Data.DataColumn
+        
+        Private columnnropedido As System.Data.DataColumn
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -465,6 +471,27 @@ Partial Public Class DSSeguimientoProd
             End Get
         End Property
         
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nombreEstadoColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnnombreEstado
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nroserieColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnnroserie
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nropedidoColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnnropedido
+            End Get
+        End Property
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -517,9 +544,12 @@ Partial Public Class DSSeguimientoProd
                     ByVal apellidoTornero As String,  _
                     ByVal fechasalidad As Date,  _
                     ByVal fecharecepcion As Date,  _
-                    ByVal tiempoadicional As Double) As hojaderutaRow
+                    ByVal tiempoadicional As Double,  _
+                    ByVal nombreEstado As String,  _
+                    ByVal nroserie As Integer,  _
+                    ByVal nropedido As Decimal) As hojaderutaRow
             Dim rowhojaderutaRow As hojaderutaRow = CType(Me.NewRow,hojaderutaRow)
-            rowhojaderutaRow.ItemArray = New Object() {idhojaderuta, fechainicioproduccion, nombreEmpleado, apellidoEmpleado, nombreFresa, idmodelo, idtipo, estado, nombreOperacion, maquina, duracionpromedio, orden, idlegajo, fechahorainicioreal, fechahorainicioplanificada, fechahorafinreal, fechahorafinplanificada, observaciones, nombreTornero, apellidoTornero, fechasalidad, fecharecepcion, tiempoadicional}
+            rowhojaderutaRow.ItemArray = New Object() {idhojaderuta, fechainicioproduccion, nombreEmpleado, apellidoEmpleado, nombreFresa, idmodelo, idtipo, estado, nombreOperacion, maquina, duracionpromedio, orden, idlegajo, fechahorainicioreal, fechahorainicioplanificada, fechahorafinreal, fechahorafinplanificada, observaciones, nombreTornero, apellidoTornero, fechasalidad, fecharecepcion, tiempoadicional, nombreEstado, nroserie, nropedido}
             Me.Rows.Add(rowhojaderutaRow)
             Return rowhojaderutaRow
         End Function
@@ -571,6 +601,9 @@ Partial Public Class DSSeguimientoProd
             Me.columnfechasalidad = MyBase.Columns("fechasalidad")
             Me.columnfecharecepcion = MyBase.Columns("fecharecepcion")
             Me.columntiempoadicional = MyBase.Columns("tiempoadicional")
+            Me.columnnombreEstado = MyBase.Columns("nombreEstado")
+            Me.columnnroserie = MyBase.Columns("nroserie")
+            Me.columnnropedido = MyBase.Columns("nropedido")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -621,6 +654,12 @@ Partial Public Class DSSeguimientoProd
             MyBase.Columns.Add(Me.columnfecharecepcion)
             Me.columntiempoadicional = New System.Data.DataColumn("tiempoadicional", GetType(Double), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntiempoadicional)
+            Me.columnnombreEstado = New System.Data.DataColumn("nombreEstado", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombreEstado)
+            Me.columnnroserie = New System.Data.DataColumn("nroserie", GetType(Integer), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnroserie)
+            Me.columnnropedido = New System.Data.DataColumn("nropedido", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnropedido)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnidhojaderuta}, true))
             Me.columnidhojaderuta.AllowDBNull = false
             Me.columnidhojaderuta.Unique = true
@@ -632,6 +671,9 @@ Partial Public Class DSSeguimientoProd
             Me.columnobservaciones.MaxLength = 30
             Me.columnnombreTornero.MaxLength = 50
             Me.columnapellidoTornero.MaxLength = 50
+            Me.columnnombreEstado.MaxLength = 40
+            Me.columnnroserie.AllowDBNull = false
+            Me.columnnropedido.AllowDBNull = false
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1050,6 +1092,40 @@ Partial Public Class DSSeguimientoProd
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nombreEstado() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablehojaderuta.nombreEstadoColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombreEstado' de la tabla 'hojaderuta' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablehojaderuta.nombreEstadoColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nroserie() As Integer
+            Get
+                Return CType(Me(Me.tablehojaderuta.nroserieColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablehojaderuta.nroserieColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nropedido() As Decimal
+            Get
+                Return CType(Me(Me.tablehojaderuta.nropedidoColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tablehojaderuta.nropedidoColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsfechainicioproduccionNull() As Boolean
             Return Me.IsNull(Me.tablehojaderuta.fechainicioproduccionColumn)
         End Function
@@ -1268,6 +1344,16 @@ Partial Public Class DSSeguimientoProd
         Public Sub SettiempoadicionalNull()
             Me(Me.tablehojaderuta.tiempoadicionalColumn) = System.Convert.DBNull
         End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnombreEstadoNull() As Boolean
+            Return Me.IsNull(Me.tablehojaderuta.nombreEstadoColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnombreEstadoNull()
+            Me(Me.tablehojaderuta.nombreEstadoColumn) = System.Convert.DBNull
+        End Sub
     End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -1415,6 +1501,9 @@ Namespace DSSeguimientoProdTableAdapters
             tableMapping.ColumnMappings.Add("fechasalidad", "fechasalidad")
             tableMapping.ColumnMappings.Add("fecharecepcion", "fecharecepcion")
             tableMapping.ColumnMappings.Add("tiempoadicional", "tiempoadicional")
+            tableMapping.ColumnMappings.Add("nombreEstado", "nombreEstado")
+            tableMapping.ColumnMappings.Add("nroserie", "nroserie")
+            tableMapping.ColumnMappings.Add("nropedido", "nropedido")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1439,18 +1528,20 @@ Namespace DSSeguimientoProdTableAdapters
                 "jaderuta.fechahorafinplanificada, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detallehojaderuta.obse"& _ 
                 "rvaciones, tornero.nombre AS nombreTornero, tornero.apellido AS apellidoTornero,"& _ 
                 " torneado.fechasalidad, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      torneado.fecharecepcion, etapade"& _ 
-                "fabricacion.tiempoadicional"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         fresa INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "  hojaderuta INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detallehojaderuta ON hojaderuta.i"& _ 
-                "dhojaderuta = detallehojaderuta.idhojaderuta ON fresa.idhojaderuta = hojaderuta."& _ 
-                "idhojaderuta INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipofresa ON fresa.idtipo = tipof"& _ 
-                "resa.idtipo AND fresa.idmodelo = tipofresa.idmodelo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
-                "      operacion INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      etapadefabricacion ON operacio"& _ 
-                "n.idoperacion = etapadefabricacion.idoperacion ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detall"& _ 
-                "ehojaderuta.idetapadefabricacion = etapadefabricacion.idetapafabricacion INNER J"& _ 
-                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      empleado ON detallehojaderuta.idlegajo = empleado.idl"& _ 
-                "egajo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      torneado ON detallehojaderuta.idtorneado"& _ 
-                " = torneado.idtorneado INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tornero ON torneado.idt"& _ 
-                "ornero = tornero.idtornero"
+                "fabricacion.tiempoadicional, estado.nombre AS nombreEstado, fresa.nroserie, fres"& _ 
+                "a.nropedido"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         fresa INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      hojaderuta INN"& _ 
+                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detallehojaderuta ON hojaderuta.idhojaderuta = de"& _ 
+                "tallehojaderuta.idhojaderuta ON fresa.idhojaderuta = hojaderuta.idhojaderuta INN"& _ 
+                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipofresa ON fresa.idtipo = tipofresa.idtipo AND "& _ 
+                "fresa.idmodelo = tipofresa.idmodelo INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      operacion "& _ 
+                "INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      etapadefabricacion ON operacion.idoperacion = "& _ 
+                "etapadefabricacion.idoperacion ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detallehojaderuta.idet"& _ 
+                "apadefabricacion = etapadefabricacion.idetapafabricacion INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "           empleado ON detallehojaderuta.idlegajo = empleado.idlegajo INNER JOIN"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      torneado ON detallehojaderuta.idtorneado = torneado.idto"& _ 
+                "rneado INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tornero ON torneado.idtornero = tornero"& _ 
+                ".idtornero INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      estado ON fresa.estado = estado.ide"& _ 
+                "stado"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         
