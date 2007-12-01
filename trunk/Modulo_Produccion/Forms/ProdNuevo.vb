@@ -676,6 +676,8 @@ Public Class ProdNuevo
 
         Dim colorFresa As Color
 
+
+
         For Each maq As MaquinaProd In programador.maquinas
             For Each tar As tareasProd In maq.tareas
 
