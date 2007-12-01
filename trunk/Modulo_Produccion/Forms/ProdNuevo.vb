@@ -636,7 +636,7 @@ Public Class ProdNuevo
     End If
 
     For Each row As DataRow In DS.Tables.Item(0).Rows
-      tareasCollection.Add(New tareasProd(row.Item("nroserie"), row.Item("idetapafabricacion"), row.Item("nombre"), row.Item("maquina"), row.Item("duracionpromedio"), row.Item("orden"), "fresa")) 'Por ahora son todos del tipo fresa
+            tareasCollection.Add(New tareasProd(row.Item("nroserie"), row.Item("idetapafabricacion"), row.Item("nombre"), row.Item("maquina"), row.Item("duracionpromedio"), row.Item("orden"), "fresa", row.Item("idoperacion"))) 'Por ahora son todos del tipo fresa
       Debug.WriteLine("--> TAREAS <-- nroserie: " & row.Item("nroserie") & " - orden: " & row.Item("orden") & " - maquina " & row.Item("maquina") & " - duracion: " & row.Item("duracionpromedio"))
     Next
     cnn.Close()
@@ -880,7 +880,7 @@ Public Class ProdNuevo
         Next
 
         For Each row As DataRow In DS.Tables.Item(0).Rows
-            tareasCollection.Add(New tareasProd(row.Item("nroserie"), row.Item("idetapafabricacion"), row.Item("nombre"), row.Item("maquina"), row.Item("duracionpromedio"), row.Item("orden"), "fresa")) 'Por ahora son todos del tipo fresa
+            tareasCollection.Add(New tareasProd(row.Item("nroserie"), row.Item("idetapafabricacion"), row.Item("nombre"), row.Item("maquina"), row.Item("duracionpromedio"), row.Item("orden"), "fresa", row.Item("idoperacion"))) 'Por ahora son todos del tipo fresa
             Debug.WriteLine("--> TAREAS <-- nroserie: " & row.Item("nroserie") & " - orden: " & row.Item("orden") & " - maquina " & row.Item("maquina") & " - duracion: " & row.Item("duracionpromedio"))
         Next
 

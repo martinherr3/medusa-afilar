@@ -31,6 +31,7 @@ Partial Class frmSegProd
         Me.lblFresa = New System.Windows.Forms.Label
         Me.imagen = New System.Windows.Forms.PictureBox
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.cmbTornero = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.cmbEmpleado = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.LblOperacion = New System.Windows.Forms.Label
         Me.lblInicioPlan = New System.Windows.Forms.Label
@@ -54,13 +55,12 @@ Partial Class frmSegProd
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.timerSeg = New System.Windows.Forms.Timer(Me.components)
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
-        Me.cmbTornero = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         CType(Me.barra, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.cmbTornero, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmbTornero, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'barra
@@ -141,6 +141,16 @@ Partial Class frmSegProd
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de Operacion Actual"
+        '
+        'cmbTornero
+        '
+        Me.cmbTornero.AutoComplete = True
+        Me.cmbTornero.AutoSize = True
+        Me.cmbTornero.Location = New System.Drawing.Point(688, 35)
+        Me.cmbTornero.Name = "cmbTornero"
+        Me.cmbTornero.Size = New System.Drawing.Size(226, 27)
+        Me.cmbTornero.TabIndex = 17
+        Me.cmbTornero.Visible = False
         '
         'cmbEmpleado
         '
@@ -334,16 +344,6 @@ Partial Class frmSegProd
         Me.UltraButton2.TabIndex = 18
         Me.UltraButton2.Text = "&Cancelar"
         '
-        'cmbTornero
-        '
-        Me.cmbTornero.AutoComplete = True
-        Me.cmbTornero.AutoSize = True
-        Me.cmbTornero.Location = New System.Drawing.Point(688, 35)
-        Me.cmbTornero.Name = "cmbTornero"
-        Me.cmbTornero.Size = New System.Drawing.Size(226, 27)
-        Me.cmbTornero.TabIndex = 17
-        Me.cmbTornero.Visible = False
-        '
         'frmSegProd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -367,9 +367,9 @@ Partial Class frmSegProd
         CType(Me.imagen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.cmbTornero, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmbTornero, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
