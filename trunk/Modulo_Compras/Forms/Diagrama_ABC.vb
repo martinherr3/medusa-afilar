@@ -32,9 +32,7 @@ Public Class Diagrama_ABC
     'Puede modificarse utilizando el Diseñador de Windows Forms. 
     'No lo modifique con el editor de código.
     Friend WithEvents UltraChart1 As Infragistics.Win.UltraWinChart.UltraChart
-    Friend WithEvents btnClasificar As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents btnRegistrarClase As System.Windows.Forms.Button
     Friend WithEvents grbParametros As System.Windows.Forms.GroupBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -43,24 +41,28 @@ Public Class Diagrama_ABC
     Friend WithEvents txtB As System.Windows.Forms.TextBox
     Friend WithEvents txtA As System.Windows.Forms.TextBox
     Friend WithEvents chkParametros As System.Windows.Forms.CheckBox
+    Friend WithEvents btnRegistrar As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnClasif As Infragistics.Win.Misc.UltraButton
     Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim ShadowEffect2 As Infragistics.UltraChart.Resources.Appearance.ShadowEffect = New Infragistics.UltraChart.Resources.Appearance.ShadowEffect
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Diagrama_ABC))
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraChart1 = New Infragistics.Win.UltraWinChart.UltraChart
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
-        Me.btnClasificar = New System.Windows.Forms.Button
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.btnRegistrarClase = New System.Windows.Forms.Button
         Me.grbParametros = New System.Windows.Forms.GroupBox
-        Me.chkParametros = New System.Windows.Forms.CheckBox
-        Me.txtA = New System.Windows.Forms.TextBox
-        Me.txtB = New System.Windows.Forms.TextBox
-        Me.txtC = New System.Windows.Forms.TextBox
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.txtC = New System.Windows.Forms.TextBox
+        Me.txtB = New System.Windows.Forms.TextBox
+        Me.txtA = New System.Windows.Forms.TextBox
+        Me.chkParametros = New System.Windows.Forms.CheckBox
+        Me.btnRegistrar = New Infragistics.Win.Misc.UltraButton
+        Me.btnClasif = New Infragistics.Win.Misc.UltraButton
         CType(Me.UltraChart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.grbParametros.SuspendLayout()
@@ -173,42 +175,23 @@ Public Class Diagrama_ABC
         '
         'UltraButton1
         '
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Me.UltraButton1.Appearance = Appearance2
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance4
         Me.UltraButton1.Location = New System.Drawing.Point(663, 442)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(81, 31)
         Me.UltraButton1.TabIndex = 1
         Me.UltraButton1.Text = "Salir"
         '
-        'btnClasificar
-        '
-        Me.btnClasificar.Location = New System.Drawing.Point(6, 20)
-        Me.btnClasificar.Name = "btnClasificar"
-        Me.btnClasificar.Size = New System.Drawing.Size(115, 31)
-        Me.btnClasificar.TabIndex = 2
-        Me.btnClasificar.Text = "Clasificar"
-        Me.btnClasificar.UseVisualStyleBackColor = True
-        '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.btnRegistrarClase)
-        Me.GroupBox1.Controls.Add(Me.btnClasificar)
+        Me.GroupBox1.Controls.Add(Me.btnRegistrar)
+        Me.GroupBox1.Controls.Add(Me.btnClasif)
         Me.GroupBox1.Location = New System.Drawing.Point(8, 414)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(267, 59)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
-        '
-        'btnRegistrarClase
-        '
-        Me.btnRegistrarClase.Enabled = False
-        Me.btnRegistrarClase.Location = New System.Drawing.Point(146, 20)
-        Me.btnRegistrarClase.Name = "btnRegistrarClase"
-        Me.btnRegistrarClase.Size = New System.Drawing.Size(115, 31)
-        Me.btnRegistrarClase.TabIndex = 3
-        Me.btnRegistrarClase.Text = "Registrar Clase"
-        Me.btnRegistrarClase.UseVisualStyleBackColor = True
         '
         'grbParametros
         '
@@ -225,47 +208,14 @@ Public Class Diagrama_ABC
         Me.grbParametros.TabStop = False
         Me.grbParametros.Visible = False
         '
-        'chkParametros
+        'Label3
         '
-        Me.chkParametros.AutoSize = True
-        Me.chkParametros.Location = New System.Drawing.Point(285, 428)
-        Me.chkParametros.Name = "chkParametros"
-        Me.chkParametros.Size = New System.Drawing.Size(118, 17)
-        Me.chkParametros.TabIndex = 5
-        Me.chkParametros.Text = "Parametrizar Clases"
-        Me.chkParametros.UseVisualStyleBackColor = True
-        '
-        'txtA
-        '
-        Me.txtA.Location = New System.Drawing.Point(16, 12)
-        Me.txtA.Name = "txtA"
-        Me.txtA.Size = New System.Drawing.Size(55, 20)
-        Me.txtA.TabIndex = 0
-        '
-        'txtB
-        '
-        Me.txtB.Location = New System.Drawing.Point(89, 12)
-        Me.txtB.Name = "txtB"
-        Me.txtB.Size = New System.Drawing.Size(58, 20)
-        Me.txtB.TabIndex = 1
-        '
-        'txtC
-        '
-        Me.txtC.Location = New System.Drawing.Point(164, 12)
-        Me.txtC.Name = "txtC"
-        Me.txtC.ReadOnly = True
-        Me.txtC.Size = New System.Drawing.Size(54, 20)
-        Me.txtC.TabIndex = 2
-        Me.txtC.Text = "100"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(22, 38)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(25, 13)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "% A"
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(176, 38)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(25, 13)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "% C"
         '
         'Label2
         '
@@ -276,14 +226,67 @@ Public Class Diagrama_ABC
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "% B"
         '
-        'Label3
+        'Label1
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(176, 38)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(25, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "% C"
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(22, 38)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(25, 13)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "% A"
+        '
+        'txtC
+        '
+        Me.txtC.Location = New System.Drawing.Point(164, 12)
+        Me.txtC.Name = "txtC"
+        Me.txtC.ReadOnly = True
+        Me.txtC.Size = New System.Drawing.Size(54, 20)
+        Me.txtC.TabIndex = 2
+        Me.txtC.Text = "100"
+        '
+        'txtB
+        '
+        Me.txtB.Location = New System.Drawing.Point(89, 12)
+        Me.txtB.Name = "txtB"
+        Me.txtB.Size = New System.Drawing.Size(58, 20)
+        Me.txtB.TabIndex = 1
+        '
+        'txtA
+        '
+        Me.txtA.Location = New System.Drawing.Point(16, 12)
+        Me.txtA.Name = "txtA"
+        Me.txtA.Size = New System.Drawing.Size(55, 20)
+        Me.txtA.TabIndex = 0
+        '
+        'chkParametros
+        '
+        Me.chkParametros.AutoSize = True
+        Me.chkParametros.Location = New System.Drawing.Point(285, 428)
+        Me.chkParametros.Name = "chkParametros"
+        Me.chkParametros.Size = New System.Drawing.Size(118, 17)
+        Me.chkParametros.TabIndex = 5
+        Me.chkParametros.Text = "Parametrizar Clases"
+        Me.chkParametros.UseVisualStyleBackColor = True
+        '
+        'btnRegistrar
+        '
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.btnRegistrar.Appearance = Appearance5
+        Me.btnRegistrar.Location = New System.Drawing.Point(140, 19)
+        Me.btnRegistrar.Name = "btnRegistrar"
+        Me.btnRegistrar.Size = New System.Drawing.Size(112, 31)
+        Me.btnRegistrar.TabIndex = 6
+        Me.btnRegistrar.Text = "Registrar Clase"
+        '
+        'btnClasif
+        '
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.btnClasif.Appearance = Appearance6
+        Me.btnClasif.Location = New System.Drawing.Point(15, 19)
+        Me.btnClasif.Name = "btnClasif"
+        Me.btnClasif.Size = New System.Drawing.Size(112, 31)
+        Me.btnClasif.TabIndex = 7
+        Me.btnClasif.Text = "Clasificar"
         '
         'Diagrama_ABC
         '
@@ -331,13 +334,13 @@ Public Class Diagrama_ABC
         Me.Close()
     End Sub
 
-    Private Sub btnClasificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClasificar.Click
-        ClasificarABC()
-        btnRegistrarClase.Enabled = True
+    Private Sub btnRegistrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrar.Click
+        RegistrarClase()
     End Sub
 
-    Private Sub btnRegistrarClase_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegistrarClase.Click
-        RegistrarClase()
+    Private Sub btnClasif_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnClasif.Click
+        ClasificarABC()
+        btnRegistrarClase.Enabled = True
     End Sub
 
     Private Sub chkParametros_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkParametros.CheckedChanged
@@ -506,5 +509,5 @@ Public Class Diagrama_ABC
     End Function
 #End Region
 
-   
+
 End Class
