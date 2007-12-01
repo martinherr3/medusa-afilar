@@ -366,6 +366,10 @@ Public Class abmTipoAcabado
         End If
     End Sub
 
+    Private Sub abmTipoAcabado_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub abmTipoAcabado_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '
         'adaptador
@@ -426,7 +430,5 @@ Public Class abmTipoAcabado
         Me.Close()
     End Sub
 
-    Private Sub abmTipoAcabado_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+
 End Class

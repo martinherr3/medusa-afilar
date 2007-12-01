@@ -541,6 +541,10 @@ Public Class abmOperacion
         Me.Close()
     End Sub
 
+    Private Sub abmOperacion_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub abmOperacion_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         operacion.cargarAdaptador()
         operacion.cargarDatos(ds, "operacion")
@@ -758,7 +762,5 @@ Public Class abmOperacion
         End Try
     End Sub
 
-    Private Sub abmOperacion_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 End Class

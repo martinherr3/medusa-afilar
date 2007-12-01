@@ -3,7 +3,12 @@ Public Class GestorReportesProdForm
     Dim usuario As New Usuario
     Dim nombreEmpleado As String
 
+    Private Sub GestorReportesProdForm_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub GestorReportesProdForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        princ.barra.agregarBoton(Me)
         Dim query As String
         nombreEmpleado = usuario.getCliente(seguridad.id)
 

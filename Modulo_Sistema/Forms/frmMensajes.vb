@@ -105,7 +105,7 @@ Public Class frmMensajes
     'End Sub
 
     Private Sub frmDesperfecto_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        'princ.barra.eliminarBoton()
+        princ.barra.eliminarBoton()
     End Sub
 
     Private Sub frmDesperfecto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -125,7 +125,7 @@ Public Class frmMensajes
 
 
 
-        'princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
         'GrdMensajes.DataSource = dsMensaje
         'GrdMensajes.DataMember = "Mensaje"
         'CargarGrdMensajes()

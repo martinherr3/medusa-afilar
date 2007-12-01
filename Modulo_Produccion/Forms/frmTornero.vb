@@ -8,12 +8,12 @@ Public Class frmTornero
     Dim bandGrabar As Integer
     
     'descomentar cuando termine
-    'Private Sub frmTornero_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-    '    princ.barra.eliminarBoton()
-    'End Sub
+    Private Sub frmTornero_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
 
     Private Sub frmTornero_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        '  princ.barra.agregarBoton(Me)
+        princ.barra.agregarBoton(Me)
         DataGrid1.DataSource = dsTornero
         DataGrid1.DataMember = "Tornero"
 

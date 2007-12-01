@@ -366,6 +366,10 @@ Public Class frmRecibirMPII
     Dim dvDOC As New DataView
     Dim Sqldataadapter1 As New SqlDataAdapter("select fecharealizacion, nroorden,ordencompramp.idordencompra, ordencompramp.idproveedor, proveedor.nombre from ordencompramp inner join proveedor on ordencompramp.idproveedor = proveedor.idproveedor where ordencompramp.idestado = " & Estado.ORDEN_DE_COMPRA_PENDIENTE, cnn)
     Dim Sqldataadapter2 As New SqlDataAdapter("select tipomateriaprima.nombre, cantidad, precio, idordencompra, detalleordencompra.idtipomateriaprima from detalleordencompra inner join tipomateriaprima on detalleordencompra.idtipomateriaprima = tipomateriaprima.idtipomateriaprima where idordencompra in (select idordencompra from ordencompramp where idestado = " & Estado.ORDEN_DE_COMPRA_PENDIENTE & ") and idestado = " & Estado.ORDEN_DE_COMPRA_PENDIENTE, cnn)
+
+    Private Sub frmRecibirMPII_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
     ''IDESTADO =1 ES "PENDIENTE DE ENTREGA" tendriamos que agregar la tabra estado
 
 
@@ -752,9 +756,7 @@ Public Class frmRecibirMPII
     '  dgDocP.Select(dgDocP.CurrentCell.RowNumber)
     'End Sub
 
-    Private Sub frmRecibirMPII_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 
     Private Sub gpbox3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles gpbox3.Click
 

@@ -29,12 +29,12 @@ Public Class frmMaquina
     End Sub
 
     Private Sub frmMaquina_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        'princ.barra.eliminarBoton()
+        princ.barra.eliminarBoton()
     End Sub
 
     Private Sub frmMaquina_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'princ.barra.agregarBoton(Me)
+
         DataGrid1.DataSource = dsMaquina
         DataGrid1.DataMember = "Maquina"
 
@@ -95,6 +95,7 @@ Public Class frmMaquina
             UltraButton3.Enabled = False
 
         End If
+        princ.barra.agregarBoton(Me)
         'objMaquina.mostrarDatos(cmbTipoMaquina.SelectedValue, CalendarRotura.Value, txtCausa.Text, CalendarReparacion.Value, Double.Parse(txtCosto.Text), cmbMaquina.SelectedValue, txtNumMaquina.Text)
     End Sub
 
@@ -266,9 +267,7 @@ Public Class frmMaquina
         'End If
     End Sub
 
-    Private Sub frmCliente_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        'princ.barra.eliminarBoton()
-    End Sub
+   
 
 
 

@@ -175,6 +175,10 @@ Public Class FrmRecibirMP
     Dim dvDOC As New DataView
     Dim Sqldataadapter1 As New SqlDataAdapter("select fecharealizacion, nroorden, ordencompramp.idproveedor, proveedor.nombre from ordencompramp inner join proveedor on ordencompramp.idproveedor = proveedor.idproveedor where ordencompramp.idestado=1", SQLconn)
     Dim Sqldataadapter2 As New SqlDataAdapter("select idordencompra, detalleordencompra.idtipomateriaprima, cantidad, precio, tipomateriaprima.nombre from detalleordencompra inner join tipomateriaprima on detalleordencompra.idtipomateriaprima = tipomateriaprima.idtipomateriaprima where idordencompra in (select idordencompra from ordencompramp where idestado =1) and idestado =1 ", SQLconn)
+
+    Private Sub FrmRecibirMP_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
     'Dim Sqldataadapter3 As New SqlDataAdapter("select * from mprecibida where 1=2", SQLconn)
     'Dim Sqldataadapter4 As New SqlDataAdapter("select * from detallemprecibida where 1=2", SQLconn)
 
@@ -499,9 +503,7 @@ Public Class FrmRecibirMP
         Return False
     End Function
 
-    Private Sub FrmRecibirMP_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
         Me.Close()

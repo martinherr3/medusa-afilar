@@ -12,12 +12,17 @@ Public Class referenciaProgramacion
     Set(ByVal value As Collection)
       _maquinas = value
     End Set
-  End Property
+    End Property
+
+    Private Sub referenciaProgramacion_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
 
 
 
   Private Sub referenciaProgramacion_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-    Dim allTasksCollection As New Collection
+        princ.barra.agregarBoton(Me)
+        Dim allTasksCollection As New Collection
 
     For Each maq As MaquinaProd In _maquinas
       For Each tar As tareasProd In maq.tareas

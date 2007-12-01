@@ -1,7 +1,12 @@
 Public Class frmBaseDatos
     Dim oBase As BaseDatos
 
+    Private Sub frmBaseDatos_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub frmBaseDatos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        princ.barra.agregarBoton(Me)
         oBase = New BaseDatos()
         txtInstancia.Text = oBase.Instancia
         txtLoginSecure.Text = oBase.LoginSecure

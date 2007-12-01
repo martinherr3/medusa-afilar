@@ -288,6 +288,10 @@ Public Class abmModoAvance
 
 #End Region
 
+    Private Sub abmModoAvance_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '
         'adaptador
@@ -432,7 +436,5 @@ Public Class abmModoAvance
         UltraTextEditor2.BackColor() = System.Drawing.Color.LightCyan
     End Sub
 
-    Private Sub abmModoAvance_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 End Class

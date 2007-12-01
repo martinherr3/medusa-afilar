@@ -252,6 +252,10 @@ Public Class principal
 
 #End Region
 
+    Private Sub principal_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
     Private Sub principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         bloquearPantalla(True)
         logeo.ShowDialog()
@@ -277,6 +281,8 @@ Public Class principal
         mMenu.MenuItems.Clear()
 
         '
+        Me.etiPrin.Text = "Afilar"
+        Me.barra.ClearAll()
         Dim formulario As Form
         For Each formulario In Me.MdiChildren
             formulario.Close()

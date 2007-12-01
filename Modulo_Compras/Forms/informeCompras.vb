@@ -350,6 +350,12 @@ Public Class informeCompras
 
     End Sub
 
+    Private Sub informeCompras_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
+    
+
     Private Sub informeCompras_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         cargarComboTag("select idproveedor, nombre from proveedor", comboProveedor, 0, 2)
         cargarComboTag("select idtipomateriaprima, nombre from tipomateriaprima", comboMP, 0, 2)
@@ -357,7 +363,5 @@ Public Class informeCompras
 
     End Sub
 
-    Private Sub informeCompras_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
-        princ.barra.eliminarBoton()
-    End Sub
+    
 End Class

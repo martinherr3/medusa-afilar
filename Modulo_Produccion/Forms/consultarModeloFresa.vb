@@ -18,7 +18,6 @@ Public Class consultarModeloFresa
 
     Private Sub consultarModeloFresa_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        princ.barra.agregarBoton(Me)
 
         ' seteo el estilo del datagrid 
         modelo.setearGrilla(dataGridMF)
@@ -53,6 +52,7 @@ Public Class consultarModeloFresa
 
         cmbFiltrar.SelectedIndex = 7
 
+        princ.barra.agregarBoton(Me)
     End Sub
 #End Region
 
