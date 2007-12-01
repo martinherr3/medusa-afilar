@@ -661,241 +661,243 @@ Public Class ProdNuevo
 
     programador.cargarProgramacion()
 
-    programador.Programar()
-
-
-    Dim colProgramados As New Collection
-    Dim minimo As DateTime
-    Dim maximo As DateTime
-    Dim b As Boolean = False
-
-    Dim maqIndice As Integer = 0
-
-
-    Dim colorFresa As Color
-
-    For Each maq As MaquinaProd In programador.maquinas
-      For Each tar As tareasProd In maq.tareas
-
-        If Not b Then
-          b = True
-          minimo = tar.inicio
-          maximo = tar.inicio.AddMinutes(tar.duracion)
-        ElseIf tar.inicio < minimo Then
-          minimo = tar.inicio
-        ElseIf tar.inicio.AddMinutes(tar.duracion) > maximo Then
-          maximo = tar.inicio.AddMinutes(tar.duracion)
+        If Not programador.Programar() Then
+            Exit Function
         End If
 
 
-        'get color
-        For Each fre As fresaProd In programador.fresas
-          If tar.idFresa = -1 Then ' tarea CIERRE
-            colorFresa = Color.Black
-          ElseIf tar.idFresa = -2 Then 'tarea programada y guardada
-            colorFresa = Color.Snow
-          ElseIf fre.id_fresa = tar.idFresa Then
-            colorFresa = fre.colorGrafico
-          End If
+        Dim colProgramados As New Collection
+        Dim minimo As DateTime
+        Dim maximo As DateTime
+        Dim b As Boolean = False
+
+        Dim maqIndice As Integer = 0
+
+
+        Dim colorFresa As Color
+
+        For Each maq As MaquinaProd In programador.maquinas
+            For Each tar As tareasProd In maq.tareas
+
+                If Not b Then
+                    b = True
+                    minimo = tar.inicio
+                    maximo = tar.inicio.AddMinutes(tar.duracion)
+                ElseIf tar.inicio < minimo Then
+                    minimo = tar.inicio
+                ElseIf tar.inicio.AddMinutes(tar.duracion) > maximo Then
+                    maximo = tar.inicio.AddMinutes(tar.duracion)
+                End If
+
+
+                'get color
+                For Each fre As fresaProd In programador.fresas
+                    If tar.idFresa = -1 Then ' tarea CIERRE
+                        colorFresa = Color.Black
+                    ElseIf tar.idFresa = -2 Then 'tarea programada y guardada
+                        colorFresa = Color.Snow
+                    ElseIf fre.id_fresa = tar.idFresa Then
+                        colorFresa = fre.colorGrafico
+                    End If
+                Next
+
+                colProgramados.Add(New BarInformation(maq.nombre, tar.inicio, tar.fin, colorFresa, Color.Bisque, maqIndice, tar.idFresa))
+
+            Next
+            maqIndice += 1
         Next
 
-        colProgramados.Add(New BarInformation(maq.nombre, tar.inicio, tar.fin, colorFresa, Color.Bisque, maqIndice, tar.idFresa))
+        GanttChart1.FromDate = minimo
+        GanttChart1.ToDate = maximo
 
-      Next
-      maqIndice += 1
-    Next
+        For Each bar As BarInformation In colProgramados
+            GanttChart1.AddChartBar(bar.RowText, bar, bar.FromTime, bar.ToTime, bar.Color, bar.HoverColor, bar.Index)
+        Next
+        GanttChart1.Refresh()
+        GroupBox2.Enabled = True
 
-    GanttChart1.FromDate = minimo
-    GanttChart1.ToDate = maximo
+        'System.Diagnostics.Debug.WriteLine("Duracion: " & tar.duracion)
 
-    For Each bar As BarInformation In colProgramados
-      GanttChart1.AddChartBar(bar.RowText, bar, bar.FromTime, bar.ToTime, bar.Color, bar.HoverColor, bar.Index)
-    Next
-    GanttChart1.Refresh()
-    GroupBox2.Enabled = True
-
-    'System.Diagnostics.Debug.WriteLine("Duracion: " & tar.duracion)
-
-    Return maximo
-  End Function
+        Return maximo
+    End Function
 
 
-  Private Sub GanttChart1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GanttChart1.MouseMove
-    With GanttChart1
-      Dim toolTipText As New List(Of String)
+    Private Sub GanttChart1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles GanttChart1.MouseMove
+        With GanttChart1
+            Dim toolTipText As New List(Of String)
 
-      If .MouseOverRowText.Length > 0 Then
-        Dim val As BarInformation = CType(.MouseOverRowValue, BarInformation)
-        toolTipText.Add("[b]Date:")
-        toolTipText.Add("From ")
-        toolTipText.Add(val.FromTime.ToLongDateString & " - " & val.FromTime.ToString("HH:mm"))
-        toolTipText.Add("To ")
-        toolTipText.Add(val.ToTime.ToLongDateString & " - " & val.ToTime.ToString("HH:mm"))
-        If val.nroFresa = -1 Then
-          toolTipText.Add("[b]Cerrado")
-        ElseIf val.nroFresa = -2 Then
-          toolTipText.Add("[b]Programacion previa")
+            If .MouseOverRowText.Length > 0 Then
+                Dim val As BarInformation = CType(.MouseOverRowValue, BarInformation)
+                toolTipText.Add("[b]Date:")
+                toolTipText.Add("From ")
+                toolTipText.Add(val.FromTime.ToLongDateString & " - " & val.FromTime.ToString("HH:mm"))
+                toolTipText.Add("To ")
+                toolTipText.Add(val.ToTime.ToLongDateString & " - " & val.ToTime.ToString("HH:mm"))
+                If val.nroFresa = -1 Then
+                    toolTipText.Add("[b]Cerrado")
+                ElseIf val.nroFresa = -2 Then
+                    toolTipText.Add("[b]Programacion previa")
+                Else
+                    toolTipText.Add("[b]Fresa Nro:" & val.nroFresa)
+                End If
+
+            Else
+                toolTipText.Add("")
+            End If
+
+            .ToolTipTextTitle = .MouseOverRowText
+            .ToolTipText = toolTipText
+
+        End With
+    End Sub
+
+    Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton2.Click
+        Dim frmRef As New referenciaProgramacion
+        frmRef.fresas = programador.fresas
+        frmRef.maquinas = programador.maquinas
+        frmRef.Show()
+
+
+    End Sub
+
+    ''GUARDAR PROGRAMACION''
+    Private Sub UltraButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton5.Click
+        If simulando Then
+            ''setear la fecha de fin
+
         Else
-          toolTipText.Add("[b]Fresa Nro:" & val.nroFresa)
+            programador.guardarProgramacion()
+
+            Dim comm As New SqlClient.SqlCommand
+            cnn.Open()
+            comm.Connection = cnn
+
+            ''cambiar el estado al pedido
+            For Each dr As DataRow In DS.Tables("Pedidos").Rows
+                If dr("seleccionar") = True Then ''cambia esto por favor
+                    comm.CommandText = "UPDATE pedido SET idestado = 2 WHERE idpedido = " & dr("idpedido")
+                    comm.ExecuteNonQuery()
+                End If
+            Next
+            cnn.Close()
+            Label2.Text = "Programacion guardada correctamente"
+            UltraButton5.Enabled = False
+
+
         End If
 
-      Else
-        toolTipText.Add("")
-      End If
+    End Sub
 
-      .ToolTipTextTitle = .MouseOverRowText
-      .ToolTipText = toolTipText
+    Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
+        Me.Close()
+    End Sub
 
-    End With
-  End Sub
+    Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
+        Me.Close()
+    End Sub
 
-  Private Sub UltraButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton2.Click
-    Dim frmRef As New referenciaProgramacion
-    frmRef.fresas = programador.fresas
-    frmRef.maquinas = programador.maquinas
-    frmRef.Show()
+    '--------------------------------
+    '-------- SIMULACION ------------
+    '--------------------------------
 
+    Public Function simular(ByVal tipos As Collection) As DateTime 'devuelve la fecha fin de produccion
 
-  End Sub
+        'idTipos() ' array o lo q sea con los tipos de fresa a programar...
 
-  ''GUARDAR PROGRAMACION''
-  Private Sub UltraButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton5.Click
-    If simulando Then
-      ''setear la fecha de fin
+        'cambios cosmeticos al formulario
+        '--- opcion 1 ---
+        'grd1.Visible = False
+        'grd2.Top = 30
+        'grd2.Height = 400
+        '--------------------
+        'grd1.Enabled = False
+        'UltraButton1.Text = "Ver programacion estimada"
+        'UltraButton1.Left = 470
+        'UltraButton1.Width = 170
+        UltraTabControl1.SelectedTab = UltraTabControl1.Tabs.Item(1)
+        UltraTabControl1.Tabs.Item(0).Enabled = False
+        simulando = True
+        UltraButton5.Text = "Guardar fecha de fin"
+        GroupBox3.Visible = True
 
-    Else
-      programador.guardarProgramacion()
+        '---------------------------------------------------------------------
 
-      Dim comm As New SqlClient.SqlCommand
-      cnn.Open()
-      comm.Connection = cnn
+        Dim tarea As New tareasProd
+        Dim fresasCollection As New Collection
+        Dim splited() As String
+        Dim HoraInicio As DateTime
 
-      ''cambiar el estado al pedido
-      For Each dr As DataRow In DS.Tables("Pedidos").Rows
-        If dr("seleccionar") = True Then ''cambia esto por favor
-          comm.CommandText = "UPDATE pedido SET idestado = 2 WHERE idpedido = " & dr("idpedido")
-          comm.ExecuteNonQuery()
-        End If
-      Next
-      cnn.Close()
-      Label2.Text = "Programacion guardada correctamente"
-      UltraButton5.Enabled = False
+        Try
+            splited = TXTInicioSim.Text.Split(":")
+            HoraInicio = DTPickerInicioSim.Value.Date
+            HoraInicio = HoraInicio.AddHours(splited(0))
+            HoraInicio = HoraInicio.AddMinutes(splited(1))
+            If HoraInicio < Date.Now Then
+                MsgBox("La hora de inicio no puede ser menor a la hora actual del sistema")
+                Exit Function
+            End If
+        Catch ex As Exception
+            MsgBox("Hora de inicio incorrecta")
+            Exit Function
+        End Try
 
+        Dim i As Integer
+        Dim tareasCollection As New Collection
+        Dim DS As New DataSet
 
-    End If
+        ''ARMADO DEL ARRAY DE TAREAS
+        Dim count As Integer = 1
+        Dim ds3 As New DataSet
 
-  End Sub
+        For Each tipo As idTipoFresa In tipos
+            tarea.idFresa = count
+            DS.Merge(tarea.getDSByTipo(tipo.idTipo, tipo.idModelo, count))
+            ds3 = tarea.getDSByTipo(tipo.idTipo, tipo.idModelo, count)
+            Debug.WriteLine(ds3.Tables.Item(0).Rows.Count)
+            Dim fresa As New fresaProd
+            fresa.id_fresa = count
+            fresa.lastOperacion = 0
+            fresa.colorGrafico = colores(count - 1)
+            fresasCollection.Add(fresa)
+            count += 1
+        Next
 
-  Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton3.Click
-    Me.Close()
-  End Sub
+        For Each row As DataRow In DS.Tables.Item(0).Rows
+            tareasCollection.Add(New tareasProd(row.Item("nroserie"), row.Item("idetapafabricacion"), row.Item("nombre"), row.Item("maquina"), row.Item("duracionpromedio"), row.Item("orden"), "fresa")) 'Por ahora son todos del tipo fresa
+            Debug.WriteLine("--> TAREAS <-- nroserie: " & row.Item("nroserie") & " - orden: " & row.Item("orden") & " - maquina " & row.Item("maquina") & " - duracion: " & row.Item("duracionpromedio"))
+        Next
 
-  Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
-    Me.Close()
-  End Sub
+        Return programar(HoraInicio, tareasCollection, fresasCollection)
 
-  '--------------------------------
-  '-------- SIMULACION ------------
-  '--------------------------------
+        '---------------------------------------------------------------------
+    End Function
 
-  Public Function simular(ByVal tipos As Collection) As DateTime 'devuelve la fecha fin de produccion
+    Private Sub UltraButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton6.Click
 
-    'idTipos() ' array o lo q sea con los tipos de fresa a programar...
+        Dim tar1 As New idTipoFresa
+        Dim tar2 As New idTipoFresa
+        Dim tar3 As New idTipoFresa
+        tar1.idModelo = 1
+        tar1.idTipo = 1
+        tar2.idModelo = 1
+        tar2.idTipo = 1
+        tar3.idModelo = 1
+        tar3.idTipo = 1
 
-    'cambios cosmeticos al formulario
-    '--- opcion 1 ---
-    'grd1.Visible = False
-    'grd2.Top = 30
-    'grd2.Height = 400
-    '--------------------
-    'grd1.Enabled = False
-    'UltraButton1.Text = "Ver programacion estimada"
-    'UltraButton1.Left = 470
-    'UltraButton1.Width = 170
-    UltraTabControl1.SelectedTab = UltraTabControl1.Tabs.Item(1)
-    UltraTabControl1.Tabs.Item(0).Enabled = False
-    simulando = True
-    UltraButton5.Text = "Guardar fecha de fin"
-    GroupBox3.Visible = True
-
-    '---------------------------------------------------------------------
-
-    Dim tarea As New tareasProd
-    Dim fresasCollection As New Collection
-    Dim splited() As String
-    Dim HoraInicio As DateTime
-
-    Try
-      splited = TXTInicioSim.Text.Split(":")
-      HoraInicio = DTPickerInicioSim.Value.Date
-      HoraInicio = HoraInicio.AddHours(splited(0))
-      HoraInicio = HoraInicio.AddMinutes(splited(1))
-      If HoraInicio < Date.Now Then
-        MsgBox("La hora de inicio no puede ser menor a la hora actual del sistema")
-        Exit Function
-      End If
-    Catch ex As Exception
-      MsgBox("Hora de inicio incorrecta")
-      Exit Function
-    End Try
-
-    Dim i As Integer
-    Dim tareasCollection As New Collection
-    Dim DS As New DataSet
-
-    ''ARMADO DEL ARRAY DE TAREAS
-    Dim count As Integer = 1
-    Dim ds3 As New DataSet
-
-    For Each tipo As idTipoFresa In tipos
-      tarea.idFresa = count
-      DS.Merge(tarea.getDSByTipo(tipo.idTipo, tipo.idModelo, count))
-      ds3 = tarea.getDSByTipo(tipo.idTipo, tipo.idModelo, count)
-      Debug.WriteLine(ds3.Tables.Item(0).Rows.Count)
-      Dim fresa As New fresaProd
-      fresa.id_fresa = count
-      fresa.lastOperacion = 0
-      fresa.colorGrafico = colores(count - 1)
-      fresasCollection.Add(fresa)
-      count += 1
-    Next
-
-    For Each row As DataRow In DS.Tables.Item(0).Rows
-      tareasCollection.Add(New tareasProd(row.Item("nroserie"), row.Item("idetapafabricacion"), row.Item("nombre"), row.Item("maquina"), row.Item("duracionpromedio"), row.Item("orden"), "fresa")) 'Por ahora son todos del tipo fresa
-      Debug.WriteLine("--> TAREAS <-- nroserie: " & row.Item("nroserie") & " - orden: " & row.Item("orden") & " - maquina " & row.Item("maquina") & " - duracion: " & row.Item("duracionpromedio"))
-    Next
-
-    Return programar(HoraInicio, tareasCollection, fresasCollection)
-
-    '---------------------------------------------------------------------
-  End Function
-
-  Private Sub UltraButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton6.Click
-
-    Dim tar1 As New idTipoFresa
-    Dim tar2 As New idTipoFresa
-    Dim tar3 As New idTipoFresa
-    tar1.idModelo = 1
-    tar1.idTipo = 1
-    tar2.idModelo = 1
-    tar2.idTipo = 1
-    tar3.idModelo = 1
-    tar3.idTipo = 1
-
-    tiposSimulacion.Add(tar1)
-    tiposSimulacion.Add(tar2)
-    tiposSimulacion.Add(tar3)
+        tiposSimulacion.Add(tar1)
+        tiposSimulacion.Add(tar2)
+        tiposSimulacion.Add(tar3)
 
 
 
-    simular(tiposSimulacion)
-  End Sub
+        simular(tiposSimulacion)
+    End Sub
 
-  Private Sub UltraTabPageControl2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl2.Paint
+    Private Sub UltraTabPageControl2_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl2.Paint
 
-  End Sub
+    End Sub
 
-  'metodo cargar simulacion
+    'metodo cargar simulacion
 End Class
 
 Public Structure idTipoFresa
