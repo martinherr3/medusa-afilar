@@ -56,6 +56,10 @@ Public Class GestorReportesProdForm
         Dim criterioParaMostrar As String = "Criterio de seleccion: "
         Dim criterio As String = ""
 
+        If txtNroPedido.Text <> "" Then
+            criterio = criterio & "{Pedido.idpedido} = " & txtNroPedido.Text.Trim
+        End If
+
         If checkPedidoFecha.Checked Then
 
             criterio = "{Pedido.fechaentrega} in Date(" & pedidoDesde.Value.Year & ", " & _
@@ -147,6 +151,31 @@ Public Class GestorReportesProdForm
         imageLoading.Visible = False
 
     End Sub
+
+
+    Private Sub txtNroPedido_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtNroPedido.TextChanged
+
+        If txtNroPedido.Text <> "" Then
+            checkPedidoFecha.Checked = False
+            checkPedidoCliente.Checked = False
+            checkPedidoEstado.Checked = False
+            checkPedidoModelo.Checked = False
+            checkPedidoFecha.Enabled = False
+            checkPedidoCliente.Enabled = False
+            checkPedidoEstado.Enabled = False
+            checkPedidoModelo.Enabled = False
+        Else
+            checkPedidoFecha.Enabled = True
+            checkPedidoCliente.Enabled = True
+            checkPedidoEstado.Enabled = True
+            checkPedidoModelo.Enabled = True
+        End If
+    End Sub
+
+    Private Sub txtNroPedido_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNroPedido.KeyPress
+        soloNumeros(e)
+    End Sub
+
 #End Region
 
 
@@ -270,7 +299,7 @@ Public Class GestorReportesProdForm
     Dim selectServicio As New SqlClient.SqlCommand
     Dim dataSetServicio As New DataSet
     Dim queryServicio As String
-    Dim reporteServicio As RptServicio
+    Dim reporteServicio As RptDetalleServicio
 
     Private Sub btnServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnServicio.Click
 
@@ -288,6 +317,10 @@ Public Class GestorReportesProdForm
 
         Dim criterioParaMostrar As String = "Criterio de seleccion: "
         Dim criterio As String = ""
+
+        If txtNroPedidoServicio.Text <> "" Then
+            criterio = criterio & "{detalleordenservicio.idpedido} = " & txtNroPedidoServicio.Text.Trim
+        End If
 
         If checkFechaRealizacion.Checked Then
 
@@ -372,7 +405,7 @@ Public Class GestorReportesProdForm
         Try
             adaptadorServicio.Fill(dataSetServicio, "detalleordenservicio")
 
-            reporteServicio = New RptServicio
+            reporteServicio = New RptDetalleServicio
             reporteServicio.SetDataSource(dataSetServicio)
             reporteServicio.SummaryInfo.ReportComments = criterioParaMostrar
             reporteServicio.SummaryInfo.ReportAuthor = nombreEmpleado
@@ -395,5 +428,195 @@ Public Class GestorReportesProdForm
 
     End Sub
 
+    Private Sub txtNroPedidoServicio_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtNroPedidoServicio.TextChanged
+
+        If txtNroPedidoServicio.Text <> "" Then
+            checkFechaRealizacion.Checked = False
+            checkFechaEntrega.Checked = False
+            checkServicioOperacion.Checked = False
+            checkServicioCliente.Checked = False
+            checkServicioEstado.Checked = False
+            checkFechaRealizacion.Enabled = False
+            checkFechaEntrega.Enabled = False
+            checkServicioOperacion.Enabled = False
+            checkServicioCliente.Enabled = False
+            checkServicioEstado.Enabled = False
+        Else
+            checkFechaRealizacion.Enabled = True
+            checkFechaEntrega.Enabled = True
+            checkServicioOperacion.Enabled = True
+            checkServicioCliente.Enabled = True
+            checkServicioEstado.Enabled = True
+        End If
+
+    End Sub
+
+    Private Sub txtNroPedidoServicio_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNroPedidoServicio.KeyPress
+        soloNumeros(e)
+    End Sub
+
 #End Region
+
+
+#Region "Reporte de seguimiento de produccion"
+    Dim adaptadorSeguimiento As New SqlClient.SqlDataAdapter
+    Dim selectSeguimiento As New SqlClient.SqlCommand
+    Dim dataSetSeguimiento As New DataSet
+    Dim querySeguimiento As String
+    Dim reporteSeguimiento As RptSeguimientoProd
+
+    Private Sub btnSeguimiento_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSeguimiento.Click
+
+        querySeguimiento = "SELECT hojaderuta.idhojaderuta, hojaderuta.fechainicioproduccion, empleado.nombre AS nombreEmpleado, empleado.apellido AS apellidoEmpleado," & _
+                      " tipofresa.nombre AS nombreFresa, fresa.idmodelo, fresa.idtipo, fresa.estado, operacion.nombre AS nombreOperacion, operacion.maquina," & _
+                      " operacion.duracionpromedio, etapadefabricacion.orden, detallehojaderuta.idlegajo, detallehojaderuta.fechahorainicioreal," & _
+                      " detallehojaderuta.fechahorainicioplanificada, detallehojaderuta.fechahorafinreal, detallehojaderuta.fechahorafinplanificada," & _
+                      " detallehojaderuta.observaciones, tornero.nombre AS nombreTornero, tornero.apellido AS apellidoTornero, torneado.fechasalidad," & _
+                      " torneado.fecharecepcion, etapadefabricacion.tiempoadicional, estado.nombre AS nombreEstado, fresa.nroserie, fresa.nropedido" & _
+                      " FROM fresa INNER JOIN" & _
+                      " hojaderuta INNER JOIN" & _
+                      " detallehojaderuta ON hojaderuta.idhojaderuta = detallehojaderuta.idhojaderuta ON fresa.idhojaderuta = hojaderuta.idhojaderuta INNER JOIN" & _
+                      " tipofresa ON fresa.idtipo = tipofresa.idtipo AND fresa.idmodelo = tipofresa.idmodelo INNER JOIN" & _
+                      " operacion INNER JOIN" & _
+                      " etapadefabricacion ON operacion.idoperacion = etapadefabricacion.idoperacion ON" & _
+                      " detallehojaderuta.idetapadefabricacion = etapadefabricacion.idetapafabricacion INNER JOIN" & _
+                      " empleado ON detallehojaderuta.idlegajo = empleado.idlegajo INNER JOIN" & _
+                      " torneado ON detallehojaderuta.idtorneado = torneado.idtorneado INNER JOIN" & _
+                      " tornero ON torneado.idtornero = tornero.idtornero INNER JOIN" & _
+                      " estado ON fresa.estado = estado.idestado"
+
+        Dim criterioParaMostrar As String = "Criterio de seleccion: "
+        Dim criterio As String = ""
+
+        If txtNroPedidoSeguimiento.Text <> "" Then
+            criterio = criterio & "{hojaderuta.nropedido} = " & txtNroPedidoSeguimiento.Text.Trim
+        End If
+
+        If txtNroSerieSeguimiento.Text <> "" Then
+            criterio = criterio & "{hojaderuta.nroserie} = " & txtNroSerieSeguimiento.Text.Trim
+        End If
+
+        If checkPedidoFecha.Checked Then
+
+            criterio = "{hojaderuta.fechaentrega} in Date(" & fechaSeguimientoDesde.Value.Year & ", " & _
+            fechaSeguimientoDesde.Value.Month & ", " & fechaSeguimientoDesde.Value.Day & ") to Date (" & fechaSeguimientoHasta.Value.Year & ", " & _
+            fechaSeguimientoHasta.Value.Month & ", " & fechaSeguimientoHasta.Value.Day & ")"
+
+            criterioParaMostrar = criterioParaMostrar & "Fecha planificada entrega: Desde: " & fechaSeguimientoDesde.Value & " Hasta: " & fechaSeguimientoHasta.Value
+
+        End If
+
+        If checkSeguimientoEstado.Checked Then
+
+            If comboSeguimientoEstado.SelectedIndex = -1 Then
+                MsgBox("Debe seleccionar estado", MsgBoxStyle.Information, "Afilar")
+                Exit Sub
+            End If
+
+            If criterio <> "" Then
+                criterio = criterio & " AND "
+            End If
+
+            criterio = criterio & "{hojaderuta.estado} = " & comboSeguimientoEstado.SelectedItem.Tag
+            criterioParaMostrar = criterioParaMostrar & " --- Estado: " & comboSeguimientoEstado.SelectedItem.DataValue.ToString.Trim
+
+        End If
+
+        If checkSeguimientoModelo.Checked Then
+
+            If comboSeguimientoModelo.SelectedIndex = -1 Then
+                MsgBox("Debe seleccionar modelo", MsgBoxStyle.Information, "Afilar")
+                Exit Sub
+            End If
+
+            If criterio <> "" Then
+                criterio = criterio & " AND "
+            End If
+
+            criterio = criterio & "{hojaderuta.idmodelo} = " & comboSeguimientoModelo.SelectedItem.Tag
+            criterioParaMostrar = criterioParaMostrar & " --- Modelo: " & comboSeguimientoModelo.SelectedItem.DataValue.ToString.Trim
+
+        End If
+
+        imageLoading.Visible = True
+        selectSeguimiento.CommandType = CommandType.Text
+        selectSeguimiento.CommandText = querySeguimiento
+        selectSeguimiento.Connection = cnn
+        selectSeguimiento.Connection.Open()
+
+        adaptadorSeguimiento.SelectCommand = selectSeguimiento
+
+        Try
+            adaptadorSeguimiento.Fill(dataSetSeguimiento, "hojaderuta")
+
+            reporteSeguimiento = New RptSeguimientoProd
+            reporteSeguimiento.SetDataSource(dataSetSeguimiento)
+            reporteSeguimiento.SummaryInfo.ReportComments = criterioParaMostrar
+            reporteSeguimiento.SummaryInfo.ReportAuthor = nombreEmpleado
+
+            If criterio = "" Then
+                crv.SelectionFormula = Nothing
+            Else
+                crv.SelectionFormula = criterio
+            End If
+
+            crv.ReportSource = reporteSeguimiento
+
+            selectSeguimiento.Connection.Close()
+
+        Catch ex As Exception
+            selectSeguimiento.Connection.Close()
+        End Try
+
+        imageLoading.Visible = False
+    End Sub
+
+    Private Sub txtNroPedidoSeguimiento_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtNroPedidoSeguimiento.TextChanged
+
+        If txtNroPedidoSeguimiento.Text <> "" Then
+            checkSeguimientoEstado.Checked = False
+            checkSeguimientoFecha.Checked = False
+            checkSeguimientoModelo.Checked = False
+            checkSeguimientoEstado.Enabled = False
+            checkSeguimientoFecha.Enabled = False
+            checkSeguimientoModelo.Enabled = False
+            txtNroSerieSeguimiento.Text = ""
+            txtNroSerieSeguimiento.Enabled = False
+        Else
+            checkSeguimientoEstado.Enabled = True
+            checkSeguimientoFecha.Enabled = True
+            checkSeguimientoModelo.Enabled = True
+            txtNroSerieSeguimiento.Enabled = True
+        End If
+
+    End Sub
+
+    Private Sub txtNroSerieSeguimiento_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtNroSerieSeguimiento.TextChanged
+        If txtNroPedidoSeguimiento.Text <> "" Then
+            checkSeguimientoEstado.Checked = False
+            checkSeguimientoFecha.Checked = False
+            checkSeguimientoModelo.Checked = False
+            checkSeguimientoEstado.Enabled = False
+            checkSeguimientoFecha.Enabled = False
+            checkSeguimientoModelo.Enabled = False
+            txtNroPedidoSeguimiento.Text = ""
+            txtNroPedidoSeguimiento.Enabled = False
+        Else
+            checkSeguimientoEstado.Enabled = True
+            checkSeguimientoFecha.Enabled = True
+            checkSeguimientoModelo.Enabled = True
+            txtNroPedidoSeguimiento.Enabled = True
+        End If
+    End Sub
+
+    Private Sub txtNroPedidoSeguimiento_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNroPedidoSeguimiento.KeyPress
+        soloNumeros(e)
+    End Sub
+
+    Private Sub txtNroSerieSeguimiento_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNroSerieSeguimiento.KeyPress
+        soloNumeros(e)
+    End Sub
+
+#End Region
+
 End Class
