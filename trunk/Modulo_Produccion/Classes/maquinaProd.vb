@@ -186,16 +186,17 @@ Public Class MaquinaProd
         If proxFin <= proxInicio Then
           'Ver lapso disponible (maquina ocupada)
           lapsoDisponible = (proxInicio - proxFin)
-          If lapsoDisponible.Minutes >= duracion Then
-            Return proxFin
-          End If
+                    If (lapsoDisponible.TotalMinutes) >= duracion Then
+                        Return proxFin
+                    End If
           Me.getProximoFin(proxInicio, horaInicio)
         Else
           'Ver lapso disponible (maquina libre hasta proxInicio)
-          lapsoDisponible = (horaInicio - proxInicio)
-          If lapsoDisponible.Minutes >= duracion Then
-            Return horaInicio
-          End If
+                    'lapsoDisponible = (horaInicio - proxInicio)
+                    lapsoDisponible = (proxInicio - horaInicio)
+                    If lapsoDisponible.TotalMinutes >= duracion Then
+                        Return horaInicio
+                    End If
           Me.getProximoFin(proxInicio, horaInicio)
         End If
       ElseIf hayFin Then
