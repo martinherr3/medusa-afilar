@@ -243,8 +243,91 @@ Public Class GestorReportesComForm
 
 
 #Region "Reporte Materia Prima"
-    Private Sub btnMP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMP.Click
+    Dim adaptadorMP As New SqlClient.SqlDataAdapter
+    Dim selectMP As New SqlClient.SqlCommand
+    Dim dataSetMP As New DSMateriaPrima
+    Dim queryMP As String
+    Dim reporteMP As RptMateriaPrima
 
+    Private Sub btnMP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnMP.Click
+        queryMP = "SELECT tipomateriaprima.idtipomateriaprima, tipomateriaprima.nombre, tipomateriaprima.direccion, tipomateriaprima.stockactual," & _
+                  " tipomateriaprima.stockminimo, tipomateriaprima.stockseguridad, tipomateriaprima.loteeconomico, tipomateriaprima.idunidadmedida," & _
+                  " tipomateriaprima.clase, unidaddemedida.nombre AS nombreMP" & _
+                  " FROM tipomateriaprima INNER JOIN" & _
+                  " unidaddemedida ON tipomateriaprima.idunidadmedida = unidaddemedida.idunidadmedida"
+
+        Dim criterioParaMostrar As String = "Criterio de seleccion: "
+        Dim criterio As String = ""
+
+        If checkMPABC.Checked Then
+
+            If comboABC.SelectedIndex = -1 Then
+                MsgBox("Debe seleccionar Clase", MsgBoxStyle.Information, "Afilar")
+                Exit Sub
+            End If
+
+            If criterio <> "" Then
+                criterio = criterio & " AND "
+            End If
+
+            criterio = criterio & "{tipomateriaprima.clase} = '" & comboABC.SelectedItem.Tag.ToString & "'"
+            criterioParaMostrar = criterioParaMostrar & " --- Clase: " & comboABC.SelectedItem.DataValue.ToString.Trim
+
+        End If
+
+        If checkStockMinimo.Checked Then
+
+            If criterio <> "" Then
+                criterio = criterio & " AND "
+            End If
+
+            criterio = criterio & "{tipomateriaprima.stockminimo} > {tipomateriaprima.stockactual}"
+            criterioParaMostrar = criterioParaMostrar & " --- Stock actual debajo del minimo"
+
+        End If
+
+        If checkStockSeguridad.Checked Then
+
+            If criterio <> "" Then
+                criterio = criterio & " AND "
+            End If
+
+            criterio = criterio & "{tipomateriaprima.stockseguridad} > {tipomateriaprima.stockactual}"
+            criterioParaMostrar = criterioParaMostrar & " --- Stock actual debajo del stock de seguridad"
+
+        End If
+
+        imageLoading.Visible = True
+        selectMP.CommandType = CommandType.Text
+        selectMP.CommandText = queryMP
+        selectMP.Connection = cnn
+        selectMP.Connection.Open()
+
+        adaptadorMP.SelectCommand = selectMP
+
+        Try
+            adaptadorMP.Fill(dataSetMP, "tipomateriaprima")
+
+            reporteMP = New RptMateriaPrima
+            reporteMP.SetDataSource(dataSetMP)
+            reporteMP.SummaryInfo.ReportComments = criterioParaMostrar
+            reporteMP.SummaryInfo.ReportAuthor = nombreEmpleado
+
+            If criterio = "" Then
+                crv.SelectionFormula = Nothing
+            Else
+                crv.SelectionFormula = criterio
+            End If
+
+            crv.ReportSource = reporteMP
+
+            selectMP.Connection.Close()
+
+        Catch ex As Exception
+            selectMP.Connection.Close()
+        End Try
+
+        imageLoading.Visible = False
     End Sub
 #End Region
 

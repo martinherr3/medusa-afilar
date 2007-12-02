@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSMateriaPrima" targetNamespace="http://tempuri.org/DSMateriaPrima.xsd" xmlns:mstns="http://tempuri.org/DSMateriaPrima.xsd" xmlns="http://tempuri.org/DSMateriaPrima.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="AfilarConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="AfilarConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Afilar.My.MySettings.GlobalReference.Default.AfilarConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tipomateriaprimaTableAdapter" GeneratorDataComponentClassName="tipomateriaprimaTableAdapter" Name="tipomateriaprima" UserDataComponentName="tipomateriaprimaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="AfilarConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="False" Modifier="Public" Name="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT     tipomateriaprima.idtipomateriaprima, tipomateriaprima.nombre, tipomateriaprima.direccion, tipomateriaprima.stockactual, 
+                      tipomateriaprima.stockminimo, tipomateriaprima.stockseguridad, tipomateriaprima.loteeconomico, tipomateriaprima.idunidadmedida, 
+                      tipomateriaprima.clase, unidaddemedida.nombre AS nombreMP
+FROM         tipomateriaprima INNER JOIN
+                      unidaddemedida ON tipomateriaprima.idunidadmedida = unidaddemedida.idunidadmedida</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idtipomateriaprima" DataSetColumn="idtipomateriaprima" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="direccion" DataSetColumn="direccion" />
+              <Mapping SourceColumn="stockactual" DataSetColumn="stockactual" />
+              <Mapping SourceColumn="stockminimo" DataSetColumn="stockminimo" />
+              <Mapping SourceColumn="stockseguridad" DataSetColumn="stockseguridad" />
+              <Mapping SourceColumn="loteeconomico" DataSetColumn="loteeconomico" />
+              <Mapping SourceColumn="idunidadmedida" DataSetColumn="idunidadmedida" />
+              <Mapping SourceColumn="clase" DataSetColumn="clase" />
+              <Mapping SourceColumn="nombreMP" DataSetColumn="nombreMP" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSMateriaPrima" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSMateriaPrima" msprop:Generator_DataSetName="DSMateriaPrima">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tipomateriaprima" msprop:Generator_UserTableName="tipomateriaprima" msprop:Generator_RowDeletedName="tipomateriaprimaRowDeleted" msprop:Generator_TableClassName="tipomateriaprimaDataTable" msprop:Generator_RowChangedName="tipomateriaprimaRowChanged" msprop:Generator_RowClassName="tipomateriaprimaRow" msprop:Generator_RowChangingName="tipomateriaprimaRowChanging" msprop:Generator_RowEvArgName="tipomateriaprimaRowChangeEvent" msprop:Generator_RowEvHandlerName="tipomateriaprimaRowChangeEventHandler" msprop:Generator_TablePropName="tipomateriaprima" msprop:Generator_TableVarName="tabletipomateriaprima" msprop:Generator_RowDeletingName="tipomateriaprimaRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idtipomateriaprima" msprop:Generator_UserColumnName="idtipomateriaprima" msprop:Generator_ColumnPropNameInRow="idtipomateriaprima" msprop:Generator_ColumnVarNameInTable="columnidtipomateriaprima" msprop:Generator_ColumnPropNameInTable="idtipomateriaprimaColumn" type="xs:int" />
+              <xs:element name="nombre" msprop:Generator_UserColumnName="nombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="direccion" msprop:Generator_UserColumnName="direccion" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_ColumnVarNameInTable="columndireccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stockactual" msprop:Generator_UserColumnName="stockactual" msprop:Generator_ColumnPropNameInRow="stockactual" msprop:Generator_ColumnVarNameInTable="columnstockactual" msprop:Generator_ColumnPropNameInTable="stockactualColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="stockminimo" msprop:Generator_UserColumnName="stockminimo" msprop:Generator_ColumnPropNameInRow="stockminimo" msprop:Generator_ColumnVarNameInTable="columnstockminimo" msprop:Generator_ColumnPropNameInTable="stockminimoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="stockseguridad" msprop:Generator_UserColumnName="stockseguridad" msprop:Generator_ColumnPropNameInRow="stockseguridad" msprop:Generator_ColumnVarNameInTable="columnstockseguridad" msprop:Generator_ColumnPropNameInTable="stockseguridadColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="loteeconomico" msprop:Generator_UserColumnName="loteeconomico" msprop:Generator_ColumnPropNameInRow="loteeconomico" msprop:Generator_ColumnVarNameInTable="columnloteeconomico" msprop:Generator_ColumnPropNameInTable="loteeconomicoColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="idunidadmedida" msprop:Generator_UserColumnName="idunidadmedida" msprop:Generator_ColumnPropNameInRow="idunidadmedida" msprop:Generator_ColumnVarNameInTable="columnidunidadmedida" msprop:Generator_ColumnPropNameInTable="idunidadmedidaColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="clase" msprop:Generator_UserColumnName="clase" msprop:Generator_ColumnPropNameInRow="clase" msprop:Generator_ColumnVarNameInTable="columnclase" msprop:Generator_ColumnPropNameInTable="claseColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombreMP" msprop:Generator_UserColumnName="nombreMP" msprop:Generator_ColumnPropNameInRow="nombreMP" msprop:Generator_ColumnVarNameInTable="columnnombreMP" msprop:Generator_ColumnPropNameInTable="nombreMPColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tipomateriaprima" />
+      <xs:field xpath="mstns:idtipomateriaprima" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
