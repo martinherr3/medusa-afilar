@@ -20,12 +20,12 @@ Partial Class GestorReportesComForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GestorReportesComForm))
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem9 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.tabCompra = New System.Windows.Forms.TabControl
         Me.tabOrdenDeCompra = New System.Windows.Forms.TabPage
@@ -63,6 +63,7 @@ Partial Class GestorReportesComForm
         Me.detalleOCDesde = New System.Windows.Forms.DateTimePicker
         Me.btnDetalleOC = New Infragistics.Win.Misc.UltraButton
         Me.tabServicios = New System.Windows.Forms.TabPage
+        Me.Label3 = New System.Windows.Forms.Label
         Me.PictureBox9 = New System.Windows.Forms.PictureBox
         Me.checkStockSeguridad = New System.Windows.Forms.CheckBox
         Me.checkStockMinimo = New System.Windows.Forms.CheckBox
@@ -70,7 +71,6 @@ Partial Class GestorReportesComForm
         Me.comboABC = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.checkMPABC = New System.Windows.Forms.CheckBox
         Me.imageLoading = New System.Windows.Forms.PictureBox
-        Me.Label3 = New System.Windows.Forms.Label
         Me.tabCompra.SuspendLayout()
         Me.tabOrdenDeCompra.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -249,8 +249,8 @@ Partial Class GestorReportesComForm
         '
         'btnCompra
         '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.btnCompra.Appearance = Appearance7
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnCompra.Appearance = Appearance1
         Me.btnCompra.Location = New System.Drawing.Point(457, 85)
         Me.btnCompra.Name = "btnCompra"
         Me.btnCompra.Size = New System.Drawing.Size(96, 31)
@@ -474,8 +474,8 @@ Partial Class GestorReportesComForm
         '
         'btnDetalleOC
         '
-        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
-        Me.btnDetalleOC.Appearance = Appearance8
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.btnDetalleOC.Appearance = Appearance2
         Me.btnDetalleOC.Location = New System.Drawing.Point(640, 73)
         Me.btnDetalleOC.Name = "btnDetalleOC"
         Me.btnDetalleOC.Size = New System.Drawing.Size(96, 31)
@@ -498,6 +498,15 @@ Partial Class GestorReportesComForm
         Me.tabServicios.TabIndex = 3
         Me.tabServicios.Text = "Materia Prima"
         Me.tabServicios.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(141, 37)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(66, 13)
+        Me.Label3.TabIndex = 70
+        Me.Label3.Text = "Clasificacion"
         '
         'PictureBox9
         '
@@ -534,8 +543,8 @@ Partial Class GestorReportesComForm
         '
         'btnMP
         '
-        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
-        Me.btnMP.Appearance = Appearance9
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.btnMP.Appearance = Appearance3
         Me.btnMP.Location = New System.Drawing.Point(456, 65)
         Me.btnMP.Name = "btnMP"
         Me.btnMP.Size = New System.Drawing.Size(90, 34)
@@ -546,15 +555,18 @@ Partial Class GestorReportesComForm
         '
         Me.comboABC.AutoSize = True
         Me.comboABC.DropDownStyle = Infragistics.Win.DropDownStyle.DropDownList
-        ValueListItem7.DataValue = "A"
-        ValueListItem7.DisplayText = "Clasificacion Tipo A"
-        ValueListItem8.DataValue = "B"
-        ValueListItem8.DisplayText = "Clasificacion Tipo B"
-        ValueListItem9.DataValue = "C"
-        ValueListItem9.DisplayText = "Clasificacion Tipo C"
-        Me.comboABC.Items.Add(ValueListItem7)
-        Me.comboABC.Items.Add(ValueListItem8)
-        Me.comboABC.Items.Add(ValueListItem9)
+        ValueListItem1.DataValue = "A"
+        ValueListItem1.DisplayText = "Clasificacion Tipo A"
+        ValueListItem1.Tag = "A"
+        ValueListItem2.DataValue = "B"
+        ValueListItem2.DisplayText = "Clasificacion Tipo B"
+        ValueListItem2.Tag = "B"
+        ValueListItem3.DataValue = "C"
+        ValueListItem3.DisplayText = "Clasificacion Tipo C"
+        ValueListItem3.Tag = "C"
+        Me.comboABC.Items.Add(ValueListItem1)
+        Me.comboABC.Items.Add(ValueListItem2)
+        Me.comboABC.Items.Add(ValueListItem3)
         Me.comboABC.Location = New System.Drawing.Point(213, 32)
         Me.comboABC.Name = "comboABC"
         Me.comboABC.Size = New System.Drawing.Size(205, 21)
@@ -581,15 +593,6 @@ Partial Class GestorReportesComForm
         Me.imageLoading.TabIndex = 58
         Me.imageLoading.TabStop = False
         Me.imageLoading.Visible = False
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(141, 37)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(66, 13)
-        Me.Label3.TabIndex = 70
-        Me.Label3.Text = "Clasificacion"
         '
         'GestorReportesComForm
         '
