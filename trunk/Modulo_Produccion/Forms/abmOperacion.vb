@@ -585,6 +585,7 @@ Public Class abmOperacion
 
 
         cargarComboTag("select idgradodificultad, nombre from gradodificultad", comboDif, 0, 12)
+        cargarUltraCombo("select * from tipomaquina", combo1, "nombre", "idtipo")
         If ds.Tables("operacion").Rows.Count <> 0 Then
             fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
             Try
