@@ -22,6 +22,15 @@ Public Class FrmGenerarOC
     Dim SQLdataadapter4 As New SqlDataAdapter("select * from unidaddemedida", cnn)
     Dim SQLdataadapter5 As New SqlDataAdapter("select idtipomateriaprima, nombre, proveedor.idproveedor from proveedor inner join proveedorxtipomateriaprima on proveedorxtipomateriaprima.idproveedor = proveedor.idproveedor", cnn)
     Dim SQLdataadapter6 As New SqlDataAdapter("select * from proveedor", cnn)
+    Friend WithEvents UltraGroupBox3 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents UltraPictureBox4 As Infragistics.Win.UltraWinEditors.UltraPictureBox
+    Friend WithEvents UltraPictureBox3 As Infragistics.Win.UltraWinEditors.UltraPictureBox
+    Friend WithEvents UltraPictureBox2 As Infragistics.Win.UltraWinEditors.UltraPictureBox
+    Friend WithEvents UltraPictureBox1 As Infragistics.Win.UltraWinEditors.UltraPictureBox
     Dim SQLdataadapter7 As New SqlDataAdapter("select max(idordencompra) from ordencompramp ", cnn)
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -79,7 +88,7 @@ Public Class FrmGenerarOC
     Friend WithEvents crv As CrystalDecisions.Windows.Forms.CrystalReportViewer
     Friend WithEvents UltraButton3 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents SqlDataAdapter8 As System.Data.SqlClient.SqlDataAdapter
-    Friend WithEvents Dsoc1 As Afilar.Dsoc
+    Friend WithEvents Dsoc1 As Afilar.dsoc
     Friend WithEvents UltraTabControl1 As Infragistics.Win.UltraWinTabControl.UltraTabControl
     Friend WithEvents UltraTabSharedControlsPage1 As Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
     Friend WithEvents UltraTabPageControl1 As Infragistics.Win.UltraWinTabControl.UltraTabPageControl
@@ -90,11 +99,10 @@ Public Class FrmGenerarOC
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGenerarOC))
         Dim DateButton1 As Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton = New Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -103,8 +111,10 @@ Public Class FrmGenerarOC
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
         Me.CmbFormapago = New Infragistics.Win.UltraWinEditors.UltraComboEditor
@@ -137,6 +147,15 @@ Public Class FrmGenerarOC
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.Dsoc2 = New Afilar.dsoc
+        Me.UltraGroupBox3 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.UltraPictureBox1 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
+        Me.UltraPictureBox2 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
+        Me.UltraPictureBox3 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
+        Me.UltraPictureBox4 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.Label8 = New System.Windows.Forms.Label
+        Me.Label9 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
@@ -154,20 +173,24 @@ Public Class FrmGenerarOC
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
         CType(Me.Dsoc2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
+        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
-        Me.UltraTabPageControl1.Size = New System.Drawing.Size(708, 489)
+        Me.UltraTabPageControl1.Size = New System.Drawing.Size(782, 489)
         '
         'UltraGroupBox1
         '
-        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox1.ContentAreaAppearance = Appearance1
+        Appearance2.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox1.ContentAreaAppearance = Appearance2
         Me.UltraGroupBox1.Controls.Add(Me.CmbFormapago)
         Me.UltraGroupBox1.Controls.Add(Me.TxtPrecio)
         Me.UltraGroupBox1.Controls.Add(Me.CmbCantidad)
@@ -183,7 +206,7 @@ Public Class FrmGenerarOC
         Me.UltraGroupBox1.Controls.Add(Me.Label1)
         Me.UltraGroupBox1.Location = New System.Drawing.Point(24, 24)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(648, 184)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(741, 184)
         Me.UltraGroupBox1.SupportThemes = False
         Me.UltraGroupBox1.TabIndex = 9
         Me.UltraGroupBox1.Text = "Materia prima"
@@ -192,7 +215,7 @@ Public Class FrmGenerarOC
         'CmbFormapago
         '
         Me.CmbFormapago.AutoSize = True
-        Me.CmbFormapago.Location = New System.Drawing.Point(472, 104)
+        Me.CmbFormapago.Location = New System.Drawing.Point(560, 104)
         Me.CmbFormapago.Name = "CmbFormapago"
         Me.CmbFormapago.Size = New System.Drawing.Size(160, 21)
         Me.CmbFormapago.TabIndex = 19
@@ -201,7 +224,7 @@ Public Class FrmGenerarOC
         'TxtPrecio
         '
         Me.TxtPrecio.AutoSize = True
-        Me.TxtPrecio.Location = New System.Drawing.Point(472, 56)
+        Me.TxtPrecio.Location = New System.Drawing.Point(560, 56)
         Me.TxtPrecio.Name = "TxtPrecio"
         Me.TxtPrecio.Size = New System.Drawing.Size(160, 21)
         Me.TxtPrecio.TabIndex = 18
@@ -210,7 +233,7 @@ Public Class FrmGenerarOC
         'CmbCantidad
         '
         Me.CmbCantidad.AutoSize = True
-        Me.CmbCantidad.Location = New System.Drawing.Point(472, 80)
+        Me.CmbCantidad.Location = New System.Drawing.Point(560, 80)
         Me.CmbCantidad.Name = "CmbCantidad"
         Me.CmbCantidad.Size = New System.Drawing.Size(160, 21)
         Me.CmbCantidad.TabIndex = 17
@@ -218,9 +241,9 @@ Public Class FrmGenerarOC
         '
         'BtnAgregar
         '
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Me.BtnAgregar.Appearance = Appearance2
-        Me.BtnAgregar.Location = New System.Drawing.Point(280, 155)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.BtnAgregar.Appearance = Appearance3
+        Me.BtnAgregar.Location = New System.Drawing.Point(366, 156)
         Me.BtnAgregar.Name = "BtnAgregar"
         Me.BtnAgregar.Size = New System.Drawing.Size(80, 24)
         Me.BtnAgregar.TabIndex = 6
@@ -250,7 +273,7 @@ Public Class FrmGenerarOC
         Me.GrdMP.ReadOnly = True
         Me.GrdMP.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.GrdMP.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.GrdMP.Size = New System.Drawing.Size(344, 120)
+        Me.GrdMP.Size = New System.Drawing.Size(430, 120)
         Me.GrdMP.TabIndex = 0
         '
         'UltraCalendarCombo1
@@ -258,7 +281,7 @@ Public Class FrmGenerarOC
         Me.UltraCalendarCombo1.BackColor = System.Drawing.SystemColors.Window
         DateButton1.Caption = "Today"
         Me.UltraCalendarCombo1.DateButtons.Add(DateButton1)
-        Me.UltraCalendarCombo1.Location = New System.Drawing.Point(472, 128)
+        Me.UltraCalendarCombo1.Location = New System.Drawing.Point(560, 128)
         Me.UltraCalendarCombo1.Name = "UltraCalendarCombo1"
         Me.UltraCalendarCombo1.NonAutoSizeHeight = 16
         Me.UltraCalendarCombo1.Size = New System.Drawing.Size(160, 21)
@@ -269,7 +292,7 @@ Public Class FrmGenerarOC
         '
         Me.ultraCmbProovedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
         Me.ultraCmbProovedor.DisplayMember = ""
-        Me.ultraCmbProovedor.Location = New System.Drawing.Point(656, 32)
+        Me.ultraCmbProovedor.Location = New System.Drawing.Point(753, 32)
         Me.ultraCmbProovedor.Name = "ultraCmbProovedor"
         Me.ultraCmbProovedor.Size = New System.Drawing.Size(160, 21)
         Me.ultraCmbProovedor.TabIndex = 1
@@ -278,7 +301,7 @@ Public Class FrmGenerarOC
         '
         'CmbProveedor
         '
-        Me.CmbProveedor.Location = New System.Drawing.Point(472, 32)
+        Me.CmbProveedor.Location = New System.Drawing.Point(560, 32)
         Me.CmbProveedor.Name = "CmbProveedor"
         Me.CmbProveedor.Size = New System.Drawing.Size(160, 21)
         Me.CmbProveedor.TabIndex = 16
@@ -287,7 +310,7 @@ Public Class FrmGenerarOC
         'Label2
         '
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(399, 60)
+        Me.Label2.Location = New System.Drawing.Point(487, 60)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(80, 16)
         Me.Label2.TabIndex = 21
@@ -296,7 +319,7 @@ Public Class FrmGenerarOC
         'Label3
         '
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(423, 85)
+        Me.Label3.Location = New System.Drawing.Point(511, 85)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(56, 16)
         Me.Label3.TabIndex = 22
@@ -305,7 +328,7 @@ Public Class FrmGenerarOC
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(394, 107)
+        Me.Label4.Location = New System.Drawing.Point(482, 107)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(88, 16)
         Me.Label4.TabIndex = 23
@@ -314,7 +337,7 @@ Public Class FrmGenerarOC
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(381, 130)
+        Me.Label5.Location = New System.Drawing.Point(469, 130)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(96, 16)
         Me.Label5.TabIndex = 24
@@ -323,7 +346,7 @@ Public Class FrmGenerarOC
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(418, 36)
+        Me.Label1.Location = New System.Drawing.Point(506, 36)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(56, 16)
         Me.Label1.TabIndex = 20
@@ -331,15 +354,15 @@ Public Class FrmGenerarOC
         '
         'UltraGroupBox2
         '
-        Appearance3.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox2.ContentAreaAppearance = Appearance3
+        Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox2.ContentAreaAppearance = Appearance4
         Me.UltraGroupBox2.Controls.Add(Me.UltraButton2)
         Me.UltraGroupBox2.Controls.Add(Me.UltraButton1)
         Me.UltraGroupBox2.Controls.Add(Me.grdOC)
         Me.UltraGroupBox2.Controls.Add(Me.GrdDOC)
         Me.UltraGroupBox2.Location = New System.Drawing.Point(24, 216)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(648, 272)
+        Me.UltraGroupBox2.Size = New System.Drawing.Size(623, 272)
         Me.UltraGroupBox2.SupportThemes = False
         Me.UltraGroupBox2.TabIndex = 14
         Me.UltraGroupBox2.Text = "Orden de compra de materia prima"
@@ -347,9 +370,9 @@ Public Class FrmGenerarOC
         '
         'UltraButton2
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.UltraButton2.Appearance = Appearance4
-        Me.UltraButton2.Location = New System.Drawing.Point(520, 200)
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance5
+        Me.UltraButton2.Location = New System.Drawing.Point(450, 178)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(112, 24)
         Me.UltraButton2.TabIndex = 9
@@ -357,9 +380,9 @@ Public Class FrmGenerarOC
         '
         'UltraButton1
         '
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.UltraButton1.Appearance = Appearance5
-        Me.UltraButton1.Location = New System.Drawing.Point(520, 232)
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance6
+        Me.UltraButton1.Location = New System.Drawing.Point(450, 210)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(112, 24)
         Me.UltraButton1.TabIndex = 8
@@ -375,7 +398,7 @@ Public Class FrmGenerarOC
         Me.grdOC.Location = New System.Drawing.Point(16, 32)
         Me.grdOC.Name = "grdOC"
         Me.grdOC.ReadOnly = True
-        Me.grdOC.Size = New System.Drawing.Size(616, 120)
+        Me.grdOC.Size = New System.Drawing.Size(591, 120)
         Me.grdOC.TabIndex = 6
         '
         'GrdDOC
@@ -388,7 +411,7 @@ Public Class FrmGenerarOC
         Me.GrdDOC.Location = New System.Drawing.Point(16, 160)
         Me.GrdDOC.Name = "GrdDOC"
         Me.GrdDOC.ReadOnly = True
-        Me.GrdDOC.Size = New System.Drawing.Size(496, 96)
+        Me.GrdDOC.Size = New System.Drawing.Size(398, 96)
         Me.GrdDOC.TabIndex = 7
         '
         'UltraTabPageControl2
@@ -411,8 +434,8 @@ Public Class FrmGenerarOC
         '
         'BtnAceptar
         '
-        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
-        Me.BtnAceptar.Appearance = Appearance6
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.BtnAceptar.Appearance = Appearance7
         Me.BtnAceptar.Location = New System.Drawing.Point(432, 528)
         Me.BtnAceptar.Name = "BtnAceptar"
         Me.BtnAceptar.Size = New System.Drawing.Size(80, 24)
@@ -421,8 +444,8 @@ Public Class FrmGenerarOC
         '
         'BtnPrevisualizar
         '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.BtnPrevisualizar.Appearance = Appearance7
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.BtnPrevisualizar.Appearance = Appearance8
         Me.BtnPrevisualizar.Location = New System.Drawing.Point(513, 528)
         Me.BtnPrevisualizar.Name = "BtnPrevisualizar"
         Me.BtnPrevisualizar.Size = New System.Drawing.Size(80, 24)
@@ -431,8 +454,8 @@ Public Class FrmGenerarOC
         '
         'BtnSalir
         '
-        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
-        Me.BtnSalir.Appearance = Appearance8
+        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
+        Me.BtnSalir.Appearance = Appearance9
         Me.BtnSalir.Location = New System.Drawing.Point(594, 528)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(80, 24)
@@ -441,9 +464,9 @@ Public Class FrmGenerarOC
         '
         'UltraButton3
         '
-        Me.UltraButton3.Location = New System.Drawing.Point(304, 528)
+        Me.UltraButton3.Location = New System.Drawing.Point(653, 412)
         Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(120, 24)
+        Me.UltraButton3.Size = New System.Drawing.Size(122, 24)
         Me.UltraButton3.TabIndex = 16
         Me.UltraButton3.Text = "&Ordenes de compra"
         '
@@ -465,22 +488,22 @@ Public Class FrmGenerarOC
         '
         'UltraTabControl1
         '
-        Appearance9.BackColor = System.Drawing.Color.Silver
-        Appearance9.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ActiveTabAppearance = Appearance9
-        Appearance10.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance10.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance10
+        Appearance10.BackColor = System.Drawing.Color.Silver
+        Appearance10.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ActiveTabAppearance = Appearance10
         Appearance11.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance11.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance11
+        Appearance11.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance11
+        Appearance12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance12.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance12
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
         Me.UltraTabControl1.Location = New System.Drawing.Point(0, 8)
         Me.UltraTabControl1.Name = "UltraTabControl1"
         Me.UltraTabControl1.SharedControlsPage = Me.UltraTabSharedControlsPage1
-        Me.UltraTabControl1.Size = New System.Drawing.Size(712, 512)
+        Me.UltraTabControl1.Size = New System.Drawing.Size(786, 512)
         Me.UltraTabControl1.Style = Infragistics.Win.UltraWinTabControl.UltraTabControlStyle.PropertyPage2003
         Me.UltraTabControl1.TabIndex = 17
         UltraTab1.TabPage = Me.UltraTabPageControl1
@@ -494,7 +517,7 @@ Public Class FrmGenerarOC
         '
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
-        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(708, 489)
+        Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(782, 489)
         '
         'Dsoc2
         '
@@ -502,12 +525,103 @@ Public Class FrmGenerarOC
         Me.Dsoc2.Locale = New System.Globalization.CultureInfo("es-AR")
         Me.Dsoc2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'UltraGroupBox3
+        '
+        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox3.ContentAreaAppearance = Appearance1
+        Me.UltraGroupBox3.Controls.Add(Me.Label9)
+        Me.UltraGroupBox3.Controls.Add(Me.Label8)
+        Me.UltraGroupBox3.Controls.Add(Me.Label7)
+        Me.UltraGroupBox3.Controls.Add(Me.Label6)
+        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox4)
+        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox3)
+        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox2)
+        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox1)
+        Me.UltraGroupBox3.Location = New System.Drawing.Point(653, 214)
+        Me.UltraGroupBox3.Name = "UltraGroupBox3"
+        Me.UltraGroupBox3.Size = New System.Drawing.Size(110, 167)
+        Me.UltraGroupBox3.SupportThemes = False
+        Me.UltraGroupBox3.TabIndex = 15
+        Me.UltraGroupBox3.Text = "Referencia"
+        Me.UltraGroupBox3.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'UltraPictureBox1
+        '
+        Me.UltraPictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.UltraPictureBox1.BorderShadowColor = System.Drawing.Color.Empty
+        Me.UltraPictureBox1.Location = New System.Drawing.Point(8, 29)
+        Me.UltraPictureBox1.Name = "UltraPictureBox1"
+        Me.UltraPictureBox1.Size = New System.Drawing.Size(11, 14)
+        Me.UltraPictureBox1.TabIndex = 0
+        '
+        'UltraPictureBox2
+        '
+        Me.UltraPictureBox2.BackColor = System.Drawing.Color.Green
+        Me.UltraPictureBox2.BorderShadowColor = System.Drawing.Color.Empty
+        Me.UltraPictureBox2.Location = New System.Drawing.Point(8, 119)
+        Me.UltraPictureBox2.Name = "UltraPictureBox2"
+        Me.UltraPictureBox2.Size = New System.Drawing.Size(11, 14)
+        Me.UltraPictureBox2.TabIndex = 1
+        '
+        'UltraPictureBox3
+        '
+        Me.UltraPictureBox3.BackColor = System.Drawing.Color.Yellow
+        Me.UltraPictureBox3.BorderShadowColor = System.Drawing.Color.Empty
+        Me.UltraPictureBox3.Location = New System.Drawing.Point(8, 89)
+        Me.UltraPictureBox3.Name = "UltraPictureBox3"
+        Me.UltraPictureBox3.Size = New System.Drawing.Size(11, 14)
+        Me.UltraPictureBox3.TabIndex = 2
+        '
+        'UltraPictureBox4
+        '
+        Me.UltraPictureBox4.BackColor = System.Drawing.Color.Red
+        Me.UltraPictureBox4.BorderShadowColor = System.Drawing.Color.Empty
+        Me.UltraPictureBox4.Location = New System.Drawing.Point(8, 59)
+        Me.UltraPictureBox4.Name = "UltraPictureBox4"
+        Me.UltraPictureBox4.Size = New System.Drawing.Size(11, 14)
+        Me.UltraPictureBox4.TabIndex = 3
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Location = New System.Drawing.Point(25, 28)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(66, 16)
+        Me.Label6.TabIndex = 25
+        Me.Label6.Text = "MP Critica"
+        '
+        'Label7
+        '
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Location = New System.Drawing.Point(25, 58)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(80, 16)
+        Me.Label7.TabIndex = 26
+        Me.Label7.Text = "MP Tipo ""A"""
+        '
+        'Label8
+        '
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Location = New System.Drawing.Point(25, 88)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(80, 16)
+        Me.Label8.TabIndex = 27
+        Me.Label8.Text = "MP Tipo ""B"""
+        '
+        'Label9
+        '
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Location = New System.Drawing.Point(25, 118)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(80, 16)
+        Me.Label9.TabIndex = 28
+        Me.Label9.Text = "MP Tipo ""C"""
+        '
         'FrmGenerarOC
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(706, 560)
+        Me.ClientSize = New System.Drawing.Size(799, 560)
         Me.Controls.Add(Me.UltraTabControl1)
-        Me.Controls.Add(Me.UltraButton3)
         Me.Controls.Add(Me.BtnSalir)
         Me.Controls.Add(Me.BtnPrevisualizar)
         Me.Controls.Add(Me.BtnAceptar)
@@ -533,6 +647,8 @@ Public Class FrmGenerarOC
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
         CType(Me.Dsoc2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -679,7 +795,7 @@ Public Class FrmGenerarOC
 
     End Sub
     Sub CargarGrdMP()
-        
+
         Me.GrdMP.CaptionText = "Materia prima"
         Me.GrdMP.DataSource = dvMP
 
@@ -956,7 +1072,7 @@ Public Class FrmGenerarOC
     End Sub
 
 
-   
+
 
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
@@ -971,7 +1087,7 @@ Public Class FrmGenerarOC
 
     Private Sub BtnPrevisualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrevisualizar.Click
 
-        Dim dsocp As New DSOC
+        Dim dsocp As New dsoc
         SqlDataAdapter8.Fill(dsocp)
 
         Dim p As New CrystalReport1

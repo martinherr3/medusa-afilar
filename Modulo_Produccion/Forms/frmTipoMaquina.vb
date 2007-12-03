@@ -53,7 +53,7 @@ Public Class frmTipoMaquina
                 objTMaquina.modificarTMaquina(dsTMaquina)
 
             Catch
-                MsgBox("El sistema no puede procesar la solisitud, por favor seleccione el item a modificar", MsgBoxStyle.Information, "Error")
+                MsgBox("El sistema no puede procesar la solicitud, por favor seleccione el item a modificar", MsgBoxStyle.Information, "Error")
             End Try
         End If
 
