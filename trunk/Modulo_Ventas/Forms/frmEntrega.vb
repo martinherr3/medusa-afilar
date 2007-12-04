@@ -4,7 +4,8 @@ Public Class frmEntrega
     Dim dspedido As New DataSet("dspedido")
     'Dim dspedidosel As New DataSet
     Dim tbps As New DataTable
-    Dim consulta As String = "select idpedido, fecharealizacion, fechaentrega, prioridad,nombre 'estado', pedido.idestado,pedido.idcliente,idformadeentrega from pedido,estado where pedido.idestado=estado.idestado and estado.nombre='PendienteEntrega' order by prioridad desc"
+    'Dim consulta As String = "select idpedido, fecharealizacion, fechaentrega, prioridad,nombre 'estado', pedido.idestado,pedido.idcliente,idformadeentrega from pedido,estado where pedido.idestado=estado.idestado and estado.nombre='PendienteEntrega' order by prioridad desc"
+    Dim consulta As String = "select idpedido, fecharealizacion, fechaentrega, prioridad,nombre 'estado', pedido.idestado,pedido.idcliente,idformadeentrega from pedido,estado where pedido.idestado=estado.idestado and pedido.idestado=" & Estado.PEDIDO_FINALIZADO & " order by prioridad desc"
     '"select idpedido, fecharealizacion, fechaentrega, prioridad,nombre from cliente,estado where pedido.idestado=estado.idestado"
     Dim adaptador As SqlDataAdapter = New SqlDataAdapter(consulta, cnn)
     Dim bandCmb2 As Integer = 0
@@ -59,22 +60,24 @@ Public Class frmEntrega
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEntrega))
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.DataGrid2 = New System.Windows.Forms.DataGrid
         Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.UltraDateTimeEditor1 = New Infragistics.Win.UltraWinEditors.UltraDateTimeEditor
         Me.Label2 = New System.Windows.Forms.Label
         Me.ComboBox1 = New System.Windows.Forms.ComboBox
@@ -83,15 +86,13 @@ Public Class frmEntrega
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.ComboBox2 = New System.Windows.Forms.ComboBox
         Me.Label3 = New System.Windows.Forms.Label
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox
         Me.PictureBox3 = New System.Windows.Forms.PictureBox
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGrid2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -108,27 +109,27 @@ Public Class frmEntrega
         '
         'UltraButton1
         '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Appearance1.ImageHAlign = Infragistics.Win.HAlign.Right
-        Me.UltraButton1.Appearance = Appearance1
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Appearance2.ImageHAlign = Infragistics.Win.HAlign.Right
-        Me.UltraButton1.HotTrackAppearance = Appearance2
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Appearance10.ImageHAlign = Infragistics.Win.HAlign.Right
+        Me.UltraButton1.Appearance = Appearance10
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Appearance11.ImageHAlign = Infragistics.Win.HAlign.Right
+        Me.UltraButton1.HotTrackAppearance = Appearance11
         Me.UltraButton1.Location = New System.Drawing.Point(425, 79)
         Me.UltraButton1.Name = "UltraButton1"
-        Appearance3.ImageHAlign = Infragistics.Win.HAlign.Left
-        Me.UltraButton1.PressedAppearance = Appearance3
+        Appearance12.ImageHAlign = Infragistics.Win.HAlign.Left
+        Me.UltraButton1.PressedAppearance = Appearance12
         Me.UltraButton1.Size = New System.Drawing.Size(72, 27)
         Me.UltraButton1.TabIndex = 1
         Me.UltraButton1.Text = "&Agregar"
         '
         'UltraButton2
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Appearance4.ImageHAlign = Infragistics.Win.HAlign.Left
-        Me.UltraButton2.Appearance = Appearance4
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.UltraButton2.HotTrackAppearance = Appearance5
+        Appearance13.Image = CType(resources.GetObject("Appearance13.Image"), Object)
+        Appearance13.ImageHAlign = Infragistics.Win.HAlign.Left
+        Me.UltraButton2.Appearance = Appearance13
+        Appearance14.Image = CType(resources.GetObject("Appearance14.Image"), Object)
+        Me.UltraButton2.HotTrackAppearance = Appearance14
         Me.UltraButton2.Location = New System.Drawing.Point(425, 112)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(72, 27)
@@ -143,17 +144,17 @@ Public Class frmEntrega
         Me.DataGrid2.Location = New System.Drawing.Point(503, 40)
         Me.DataGrid2.Name = "DataGrid2"
         Me.DataGrid2.ReadOnly = True
-        Me.DataGrid2.Size = New System.Drawing.Size(273, 144)
+        Me.DataGrid2.Size = New System.Drawing.Size(404, 144)
         Me.DataGrid2.TabIndex = 3
         '
         'UltraButton3
         '
-        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance6
-        Me.UltraButton3.Location = New System.Drawing.Point(694, 190)
+        Appearance15.Image = CType(resources.GetObject("Appearance15.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance15
+        Me.UltraButton3.Location = New System.Drawing.Point(827, 192)
         Me.UltraButton3.Name = "UltraButton3"
-        Appearance7.TextHAlign = Infragistics.Win.HAlign.Left
-        Me.UltraButton3.PressedAppearance = Appearance7
+        Appearance16.TextHAlign = Infragistics.Win.HAlign.Left
+        Me.UltraButton3.PressedAppearance = Appearance16
         Me.UltraButton3.Size = New System.Drawing.Size(80, 32)
         Me.UltraButton3.TabIndex = 10
         Me.UltraButton3.Text = "&Limpiar "
@@ -171,6 +172,26 @@ Public Class frmEntrega
         Me.GroupBox1.Size = New System.Drawing.Size(304, 88)
         Me.GroupBox1.TabIndex = 13
         Me.GroupBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(270, 52)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(28, 21)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox2.TabIndex = 18
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(270, 19)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(28, 21)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureBox1.TabIndex = 17
+        Me.PictureBox1.TabStop = False
         '
         'UltraDateTimeEditor1
         '
@@ -211,8 +232,8 @@ Public Class frmEntrega
         '
         'UltraButton5
         '
-        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
-        Me.UltraButton5.Appearance = Appearance8
+        Appearance17.Image = CType(resources.GetObject("Appearance17.Image"), Object)
+        Me.UltraButton5.Appearance = Appearance17
         Me.UltraButton5.Location = New System.Drawing.Point(331, 240)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(88, 32)
@@ -221,8 +242,8 @@ Public Class frmEntrega
         '
         'UltraButton4
         '
-        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
-        Me.UltraButton4.Appearance = Appearance9
+        Appearance18.Image = CType(resources.GetObject("Appearance18.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance18
         Me.UltraButton4.Enabled = False
         Me.UltraButton4.Location = New System.Drawing.Point(331, 189)
         Me.UltraButton4.Name = "UltraButton4"
@@ -233,7 +254,7 @@ Public Class frmEntrega
         'ComboBox2
         '
         Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.Location = New System.Drawing.Point(99, 12)
+        Me.ComboBox2.Location = New System.Drawing.Point(165, 12)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(192, 21)
         Me.ComboBox2.TabIndex = 19
@@ -243,35 +264,15 @@ Public Class frmEntrega
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Location = New System.Drawing.Point(12, 16)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(88, 21)
+        Me.Label3.Size = New System.Drawing.Size(159, 21)
         Me.Label3.TabIndex = 20
         Me.Label3.Text = "Filtrar por forma de entrega"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(270, 19)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(28, 21)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox1.TabIndex = 17
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(270, 52)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(28, 21)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox2.TabIndex = 18
-        Me.PictureBox2.TabStop = False
-        '
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(297, 12)
+        Me.PictureBox3.Location = New System.Drawing.Point(387, 12)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(28, 21)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -281,7 +282,7 @@ Public Class frmEntrega
         'frmEntrega
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(786, 280)
+        Me.ClientSize = New System.Drawing.Size(919, 280)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -302,19 +303,15 @@ Public Class frmEntrega
         CType(Me.DataGrid2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
 #End Region
-
-    Private Sub frmEntrega_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        princ.barra.eliminarBoton()
-    End Sub
 
     Private Sub frmEntrega_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
@@ -346,9 +343,8 @@ Public Class frmEntrega
             cargarGrilla(DataGrid2, tbps, nombrescol, anchosgrid)
             'tbps = dspedidosel.Tables.Item(0)
             cargarCombo("select idformadeentrega,nombre from formadeentrega", ComboBox1, "nombre", "idformadeentrega")
-            'ComboBox2.Items.Add("Todos")
-            cargarCombo("select idformadeentrega,nombre from formadeentrega", ComboBox2, "nombre", "idformadeentrega")
 
+            cargarCombo("select idformadeentrega,nombre from formadeentrega", ComboBox2, "nombre", "idformadeentrega")
             bandCmb2 = 1
             UltraDateTimeEditor1.Value = Today
         Catch ex As Exception
@@ -480,12 +476,12 @@ Public Class frmEntrega
                         updatefila(4) = "Entregado"
 
                         If ComboBox1.SelectedValue = 2 Then
-                            adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =3, idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idviajante=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
+                            adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =" & Estado.PEDIDO_ENTREGADO & ", idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idviajante=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
                         Else
                             If ComboBox1.SelectedValue = 3 Then
-                                adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =3, idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idempresa=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
+                                adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =" & Estado.PEDIDO_ENTREGADO & ", idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idempresa=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
                             Else
-                                adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =3, idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "' WHERE (idpedido =" & updatefila(0) & ")", cnn)
+                                adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =" & Estado.PEDIDO_ENTREGADO & ", idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "' WHERE (idpedido =" & updatefila(0) & ")", cnn)
                             End If
                         End If
                         adaptador.UpdateCommand.ExecuteNonQuery()
@@ -507,21 +503,30 @@ Public Class frmEntrega
        
     End Sub
 
-    
+    Private Sub frmEntrega_Closed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Closed
+        princ.barra.eliminarBoton()
+    End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox2.SelectedIndexChanged
+        'Que chancho que fui!!!
+        'Try
+        '    If ComboBox2.Text = "Retiro Personal     " Then
+        '        dvpedidos.RowFilter = "idformadeentrega=" & 1
+        '    End If
+        '    If ComboBox2.Text = "Envio por Viajante  " Then
+        '        dvpedidos.RowFilter = "idformadeentrega=" & 2
+        '    End If
+        '    If ComboBox2.Text = "Envio por Emp Transp" Then
+        '        dvpedidos.RowFilter = "idformadeentrega=" & 3
+        '    End If
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message)
+        'End Try
+
         Try
-            If ComboBox2.Text = "Retiro Personal     " Then
-                dvpedidos.RowFilter = "idformadeentrega=" & 1
-            End If
-            If ComboBox2.Text = "Envio por Viajante  " Then
-                dvpedidos.RowFilter = "idformadeentrega=" & 2
-            End If
-            If ComboBox2.Text = "Envio por Emp Transp" Then
-                dvpedidos.RowFilter = "idformadeentrega=" & 3
-            End If
+            dvpedidos.RowFilter = "idformadeentrega=" & ComboBox2.SelectedValue
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message)
         End Try
 
     End Sub

@@ -1094,7 +1094,7 @@ Public Class FrmGenerarOC
         p.SetDataSource(dsocp)
         crv.ReportSource = p
         UltraTabControl1.SelectedTab = UltraTabControl1.Tabs(1)
-        'Dim SelectFormula As String
+        ' Dim SelectFormula As String
 
         'SelectFormula = "{ordencompramp.fecharealizacion} =" & Now
         'crv.SelectionFormula = SelectFormula
