@@ -234,6 +234,9 @@ Public Class consultarOC
         anchos(4) = 130
 
         cargarGrilla(grd1, DV.Table, nombres, anchos)
+        ComboBox1.SelectedIndex = 0
+        TextBox1.Text = "Pendiente"
+
 
     End Sub
 

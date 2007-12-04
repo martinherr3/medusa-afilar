@@ -1,6 +1,15 @@
 Public Class abmMateriaPrima
     Inherits System.Windows.Forms.Form
 
+    Dim objMP As New MateriaPrima
+    Dim consultaMP As String = "select * from tipomateriaprima"
+    Dim dsMP As DataSet = objMP.cargarDSMateriaPrima(consultaMP, cnn)
+
+
+    Dim bandcombo As Integer
+    Friend WithEvents cboUnidadMedida As System.Windows.Forms.ComboBox
+    Friend WithEvents btnEliminar As Infragistics.Win.Misc.UltraButton
+    Dim bandGrabar As Integer
 #Region " Código generado por el Diseñador de Windows Forms "
 
     Public Sub New()
@@ -33,40 +42,39 @@ Public Class abmMateriaPrima
     Friend WithEvents UltraTabSharedControlsPage1 As Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
     Friend WithEvents UltraTabPageControl1 As Infragistics.Win.UltraWinTabControl.UltraTabPageControl
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
-    Friend WithEvents UltraButton7 As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents UltraButton6 As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents UltraButton8 As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents UltraButton9 As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents btnAfter As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnVeryAfter As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnVeryBefore As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnBefore As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents lblCantidad As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents UltraButton4 As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents UltraButton3 As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents UltraButton2 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnNuevo As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnGuardar As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnEditar As Infragistics.Win.Misc.UltraButton
     Friend WithEvents btnSalir As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents text4 As Infragistics.Win.UltraWinEditors.UltraTextEditor
-    Friend WithEvents text3 As Infragistics.Win.UltraWinEditors.UltraTextEditor
-    Friend WithEvents text2 As Infragistics.Win.UltraWinEditors.UltraTextEditor
-    Friend WithEvents text1 As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents txtStockSeguridad As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents txtStockActual As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents txtNombre As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents txtIdMP As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents text5 As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents txtDireccion As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents UltraTabPageControl2 As Infragistics.Win.UltraWinTabControl.UltraTabPageControl
     Friend WithEvents UltraButton10 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
-    Friend WithEvents UltraTextEditor1 As Infragistics.Win.UltraWinEditors.UltraTextEditor
-    Friend WithEvents UltraTextEditor2 As Infragistics.Win.UltraWinEditors.UltraTextEditor
-    Friend WithEvents UltraComboEditor1 As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents txtStockMinimo As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents txtLote As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label9 As System.Windows.Forms.Label
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmMateriaPrima))
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmMateriaPrima))
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -81,33 +89,35 @@ Public Class abmMateriaPrima
         Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.btnEliminar = New Infragistics.Win.Misc.UltraButton
+        Me.cboUnidadMedida = New System.Windows.Forms.ComboBox
         Me.Label9 = New System.Windows.Forms.Label
-        Me.UltraComboEditor1 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.UltraTextEditor2 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.UltraTextEditor1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtLote = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtStockMinimo = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
-        Me.UltraButton7 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton6 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton8 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton9 = New Infragistics.Win.Misc.UltraButton
-        Me.Label8 = New System.Windows.Forms.Label
+        Me.btnAfter = New Infragistics.Win.Misc.UltraButton
+        Me.btnVeryAfter = New Infragistics.Win.Misc.UltraButton
+        Me.btnVeryBefore = New Infragistics.Win.Misc.UltraButton
+        Me.btnBefore = New Infragistics.Win.Misc.UltraButton
+        Me.lblCantidad = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
-        Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
+        Me.btnNuevo = New Infragistics.Win.Misc.UltraButton
+        Me.btnGuardar = New Infragistics.Win.Misc.UltraButton
+        Me.btnEditar = New Infragistics.Win.Misc.UltraButton
         Me.btnSalir = New Infragistics.Win.Misc.UltraButton
-        Me.text4 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.text3 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.text2 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.text1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtStockSeguridad = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtStockActual = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtNombre = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtIdMP = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
-        Me.text5 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtDireccion = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.UltraTabPageControl2 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
@@ -116,16 +126,15 @@ Public Class abmMateriaPrima
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabPageControl1.SuspendLayout()
-        CType(Me.UltraComboEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraTextEditor2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtLote, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtStockMinimo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
-        CType(Me.text4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.text3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.text2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.text1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.text5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtStockSeguridad, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtStockActual, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNombre, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtIdMP, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtDireccion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabPageControl2.SuspendLayout()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -134,79 +143,88 @@ Public Class abmMateriaPrima
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.btnEliminar)
+        Me.UltraTabPageControl1.Controls.Add(Me.cboUnidadMedida)
         Me.UltraTabPageControl1.Controls.Add(Me.Label9)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraComboEditor1)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraTextEditor2)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraTextEditor1)
+        Me.UltraTabPageControl1.Controls.Add(Me.txtLote)
+        Me.UltraTabPageControl1.Controls.Add(Me.txtStockMinimo)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.Label7)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton4)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
-        Me.UltraTabPageControl1.Controls.Add(Me.UltraButton2)
+        Me.UltraTabPageControl1.Controls.Add(Me.btnNuevo)
+        Me.UltraTabPageControl1.Controls.Add(Me.btnGuardar)
+        Me.UltraTabPageControl1.Controls.Add(Me.btnEditar)
         Me.UltraTabPageControl1.Controls.Add(Me.btnSalir)
-        Me.UltraTabPageControl1.Controls.Add(Me.text4)
-        Me.UltraTabPageControl1.Controls.Add(Me.text3)
-        Me.UltraTabPageControl1.Controls.Add(Me.text2)
-        Me.UltraTabPageControl1.Controls.Add(Me.text1)
+        Me.UltraTabPageControl1.Controls.Add(Me.txtStockSeguridad)
+        Me.UltraTabPageControl1.Controls.Add(Me.txtStockActual)
+        Me.UltraTabPageControl1.Controls.Add(Me.txtNombre)
+        Me.UltraTabPageControl1.Controls.Add(Me.txtIdMP)
         Me.UltraTabPageControl1.Controls.Add(Me.Label6)
         Me.UltraTabPageControl1.Controls.Add(Me.Label5)
         Me.UltraTabPageControl1.Controls.Add(Me.Label4)
         Me.UltraTabPageControl1.Controls.Add(Me.Label3)
-        Me.UltraTabPageControl1.Controls.Add(Me.text5)
+        Me.UltraTabPageControl1.Controls.Add(Me.txtDireccion)
         Me.UltraTabPageControl1.Controls.Add(Me.Label2)
         Me.UltraTabPageControl1.Controls.Add(Me.Label1)
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(644, 257)
         '
+        'btnEliminar
+        '
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnEliminar.Appearance = Appearance1
+        Me.btnEliminar.Location = New System.Drawing.Point(566, 181)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(72, 31)
+        Me.btnEliminar.TabIndex = 55
+        Me.btnEliminar.Text = "&Eliminar"
+        '
+        'cboUnidadMedida
+        '
+        Me.cboUnidadMedida.FormattingEnabled = True
+        Me.cboUnidadMedida.Location = New System.Drawing.Point(547, 75)
+        Me.cboUnidadMedida.Name = "cboUnidadMedida"
+        Me.cboUnidadMedida.Size = New System.Drawing.Size(87, 21)
+        Me.cboUnidadMedida.TabIndex = 54
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(200, 128)
+        Me.Label9.Location = New System.Drawing.Point(448, 83)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(93, 13)
         Me.Label9.TabIndex = 53
         Me.Label9.Text = "Unidad de medida"
         '
-        'UltraComboEditor1
-        '
-        Me.UltraComboEditor1.AutoSize = True
-        Me.UltraComboEditor1.Location = New System.Drawing.Point(200, 144)
-        Me.UltraComboEditor1.Name = "UltraComboEditor1"
-        Me.UltraComboEditor1.Size = New System.Drawing.Size(96, 21)
-        Me.UltraComboEditor1.TabIndex = 52
-        '
-        'UltraTextEditor2
-        '
-        Appearance1.BackColor = System.Drawing.Color.White
-        Me.UltraTextEditor2.Appearance = Appearance1
-        Me.UltraTextEditor2.AutoSize = True
-        Me.UltraTextEditor2.Location = New System.Drawing.Point(96, 120)
-        Me.UltraTextEditor2.Name = "UltraTextEditor2"
-        Me.UltraTextEditor2.ReadOnly = True
-        Me.UltraTextEditor2.Size = New System.Drawing.Size(88, 21)
-        Me.UltraTextEditor2.TabIndex = 51
-        '
-        'UltraTextEditor1
+        'txtLote
         '
         Appearance2.BackColor = System.Drawing.Color.White
-        Me.UltraTextEditor1.Appearance = Appearance2
-        Me.UltraTextEditor1.AutoSize = True
-        Me.UltraTextEditor1.Location = New System.Drawing.Point(96, 72)
-        Me.UltraTextEditor1.Name = "UltraTextEditor1"
-        Me.UltraTextEditor1.ReadOnly = True
-        Me.UltraTextEditor1.Size = New System.Drawing.Size(88, 21)
-        Me.UltraTextEditor1.TabIndex = 50
+        Me.txtLote.Appearance = Appearance2
+        Me.txtLote.AutoSize = True
+        Me.txtLote.Location = New System.Drawing.Point(96, 145)
+        Me.txtLote.Name = "txtLote"
+        Me.txtLote.Size = New System.Drawing.Size(88, 21)
+        Me.txtLote.TabIndex = 51
+        '
+        'txtStockMinimo
+        '
+        Appearance3.BackColor = System.Drawing.Color.White
+        Me.txtStockMinimo.Appearance = Appearance3
+        Me.txtStockMinimo.AutoSize = True
+        Me.txtStockMinimo.Location = New System.Drawing.Point(96, 97)
+        Me.txtStockMinimo.Name = "txtStockMinimo"
+        Me.txtStockMinimo.Size = New System.Drawing.Size(88, 21)
+        Me.txtStockMinimo.TabIndex = 50
         '
         'UltraGroupBox1
         '
         Me.UltraGroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.UltraGroupBox1.Controls.Add(Me.UltraButton7)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraButton6)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraButton8)
-        Me.UltraGroupBox1.Controls.Add(Me.UltraButton9)
-        Me.UltraGroupBox1.Controls.Add(Me.Label8)
+        Me.UltraGroupBox1.Controls.Add(Me.btnAfter)
+        Me.UltraGroupBox1.Controls.Add(Me.btnVeryAfter)
+        Me.UltraGroupBox1.Controls.Add(Me.btnVeryBefore)
+        Me.UltraGroupBox1.Controls.Add(Me.btnBefore)
+        Me.UltraGroupBox1.Controls.Add(Me.lblCantidad)
         Me.UltraGroupBox1.Location = New System.Drawing.Point(96, 192)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.Size = New System.Drawing.Size(224, 56)
@@ -215,153 +233,150 @@ Public Class abmMateriaPrima
         Me.UltraGroupBox1.Text = "Navegabilidad"
         Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
-        'UltraButton7
-        '
-        Appearance3.ImageHAlign = Infragistics.Win.HAlign.Center
-        Me.UltraButton7.Appearance = Appearance3
-        Me.UltraButton7.Location = New System.Drawing.Point(176, 24)
-        Me.UltraButton7.Name = "UltraButton7"
-        Me.UltraButton7.Size = New System.Drawing.Size(40, 24)
-        Me.UltraButton7.TabIndex = 3
-        '
-        'UltraButton6
+        'btnAfter
         '
         Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
         Appearance4.ImageHAlign = Infragistics.Win.HAlign.Center
-        Me.UltraButton6.Appearance = Appearance4
-        Me.UltraButton6.Location = New System.Drawing.Point(136, 24)
-        Me.UltraButton6.Name = "UltraButton6"
-        Me.UltraButton6.Size = New System.Drawing.Size(40, 24)
-        Me.UltraButton6.TabIndex = 2
+        Me.btnAfter.Appearance = Appearance4
+        Me.btnAfter.Location = New System.Drawing.Point(176, 24)
+        Me.btnAfter.Name = "btnAfter"
+        Me.btnAfter.Size = New System.Drawing.Size(40, 24)
+        Me.btnAfter.TabIndex = 3
         '
-        'UltraButton8
+        'btnVeryAfter
         '
         Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
         Appearance5.ImageHAlign = Infragistics.Win.HAlign.Center
-        Me.UltraButton8.Appearance = Appearance5
-        Me.UltraButton8.Location = New System.Drawing.Point(48, 24)
-        Me.UltraButton8.Name = "UltraButton8"
-        Me.UltraButton8.Size = New System.Drawing.Size(40, 24)
-        Me.UltraButton8.TabIndex = 1
+        Me.btnVeryAfter.Appearance = Appearance5
+        Me.btnVeryAfter.Location = New System.Drawing.Point(136, 24)
+        Me.btnVeryAfter.Name = "btnVeryAfter"
+        Me.btnVeryAfter.Size = New System.Drawing.Size(40, 24)
+        Me.btnVeryAfter.TabIndex = 2
         '
-        'UltraButton9
+        'btnVeryBefore
         '
         Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
         Appearance6.ImageHAlign = Infragistics.Win.HAlign.Center
-        Me.UltraButton9.Appearance = Appearance6
-        Me.UltraButton9.Location = New System.Drawing.Point(8, 24)
-        Me.UltraButton9.Name = "UltraButton9"
-        Me.UltraButton9.Size = New System.Drawing.Size(40, 24)
-        Me.UltraButton9.TabIndex = 0
+        Me.btnVeryBefore.Appearance = Appearance6
+        Me.btnVeryBefore.Location = New System.Drawing.Point(48, 24)
+        Me.btnVeryBefore.Name = "btnVeryBefore"
+        Me.btnVeryBefore.Size = New System.Drawing.Size(40, 24)
+        Me.btnVeryBefore.TabIndex = 1
         '
-        'Label8
+        'btnBefore
         '
-        Me.Label8.BackColor = System.Drawing.SystemColors.Control
-        Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(92, 24)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 24)
-        Me.Label8.TabIndex = 2
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Appearance7.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.btnBefore.Appearance = Appearance7
+        Me.btnBefore.Location = New System.Drawing.Point(8, 24)
+        Me.btnBefore.Name = "btnBefore"
+        Me.btnBefore.Size = New System.Drawing.Size(40, 24)
+        Me.btnBefore.TabIndex = 0
+        '
+        'lblCantidad
+        '
+        Me.lblCantidad.BackColor = System.Drawing.SystemColors.Control
+        Me.lblCantidad.ForeColor = System.Drawing.Color.Black
+        Me.lblCantidad.Location = New System.Drawing.Point(92, 24)
+        Me.lblCantidad.Name = "lblCantidad"
+        Me.lblCantidad.Size = New System.Drawing.Size(39, 24)
+        Me.lblCantidad.TabIndex = 2
         '
         'Label7
         '
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(40, 147)
+        Me.Label7.Location = New System.Drawing.Point(40, 75)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(56, 13)
         Me.Label7.TabIndex = 45
         Me.Label7.Text = "Stock act."
         '
-        'UltraButton4
-        '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.UltraButton4.Appearance = Appearance7
-        Me.UltraButton4.Location = New System.Drawing.Point(404, 216)
-        Me.UltraButton4.Name = "UltraButton4"
-        Me.UltraButton4.Size = New System.Drawing.Size(72, 32)
-        Me.UltraButton4.TabIndex = 40
-        Me.UltraButton4.Text = "Nuevo"
-        '
-        'UltraButton3
+        'btnNuevo
         '
         Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance8
-        Me.UltraButton3.Location = New System.Drawing.Point(326, 216)
-        Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(72, 32)
-        Me.UltraButton3.TabIndex = 39
-        Me.UltraButton3.Text = "Guardar"
+        Me.btnNuevo.Appearance = Appearance8
+        Me.btnNuevo.Location = New System.Drawing.Point(402, 181)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(72, 32)
+        Me.btnNuevo.TabIndex = 40
+        Me.btnNuevo.Text = "Nuevo"
         '
-        'UltraButton2
+        'btnGuardar
         '
         Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
-        Me.UltraButton2.Appearance = Appearance9
-        Me.UltraButton2.Location = New System.Drawing.Point(482, 216)
-        Me.UltraButton2.Name = "UltraButton2"
-        Me.UltraButton2.Size = New System.Drawing.Size(72, 32)
-        Me.UltraButton2.TabIndex = 38
-        Me.UltraButton2.Text = "Editar"
+        Me.btnGuardar.Appearance = Appearance9
+        Me.btnGuardar.Location = New System.Drawing.Point(402, 219)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(72, 32)
+        Me.btnGuardar.TabIndex = 39
+        Me.btnGuardar.Text = "Guardar"
+        '
+        'btnEditar
+        '
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Me.btnEditar.Appearance = Appearance10
+        Me.btnEditar.Location = New System.Drawing.Point(484, 181)
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(72, 32)
+        Me.btnEditar.TabIndex = 38
+        Me.btnEditar.Text = "Editar"
         '
         'btnSalir
         '
-        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
-        Me.btnSalir.Appearance = Appearance10
-        Me.btnSalir.Location = New System.Drawing.Point(560, 216)
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.btnSalir.Appearance = Appearance11
+        Me.btnSalir.Location = New System.Drawing.Point(566, 219)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(72, 32)
         Me.btnSalir.TabIndex = 37
         Me.btnSalir.Text = "Salir"
         '
-        'text4
-        '
-        Appearance11.BackColor = System.Drawing.Color.White
-        Me.text4.Appearance = Appearance11
-        Me.text4.AutoSize = True
-        Me.text4.Location = New System.Drawing.Point(96, 96)
-        Me.text4.Name = "text4"
-        Me.text4.ReadOnly = True
-        Me.text4.Size = New System.Drawing.Size(88, 21)
-        Me.text4.TabIndex = 35
-        '
-        'text3
+        'txtStockSeguridad
         '
         Appearance12.BackColor = System.Drawing.Color.White
-        Me.text3.Appearance = Appearance12
-        Me.text3.AutoSize = True
-        Me.text3.Location = New System.Drawing.Point(96, 144)
-        Me.text3.Name = "text3"
-        Me.text3.ReadOnly = True
-        Me.text3.Size = New System.Drawing.Size(88, 21)
-        Me.text3.TabIndex = 34
+        Me.txtStockSeguridad.Appearance = Appearance12
+        Me.txtStockSeguridad.AutoSize = True
+        Me.txtStockSeguridad.Location = New System.Drawing.Point(96, 121)
+        Me.txtStockSeguridad.Name = "txtStockSeguridad"
+        Me.txtStockSeguridad.Size = New System.Drawing.Size(88, 21)
+        Me.txtStockSeguridad.TabIndex = 35
         '
-        'text2
+        'txtStockActual
         '
         Appearance13.BackColor = System.Drawing.Color.White
-        Me.text2.Appearance = Appearance13
-        Me.text2.AutoSize = True
-        Me.text2.Location = New System.Drawing.Point(96, 48)
-        Me.text2.Name = "text2"
-        Me.text2.ReadOnly = True
-        Me.text2.Size = New System.Drawing.Size(176, 21)
-        Me.text2.TabIndex = 33
+        Me.txtStockActual.Appearance = Appearance13
+        Me.txtStockActual.AutoSize = True
+        Me.txtStockActual.Location = New System.Drawing.Point(96, 72)
+        Me.txtStockActual.Name = "txtStockActual"
+        Me.txtStockActual.Size = New System.Drawing.Size(88, 21)
+        Me.txtStockActual.TabIndex = 34
         '
-        'text1
+        'txtNombre
         '
         Appearance14.BackColor = System.Drawing.Color.White
-        Me.text1.Appearance = Appearance14
-        Me.text1.AutoSize = True
-        Me.text1.Location = New System.Drawing.Point(96, 24)
-        Me.text1.Name = "text1"
-        Me.text1.ReadOnly = True
-        Me.text1.Size = New System.Drawing.Size(88, 21)
-        Me.text1.TabIndex = 32
+        Me.txtNombre.Appearance = Appearance14
+        Me.txtNombre.AutoSize = True
+        Me.txtNombre.Location = New System.Drawing.Point(96, 48)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(187, 21)
+        Me.txtNombre.TabIndex = 33
+        '
+        'txtIdMP
+        '
+        Appearance15.BackColor = System.Drawing.Color.White
+        Me.txtIdMP.Appearance = Appearance15
+        Me.txtIdMP.AutoSize = True
+        Me.txtIdMP.Location = New System.Drawing.Point(96, 24)
+        Me.txtIdMP.Name = "txtIdMP"
+        Me.txtIdMP.Size = New System.Drawing.Size(88, 21)
+        Me.txtIdMP.TabIndex = 32
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(40, 124)
+        Me.Label6.Location = New System.Drawing.Point(40, 149)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(58, 13)
         Me.Label6.TabIndex = 31
@@ -371,7 +386,7 @@ Public Class abmMateriaPrima
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(40, 98)
+        Me.Label5.Location = New System.Drawing.Point(40, 123)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(58, 13)
         Me.Label5.TabIndex = 30
@@ -381,7 +396,7 @@ Public Class abmMateriaPrima
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(40, 74)
+        Me.Label4.Location = New System.Drawing.Point(40, 99)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(59, 13)
         Me.Label4.TabIndex = 29
@@ -397,27 +412,26 @@ Public Class abmMateriaPrima
         Me.Label3.TabIndex = 28
         Me.Label3.Text = "ID"
         '
-        'text5
+        'txtDireccion
         '
-        Appearance15.BackColor = System.Drawing.Color.White
-        Me.text5.Appearance = Appearance15
-        Me.text5.AutoSize = True
-        Me.text5.Location = New System.Drawing.Point(326, 53)
-        Me.text5.Multiline = True
-        Me.text5.Name = "text5"
-        Me.text5.ReadOnly = True
-        Me.text5.Size = New System.Drawing.Size(306, 112)
-        Me.text5.TabIndex = 25
+        Appearance16.BackColor = System.Drawing.Color.White
+        Me.txtDireccion.Appearance = Appearance16
+        Me.txtDireccion.AutoSize = True
+        Me.txtDireccion.Location = New System.Drawing.Point(333, 24)
+        Me.txtDireccion.Multiline = True
+        Me.txtDireccion.Name = "txtDireccion"
+        Me.txtDireccion.Size = New System.Drawing.Size(301, 45)
+        Me.txtDireccion.TabIndex = 25
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(323, 37)
+        Me.Label2.Location = New System.Drawing.Point(275, 24)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 13)
+        Me.Label2.Size = New System.Drawing.Size(52, 13)
         Me.Label2.TabIndex = 27
-        Me.Label2.Text = "Descripción"
+        Me.Label2.Text = "Direccion"
         '
         'Label1
         '
@@ -476,15 +490,15 @@ Public Class abmMateriaPrima
         '
         'UltraTabControl1
         '
-        Appearance16.BackColor = System.Drawing.Color.Silver
-        Appearance16.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ActiveTabAppearance = Appearance16
-        Appearance17.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance17.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance17
+        Appearance17.BackColor = System.Drawing.Color.Silver
+        Appearance17.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ActiveTabAppearance = Appearance17
         Appearance18.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance18.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance18
+        Appearance18.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance18
+        Appearance19.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance19.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance19
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
@@ -519,16 +533,15 @@ Public Class abmMateriaPrima
         Me.Text = "Gestión Materia prima"
         Me.UltraTabPageControl1.ResumeLayout(False)
         Me.UltraTabPageControl1.PerformLayout()
-        CType(Me.UltraComboEditor1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraTextEditor2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtLote, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtStockMinimo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
-        CType(Me.text4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.text3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.text2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.text1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.text5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtStockSeguridad, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtStockActual, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNombre, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtIdMP, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtDireccion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabPageControl2.ResumeLayout(False)
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -539,17 +552,216 @@ Public Class abmMateriaPrima
 
 #End Region
 
-
-    Private Sub abmMateriaPrima_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
-        princ.barra.eliminarBoton()
+    Private Sub UltraButton10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton10.Click
+        Me.Close()
     End Sub
 
+    Private Sub UltraButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGuardar.Click
+        Try
+            If cboUnidadMedida.SelectedValue > -1 And Not (IsNothing(cboUnidadMedida.SelectedValue)) Then
+
+
+                Dim valorId As Integer
+                If DataGrid1.CurrentRowIndex = -1 Then
+                    valorId = 0
+                Else
+                    valorId = DataGrid1.Item(DataGrid1.CurrentRowIndex, 0)
+                End If
+                objMP.tomarDatos(valorId, txtNombre.Text, txtDireccion.Text, txtStockActual.Text, txtStockMinimo.Text, txtStockSeguridad.Text, txtLote.Text, cboUnidadMedida.SelectedValue)
+
+                'objcliente.tomarDatos(TextBox2.Text, ComboBox1.SelectedValue, TextBox3.Text, ComboBox2.SelectedValue, TextBox5.Text, _
+                '        TextBox4.Text, CType(TextBox1.Text, Decimal), textBox6.Text, TextBox7.Text, valorId)
+
+                If bandGrabar = 1 Then
+                    objMP.registrarMP(dsMP)
+                Else
+                    objMP.modificarMP(dsMP)
+                End If
+                If objMP.varCancelar = 0 Then
+                    btnGuardar.Enabled = False
+                    btnNuevo.Enabled = True
+                    btnEditar.Enabled = True
+                    btnEliminar.Enabled = True
+
+                    txtIdMP.Enabled = False
+                    txtNombre.Enabled = False
+                    txtNombre.Focus()
+                    txtDireccion.Enabled = False
+                    txtStockActual.Enabled = False
+                    txtStockMinimo.Enabled = False
+                    txtStockSeguridad.Enabled = False
+                    txtLote.Enabled = False
+                    cboUnidadMedida.Enabled = False
+                End If
+            Else
+                MessageBox.Show("Debe seleccionar un tipo de Unidad de Medida", "Unidad de Medida", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+
     Private Sub abmMateriaPrima_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        princ.barra.agregarBoton(Me)
+        Try
+            DataGrid1.DataSource = dsMP
+            DataGrid1.DataMember = "tipomateriaprima"
+
+            Dim nombrescol(8) As String
+            nombrescol(0) = "ID MP"
+            nombrescol(1) = "Nombre"
+            nombrescol(3) = "Stock Actual"
+            nombrescol(4) = "Stock Minimo"
+
+            Dim anchosgrid(8) As Integer
+            anchosgrid(0) = 75
+            anchosgrid(1) = 225
+            anchosgrid(3) = 125
+            anchosgrid(4) = 125
+
+            ' esta funcion da solo formato a la grilla no la carga, de eso se encarga el datasource
+            cargarGrilla(DataGrid1, dsMP.Tables.Item(0), nombrescol, anchosgrid)
+
+            cargarCombo("select idunidadmedida,nombre from unidaddemedida", cboUnidadMedida, "nombre", "idunidadmedida")
+
+
+            objMP.mostrarDatos(txtIdMP.Text, txtNombre.Text, txtDireccion.Text, txtStockActual.Text, txtStockMinimo.Text, txtStockSeguridad.Text, txtLote.Text, cboUnidadMedida.SelectedValue)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
+        Try
+            bandGrabar = 1
+            btnGuardar.Enabled = True
+            btnNuevo.Enabled = False
+            btnEditar.Enabled = False
+            btnEliminar.Enabled = False
+
+            txtIdMP.Enabled = False
+            txtIdMP.Text = ""
+            txtNombre.Enabled = True
+            txtNombre.Text = ""
+            txtNombre.Focus()
+            txtDireccion.Enabled = True
+            txtDireccion.Text = ""
+            txtStockActual.Enabled = True
+            txtStockActual.Text = ""
+            txtStockMinimo.Enabled = True
+            txtStockMinimo.Text = ""
+            txtStockSeguridad.Enabled = True
+            txtStockSeguridad.Text = ""
+            txtLote.Enabled = True
+            txtLote.Text = ""
+            cboUnidadMedida.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnEditar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEditar.Click
+        Try
+            bandGrabar = 2
+            btnGuardar.Enabled = True
+            btnNuevo.Enabled = False
+            btnEditar.Enabled = False
+            btnEliminar.Enabled = False
+
+            txtIdMP.Enabled = False
+            txtNombre.Enabled = True
+            txtNombre.Focus()
+            txtDireccion.Enabled = True
+            txtStockActual.Enabled = True
+            txtStockMinimo.Enabled = True
+            txtStockSeguridad.Enabled = True
+            txtLote.Enabled = True
+            cboUnidadMedida.Enabled = True
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnEliminar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminar.Click
+        Try
+            objMP.eliminarMP(dsMP)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
         Me.Close()
     End Sub
 
+    Private Sub btnBefore_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBefore.Click
+        Try
+            BindingContext(dsMP, "tipomateriaprima").Position -= 1
+            mostrarPosicion("tipomateriaprima")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub btnVeryBefore_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVeryBefore.Click
+        Try
+            BindingContext(dsMP, "tipomateriaprima").Position = 0
+            mostrarPosicion("tipomateriaprima")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub btnVeryAfter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVeryAfter.Click
+        Try
+            BindingContext(dsMP, "tipomateriaprima").Position = BindingContext(dsMP, "tipomateriaprima").Count - 1
+            mostrarPosicion("tipomateriaprima")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnAfter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAfter.Click
+        Try
+            BindingContext(dsMP, "tipomateriaprima").Position += 1
+            mostrarPosicion("tipomateriaprima")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub mostrarPosicion(ByVal tabla As String)
+        Try
+            Dim bmbase As BindingManagerBase = BindingContext.Item(dsMP, tabla)
+            Dim iTotal As Integer = bmbase.Count
+            Dim iPos As Integer
+
+            If iTotal = 0 Then
+                lblCantidad.Text = "0"
+
+            Else
+                iPos = bmbase.Position + 1
+                lblCantidad.Text = iPos.ToString & " de " & iTotal.ToString
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Sub DataGrid1_CurrentCellChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataGrid1.CurrentCellChanged
+        Try
+            objMP.tomarDatos(DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 0), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 1).ToString, DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 2).ToString, DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 3), _
+            DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 4), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 5), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 6), DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7))
+
+
+            objMP.mostrarDatos(txtIdMP.Text, txtNombre.Text, txtDireccion.Text, txtStockActual.Text, txtStockMinimo.Text, txtStockSeguridad.Text, _
+            txtLote.Text, cboUnidadMedida.SelectedValue)
+        Catch ex As Exception
+            'MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 End Class
