@@ -407,6 +407,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSDetallePedido.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modulo_Reportes\DataSets\DSMateriaPrima.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMateriaPrima.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Reportes\DataSets\DSMPRecibida.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -517,6 +522,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RptFresa.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Reports\RptMateriaPrima.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptMateriaPrima.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Modulo_Reportes\Reports\RptOrdenCompra.vb">
@@ -973,6 +984,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptFresa.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Reports\RptMateriaPrima.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptMateriaPrima.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Reportes\Reports\RptOrdenCompra.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptOrdenCompra.vb</LastGenOutput>
@@ -1279,6 +1294,17 @@
     </None>
     <None Include="Modulo_Reportes\DataSets\DSDetallePedido.xss">
       <DependentUpon>DSDetallePedido.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSMateriaPrima.xsc">
+      <DependentUpon>DSMateriaPrima.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSMateriaPrima.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMateriaPrima.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSMateriaPrima.xss">
+      <DependentUpon>DSMateriaPrima.xsd</DependentUpon>
     </None>
     <None Include="Modulo_Reportes\DataSets\DSMPRecibida.xsc">
       <DependentUpon>DSMPRecibida.xsd</DependentUpon>
