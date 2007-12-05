@@ -7,6 +7,7 @@ Public Class abmOperacion
     Private ancho(6) As Integer
     Private ds2 As New DataSet
     Private tabla As String = "operacion"
+    Friend WithEvents txtIDCombo As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Private fila As DataRow
 
 
@@ -84,9 +85,8 @@ Public Class abmOperacion
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents comboDif As Infragistics.Win.UltraWinEditors.UltraComboEditor
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmOperacion))
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(abmOperacion))
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -103,8 +103,11 @@ Public Class abmOperacion
         Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
         Me.UltraButton7 = New Infragistics.Win.Misc.UltraButton
@@ -135,6 +138,7 @@ Public Class abmOperacion
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.txtIDCombo = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
@@ -149,10 +153,12 @@ Public Class abmOperacion
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
+        CType(Me.txtIDCombo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.txtIDCombo)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.Label7)
         Me.UltraTabPageControl1.Controls.Add(Me.comboDif)
@@ -186,7 +192,7 @@ Public Class abmOperacion
         Me.UltraGroupBox1.Controls.Add(Me.Label8)
         Me.UltraGroupBox1.Location = New System.Drawing.Point(96, 191)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(224, 56)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(243, 56)
         Me.UltraGroupBox1.SupportThemes = False
         Me.UltraGroupBox1.TabIndex = 49
         Me.UltraGroupBox1.Text = "Navegabilidad"
@@ -194,29 +200,29 @@ Public Class abmOperacion
         '
         'UltraButton7
         '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Appearance1.ImageHAlign = Infragistics.Win.HAlign.Center
-        Me.UltraButton7.Appearance = Appearance1
-        Me.UltraButton7.Location = New System.Drawing.Point(176, 24)
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Appearance2.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton7.Appearance = Appearance2
+        Me.UltraButton7.Location = New System.Drawing.Point(197, 24)
         Me.UltraButton7.Name = "UltraButton7"
         Me.UltraButton7.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton7.TabIndex = 3
         '
         'UltraButton6
         '
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Appearance2.ImageHAlign = Infragistics.Win.HAlign.Center
-        Me.UltraButton6.Appearance = Appearance2
-        Me.UltraButton6.Location = New System.Drawing.Point(136, 24)
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Appearance3.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton6.Appearance = Appearance3
+        Me.UltraButton6.Location = New System.Drawing.Point(157, 24)
         Me.UltraButton6.Name = "UltraButton6"
         Me.UltraButton6.Size = New System.Drawing.Size(40, 24)
         Me.UltraButton6.TabIndex = 2
         '
         'UltraButton8
         '
-        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
-        Appearance3.ImageHAlign = Infragistics.Win.HAlign.Center
-        Me.UltraButton8.Appearance = Appearance3
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Appearance4.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton8.Appearance = Appearance4
         Me.UltraButton8.Location = New System.Drawing.Point(48, 24)
         Me.UltraButton8.Name = "UltraButton8"
         Me.UltraButton8.Size = New System.Drawing.Size(40, 24)
@@ -224,9 +230,9 @@ Public Class abmOperacion
         '
         'UltraButton9
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Appearance4.ImageHAlign = Infragistics.Win.HAlign.Center
-        Me.UltraButton9.Appearance = Appearance4
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Appearance5.ImageHAlign = Infragistics.Win.HAlign.Center
+        Me.UltraButton9.Appearance = Appearance5
         Me.UltraButton9.Location = New System.Drawing.Point(8, 24)
         Me.UltraButton9.Name = "UltraButton9"
         Me.UltraButton9.Size = New System.Drawing.Size(40, 24)
@@ -237,7 +243,7 @@ Public Class abmOperacion
         Me.Label8.BackColor = System.Drawing.SystemColors.Control
         Me.Label8.Location = New System.Drawing.Point(92, 24)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 24)
+        Me.Label8.Size = New System.Drawing.Size(59, 24)
         Me.Label8.TabIndex = 2
         '
         'Label7
@@ -252,17 +258,21 @@ Public Class abmOperacion
         '
         'comboDif
         '
+        Appearance6.BackColor = System.Drawing.Color.White
+        Appearance6.BackColorDisabled = System.Drawing.Color.White
+        Me.comboDif.Appearance = Appearance6
         Me.comboDif.AutoSize = True
-        Me.comboDif.Location = New System.Drawing.Point(96, 120)
+        Me.comboDif.Location = New System.Drawing.Point(126, 120)
         Me.comboDif.Name = "comboDif"
-        Me.comboDif.Size = New System.Drawing.Size(176, 21)
+        Me.comboDif.ReadOnly = True
+        Me.comboDif.Size = New System.Drawing.Size(146, 21)
         Me.comboDif.TabIndex = 44
         '
         'UltraButton4
         '
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.UltraButton4.Appearance = Appearance5
-        Me.UltraButton4.Location = New System.Drawing.Point(337, 221)
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance7
+        Me.UltraButton4.Location = New System.Drawing.Point(359, 221)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(80, 26)
         Me.UltraButton4.TabIndex = 40
@@ -270,9 +280,9 @@ Public Class abmOperacion
         '
         'UltraButton3
         '
-        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance6
-        Me.UltraButton3.Location = New System.Drawing.Point(423, 221)
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance8
+        Me.UltraButton3.Location = New System.Drawing.Point(445, 221)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(80, 26)
         Me.UltraButton3.TabIndex = 39
@@ -280,9 +290,9 @@ Public Class abmOperacion
         '
         'UltraButton2
         '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.UltraButton2.Appearance = Appearance7
-        Me.UltraButton2.Location = New System.Drawing.Point(337, 191)
+        Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance9
+        Me.UltraButton2.Location = New System.Drawing.Point(359, 189)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(80, 26)
         Me.UltraButton2.TabIndex = 38
@@ -290,8 +300,8 @@ Public Class abmOperacion
         '
         'UltraButton1
         '
-        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
-        Me.UltraButton1.Appearance = Appearance8
+        Appearance10.Image = CType(resources.GetObject("Appearance10.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance10
         Me.UltraButton1.Location = New System.Drawing.Point(548, 221)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(80, 26)
@@ -300,8 +310,8 @@ Public Class abmOperacion
         '
         'combo1
         '
-        Appearance9.BackColor = System.Drawing.Color.White
-        Me.combo1.Appearance = Appearance9
+        Appearance11.BackColor = System.Drawing.Color.White
+        Me.combo1.Appearance = Appearance11
         Me.combo1.AutoSize = True
         Me.combo1.Location = New System.Drawing.Point(96, 72)
         Me.combo1.Name = "combo1"
@@ -311,8 +321,8 @@ Public Class abmOperacion
         '
         'text4
         '
-        Appearance10.BackColor = System.Drawing.Color.White
-        Me.text4.Appearance = Appearance10
+        Appearance12.BackColor = System.Drawing.Color.White
+        Me.text4.Appearance = Appearance12
         Me.text4.AutoSize = True
         Me.text4.Location = New System.Drawing.Point(96, 96)
         Me.text4.Name = "text4"
@@ -322,8 +332,8 @@ Public Class abmOperacion
         '
         'text3
         '
-        Appearance11.BackColor = System.Drawing.Color.White
-        Me.text3.Appearance = Appearance11
+        Appearance13.BackColor = System.Drawing.Color.White
+        Me.text3.Appearance = Appearance13
         Me.text3.AutoSize = True
         Me.text3.Location = New System.Drawing.Point(96, 144)
         Me.text3.Name = "text3"
@@ -333,8 +343,8 @@ Public Class abmOperacion
         '
         'text2
         '
-        Appearance12.BackColor = System.Drawing.Color.White
-        Me.text2.Appearance = Appearance12
+        Appearance14.BackColor = System.Drawing.Color.White
+        Me.text2.Appearance = Appearance14
         Me.text2.AutoSize = True
         Me.text2.Location = New System.Drawing.Point(96, 48)
         Me.text2.Name = "text2"
@@ -344,8 +354,8 @@ Public Class abmOperacion
         '
         'text1
         '
-        Appearance13.BackColor = System.Drawing.Color.White
-        Me.text1.Appearance = Appearance13
+        Appearance15.BackColor = System.Drawing.Color.White
+        Me.text1.Appearance = Appearance15
         Me.text1.AutoSize = True
         Me.text1.Location = New System.Drawing.Point(96, 24)
         Me.text1.Name = "text1"
@@ -395,8 +405,8 @@ Public Class abmOperacion
         '
         'text5
         '
-        Appearance14.BackColor = System.Drawing.Color.White
-        Me.text5.Appearance = Appearance14
+        Appearance16.BackColor = System.Drawing.Color.White
+        Me.text5.Appearance = Appearance16
         Me.text5.AutoSize = True
         Me.text5.Location = New System.Drawing.Point(312, 48)
         Me.text5.Multiline = True
@@ -435,8 +445,8 @@ Public Class abmOperacion
         '
         'UltraButton10
         '
-        Appearance15.Image = CType(resources.GetObject("Appearance15.Image"), Object)
-        Me.UltraButton10.Appearance = Appearance15
+        Appearance17.Image = CType(resources.GetObject("Appearance17.Image"), Object)
+        Me.UltraButton10.Appearance = Appearance17
         Me.UltraButton10.Location = New System.Drawing.Point(545, 223)
         Me.UltraButton10.Name = "UltraButton10"
         Me.UltraButton10.Size = New System.Drawing.Size(80, 26)
@@ -474,15 +484,15 @@ Public Class abmOperacion
         '
         'UltraTabControl1
         '
-        Appearance16.BackColor = System.Drawing.Color.Silver
-        Appearance16.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ActiveTabAppearance = Appearance16
-        Appearance17.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Appearance17.BackColor2 = System.Drawing.Color.Silver
-        Me.UltraTabControl1.Appearance = Appearance17
-        Appearance18.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance18.BackColor = System.Drawing.Color.Silver
         Appearance18.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.UltraTabControl1.ClientAreaAppearance = Appearance18
+        Me.UltraTabControl1.ActiveTabAppearance = Appearance18
+        Appearance19.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance19.BackColor2 = System.Drawing.Color.Silver
+        Me.UltraTabControl1.Appearance = Appearance19
+        Appearance20.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance20.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.UltraTabControl1.ClientAreaAppearance = Appearance20
         Me.UltraTabControl1.Controls.Add(Me.UltraTabSharedControlsPage1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl1)
         Me.UltraTabControl1.Controls.Add(Me.UltraTabPageControl2)
@@ -504,6 +514,17 @@ Public Class abmOperacion
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(644, 257)
+        '
+        'txtIDCombo
+        '
+        Appearance1.BackColor = System.Drawing.Color.White
+        Me.txtIDCombo.Appearance = Appearance1
+        Me.txtIDCombo.AutoSize = True
+        Me.txtIDCombo.Location = New System.Drawing.Point(96, 120)
+        Me.txtIDCombo.Name = "txtIDCombo"
+        Me.txtIDCombo.ReadOnly = True
+        Me.txtIDCombo.Size = New System.Drawing.Size(26, 21)
+        Me.txtIDCombo.TabIndex = 52
         '
         'abmOperacion
         '
@@ -530,6 +551,7 @@ Public Class abmOperacion
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
+        CType(Me.txtIDCombo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -581,22 +603,32 @@ Public Class abmOperacion
         Me.text4.DataBindings.Add("Text", ds, "operacion.duracionpromedio")
         Me.text5.DataBindings.Add("Text", ds, "operacion.descripcion")
         Me.combo1.DataBindings.Add("Text", ds, "operacion.maquina")
-        Me.comboDif.DataBindings.Add("Tag", ds, "operacion.idgradodificultad")
+        Me.txtIDCombo.DataBindings.Add("Text", ds, "operacion.idgradodificultad")
 
-
-        cargarComboTag("select idgradodificultad, nombre from gradodificultad", comboDif, 0, 12)
+        cargarComboTag("select idgradodificultad, nombre from gradodificultad", comboDif, 0, 2)
         cargarUltraCombo("select * from tipomaquina", combo1, "nombre", "idtipo")
         If ds.Tables("operacion").Rows.Count <> 0 Then
-            fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-            Try
-                comboDif.Text = fila.Item(1)
-            Catch
-            End Try
             mostrarPosicion("operacion")
         End If
 
-        princ.barra.agregarBoton(Me)
+        Dim aIndex As Integer
 
+        If txtIDCombo.Text <> "" Then
+            With comboDif
+                For aIndex = 0 To .Items.Count - 1
+                    If .Items(aIndex).Tag = txtIDCombo.Text.Trim Then
+                        .SelectedIndex = aIndex
+                        Exit For
+                    End If
+                Next
+
+                If aIndex >= .Items.Count Then .SelectedIndex = -1
+            End With
+        End If
+
+        'comboDif.ReadOnly = True
+
+        princ.barra.agregarBoton(Me)
 
     End Sub
 
@@ -726,42 +758,84 @@ Public Class abmOperacion
     Private Sub UltraButton7_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton7.Click
         BindingContext(ds, tabla).Position += 1
         mostrarPosicion(tabla)
-        fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-        Try
-            comboDif.Text = fila.Item(1)
-        Catch
-        End Try
+        Dim aIndex As Integer
+
+        If txtIDCombo.Text <> "" Then
+            With comboDif
+                For aIndex = 0 To .Items.Count - 1
+                    If .Items(aIndex).Tag = txtIDCombo.Text.Trim Then
+                        .SelectedIndex = aIndex
+                        Exit For
+                    End If
+                Next
+
+                If aIndex >= .Items.Count Then .SelectedIndex = -1
+            End With
+        End If
     End Sub
 
     Private Sub UltraButton6_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton6.Click
         BindingContext(ds, tabla).Position = BindingContext(ds, tabla).Count - 1
         mostrarPosicion(tabla)
-        fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-        Try
-            comboDif.Text = fila.Item(1)
-        Catch
-        End Try
+
+        Dim aIndex As Integer
+
+        If txtIDCombo.Text <> "" Then
+            With comboDif
+                For aIndex = 0 To .Items.Count - 1
+                    If .Items(aIndex).Tag = txtIDCombo.Text.Trim Then
+                        .SelectedIndex = aIndex
+                        Exit For
+                    End If
+                Next
+
+                If aIndex >= .Items.Count Then .SelectedIndex = -1
+            End With
+        End If
     End Sub
 
     Private Sub UltraButton8_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton8.Click
         BindingContext(ds, tabla).Position = 0
         mostrarPosicion(tabla)
-        fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-        Try
-            comboDif.Text = fila.Item(1)
-        Catch
-        End Try
+
+        Dim aIndex As Integer
+
+        If txtIDCombo.Text <> "" Then
+            With comboDif
+                For aIndex = 0 To .Items.Count - 1
+                    If .Items(aIndex).Tag = txtIDCombo.Text.Trim Then
+                        .SelectedIndex = aIndex
+                        Exit For
+                    End If
+                Next
+
+                If aIndex >= .Items.Count Then .SelectedIndex = -1
+            End With
+        End If
     End Sub
 
     Private Sub UltraButton9_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton9.Click
         BindingContext(ds, tabla).Position -= 1
         mostrarPosicion(tabla)
-        fila = ds.Tables("operacion").Rows(text1.Text - 1).GetParentRow("Dificultad")
-        Try
-            comboDif.Text = fila.Item(1)
-        Catch
-        End Try
+
+        Dim aIndex As Integer
+
+        If txtIDCombo.Text <> "" Then
+            With comboDif
+                For aIndex = 0 To .Items.Count - 1
+                    If .Items(aIndex).Tag = txtIDCombo.Text.Trim Then
+                        .SelectedIndex = aIndex
+                        Exit For
+                    End If
+                Next
+
+                If aIndex >= .Items.Count Then .SelectedIndex = -1
+            End With
+        End If
     End Sub
 
     
+    Private Sub comboDif_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles comboDif.ValueChanged
+        txtIDCombo.Text = comboDif.Items(comboDif.SelectedIndex).Tag
+    End Sub
 End Class

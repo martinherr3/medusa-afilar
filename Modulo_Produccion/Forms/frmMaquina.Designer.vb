@@ -84,6 +84,7 @@ Partial Class frmMaquina
         Me.UltraTabSharedControlsPage3 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
+        Me.Label2 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.txtHorasUso, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtEstadoAdquisicion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,6 +105,7 @@ Partial Class frmMaquina
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.Label2)
         Me.UltraTabPageControl1.Controls.Add(Me.txtHorasUso)
         Me.UltraTabPageControl1.Controls.Add(Me.Label13)
         Me.UltraTabPageControl1.Controls.Add(Me.txtEstadoAdquisicion)
@@ -131,7 +133,7 @@ Partial Class frmMaquina
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton4)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton10)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(682, 279)
         '
@@ -188,7 +190,7 @@ Partial Class frmMaquina
         Me.txtCostoCompra.Enabled = False
         Me.txtCostoCompra.Location = New System.Drawing.Point(114, 153)
         Me.txtCostoCompra.Name = "txtCostoCompra"
-        Me.txtCostoCompra.Size = New System.Drawing.Size(190, 21)
+        Me.txtCostoCompra.Size = New System.Drawing.Size(144, 21)
         Me.txtCostoCompra.TabIndex = 6
         '
         'Label10
@@ -387,7 +389,7 @@ Partial Class frmMaquina
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(28, 22)
+        Me.Label1.Location = New System.Drawing.Point(26, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(86, 13)
         Me.Label1.TabIndex = 21
@@ -479,7 +481,7 @@ Partial Class frmMaquina
         Me.UltraTabPageControl2.Controls.Add(Me.Label4)
         Me.UltraTabPageControl2.Controls.Add(Me.UltraTextEditor1)
         Me.UltraTabPageControl2.Controls.Add(Me.DataGrid1)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(682, 279)
         '
@@ -578,6 +580,16 @@ Partial Class frmMaquina
         Me.UltraTabControl1.Tabs.AddRange(New Infragistics.Win.UltraWinTabControl.UltraTab() {UltraTab1, UltraTab2})
         Me.UltraTabControl1.ViewStyle = Infragistics.Win.UltraWinTabControl.ViewStyle.Office2003
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Gainsboro
+        Me.Label2.Location = New System.Drawing.Point(265, 157)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(35, 13)
+        Me.Label2.TabIndex = 53
+        Me.Label2.Text = "pesos"
+        '
         'frmMaquina
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -651,4 +663,5 @@ Partial Class frmMaquina
     Friend WithEvents UltraTabControl1 As Infragistics.Win.UltraWinTabControl.UltraTabControl
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

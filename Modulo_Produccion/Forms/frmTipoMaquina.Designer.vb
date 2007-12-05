@@ -71,7 +71,7 @@ Partial Class frmTipoMaquina
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(290, 148)
+        Me.DataGrid1.Size = New System.Drawing.Size(376, 148)
         Me.DataGrid1.TabIndex = 63
         '
         'UltraButton2
@@ -130,7 +130,7 @@ Partial Class frmTipoMaquina
         '
         Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
         Me.UltraButton10.Appearance = Appearance6
-        Me.UltraButton10.Location = New System.Drawing.Point(221, 321)
+        Me.UltraButton10.Location = New System.Drawing.Point(306, 321)
         Me.UltraButton10.Name = "UltraButton10"
         Me.UltraButton10.Size = New System.Drawing.Size(81, 29)
         Me.UltraButton10.TabIndex = 62
@@ -146,7 +146,7 @@ Partial Class frmTipoMaquina
         Me.txtDescripcion.Location = New System.Drawing.Point(75, 45)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(227, 50)
+        Me.txtDescripcion.Size = New System.Drawing.Size(312, 50)
         Me.txtDescripcion.TabIndex = 54
         '
         'txtNombre
@@ -158,7 +158,7 @@ Partial Class frmTipoMaquina
         Me.txtNombre.Enabled = False
         Me.txtNombre.Location = New System.Drawing.Point(75, 21)
         Me.txtNombre.Name = "txtNombre"
-        Me.txtNombre.Size = New System.Drawing.Size(227, 21)
+        Me.txtNombre.Size = New System.Drawing.Size(312, 21)
         Me.txtNombre.TabIndex = 53
         '
         'Label12
@@ -185,7 +185,7 @@ Partial Class frmTipoMaquina
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(314, 361)
+        Me.ClientSize = New System.Drawing.Size(399, 361)
         Me.Controls.Add(Me.DataGrid1)
         Me.Controls.Add(Me.UltraButton2)
         Me.Controls.Add(Me.UltraButton1)
