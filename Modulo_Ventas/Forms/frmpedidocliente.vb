@@ -1,5 +1,5 @@
 Imports Afilar.grdstyle
-
+'La clase de las 10000 lineas
 
 Public Class frmpedidocliente
     Inherits System.Windows.Forms.Form

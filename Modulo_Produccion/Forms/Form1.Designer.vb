@@ -43,7 +43,8 @@ Partial Class Form1
         Me.Location = New System.Drawing.Point(196, 105)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Form1"
+        Me.Text = "Impresor Hoja de Ruta"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub
