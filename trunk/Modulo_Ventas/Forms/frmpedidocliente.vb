@@ -2223,7 +2223,7 @@ Public Class frmpedidocliente
                         dr1("item") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nombre")
                         dr1("operacion") = ds.Tables("servicios").Rows(i).Item("nombre")
                         dr1("cantidad") = 1
-                        dr1("idestado") = 41
+                        dr1("estado") = 41
                         dr1("nroserie") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nroserie")
                         If ds.Tables("servicios").Rows(i).Item("precio") = 0 Then
                             MsgBox("Falta Precio de Servicio", MsgBoxStyle.Information, "Afilar")
