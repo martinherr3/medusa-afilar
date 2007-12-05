@@ -529,7 +529,7 @@ Public Class ProdTacking
         Dim conn As SqlConnection
         conn = cnn
         conn.Open()
-        Dim sql2 As String = "update fresa set estado = " & Estado.FRESA_FINALIZADO & " where nroserie = " & PidFresa
+        Dim sql2 As String = "update fresa set estado = " & Estado.FRESA_FINALIZADO & " , fechafinfabricacion = getdate() where nroserie = " & PidFresa
         Dim comm2 As New SqlCommand(sql2, conn)
 
         comm2.ExecuteNonQuery()

@@ -34,7 +34,7 @@ Public Class frmHojaDeRuta
             End If
         Next
         If ban Then
-            MsgBox("Generacion de hojas de ruta finalizada con exito", MsgBoxStyle.Information, "Impresor de Hojas de rutas")
+            'MsgBox("Generacion de hojas de ruta finalizada con exito", MsgBoxStyle.Information, "Impresor de Hojas de rutas")
         End If
     End Sub
 
