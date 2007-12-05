@@ -305,15 +305,16 @@ Public Class abmMatTrab
         '
         'SqlSelectCommand1
         '
-        Me.SqlSelectCommand1.CommandText = "[NewSelectMatTra]"
-        Me.SqlSelectCommand1.CommandType = System.Data.CommandType.StoredProcedure
+        Me.SqlSelectCommand1.CommandText = "SELECT nombre, descripcion FROM materialatrabajar"
+        Me.SqlSelectCommand1.CommandType = System.Data.CommandType.Text
         Me.SqlSelectCommand1.Connection = cnn
         Me.SqlSelectCommand1.Parameters.Add(New System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, False, CType(0, Byte), CType(0, Byte), "", System.Data.DataRowVersion.Current, Nothing))
         '
         'SqlInsertCommand1
         '
-        Me.SqlInsertCommand1.CommandText = "[NewInsertMatTra]"
-        Me.SqlInsertCommand1.CommandType = System.Data.CommandType.StoredProcedure
+        Me.SqlInsertCommand1.CommandText = "INSERT INTO materialatrabajar(nombre, descripcion) VALUES (@nombre, @descripcion); SELECT" & _
+        " nombre, descripcion FROM tipoparte WHERE (nombre = @nombre)"
+        Me.SqlInsertCommand1.CommandType = System.Data.CommandType.Text
         Me.SqlInsertCommand1.Connection = cnn
         Me.SqlInsertCommand1.Parameters.Add(New System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, False, CType(0, Byte), CType(0, Byte), "", System.Data.DataRowVersion.Current, Nothing))
         Me.SqlInsertCommand1.Parameters.Add(New System.Data.SqlClient.SqlParameter("@nombre", System.Data.SqlDbType.VarChar, 40, "nombre"))
@@ -321,8 +322,10 @@ Public Class abmMatTrab
         '
         'SqlUpdateCommand1
         '
-        Me.SqlUpdateCommand1.CommandText = "[NewUpdateMatTra]"
-        Me.SqlUpdateCommand1.CommandType = System.Data.CommandType.StoredProcedure
+        Me.SqlUpdateCommand1.CommandText = "UPDATE materialatrabajar SET nombre = @nombre, descripcion = @descripcion WHERE (nombre =" & _
+        " @Original_nombre); SELECT nombre, descripcion FROM tipoparte WHERE (nombre = @n" & _
+        "ombre)""[NewUpdateMatTra]"
+        Me.SqlUpdateCommand1.CommandType = System.Data.CommandType.Text
         Me.SqlUpdateCommand1.Connection = cnn
         Me.SqlUpdateCommand1.Parameters.Add(New System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, False, CType(0, Byte), CType(0, Byte), "", System.Data.DataRowVersion.Current, Nothing))
         Me.SqlUpdateCommand1.Parameters.Add(New System.Data.SqlClient.SqlParameter("@nombre", System.Data.SqlDbType.VarChar, 40, "nombre"))
@@ -331,14 +334,14 @@ Public Class abmMatTrab
         '
         'SqlDeleteCommand1
         '
-        Me.SqlDeleteCommand1.CommandText = "[NewDeleteMatTra]"
-        Me.SqlDeleteCommand1.CommandType = System.Data.CommandType.StoredProcedure
+        Me.SqlDeleteCommand1.CommandText = "DELETE FROM materialatrabajar WHERE (nombre = @Original_nombre)"
+        Me.SqlDeleteCommand1.CommandType = System.Data.CommandType.Text
         Me.SqlDeleteCommand1.Connection = cnn
         Me.SqlDeleteCommand1.Parameters.Add(New System.Data.SqlClient.SqlParameter("@RETURN_VALUE", System.Data.SqlDbType.Int, 4, System.Data.ParameterDirection.ReturnValue, False, CType(0, Byte), CType(0, Byte), "", System.Data.DataRowVersion.Current, Nothing))
         Me.SqlDeleteCommand1.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_nombre", System.Data.SqlDbType.VarChar, 40, System.Data.ParameterDirection.Input, False, CType(0, Byte), CType(0, Byte), "nombre", System.Data.DataRowVersion.Original, Nothing))
 
 
-        adaptador.Fill(ds)
+        adaptador.Fill(ds, "materialatrabajar")
         Me.UltraTextEditor1.DataBindings.Add("Text", ds, "materialatrabajar.nombre")
         Me.UltraTextEditor2.DataBindings.Add("Text", ds, "materialatrabajar.descripcion")
 
