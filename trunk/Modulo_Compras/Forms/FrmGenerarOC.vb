@@ -99,6 +99,7 @@ Public Class FrmGenerarOC
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmGenerarOC))
@@ -114,8 +115,17 @@ Public Class FrmGenerarOC
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
+        Me.UltraGroupBox3 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.Label8 = New System.Windows.Forms.Label
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.UltraPictureBox4 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
+        Me.UltraPictureBox3 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
+        Me.UltraPictureBox2 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
+        Me.UltraPictureBox1 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
+        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
         Me.CmbFormapago = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.TxtPrecio = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -140,23 +150,15 @@ Public Class FrmGenerarOC
         Me.BtnAceptar = New Infragistics.Win.Misc.UltraButton
         Me.BtnPrevisualizar = New Infragistics.Win.Misc.UltraButton
         Me.BtnSalir = New Infragistics.Win.Misc.UltraButton
-        Me.UltraButton3 = New Infragistics.Win.Misc.UltraButton
         Me.SqlDataAdapter8 = New System.Data.SqlClient.SqlDataAdapter
         Me.SqlSelectCommand1 = New System.Data.SqlClient.SqlCommand
         Me.SqlConnection2 = New System.Data.SqlClient.SqlConnection
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.Dsoc2 = New Afilar.dsoc
-        Me.UltraGroupBox3 = New Infragistics.Win.Misc.UltraGroupBox
-        Me.UltraPictureBox1 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
-        Me.UltraPictureBox2 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
-        Me.UltraPictureBox3 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
-        Me.UltraPictureBox4 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
-        Me.Label6 = New System.Windows.Forms.Label
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.Label8 = New System.Windows.Forms.Label
-        Me.Label9 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
+        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox3.SuspendLayout()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
         CType(Me.CmbFormapago, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -173,8 +175,6 @@ Public Class FrmGenerarOC
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraTabControl1.SuspendLayout()
         CType(Me.Dsoc2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'UltraTabPageControl1
@@ -186,6 +186,106 @@ Public Class FrmGenerarOC
         Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(782, 489)
+        '
+        'UltraGroupBox3
+        '
+        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.UltraGroupBox3.ContentAreaAppearance = Appearance1
+        Me.UltraGroupBox3.Controls.Add(Me.Label9)
+        Me.UltraGroupBox3.Controls.Add(Me.Label8)
+        Me.UltraGroupBox3.Controls.Add(Me.Label7)
+        Me.UltraGroupBox3.Controls.Add(Me.Label6)
+        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox4)
+        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox3)
+        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox2)
+        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox1)
+        Me.UltraGroupBox3.Location = New System.Drawing.Point(653, 214)
+        Me.UltraGroupBox3.Name = "UltraGroupBox3"
+        Me.UltraGroupBox3.Size = New System.Drawing.Size(110, 167)
+        Me.UltraGroupBox3.SupportThemes = False
+        Me.UltraGroupBox3.TabIndex = 15
+        Me.UltraGroupBox3.Text = "Referencia"
+        Me.UltraGroupBox3.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'Label9
+        '
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Location = New System.Drawing.Point(25, 118)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(80, 16)
+        Me.Label9.TabIndex = 28
+        Me.Label9.Text = "MP Tipo ""C"""
+        '
+        'Label8
+        '
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Location = New System.Drawing.Point(25, 88)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(80, 16)
+        Me.Label8.TabIndex = 27
+        Me.Label8.Text = "MP Tipo ""B"""
+        '
+        'Label7
+        '
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Location = New System.Drawing.Point(25, 58)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(80, 16)
+        Me.Label7.TabIndex = 26
+        Me.Label7.Text = "MP Tipo ""A"""
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Location = New System.Drawing.Point(25, 28)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(66, 16)
+        Me.Label6.TabIndex = 25
+        Me.Label6.Text = "MP Critica"
+        '
+        'UltraPictureBox4
+        '
+        Me.UltraPictureBox4.BackColor = System.Drawing.Color.Red
+        Me.UltraPictureBox4.BorderShadowColor = System.Drawing.Color.Empty
+        Me.UltraPictureBox4.Location = New System.Drawing.Point(8, 59)
+        Me.UltraPictureBox4.Name = "UltraPictureBox4"
+        Me.UltraPictureBox4.Size = New System.Drawing.Size(11, 14)
+        Me.UltraPictureBox4.TabIndex = 3
+        '
+        'UltraPictureBox3
+        '
+        Me.UltraPictureBox3.BackColor = System.Drawing.Color.Yellow
+        Me.UltraPictureBox3.BorderShadowColor = System.Drawing.Color.Empty
+        Me.UltraPictureBox3.Location = New System.Drawing.Point(8, 89)
+        Me.UltraPictureBox3.Name = "UltraPictureBox3"
+        Me.UltraPictureBox3.Size = New System.Drawing.Size(11, 14)
+        Me.UltraPictureBox3.TabIndex = 2
+        '
+        'UltraPictureBox2
+        '
+        Me.UltraPictureBox2.BackColor = System.Drawing.Color.Green
+        Me.UltraPictureBox2.BorderShadowColor = System.Drawing.Color.Empty
+        Me.UltraPictureBox2.Location = New System.Drawing.Point(8, 119)
+        Me.UltraPictureBox2.Name = "UltraPictureBox2"
+        Me.UltraPictureBox2.Size = New System.Drawing.Size(11, 14)
+        Me.UltraPictureBox2.TabIndex = 1
+        '
+        'UltraPictureBox1
+        '
+        Me.UltraPictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.UltraPictureBox1.BorderShadowColor = System.Drawing.Color.Empty
+        Me.UltraPictureBox1.Location = New System.Drawing.Point(8, 29)
+        Me.UltraPictureBox1.Name = "UltraPictureBox1"
+        Me.UltraPictureBox1.Size = New System.Drawing.Size(11, 14)
+        Me.UltraPictureBox1.TabIndex = 0
+        '
+        'UltraButton3
+        '
+        Me.UltraButton3.Location = New System.Drawing.Point(653, 394)
+        Me.UltraButton3.Name = "UltraButton3"
+        Me.UltraButton3.Size = New System.Drawing.Size(110, 56)
+        Me.UltraButton3.TabIndex = 16
+        Me.UltraButton3.Text = "&Ordenes de compra"
         '
         'UltraGroupBox1
         '
@@ -419,7 +519,7 @@ Public Class FrmGenerarOC
         Me.UltraTabPageControl2.Controls.Add(Me.crv)
         Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
-        Me.UltraTabPageControl2.Size = New System.Drawing.Size(708, 489)
+        Me.UltraTabPageControl2.Size = New System.Drawing.Size(782, 489)
         '
         'crv
         '
@@ -436,7 +536,7 @@ Public Class FrmGenerarOC
         '
         Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
         Me.BtnAceptar.Appearance = Appearance7
-        Me.BtnAceptar.Location = New System.Drawing.Point(432, 528)
+        Me.BtnAceptar.Location = New System.Drawing.Point(483, 528)
         Me.BtnAceptar.Name = "BtnAceptar"
         Me.BtnAceptar.Size = New System.Drawing.Size(80, 24)
         Me.BtnAceptar.TabIndex = 10
@@ -446,7 +546,7 @@ Public Class FrmGenerarOC
         '
         Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
         Me.BtnPrevisualizar.Appearance = Appearance8
-        Me.BtnPrevisualizar.Location = New System.Drawing.Point(513, 528)
+        Me.BtnPrevisualizar.Location = New System.Drawing.Point(569, 528)
         Me.BtnPrevisualizar.Name = "BtnPrevisualizar"
         Me.BtnPrevisualizar.Size = New System.Drawing.Size(80, 24)
         Me.BtnPrevisualizar.TabIndex = 12
@@ -456,19 +556,11 @@ Public Class FrmGenerarOC
         '
         Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
         Me.BtnSalir.Appearance = Appearance9
-        Me.BtnSalir.Location = New System.Drawing.Point(594, 528)
+        Me.BtnSalir.Location = New System.Drawing.Point(707, 528)
         Me.BtnSalir.Name = "BtnSalir"
         Me.BtnSalir.Size = New System.Drawing.Size(80, 24)
         Me.BtnSalir.TabIndex = 13
         Me.BtnSalir.Text = "&Salir"
-        '
-        'UltraButton3
-        '
-        Me.UltraButton3.Location = New System.Drawing.Point(653, 412)
-        Me.UltraButton3.Name = "UltraButton3"
-        Me.UltraButton3.Size = New System.Drawing.Size(122, 24)
-        Me.UltraButton3.TabIndex = 16
-        Me.UltraButton3.Text = "&Ordenes de compra"
         '
         'SqlDataAdapter8
         '
@@ -525,98 +617,6 @@ Public Class FrmGenerarOC
         Me.Dsoc2.Locale = New System.Globalization.CultureInfo("es-AR")
         Me.Dsoc2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'UltraGroupBox3
-        '
-        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.UltraGroupBox3.ContentAreaAppearance = Appearance1
-        Me.UltraGroupBox3.Controls.Add(Me.Label9)
-        Me.UltraGroupBox3.Controls.Add(Me.Label8)
-        Me.UltraGroupBox3.Controls.Add(Me.Label7)
-        Me.UltraGroupBox3.Controls.Add(Me.Label6)
-        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox4)
-        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox3)
-        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox2)
-        Me.UltraGroupBox3.Controls.Add(Me.UltraPictureBox1)
-        Me.UltraGroupBox3.Location = New System.Drawing.Point(653, 214)
-        Me.UltraGroupBox3.Name = "UltraGroupBox3"
-        Me.UltraGroupBox3.Size = New System.Drawing.Size(110, 167)
-        Me.UltraGroupBox3.SupportThemes = False
-        Me.UltraGroupBox3.TabIndex = 15
-        Me.UltraGroupBox3.Text = "Referencia"
-        Me.UltraGroupBox3.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
-        '
-        'UltraPictureBox1
-        '
-        Me.UltraPictureBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.UltraPictureBox1.BorderShadowColor = System.Drawing.Color.Empty
-        Me.UltraPictureBox1.Location = New System.Drawing.Point(8, 29)
-        Me.UltraPictureBox1.Name = "UltraPictureBox1"
-        Me.UltraPictureBox1.Size = New System.Drawing.Size(11, 14)
-        Me.UltraPictureBox1.TabIndex = 0
-        '
-        'UltraPictureBox2
-        '
-        Me.UltraPictureBox2.BackColor = System.Drawing.Color.Green
-        Me.UltraPictureBox2.BorderShadowColor = System.Drawing.Color.Empty
-        Me.UltraPictureBox2.Location = New System.Drawing.Point(8, 119)
-        Me.UltraPictureBox2.Name = "UltraPictureBox2"
-        Me.UltraPictureBox2.Size = New System.Drawing.Size(11, 14)
-        Me.UltraPictureBox2.TabIndex = 1
-        '
-        'UltraPictureBox3
-        '
-        Me.UltraPictureBox3.BackColor = System.Drawing.Color.Yellow
-        Me.UltraPictureBox3.BorderShadowColor = System.Drawing.Color.Empty
-        Me.UltraPictureBox3.Location = New System.Drawing.Point(8, 89)
-        Me.UltraPictureBox3.Name = "UltraPictureBox3"
-        Me.UltraPictureBox3.Size = New System.Drawing.Size(11, 14)
-        Me.UltraPictureBox3.TabIndex = 2
-        '
-        'UltraPictureBox4
-        '
-        Me.UltraPictureBox4.BackColor = System.Drawing.Color.Red
-        Me.UltraPictureBox4.BorderShadowColor = System.Drawing.Color.Empty
-        Me.UltraPictureBox4.Location = New System.Drawing.Point(8, 59)
-        Me.UltraPictureBox4.Name = "UltraPictureBox4"
-        Me.UltraPictureBox4.Size = New System.Drawing.Size(11, 14)
-        Me.UltraPictureBox4.TabIndex = 3
-        '
-        'Label6
-        '
-        Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(25, 28)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(66, 16)
-        Me.Label6.TabIndex = 25
-        Me.Label6.Text = "MP Critica"
-        '
-        'Label7
-        '
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(25, 58)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(80, 16)
-        Me.Label7.TabIndex = 26
-        Me.Label7.Text = "MP Tipo ""A"""
-        '
-        'Label8
-        '
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Location = New System.Drawing.Point(25, 88)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(80, 16)
-        Me.Label8.TabIndex = 27
-        Me.Label8.Text = "MP Tipo ""B"""
-        '
-        'Label9
-        '
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(25, 118)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(80, 16)
-        Me.Label9.TabIndex = 28
-        Me.Label9.Text = "MP Tipo ""C"""
-        '
         'FrmGenerarOC
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -631,6 +631,8 @@ Public Class FrmGenerarOC
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Generar órden de compra"
         Me.UltraTabPageControl1.ResumeLayout(False)
+        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox3.ResumeLayout(False)
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
         CType(Me.CmbFormapago, System.ComponentModel.ISupportInitialize).EndInit()
@@ -647,8 +649,6 @@ Public Class FrmGenerarOC
         CType(Me.UltraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraTabControl1.ResumeLayout(False)
         CType(Me.Dsoc2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1070,10 +1070,6 @@ Public Class FrmGenerarOC
 
         End If
     End Sub
-
-
-
-
 
     Private Sub BtnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSalir.Click
         Me.Close()

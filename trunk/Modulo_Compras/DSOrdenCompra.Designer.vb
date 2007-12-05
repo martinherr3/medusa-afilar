@@ -19,9 +19,9 @@ Imports System
  System.ComponentModel.DesignerCategoryAttribute("code"),  _
  System.ComponentModel.ToolboxItem(true),  _
  System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- System.Xml.Serialization.XmlRootAttribute("dsoc"),  _
+ System.Xml.Serialization.XmlRootAttribute("DSOrdenCompra"),  _
  System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class dsoc
+Partial Public Class DSOrdenCompra
     Inherits System.Data.DataSet
     
     Private tableordencompramp As ordencomprampDataTable
@@ -119,7 +119,7 @@ Partial Public Class dsoc
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Public Overrides Function Clone() As System.Data.DataSet
-        Dim cln As dsoc = CType(MyBase.Clone,dsoc)
+        Dim cln As DSOrdenCompra = CType(MyBase.Clone,DSOrdenCompra)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -183,10 +183,9 @@ Partial Public Class dsoc
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Sub InitClass()
-        Me.DataSetName = "dsoc"
+        Me.DataSetName = "DSOrdenCompra"
         Me.Prefix = ""
-        Me.Namespace = "http://www.tempuri.org/dsoc.xsd"
-        Me.Locale = New System.Globalization.CultureInfo("es-AR")
+        Me.Namespace = "http://tempuri.org/DSOrdenCompra.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableordencompramp = New ordencomprampDataTable
@@ -207,7 +206,7 @@ Partial Public Class dsoc
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As System.Xml.Schema.XmlSchemaSet) As System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As dsoc = New dsoc
+        Dim ds As DSOrdenCompra = New DSOrdenCompra
         Dim type As System.Xml.Schema.XmlSchemaComplexType = New System.Xml.Schema.XmlSchemaComplexType
         Dim sequence As System.Xml.Schema.XmlSchemaSequence = New System.Xml.Schema.XmlSchemaSequence
         xs.Add(ds.GetSchemaSerializable)
@@ -227,14 +226,6 @@ Partial Public Class dsoc
         Inherits System.Data.DataTable
         Implements System.Collections.IEnumerable
         
-        Private columnExpr1 As System.Data.DataColumn
-        
-        Private columnnombre As System.Data.DataColumn
-        
-        Private columnExpr2 As System.Data.DataColumn
-        
-        Private columnExpr3 As System.Data.DataColumn
-        
         Private columnfecharealizacion As System.Data.DataColumn
         
         Private columnplazodeentrega As System.Data.DataColumn
@@ -251,15 +242,13 @@ Partial Public Class dsoc
         
         Private columnidproveedor As System.Data.DataColumn
         
-        Private columnExpr4 As System.Data.DataColumn
-        
-        Private columnidtipomateriaprima As System.Data.DataColumn
+        Private columnnombreMateriaPrima As System.Data.DataColumn
         
         Private columncantidad As System.Data.DataColumn
         
         Private columnprecio As System.Data.DataColumn
         
-        Private columnExpr5 As System.Data.DataColumn
+        Private columnnombreProveedor As System.Data.DataColumn
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -292,34 +281,6 @@ Partial Public Class dsoc
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Expr1Column() As System.Data.DataColumn
-            Get
-                Return Me.columnExpr1
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property nombreColumn() As System.Data.DataColumn
-            Get
-                Return Me.columnnombre
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Expr2Column() As System.Data.DataColumn
-            Get
-                Return Me.columnExpr2
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Expr3Column() As System.Data.DataColumn
-            Get
-                Return Me.columnExpr3
-            End Get
-        End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property fecharealizacionColumn() As System.Data.DataColumn
@@ -378,16 +339,9 @@ Partial Public Class dsoc
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Expr4Column() As System.Data.DataColumn
+        Public ReadOnly Property nombreMateriaPrimaColumn() As System.Data.DataColumn
             Get
-                Return Me.columnExpr4
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property idtipomateriaprimaColumn() As System.Data.DataColumn
-            Get
-                Return Me.columnidtipomateriaprima
+                Return Me.columnnombreMateriaPrima
             End Get
         End Property
         
@@ -406,9 +360,9 @@ Partial Public Class dsoc
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Expr5Column() As System.Data.DataColumn
+        Public ReadOnly Property nombreProveedorColumn() As System.Data.DataColumn
             Get
-                Return Me.columnExpr5
+                Return Me.columnnombreProveedor
             End Get
         End Property
         
@@ -441,33 +395,16 @@ Partial Public Class dsoc
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddordencomprampRow( _
-                    ByVal Expr1 As Integer,  _
-                    ByVal nombre As String,  _
-                    ByVal Expr2 As Integer,  _
-                    ByVal Expr3 As String,  _
-                    ByVal fecharealizacion As Date,  _
-                    ByVal plazodeentrega As Date,  _
-                    ByVal idordencompra As Integer,  _
-                    ByVal nroorden As Integer,  _
-                    ByVal condicionesdepago As String,  _
-                    ByVal causa As String,  _
-                    ByVal idestado As Integer,  _
-                    ByVal idproveedor As Integer,  _
-                    ByVal Expr4 As Integer,  _
-                    ByVal idtipomateriaprima As Integer,  _
-                    ByVal cantidad As Integer,  _
-                    ByVal precio As Double,  _
-                    ByVal Expr5 As Integer) As ordencomprampRow
+        Public Overloads Function AddordencomprampRow(ByVal fecharealizacion As Date, ByVal plazodeentrega As Date, ByVal idordencompra As Integer, ByVal nroorden As Integer, ByVal condicionesdepago As String, ByVal causa As String, ByVal idestado As Integer, ByVal idproveedor As Integer, ByVal nombreMateriaPrima As String, ByVal cantidad As Integer, ByVal precio As Decimal, ByVal nombreProveedor As String) As ordencomprampRow
             Dim rowordencomprampRow As ordencomprampRow = CType(Me.NewRow,ordencomprampRow)
-            rowordencomprampRow.ItemArray = New Object() {Expr1, nombre, Expr2, Expr3, fecharealizacion, plazodeentrega, idordencompra, nroorden, condicionesdepago, causa, idestado, idproveedor, Expr4, idtipomateriaprima, cantidad, precio, Expr5}
+            rowordencomprampRow.ItemArray = New Object() {fecharealizacion, plazodeentrega, idordencompra, nroorden, condicionesdepago, causa, idestado, idproveedor, nombreMateriaPrima, cantidad, precio, nombreProveedor}
             Me.Rows.Add(rowordencomprampRow)
             Return rowordencomprampRow
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByExpr1Expr2idordencompraExpr4idtipomateriaprimaExpr5(ByVal Expr1 As Integer, ByVal Expr2 As Integer, ByVal idordencompra As Integer, ByVal Expr4 As Integer, ByVal idtipomateriaprima As Integer, ByVal Expr5 As Integer) As ordencomprampRow
-            Return CType(Me.Rows.Find(New Object() {Expr1, Expr2, idordencompra, Expr4, idtipomateriaprima, Expr5}),ordencomprampRow)
+        Public Function FindByidordencompra(ByVal idordencompra As Integer) As ordencomprampRow
+            Return CType(Me.Rows.Find(New Object() {idordencompra}),ordencomprampRow)
         End Function
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -489,10 +426,6 @@ Partial Public Class dsoc
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
-            Me.columnExpr1 = MyBase.Columns("Expr1")
-            Me.columnnombre = MyBase.Columns("nombre")
-            Me.columnExpr2 = MyBase.Columns("Expr2")
-            Me.columnExpr3 = MyBase.Columns("Expr3")
             Me.columnfecharealizacion = MyBase.Columns("fecharealizacion")
             Me.columnplazodeentrega = MyBase.Columns("plazodeentrega")
             Me.columnidordencompra = MyBase.Columns("idordencompra")
@@ -501,23 +434,14 @@ Partial Public Class dsoc
             Me.columncausa = MyBase.Columns("causa")
             Me.columnidestado = MyBase.Columns("idestado")
             Me.columnidproveedor = MyBase.Columns("idproveedor")
-            Me.columnExpr4 = MyBase.Columns("Expr4")
-            Me.columnidtipomateriaprima = MyBase.Columns("idtipomateriaprima")
+            Me.columnnombreMateriaPrima = MyBase.Columns("nombreMateriaPrima")
             Me.columncantidad = MyBase.Columns("cantidad")
             Me.columnprecio = MyBase.Columns("precio")
-            Me.columnExpr5 = MyBase.Columns("Expr5")
+            Me.columnnombreProveedor = MyBase.Columns("nombreProveedor")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnExpr1 = New System.Data.DataColumn("Expr1", GetType(Integer), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnExpr1)
-            Me.columnnombre = New System.Data.DataColumn("nombre", GetType(String), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnnombre)
-            Me.columnExpr2 = New System.Data.DataColumn("Expr2", GetType(Integer), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnExpr2)
-            Me.columnExpr3 = New System.Data.DataColumn("Expr3", GetType(String), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnExpr3)
             Me.columnfecharealizacion = New System.Data.DataColumn("fecharealizacion", GetType(Date), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfecharealizacion)
             Me.columnplazodeentrega = New System.Data.DataColumn("plazodeentrega", GetType(Date), Nothing, System.Data.MappingType.Element)
@@ -534,23 +458,21 @@ Partial Public Class dsoc
             MyBase.Columns.Add(Me.columnidestado)
             Me.columnidproveedor = New System.Data.DataColumn("idproveedor", GetType(Integer), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidproveedor)
-            Me.columnExpr4 = New System.Data.DataColumn("Expr4", GetType(Integer), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnExpr4)
-            Me.columnidtipomateriaprima = New System.Data.DataColumn("idtipomateriaprima", GetType(Integer), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnidtipomateriaprima)
+            Me.columnnombreMateriaPrima = New System.Data.DataColumn("nombreMateriaPrima", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombreMateriaPrima)
             Me.columncantidad = New System.Data.DataColumn("cantidad", GetType(Integer), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncantidad)
-            Me.columnprecio = New System.Data.DataColumn("precio", GetType(Double), Nothing, System.Data.MappingType.Element)
+            Me.columnprecio = New System.Data.DataColumn("precio", GetType(Decimal), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnprecio)
-            Me.columnExpr5 = New System.Data.DataColumn("Expr5", GetType(Integer), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnExpr5)
-            Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnExpr1, Me.columnExpr2, Me.columnidordencompra, Me.columnExpr4, Me.columnidtipomateriaprima, Me.columnExpr5}, true))
-            Me.columnExpr1.AllowDBNull = false
-            Me.columnExpr2.AllowDBNull = false
+            Me.columnnombreProveedor = New System.Data.DataColumn("nombreProveedor", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnombreProveedor)
+            Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnidordencompra}, true))
             Me.columnidordencompra.AllowDBNull = false
-            Me.columnExpr4.AllowDBNull = false
-            Me.columnidtipomateriaprima.AllowDBNull = false
-            Me.columnExpr5.AllowDBNull = false
+            Me.columnidordencompra.Unique = true
+            Me.columncondicionesdepago.MaxLength = 40
+            Me.columncausa.MaxLength = 40
+            Me.columnnombreMateriaPrima.MaxLength = 40
+            Me.columnnombreProveedor.MaxLength = 80
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -609,7 +531,7 @@ Partial Public Class dsoc
         Public Shared Function GetTypedTableSchema(ByVal xs As System.Xml.Schema.XmlSchemaSet) As System.Xml.Schema.XmlSchemaComplexType
             Dim type As System.Xml.Schema.XmlSchemaComplexType = New System.Xml.Schema.XmlSchemaComplexType
             Dim sequence As System.Xml.Schema.XmlSchemaSequence = New System.Xml.Schema.XmlSchemaSequence
-            Dim ds As dsoc = New dsoc
+            Dim ds As DSOrdenCompra = New DSOrdenCompra
             xs.Add(ds.GetSchemaSerializable)
             Dim any1 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
@@ -646,54 +568,6 @@ Partial Public Class dsoc
             MyBase.New(rb)
             Me.tableordencompramp = CType(Me.Table,ordencomprampDataTable)
         End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Expr1() As Integer
-            Get
-                Return CType(Me(Me.tableordencompramp.Expr1Column),Integer)
-            End Get
-            Set
-                Me(Me.tableordencompramp.Expr1Column) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property nombre() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableordencompramp.nombreColumn),String)
-                Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombre' de la tabla 'ordencompramp' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableordencompramp.nombreColumn) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Expr2() As Integer
-            Get
-                Return CType(Me(Me.tableordencompramp.Expr2Column),Integer)
-            End Get
-            Set
-                Me(Me.tableordencompramp.Expr2Column) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Expr3() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableordencompramp.Expr3Column),String)
-                Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("El valor de la columna 'Expr3' de la tabla 'ordencompramp' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableordencompramp.Expr3Column) = value
-            End Set
-        End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property fecharealizacion() As Date
@@ -805,22 +679,17 @@ Partial Public Class dsoc
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Expr4() As Integer
+        Public Property nombreMateriaPrima() As String
             Get
-                Return CType(Me(Me.tableordencompramp.Expr4Column),Integer)
+                Try 
+                    Return CType(Me(Me.tableordencompramp.nombreMateriaPrimaColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombreMateriaPrima' de la tabla 'ordencompramp' es DBNull"& _ 
+                            ".", e)
+                End Try
             End Get
             Set
-                Me(Me.tableordencompramp.Expr4Column) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property idtipomateriaprima() As Integer
-            Get
-                Return CType(Me(Me.tableordencompramp.idtipomateriaprimaColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableordencompramp.idtipomateriaprimaColumn) = value
+                Me(Me.tableordencompramp.nombreMateriaPrimaColumn) = value
             End Set
         End Property
         
@@ -839,10 +708,10 @@ Partial Public Class dsoc
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property precio() As Double
+        Public Property precio() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableordencompramp.precioColumn),Double)
+                    Return CType(Me(Me.tableordencompramp.precioColumn),Decimal)
                 Catch e As System.InvalidCastException
                     Throw New System.Data.StrongTypingException("El valor de la columna 'precio' de la tabla 'ordencompramp' es DBNull.", e)
                 End Try
@@ -853,34 +722,18 @@ Partial Public Class dsoc
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Expr5() As Integer
+        Public Property nombreProveedor() As String
             Get
-                Return CType(Me(Me.tableordencompramp.Expr5Column),Integer)
+                Try 
+                    Return CType(Me(Me.tableordencompramp.nombreProveedorColumn),String)
+                Catch e As System.InvalidCastException
+                    Throw New System.Data.StrongTypingException("El valor de la columna 'nombreProveedor' de la tabla 'ordencompramp' es DBNull.", e)
+                End Try
             End Get
             Set
-                Me(Me.tableordencompramp.Expr5Column) = value
+                Me(Me.tableordencompramp.nombreProveedorColumn) = value
             End Set
         End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsnombreNull() As Boolean
-            Return Me.IsNull(Me.tableordencompramp.nombreColumn)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetnombreNull()
-            Me(Me.tableordencompramp.nombreColumn) = System.Convert.DBNull
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsExpr3Null() As Boolean
-            Return Me.IsNull(Me.tableordencompramp.Expr3Column)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetExpr3Null()
-            Me(Me.tableordencompramp.Expr3Column) = System.Convert.DBNull
-        End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsfecharealizacionNull() As Boolean
@@ -953,6 +806,16 @@ Partial Public Class dsoc
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnombreMateriaPrimaNull() As Boolean
+            Return Me.IsNull(Me.tableordencompramp.nombreMateriaPrimaColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnombreMateriaPrimaNull()
+            Me(Me.tableordencompramp.nombreMateriaPrimaColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IscantidadNull() As Boolean
             Return Me.IsNull(Me.tableordencompramp.cantidadColumn)
         End Function
@@ -970,6 +833,16 @@ Partial Public Class dsoc
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetprecioNull()
             Me(Me.tableordencompramp.precioColumn) = System.Convert.DBNull
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnombreProveedorNull() As Boolean
+            Return Me.IsNull(Me.tableordencompramp.nombreProveedorColumn)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnombreProveedorNull()
+            Me(Me.tableordencompramp.nombreProveedorColumn) = System.Convert.DBNull
         End Sub
     End Class
     
@@ -1003,3 +876,157 @@ Partial Public Class dsoc
         End Property
     End Class
 End Class
+
+Namespace DSOrdenCompraTableAdapters
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     System.ComponentModel.ToolboxItem(true),  _
+     System.ComponentModel.DataObjectAttribute(true),  _
+     System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class ordencomprampTableAdapter
+        Inherits System.ComponentModel.Component
+        
+        Private WithEvents _adapter As System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As System.Data.SqlClient.SqlConnection
+        
+        Private _commandCollection() As System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private ReadOnly Property Adapter() As System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New System.Data.SqlClient.SqlDataAdapter
+            Dim tableMapping As System.Data.Common.DataTableMapping = New System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "ordencompramp"
+            tableMapping.ColumnMappings.Add("fecharealizacion", "fecharealizacion")
+            tableMapping.ColumnMappings.Add("plazodeentrega", "plazodeentrega")
+            tableMapping.ColumnMappings.Add("idordencompra", "idordencompra")
+            tableMapping.ColumnMappings.Add("nroorden", "nroorden")
+            tableMapping.ColumnMappings.Add("condicionesdepago", "condicionesdepago")
+            tableMapping.ColumnMappings.Add("causa", "causa")
+            tableMapping.ColumnMappings.Add("idestado", "idestado")
+            tableMapping.ColumnMappings.Add("idproveedor", "idproveedor")
+            tableMapping.ColumnMappings.Add("nombreMateriaPrima", "nombreMateriaPrima")
+            tableMapping.ColumnMappings.Add("cantidad", "cantidad")
+            tableMapping.ColumnMappings.Add("precio", "precio")
+            tableMapping.ColumnMappings.Add("nombreProveedor", "nombreProveedor")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New System.Data.SqlClient.SqlConnection
+            Me._connection.ConnectionString = Global.Afilar.My.MySettings.Default.AfilarConnectionString
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT     ordencompramp.fecharealizacion, ordencompramp.plazodeentrega, ordencom"& _ 
+                "pramp.idordencompra, ordencompramp.nroorden, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      ordencompra"& _ 
+                "mp.condicionesdepago, ordencompramp.causa, ordencompramp.idestado, ordencompramp"& _ 
+                ".idproveedor, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipomateriaprima.nombre AS nombreMateriaPr"& _ 
+                "ima, detalleordencompra.cantidad, detalleordencompra.precio, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
+                "     proveedor.nombre AS nombreProveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         ordencompramp INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      detalleordencompra ON ordencompramp.idordencompra = detal"& _ 
+                "leordencompra.idordencompra INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      tipomateriaprima O"& _ 
+                "N detalleordencompra.idtipomateriaprima = tipomateriaprima.idtipomateriaprima IN"& _ 
+                "NER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      proveedor ON ordencompramp.idproveedor = proveed"& _ 
+                "or.idproveedor"
+            Me._commandCollection(0).CommandType = System.Data.CommandType.Text
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DSOrdenCompra.ordencomprampDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DSOrdenCompra.ordencomprampDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DSOrdenCompra.ordencomprampDataTable = New DSOrdenCompra.ordencomprampDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+End Namespace
