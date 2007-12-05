@@ -1090,8 +1090,8 @@ Public Class FrmGenerarOC
         Dim query As String
         Dim i As Integer
         For i = 0 To dtOC.Rows.Count - 1
-            query = query & dr.Item(2)
-            If i < dtOC.Rows.Count Then
+            query = query & dtOC.Rows(i).Item(2)
+            If i < dtOC.Rows.Count - 1 Then
                 query = query & ", "
             End If
         Next
