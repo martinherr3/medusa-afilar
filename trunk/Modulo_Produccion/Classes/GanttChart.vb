@@ -25,8 +25,8 @@ Public Class GanttChart
     Private shownHeaderList As List(Of Header)
 
     Private barStartTop As Integer = 50
-    Private barHeight As Integer = 9
-    Private barSpace As Integer = 5
+    Private barHeight As Integer = 12
+    Private barSpace As Integer = 8
 
     Private widthPerItem As Integer
 
@@ -36,8 +36,8 @@ Public Class GanttChart
 
     Private lineColor As Pen = Pens.Bisque
     Private dateTextFont As Font = New Font("VERDANA", 8.0, FontStyle.Regular, GraphicsUnit.Point)
-    Private timeTextFont As Font = New Font("VERDANA", 8.0, FontStyle.Regular, GraphicsUnit.Point)
-    Private rowTextFont As Font = New Font("VERDANA", 8.0, FontStyle.Regular, GraphicsUnit.Point)
+    Private timeTextFont As Font = New Font("VERDANA", 7.0, FontStyle.Regular, GraphicsUnit.Point)
+    Private rowTextFont As Font = New Font("VERDANA", 8.0, FontStyle.Bold, GraphicsUnit.Point)
 
     Friend WithEvents ToolTip As New System.Windows.Forms.ToolTip()
 
