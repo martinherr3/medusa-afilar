@@ -59,9 +59,9 @@ Public Class ProdNuevo
         colores(1) = Color.Green
         colores(2) = Color.Gold
         colores(3) = Color.Brown
-        colores(4) = Color.Navy
+        colores(4) = Color.OrangeRed
         colores(5) = Color.Honeydew
-        colores(6) = Color.Crimson
+        colores(6) = Color.CadetBlue
         colores(7) = Color.Yellow
         colores(8) = Color.Sienna
         colores(9) = Color.OldLace
@@ -472,7 +472,11 @@ Public Class ProdNuevo
 
         'conn.Open()
 
-        Dim sql As String = "select P.idpedido, P.fechaRealizacion, E.nombre, P.prioridad, C.nombre " & _
+        'Dim sql As String = "select P.idpedido, P.fechaRealizacion, E.nombre, P.prioridad, C.nombre " & _
+        '    "from pedido P, estado E, cliente C " & _
+        '    "where P.idestado=E.idestado AND P.idcliente = C.idcliente and P.idestado = " & ESTADO_PENDIENTE
+
+        Dim sql As String = "select P.idpedido, P.fechaRealizacion, E.nombre, P.fechaentrega, C.nombre " & _
             "from pedido P, estado E, cliente C " & _
             "where P.idestado=E.idestado AND P.idcliente = C.idcliente and P.idestado = " & ESTADO_PENDIENTE
 
@@ -487,7 +491,10 @@ Public Class ProdNuevo
         'comm.CommandText = "select F.nropedido, F.nroserie, F.fechafinfabricacion, TF.nombre, E.nombre from fresa F, " & _
         '    "estado E, tipofresa TF where F.estado = E.idestado AND F.idtipofresa=TF.idtipo"
 
-        comm.CommandText = "select F.nropedido, F.nroserie, F.fechafinfabricacion, TF.nombre, E.nombre from fresa F, " & _
+        'comm.CommandText = "select F.nropedido, F.nroserie, F.fechafinfabricacion, TF.nombre, E.nombre from fresa F, " & _
+        '    "estado E, tipofresa TF where F.estado = E.idestado AND F.idtipo = TF.idtipo And F.idmodelo = TF.idmodelo And F.Estado = 1 "
+
+        comm.CommandText = "select F.nropedido, F.nroserie, TF.nombre, E.nombre from fresa F, " & _
             "estado E, tipofresa TF where F.estado = E.idestado AND F.idtipo = TF.idtipo And F.idmodelo = TF.idmodelo And F.Estado = 1 "
 
 
@@ -512,10 +519,10 @@ Public Class ProdNuevo
         Dim c2 As New grdstyle.CGridTextBoxStyle("fechaRealizacion", 130, HorizontalAlignment.Center, True, "Fecha Realizacion", "", "")
         ts.GridColumnStyles.Add(c2)
 
-        Dim c3 As New grdstyle.CGridTextBoxStyle("nombre", 130, HorizontalAlignment.Center, True, "Estado", "", "")
+        Dim c3 As New grdstyle.CGridTextBoxStyle("nombre", 160, HorizontalAlignment.Center, True, "Estado", "", "")
         ts.GridColumnStyles.Add(c3)
 
-        Dim c4 As New grdstyle.CGridTextBoxStyle("Prioridad", 100, HorizontalAlignment.Center, True, "Prioridad", "", "")
+        Dim c4 As New grdstyle.CGridTextBoxStyle("fechaentrega", 100, HorizontalAlignment.Center, True, "Fecha Entrega", "", "")
         ts.GridColumnStyles.Add(c4)
 
         Dim c5 As New grdstyle.CGridTextBoxStyle("nombre1", 120, HorizontalAlignment.Center, True, "Cliente", "", "")
@@ -571,15 +578,15 @@ Public Class ProdNuevo
 
         nombres(0) = "Nro Pedido"
         nombres(1) = "Nro Serie"
-        nombres(2) = "Fecha Fin Fabric."
-        nombres(3) = "Fresa"
-        nombres(4) = "Estado"
+        'nombres(2) = "Fecha Fin Fabric."
+        nombres(2) = "Fresa"
+        nombres(3) = "Estado"
 
-        anchos(0) = 70
-        anchos(1) = 80
-        anchos(2) = 130
-        anchos(3) = 110
-        anchos(4) = 120
+        anchos(0) = 90
+        anchos(1) = 100
+        'anchos(2) = 130
+        anchos(2) = 160
+        anchos(3) = 130
 
         cargarGrilla(grd2, dv2.Table, nombres, anchos)
     End Sub
@@ -634,15 +641,17 @@ Public Class ProdNuevo
                     'idtipomateriaprima, cantidad, nroserie
                     commd.CommandText = "SELECT stockactual FROM tipomateriaprima WHERE idtipomateriaprima = " & row.Item(0)
                     If commd.ExecuteScalar() < row.Item(1) Then
-                        faltantesMP &= row.Item(0) & ", "
+                        If faltantesMP.IndexOf(row.Item(0) & ",") = -1 Then
+                            faltantesMP &= row.Item(0) & ", "
+                        End If
                     End If
                 Next
-                If faltantesMP.Length > 0 Then
-                    If MsgBox("No tiene suficiente materia prima de los tipo: " & faltantesMP & " para afrontar la produccion. Desea continuar de todas formas?", MsgBoxStyle.YesNo) = MsgBoxResult.No Then
-                        cnn.Close()
-                        Exit Sub
-                    End If
-                End If
+                'If faltantesMP.Length > 0 Then
+                '    If MsgBox("No tiene suficiente materia prima de los tipo: " & faltantesMP & " para afrontar la produccion. Desea continuar de todas formas?", MsgBoxStyle.YesNo) = MsgBoxResult.No Then
+                '        cnn.Close()
+                '        Exit Sub
+                '    End If
+                'End If
 
 
                 DS.Merge(tarea.getDSByIdfresa())
@@ -659,6 +668,16 @@ Public Class ProdNuevo
             MsgBox("Debe programar al menos una tarea")
             Exit Sub
         End If
+
+        If faltantesMP.Length > 0 Then
+            If MsgBox("No tiene suficiente materia prima de los tipo: " & faltantesMP & " para afrontar la produccion. Desea continuar de todas formas?", MsgBoxStyle.YesNo) = MsgBoxResult.No Then
+                cnn.Close()
+                Exit Sub
+            End If
+        End If
+
+
+
 
         For Each row As DataRow In DS.Tables.Item(0).Rows
             tareasCollection.Add(New tareasProd(row.Item("nroserie"), row.Item("idetapafabricacion"), row.Item("nombre"), row.Item("maquina"), row.Item("duracionpromedio"), row.Item("orden"), "fresa", row.Item("idoperacion"))) 'Por ahora son todos del tipo fresa
