@@ -861,15 +861,16 @@ Public Class FrmGenerarOC
             'args.ForeColor = Brushes.Red
             args.BackColor = Brushes.LightSalmon
         End If
-        Select Case Me.GrdMP.Item(args.RowNumber, 3)
-            Case "A"
-                args.ForeColor = Brushes.Red
-            Case "B"
-                args.ForeColor = Brushes.Yellow
-            Case "C"
-                args.ForeColor = Brushes.Green
-        End Select
-
+        If Not IsDBNull(Me.GrdMP.Item(args.RowNumber, 3)) Then
+            Select Case Me.GrdMP.Item(args.RowNumber, 3)
+                Case "A"
+                    args.ForeColor = Brushes.Red
+                Case "B"
+                    args.ForeColor = Brushes.Yellow
+                Case "C"
+                    args.ForeColor = Brushes.Green
+            End Select
+        End If
 
     End Sub
 
@@ -1083,17 +1084,33 @@ Public Class FrmGenerarOC
 
     Private Sub BtnPrevisualizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnPrevisualizar.Click
 
-        Dim dsocp As New dsoc
-        SqlDataAdapter8.Fill(dsocp)
+        
+        Dim SelectFormula As String
+        Dim dr As DataRow
+        Dim query As String
+        Dim i As Integer
+        For i = 0 To dtOC.Rows.Count - 1
+            query = query & dr.Item(2)
+            If i < dtOC.Rows.Count Then
+                query = query & ", "
+            End If
+        Next
+       
+        If query = "" Then
+            MsgBox("No tiene pedidos que mostrar")
+        Else
+            Dim dsocp As New dsoc
+            SqlDataAdapter8.Fill(dsocp)
 
-        Dim p As New CrystalReport1
-        p.SetDataSource(dsocp)
-        crv.ReportSource = p
-        UltraTabControl1.SelectedTab = UltraTabControl1.Tabs(1)
-        ' Dim SelectFormula As String
+            Dim p As New CrystalReport1
+            p.SetDataSource(dsocp)
+            crv.ReportSource = p
+            UltraTabControl1.SelectedTab = UltraTabControl1.Tabs(1)
+            SelectFormula = "{ordencompramp.idordencompra} in [ " & query & " ]"
+            crv.SelectionFormula = SelectFormula
+        End If
 
-        'SelectFormula = "{ordencompramp.fecharealizacion} =" & Now
-        'crv.SelectionFormula = SelectFormula
+
 
     End Sub
 
