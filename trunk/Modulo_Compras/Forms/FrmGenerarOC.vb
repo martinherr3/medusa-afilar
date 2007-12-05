@@ -183,7 +183,7 @@ Public Class FrmGenerarOC
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(782, 489)
         '
@@ -517,7 +517,7 @@ Public Class FrmGenerarOC
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.crv)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(782, 489)
         '
@@ -528,7 +528,7 @@ Public Class FrmGenerarOC
         Me.crv.Location = New System.Drawing.Point(8, 16)
         Me.crv.Name = "crv"
         Me.crv.SelectionFormula = ""
-        Me.crv.Size = New System.Drawing.Size(688, 464)
+        Me.crv.Size = New System.Drawing.Size(771, 464)
         Me.crv.TabIndex = 15
         Me.crv.ViewTimeSelectionFormula = ""
         '
