@@ -154,12 +154,12 @@ Public Class frmTornero
             If bandGrabar = 1 Then
 
                 objTornero.tomarDatos(1, txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, _
-           txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
+                txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
                 objTornero.registrarTornero(dsTornero)
             Else
 
                 objTornero.tomarDatos(DataGrid1.Item(DataGrid1.CurrentRowIndex, 0), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, _
-           txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
+                txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
                 objTornero.modificarTornero(dsTornero)
             End If
         
