@@ -152,15 +152,15 @@ Public Class frmTornero
 
         Try
             If bandGrabar = 1 Then
-                objTornero.registrarTornero(dsTornero)
+
                 objTornero.tomarDatos(1, txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, _
            txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
-
+                objTornero.registrarTornero(dsTornero)
             Else
-                objTornero.modificarTornero(dsTornero)
+
                 objTornero.tomarDatos(DataGrid1.Item(DataGrid1.CurrentRowIndex, 0), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtCelular.Text, _
            txtCantidad.Text, txtEfectividad.Text, txtObservaciones.Text)
-
+                objTornero.modificarTornero(dsTornero)
             End If
         
             If objTornero.varCancelar = 0 Then
