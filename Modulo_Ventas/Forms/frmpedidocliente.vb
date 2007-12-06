@@ -1307,6 +1307,12 @@ Public Class frmpedidocliente
 
 
 #Region "Metodos"
+
+    Private Sub frmpedidocliente_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
+        princ.barra.eliminarBoton()
+    End Sub
+
+
     Private Sub frmpedidocliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' seteo el estilo del datagrid 
         modelo.setearGrilla(DataGridMf)
@@ -2372,7 +2378,7 @@ Public Class frmpedidocliente
     End Sub
 
 
-   
+
 
 
     Private Sub combocliente_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles combocliente.ValueChanged
