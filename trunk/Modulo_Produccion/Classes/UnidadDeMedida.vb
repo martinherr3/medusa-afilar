@@ -167,9 +167,16 @@ Public Class UnidadDeMedida
         varCancelar = 0
         Id() = idp
         Nombre() = nombrep
-        Descripcion() = descripcionp
-        Abreviacion() = abreviacionp
-        Escala() = escalap
+        If descripcionp <> Nothing Then
+            Descripcion() = descripcionp
+        End If
+        If abreviacionp <> Nothing Then
+            Abreviacion() = abreviacionp
+        End If
+        If escalap <> Nothing Then
+            Escala() = escalap
+        End If
+
     End Sub
 
     Public Sub mostrarDatos(ByRef txtnombre As String, ByRef txtDescripcion As String, ByRef txtAbreviacion As String, ByRef txtEscala As String)

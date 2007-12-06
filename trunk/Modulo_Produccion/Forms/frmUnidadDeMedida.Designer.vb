@@ -22,17 +22,17 @@ Partial Class frmUnidadDeMedida
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmUnidadDeMedida))
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
@@ -82,13 +82,13 @@ Partial Class frmUnidadDeMedida
         Me.DataGrid1.ReadOnly = True
         Me.DataGrid1.SelectionBackColor = System.Drawing.Color.CadetBlue
         Me.DataGrid1.SelectionForeColor = System.Drawing.Color.WhiteSmoke
-        Me.DataGrid1.Size = New System.Drawing.Size(272, 154)
+        Me.DataGrid1.Size = New System.Drawing.Size(381, 154)
         Me.DataGrid1.TabIndex = 52
         '
         'UltraButton2
         '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Me.UltraButton2.Appearance = Appearance1
+        Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
+        Me.UltraButton2.Appearance = Appearance11
         Me.UltraButton2.Location = New System.Drawing.Point(89, 126)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(78, 28)
@@ -97,8 +97,8 @@ Partial Class frmUnidadDeMedida
         '
         'UltraButton1
         '
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Me.UltraButton1.Appearance = Appearance2
+        Appearance12.Image = CType(resources.GetObject("Appearance12.Image"), Object)
+        Me.UltraButton1.Appearance = Appearance12
         Me.UltraButton1.Location = New System.Drawing.Point(9, 126)
         Me.UltraButton1.Name = "UltraButton1"
         Me.UltraButton1.Size = New System.Drawing.Size(78, 28)
@@ -107,8 +107,8 @@ Partial Class frmUnidadDeMedida
         '
         'UltraButton5
         '
-        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
-        Me.UltraButton5.Appearance = Appearance3
+        Appearance13.Image = CType(resources.GetObject("Appearance13.Image"), Object)
+        Me.UltraButton5.Appearance = Appearance13
         Me.UltraButton5.Location = New System.Drawing.Point(89, 155)
         Me.UltraButton5.Name = "UltraButton5"
         Me.UltraButton5.Size = New System.Drawing.Size(78, 28)
@@ -117,10 +117,10 @@ Partial Class frmUnidadDeMedida
         '
         'UltraButton4
         '
-        Appearance4.BackColor = System.Drawing.Color.White
-        Appearance4.ForeColor = System.Drawing.Color.Black
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.UltraButton4.Appearance = Appearance4
+        Appearance14.BackColor = System.Drawing.Color.White
+        Appearance14.ForeColor = System.Drawing.Color.Black
+        Appearance14.Image = CType(resources.GetObject("Appearance14.Image"), Object)
+        Me.UltraButton4.Appearance = Appearance14
         Me.UltraButton4.Location = New System.Drawing.Point(169, 155)
         Me.UltraButton4.Name = "UltraButton4"
         Me.UltraButton4.Size = New System.Drawing.Size(78, 28)
@@ -129,8 +129,8 @@ Partial Class frmUnidadDeMedida
         '
         'UltraButton3
         '
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.UltraButton3.Appearance = Appearance5
+        Appearance15.Image = CType(resources.GetObject("Appearance15.Image"), Object)
+        Me.UltraButton3.Appearance = Appearance15
         Me.UltraButton3.Location = New System.Drawing.Point(9, 155)
         Me.UltraButton3.Name = "UltraButton3"
         Me.UltraButton3.Size = New System.Drawing.Size(78, 28)
@@ -139,9 +139,9 @@ Partial Class frmUnidadDeMedida
         '
         'UltraButton10
         '
-        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
-        Me.UltraButton10.Appearance = Appearance6
-        Me.UltraButton10.Location = New System.Drawing.Point(203, 349)
+        Appearance16.Image = CType(resources.GetObject("Appearance16.Image"), Object)
+        Me.UltraButton10.Appearance = Appearance16
+        Me.UltraButton10.Location = New System.Drawing.Point(312, 349)
         Me.UltraButton10.Name = "UltraButton10"
         Me.UltraButton10.Size = New System.Drawing.Size(78, 28)
         Me.UltraButton10.TabIndex = 51
@@ -149,27 +149,27 @@ Partial Class frmUnidadDeMedida
         '
         'txtDescripcion
         '
-        Appearance7.BackColorDisabled = System.Drawing.Color.White
-        Appearance7.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtDescripcion.Appearance = Appearance7
+        Appearance17.BackColorDisabled = System.Drawing.Color.White
+        Appearance17.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtDescripcion.Appearance = Appearance17
         Me.txtDescripcion.AutoSize = True
         Me.txtDescripcion.Enabled = False
         Me.txtDescripcion.Location = New System.Drawing.Point(69, 39)
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(212, 21)
-        Me.txtDescripcion.TabIndex = 43
+        Me.txtDescripcion.TabIndex = 2
         '
         'txtNombre
         '
-        Appearance8.BackColorDisabled = System.Drawing.Color.White
-        Appearance8.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtNombre.Appearance = Appearance8
+        Appearance18.BackColorDisabled = System.Drawing.Color.White
+        Appearance18.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtNombre.Appearance = Appearance18
         Me.txtNombre.AutoSize = True
         Me.txtNombre.Enabled = False
         Me.txtNombre.Location = New System.Drawing.Point(69, 15)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(212, 21)
-        Me.txtNombre.TabIndex = 42
+        Me.txtNombre.TabIndex = 0
         '
         'Label12
         '
@@ -193,27 +193,27 @@ Partial Class frmUnidadDeMedida
         '
         'txtEscala
         '
-        Appearance9.BackColorDisabled = System.Drawing.Color.White
-        Appearance9.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtEscala.Appearance = Appearance9
+        Appearance19.BackColorDisabled = System.Drawing.Color.White
+        Appearance19.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtEscala.Appearance = Appearance19
         Me.txtEscala.AutoSize = True
         Me.txtEscala.Enabled = False
         Me.txtEscala.Location = New System.Drawing.Point(69, 87)
         Me.txtEscala.Name = "txtEscala"
         Me.txtEscala.Size = New System.Drawing.Size(212, 21)
-        Me.txtEscala.TabIndex = 54
+        Me.txtEscala.TabIndex = 4
         '
         'txtAbreviacion
         '
-        Appearance10.BackColorDisabled = System.Drawing.Color.White
-        Appearance10.BackColorDisabled2 = System.Drawing.Color.White
-        Me.txtAbreviacion.Appearance = Appearance10
+        Appearance20.BackColorDisabled = System.Drawing.Color.White
+        Appearance20.BackColorDisabled2 = System.Drawing.Color.White
+        Me.txtAbreviacion.Appearance = Appearance20
         Me.txtAbreviacion.AutoSize = True
         Me.txtAbreviacion.Enabled = False
         Me.txtAbreviacion.Location = New System.Drawing.Point(69, 63)
         Me.txtAbreviacion.Name = "txtAbreviacion"
         Me.txtAbreviacion.Size = New System.Drawing.Size(212, 21)
-        Me.txtAbreviacion.TabIndex = 53
+        Me.txtAbreviacion.TabIndex = 3
         '
         'Label1
         '
@@ -239,7 +239,7 @@ Partial Class frmUnidadDeMedida
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(292, 380)
+        Me.ClientSize = New System.Drawing.Size(398, 380)
         Me.Controls.Add(Me.txtEscala)
         Me.Controls.Add(Me.txtAbreviacion)
         Me.Controls.Add(Me.Label1)
