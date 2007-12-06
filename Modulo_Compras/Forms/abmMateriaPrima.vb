@@ -173,7 +173,7 @@ Public Class abmMateriaPrima
         '
         Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
         Me.btnEliminar.Appearance = Appearance1
-        Me.btnEliminar.Location = New System.Drawing.Point(566, 181)
+        Me.btnEliminar.Location = New System.Drawing.Point(484, 217)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(72, 31)
         Me.btnEliminar.TabIndex = 55
@@ -185,7 +185,7 @@ Public Class abmMateriaPrima
         Me.cboUnidadMedida.Location = New System.Drawing.Point(547, 75)
         Me.cboUnidadMedida.Name = "cboUnidadMedida"
         Me.cboUnidadMedida.Size = New System.Drawing.Size(87, 21)
-        Me.cboUnidadMedida.TabIndex = 54
+        Me.cboUnidadMedida.TabIndex = 8
         '
         'Label9
         '
@@ -205,7 +205,7 @@ Public Class abmMateriaPrima
         Me.txtLote.Location = New System.Drawing.Point(96, 145)
         Me.txtLote.Name = "txtLote"
         Me.txtLote.Size = New System.Drawing.Size(88, 21)
-        Me.txtLote.TabIndex = 51
+        Me.txtLote.TabIndex = 6
         '
         'txtStockMinimo
         '
@@ -215,7 +215,7 @@ Public Class abmMateriaPrima
         Me.txtStockMinimo.Location = New System.Drawing.Point(96, 97)
         Me.txtStockMinimo.Name = "txtStockMinimo"
         Me.txtStockMinimo.Size = New System.Drawing.Size(88, 21)
-        Me.txtStockMinimo.TabIndex = 50
+        Me.txtStockMinimo.TabIndex = 4
         '
         'UltraGroupBox1
         '
@@ -296,7 +296,7 @@ Public Class abmMateriaPrima
         '
         Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
         Me.btnNuevo.Appearance = Appearance8
-        Me.btnNuevo.Location = New System.Drawing.Point(402, 181)
+        Me.btnNuevo.Location = New System.Drawing.Point(406, 181)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(72, 32)
         Me.btnNuevo.TabIndex = 40
@@ -306,7 +306,7 @@ Public Class abmMateriaPrima
         '
         Appearance9.Image = CType(resources.GetObject("Appearance9.Image"), Object)
         Me.btnGuardar.Appearance = Appearance9
-        Me.btnGuardar.Location = New System.Drawing.Point(402, 219)
+        Me.btnGuardar.Location = New System.Drawing.Point(406, 216)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(72, 32)
         Me.btnGuardar.TabIndex = 39
@@ -326,7 +326,7 @@ Public Class abmMateriaPrima
         '
         Appearance11.Image = CType(resources.GetObject("Appearance11.Image"), Object)
         Me.btnSalir.Appearance = Appearance11
-        Me.btnSalir.Location = New System.Drawing.Point(566, 219)
+        Me.btnSalir.Location = New System.Drawing.Point(562, 216)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(72, 32)
         Me.btnSalir.TabIndex = 37
@@ -340,7 +340,7 @@ Public Class abmMateriaPrima
         Me.txtStockSeguridad.Location = New System.Drawing.Point(96, 121)
         Me.txtStockSeguridad.Name = "txtStockSeguridad"
         Me.txtStockSeguridad.Size = New System.Drawing.Size(88, 21)
-        Me.txtStockSeguridad.TabIndex = 35
+        Me.txtStockSeguridad.TabIndex = 5
         '
         'txtStockActual
         '
@@ -350,7 +350,7 @@ Public Class abmMateriaPrima
         Me.txtStockActual.Location = New System.Drawing.Point(96, 72)
         Me.txtStockActual.Name = "txtStockActual"
         Me.txtStockActual.Size = New System.Drawing.Size(88, 21)
-        Me.txtStockActual.TabIndex = 34
+        Me.txtStockActual.TabIndex = 3
         '
         'txtNombre
         '
@@ -360,7 +360,7 @@ Public Class abmMateriaPrima
         Me.txtNombre.Location = New System.Drawing.Point(96, 48)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(187, 21)
-        Me.txtNombre.TabIndex = 33
+        Me.txtNombre.TabIndex = 2
         '
         'txtIdMP
         '
@@ -370,7 +370,7 @@ Public Class abmMateriaPrima
         Me.txtIdMP.Location = New System.Drawing.Point(96, 24)
         Me.txtIdMP.Name = "txtIdMP"
         Me.txtIdMP.Size = New System.Drawing.Size(88, 21)
-        Me.txtIdMP.TabIndex = 32
+        Me.txtIdMP.TabIndex = 1
         '
         'Label6
         '
@@ -421,7 +421,7 @@ Public Class abmMateriaPrima
         Me.txtDireccion.Multiline = True
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(301, 45)
-        Me.txtDireccion.TabIndex = 25
+        Me.txtDireccion.TabIndex = 7
         '
         'Label2
         '
