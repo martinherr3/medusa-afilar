@@ -79,6 +79,8 @@ Partial Class frmDesperfecto
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage2 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.Label8 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.CalendarReparacion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CalendarRotura, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,6 +99,8 @@ Partial Class frmDesperfecto
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.Label8)
+        Me.UltraTabPageControl1.Controls.Add(Me.Label7)
         Me.UltraTabPageControl1.Controls.Add(Me.BtnReparacion)
         Me.UltraTabPageControl1.Controls.Add(Me.CalendarReparacion)
         Me.UltraTabPageControl1.Controls.Add(Me.CalendarRotura)
@@ -542,6 +546,26 @@ Partial Class frmDesperfecto
         Me.UltraTabSharedControlsPage2.Name = "UltraTabSharedControlsPage2"
         Me.UltraTabSharedControlsPage2.Size = New System.Drawing.Size(740, 233)
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(12, 139)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(82, 13)
+        Me.Label7.TabIndex = 42
+        Me.Label7.Text = "Fecha de rotura"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label8.Location = New System.Drawing.Point(26, 166)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(68, 13)
+        Me.Label8.TabIndex = 43
+        Me.Label8.Text = "Reparada el:"
+        '
         'frmDesperfecto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -610,4 +634,6 @@ Partial Class frmDesperfecto
     Friend WithEvents BtnReparacion As Infragistics.Win.Misc.UltraButton
     Friend WithEvents cmbMaquinaSearch As System.Windows.Forms.ComboBox
     Friend WithEvents checkMaqina As System.Windows.Forms.CheckBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 End Class

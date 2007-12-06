@@ -109,6 +109,7 @@ Public Class frmDesperfecto
         txtCosto.Enabled = True
         txtNumDesperfecto.Enabled = False
         CalendarReparacion.Visible = False
+        Label8.Visible = False
         CalendarRotura.Enabled = True
         
         
@@ -129,6 +130,7 @@ Public Class frmDesperfecto
         txtCosto.Enabled = True
         txtNumDesperfecto.Enabled = False
         CalendarReparacion.Enabled = True
+
         CalendarRotura.Enabled = True
         
     End Sub
@@ -167,6 +169,7 @@ Public Class frmDesperfecto
                 txtCosto.Enabled = False
                 txtNumDesperfecto.Enabled = False
                 CalendarReparacion.Enabled = False
+
                 CalendarRotura.Enabled = False
 
             End If
@@ -187,6 +190,7 @@ Public Class frmDesperfecto
         UltraButton9.Enabled = True
         Try
             CalendarReparacion.Visible = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
+            Label8.Visible = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
             BtnReparacion.Enabled = Not (DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7))
         Catch
         End Try
@@ -268,6 +272,7 @@ Public Class frmDesperfecto
 
         objDesperfecto.mostrarDatos(cmbTipoDesperfecto.SelectedValue, CalendarRotura.Value, txtCausa.Text, CalendarReparacion.Value, txtCosto.Text, cmbMaquina.SelectedValue, txtNumDesperfecto.Text)
         CalendarReparacion.Visible = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
+        Label8.Visible = DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7)
         BtnReparacion.Enabled = Not (DataGrid1.Item(DataGrid1.CurrentCell.RowNumber(), 7))
         Me.Refresh()
         'TextBox2.Text = dscliente.Tables.Item(0).Rows(DataGrid1.CurrentCell.RowNumber()).Item(1)
@@ -368,6 +373,7 @@ Public Class frmDesperfecto
     Private Sub BtnReparacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReparacion.Click
         If MsgBox("Seguro que desea registrar la reparacion de esta maquina", MsgBoxStyle.OkCancel, "Confirmacion") = MsgBoxResult.Ok Then
             CalendarReparacion.Visible = True
+            Label8.Visible = True
             CalendarReparacion.Enabled = True
 
             UltraButton1.Enabled = False
@@ -396,4 +402,7 @@ Public Class frmDesperfecto
         DataGrid1.DataSource = buscarDesperfecto(dsDesperfecto)
     End Sub
 
+    Private Sub UltraTabPageControl1_Paint_1(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles UltraTabPageControl1.Paint
+
+    End Sub
 End Class
