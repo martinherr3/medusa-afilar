@@ -793,6 +793,7 @@ Public Class emitirPresupuesto
             Else
                 MsgBox("Debe seleccionar un modelo de fresa o algun componente")
             End If
+            UltraButton4.Enabled = False
         End If
 
     End Sub
