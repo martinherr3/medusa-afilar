@@ -108,52 +108,52 @@ Public Class programador
   '
   ' End Function
 
-  Private Sub setHorarios()
-    '_horarioCierre(0, 0) = 0     'domingo inicio
-    '_horarioCierre(0, 1) = 0     'domingo fin
-    '_horarioCierre(1, 0) = 480   'lunes inicio
-    '_horarioCierre(1, 1) = 1080  'lunes fin
-    '_horarioCierre(2, 0) = 480   'martes inicio
-    '_horarioCierre(2, 1) = 1080  'martes fin
-    '_horarioCierre(3, 0) = 480   'miercoles inicio
-    '_horarioCierre(3, 1) = 1080  'miercoles fin
-    '_horarioCierre(4, 0) = 480   'jueves inicio
-    '_horarioCierre(4, 1) = 1080  'jueves fin
-    '_horarioCierre(5, 0) = 480   'viernes inicio
-    '_horarioCierre(5, 1) = 1080  'viernes fin
-    '_horarioCierre(6, 0) = 0     'sabado inicio
-    '_horarioCierre(6, 1) = 0     'sabado fin
+    Private Sub setHorarios()
+        '_horarioCierre(0, 0) = 0     'domingo inicio
+        '_horarioCierre(0, 1) = 0     'domingo fin
+        '_horarioCierre(1, 0) = 480   'lunes inicio
+        '_horarioCierre(1, 1) = 1080  'lunes fin
+        '_horarioCierre(2, 0) = 480   'martes inicio
+        '_horarioCierre(2, 1) = 1080  'martes fin
+        '_horarioCierre(3, 0) = 480   'miercoles inicio
+        '_horarioCierre(3, 1) = 1080  'miercoles fin
+        '_horarioCierre(4, 0) = 480   'jueves inicio
+        '_horarioCierre(4, 1) = 1080  'jueves fin
+        '_horarioCierre(5, 0) = 480   'viernes inicio
+        '_horarioCierre(5, 1) = 1080  'viernes fin
+        '_horarioCierre(6, 0) = 0     'sabado inicio
+        '_horarioCierre(6, 1) = 0     'sabado fin
 
 
-    ''Para las tareas CIERRE usamos ORDEN como dia de la semana
-    'For i As Integer = 1 To 4 'dias de la semana
-    '_tareasCierre.Add(New tareasProd(-1, 0, "Cierre", "", 720, i, "Cierre"))
-    'Next
-    '_tareasCierre.Add(New tareasProd(-1, 0, "Cierre", "", 3600, 5, "Cierre"))
+        ''Para las tareas CIERRE usamos ORDEN como dia de la semana
+        'For i As Integer = 1 To 4 'dias de la semana
+        '_tareasCierre.Add(New tareasProd(-1, 0, "Cierre", "", 720, i, "Cierre"))
+        'Next
+        '_tareasCierre.Add(New tareasProd(-1, 0, "Cierre", "", 3600, 5, "Cierre"))
 
-    '--------------------------------------------------
+        '--------------------------------------------------
 
-    Dim a As New cierre(0, 1440)
-    Dim b As New cierre(1440, 480)
-    Dim c As New cierre(2640, 720)
-    Dim d As New cierre(4080, 720)
-    Dim e As New cierre(5520, 720)
-    Dim f As New cierre(6960, 720)
-    Dim g As New cierre(7200, 240)
-    Dim h As New cierre(8640, 1440)
+        Dim a As New cierre(0, 1440)
+        Dim b As New cierre(1440, 480)
+        Dim c As New cierre(2640, 720)
+        Dim d As New cierre(4080, 720)
+        Dim e As New cierre(5520, 720)
+        Dim f As New cierre(6960, 720)
+        Dim g As New cierre(8400, 240)
+        Dim h As New cierre(8640, 1440)
 
-    _cierres.Add(a)
-    _cierres.Add(b)
-    _cierres.Add(c)
-    _cierres.Add(d)
-    _cierres.Add(e)
-    _cierres.Add(f)
-    _cierres.Add(g)
-    _cierres.Add(h)
+        _cierres.Add(a)
+        _cierres.Add(b)
+        _cierres.Add(c)
+        _cierres.Add(d)
+        _cierres.Add(e)
+        _cierres.Add(f)
+        _cierres.Add(g)
+        _cierres.Add(h)
 
 
 
-  End Sub
+    End Sub
 
   Private Function getMaquinaByType(ByVal tipo As String) As Collection
     Dim collection As New Collection
