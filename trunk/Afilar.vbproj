@@ -232,6 +232,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BorrarHR.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Modulo_Compras\DSOC.vb">
+      <DependentUpon>DSOC.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Modulo_Produccion\Classes\BarInformation.vb" />
     <Compile Include="Modulo_Produccion\Classes\cierre.vb" />
     <Compile Include="Modulo_Produccion\Classes\gantt.Designer.vb">
@@ -728,9 +731,6 @@
     <Compile Include="Modulo_Compras\Forms\informeCompras.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modulo_Compras\Forms\informeCompras2.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Modulo_Ventas\Classes\Localidad.vb" />
     <Compile Include="Modulo_Sistema\Forms\LoginForm.Designer.vb">
       <DependentUpon>LoginForm.vb</DependentUpon>
@@ -1112,10 +1112,6 @@
       <DependentUpon>informeCompras.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modulo_Compras\Forms\informeCompras2.resx">
-      <DependentUpon>informeCompras2.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Sistema\Forms\LoginForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>LoginForm.vb</DependentUpon>
@@ -1249,6 +1245,9 @@
     </None>
     <None Include="BorrarHR.xss">
       <DependentUpon>BorrarHR.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Compras\dsComprasDos.xss">
+      <DependentUpon>dsComprasDos.xsd</DependentUpon>
     </None>
     <None Include="Modulo_Produccion\DSHojaDeRuta.xsc">
       <DependentUpon>DSHojaDeRuta.xsd</DependentUpon>
