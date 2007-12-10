@@ -34,6 +34,12 @@ Public Class GestorReportesProdForm
         query = "select nroserie from fresa"
         cargarComboTag(query, comboTorneadoNroserie, 0, 1)
 
+        query = "select * from estado where estado.idestado between 21 and 30"
+        cargarComboTag(query, comboSeguimientoEstado, 0, 2)
+
+        query = "select idmodelo, nombre from modelofresa"
+        cargarComboTag(query, comboSeguimientoModelo, 0, 2)
+
     End Sub
 
 
@@ -576,6 +582,14 @@ Public Class GestorReportesProdForm
         imageLoading.Visible = False
     End Sub
 
+    Private Sub txtNroPedidoSeguimiento_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNroPedidoSeguimiento.KeyPress
+        soloNumeros(e)
+    End Sub
+
+    Private Sub txtNroSerieSeguimiento_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNroSerieSeguimiento.KeyPress
+        soloNumeros(e)
+    End Sub
+
     Private Sub txtNroPedidoSeguimiento_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtNroPedidoSeguimiento.TextChanged
 
         If txtNroPedidoSeguimiento.Text <> "" Then
@@ -597,6 +611,7 @@ Public Class GestorReportesProdForm
     End Sub
 
     Private Sub txtNroSerieSeguimiento_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtNroSerieSeguimiento.TextChanged
+
         If txtNroPedidoSeguimiento.Text <> "" Then
             checkSeguimientoEstado.Checked = False
             checkSeguimientoFecha.Checked = False
@@ -612,16 +627,11 @@ Public Class GestorReportesProdForm
             checkSeguimientoModelo.Enabled = True
             txtNroPedidoSeguimiento.Enabled = True
         End If
-    End Sub
 
-    Private Sub txtNroPedidoSeguimiento_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNroPedidoSeguimiento.KeyPress
-        soloNumeros(e)
-    End Sub
-
-    Private Sub txtNroSerieSeguimiento_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNroSerieSeguimiento.KeyPress
-        soloNumeros(e)
     End Sub
 
 #End Region
+
+
 
 End Class

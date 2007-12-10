@@ -19,11 +19,11 @@ Partial Class GestorReportesProdForm
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GestorReportesProdForm))
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.tabProduccion = New System.Windows.Forms.TabControl
         Me.tabOrdenDeCompra = New System.Windows.Forms.TabPage
@@ -380,8 +380,8 @@ Partial Class GestorReportesProdForm
         '
         'btnPedido
         '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Me.btnPedido.Appearance = Appearance1
+        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
+        Me.btnPedido.Appearance = Appearance6
         Me.btnPedido.Location = New System.Drawing.Point(661, 77)
         Me.btnPedido.Name = "btnPedido"
         Me.btnPedido.Size = New System.Drawing.Size(96, 31)
@@ -597,8 +597,8 @@ Partial Class GestorReportesProdForm
         '
         'btnSeguimiento
         '
-        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
-        Me.btnSeguimiento.Appearance = Appearance2
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.btnSeguimiento.Appearance = Appearance5
         Me.btnSeguimiento.Location = New System.Drawing.Point(640, 80)
         Me.btnSeguimiento.Name = "btnSeguimiento"
         Me.btnSeguimiento.Size = New System.Drawing.Size(96, 31)
@@ -841,8 +841,8 @@ Partial Class GestorReportesProdForm
         '
         'btnServicio
         '
-        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
-        Me.btnServicio.Appearance = Appearance3
+        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
+        Me.btnServicio.Appearance = Appearance7
         Me.btnServicio.Location = New System.Drawing.Point(682, 71)
         Me.btnServicio.Name = "btnServicio"
         Me.btnServicio.Size = New System.Drawing.Size(90, 34)
@@ -1052,8 +1052,8 @@ Partial Class GestorReportesProdForm
         '
         'btnTorneado
         '
-        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
-        Me.btnTorneado.Appearance = Appearance4
+        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
+        Me.btnTorneado.Appearance = Appearance8
         Me.btnTorneado.Location = New System.Drawing.Point(575, 82)
         Me.btnTorneado.Name = "btnTorneado"
         Me.btnTorneado.Size = New System.Drawing.Size(90, 34)
