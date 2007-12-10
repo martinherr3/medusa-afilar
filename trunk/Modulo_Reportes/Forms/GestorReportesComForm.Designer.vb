@@ -607,7 +607,7 @@ Partial Class GestorReportesComForm
         Me.Name = "GestorReportesComForm"
         Me.RightToLeftLayout = True
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Gestor Reportes Produccion "
+        Me.Text = "Gestor Reportes Compras"
         Me.tabCompra.ResumeLayout(False)
         Me.tabOrdenDeCompra.ResumeLayout(False)
         Me.tabOrdenDeCompra.PerformLayout()
