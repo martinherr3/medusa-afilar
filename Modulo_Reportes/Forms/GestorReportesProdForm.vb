@@ -64,7 +64,7 @@ Public Class GestorReportesProdForm
                       " estado AS estado_1 ON Pedido.idestado = estado_1.idestado INNER JOIN" & _
                       " tipofresa ON fresa.idtipo = tipofresa.idtipo AND fresa.idmodelo = tipofresa.idmodelo"
 
-        Dim criterioParaMostrar As String = "Criterio de seleccion: "
+        Dim criterioParaMostrar As String = "Criterio de seleccion: --- "
         Dim criterio As String = ""
 
         If txtNroPedido.Text <> "" Then
@@ -209,7 +209,7 @@ Public Class GestorReportesProdForm
                       " hojaderuta ON detallehojaderuta.idhojaderuta = hojaderuta.idhojaderuta INNER JOIN" & _
                       " fresa ON hojaderuta.idhojaderuta = fresa.idhojaderuta"
 
-        Dim criterioParaMostrar As String = "Criterio de seleccion: "
+        Dim criterioParaMostrar As String = "Criterio de seleccion: --- "
         Dim criterio As String = ""
 
         If checkFechaSalida.Checked Then
@@ -326,7 +326,7 @@ Public Class GestorReportesProdForm
                       " cliente ON Pedido.idcliente = cliente.idcliente INNER JOIN" & _
                       " estado ON Pedido.idestado = estado.idestado"
 
-        Dim criterioParaMostrar As String = "Criterio de seleccion: "
+        Dim criterioParaMostrar As String = "Criterio de seleccion: --- "
         Dim criterio As String = ""
 
         If txtNroPedidoServicio.Text <> "" Then
@@ -496,7 +496,7 @@ Public Class GestorReportesProdForm
                       " tornero ON torneado.idtornero = tornero.idtornero INNER JOIN" & _
                       " estado ON fresa.estado = estado.idestado"
 
-        Dim criterioParaMostrar As String = "Criterio de seleccion: "
+        Dim criterioParaMostrar As String = "Criterio de seleccion: --- "
         Dim criterio As String = ""
 
         If txtNroPedidoSeguimiento.Text <> "" Then
