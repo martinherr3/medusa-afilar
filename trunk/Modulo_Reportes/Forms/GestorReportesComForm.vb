@@ -44,7 +44,7 @@ Public Class GestorReportesComForm
                       " proveedor ON ordencompramp.idproveedor = proveedor.idproveedor INNER JOIN" & _
                       " estado ON ordencompramp.idestado = estado.idestado"
 
-        Dim criterioParaMostrar As String = "Criterio de seleccion: "
+        Dim criterioParaMostrar As String = "Criterio de seleccion: --- "
         Dim criterio As String = ""
 
         If checkCompraFecha.Checked Then
@@ -146,7 +146,7 @@ Public Class GestorReportesComForm
                         " tipomateriaprima ON detalleordencompra.idtipomateriaprima = tipomateriaprima.idtipomateriaprima INNER JOIN" & _
                         " unidaddemedida ON tipomateriaprima.idunidadmedida = unidaddemedida.idunidadmedida"
 
-        Dim criterioParaMostrar As String = "Criterio de seleccion: "
+        Dim criterioParaMostrar As String = "Criterio de seleccion: --- "
         Dim criterio As String = ""
 
         If checkFechaDetalleOC.Checked Then
@@ -256,7 +256,7 @@ Public Class GestorReportesComForm
                   " FROM tipomateriaprima INNER JOIN" & _
                   " unidaddemedida ON tipomateriaprima.idunidadmedida = unidaddemedida.idunidadmedida"
 
-        Dim criterioParaMostrar As String = "Criterio de seleccion: "
+        Dim criterioParaMostrar As String = "Criterio de seleccion: --- "
         Dim criterio As String = ""
 
         If checkMPABC.Checked Then
