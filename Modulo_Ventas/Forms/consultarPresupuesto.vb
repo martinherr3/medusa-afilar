@@ -27,7 +27,13 @@ Public Class consultarPresupuesto
         princ.barra.agregarBoton(Me)
 
         'periodo inicial (ultimo mes)
-        Dim desde As New Date(Now.Year, Now.Month - 1, Now.Day)
+        Dim desde As Date
+        If Now.Month = 1 Then
+            desde = New Date(Now.Year - 1, 12, Now.Day)
+        Else
+            desde = New Date(Now.Year, Now.Month - 1, Now.Day)
+        End If
+
         dateDesde.Value = desde
         dateHasta.Value = Now
 
@@ -152,7 +158,13 @@ Public Class consultarPresupuesto
     Private Sub btnRealizarPedido_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRealizarPedido.Click
         Dim pedido As New frmpedidocliente
 
-        Dim fechaPermitida As New Date(Now.Year, Now.Month - Constantes.PEDIDO_PRESUPUESTO_TIEMPO, Now.Day)
+        Dim fechaPermitida As Date
+        If Now.Month = 1 Then
+            fechaPermitida = New Date(Now.Year - 1, 12, Now.Day)
+        Else
+            fechaPermitida = New Date(Now.Year, Now.Month - Constantes.PEDIDO_PRESUPUESTO_TIEMPO, Now.Day)
+        End If
+
         Dim fechaEmision As New Date
 
         fechaEmision = (dataGridPresupuesto.Item(dataGridPresupuesto.CurrentRowIndex, 1))
