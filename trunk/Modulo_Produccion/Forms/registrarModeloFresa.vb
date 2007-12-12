@@ -2985,7 +2985,9 @@ Public Class registrarModeloFresa
             nuevaParte("idtipofresa") = textIDFresa.Text
             nuevaParte("idparte") = textIDParte.Text
             nuevaParte("nombre") = comboNParte.SelectedItem.ToString
-            nuevaParte("cantidad") = textCantidad.Text
+            Dim cantidad As Double
+            cantidad = Convert.ToDouble(textCantidad.Text)
+            nuevaParte("cantidad") = cantidad
             nuevaParte("descripcion") = textDescParte.Text
             nuevaParte("idtipomateriaprima") = comboMatPrim.SelectedItem.Tag
 
