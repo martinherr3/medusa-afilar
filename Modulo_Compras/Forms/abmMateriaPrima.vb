@@ -191,7 +191,7 @@ Public Class abmMateriaPrima
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Location = New System.Drawing.Point(448, 83)
+        Me.Label9.Location = New System.Drawing.Point(448, 80)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(93, 13)
         Me.Label9.TabIndex = 53
@@ -427,11 +427,11 @@ Public Class abmMateriaPrima
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(275, 24)
+        Me.Label2.Location = New System.Drawing.Point(269, 24)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(52, 13)
+        Me.Label2.Size = New System.Drawing.Size(63, 13)
         Me.Label2.TabIndex = 27
-        Me.Label2.Text = "Direccion"
+        Me.Label2.Text = "Descripción"
         '
         'Label1
         '
