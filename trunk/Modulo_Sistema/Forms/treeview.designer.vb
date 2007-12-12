@@ -20,13 +20,15 @@ Partial Class treeview
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(treeview))
-        Dim Override3 As Infragistics.Win.UltraWinTree.Override = New Infragistics.Win.UltraWinTree.Override
+        Dim Override1 As Infragistics.Win.UltraWinTree.Override = New Infragistics.Win.UltraWinTree.Override
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTree1 = New Infragistics.Win.UltraWinTree.UltraTree
         Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
         Me.UltraComboEditor1 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox
+        Me.UltraComboEditor2 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
@@ -35,8 +37,6 @@ Partial Class treeview
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
-        Me.UltraComboEditor2 = New Infragistics.Win.UltraWinEditors.UltraComboEditor
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox
         CType(Me.UltraTree1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraComboEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,8 +49,8 @@ Partial Class treeview
         Me.UltraTree1.HideSelection = False
         resources.ApplyResources(Me.UltraTree1, "UltraTree1")
         Me.UltraTree1.Name = "UltraTree1"
-        Override3.SelectionType = Infragistics.Win.UltraWinTree.SelectType.[Single]
-        Me.UltraTree1.Override = Override3
+        Override1.SelectionType = Infragistics.Win.UltraWinTree.SelectType.[Single]
+        Me.UltraTree1.Override = Override1
         '
         'UltraButton1
         '
@@ -79,6 +79,17 @@ Partial Class treeview
         resources.ApplyResources(Me.UltraGroupBox1, "UltraGroupBox1")
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
         Me.UltraGroupBox1.SupportThemes = False
+        '
+        'CheckBox1
+        '
+        resources.ApplyResources(Me.CheckBox1, "CheckBox1")
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'UltraComboEditor2
+        '
+        resources.ApplyResources(Me.UltraComboEditor2, "UltraComboEditor2")
+        Me.UltraComboEditor2.Name = "UltraComboEditor2"
         '
         'Label6
         '
@@ -121,17 +132,6 @@ Partial Class treeview
         Me.UltraButton2.Appearance = Appearance2
         resources.ApplyResources(Me.UltraButton2, "UltraButton2")
         Me.UltraButton2.Name = "UltraButton2"
-        '
-        'UltraComboEditor2
-        '
-        resources.ApplyResources(Me.UltraComboEditor2, "UltraComboEditor2")
-        Me.UltraComboEditor2.Name = "UltraComboEditor2"
-        '
-        'CheckBox1
-        '
-        resources.ApplyResources(Me.CheckBox1, "CheckBox1")
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'treeview
         '
