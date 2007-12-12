@@ -81,6 +81,7 @@ Partial Class frmTornero
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage2 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
         Me.UltraTabSharedControlsPage3 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.Label6 = New System.Windows.Forms.Label
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.txtObservaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtEfectividad, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,6 +103,7 @@ Partial Class frmTornero
         '
         'UltraTabPageControl1
         '
+        Me.UltraTabPageControl1.Controls.Add(Me.Label6)
         Me.UltraTabPageControl1.Controls.Add(Me.txtObservaciones)
         Me.UltraTabPageControl1.Controls.Add(Me.Label1)
         Me.UltraTabPageControl1.Controls.Add(Me.Label11)
@@ -170,7 +172,7 @@ Partial Class frmTornero
         Me.txtEfectividad.Enabled = False
         Me.txtEfectividad.Location = New System.Drawing.Point(461, 113)
         Me.txtEfectividad.Name = "txtEfectividad"
-        Me.txtEfectividad.Size = New System.Drawing.Size(206, 21)
+        Me.txtEfectividad.Size = New System.Drawing.Size(163, 21)
         Me.txtEfectividad.TabIndex = 7
         '
         'txtCantidad
@@ -539,6 +541,17 @@ Partial Class frmTornero
         Me.UltraTabSharedControlsPage3.Name = "UltraTabSharedControlsPage3"
         Me.UltraTabSharedControlsPage3.Size = New System.Drawing.Size(740, 233)
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(630, 118)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(16, 13)
+        Me.Label6.TabIndex = 44
+        Me.Label6.Text = "%"
+        '
         'frmTornero
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -609,4 +622,5 @@ Partial Class frmTornero
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
     Friend WithEvents txtObservaciones As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
 End Class
