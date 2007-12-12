@@ -129,11 +129,11 @@ Public Class ProdNuevo
         Me.Label2 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.UltraButton2 = New Infragistics.Win.Misc.UltraButton
-        Me.GanttChart1 = New Afilar.GanttChart
         Me.UltraButton5 = New Infragistics.Win.Misc.UltraButton
         Me.UltraButton4 = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.GanttChart1 = New Afilar.GanttChart
         Me.UltraTabPageControl1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.grd2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -190,10 +190,11 @@ Public Class ProdNuevo
         'DTPickerInicioProg
         '
         Me.DTPickerInicioProg.Location = New System.Drawing.Point(18, 15)
-        Me.DTPickerInicioProg.MinDate = New Date(2007, 11, 14, 0, 0, 0, 0)
+        Me.DTPickerInicioProg.MinDate = New Date(1753, 1, 18, 0, 0, 0, 0)
         Me.DTPickerInicioProg.Name = "DTPickerInicioProg"
         Me.DTPickerInicioProg.Size = New System.Drawing.Size(199, 20)
         Me.DTPickerInicioProg.TabIndex = 5
+        Me.DTPickerInicioProg.Value = New Date(2007, 11, 14, 0, 0, 0, 0)
         '
         'UltraButton3
         '
@@ -365,22 +366,6 @@ Public Class ProdNuevo
         Me.UltraButton2.TabIndex = 12
         Me.UltraButton2.Text = "Referencias"
         '
-        'GanttChart1
-        '
-        Me.GanttChart1.BackColor = System.Drawing.Color.White
-        Me.GanttChart1.DateFont = New System.Drawing.Font("Verdana", 8.0!)
-        Me.GanttChart1.FromDate = New Date(CType(0, Long))
-        Me.GanttChart1.Location = New System.Drawing.Point(4, 23)
-        Me.GanttChart1.Name = "GanttChart1"
-        Me.GanttChart1.RowFont = New System.Drawing.Font("Verdana", 8.0!)
-        Me.GanttChart1.Size = New System.Drawing.Size(742, 310)
-        Me.GanttChart1.TabIndex = 11
-        Me.GanttChart1.Text = "GanttChart1"
-        Me.GanttChart1.TimeFont = New System.Drawing.Font("Verdana", 8.0!)
-        Me.GanttChart1.ToDate = New Date(CType(0, Long))
-        Me.GanttChart1.ToolTipText = CType(resources.GetObject("GanttChart1.ToolTipText"), System.Collections.Generic.List(Of String))
-        Me.GanttChart1.ToolTipTextTitle = ""
-        '
         'UltraButton5
         '
         Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
@@ -434,6 +419,22 @@ Public Class ProdNuevo
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(756, 542)
         '
+        'GanttChart1
+        '
+        Me.GanttChart1.BackColor = System.Drawing.Color.White
+        Me.GanttChart1.DateFont = New System.Drawing.Font("Verdana", 8.0!)
+        Me.GanttChart1.FromDate = New Date(CType(0, Long))
+        Me.GanttChart1.Location = New System.Drawing.Point(4, 23)
+        Me.GanttChart1.Name = "GanttChart1"
+        Me.GanttChart1.RowFont = New System.Drawing.Font("Verdana", 8.0!)
+        Me.GanttChart1.Size = New System.Drawing.Size(742, 310)
+        Me.GanttChart1.TabIndex = 11
+        Me.GanttChart1.Text = "GanttChart1"
+        Me.GanttChart1.TimeFont = New System.Drawing.Font("Verdana", 8.0!)
+        Me.GanttChart1.ToDate = New Date(CType(0, Long))
+        Me.GanttChart1.ToolTipText = CType(resources.GetObject("GanttChart1.ToolTipText"), System.Collections.Generic.List(Of String))
+        Me.GanttChart1.ToolTipTextTitle = ""
+        '
         'ProdNuevo
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -475,6 +476,8 @@ Public Class ProdNuevo
         'Dim sql As String = "select P.idpedido, P.fechaRealizacion, E.nombre, P.prioridad, C.nombre " & _
         '    "from pedido P, estado E, cliente C " & _
         '    "where P.idestado=E.idestado AND P.idcliente = C.idcliente and P.idestado = " & ESTADO_PENDIENTE
+
+        DTPickerInicioProg.Value = Now
 
         Dim sql As String = "select P.idpedido, P.fechaRealizacion, E.nombre, P.fechaentrega, C.nombre " & _
             "from pedido P, estado E, cliente C " & _

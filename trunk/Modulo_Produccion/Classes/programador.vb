@@ -425,9 +425,11 @@ Public Class programador
       DS = getDSMateriaPartes(fre.id_fresa)
       For Each row As DataRow In DS.Tables.Item(0).Rows
 
-        'idtipomateriaprima, cantidad, nroserie
-        commd.CommandText = "UPDATE tipomateriaprima SET stockactual = stockactual - " & row.Item(1) & " WHERE idtipomateriaprima = " & row.Item(0)
-        commd.ExecuteNonQuery()
+                'idtipomateriaprima, cantidad, nroserie
+                Dim cantidad As Double
+                cantidad = Convert.ToDouble(row.Item(1))
+                commd.CommandText = "UPDATE tipomateriaprima SET stockactual = stockactual - " & cantidad.ToString & " WHERE idtipomateriaprima = " & row.Item(0)
+                commd.ExecuteNonQuery()
 
       Next
       commd.CommandText = "INSERT INTO hojaderuta (idhojaderuta) VALUES (" & idHR & ")"
