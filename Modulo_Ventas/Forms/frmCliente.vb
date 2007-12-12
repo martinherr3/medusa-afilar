@@ -192,7 +192,7 @@ Public Class frmCliente
         Me.textBox6.Enabled = False
         Me.textBox6.Location = New System.Drawing.Point(74, 112)
         Me.textBox6.Name = "textBox6"
-        Me.textBox6.Size = New System.Drawing.Size(128, 21)
+        Me.textBox6.Size = New System.Drawing.Size(190, 21)
         Me.textBox6.TabIndex = 8
         '
         'TextBox3
@@ -228,7 +228,7 @@ Public Class frmCliente
         Me.TextBox1.Enabled = False
         Me.TextBox1.Location = New System.Drawing.Point(432, 16)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(128, 21)
+        Me.TextBox1.Size = New System.Drawing.Size(184, 21)
         Me.TextBox1.TabIndex = 1
         '
         'TextBox5
@@ -252,7 +252,7 @@ Public Class frmCliente
         Me.TextBox4.Enabled = False
         Me.TextBox4.Location = New System.Drawing.Point(74, 64)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(128, 21)
+        Me.TextBox4.Size = New System.Drawing.Size(190, 21)
         Me.TextBox4.TabIndex = 4
         '
         'TextBox2
@@ -346,7 +346,7 @@ Public Class frmCliente
         Me.ComboBox2.Enabled = False
         Me.ComboBox2.Location = New System.Drawing.Point(432, 88)
         Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(128, 21)
+        Me.ComboBox2.Size = New System.Drawing.Size(184, 21)
         Me.ComboBox2.TabIndex = 7
         '
         'Label8
@@ -691,11 +691,18 @@ Public Class frmCliente
             UltraButton4.Enabled = True
             UltraButton5.Enabled = True
             TextBox1.Enabled = True
-
-            TextBox1.Text = ""
+            TextBox2.Enabled = True
+            TextBox3.Enabled = True
+            TextBox4.Enabled = True
+            TextBox5.Enabled = True
+            textBox6.Enabled = True
+            TextBox7.Enabled = True
+            ComboBox2.Enabled = True
             ComboBox1.Enabled = True
 
-            TextBox1.Focus()
+            TextBox1.Text = ""
+
+            'TextBox1.Focus()
 
             TextBox2.Text = ""
             TextBox3.Text = ""
@@ -703,8 +710,9 @@ Public Class frmCliente
             TextBox5.Text = ""
             textBox6.Text = ""
             TextBox7.Text = ""
+
             'UltraButton6.PerformClick()  'voy al ultimo registro
-            'mostrarPosicion("cliente")
+            mostrarPosicion("cliente")
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
