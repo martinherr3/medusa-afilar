@@ -19,6 +19,7 @@ Partial Class frmHojaDeRuta
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHojaDeRuta))
         Me.dgHoja = New System.Windows.Forms.DataGridView
         Me.Button1 = New System.Windows.Forms.Button
         Me.cmbCriterio = New System.Windows.Forms.ComboBox
@@ -35,14 +36,16 @@ Partial Class frmHojaDeRuta
         Me.dgHoja.Location = New System.Drawing.Point(12, 40)
         Me.dgHoja.Name = "dgHoja"
         Me.dgHoja.ReadOnly = True
-        Me.dgHoja.Size = New System.Drawing.Size(645, 164)
+        Me.dgHoja.Size = New System.Drawing.Size(645, 203)
         Me.dgHoja.TabIndex = 0
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(513, 235)
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(521, 249)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(144, 33)
+        Me.Button1.Size = New System.Drawing.Size(136, 33)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Ver Hoja de Ruta"
         Me.Button1.UseVisualStyleBackColor = True

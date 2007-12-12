@@ -19,6 +19,7 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.SuspendLayout()
         '
@@ -40,6 +41,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 589)
         Me.Controls.Add(Me.CrystalReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Location = New System.Drawing.Point(196, 105)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
