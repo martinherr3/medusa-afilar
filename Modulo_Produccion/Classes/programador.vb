@@ -427,8 +427,10 @@ Public Class programador
 
                 'idtipomateriaprima, cantidad, nroserie
                 Dim cantidad As Double
-                cantidad = Convert.ToDouble(row.Item(1))
-                commd.CommandText = "UPDATE tipomateriaprima SET stockactual = stockactual - " & cantidad.ToString & " WHERE idtipomateriaprima = " & row.Item(0)
+                'cantidad = Convert.ToDouble(row.Item(1))
+                cantidad = row.Item(1).ToString().Replace(",", ".")
+
+                commd.CommandText = "UPDATE tipomateriaprima SET stockactual = stockactual - " & cantidad & " WHERE idtipomateriaprima = " & row.Item(0)
                 commd.ExecuteNonQuery()
 
       Next
