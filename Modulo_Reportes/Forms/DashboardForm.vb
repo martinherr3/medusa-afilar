@@ -14,7 +14,13 @@ Public Class DashboardForm
     Private Sub DashboardForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         'periodo inicial (ultimos seis meses)
-        Dim desde As New Date(Now.Year, Now.Month - 6, Now.Day)
+        Dim desde As Date
+        If Now.Month <= 6 Then
+            desde = New Date(Now.Year - 1, Now.Month + 6, Now.Day)
+        Else
+            desde = New Date(Now.Year, Now.Month - 6, Now.Day)
+        End If
+
         dateDesde.Value = desde
         dateHasta.Value = Now
 

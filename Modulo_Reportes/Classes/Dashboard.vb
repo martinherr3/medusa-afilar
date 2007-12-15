@@ -153,9 +153,11 @@ Public Class Dashboard
 
         selectCommand.Connection = cnn
         selectCommand.Connection.Open()
-        selectCommand.CommandText = "SELECT SUM(f.precio) As precio, SUM(f.costofabricacion) As costo" & _
-                                    " FROM fresa f" & _
-                                    " WHERE f.fechafinfabricacion > '" + desde.Date + "'" & _
+        selectCommand.CommandText = "SELECT SUM(f.precio) As precio, SUM(tf.costo) As costo" & _
+                                    " FROM fresa f, tipofresa tf" & _
+                                    " WHERE f.idtipo = tf.idtipo" & _
+                                    " AND f.idmodelo = tf.idmodelo" & _
+                                    " AND f.fechafinfabricacion > '" + desde.Date + "'" & _
                                     " AND f.fechafinfabricacion < '" + hasta.Date + "'"
 
         selectCommand.CommandType = CommandType.Text
