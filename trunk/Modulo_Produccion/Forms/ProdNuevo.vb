@@ -543,55 +543,58 @@ Public Class ProdNuevo
     End Sub
 
     Private Sub grd1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles grd1.Click
+        Try
+            grd1.Select(grd1.CurrentRowIndex())
 
-        grd1.Select(grd1.CurrentRowIndex())
+            If grd1.Item(grd1.CurrentRowIndex(), 0) = True Then
+                grd1.Item(grd1.CurrentRowIndex(), 0) = False
 
-        If grd1.Item(grd1.CurrentRowIndex(), 0) = True Then
-            grd1.Item(grd1.CurrentRowIndex(), 0) = False
+            Else
+                grd1.Item(grd1.CurrentRowIndex(), 0) = True
 
-        Else
-            grd1.Item(grd1.CurrentRowIndex(), 0) = True
-
-        End If
-
-        Dim i As Integer
-        Dim k As String = ""
-        Dim j As DataRow
-
-        For Each j In DS.Tables("Pedidos").Rows
-            If j("seleccionar") = True Then
-                k = k & " ," & j("idpedido")
             End If
-        Next
 
-        Dim dv2 As New DataView(DS.Tables.Item("Fresas"))
+            Dim i As Integer
+            Dim k As String = ""
+            Dim j As DataRow
 
-        If k.Length > 1 Then
-            k = k.Substring(2)
-            dv2.RowFilter = "nropedido IN( " & k & " )"
-        Else
-            dv2.RowFilter = "1=2"
-        End If
+            For Each j In DS.Tables("Pedidos").Rows
+                If j("seleccionar") = True Then
+                    k = k & " ," & j("idpedido")
+                End If
+            Next
 
-        grd2.DataSource = dv2
-        grd2.TableStyles.Clear()
+            Dim dv2 As New DataView(DS.Tables.Item("Fresas"))
 
-        Dim nombres(DS.Tables.Item(0).Columns.Count - 1) As String
-        Dim anchos(DS.Tables.Item(0).Columns.Count - 1) As Integer
+            If k.Length > 1 Then
+                k = k.Substring(2)
+                dv2.RowFilter = "nropedido IN( " & k & " )"
+            Else
+                dv2.RowFilter = "1=2"
+            End If
 
-        nombres(0) = "Nro Pedido"
-        nombres(1) = "Nro Serie"
-        'nombres(2) = "Fecha Fin Fabric."
-        nombres(2) = "Fresa"
-        nombres(3) = "Estado"
+            grd2.DataSource = dv2
+            grd2.TableStyles.Clear()
 
-        anchos(0) = 90
-        anchos(1) = 100
-        'anchos(2) = 130
-        anchos(2) = 160
-        anchos(3) = 130
+            Dim nombres(DS.Tables.Item(0).Columns.Count - 1) As String
+            Dim anchos(DS.Tables.Item(0).Columns.Count - 1) As Integer
 
-        cargarGrilla(grd2, dv2.Table, nombres, anchos)
+            nombres(0) = "Nro Pedido"
+            nombres(1) = "Nro Serie"
+            'nombres(2) = "Fecha Fin Fabric."
+            nombres(2) = "Fresa"
+            nombres(3) = "Estado"
+
+            anchos(0) = 90
+            anchos(1) = 100
+            'anchos(2) = 130
+            anchos(2) = 160
+            anchos(3) = 130
+
+            cargarGrilla(grd2, dv2.Table, nombres, anchos)
+        Catch ex As Exception
+            'NADA
+        End Try
     End Sub
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click

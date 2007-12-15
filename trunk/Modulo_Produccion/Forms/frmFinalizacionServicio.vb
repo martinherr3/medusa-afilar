@@ -13,11 +13,11 @@ Public Class frmFinalizacionServicio
         CargarServicios()
     End Sub
 
-    Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
+    Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Close()
     End Sub
 
-    Private Sub btnFinalizarServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFinalizarServicio.Click
+    Private Sub btnFinServicio_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFinServicio.Click
         FinalizarServicio()
     End Sub
 #End Region
@@ -26,7 +26,14 @@ Public Class frmFinalizacionServicio
     Private Sub CargarServicios()
         Try
 
-            da = New SqlClient.SqlDataAdapter("select detalleordenservicio.idpedido, detalleordenservicio.idoperacion, detalleordenservicio.idobjetodelservicio, detalleordenservicio.preciodeservicio, detalleordenservicio.observacion, detalleordenservicio.idhojaderuta, detalleordenservicio.precio, detalleordenservicio.estado, estado.idestado, estado.nombre, operacion.nombre as operacion  from detalleordenservicio inner join estado on detalleordenservicio.estado=estado.idestado inner join operacion on detalleordenservicio.idoperacion=operacion.idoperacion where detalleordenservicio.estado<>" & Estado.ORDEN_DE_SERVICIO_FINALIZADO, cnn)
+            da = New SqlClient.SqlDataAdapter("select detalleordenservicio.idpedido, " & _
+                "detalleordenservicio.idoperacion, detalleordenservicio.idobjetodelservicio, " & _
+                "detalleordenservicio.preciodeservicio, detalleordenservicio.observacion, " & _
+                "detalleordenservicio.idhojaderuta, detalleordenservicio.precio, " & _
+                "detalleordenservicio.estado, estado.idestado, estado.nombre, operacion.nombre as operacion  " & _
+                "from detalleordenservicio inner join estado on detalleordenservicio.estado=estado.idestado " & _
+                "inner join operacion on detalleordenservicio.idoperacion=operacion.idoperacion " & _
+                "where detalleordenservicio.estado <> " & Estado.ORDEN_DE_SERVICIO_FINALIZADO, cnn)
             ds = New DataSet()
             da.Fill(ds)
 
@@ -106,5 +113,6 @@ Public Class frmFinalizacionServicio
         End Try
     End Sub
 #End Region
+
 
 End Class
