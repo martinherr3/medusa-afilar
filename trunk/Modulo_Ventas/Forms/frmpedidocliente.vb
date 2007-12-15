@@ -53,6 +53,7 @@ Public Class frmpedidocliente
     Friend WithEvents comboFiltroEstado As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents ContextMenuSimular As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents estimar As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btnmodificar As Infragistics.Win.Misc.UltraButton
     Dim bpedido As Boolean
 #End Region
 
@@ -117,7 +118,6 @@ Public Class frmpedidocliente
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents btngrabar As Infragistics.Win.Misc.UltraButton
     Friend WithEvents DataGridpp As System.Windows.Forms.DataGrid
-    Friend WithEvents btnmodificar As Infragistics.Win.Misc.UltraButton
     Friend WithEvents dgpedidos As System.Windows.Forms.DataGrid
     Friend WithEvents UltraGroupBox3 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents UltraOptionSet1 As Infragistics.Win.UltraWinEditors.UltraOptionSet
@@ -145,7 +145,6 @@ Public Class frmpedidocliente
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmpedidocliente))
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -173,11 +172,11 @@ Public Class frmpedidocliente
         Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.txtimportetotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label11 = New System.Windows.Forms.Label
-        Me.btnmodificar = New Infragistics.Win.Misc.UltraButton
         Me.btngrabar = New Infragistics.Win.Misc.UltraButton
         Me.btnnuevo = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
@@ -246,6 +245,7 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
+        Me.btnmodificar = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -303,7 +303,7 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox3)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(813, 545)
         '
@@ -336,16 +336,6 @@ Public Class frmpedidocliente
         Me.Label11.Size = New System.Drawing.Size(68, 13)
         Me.Label11.TabIndex = 6
         Me.Label11.Text = "Importe total:"
-        '
-        'btnmodificar
-        '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Me.btnmodificar.Appearance = Appearance1
-        Me.btnmodificar.Location = New System.Drawing.Point(200, 509)
-        Me.btnmodificar.Name = "btnmodificar"
-        Me.btnmodificar.Size = New System.Drawing.Size(88, 30)
-        Me.btnmodificar.TabIndex = 4
-        Me.btnmodificar.Text = "Modificar"
         '
         'btngrabar
         '
@@ -996,7 +986,7 @@ Public Class frmpedidocliente
         Me.UltraTabPageControl2.Controls.Add(Me.txtFiltrar)
         Me.UltraTabPageControl2.Controls.Add(Me.btnSalir)
         Me.UltraTabPageControl2.Controls.Add(Me.dgpedidos)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(813, 545)
         '
@@ -1237,6 +1227,16 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
+        '
+        'btnmodificar
+        '
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnmodificar.Appearance = Appearance1
+        Me.btnmodificar.Location = New System.Drawing.Point(200, 509)
+        Me.btnmodificar.Name = "btnmodificar"
+        Me.btnmodificar.Size = New System.Drawing.Size(88, 30)
+        Me.btnmodificar.TabIndex = 4
+        Me.btnmodificar.Text = "Modificar"
         '
         'frmpedidocliente
         '
@@ -2235,7 +2235,7 @@ Public Class frmpedidocliente
                         dr1("item") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nombre")
                         dr1("operacion") = ds.Tables("servicios").Rows(i).Item("nombre")
                         dr1("cantidad") = 1
-                        dr1("estado") = 41
+                        dr1("estado") = Estado.ORDEN_DE_SERVICIO_PENDIENTE
                         dr1("nroserie") = ds.Tables("FF").Rows(DataGridfresasfab.CurrentRowIndex).Item("nroserie")
                         If ds.Tables("servicios").Rows(i).Item("precio") = 0 Then
                             MsgBox("Falta Precio de Servicio", MsgBoxStyle.Information, "Afilar")
@@ -2270,6 +2270,7 @@ Public Class frmpedidocliente
                             Exit Sub
                         End If
                         dr1("cantidad") = CInt(txtcantidad.Text)
+                        dr1("estado") = Estado.ORDEN_DE_SERVICIO_PENDIENTE
                         If ds.Tables("servicios").Rows(i).Item("precio") = 0 Then
                             MsgBox("Falta Precio de Servicio", MsgBoxStyle.Information, "Afilar")
                             Exit Sub
