@@ -10,6 +10,8 @@ Public Class principal
     Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
     Friend WithEvents LinkLabel3 As System.Windows.Forms.LinkLabel
     Private logeo As New LoginForm
+    Friend WithEvents myMenu As New MenuItem("Ayuda")
+
 
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -256,6 +258,20 @@ Public Class principal
         princ.barra.eliminarBoton()
     End Sub
 
+    'Private Sub principal_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+    '    MessageBox.Show("KD")
+    '    If e.KeyCode = Keys.F1 Then
+    '        MessageBox.Show("KD1")
+    '    End If
+    'End Sub
+
+    'Private Sub principal_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
+    '    MessageBox.Show("KP1")
+    '    If e.KeyChar = Keys.F1.ToString Then
+    '        MessageBox.Show("KP")
+    '    End If
+    'End Sub
+
     Private Sub principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         bloquearPantalla(True)
         logeo.ShowDialog()
@@ -263,12 +279,20 @@ Public Class principal
         
         barra = New BarraDeEstado(UltraStatusBar1)
         Actualizar()
+
+        mMenu.MenuItems.Add(myMenu)
         'GestorFrm.InitMenu(Me.UltraExplorerBar1, mMenu, Me)
         'Me.Menu = mMenu
         Mensajeria.getMensajes(seguridad.id, LinkLabel1)
         acomodarImagenes()
 
     End Sub
+
+    Private Sub myMenu_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles myMenu.Click
+        Help.ShowHelp(Me, "C:\Documents and Settings\Agu699\Mis documentos\Afilar\Ayuda\ayuda_medusa.chm")
+    End Sub
+
+    'private sub btnAyuda_Click() Handle myMenu.Click
 
     Public Sub acomodarImagenes()
         PictureBox1.Width = Me.Width
