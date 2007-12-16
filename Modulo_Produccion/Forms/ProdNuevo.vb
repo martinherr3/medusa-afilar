@@ -731,6 +731,7 @@ Public Class ProdNuevo
         Dim finProduccion As DateTime
         Dim b As Boolean = False
         Dim c As Boolean = False
+        Dim d As Boolean = False
 
         Dim maqIndice As Integer = 0
 
@@ -771,10 +772,16 @@ Public Class ProdNuevo
                     End If
                 Next
 
+
+
                 colProgramados.Add(New BarInformation(maq.nombre, tar.inicio, tar.fin, colorFresa, Color.Bisque, maqIndice, tar.idFresa, tar.getNombreOperacion()))
+                d = True
 
             Next
-            maqIndice += 1
+            If d Then
+                maqIndice += 1
+            End If
+            d = False
         Next
 
         GanttChart1.FromDate = minimo

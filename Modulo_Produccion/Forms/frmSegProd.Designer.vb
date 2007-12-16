@@ -22,11 +22,9 @@ Partial Class frmSegProd
         Me.components = New System.ComponentModel.Container
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraExplorerBarGroup1 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup
-        Dim UltraExplorerBarItem1 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
-        Dim UltraExplorerBarItem2 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem
+        Dim UltraExplorerBarGroup2 As Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSegProd))
         Me.barra = New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBar
         Me.lblFresa = New System.Windows.Forms.Label
         Me.imagen = New System.Windows.Forms.PictureBox
@@ -74,8 +72,7 @@ Partial Class frmSegProd
         Appearance1.ForeColor = System.Drawing.Color.Blue
         Me.barra.Appearance = Appearance1
         Me.barra.BorderStyle = Infragistics.Win.UIElementBorderStyle.InsetSoft
-        UltraExplorerBarGroup1.Items.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarItem() {UltraExplorerBarItem1, UltraExplorerBarItem2})
-        Me.barra.Groups.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup() {UltraExplorerBarGroup1})
+        Me.barra.Groups.AddRange(New Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarGroup() {UltraExplorerBarGroup1, UltraExplorerBarGroup2})
         Me.barra.GroupSettings.Style = Infragistics.Win.UltraWinExplorerBar.GroupStyle.SmallImagesWithText
         Appearance2.FontData.Name = "Arial"
         Appearance2.FontData.SizeInPoints = 7.8!
@@ -88,7 +85,7 @@ Partial Class frmSegProd
         Me.barra.Location = New System.Drawing.Point(12, 13)
         Me.barra.Name = "barra"
         Me.barra.ShowDefaultContextMenu = False
-        Me.barra.Size = New System.Drawing.Size(393, 347)
+        Me.barra.Size = New System.Drawing.Size(393, 513)
         Me.barra.StateButtonCheckStyle = Infragistics.Win.UltraWinExplorerBar.StateButtonCheckStyle.ExclusiveWithinGroup
         Me.barra.Style = Infragistics.Win.UltraWinExplorerBar.UltraExplorerBarStyle.Listbar
         Me.barra.TabIndex = 3
@@ -109,7 +106,7 @@ Partial Class frmSegProd
         '
         Me.imagen.Location = New System.Drawing.Point(433, 54)
         Me.imagen.Name = "imagen"
-        Me.imagen.Size = New System.Drawing.Size(497, 306)
+        Me.imagen.Size = New System.Drawing.Size(493, 235)
         Me.imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.imagen.TabIndex = 5
         Me.imagen.TabStop = False
@@ -135,9 +132,9 @@ Partial Class frmSegProd
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Font = New System.Drawing.Font("Arial", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 366)
+        Me.GroupBox1.Location = New System.Drawing.Point(433, 297)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(937, 160)
+        Me.GroupBox1.Size = New System.Drawing.Size(485, 231)
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de Operacion Actual"
@@ -146,9 +143,9 @@ Partial Class frmSegProd
         '
         Me.cmbTornero.AutoComplete = True
         Me.cmbTornero.AutoSize = True
-        Me.cmbTornero.Location = New System.Drawing.Point(652, 32)
+        Me.cmbTornero.Location = New System.Drawing.Point(239, 138)
         Me.cmbTornero.Name = "cmbTornero"
-        Me.cmbTornero.Size = New System.Drawing.Size(226, 24)
+        Me.cmbTornero.Size = New System.Drawing.Size(191, 24)
         Me.cmbTornero.TabIndex = 17
         Me.cmbTornero.Visible = False
         '
@@ -156,15 +153,15 @@ Partial Class frmSegProd
         '
         Me.cmbEmpleado.AutoComplete = True
         Me.cmbEmpleado.AutoSize = True
-        Me.cmbEmpleado.Location = New System.Drawing.Point(654, 32)
+        Me.cmbEmpleado.Location = New System.Drawing.Point(241, 138)
         Me.cmbEmpleado.Name = "cmbEmpleado"
-        Me.cmbEmpleado.Size = New System.Drawing.Size(226, 24)
+        Me.cmbEmpleado.Size = New System.Drawing.Size(189, 24)
         Me.cmbEmpleado.TabIndex = 16
         '
         'LblOperacion
         '
         Me.LblOperacion.AutoSize = True
-        Me.LblOperacion.Location = New System.Drawing.Point(249, 38)
+        Me.LblOperacion.Location = New System.Drawing.Point(238, 26)
         Me.LblOperacion.Name = "LblOperacion"
         Me.LblOperacion.Size = New System.Drawing.Size(0, 16)
         Me.LblOperacion.TabIndex = 15
@@ -172,7 +169,7 @@ Partial Class frmSegProd
         'lblInicioPlan
         '
         Me.lblInicioPlan.AutoSize = True
-        Me.lblInicioPlan.Location = New System.Drawing.Point(248, 68)
+        Me.lblInicioPlan.Location = New System.Drawing.Point(237, 45)
         Me.lblInicioPlan.Name = "lblInicioPlan"
         Me.lblInicioPlan.Size = New System.Drawing.Size(0, 16)
         Me.lblInicioPlan.TabIndex = 14
@@ -180,7 +177,7 @@ Partial Class frmSegProd
         'lblFinPlan
         '
         Me.lblFinPlan.AutoSize = True
-        Me.lblFinPlan.Location = New System.Drawing.Point(251, 102)
+        Me.lblFinPlan.Location = New System.Drawing.Point(240, 66)
         Me.lblFinPlan.Name = "lblFinPlan"
         Me.lblFinPlan.Size = New System.Drawing.Size(0, 16)
         Me.lblFinPlan.TabIndex = 13
@@ -188,7 +185,7 @@ Partial Class frmSegProd
         'lblDuracion
         '
         Me.lblDuracion.AutoSize = True
-        Me.lblDuracion.Location = New System.Drawing.Point(251, 133)
+        Me.lblDuracion.Location = New System.Drawing.Point(240, 85)
         Me.lblDuracion.Name = "lblDuracion"
         Me.lblDuracion.Size = New System.Drawing.Size(0, 16)
         Me.lblDuracion.TabIndex = 12
@@ -196,7 +193,7 @@ Partial Class frmSegProd
         'lblOperario
         '
         Me.lblOperario.AutoSize = True
-        Me.lblOperario.Location = New System.Drawing.Point(654, 39)
+        Me.lblOperario.Location = New System.Drawing.Point(241, 145)
         Me.lblOperario.Name = "lblOperario"
         Me.lblOperario.Size = New System.Drawing.Size(0, 16)
         Me.lblOperario.TabIndex = 11
@@ -204,7 +201,7 @@ Partial Class frmSegProd
         'lblInicioReal
         '
         Me.lblInicioReal.AutoSize = True
-        Me.lblInicioReal.Location = New System.Drawing.Point(649, 72)
+        Me.lblInicioReal.Location = New System.Drawing.Point(236, 167)
         Me.lblInicioReal.Name = "lblInicioReal"
         Me.lblInicioReal.Size = New System.Drawing.Size(0, 16)
         Me.lblInicioReal.TabIndex = 10
@@ -212,7 +209,7 @@ Partial Class frmSegProd
         'lblfinReal
         '
         Me.lblfinReal.AutoSize = True
-        Me.lblfinReal.Location = New System.Drawing.Point(649, 103)
+        Me.lblfinReal.Location = New System.Drawing.Point(236, 185)
         Me.lblfinReal.Name = "lblfinReal"
         Me.lblfinReal.Size = New System.Drawing.Size(0, 16)
         Me.lblfinReal.TabIndex = 9
@@ -220,7 +217,7 @@ Partial Class frmSegProd
         'lblMaquina
         '
         Me.lblMaquina.AutoSize = True
-        Me.lblMaquina.Location = New System.Drawing.Point(649, 134)
+        Me.lblMaquina.Location = New System.Drawing.Point(236, 204)
         Me.lblMaquina.Name = "lblMaquina"
         Me.lblMaquina.Size = New System.Drawing.Size(0, 16)
         Me.lblMaquina.TabIndex = 8
@@ -228,7 +225,7 @@ Partial Class frmSegProd
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(494, 37)
+        Me.Label8.Location = New System.Drawing.Point(81, 143)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(153, 16)
         Me.Label8.TabIndex = 7
@@ -237,7 +234,7 @@ Partial Class frmSegProd
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(504, 133)
+        Me.Label7.Location = New System.Drawing.Point(91, 203)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(143, 16)
         Me.Label7.TabIndex = 6
@@ -246,7 +243,7 @@ Partial Class frmSegProd
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(106, 131)
+        Me.Label6.Location = New System.Drawing.Point(95, 83)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(141, 16)
         Me.Label6.TabIndex = 5
@@ -255,7 +252,7 @@ Partial Class frmSegProd
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(492, 101)
+        Me.Label5.Location = New System.Drawing.Point(79, 183)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(155, 16)
         Me.Label5.TabIndex = 4
@@ -264,7 +261,7 @@ Partial Class frmSegProd
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(44, 99)
+        Me.Label4.Location = New System.Drawing.Point(33, 63)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(203, 16)
         Me.Label4.TabIndex = 3
@@ -273,7 +270,7 @@ Partial Class frmSegProd
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(477, 69)
+        Me.Label3.Location = New System.Drawing.Point(64, 164)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(170, 16)
         Me.Label3.TabIndex = 2
@@ -282,7 +279,7 @@ Partial Class frmSegProd
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(29, 67)
+        Me.Label2.Location = New System.Drawing.Point(18, 44)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(218, 16)
         Me.Label2.TabIndex = 1
@@ -291,7 +288,7 @@ Partial Class frmSegProd
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(164, 35)
+        Me.Label1.Location = New System.Drawing.Point(153, 23)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(83, 16)
         Me.Label1.TabIndex = 0
@@ -308,10 +305,10 @@ Partial Class frmSegProd
         'PictureBox3
         '
         Me.PictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(12, -33)
+        Me.PictureBox3.Image = Global.Afilar.My.Resources.Resources.ScreenSaver1
+        Me.PictureBox3.Location = New System.Drawing.Point(6, -33)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(937, 561)
+        Me.PictureBox3.Size = New System.Drawing.Size(930, 561)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox3.TabIndex = 15
         Me.PictureBox3.TabStop = False
@@ -348,7 +345,7 @@ Partial Class frmSegProd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(961, 563)
+        Me.ClientSize = New System.Drawing.Size(948, 563)
         Me.Controls.Add(Me.UltraButton2)
         Me.Controls.Add(Me.UltraButton1)
         Me.Controls.Add(Me.txtIDHR)

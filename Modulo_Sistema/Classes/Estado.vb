@@ -17,7 +17,7 @@ Public Enum Estado
 
     'Estados para clase FRESA
     FRESA_PENDIENTE = 21
-    FRESA_PARA_TORNEAR = 22
+    FRESA_PROGRAMADO = 22
     FRESA_TORNEANDO = 23
     FRESA_FABRICANDO = 24
     FRESA_FINALIZADO = 25
