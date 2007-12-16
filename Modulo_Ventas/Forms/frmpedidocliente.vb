@@ -1757,6 +1757,7 @@ Public Class frmpedidocliente
         bnuevo = False
         bpedido = False
         btnmodificar.Enabled = False
+        MessageBox.Show("Se ha registrado con exito", "Pedido", MessageBoxButtons.OK)
     End Sub
 
 
