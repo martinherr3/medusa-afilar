@@ -5,7 +5,7 @@ Public Class frmEntrega
     'Dim dspedidosel As New DataSet
     Dim tbps As New DataTable
     'Dim consulta As String = "select idpedido, fecharealizacion, fechaentrega, prioridad,nombre 'estado', pedido.idestado,pedido.idcliente,idformadeentrega from pedido,estado where pedido.idestado=estado.idestado and estado.nombre='PendienteEntrega' order by prioridad desc"
-    Dim consulta As String = "select idpedido, fecharealizacion, fechaentrega, prioridad,nombre 'estado', pedido.idestado,pedido.idcliente,idformadeentrega from pedido,estado where pedido.idestado=estado.idestado and pedido.idestado=" & Estado.PEDIDO_FINALIZADO & " order by prioridad desc"
+    Dim consulta As String = "select idpedido, fecharealizacion, fechaentrega, nombre 'estado', pedido.idestado,pedido.idcliente,idformadeentrega from pedido,estado where pedido.idestado=estado.idestado and pedido.idestado=" & Estado.PEDIDO_FINALIZADO & " order by prioridad desc"
     '"select idpedido, fecharealizacion, fechaentrega, prioridad,nombre from cliente,estado where pedido.idestado=estado.idestado"
     Dim adaptador As SqlDataAdapter = New SqlDataAdapter(consulta, cnn)
     Dim bandCmb2 As Integer = 0
@@ -115,7 +115,7 @@ Public Class frmEntrega
         Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
         Appearance2.ImageHAlign = Infragistics.Win.HAlign.Right
         Me.UltraButton1.HotTrackAppearance = Appearance2
-        Me.UltraButton1.Location = New System.Drawing.Point(410, 79)
+        Me.UltraButton1.Location = New System.Drawing.Point(414, 61)
         Me.UltraButton1.Name = "UltraButton1"
         Appearance3.ImageHAlign = Infragistics.Win.HAlign.Left
         Me.UltraButton1.PressedAppearance = Appearance3
@@ -130,7 +130,7 @@ Public Class frmEntrega
         Me.UltraButton2.Appearance = Appearance4
         Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
         Me.UltraButton2.HotTrackAppearance = Appearance5
-        Me.UltraButton2.Location = New System.Drawing.Point(410, 112)
+        Me.UltraButton2.Location = New System.Drawing.Point(414, 111)
         Me.UltraButton2.Name = "UltraButton2"
         Me.UltraButton2.Size = New System.Drawing.Size(72, 27)
         Me.UltraButton2.TabIndex = 2
@@ -141,17 +141,17 @@ Public Class frmEntrega
         Me.DataGrid2.CaptionText = "Pedidos a Entregar"
         Me.DataGrid2.DataMember = ""
         Me.DataGrid2.HeaderForeColor = System.Drawing.SystemColors.ControlText
-        Me.DataGrid2.Location = New System.Drawing.Point(488, 40)
+        Me.DataGrid2.Location = New System.Drawing.Point(492, 40)
         Me.DataGrid2.Name = "DataGrid2"
         Me.DataGrid2.ReadOnly = True
-        Me.DataGrid2.Size = New System.Drawing.Size(318, 144)
+        Me.DataGrid2.Size = New System.Drawing.Size(390, 146)
         Me.DataGrid2.TabIndex = 3
         '
         'UltraButton3
         '
         Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
         Me.UltraButton3.Appearance = Appearance6
-        Me.UltraButton3.Location = New System.Drawing.Point(726, 189)
+        Me.UltraButton3.Location = New System.Drawing.Point(802, 192)
         Me.UltraButton3.Name = "UltraButton3"
         Appearance7.TextHAlign = Infragistics.Win.HAlign.Left
         Me.UltraButton3.PressedAppearance = Appearance7
@@ -282,7 +282,7 @@ Public Class frmEntrega
         'frmEntrega
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(818, 280)
+        Me.ClientSize = New System.Drawing.Size(896, 286)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.ComboBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -327,16 +327,16 @@ Public Class frmEntrega
             Dim nombrescol(7) As String
             nombrescol(0) = "ID Pedido"
             nombrescol(1) = "Fecha Realizacion"
-            nombrescol(2) = "Fecha Entrega(Prometida)"
-            nombrescol(3) = "Prioridad"
-            nombrescol(4) = "Estado"
+            nombrescol(2) = "Fecha Entrega"
+            'nombrescol(3) = "Prioridad"
+            nombrescol(3) = "Estado"
 
             Dim anchosgrid(7) As Integer
             anchosgrid(0) = 60
             anchosgrid(1) = 100
             anchosgrid(2) = 100
-            anchosgrid(3) = 50
-            anchosgrid(4) = 75
+            anchosgrid(3) = 60
+            'anchosgrid(4) = 75
             ' esta funcion da solo formato a la grilla no la carga, de eso se encarga el datasource
             'cargarGrilla(DataGrid1, dspedido.Tables.Item(0), nombrescol, anchosgrid)
             cargarGrilla(DataGrid1, dspedido.Tables(0), nombrescol, anchosgrid)
@@ -382,8 +382,8 @@ Public Class frmEntrega
             bandd = j
             'VERRRRRRRRR
             'idclientes(i) = updatefila(6)
-            If ComboBox1.Text <> "Retiro Personal     " And ComboBox1.Text <> "System.Data.DataRowView" Then
-                If ComboBox1.Text = "Envio por Viajante  " Then
+            If ComboBox1.Text <> "Entrega en fabrica  " And ComboBox1.Text <> "System.Data.DataRowView" Then
+                If ComboBox1.Text = "Viajantes           " Then
                     bandasignar = 1
                 Else
                     bandasignar = 0
@@ -459,29 +459,30 @@ Public Class frmEntrega
 
     Private Sub UltraButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton4.Click
         Try
+            cnn.Open()
             If idViajOEmp = 0 Then
                 If vbNo = MessageBox.Show("Al no seleccionar una empresa o viajante para la entrega se registrara como Retiro Personal" & vbCrLf & "¿Desea Continuar?", "Registro de Entrega", MessageBoxButtons.YesNo) Then
                     Exit Sub
                 End If
                 ComboBox1.SelectedIndex = 0
             End If
-            cnn.Open()
+
             For Each updatefila As DataRow In tbps.Rows
                 For i As Integer = 0 To dspedido.Tables(0).Rows.Count - 1
 
                     If dspedido.Tables.Item(0).Rows(i).Item(0) = updatefila(0) Then
-                        dspedido.Tables.Item(0).Rows(i).Item(5) = 3
-                        dspedido.Tables.Item(0).Rows(i).Item(5) = ComboBox1.SelectedValue
-                        dspedido.Tables.Item(0).Rows(i).Item(4) = "Entregado"
-                        updatefila(4) = "Entregado"
+                        dspedido.Tables.Item(0).Rows(i).Item(4) = 3
+                        dspedido.Tables.Item(0).Rows(i).Item(4) = ComboBox1.SelectedValue
+                        dspedido.Tables.Item(0).Rows(i).Item(3) = "Entregado"
+                        updatefila(3) = "Entregado"
 
                         If ComboBox1.SelectedValue = 2 Then
                             adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =" & Estado.PEDIDO_ENTREGADO & ", idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idviajante=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
                         Else
                             If ComboBox1.SelectedValue = 3 Then
-                                adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =" & Estado.PEDIDO_ENTREGADO & ", idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idempresa=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
-                            Else
                                 adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =" & Estado.PEDIDO_ENTREGADO & ", idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "' WHERE (idpedido =" & updatefila(0) & ")", cnn)
+                            Else
+                                adaptador.UpdateCommand = New SqlCommand("UPDATE Pedido SET idestado =" & Estado.PEDIDO_ENTREGADO & ", idformadeentrega=" & ComboBox1.SelectedValue & ",fecharealentrega='" & UltraDateTimeEditor1.Value & "',idempresa=" & idViajOEmp & " WHERE (idpedido =" & updatefila(0) & ")", cnn)
                             End If
                         End If
                         adaptador.UpdateCommand.ExecuteNonQuery()
@@ -492,13 +493,15 @@ Public Class frmEntrega
 
             DataGrid2.Enabled = False
             UltraButton1.Enabled = False
-            cnn.Close()
+
             'Dim ocommandbuilder_oc As New SqlClient.SqlCommandBuilder(adaptador)
             'adaptador.UpdateCommand = ocommandbuilder_oc.GetUpdateCommand
             'adaptador.Update(dspedido, "cliente")
             Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+        Finally
+            cnn.Close()
         End Try
        
     End Sub
