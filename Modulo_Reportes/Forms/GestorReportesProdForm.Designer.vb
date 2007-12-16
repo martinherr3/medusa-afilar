@@ -19,11 +19,12 @@ Partial Class GestorReportesProdForm
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GestorReportesProdForm))
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.crv = New CrystalDecisions.Windows.Forms.CrystalReportViewer
         Me.tabProduccion = New System.Windows.Forms.TabControl
         Me.tabOrdenDeCompra = New System.Windows.Forms.TabPage
@@ -117,6 +118,10 @@ Partial Class GestorReportesProdForm
         Me.CheckBox1 = New System.Windows.Forms.CheckBox
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
+        Me.TabPage2 = New System.Windows.Forms.TabPage
+        Me.btnDesviacion = New Infragistics.Win.Misc.UltraButton
+        Me.txtNroSerie = New System.Windows.Forms.TextBox
+        Me.Label15 = New System.Windows.Forms.Label
         Me.tabProduccion.SuspendLayout()
         Me.tabOrdenDeCompra.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,6 +167,7 @@ Partial Class GestorReportesProdForm
         CType(Me.comboTornero, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imageLoading, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage2.SuspendLayout()
         Me.SuspendLayout()
         '
         'crv
@@ -182,6 +188,7 @@ Partial Class GestorReportesProdForm
         Me.tabProduccion.Controls.Add(Me.tabDetalle)
         Me.tabProduccion.Controls.Add(Me.tabServicios)
         Me.tabProduccion.Controls.Add(Me.TabPage1)
+        Me.tabProduccion.Controls.Add(Me.TabPage2)
         Me.tabProduccion.Location = New System.Drawing.Point(15, 9)
         Me.tabProduccion.Name = "tabProduccion"
         Me.tabProduccion.SelectedIndex = 0
@@ -380,8 +387,8 @@ Partial Class GestorReportesProdForm
         '
         'btnPedido
         '
-        Appearance6.Image = CType(resources.GetObject("Appearance6.Image"), Object)
-        Me.btnPedido.Appearance = Appearance6
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnPedido.Appearance = Appearance1
         Me.btnPedido.Location = New System.Drawing.Point(661, 77)
         Me.btnPedido.Name = "btnPedido"
         Me.btnPedido.Size = New System.Drawing.Size(96, 31)
@@ -597,8 +604,8 @@ Partial Class GestorReportesProdForm
         '
         'btnSeguimiento
         '
-        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
-        Me.btnSeguimiento.Appearance = Appearance5
+        Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
+        Me.btnSeguimiento.Appearance = Appearance2
         Me.btnSeguimiento.Location = New System.Drawing.Point(640, 80)
         Me.btnSeguimiento.Name = "btnSeguimiento"
         Me.btnSeguimiento.Size = New System.Drawing.Size(96, 31)
@@ -841,8 +848,8 @@ Partial Class GestorReportesProdForm
         '
         'btnServicio
         '
-        Appearance7.Image = CType(resources.GetObject("Appearance7.Image"), Object)
-        Me.btnServicio.Appearance = Appearance7
+        Appearance3.Image = CType(resources.GetObject("Appearance3.Image"), Object)
+        Me.btnServicio.Appearance = Appearance3
         Me.btnServicio.Location = New System.Drawing.Point(682, 71)
         Me.btnServicio.Name = "btnServicio"
         Me.btnServicio.Size = New System.Drawing.Size(90, 34)
@@ -1052,8 +1059,8 @@ Partial Class GestorReportesProdForm
         '
         'btnTorneado
         '
-        Appearance8.Image = CType(resources.GetObject("Appearance8.Image"), Object)
-        Me.btnTorneado.Appearance = Appearance8
+        Appearance4.Image = CType(resources.GetObject("Appearance4.Image"), Object)
+        Me.btnTorneado.Appearance = Appearance4
         Me.btnTorneado.Location = New System.Drawing.Point(575, 82)
         Me.btnTorneado.Name = "btnTorneado"
         Me.btnTorneado.Size = New System.Drawing.Size(90, 34)
@@ -1137,6 +1144,45 @@ Partial Class GestorReportesProdForm
         Me.DateTimePicker2.Size = New System.Drawing.Size(211, 20)
         Me.DateTimePicker2.TabIndex = 41
         '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.Label15)
+        Me.TabPage2.Controls.Add(Me.txtNroSerie)
+        Me.TabPage2.Controls.Add(Me.btnDesviacion)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(778, 131)
+        Me.TabPage2.TabIndex = 5
+        Me.TabPage2.Text = "Desviacion de operaciones"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'btnDesviacion
+        '
+        Appearance5.Image = CType(resources.GetObject("Appearance5.Image"), Object)
+        Me.btnDesviacion.Appearance = Appearance5
+        Me.btnDesviacion.Location = New System.Drawing.Point(201, 41)
+        Me.btnDesviacion.Name = "btnDesviacion"
+        Me.btnDesviacion.Size = New System.Drawing.Size(90, 34)
+        Me.btnDesviacion.TabIndex = 89
+        Me.btnDesviacion.Text = "Ejecutar"
+        '
+        'txtNroSerie
+        '
+        Me.txtNroSerie.Location = New System.Drawing.Point(31, 55)
+        Me.txtNroSerie.Name = "txtNroSerie"
+        Me.txtNroSerie.Size = New System.Drawing.Size(149, 20)
+        Me.txtNroSerie.TabIndex = 90
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(29, 37)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(51, 13)
+        Me.Label15.TabIndex = 91
+        Me.Label15.Text = "Nro Serie"
+        '
         'GestorReportesProdForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1205,6 +1251,8 @@ Partial Class GestorReportesProdForm
         CType(Me.comboTornero, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imageLoading, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1302,4 +1350,8 @@ Partial Class GestorReportesProdForm
     Friend WithEvents txtNroPedidoSeguimiento As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents txtNroSerieSeguimiento As System.Windows.Forms.TextBox
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents btnDesviacion As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents txtNroSerie As System.Windows.Forms.TextBox
 End Class

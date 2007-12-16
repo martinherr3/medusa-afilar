@@ -632,6 +632,72 @@ Public Class GestorReportesProdForm
 
 #End Region
 
+#Region "Reporte Desviacion"
+    Dim adaptadorDesviacion As New SqlClient.SqlDataAdapter
+    Dim selectDesviacion As New SqlClient.SqlCommand
+    Dim dataSetDesviacion As New DataSet
+    Dim queryDesviacion As String
+    Dim reporteDesviacion As RptDesviacion
+
+    Private Sub btnDesviacion_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDesviacion.Click
+        queryDesviacion = "select f.nroserie, dhr.fechahorainicioplanificada," & _
+                          " dhr.fechahorainicioreal, dhr.fechahorafinreal," & _
+                          " dhr.fechahorafinplanificada, o.nombre" & _
+                          " from fresa f" & _
+                          " INNER JOIN hojaderuta hr ON f.idhojaderuta = hr.idhojaderuta" & _
+                          " INNER JOIN detallehojaderuta dhr ON dhr.idhojaderuta = hr.idhojaderuta" & _
+                          " INNER JOIN etapadefabricacion ef ON dhr.idetapadefabricacion = ef.idetapafabricacion" & _
+                          " INNER JOIN operacion o ON o.idoperacion = ef.idoperacion"
+
+        If txtNroSerie.Text = String.Empty Then
+            MsgBox("Debe ingresar Nro de serie de fresa", MsgBoxStyle.Information, "Afilar")
+            Exit Sub
+        End If
+
+        Dim criterioParaMostrar As String = "Criterio de seleccion: --- "
+        Dim criterio As String = ""
+
+        criterioParaMostrar = criterioParaMostrar & "Nro Serie Fresa: " & txtNroSerie.Text
+        criterio = "{fresa.nroserie} = " & txtNroSerie.Text
+
+        imageLoading.Visible = True
+        selectDesviacion.CommandType = CommandType.Text
+        selectDesviacion.CommandText = queryDesviacion
+        selectDesviacion.Connection = cnn
+        selectDesviacion.Connection.Open()
+
+        adaptadorDesviacion.SelectCommand = selectDesviacion
+
+        Try
+            adaptadorDesviacion.Fill(dataSetDesviacion, "fresa")
+
+            reporteDesviacion = New RptDesviacion
+            reporteDesviacion.SetDataSource(dataSetDesviacion)
+            reporteDesviacion.SummaryInfo.ReportComments = criterioParaMostrar
+            reporteDesviacion.SummaryInfo.ReportAuthor = nombreEmpleado
+
+            If criterio = "" Then
+                crv.SelectionFormula = Nothing
+            Else
+                crv.SelectionFormula = criterio
+            End If
+
+            crv.ReportSource = reporteDesviacion
+
+            selectDesviacion.Connection.Close()
+
+        Catch ex As Exception
+            selectDesviacion.Connection.Close()
+        End Try
+
+        imageLoading.Visible = False
+
+    End Sub
+
+    Private Sub txtNroSerie_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNroSerie.KeyPress
+        soloNumeros(e)
+    End Sub
+#End Region
 
 
 End Class
