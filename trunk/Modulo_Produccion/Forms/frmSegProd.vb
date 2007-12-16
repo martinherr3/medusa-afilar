@@ -190,6 +190,8 @@ Public Class frmSegProd
         BtnAceptar.Enabled = False
         txtIDHR.Focus()
     End Sub
+
+
 End Class
 
 
@@ -531,7 +533,6 @@ Public Class ProdTacking
         conn.Open()
         Dim sql2 As String = "update fresa set estado = " & Estado.FRESA_FINALIZADO & " , fechafinfabricacion = getdate() where nroserie = " & PidFresa
         Dim comm2 As New SqlCommand(sql2, conn)
-
         comm2.ExecuteNonQuery()
         conn.Close()
         Return True

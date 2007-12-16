@@ -359,7 +359,11 @@ Public Class Mensajeria
 
 
         If taskbarSender.Equals(taskbarNotifier3) Then
-            MsgBox("TaskBarNotifier 3: TextZone was clicked")
+            Dim form As New frmMensajes
+            form.MdiParent = princ
+            form.Show()
+            form.Location = New Point(200, 105)
+
         End If
 
     End Sub
