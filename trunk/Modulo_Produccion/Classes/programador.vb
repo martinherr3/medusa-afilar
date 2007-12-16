@@ -440,7 +440,8 @@ Public Class programador
       commd.CommandText = "SELECT max(idhojaderuta) FROM hojaderuta"
       idHR = commd.ExecuteScalar()
 
-      commd.CommandText = "UPDATE fresa SET idhojaderuta = " & idHR & ", estado = 2 WHERE nroserie = " & fre.id_fresa
+            'commd.CommandText = "UPDATE fresa SET idhojaderuta = " & idHR & ", estado = 2 WHERE nroserie = " & fre.id_fresa
+            commd.CommandText = "UPDATE fresa SET idhojaderuta = " & idHR & ", estado = " & Estado.FRESA_PROGRAMADO & " WHERE nroserie = " & fre.id_fresa
       commd.ExecuteNonQuery()
       orden = 1
       Do
