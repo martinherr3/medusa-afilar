@@ -381,6 +381,12 @@
     <Compile Include="Modulo_Produccion\Forms\frmTornero.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmVerProgramacion.Designer.vb">
+      <DependentUpon>frmVerProgramacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Produccion\Forms\frmVerProgramacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modulo_Produccion\Forms\ProdNuevo.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -404,6 +410,11 @@
     </Compile>
     <Compile Include="Modulo_Reportes\DataSets\DSCliente.vb">
       <DependentUpon>DSCliente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\DataSets\DSDesviacion.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSDesviacion.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modulo_Reportes\DataSets\DSDetallePedido.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -461,6 +472,12 @@
     </Compile>
     <Compile Include="Modulo_Reportes\DataSets\DSTorneado.vb">
       <DependentUpon>DSTorneado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo_Reportes\Reports\RptDesviacion.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptDesviacion.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Modulo_Reportes\Reports\RptDetalleServicio.vb">
       <AutoGen>True</AutoGen>
@@ -932,6 +949,10 @@
       <DependentUpon>frmTornero.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Produccion\Forms\frmVerProgramacion.resx">
+      <DependentUpon>frmVerProgramacion.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Produccion\Forms\ProdNuevo.resx">
       <DependentUpon>ProdNuevo.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -943,6 +964,10 @@
     <EmbeddedResource Include="Modulo_Produccion\Reports\RptHojaRuta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RptHojaRuta.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modulo_Reportes\Reports\RptDesviacion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptDesviacion.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Modulo_Reportes\Reports\RptDetalleServicio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1282,6 +1307,17 @@
     </None>
     <None Include="Modulo_Reportes\DataSets\DSCliente.xss">
       <DependentUpon>DSCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSDesviacion.xsc">
+      <DependentUpon>DSDesviacion.xsd</DependentUpon>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSDesviacion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSDesviacion.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Modulo_Reportes\DataSets\DSDesviacion.xss">
+      <DependentUpon>DSDesviacion.xsd</DependentUpon>
     </None>
     <None Include="Modulo_Reportes\DataSets\DSDetallePedido.xsc">
       <DependentUpon>DSDetallePedido.xsd</DependentUpon>
