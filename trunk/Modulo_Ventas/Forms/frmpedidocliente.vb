@@ -1666,7 +1666,7 @@ Public Class frmpedidocliente
         Me.DataGridpp.Enabled = True
         Me.DataGridservicios.Enabled = True
         'Me.DataGriddos.ReadOnly = False
-        'Me.DataGridMf.ReadOnly = False
+        Me.DataGridMf.ReadOnly = False
         'Me.DataGridfresasfab.ReadOnly = False
         'Me.DataGridF.ReadOnly = False
         'Me.DataGridpp.ReadOnly = False
@@ -2041,6 +2041,7 @@ Public Class frmpedidocliente
             Me.comboformaentrega.ReadOnly = False
             'habilito las grilas
             Me.DataGridMf.Enabled = True
+            Me.DataGridF.ReadOnly = False
             Me.DataGridservicios.Enabled = True
             Me.DataGridpp.Enabled = True
             Me.DataGridfresasfab.Enabled = True
