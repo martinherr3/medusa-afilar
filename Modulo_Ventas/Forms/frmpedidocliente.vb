@@ -2779,6 +2779,9 @@ Public Class frmpedidocliente
             Me.comboestado.SelectedIndex = 0
 
             cnn.Close()
+
+            MsgBox("La programción ha sido cancelada", MsgBoxStyle.Information, "Afilar")
+
         Catch ex As Exception
             'NADA
         Finally
