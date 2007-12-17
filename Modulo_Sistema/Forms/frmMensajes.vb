@@ -161,8 +161,8 @@ Public Class frmMensajes
         Dim projectPath As String
         projectPath = getAppPath()
 
-        ilImages.Images.Add(Bitmap.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\mail.GIF"))
-        ilImages.Images.Add(Bitmap.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\mailNew.GIF"))
+        ilImages.Images.Add(Bitmap.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\mail.jpg"))
+        ilImages.Images.Add(Bitmap.FromFile(projectPath + AppSettings.Get("ImagesPath") + "\mailNew.jpg"))
         ListView1.SmallImageList = ilImages
         '
         ListView1.Columns.Add("", 20, HorizontalAlignment.Left)
