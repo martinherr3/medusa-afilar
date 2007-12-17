@@ -498,7 +498,8 @@ Public Class ProdNuevo
         '    "estado E, tipofresa TF where F.estado = E.idestado AND F.idtipo = TF.idtipo And F.idmodelo = TF.idmodelo And F.Estado = 1 "
 
         comm.CommandText = "select F.nropedido, F.nroserie, TF.nombre, E.nombre from fresa F, " & _
-            "estado E, tipofresa TF where F.estado = E.idestado AND F.idtipo = TF.idtipo And F.idmodelo = TF.idmodelo And F.Estado = 1 "
+            "estado E, tipofresa TF where F.estado = E.idestado AND F.idtipo = TF.idtipo And F.idmodelo = TF.idmodelo And F.Estado = " & Estado.FRESA_PENDIENTE
+
 
 
 
