@@ -54,6 +54,8 @@ Public Class frmpedidocliente
     Friend WithEvents ContextMenuSimular As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents estimar As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnmodificar As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents ContextMenuCancelar As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CancelarProgramaciónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Dim bpedido As Boolean
 #End Region
 
@@ -145,6 +147,7 @@ Public Class frmpedidocliente
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmpedidocliente))
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -172,14 +175,16 @@ Public Class frmpedidocliente
         Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraTab1 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
         Dim UltraTab2 As Infragistics.Win.UltraWinTabControl.UltraTab = New Infragistics.Win.UltraWinTabControl.UltraTab
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.UltraTabPageControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabPageControl
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.txtimportetotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label11 = New System.Windows.Forms.Label
+        Me.btnmodificar = New Infragistics.Win.Misc.UltraButton
         Me.btngrabar = New Infragistics.Win.Misc.UltraButton
         Me.btnnuevo = New Infragistics.Win.Misc.UltraButton
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.ContextMenuCancelar = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.CancelarProgramaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.PictureBox9 = New System.Windows.Forms.PictureBox
         Me.txtFiltroCliente = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.PictureBox6 = New System.Windows.Forms.PictureBox
@@ -245,12 +250,12 @@ Public Class frmpedidocliente
         Me.dgpedidos = New System.Windows.Forms.DataGrid
         Me.UltraTabControl1 = New Infragistics.Win.UltraWinTabControl.UltraTabControl
         Me.UltraTabSharedControlsPage1 = New Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage
-        Me.btnmodificar = New Infragistics.Win.Misc.UltraButton
         Me.UltraTabPageControl1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtimportetotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
+        Me.ContextMenuCancelar.SuspendLayout()
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFiltroCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -337,6 +342,16 @@ Public Class frmpedidocliente
         Me.Label11.TabIndex = 6
         Me.Label11.Text = "Importe total:"
         '
+        'btnmodificar
+        '
+        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
+        Me.btnmodificar.Appearance = Appearance1
+        Me.btnmodificar.Location = New System.Drawing.Point(200, 509)
+        Me.btnmodificar.Name = "btnmodificar"
+        Me.btnmodificar.Size = New System.Drawing.Size(88, 30)
+        Me.btnmodificar.TabIndex = 4
+        Me.btnmodificar.Text = "Modificar"
+        '
         'btngrabar
         '
         Appearance2.Image = CType(resources.GetObject("Appearance2.Image"), Object)
@@ -362,6 +377,7 @@ Public Class frmpedidocliente
         Me.UltraGroupBox2.BackColor = System.Drawing.Color.Transparent
         Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
         Me.UltraGroupBox2.ContentAreaAppearance = Appearance4
+        Me.UltraGroupBox2.ContextMenuStrip = Me.ContextMenuCancelar
         Me.UltraGroupBox2.Controls.Add(Me.PictureBox9)
         Me.UltraGroupBox2.Controls.Add(Me.txtFiltroCliente)
         Me.UltraGroupBox2.Controls.Add(Me.PictureBox6)
@@ -389,6 +405,18 @@ Public Class frmpedidocliente
         Me.UltraGroupBox2.TabIndex = 1
         Me.UltraGroupBox2.Text = "Datos del cliente"
         Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2003
+        '
+        'ContextMenuCancelar
+        '
+        Me.ContextMenuCancelar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CancelarProgramaciónToolStripMenuItem})
+        Me.ContextMenuCancelar.Name = "ContextMenuCancelar"
+        Me.ContextMenuCancelar.Size = New System.Drawing.Size(196, 26)
+        '
+        'CancelarProgramaciónToolStripMenuItem
+        '
+        Me.CancelarProgramaciónToolStripMenuItem.Name = "CancelarProgramaciónToolStripMenuItem"
+        Me.CancelarProgramaciónToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.CancelarProgramaciónToolStripMenuItem.Text = "Cancelar Programación"
         '
         'PictureBox9
         '
@@ -494,7 +522,6 @@ Public Class frmpedidocliente
         'comboestado
         '
         Me.comboestado.AutoSize = True
-        Me.comboestado.HideSelection = False
         Me.comboestado.Location = New System.Drawing.Point(464, 69)
         Me.comboestado.Name = "comboestado"
         Me.comboestado.Size = New System.Drawing.Size(176, 21)
@@ -1228,16 +1255,6 @@ Public Class frmpedidocliente
         Me.UltraTabSharedControlsPage1.Name = "UltraTabSharedControlsPage1"
         Me.UltraTabSharedControlsPage1.Size = New System.Drawing.Size(813, 545)
         '
-        'btnmodificar
-        '
-        Appearance1.Image = CType(resources.GetObject("Appearance1.Image"), Object)
-        Me.btnmodificar.Appearance = Appearance1
-        Me.btnmodificar.Location = New System.Drawing.Point(200, 509)
-        Me.btnmodificar.Name = "btnmodificar"
-        Me.btnmodificar.Size = New System.Drawing.Size(88, 30)
-        Me.btnmodificar.TabIndex = 4
-        Me.btnmodificar.Text = "Modificar"
-        '
         'frmpedidocliente
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -1255,6 +1272,7 @@ Public Class frmpedidocliente
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
         Me.UltraGroupBox2.PerformLayout()
+        Me.ContextMenuCancelar.ResumeLayout(False)
         CType(Me.PictureBox9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFiltroCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1590,7 +1608,7 @@ Public Class frmpedidocliente
                     dr("idtipo") = ds.Tables("tipofresa").Rows(i).Item("idtipo")
                     dr("idmodelo") = ds.Tables("tipofresa").Rows(i).Item("idmodelo")
                     dr("nropedido") = CLng(lblnropedido.Text)
-                    dr("estado") = comboestado.SelectedItem.Tag()
+                    dr("estado") = Estado.FRESA_PENDIENTE
                     dr("nombre") = ds.Tables("tipofresa").Rows(i).Item("nombre")
                     ds.Tables("fresa").Rows.Add(dr)
                     dr("precio") = CDec(ds.Tables("tipofresa").Rows(i).Item("precio"))
@@ -2709,4 +2727,72 @@ Public Class frmpedidocliente
 #End Region
 
 
+    Private Sub CancelarProgramaciónToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CancelarProgramaciónToolStripMenuItem.Click
+        CancelarProgramacion()
+    End Sub
+
+    Private Sub CancelarProgramacion()
+
+        Dim idPedido As String = lblnropedido.Text.Trim()
+        Dim command As New SqlClient.SqlCommand
+        Dim dataAdapter As New SqlClient.SqlDataAdapter
+        Dim query As String
+
+        Try
+            cnn.Open()
+
+            Dim commandExecute As New SqlClient.SqlCommand
+            commandExecute.CommandType = CommandType.Text
+            commandExecute.Connection = cnn
+
+            command.Connection = cnn
+            command.CommandType = CommandType.Text
+
+            query = "select nroserie, idhojaderuta from fresa where nropedido = " & idPedido
+            command.CommandText = query
+            dataAdapter.SelectCommand = command
+            Dim dataset As New DataSet
+            dataAdapter.Fill(dataset, "fresa")
+
+            For Each row As DataRow In dataset.Tables("fresa").Rows
+                query = "delete detallehojaderuta where idhojaderuta = " & row("idhojaderuta")
+                commandExecute.CommandText = query
+                commandExecute.ExecuteNonQuery()
+
+                query = "update fresa set idhojaderuta = null where nroserie = " & row("nroserie")
+                commandExecute.CommandText = query
+                commandExecute.ExecuteNonQuery()
+
+                query = "delete hojaderuta where idhojaderuta = " & row("idhojaderuta")
+                commandExecute.CommandText = query
+                commandExecute.ExecuteNonQuery()
+
+                query = "update fresa set estado = " & Estado.FRESA_PENDIENTE & " where nroserie = " & row("nroserie")
+                commandExecute.CommandText = query
+                commandExecute.ExecuteNonQuery()
+            Next
+
+            query = "update pedido set idestado = " & Estado.PEDIDO_PENDIENTE & " where idpedido = " & idPedido
+            commandExecute.CommandText = query
+            commandExecute.ExecuteNonQuery()
+
+            Me.comboestado.SelectedIndex = 0
+
+            cnn.Close()
+        Catch ex As Exception
+            'NADA
+        Finally
+            cnn.Close()
+        End Try
+
+    End Sub
+
+
+    Private Sub CancelarProgramaciónToolStripMenuItem_DropDownOpening(ByVal sender As Object, ByVal e As System.EventArgs) Handles CancelarProgramaciónToolStripMenuItem.DropDownOpening
+        If comboestado.SelectedItem.Tag = Estado.PEDIDO_PROGRAMADO Then
+            'CancelarProgramacion()
+        Else
+            ContextMenuCancelar.Enabled = False
+        End If
+    End Sub
 End Class
