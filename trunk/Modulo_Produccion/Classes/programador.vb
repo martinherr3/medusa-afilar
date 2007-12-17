@@ -426,7 +426,7 @@ Public Class programador
       For Each row As DataRow In DS.Tables.Item(0).Rows
 
                 'idtipomateriaprima, cantidad, nroserie
-                Dim cantidad As Double
+                Dim cantidad As String
                 'cantidad = Convert.ToDouble(row.Item(1))
                 cantidad = row.Item(1).ToString().Replace(",", ".")
 
@@ -480,7 +480,7 @@ Public Class programador
 
     Dim Sql As String
     'Sql = "SELECT * FROM parte WHERE idmodelo = ** AND idtipofresa = "
-    Sql = "SELECT p.idtipomateriaprima, p.cantidad, f.nroserie FROM parte p, fresa f WHERE f.idtipo = p.idtipofresa AND f.idmodelo = p.idmodelo " & _
+        Sql = "SELECT p.idtipomateriaprima, p.cantidad, f.nroserie FROM parte p, fresa f WHERE f.idtipo = p.idtipofresa AND f.idmodelo = p.idmodelo " & _
       "AND f.nroserie = " & nroSerie
 
     Dim comm As New SqlClient.SqlCommand(Sql, cnn)
