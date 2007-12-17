@@ -183,7 +183,7 @@ Public Class FrmGenerarOC
         Me.UltraTabPageControl1.Controls.Add(Me.UltraButton3)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox1)
         Me.UltraTabPageControl1.Controls.Add(Me.UltraGroupBox2)
-        Me.UltraTabPageControl1.Location = New System.Drawing.Point(-10000, -10000)
+        Me.UltraTabPageControl1.Location = New System.Drawing.Point(2, 21)
         Me.UltraTabPageControl1.Name = "UltraTabPageControl1"
         Me.UltraTabPageControl1.Size = New System.Drawing.Size(782, 489)
         '
@@ -410,11 +410,11 @@ Public Class FrmGenerarOC
         'Label2
         '
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(487, 60)
+        Me.Label2.Location = New System.Drawing.Point(472, 60)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(80, 16)
+        Me.Label2.Size = New System.Drawing.Size(95, 16)
         Me.Label2.TabIndex = 21
-        Me.Label2.Text = "Precio unitario:"
+        Me.Label2.Text = "Precio unitario($):"
         '
         'Label3
         '
@@ -517,7 +517,7 @@ Public Class FrmGenerarOC
         'UltraTabPageControl2
         '
         Me.UltraTabPageControl2.Controls.Add(Me.crv)
-        Me.UltraTabPageControl2.Location = New System.Drawing.Point(2, 21)
+        Me.UltraTabPageControl2.Location = New System.Drawing.Point(-10000, -10000)
         Me.UltraTabPageControl2.Name = "UltraTabPageControl2"
         Me.UltraTabPageControl2.Size = New System.Drawing.Size(782, 489)
         '
