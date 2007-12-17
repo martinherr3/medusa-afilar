@@ -925,7 +925,7 @@ Public Class FrmGenerarOC
 
     Private Sub BtnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnAgregar.Click
         If check() Then
-            Cargar_OC(Me.CmbProveedor.SelectedValue, dvMP(GrdMP.CurrentRowIndex)("id"), Me.TxtPrecio.Text, Val(Me.CmbCantidad.Text), Me.CmbFormapago.Text, Me.UltraCalendarCombo1.Value)
+            Cargar_OC(Me.CmbProveedor.SelectedValue, dvMP(GrdMP.CurrentRowIndex)("id"), Convert.ToDecimal(Me.TxtPrecio.Text), Val(Me.CmbCantidad.Text), Me.CmbFormapago.Text, Me.UltraCalendarCombo1.Value)
         End If
     End Sub
     Private Function check() As Boolean
@@ -948,7 +948,7 @@ Public Class FrmGenerarOC
         Return True
 
     End Function
-    Private Sub Cargar_OC(ByVal idpro As Integer, ByVal idmp As Integer, ByVal pre As Integer, ByVal cant As Integer, ByVal fpago As String, ByVal fecha As Date)
+    Private Sub Cargar_OC(ByVal idpro As Integer, ByVal idmp As Integer, ByVal pre As Decimal, ByVal cant As Integer, ByVal fpago As String, ByVal fecha As Date)
         Dim x As Integer 'idordencomprA
         x = Existe_OC(idpro)
         If x <> -1 Then 'cargo detalle
@@ -980,7 +980,7 @@ Public Class FrmGenerarOC
         End If
     End Sub
 
-    Private Sub Cargar_detalleOC(ByVal x As Integer, ByVal idmp As Integer, ByVal cant As Integer, ByVal pre As Integer)
+    Private Sub Cargar_detalleOC(ByVal x As Integer, ByVal idmp As Integer, ByVal cant As Integer, ByVal pre As Decimal)
         Dim cfilasdet As DataRowCollection = dtDOC.Rows
         Dim nuevafiladetoc As DataRow
         nuevafiladetoc = dtDOC.NewRow
@@ -1019,6 +1019,7 @@ Public Class FrmGenerarOC
 
     End Sub
     Private Function Existe_detalle(ByVal idmp As Integer, ByVal idoc As Integer, ByVal cant As Integer) As Boolean
+
         Dim dv As New DataView
         dv.Table = DS.Tables("detalleordencompra")
         dv.RowFilter = "idtipomateriaprima = " & idmp & "and idordencompra=" & idoc
@@ -1029,6 +1030,7 @@ Public Class FrmGenerarOC
         Else
             Return False
         End If
+       
     End Function
 
     Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click

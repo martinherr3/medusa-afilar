@@ -95,17 +95,17 @@ Public Class ParametrosCompras
     ''' <returns></returns>
     ''' <remarks></remarks>
 
-    Public Function CalcularLoteOptimo(ByVal IdTipoMateria As Integer) As Decimal
+    Public Function CalcularLoteOptimo(ByVal IdTipoMateria As Integer) As Double
         Try
             Dim Consumo As Integer
 
             Consumo = RetornarConsumo(IdTipoMateria)
 
-            Dim q As Decimal  'tamaño del lote
-            Dim cp As Decimal 'costo por pedido
-            Dim cs As Decimal 'costo de stock
-            Dim t As Decimal  'periodo de analisis
-            Dim n As Decimal  'demanda en el periodo
+            Dim q As Double  'tamaño del lote
+            Dim cp As Double 'costo por pedido
+            Dim cs As Double 'costo de stock
+            Dim t As Double  'periodo de analisis
+            Dim n As Double  'demanda en el periodo
 
             'cp = 10
             'cs = 3
@@ -241,7 +241,7 @@ Public Class ParametrosCompras
         conn = cnn
         sql.CommandType = CommandType.Text
         Try
-            sql.CommandText = "UPDATE tipomateriaprima SET loteeconomico = " & CalcularLoteOptimo(IdTipoMateria) & _
+            sql.CommandText = "UPDATE tipomateriaprima SET loteeconomico = " & (CalcularLoteOptimo(IdTipoMateria)).ToString().Replace(",", ".") & _
             " WHERE idtipomateriaprima = " & IdTipoMateria
             conn.Open()
             sql.Connection = conn

@@ -411,6 +411,11 @@ Public Class paramCompra
             txtCostoEnvio.Text = objParam.CostoEnvio
             txtCostoGestion.Text = objParam.CostoGestion
             txtCostoAlmacenamiento.Text = objParam.CostoAlmacenamiento
+
+            Dim um As New UnidadDeMedida
+            um = um.obtenerUnidadDeMedidaPorId(grd1.Item(grd1.CurrentRowIndex, 0))
+            Label6.Text = um.Nombre
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -445,6 +450,9 @@ Public Class paramCompra
 
             grd1.DataSource = DS.Tables.Item(0)
         Catch ex As Exception
+            If cnn.State = ConnectionState.Open Then
+                cnn.Close()
+            End If
             MessageBox.Show("Error al actualizar " & ex.Message)
         End Try
 
@@ -462,6 +470,9 @@ Public Class paramCompra
             textbox3.Text = objParametro.ProximoPedido(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer))
             Label8.Text = objParametro.RetornarDiasDemora(CType(grd1.Item(grd1.CurrentRowIndex, 0), Integer)) & " dias"
         Catch ex As Exception
+            If cnn.State = ConnectionState.Open Then
+                cnn.Close()
+            End If
             MessageBox.Show(ex.Message)
         End Try
         
