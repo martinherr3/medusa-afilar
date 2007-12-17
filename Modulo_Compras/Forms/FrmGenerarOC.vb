@@ -687,6 +687,7 @@ Public Class FrmGenerarOC
         Me.grdOC.DataSource = dtOC
         Me.GrdDOC.DataSource = dtDOC
         CmbFormaPago_cargar()
+        UltraCalendarCombo1.Value = Now()
         ' Dim col() As Integer = {1, 2, 3, 4}
 
         'cargarLista(Me.ListView1, "select idtipomateriaprima as ID, nombre as Nombre, stockactual, stockminimo, loteeconomico, idunidadmedida from tipomateriaprima ", 0, col)
