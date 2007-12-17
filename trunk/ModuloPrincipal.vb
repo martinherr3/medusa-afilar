@@ -290,6 +290,7 @@ Module ModuloPrincipal
             Case 13
             Case 32
             Case 44
+            Case Asc(".")
             Case Else
                 k.Handled = True
         End Select
@@ -321,16 +322,20 @@ Module ModuloPrincipal
 
 
     Public Sub crearRelacion(ByVal ds As DataSet, ByVal tablaPadre As String, ByVal tablaHijo As String, ByVal colPadre As String, ByVal colHijo As String, ByVal nombre As String)
-        'obtiene los objetos dataColumn de las tablas
-        Dim padre As DataColumn
-        Dim hijo As DataColumn
-        padre = ds.Tables(tablaPadre).Columns(colPadre)
-        hijo = ds.Tables(tablaHijo).Columns(colHijo)
-        'crea la relacion
-        Dim relacion As DataRelation
-        relacion = New DataRelation(nombre, padre, hijo)
-        'agrego la relacion en el dataset
-        ds.Relations.Add(relacion)
+        Try
+            'obtiene los objetos dataColumn de las tablas
+            Dim padre As DataColumn
+            Dim hijo As DataColumn
+            padre = ds.Tables(tablaPadre).Columns(colPadre)
+            hijo = ds.Tables(tablaHijo).Columns(colHijo)
+            'crea la relacion
+            Dim relacion As DataRelation
+            relacion = New DataRelation(nombre, padre, hijo)
+            'agrego la relacion en el dataset
+            ds.Relations.Add(relacion)
+        Catch
+            'Nada
+        End Try
     End Sub
 
 
