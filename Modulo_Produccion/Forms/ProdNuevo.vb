@@ -675,12 +675,12 @@ Public Class ProdNuevo
             Exit Sub
         End If
 
-        If faltantesMP.Length > 0 Then
-            If MsgBox("No tiene suficiente materia prima de los tipo: " & faltantesMP & " para afrontar la produccion. Desea continuar de todas formas?", MsgBoxStyle.YesNo) = MsgBoxResult.No Then
-                cnn.Close()
-                Exit Sub
-            End If
-        End If
+        'If faltantesMP.Length > 0 Then
+        '    If MsgBox("No tiene suficiente materia prima de los tipo: " & faltantesMP & " para afrontar la produccion. Desea continuar de todas formas?", MsgBoxStyle.YesNo) = MsgBoxResult.No Then
+        '        cnn.Close()
+        '        Exit Sub
+        '    End If
+        'End If
 
 
 
